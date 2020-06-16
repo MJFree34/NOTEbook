@@ -11,6 +11,8 @@ import UIKit
 class NotePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addBackgroundGradient()
     }
 }
 

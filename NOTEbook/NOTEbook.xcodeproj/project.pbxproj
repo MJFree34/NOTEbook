@@ -12,6 +12,9 @@
 		9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A022AE8249908C00052E819 /* NotePickerViewController.swift */; };
 		9A022AEE249908C20052E819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AED249908C20052E819 /* Assets.xcassets */; };
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
+		9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5572E24994F110078CB7E /* Colors.xcassets */; };
+		9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573024994F880078CB7E /* UIFont+Extensions.swift */; };
+		9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD55736249954B10078CB7E /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A022B02249908C30052E819 /* NOTEbookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A022B08249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9AD5573024994F880078CB7E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		9AD55736249954B10078CB7E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +102,9 @@
 				9A022AE4249908C00052E819 /* AppDelegate.swift */,
 				9A022AE6249908C00052E819 /* SceneDelegate.swift */,
 				9A022AE8249908C00052E819 /* NotePickerViewController.swift */,
+				9AD55738249954F70078CB7E /* Extensions */,
 				9A022AED249908C20052E819 /* Assets.xcassets */,
+				9AD5572E24994F110078CB7E /* Colors.xcassets */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
 				9A022AF2249908C20052E819 /* Info.plist */,
 			);
@@ -117,6 +125,15 @@
 				9A022B08249908C30052E819 /* Info.plist */,
 			);
 			path = NOTEbookUITests;
+			sourceTree = "<group>";
+		};
+		9AD55738249954F70078CB7E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9AD5573024994F880078CB7E /* UIFont+Extensions.swift */,
+				9AD55736249954B10078CB7E /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */,
 				9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */,
 				9A022AEE249908C20052E819 /* Assets.xcassets in Resources */,
 			);
@@ -249,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
+				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
