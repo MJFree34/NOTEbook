@@ -15,6 +15,12 @@
 		9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5572E24994F110078CB7E /* Colors.xcassets */; };
 		9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573024994F880078CB7E /* UIFont+Extensions.swift */; };
 		9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD55736249954B10078CB7E /* UIView+Extensions.swift */; };
+		9AD5573A249955AD0078CB7E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD55739249955AD0078CB7E /* Note.swift */; };
+		9AD5573D249957A50078CB7E /* Fingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573C249957A50078CB7E /* Fingering.swift */; };
+		9AD5574124995A000078CB7E /* FingeringChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574024995A000078CB7E /* FingeringChart.swift */; };
+		9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574224995B1D0078CB7E /* Instrument.swift */; };
+		9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574424995CAB0078CB7E /* NoteFingering.swift */; };
+		9AD5574724995EC10078CB7E /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5574624995EC10078CB7E /* Charts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AD5573024994F880078CB7E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9AD55736249954B10078CB7E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		9AD55739249955AD0078CB7E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		9AD5573C249957A50078CB7E /* Fingering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fingering.swift; sourceTree = "<group>"; };
+		9AD5574024995A000078CB7E /* FingeringChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringChart.swift; sourceTree = "<group>"; };
+		9AD5574224995B1D0078CB7E /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
+		9AD5574424995CAB0078CB7E /* NoteFingering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingering.swift; sourceTree = "<group>"; };
+		9AD5574624995EC10078CB7E /* Charts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +114,11 @@
 				9A022AE4249908C00052E819 /* AppDelegate.swift */,
 				9A022AE6249908C00052E819 /* SceneDelegate.swift */,
 				9A022AE8249908C00052E819 /* NotePickerViewController.swift */,
+				9AD5573B249957960078CB7E /* Models */,
 				9AD55738249954F70078CB7E /* Extensions */,
 				9A022AED249908C20052E819 /* Assets.xcassets */,
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
+				9AD5574624995EC10078CB7E /* Charts.json */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
 				9A022AF2249908C20052E819 /* Info.plist */,
 			);
@@ -134,6 +148,18 @@
 				9AD55736249954B10078CB7E /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9AD5573B249957960078CB7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9AD5574024995A000078CB7E /* FingeringChart.swift */,
+				9AD5574224995B1D0078CB7E /* Instrument.swift */,
+				9AD5574424995CAB0078CB7E /* NoteFingering.swift */,
+				9AD5573C249957A50078CB7E /* Fingering.swift */,
+				9AD55739249955AD0078CB7E /* Note.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD5574724995EC10078CB7E /* Charts.json in Resources */,
 				9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */,
 				9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */,
 				9A022AEE249908C20052E819 /* Assets.xcassets in Resources */,
@@ -270,8 +297,13 @@
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
+				9AD5573D249957A50078CB7E /* Fingering.swift in Sources */,
+				9AD5574124995A000078CB7E /* FingeringChart.swift in Sources */,
 				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
+				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
+				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
+				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
