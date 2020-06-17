@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  NoteChartViewController.swift
 //  NOTEbook
 //
 //  Created by Matt Free on 6/16/20.
@@ -8,43 +8,29 @@
 
 import UIKit
 
-class NotePickerViewController: UIViewController {
-    var charts = [FingeringChart]()
-    
+class NoteChartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let chartsURL = Bundle.main.url(forResource: "Charts", withExtension: "json") {
-            if let data = try? Data(contentsOf: chartsURL) {
-                let decoder = JSONDecoder()
-                
-                do {
-                    charts = try decoder.decode([FingeringChart].self, from: data)
-                } catch {
-                    print(error.localizedDescription, error)
-                }
-            }
-        }
         
         view.addBackgroundGradient()
         
         let settingsImageConfiguration = UIImage.SymbolConfiguration(pointSize: 50, weight: .heavy)
         let settingsImage = UIImage(systemName: "gear", withConfiguration: settingsImageConfiguration)!
-        let settingsButton = UIButton(type: .custom)
+        let settingsButton = UIButton(type: .system)
         settingsButton.setImage(settingsImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
         settingsButton.setImage(settingsImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
         settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
         settingsButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(settingsButton)
         
-        let gridButtonImage = UIImage(named: "GridButton")!
-        let gridButtonPressedImage = UIImage(named: "PressedGridButton")!
-        let gridButton = UIButton(type: .custom)
-        gridButton.setImage(gridButtonImage, for: .normal)
-        gridButton.setImage(gridButtonPressedImage, for: .highlighted)
-        gridButton.addTarget(self, action: #selector(gridButtonTapped), for: .touchUpInside)
-        gridButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(gridButton)
+        let pickerButtonImage = UIImage(named: "PickerButton")!
+        let pickerButtonPressedImage = UIImage(named: "PressedPickerButton")!
+        let pickerButton = UIButton(type: .custom)
+        pickerButton.setImage(pickerButtonImage, for: .normal)
+        pickerButton.setImage(pickerButtonPressedImage, for: .highlighted)
+        pickerButton.addTarget(self, action: #selector(pickerButtonTapped), for: .touchUpInside)
+        pickerButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pickerButton)
         
         let instrumentsButtonImage = UIImage(named: "InstrumentsButton")!
         let instrumentsButton = UIButton(type: .custom)
@@ -60,10 +46,10 @@ class NotePickerViewController: UIViewController {
             settingsButton.widthAnchor.constraint(equalToConstant: 50),
             settingsButton.heightAnchor.constraint(equalToConstant: 50),
             
-            gridButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gridButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            gridButton.heightAnchor.constraint(equalToConstant: 50),
-            gridButton.widthAnchor.constraint(equalToConstant: 50),
+            pickerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pickerButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            pickerButton.heightAnchor.constraint(equalToConstant: 50),
+            pickerButton.widthAnchor.constraint(equalToConstant: 50),
             
             instrumentsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             instrumentsButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -80,18 +66,17 @@ class NotePickerViewController: UIViewController {
         // TODO: - Instruments
     }
     
-    @objc func gridButtonTapped() {
-        let vc = NoteChartViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    @objc func pickerButtonTapped() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
 #if DEBUG
 import SwiftUI
 
-struct NotePickerViewRepresentable: UIViewRepresentable {
+struct NoteChartViewRepresentable: UIViewRepresentable {
     func makeUIView(context: Context) -> UIView {
-        return NotePickerViewController().view
+        return NoteChartViewController().view
     }
     
     func updateUIView(_ view: UIView, context: Context) {
@@ -100,9 +85,9 @@ struct NotePickerViewRepresentable: UIViewRepresentable {
 }
 
 @available(iOS 13.0, *)
-struct NotePickerViewController_Preview: PreviewProvider {
+struct NoteChartViewController_Preview: PreviewProvider {
     static var previews: some View {
-        NotePickerViewRepresentable()
+        NoteChartViewRepresentable()
     }
 }
 #endif
