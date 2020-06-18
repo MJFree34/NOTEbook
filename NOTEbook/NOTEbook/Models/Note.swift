@@ -22,8 +22,14 @@ enum NoteOctave: String, Codable {
     case zero, one, two, three, four, five, six, seven
 }
 
+enum LineLocation: String, Codable {
+    case top, bottom, none
+}
+
 struct Note: Codable {
     var letter: NoteLetter
     var type: NoteType
     var octave: NoteOctave
+    var numberOfExtraLines: Int
+    var extraLinesLocation: LineLocation
 }

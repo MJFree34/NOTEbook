@@ -9,11 +9,47 @@
 import UIKit
 
 class NoteChartViewController: UIViewController {
+    var collectionView: UICollectionView!
+    
+    var charts = [FingeringChart]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let chartsURL = Bundle.main.url(forResource: "Charts", withExtension: "json") {
+            if let data = try? Data(contentsOf: chartsURL) {
+                let decoder = JSONDecoder()
+                
+                do {
+                    charts = try decoder.decode([FingeringChart].self, from: data)
+                } catch {
+                    print(error.localizedDescription, error)
+                }
+            }
+        }
+        
         view.addBackgroundGradient()
         
+        setupHeader()
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = .clear
+        collectionView.register(NoteChartCell.self, forCellWithReuseIdentifier: NoteChartCell.reuseIdentifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 70),
+            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
+    
+    func setupHeader() {
         let settingsImageConfiguration = UIImage.SymbolConfiguration(pointSize: 50, weight: .heavy)
         let settingsImage = UIImage(systemName: "gear", withConfiguration: settingsImageConfiguration)!
         let settingsButton = UIButton(type: .system)
@@ -71,6 +107,41 @@ class NoteChartViewController: UIViewController {
     }
 }
 
+extension NoteChartViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return charts[0].noteFingerings.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteChartCell.reuseIdentifier, for: indexPath) as? NoteChartCell else { fatalError("Unable to dequeue a NoteChartCell") }
+        
+        cell.configureCell(collectionViewWidth: collectionView.bounds.width, noteFingering: charts[0].noteFingerings[indexPath.item])
+        
+//        cell.layer.borderColor = UIColor.black.cgColor
+//        cell.layer.borderWidth = 1
+        
+        return cell
+    }
+}
+
+extension NoteChartViewController: UICollectionViewDelegate {
+    
+}
+
+extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width / 3, height: NoteChartCell.cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+
 #if DEBUG
 import SwiftUI
 
@@ -87,7 +158,15 @@ struct NoteChartViewRepresentable: UIViewRepresentable {
 @available(iOS 13.0, *)
 struct NoteChartViewController_Preview: PreviewProvider {
     static var previews: some View {
-        NoteChartViewRepresentable()
+        Group {
+            NoteChartViewRepresentable()
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+            
+            NoteChartViewRepresentable()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+                .previewDisplayName("iPhone SE")
+        }
     }
 }
 #endif

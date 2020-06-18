@@ -10,7 +10,9 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 4,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -28,12 +30,16 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 4,
+                        "extraLinesLocation": "bottom"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 4,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -51,7 +57,9 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 4,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -69,12 +77,16 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 4,
+                        "extraLinesLocation": "bottom"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -92,7 +104,9 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -110,7 +124,9 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -128,12 +144,16 @@
                     {
                         "letter": "f",
                         "type": "sharp",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "bottom"
                     },
                     {
                         "letter": "g",
                         "type": "flat",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -151,7 +171,9 @@
                     {
                         "letter": "g",
                         "type": "natural",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -169,12 +191,16 @@
                     {
                         "letter": "g",
                         "type": "sharp",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "bottom"
                     },
                     {
                         "letter": "a",
                         "type": "flat",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -192,7 +218,9 @@
                     {
                         "letter": "a",
                         "type": "natural",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -217,585 +245,16 @@
                     {
                         "letter": "a",
                         "type": "sharp",
-                        "octave": "three"
+                        "octave": "three",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "bottom"
                     },
                     {
                         "letter": "b",
                         "type": "flat",
-                        "octave": "three"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": "three"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": "five"
+                        "octave": "three",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -813,7 +272,9 @@
                     {
                         "letter": "b",
                         "type": "natural",
-                        "octave": "five"
+                        "octave": "three",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -831,7 +292,9 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "six"
+                        "octave": "four",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "bottom"
                     }
                 ],
                 "fingerings": [
@@ -849,12 +312,657 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "six"
+                        "octave": "four",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "bottom"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "six"
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "octave": "four",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "octave": "five",
+                        "numberOfExtraLines": 0,
+                        "extraLinesLocation": "none"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "octave": "five",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "top"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "top"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "octave": "five",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "top"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "octave": "five",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "top"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "octave": "five",
+                        "numberOfExtraLines": 1,
+                        "extraLinesLocation": "top"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "octave": "six",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "top"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "octave": "six",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "top"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "octave": "six",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "top"
                     }
                 ],
                 "fingerings": [
@@ -879,7 +987,9 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "six"
+                        "octave": "six",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "top"
                     }
                 ],
                 "fingerings": [
@@ -904,12 +1014,16 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "six"
+                        "octave": "six",
+                        "numberOfExtraLines": 2,
+                        "extraLinesLocation": "top"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "six"
+                        "octave": "six",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "top"
                     }
                 ],
                 "fingerings": [
@@ -927,7 +1041,9 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "six"
+                        "octave": "six",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "top"
                     }
                 ],
                 "fingerings": [
@@ -945,7 +1061,9 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "six"
+                        "octave": "six",
+                        "numberOfExtraLines": 3,
+                        "extraLinesLocation": "top"
                     }
                 ],
                 "fingerings": [

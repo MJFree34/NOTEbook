@@ -28,6 +28,10 @@ class NotePickerViewController: UIViewController {
         
         view.addBackgroundGradient()
         
+        setupHeader()
+    }
+    
+    func setupHeader() {
         let settingsImageConfiguration = UIImage.SymbolConfiguration(pointSize: 50, weight: .heavy)
         let settingsImage = UIImage(systemName: "gear", withConfiguration: settingsImageConfiguration)!
         let settingsButton = UIButton(type: .custom)
@@ -102,7 +106,15 @@ struct NotePickerViewRepresentable: UIViewRepresentable {
 @available(iOS 13.0, *)
 struct NotePickerViewController_Preview: PreviewProvider {
     static var previews: some View {
-        NotePickerViewRepresentable()
+        Group {
+            NotePickerViewRepresentable()
+                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+                .previewDisplayName("iPhone XS Max")
+            
+            NotePickerViewRepresentable()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+                .previewDisplayName("iPhone SE")
+        }
     }
 }
 #endif
