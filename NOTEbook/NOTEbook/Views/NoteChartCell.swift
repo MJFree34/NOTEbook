@@ -149,7 +149,7 @@ extension NoteChartCell {
     
     func configureNoteLetters() {
         let topInset: CGFloat = -0.0736842105 * NoteChartCell.cellHeight
-        let leftRightInset: CGFloat = 0.08 * cellWidth
+        let leftRightInset: CGFloat = 0.06 * cellWidth
         let textHeight: CGFloat = 0.2157894737 * NoteChartCell.cellHeight
         let textWidth: CGFloat = 0.28 * cellWidth
         
@@ -466,13 +466,14 @@ extension NoteChartCell {
         let trumpetViewWidth: CGFloat = 0.6875 * cellWidth
         let trumpetViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
         let fingeringPositionMultiplier: CGFloat = 0.3823863636 * trumpetViewWidth
+        let trumpetFingeringWidth: CGFloat = 0.161796875 * cellWidth
         
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: trumpetViewWidth, height: trumpetViewHeight))
         
         let img = renderer.image { ctx in
             for (index, key) in keys.enumerated() {
                 let keyImage = UIImage(named: (key ? "CellTrumpetFingeringFull" : "CellTrumpetFingeringEmpty"))
-                keyImage?.draw(at: CGPoint(x: CGFloat(index) * fingeringPositionMultiplier - (key ? 0.5 : 0), y: 0))
+                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * fingeringPositionMultiplier, y: 0), size: CGSize(width: trumpetFingeringWidth, height: trumpetFingeringWidth)))
             }
         }
         

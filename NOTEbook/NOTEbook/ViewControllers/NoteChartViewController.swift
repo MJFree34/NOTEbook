@@ -37,6 +37,7 @@ class NoteChartViewController: UIViewController {
         collectionView.delegate = self
         collectionView.alwaysBounceVertical = true
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.register(NoteChartCell.self, forCellWithReuseIdentifier: NoteChartCell.reuseIdentifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
@@ -116,9 +117,6 @@ extension NoteChartViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteChartCell.reuseIdentifier, for: indexPath) as? NoteChartCell else { fatalError("Unable to dequeue a NoteChartCell") }
         
         cell.configureCell(collectionViewWidth: collectionView.bounds.width, noteFingering: charts[0].noteFingerings[indexPath.item])
-        
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 1
         
         return cell
     }
