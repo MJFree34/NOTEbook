@@ -11,22 +11,12 @@ import UIKit
 class NoteChartViewController: UIViewController {
     var collectionView: UICollectionView!
     
-    var charts = [FingeringChart]()
+    var chartsController = ChartsController.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let chartsURL = Bundle.main.url(forResource: "Charts", withExtension: "json") {
-            if let data = try? Data(contentsOf: chartsURL) {
-                let decoder = JSONDecoder()
-                
-                do {
-                    charts = try decoder.decode([FingeringChart].self, from: data)
-                } catch {
-                    print(error.localizedDescription, error)
-                }
-            }
-        }
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         view.addBackgroundGradient()
         
@@ -110,13 +100,13 @@ class NoteChartViewController: UIViewController {
 
 extension NoteChartViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return charts[0].noteFingerings.count
+        return chartsController.numberOfNoteFingeringsInCurrentChart
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteChartCell.reuseIdentifier, for: indexPath) as? NoteChartCell else { fatalError("Unable to dequeue a NoteChartCell") }
         
-        cell.configureCell(collectionViewWidth: collectionView.bounds.width, noteFingering: charts[0].noteFingerings[indexPath.item])
+        cell.configureCell(collectionViewWidth: collectionView.bounds.width, noteFingering: chartsController.currentChart.noteFingerings[indexPath.item])
         
         return cell
     }

@@ -14,6 +14,8 @@
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
+		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
+		9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D423249C3BE1001E108B /* ChartsLoader.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
 		9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5572E24994F110078CB7E /* Colors.xcassets */; };
 		9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573024994F880078CB7E /* UIFont+Extensions.swift */; };
@@ -57,6 +59,8 @@
 		9A022B08249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
+		9A81D423249C3BE1001E108B /* ChartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
 		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AD5573024994F880078CB7E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -119,7 +123,7 @@
 			children = (
 				9A022AE4249908C00052E819 /* AppDelegate.swift */,
 				9A022AE6249908C00052E819 /* SceneDelegate.swift */,
-				9A5CFB3A2499C2C400DF319F /* ViewControllers */,
+				9A5CFB44249C204500DF319F /* Controllers */,
 				9A5CFB3F249A8B9500DF319F /* Views */,
 				9AD5573B249957960078CB7E /* Models */,
 				9AD55738249954F70078CB7E /* Extensions */,
@@ -163,6 +167,16 @@
 				9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9A5CFB44249C204500DF319F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9A5CFB3A2499C2C400DF319F /* ViewControllers */,
+				9A5CFB42249C203800DF319F /* ChartsController.swift */,
+				9A81D423249C3BE1001E108B /* ChartsLoader.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		9AD55738249954F70078CB7E /* Extensions */ = {
@@ -327,9 +341,11 @@
 				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,
+				9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */,
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
+				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
 				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
 			);
