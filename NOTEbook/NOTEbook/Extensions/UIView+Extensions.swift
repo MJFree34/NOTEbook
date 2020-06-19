@@ -15,4 +15,11 @@ extension UIView {
         gradient.colors = [UIColor.white.cgColor, UIColor(named: "LightestAqua")!.cgColor]
         layer.addSublayer(gradient)
     }
+    
+    func addLightMediumAquaGradient() {
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = [UIColor(named: "LightAqua")!.cgColor, UIColor(named: "MediumAqua")!.cgColor]
+        layer.addSublayer(gradient)
+    }
 }

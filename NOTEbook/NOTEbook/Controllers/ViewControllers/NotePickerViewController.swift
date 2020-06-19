@@ -13,6 +13,8 @@ class NotePickerViewController: UIViewController {
     
     var currentNoteType: NoteType = .natural
     
+    var letterLabel: UILabel!
+    
     lazy var rightArrow: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "SwipeArrow"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,6 +58,30 @@ class NotePickerViewController: UIViewController {
         return imageView
     }()
     
+    lazy var noteLetterView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 85, height: 100))
+        view.addLightMediumAquaGradient()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    lazy var letterFlat: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 18.25, height: 60))
+        view.addLightMediumAquaGradient()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    lazy var letterSharp: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 26.87, height: 68))
+        view.addLightMediumAquaGradient()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,6 +100,7 @@ class NotePickerViewController: UIViewController {
         
         configureHeader()
         configureSwipeArrows()
+        configureNoteLetter()
     }
     
     func configureHeader() {
@@ -167,6 +194,7 @@ class NotePickerViewController: UIViewController {
                     self.rightArrow.alpha = 0
                     self.arrowSharp.alpha = 0
                     self.leftArrowNatural.alpha = 1
+                    self.letterSharp.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -179,6 +207,7 @@ class NotePickerViewController: UIViewController {
                     self.arrowSharp.alpha = 1
                     self.leftArrow.alpha = 1
                     self.arrowFlat.alpha = 1
+                    self.letterFlat.alpha = 0
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -193,6 +222,7 @@ class NotePickerViewController: UIViewController {
                     self.leftArrow.alpha = 0
                     self.arrowSharp.alpha = 0
                     self.rightArrowNatural.alpha = 1
+                    self.letterFlat.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -205,12 +235,68 @@ class NotePickerViewController: UIViewController {
                     self.arrowFlat.alpha = 1
                     self.rightArrow.alpha = 1
                     self.arrowSharp.alpha = 1
+                    self.letterSharp.alpha = 0
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
                 }
             }
         }
+    }
+    
+    func configureNoteLetter() {
+        addGradientLabel()
+        view.addSubview(noteLetterView)
+        
+        letterFlat.alpha = 0
+        addGradientFlat()
+        view.addSubview(letterFlat)
+        
+        letterSharp.alpha = 0
+        addGradientSharp()
+        view.addSubview(letterSharp)
+        
+        NSLayoutConstraint.activate([
+            noteLetterView.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
+            noteLetterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noteLetterView.heightAnchor.constraint(equalToConstant: 100),
+            noteLetterView.widthAnchor.constraint(equalToConstant: 85),
+            
+            letterFlat.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
+            letterFlat.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
+            letterFlat.heightAnchor.constraint(equalToConstant: 60),
+            letterFlat.widthAnchor.constraint(equalToConstant: 18.25),
+            
+            letterSharp.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
+            letterSharp.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
+            letterSharp.heightAnchor.constraint(equalToConstant: 68),
+            letterSharp.widthAnchor.constraint(equalToConstant: 26.87),
+        ])
+    }
+    
+    func addGradientLabel() {
+        letterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 100))
+        letterLabel.text = "C"
+        letterLabel.font = UIFont.noteFont
+        letterLabel.textAlignment = .center
+        letterLabel.translatesAutoresizingMaskIntoConstraints = false
+        noteLetterView.addSubview(letterLabel)
+
+        noteLetterView.mask = letterLabel
+    }
+    
+    func addGradientFlat() {
+        let flatImageView = UIImageView(image: UIImage(named: "Flat"))
+        letterFlat.addSubview(flatImageView)
+
+        letterFlat.mask = flatImageView
+    }
+    
+    func addGradientSharp() {
+        let sharpImageView = UIImageView(image: UIImage(named: "Sharp"))
+        letterSharp.addSubview(sharpImageView)
+
+        letterSharp.mask = sharpImageView
     }
     
     @objc func settingsButtonTapped() {
