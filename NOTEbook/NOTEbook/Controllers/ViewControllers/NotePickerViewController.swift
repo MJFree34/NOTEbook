@@ -14,6 +14,9 @@ class NotePickerViewController: UIViewController {
     var currentNoteType: NoteType = .natural
     
     var letterLabel: UILabel!
+    var fingeringPageViewController: FingeringPageViewController!
+    
+    var currentNoteFingering: NoteFingering!
     
     lazy var rightArrow: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "SwipeArrow"))
@@ -98,9 +101,12 @@ class NotePickerViewController: UIViewController {
         view.addGestureRecognizer(swipeLeft)
         view.addGestureRecognizer(swipeRight)
         
+        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.startingNote)
+        
         configureHeader()
         configureSwipeArrows()
         configureNoteLetter()
+        configureFingeringPageView()
     }
     
     func configureHeader() {
@@ -182,68 +188,6 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
-    @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
-        let swipeDirection = swipe.direction
-        
-        if swipeDirection == .left {
-            if currentNoteType == .natural {
-                currentNoteType = .sharp
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.arrowFlat.alpha = 0
-                    self.rightArrow.alpha = 0
-                    self.arrowSharp.alpha = 0
-                    self.leftArrowNatural.alpha = 1
-                    self.letterSharp.alpha = 1
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
-            } else if currentNoteType == .flat {
-                currentNoteType = .natural
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.rightArrowNatural.alpha = 0
-                    self.arrowSharp.alpha = 1
-                    self.leftArrow.alpha = 1
-                    self.arrowFlat.alpha = 1
-                    self.letterFlat.alpha = 0
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
-            }
-        } else {
-            if currentNoteType == .natural {
-                currentNoteType = .flat
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.arrowFlat.alpha = 0
-                    self.leftArrow.alpha = 0
-                    self.arrowSharp.alpha = 0
-                    self.rightArrowNatural.alpha = 1
-                    self.letterFlat.alpha = 1
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
-            } else if currentNoteType == .sharp {
-                currentNoteType = .natural
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.leftArrowNatural.alpha = 0
-                    self.arrowFlat.alpha = 1
-                    self.rightArrow.alpha = 1
-                    self.arrowSharp.alpha = 1
-                    self.letterSharp.alpha = 0
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
-            }
-        }
-    }
-    
     func configureNoteLetter() {
         addGradientLabel()
         view.addSubview(noteLetterView)
@@ -297,6 +241,123 @@ class NotePickerViewController: UIViewController {
         letterSharp.addSubview(sharpImageView)
 
         letterSharp.mask = sharpImageView
+    }
+    
+    func configureFingeringPageView() {
+        fingeringPageViewController = FingeringPageViewController()
+        fingeringPageViewController.fingerings = currentNoteFingering.fingerings
+        fingeringPageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        add(fingeringPageViewController)
+        
+        NSLayoutConstraint.activate([
+            fingeringPageViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -100),
+            fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40),
+            fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: 170)
+        ])
+    }
+    
+    @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
+        let swipeDirection = swipe.direction
+        
+        if swipeDirection == .left {
+            if currentNoteType == .natural {
+                currentNoteType = .sharp
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.fingeringPageViewController.view.alpha = 0
+                }) { _ in
+                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote.nextNote())!.fingerings
+                    
+                    UIView.animate(withDuration: 0.25) {
+                        self.fingeringPageViewController.view.alpha = 1
+                    }
+                }
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.arrowFlat.alpha = 0
+                    self.rightArrow.alpha = 0
+                    self.arrowSharp.alpha = 0
+                    self.leftArrowNatural.alpha = 1
+                    self.letterSharp.alpha = 1
+                    self.view.isUserInteractionEnabled = false
+                }) { _ in
+                    self.view.isUserInteractionEnabled = true
+                }
+            } else if currentNoteType == .flat {
+                currentNoteType = .natural
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.fingeringPageViewController.view.alpha = 0
+                }) { _ in
+                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote)!.fingerings
+                    
+                    UIView.animate(withDuration: 0.25) {
+                        self.fingeringPageViewController.view.alpha = 1
+                    }
+                }
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.rightArrowNatural.alpha = 0
+                    self.arrowSharp.alpha = 1
+                    self.leftArrow.alpha = 1
+                    self.arrowFlat.alpha = 1
+                    self.letterFlat.alpha = 0
+                    self.view.isUserInteractionEnabled = false
+                }) { _ in
+                    self.view.isUserInteractionEnabled = true
+                }
+            }
+        } else {
+            if currentNoteType == .natural {
+                currentNoteType = .flat
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.fingeringPageViewController.view.alpha = 0
+                }) { _ in
+                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote.previousNote())!.fingerings
+                    
+                    UIView.animate(withDuration: 0.25) {
+                        self.fingeringPageViewController.view.alpha = 1
+                    }
+                }
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.arrowFlat.alpha = 0
+                    self.leftArrow.alpha = 0
+                    self.arrowSharp.alpha = 0
+                    self.rightArrowNatural.alpha = 1
+                    self.letterFlat.alpha = 1
+                    self.view.isUserInteractionEnabled = false
+                }) { _ in
+                    self.view.isUserInteractionEnabled = true
+                }
+            } else if currentNoteType == .sharp {
+                currentNoteType = .natural
+                
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.fingeringPageViewController.view.alpha = 0
+                }) { _ in
+                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote)!.fingerings
+                    
+                    UIView.animate(withDuration: 0.25) {
+                        self.fingeringPageViewController.view.alpha = 1
+                    }
+                }
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.leftArrowNatural.alpha = 0
+                    self.arrowFlat.alpha = 1
+                    self.rightArrow.alpha = 1
+                    self.arrowSharp.alpha = 1
+                    self.letterSharp.alpha = 0
+                    self.view.isUserInteractionEnabled = false
+                }) { _ in
+                    self.view.isUserInteractionEnabled = true
+                }
+            }
+        }
     }
     
     @objc func settingsButtonTapped() {

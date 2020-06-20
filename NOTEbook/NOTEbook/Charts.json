@@ -4,6 +4,13 @@
             "name": "Trumpet",
             "numberOfKeys": 3
         },
+        "startingNote": {
+            "letter": "c",
+            "type": "natural",
+            "octave": "five",
+            "numberOfExtraLines": 0,
+            "extraLinesLocation": "none"
+        },
         "noteFingerings": [
             {
                 "notes": [

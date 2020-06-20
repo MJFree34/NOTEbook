@@ -34,4 +34,14 @@ extension ChartsController {
     func chart(at index: Int) -> FingeringChart {
         return charts[index]
     }
+    
+    func noteFingeringInCurrentChart(for note: Note) -> NoteFingering? {
+        for noteFingering in currentChart.noteFingerings {
+            if noteFingering.notes.contains(note) {
+                return noteFingering
+            }
+        }
+        
+        return nil
+    }
 }
