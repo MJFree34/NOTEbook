@@ -107,6 +107,7 @@ class NotePickerViewController: UIViewController {
         configureSwipeArrows()
         configureNoteLetter()
         configureFingeringPageView()
+        configureBottomStaff()
     }
     
     func configureHeader() {
@@ -255,6 +256,52 @@ class NotePickerViewController: UIViewController {
             fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -100),
             fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40),
             fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: 170)
+        ])
+    }
+    
+    func configureBottomStaff() {
+        let width: CGFloat = view.bounds.width - 40
+        let bottomInset: CGFloat = 100
+        
+        for i in 0..<5 {
+            addStaffLine(bottomInset: bottomInset + (24 * (4 - CGFloat(i))), width: width)
+        }
+        
+        let trebleClefImageView = UIImageView(image: UIImage(named: "TrebleClef"))
+        trebleClefImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(trebleClefImageView)
+        
+        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 2, height: 200), rounded: true))
+        leftIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(leftIndicator)
+        
+        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 2, height: 200), rounded: true))
+        rightIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(rightIndicator)
+
+        NSLayoutConstraint.activate([
+            trebleClefImageView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            trebleClefImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottomInset + 40),
+            trebleClefImageView.heightAnchor.constraint(equalToConstant: 173),
+            trebleClefImageView.widthAnchor.constraint(equalToConstant: 62),
+            
+            leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45),
+            leftIndicator.centerYAnchor.constraint(equalTo: trebleClefImageView.centerYAnchor),
+            
+            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45),
+            rightIndicator.centerYAnchor.constraint(equalTo: trebleClefImageView.centerYAnchor),
+        ])
+    }
+    
+    func addStaffLine(bottomInset: CGFloat, width: CGFloat) {
+        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: width, height: 2), rounded: true))
+        staffImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(staffImageView)
+        
+        NSLayoutConstraint.activate([
+            staffImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bottomInset),
+            staffImageView.heightAnchor.constraint(equalToConstant: 2),
+            staffImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
     

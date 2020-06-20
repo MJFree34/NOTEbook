@@ -103,7 +103,6 @@ extension NoteChartCell {
     
     func addStaffLine(topInset: CGFloat, bottomInset: CGFloat) {
         let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: cellWidth, height: 1), rounded: false))
-        staffImageView.backgroundColor = .black
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(staffImageView)
         
