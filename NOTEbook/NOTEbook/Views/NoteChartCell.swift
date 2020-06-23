@@ -231,7 +231,7 @@ extension NoteChartCell {
         }
         currentExtraLines.removeAll()
 
-        let firstNote = noteFingering.notes[0]
+        var firstNote = noteFingering.notes[0]
         
         let ab5Fix = firstNote.octave == .five && firstNote.letter == .g && firstNote.type == .sharp
 

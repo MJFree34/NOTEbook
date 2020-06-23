@@ -12,9 +12,11 @@ class NotePickerViewController: UIViewController {
     var chartsController = ChartsController.shared
     
     var currentNoteType: NoteType = .natural
+    static let spaceBetweenStaffLines: CGFloat = 24
     
     var letterLabel: UILabel!
     var fingeringPageViewController: FingeringPageViewController!
+    var picker: NotePicker!
     
     var currentNoteFingering: NoteFingering!
     
@@ -85,6 +87,13 @@ class NotePickerViewController: UIViewController {
         return view
     }()
     
+    lazy var trebleClefImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "TrebleClef"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,6 +117,7 @@ class NotePickerViewController: UIViewController {
         configureNoteLetter()
         configureFingeringPageView()
         configureBottomStaff()
+        configurePicker()
     }
     
     func configureHeader() {
@@ -156,8 +166,6 @@ class NotePickerViewController: UIViewController {
     }
     
     func configureSwipeArrows() {
-        let topInset: CGFloat = 0.5457589286 * view.bounds.height
-        
         view.addSubview(rightArrow)
         view.addSubview(rightArrowNatural)
         view.addSubview(arrowSharp)
@@ -170,7 +178,7 @@ class NotePickerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             rightArrow.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            rightArrow.topAnchor.constraint(equalTo: view.topAnchor, constant: topInset),
+            rightArrow.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             rightArrowNatural.trailingAnchor.constraint(equalTo: rightArrow.leadingAnchor, constant: -5),
             rightArrowNatural.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
@@ -179,7 +187,7 @@ class NotePickerViewController: UIViewController {
             arrowSharp.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
             
             leftArrow.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            leftArrow.topAnchor.constraint(equalTo: view.topAnchor, constant: topInset),
+            leftArrow.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
             
             leftArrowNatural.leadingAnchor.constraint(equalTo: leftArrow.trailingAnchor, constant: 5),
             leftArrowNatural.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
@@ -261,27 +269,25 @@ class NotePickerViewController: UIViewController {
     
     func configureBottomStaff() {
         let width: CGFloat = view.bounds.width - 40
-        let bottomInset: CGFloat = 100
+        let bottomInset: CGFloat = view.bounds.height / 4 - letterLabel.bounds.height / 2 - NotePickerViewController.spaceBetweenStaffLines * 2
         
         for i in 0..<5 {
-            addStaffLine(bottomInset: bottomInset + (24 * (4 - CGFloat(i))), width: width)
+            addStaffLine(bottomInset: bottomInset + (NotePickerViewController.spaceBetweenStaffLines * (4 - CGFloat(i))), width: width)
         }
         
-        let trebleClefImageView = UIImageView(image: UIImage(named: "TrebleClef"))
-        trebleClefImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(trebleClefImageView)
         
-        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 2, height: 200), rounded: true))
+        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 4, height: 200), rounded: true))
         leftIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(leftIndicator)
         
-        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 2, height: 200), rounded: true))
+        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 4, height: 200), rounded: true))
         rightIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rightIndicator)
 
         NSLayoutConstraint.activate([
             trebleClefImageView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            trebleClefImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottomInset + 40),
+            trebleClefImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bottomInset + 40),
             trebleClefImageView.heightAnchor.constraint(equalToConstant: 173),
             trebleClefImageView.widthAnchor.constraint(equalToConstant: 62),
             
@@ -305,6 +311,27 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
+    func configurePicker() {
+        picker = NotePicker()
+        picker.delegate = self
+        picker.dataSource = self
+        picker.collectionView.reloadData()
+        picker.collectionView.register(NotePickerCell.self, forCellWithReuseIdentifier: NotePickerCell.reuseIdentifier)
+        picker.cellSpacing = 0
+        picker.cellSize = 87
+        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.startingNote)!
+        picker.reloadData()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(picker)
+        
+        NSLayoutConstraint.activate([
+            picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            picker.centerYAnchor.constraint(equalTo: trebleClefImageView.centerYAnchor, constant: -2.5),
+            picker.heightAnchor.constraint(equalToConstant: 400)
+        ])
+    }
+    
     @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
         let swipeDirection = swipe.direction
         
@@ -316,6 +343,8 @@ class NotePickerViewController: UIViewController {
                     self.fingeringPageViewController.view.alpha = 0
                 }) { _ in
                     self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote.nextNote())!.fingerings
+                    
+                    self.picker.reloadData()
                     
                     UIView.animate(withDuration: 0.25) {
                         self.fingeringPageViewController.view.alpha = 1
@@ -339,6 +368,8 @@ class NotePickerViewController: UIViewController {
                     self.fingeringPageViewController.view.alpha = 0
                 }) { _ in
                     self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote)!.fingerings
+                    
+                    self.picker.reloadData()
                     
                     UIView.animate(withDuration: 0.25) {
                         self.fingeringPageViewController.view.alpha = 1
@@ -365,6 +396,8 @@ class NotePickerViewController: UIViewController {
                 }) { _ in
                     self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote.previousNote())!.fingerings
                     
+                    self.picker.reloadData()
+                    
                     UIView.animate(withDuration: 0.25) {
                         self.fingeringPageViewController.view.alpha = 1
                     }
@@ -387,6 +420,8 @@ class NotePickerViewController: UIViewController {
                     self.fingeringPageViewController.view.alpha = 0
                 }) { _ in
                     self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote)!.fingerings
+                    
+                    self.picker.reloadData()
                     
                     UIView.animate(withDuration: 0.25) {
                         self.fingeringPageViewController.view.alpha = 1
@@ -418,6 +453,49 @@ class NotePickerViewController: UIViewController {
     @objc func gridButtonTapped() {
         let vc = NoteChartViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension NotePickerViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.item
+        print("Selected index: \(index)")
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print("Scroll: \(scrollView.contentOffset.x)")
+    }
+}
+
+extension NotePickerViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch currentNoteType {
+        case .natural:
+            return chartsController.currentChart.naturalNotes.count
+        case .sharp:
+            return chartsController.currentChart.sharpNotes.count
+        case .flat:
+            return chartsController.currentChart.flatNotes.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NotePickerCell.reuseIdentifier, for: indexPath) as! NotePickerCell
+        
+        switch currentNoteType {
+        case .natural:
+            cell.note = chartsController.currentChart.naturalNotes[indexPath.item]
+        case .sharp:
+            cell.note = chartsController.currentChart.sharpNotes[indexPath.item]
+        case .flat:
+            cell.note = chartsController.currentChart.flatNotes[indexPath.item]
+        }
+        
+        return cell
     }
 }
 

@@ -72,8 +72,49 @@ struct Note: Codable, Equatable {
     var letter: NoteLetter
     var type: NoteType
     var octave: NoteOctave
-    var numberOfExtraLines: Int
-    var extraLinesLocation: LineLocation
+    
+    lazy var numberOfExtraLines: Int = {
+        switch octave {
+        case .three:
+            if self.letter == .c || self.letter == .d {
+                return 4
+            } else if self.letter == .e || self.letter == .f {
+                return 3
+            } else if self.letter == .g || self.letter == .a {
+                return 2
+            }
+            return 1
+        case .four:
+            if self.letter == .c {
+                return 1
+            }
+            return 0
+        case .five:
+            if self.letter == .a || self.letter == .b {
+                return 1
+            }
+            return 0
+        case .six:
+            if self.letter == .d || self.letter == .c {
+                return 2
+            } else if self.letter == .e || self.letter == .f {
+                return 3
+            }
+            return 0
+        case .seven, .zero, .one, .two:
+            return 0
+        }
+    }()
+    
+    lazy var extraLinesLocation: LineLocation = {
+        if self.octave == .three || (self.octave == .four && self.letter == .c) {
+            return .bottom
+        } else if self.octave == .four || (self.octave == .five && (self.letter != .a || self.letter != .b)) {
+            return .none
+        } else {
+            return .top
+        }
+    }()
     
     func previousNote() -> Note {
         var newNote = self

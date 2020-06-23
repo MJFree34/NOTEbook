@@ -11,15 +11,384 @@
             "numberOfExtraLines": 0,
             "extraLinesLocation": "none"
         },
+        "naturalNotes": [
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "six"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "octave": "six"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "six"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "six"
+            }
+        ],
+        "flatNotes": [
+            {
+                "letter": "d",
+                "type": "flat",
+                "octave": "three"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "octave": "three"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "octave": "three"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "octave": "three"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "octave": "three"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "octave": "four"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "octave": "four"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "octave": "four"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "octave": "four"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "octave": "four"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "octave": "five"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "octave": "five"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "octave": "five"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "octave": "five"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "octave": "five"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "octave": "six"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "octave": "six"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "octave": "six"
+            }
+        ],
+        "sharpNotes": [
+            {
+                "letter": "c",
+                "type": "sharp",
+                "octave": "three"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "octave": "three"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "octave": "three"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "octave": "three"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "octave": "three"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "octave": "four"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "octave": "four"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "four"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "octave": "four"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "octave": "four"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "octave": "four"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "octave": "five"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "octave": "five"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "five"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "octave": "five"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "octave": "five"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "octave": "five"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "octave": "six"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "octave": "six"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "octave": "six"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "octave": "six"
+            }
+        ],
         "noteFingerings": [
             {
                 "notes": [
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 4,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -37,16 +406,12 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "three",
-                        "numberOfExtraLines": 4,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "three",
-                        "numberOfExtraLines": 4,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -64,9 +429,7 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 4,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -84,16 +447,12 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "three",
-                        "numberOfExtraLines": 4,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "three",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -111,9 +470,7 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -131,9 +488,7 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -151,16 +506,12 @@
                     {
                         "letter": "f",
                         "type": "sharp",
-                        "octave": "three",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     },
                     {
                         "letter": "g",
                         "type": "flat",
-                        "octave": "three",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -178,9 +529,7 @@
                     {
                         "letter": "g",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -198,16 +547,12 @@
                     {
                         "letter": "g",
                         "type": "sharp",
-                        "octave": "three",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     },
                     {
                         "letter": "a",
                         "type": "flat",
-                        "octave": "three",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -225,9 +570,7 @@
                     {
                         "letter": "a",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -252,16 +595,12 @@
                     {
                         "letter": "a",
                         "type": "sharp",
-                        "octave": "three",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     },
                     {
                         "letter": "b",
                         "type": "flat",
-                        "octave": "three",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -279,9 +618,7 @@
                     {
                         "letter": "b",
                         "type": "natural",
-                        "octave": "three",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "bottom"
+                        "octave": "three"
                     }
                 ],
                 "fingerings": [
@@ -299,9 +636,7 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "bottom"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -319,16 +654,12 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "four",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "bottom"
+                        "octave": "four"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -346,9 +677,7 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -366,16 +695,12 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -393,9 +718,7 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -420,9 +743,7 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -440,16 +761,12 @@
                     {
                         "letter": "f",
                         "type": "sharp",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     },
                     {
                         "letter": "g",
                         "type": "flat",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -474,9 +791,7 @@
                     {
                         "letter": "g",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -501,16 +816,12 @@
                     {
                         "letter": "g",
                         "type": "sharp",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     },
                     {
                         "letter": "a",
                         "type": "flat",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -528,9 +839,7 @@
                     {
                         "letter": "a",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -555,16 +864,12 @@
                     {
                         "letter": "a",
                         "type": "sharp",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     },
                     {
                         "letter": "b",
                         "type": "flat",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -589,9 +894,7 @@
                     {
                         "letter": "b",
                         "type": "natural",
-                        "octave": "four",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "four"
                     }
                 ],
                 "fingerings": [
@@ -616,9 +919,7 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -643,16 +944,12 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -677,9 +974,7 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -704,16 +999,12 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -738,9 +1029,7 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -765,9 +1054,7 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -785,16 +1072,12 @@
                     {
                         "letter": "f",
                         "type": "sharp",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     },
                     {
                         "letter": "g",
                         "type": "flat",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -812,9 +1095,7 @@
                     {
                         "letter": "g",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -839,16 +1120,12 @@
                     {
                         "letter": "g",
                         "type": "sharp",
-                        "octave": "five",
-                        "numberOfExtraLines": 0,
-                        "extraLinesLocation": "none"
+                        "octave": "five"
                     },
                     {
                         "letter": "a",
                         "type": "flat",
-                        "octave": "five",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "top"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -866,9 +1143,7 @@
                     {
                         "letter": "a",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "top"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -893,16 +1168,12 @@
                     {
                         "letter": "a",
                         "type": "sharp",
-                        "octave": "five",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "top"
+                        "octave": "five"
                     },
                     {
                         "letter": "b",
                         "type": "flat",
-                        "octave": "five",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "top"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -920,9 +1191,7 @@
                     {
                         "letter": "b",
                         "type": "natural",
-                        "octave": "five",
-                        "numberOfExtraLines": 1,
-                        "extraLinesLocation": "top"
+                        "octave": "five"
                     }
                 ],
                 "fingerings": [
@@ -940,9 +1209,7 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "six",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     }
                 ],
                 "fingerings": [
@@ -960,16 +1227,12 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "six",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "six",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     }
                 ],
                 "fingerings": [
@@ -994,9 +1257,7 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "six",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     }
                 ],
                 "fingerings": [
@@ -1021,16 +1282,12 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "six",
-                        "numberOfExtraLines": 2,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "six",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     }
                 ],
                 "fingerings": [
@@ -1048,9 +1305,7 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "six",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     }
                 ],
                 "fingerings": [
@@ -1068,9 +1323,7 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "six",
-                        "numberOfExtraLines": 3,
-                        "extraLinesLocation": "top"
+                        "octave": "six"
                     }
                 ],
                 "fingerings": [

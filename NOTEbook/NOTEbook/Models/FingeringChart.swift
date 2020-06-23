@@ -11,5 +11,8 @@ import Foundation
 struct FingeringChart: Codable {
     var instrument: Instrument
     var startingNote: Note
+    var naturalNotes: [Note]
+    var flatNotes: [Note]
+    var sharpNotes: [Note]
     var noteFingerings: [NoteFingering]
 }
