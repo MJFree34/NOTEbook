@@ -14,8 +14,8 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
     lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         control.currentPage = 0
-        control.currentPageIndicatorTintColor = .black // UIColor(named: "MediumRed")
-        control.pageIndicatorTintColor = UIColor(named: "LightAqua")
+        control.currentPageIndicatorTintColor = UIColor(named: "Black")!
+        control.pageIndicatorTintColor = UIColor(named: "LightAqua")!
         control.translatesAutoresizingMaskIntoConstraints = false
         
         return control
@@ -95,25 +95,25 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
     }
 }
 
-#if DEBUG
-import SwiftUI
-
-struct FingeringPageViewRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        let vc = FingeringPageViewController()
-        vc.fingerings = [Fingering(keys: [false, true, false]), Fingering(keys: [true, false, true])]
-        return vc.view
-    }
-    
-    func updateUIView(_ view: UIView, context: Context) {
-        // Update your code here
-    }
-}
-
-@available(iOS 13.0, *)
-struct FingeringPageViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        FingeringPageViewRepresentable()
-    }
-}
-#endif
+//#if DEBUG
+//import SwiftUI
+//
+//struct FingeringPageViewRepresentable: UIViewRepresentable {
+//    func makeUIView(context: Context) -> UIView {
+//        let vc = FingeringPageViewController()
+//        vc.fingerings = [Fingering(keys: [false, true, false]), Fingering(keys: [true, false, true])]
+//        return vc.view
+//    }
+//
+//    func updateUIView(_ view: UIView, context: Context) {
+//        // Update your code here
+//    }
+//}
+//
+//@available(iOS 13.0, *)
+//struct FingeringPageViewController_Preview: PreviewProvider {
+//    static var previews: some View {
+//        FingeringPageViewRepresentable()
+//    }
+//}
+//#endif

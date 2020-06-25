@@ -21,14 +21,14 @@ class NotePickerViewController: UIViewController {
     var currentNoteFingering: NoteFingering!
     
     lazy var rightArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow"))
+        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var leftArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow"))
+        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
         imageView.transform = CGAffineTransform(rotationAngle: .pi)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,28 +36,28 @@ class NotePickerViewController: UIViewController {
     }()
     
     lazy var arrowFlat: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat"))
+        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var arrowSharp: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp"))
+        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var leftArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural"))
+        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var rightArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural"))
+        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -88,7 +88,7 @@ class NotePickerViewController: UIViewController {
     }()
     
     lazy var trebleClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "TrebleClef"))
+        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -141,7 +141,7 @@ class NotePickerViewController: UIViewController {
         
         let instrumentsButtonImage = UIImage(named: "InstrumentsButton")!
         let instrumentsButton = UIButton(type: .custom)
-        instrumentsButton.setImage(instrumentsButtonImage, for: .normal)
+        instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
         instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
         instrumentsButton.addTarget(self, action: #selector(instrumentsButtonTapped), for: .touchUpInside)
         instrumentsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -239,14 +239,14 @@ class NotePickerViewController: UIViewController {
     }
     
     func addGradientFlat() {
-        let flatImageView = UIImageView(image: UIImage(named: "Flat"))
+        let flatImageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
         letterFlat.addSubview(flatImageView)
 
         letterFlat.mask = flatImageView
     }
     
     func addGradientSharp() {
-        let sharpImageView = UIImageView(image: UIImage(named: "Sharp"))
+        let sharpImageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
         letterSharp.addSubview(sharpImageView)
 
         letterSharp.mask = sharpImageView
@@ -277,11 +277,11 @@ class NotePickerViewController: UIViewController {
         
         view.addSubview(trebleClefImageView)
         
-        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 4, height: 200), rounded: true))
+        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
         leftIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(leftIndicator)
         
-        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: (UIColor(named: "OffWhite")!.withAlphaComponent(0.75)), size: CGSize(width: 4, height: 200), rounded: true))
+        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
         rightIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rightIndicator)
 
@@ -300,7 +300,7 @@ class NotePickerViewController: UIViewController {
     }
     
     func addStaffLine(bottomInset: CGFloat, width: CGFloat) {
-        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: width, height: 2), rounded: true))
+        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: width, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(staffImageView)
         
@@ -454,6 +454,14 @@ class NotePickerViewController: UIViewController {
         let vc = NoteChartViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        view.addBackgroundGradient()
+    }
 }
 
 extension NotePickerViewController: UICollectionViewDelegate {
@@ -499,31 +507,31 @@ extension NotePickerViewController: UICollectionViewDataSource {
     }
 }
 
-#if DEBUG
-import SwiftUI
-
-struct NotePickerViewRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return NotePickerViewController().view
-    }
-    
-    func updateUIView(_ view: UIView, context: Context) {
-        // Update your code here
-    }
-}
-
-@available(iOS 13.0, *)
-struct NotePickerViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NotePickerViewRepresentable()
-                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-                .previewDisplayName("iPhone XS Max")
-            
-            NotePickerViewRepresentable()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-        }
-    }
-}
-#endif
+//#if DEBUG
+//import SwiftUI
+//
+//struct NotePickerViewRepresentable: UIViewRepresentable {
+//    func makeUIView(context: Context) -> UIView {
+//        return NotePickerViewController().view
+//    }
+//    
+//    func updateUIView(_ view: UIView, context: Context) {
+//        // Update your code here
+//    }
+//}
+//
+//@available(iOS 13.0, *)
+//struct NotePickerViewController_Preview: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            NotePickerViewRepresentable()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+//                .previewDisplayName("iPhone XS Max")
+//            
+//            NotePickerViewRepresentable()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+//                .previewDisplayName("iPhone SE")
+//        }
+//    }
+//}
+//#endif

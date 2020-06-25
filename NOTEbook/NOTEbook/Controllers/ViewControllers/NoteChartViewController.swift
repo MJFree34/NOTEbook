@@ -45,7 +45,7 @@ class NoteChartViewController: UIViewController {
         
         let instrumentsButtonImage = UIImage(named: "InstrumentsButton")!
         let instrumentsButton = UIButton(type: .custom)
-        instrumentsButton.setImage(instrumentsButtonImage, for: .normal)
+        instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
         instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
         instrumentsButton.addTarget(self, action: #selector(instrumentsButtonTapped), for: .touchUpInside)
         instrumentsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -99,6 +99,14 @@ class NoteChartViewController: UIViewController {
     @objc func pickerButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        view.addBackgroundGradient()
+    }
 }
 
 extension NoteChartViewController: UICollectionViewDataSource {
@@ -133,31 +141,31 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-#if DEBUG
-import SwiftUI
-
-struct NoteChartViewRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return NoteChartViewController().view
-    }
-    
-    func updateUIView(_ view: UIView, context: Context) {
-        // Update your code here
-    }
-}
-
-@available(iOS 13.0, *)
-struct NoteChartViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NoteChartViewRepresentable()
-                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-                .previewDisplayName("iPhone XS Max")
-            
-            NoteChartViewRepresentable()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-                .previewDisplayName("iPhone SE")
-        }
-    }
-}
-#endif
+//#if DEBUG
+//import SwiftUI
+//
+//struct NoteChartViewRepresentable: UIViewRepresentable {
+//    func makeUIView(context: Context) -> UIView {
+//        return NoteChartViewController().view
+//    }
+//    
+//    func updateUIView(_ view: UIView, context: Context) {
+//        // Update your code here
+//    }
+//}
+//
+//@available(iOS 13.0, *)
+//struct NoteChartViewController_Preview: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            NoteChartViewRepresentable()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
+//                .previewDisplayName("iPhone XS Max")
+//            
+//            NoteChartViewRepresentable()
+//                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+//                .previewDisplayName("iPhone SE")
+//        }
+//    }
+//}
+//#endif

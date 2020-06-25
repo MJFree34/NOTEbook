@@ -36,25 +36,25 @@ class NotePickerCell: UICollectionViewCell {
             quarterNoteOrientation = .lower
         }
         
-        upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote"))
+        upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(UIColor(named: "Black")!))
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
         upperQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         upperQuarterNote.accessibilityIdentifier = "upperQuarterNote"
         contentView.addSubview(upperQuarterNote)
         
-        lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote"))
+        lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote")!.withTintColor(UIColor(named: "Black")!))
         lowerQuarterNote.isHidden = quarterNoteOrientation == .upper
         lowerQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         lowerQuarterNote.accessibilityIdentifier = "lowerQuarterNote"
         contentView.addSubview(lowerQuarterNote)
         
-        flat = UIImageView(image: UIImage(named: "Flat"))
+        flat = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
         flat.isHidden = note.type != .flat
         flat.translatesAutoresizingMaskIntoConstraints = false
         flat.accessibilityIdentifier = "flat"
         contentView.addSubview(flat)
         
-        sharp = UIImageView(image: UIImage(named: "Sharp"))
+        sharp = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
         sharp.isHidden = note.type != .sharp
         sharp.translatesAutoresizingMaskIntoConstraints = false
         sharp.accessibilityIdentifier = "sharp"
