@@ -15,11 +15,7 @@ enum QuarterNoteOrientation {
 class NotePickerCell: UICollectionViewCell {
     static let reuseIdentifier = "NotePickerCell"
     
-    var note: Note = Note(letter: .c, type: .natural, octave: .five) {
-        didSet {
-            reloadViews()
-        }
-    }
+    var note: Note!
     
     var quarterNoteOrientation: QuarterNoteOrientation = .upper
     
@@ -28,42 +24,48 @@ class NotePickerCell: UICollectionViewCell {
     var flat: UIImageView!
     var sharp: UIImageView!
     
+    var lowerLine4: UIImageView!
+    var lowerLine3: UIImageView!
+    var lowerLine2: UIImageView!
+    var lowerLine1: UIImageView!
+    var upperLine1: UIImageView!
+    var upperLine2: UIImageView!
+    var upperLine3: UIImageView!
+    
     var upperQuarterNoteCenterYConstraint: NSLayoutConstraint!
     var lowerQuarterNoteCenterYConstraint: NSLayoutConstraint!
     
     func initialize() {
-        if note.octave == .three || (note.octave == .four && note.letter != .b) {
+        let initNote = Note(letter: .c, type: .natural, octave: .five)
+        
+        if initNote.octave == .three || (initNote.octave == .four && initNote.letter != .b) {
             quarterNoteOrientation = .lower
         }
         
         upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(UIColor(named: "Black")!))
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
         upperQuarterNote.translatesAutoresizingMaskIntoConstraints = false
-        upperQuarterNote.accessibilityIdentifier = "upperQuarterNote"
         contentView.addSubview(upperQuarterNote)
         
         lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote")!.withTintColor(UIColor(named: "Black")!))
         lowerQuarterNote.isHidden = quarterNoteOrientation == .upper
         lowerQuarterNote.translatesAutoresizingMaskIntoConstraints = false
-        lowerQuarterNote.accessibilityIdentifier = "lowerQuarterNote"
         contentView.addSubview(lowerQuarterNote)
         
         flat = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
-        flat.isHidden = note.type != .flat
+        flat.isHidden = initNote.type != .flat
         flat.translatesAutoresizingMaskIntoConstraints = false
-        flat.accessibilityIdentifier = "flat"
         contentView.addSubview(flat)
         
         sharp = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
-        sharp.isHidden = note.type != .sharp
+        sharp.isHidden = initNote.type != .sharp
         sharp.translatesAutoresizingMaskIntoConstraints = false
-        sharp.accessibilityIdentifier = "sharp"
         contentView.addSubview(sharp)
         
-        upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 26.5 + offset())
+        upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 26.5 + noteOffset(standardNote: false))
         upperQuarterNoteCenterYConstraint.isActive = true
         
-        lowerQuarterNoteCenterYConstraint = lowerQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -26.5 + offset())
+        lowerQuarterNoteCenterYConstraint = lowerQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -26.5 + noteOffset(standardNote: false))
         lowerQuarterNoteCenterYConstraint.isActive = true
         
         NSLayoutConstraint.activate([
@@ -77,11 +79,55 @@ class NotePickerCell: UICollectionViewCell {
             sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -28 : 28)),
             sharp.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -28),
         ])
+        
+        configureExtraNoteLines()
+    }
+    
+    func setNote(_ note: Note) {
+        self.note = note
+    }
+    
+    func configureExtraNoteLines() {
+        let spacing = NotePickerViewController.spaceBetweenStaffLines
+        
+        lowerLine4 = createExtraStaffLine()
+        lowerLine3 = createExtraStaffLine()
+        lowerLine2 = createExtraStaffLine()
+        lowerLine1 = createExtraStaffLine()
+        upperLine1 = createExtraStaffLine()
+        upperLine2 = createExtraStaffLine()
+        upperLine3 = createExtraStaffLine()
+        
+        NSLayoutConstraint.activate([
+            lowerLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 6),
+            lowerLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 5),
+            lowerLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 4),
+            lowerLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 3),
+            upperLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -3),
+            upperLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -4),
+            upperLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -5),
+        ])
+    }
+    
+    func createExtraStaffLine() -> UIImageView {
+        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 35, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
+        extraLineImageView.isHidden = true
+        extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(extraLineImageView)
+        
+        NSLayoutConstraint.activate([
+            extraLineImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            extraLineImageView.heightAnchor.constraint(equalToConstant: 2)
+        ])
+        
+        return extraLineImageView
     }
     
     func reloadViews() {
         if note.octave == .three || (note.octave == .four && note.letter != .b) {
             quarterNoteOrientation = .lower
+        } else {
+            quarterNoteOrientation = .upper
         }
         
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
@@ -89,13 +135,61 @@ class NotePickerCell: UICollectionViewCell {
         flat.isHidden = note.type != .flat
         sharp.isHidden = note.type != .sharp
         
-        upperQuarterNoteCenterYConstraint.constant = 26.5 + offset()
-        lowerQuarterNoteCenterYConstraint.constant = -26.5 + offset()
+        displayExtraNoteLines()
+        
+        upperQuarterNoteCenterYConstraint.constant = 26.5 + noteOffset()
+        lowerQuarterNoteCenterYConstraint.constant = -26.5 + noteOffset()
         
         contentView.layoutIfNeeded()
     }
     
-    func offset() -> CGFloat {
+    func displayExtraNoteLines() {
+        lowerLine4.isHidden = true
+        lowerLine3.isHidden = true
+        lowerLine2.isHidden = true
+        lowerLine1.isHidden = true
+        upperLine1.isHidden = true
+        upperLine2.isHidden = true
+        upperLine3.isHidden = true
+        
+        switch note.numberOfExtraLines {
+        case 4:
+            if note.extraLinesLocation == .top {
+                fatalError()
+            } else {
+                lowerLine4.isHidden = false
+                fallthrough
+            }
+        case 3:
+            if note.extraLinesLocation == .top {
+                upperLine3.isHidden = false
+                fallthrough
+            } else {
+                lowerLine3.isHidden = false
+                fallthrough
+            }
+        case 2:
+            if note.extraLinesLocation == .top {
+                upperLine2.isHidden = false
+                fallthrough
+            } else {
+                lowerLine2.isHidden = false
+                fallthrough
+            }
+        case 1:
+            if note.extraLinesLocation == .top {
+                upperLine1.isHidden = false
+            } else {
+                lowerLine1.isHidden = false
+            }
+        default:
+            break
+        }
+    }
+    
+    func noteOffset(standardNote: Bool = true) -> CGFloat {
+        guard standardNote else { return 0 }
+        
         let spacing = NotePickerViewController.spaceBetweenStaffLines
         
         switch note.octave {
@@ -159,7 +253,7 @@ class NotePickerCell: UICollectionViewCell {
             case .e:
                 return -spacing * 5
             case .f:
-                return -spacing * 6
+                return -spacing * 5.5
             case .g, .a, .b:
                 break
             }
@@ -169,7 +263,6 @@ class NotePickerCell: UICollectionViewCell {
         
         return 0
     }
-    
     
     convenience init(note: Note) {
         self.init(frame: CGRect.zero)

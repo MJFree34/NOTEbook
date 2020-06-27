@@ -44,4 +44,27 @@ extension ChartsController {
         
         return nil
     }
+    
+    func currentFingering(note: Note) -> NoteFingering? {
+        for fingering in currentChart.noteFingerings {
+            for fingeringNote in fingering.notes {
+                if fingeringNote == note {
+                    return fingering
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    func currentNote(from noteType: NoteType, index: Int) -> Note {
+        switch noteType {
+        case .natural:
+            return currentChart.naturalNotes[index]
+        case .sharp:
+            return currentChart.sharpNotes[index]
+        case .flat:
+            return currentChart.flatNotes[index]
+        }
+    }
 }

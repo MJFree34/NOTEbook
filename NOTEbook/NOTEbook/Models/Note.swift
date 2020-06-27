@@ -109,7 +109,7 @@ struct Note: Codable, Equatable {
     lazy var extraLinesLocation: LineLocation = {
         if self.octave == .three || (self.octave == .four && self.letter == .c) {
             return .bottom
-        } else if self.octave == .four || (self.octave == .five && (self.letter != .a || self.letter != .b)) {
+        } else if self.octave == .four || (self.octave == .five && (self.letter != .a && self.letter != .b)) {
             return .none
         } else {
             return .top
@@ -157,7 +157,7 @@ struct Note: Codable, Equatable {
             if self.octave == .six && self.type != .sharp {
                 newNote.numberOfExtraLines = 1
                 newNote.extraLinesLocation = .top
-            } else if octave == .three {
+            } else if octave == .three && self.type != .sharp {
                 break
             }
             

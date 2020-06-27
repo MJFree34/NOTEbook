@@ -468,6 +468,14 @@ extension NotePickerViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.item
         print("Selected index: \(index)")
+        
+        let currentNote = chartsController.currentNote(from: currentNoteType, index: index)
+        
+        currentNoteFingering = chartsController.currentFingering(note: currentNote)
+        
+        fingeringPageViewController.fingerings = currentNoteFingering.fingerings
+        
+        letterLabel.text = currentNote.letter.rawValue.capitalized
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -496,12 +504,14 @@ extension NotePickerViewController: UICollectionViewDataSource {
         
         switch currentNoteType {
         case .natural:
-            cell.note = chartsController.currentChart.naturalNotes[indexPath.item]
+            cell.setNote(chartsController.currentChart.naturalNotes[indexPath.item])
         case .sharp:
-            cell.note = chartsController.currentChart.sharpNotes[indexPath.item]
+            cell.setNote(chartsController.currentChart.sharpNotes[indexPath.item])
         case .flat:
-            cell.note = chartsController.currentChart.flatNotes[indexPath.item]
+            cell.setNote(chartsController.currentChart.flatNotes[indexPath.item])
         }
+        
+        cell.reloadViews()
         
         return cell
     }

@@ -12,6 +12,7 @@
 		9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A022AE8249908C00052E819 /* NotePickerViewController.swift */; };
 		9A022AEE249908C20052E819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AED249908C20052E819 /* Assets.xcassets */; };
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
+		9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28E10D24A79828005B3EA4 /* NoteTests.swift */; };
 		9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */; };
 		9A438146249E3CA500EDC58F /* NotePickerFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438145249E3CA500EDC58F /* NotePickerFlowLayout.swift */; };
 		9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438147249E3CE400EDC58F /* NotePicker.swift */; };
@@ -42,13 +43,6 @@
 			remoteGlobalIDString = 9A022AE0249908C00052E819;
 			remoteInfo = NOTEbook;
 		};
-		9A022B03249908C30052E819 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9A022AD9249908C00052E819 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9A022AE0249908C00052E819;
-			remoteInfo = NOTEbook;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -61,8 +55,7 @@
 		9A022AF2249908C20052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A022AF7249908C30052E819 /* NOTEbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A022B02249908C30052E819 /* NOTEbookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A022B08249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A28E10D24A79828005B3EA4 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A438145249E3CA500EDC58F /* NotePickerFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerFlowLayout.swift; sourceTree = "<group>"; };
 		9A438147249E3CE400EDC58F /* NotePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePicker.swift; sourceTree = "<group>"; };
@@ -100,13 +93,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9A022AFF249908C30052E819 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,7 +101,6 @@
 			children = (
 				9A022AE3249908C00052E819 /* NOTEbook */,
 				9A022AFA249908C30052E819 /* NOTEbookTests */,
-				9A022B05249908C30052E819 /* NOTEbookUITests */,
 				9A022AE2249908C00052E819 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,7 +110,6 @@
 			children = (
 				9A022AE1249908C00052E819 /* NOTEbook.app */,
 				9A022AF7249908C30052E819 /* NOTEbookTests.xctest */,
-				9A022B02249908C30052E819 /* NOTEbookUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,16 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				9A022AFD249908C30052E819 /* Info.plist */,
+				9A28E10D24A79828005B3EA4 /* NoteTests.swift */,
 			);
 			path = NOTEbookTests;
-			sourceTree = "<group>";
-		};
-		9A022B05249908C30052E819 /* NOTEbookUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9A022B08249908C30052E819 /* Info.plist */,
-			);
-			path = NOTEbookUITests;
 			sourceTree = "<group>";
 		};
 		9A5CFB3A2499C2C400DF319F /* ViewControllers */ = {
@@ -257,24 +234,6 @@
 			productReference = 9A022AF7249908C30052E819 /* NOTEbookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9A022B01249908C30052E819 /* NOTEbookUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9A022B11249908C30052E819 /* Build configuration list for PBXNativeTarget "NOTEbookUITests" */;
-			buildPhases = (
-				9A022AFE249908C30052E819 /* Sources */,
-				9A022AFF249908C30052E819 /* Frameworks */,
-				9A022B00249908C30052E819 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9A022B04249908C30052E819 /* PBXTargetDependency */,
-			);
-			name = NOTEbookUITests;
-			productName = NOTEbookUITests;
-			productReference = 9A022B02249908C30052E819 /* NOTEbookUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,10 +249,7 @@
 					};
 					9A022AF6249908C30052E819 = {
 						CreatedOnToolsVersion = 11.5;
-						TestTargetID = 9A022AE0249908C00052E819;
-					};
-					9A022B01249908C30052E819 = {
-						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1200;
 						TestTargetID = 9A022AE0249908C00052E819;
 					};
 				};
@@ -313,7 +269,6 @@
 			targets = (
 				9A022AE0249908C00052E819 /* NOTEbook */,
 				9A022AF6249908C30052E819 /* NOTEbookTests */,
-				9A022B01249908C30052E819 /* NOTEbookUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -331,13 +286,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9A022AF5249908C30052E819 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A022B00249908C30052E819 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -379,13 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9A022AFE249908C30052E819 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,11 +338,6 @@
 			isa = PBXTargetDependency;
 			target = 9A022AE0249908C00052E819 /* NOTEbook */;
 			targetProxy = 9A022AF8249908C30052E819 /* PBXContainerItemProxy */;
-		};
-		9A022B04249908C30052E819 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9A022AE0249908C00052E819 /* NOTEbook */;
-			targetProxy = 9A022B03249908C30052E819 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -575,6 +512,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbookTests/Info.plist;
@@ -586,6 +524,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbookTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NOTEbook.app/NOTEbook";
@@ -597,6 +536,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbookTests/Info.plist;
@@ -611,46 +551,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NOTEbook.app/NOTEbook";
-			};
-			name = Release;
-		};
-		9A022B12249908C30052E819 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3245FW657Z;
-				INFOPLIST_FILE = NOTEbookUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NOTEbook;
-			};
-			name = Debug;
-		};
-		9A022B13249908C30052E819 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3245FW657Z;
-				INFOPLIST_FILE = NOTEbookUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NOTEbook;
 			};
 			name = Release;
 		};
@@ -680,15 +580,6 @@
 			buildConfigurations = (
 				9A022B0F249908C30052E819 /* Debug */,
 				9A022B10249908C30052E819 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9A022B11249908C30052E819 /* Build configuration list for PBXNativeTarget "NOTEbookUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9A022B12249908C30052E819 /* Debug */,
-				9A022B13249908C30052E819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
