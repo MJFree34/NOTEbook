@@ -43,26 +43,3 @@ class FingeringViewController: UIViewController {
         ])
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//
-//struct FingeringViewRepresentable: UIViewRepresentable {
-//    func makeUIView(context: Context) -> UIView {
-//        let vc = FingeringViewController()
-//        vc.fingering = Fingering(keys: [false, true, false])
-//        return vc.view
-//    }
-//
-//    func updateUIView(_ view: UIView, context: Context) {
-//        // Update your code here
-//    }
-//}
-//
-//@available(iOS 13.0, *)
-//struct FingeringViewController_Preview: PreviewProvider {
-//    static var previews: some View {
-//        FingeringViewRepresentable()
-//    }
-//}
-//#endif

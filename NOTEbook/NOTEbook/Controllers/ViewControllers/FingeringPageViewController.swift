@@ -60,10 +60,7 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = fingeringViewControllers.firstIndex(of: viewController as! FingeringViewController) {
-            if viewControllerIndex == 0 {
-                // Wrap to last vc in array
-                return fingeringViewControllers.last
-            } else {
+            if viewControllerIndex != 0 {
                 // Go to previous vc in array
                 return fingeringViewControllers[viewControllerIndex - 1]
             }
@@ -76,16 +73,12 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
             if viewControllerIndex < fingeringViewControllers.count - 1 {
                 // Go to next vc in array
                 return fingeringViewControllers[viewControllerIndex + 1]
-            } else {
-                // Wrap to first vc in array
-                return fingeringViewControllers.first
             }
         }
         return nil
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-            
         // Set the pageControl.currentPage to the index of the current vc in fingeringVCs
         if let viewControllers = pageViewController.viewControllers {
             if let viewControllerIndex = fingeringViewControllers.firstIndex(of: viewControllers[0] as! FingeringViewController) {
@@ -94,26 +87,3 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
         }
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//
-//struct FingeringPageViewRepresentable: UIViewRepresentable {
-//    func makeUIView(context: Context) -> UIView {
-//        let vc = FingeringPageViewController()
-//        vc.fingerings = [Fingering(keys: [false, true, false]), Fingering(keys: [true, false, true])]
-//        return vc.view
-//    }
-//
-//    func updateUIView(_ view: UIView, context: Context) {
-//        // Update your code here
-//    }
-//}
-//
-//@available(iOS 13.0, *)
-//struct FingeringPageViewController_Preview: PreviewProvider {
-//    static var previews: some View {
-//        FingeringPageViewRepresentable()
-//    }
-//}
-//#endif

@@ -358,4 +358,28 @@ struct Note: Codable, Equatable {
         
         return newNote
     }
+    
+    func capitalizedLetter(from noteType: NoteType) -> String {
+        switch self.letter {
+        case .b:
+            if noteType == .flat && self.type != .flat {
+                return NoteLetter.c.rawValue.capitalized
+            }
+        case .c:
+            if noteType == .sharp && self.type != .sharp {
+                return NoteLetter.b.rawValue.capitalized
+            }
+        case .e:
+            if noteType == .flat && self.type != .flat {
+                return NoteLetter.f.rawValue.capitalized
+            }
+        case .f:
+            if noteType == .sharp && self.type != .sharp {
+                return NoteLetter.e.rawValue.capitalized
+            }
+        case .a, .d, .g:
+            break
+        }
+        return self.letter.rawValue.capitalized
+    }
 }

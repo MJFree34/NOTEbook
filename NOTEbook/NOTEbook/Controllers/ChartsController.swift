@@ -62,6 +62,9 @@ extension ChartsController {
         case .natural:
             return currentChart.naturalNotes[index]
         case .sharp:
+            if index == currentChart.sharpNotes.count {
+                return currentChart.sharpNotes[currentChart.sharpNotes.count - 1]
+            }
             return currentChart.sharpNotes[index]
         case .flat:
             return currentChart.flatNotes[index]

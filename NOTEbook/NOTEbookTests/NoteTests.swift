@@ -57,4 +57,44 @@ class NoteTests: XCTestCase {
         XCTAssertEqual(b5Note.nextNote(), Note(letter: .c, type: .natural, octave: .six))
         XCTAssertEqual(e6Note.nextNote(), Note(letter: .f, type: .natural, octave: .six))
     }
+    
+    func testPreviousOctave() {
+        XCTAssertEqual(c3Note.octave.previousOctave(), NoteOctave.two)
+        XCTAssertEqual(f4Note.octave.previousOctave(), NoteOctave.three)
+        XCTAssertEqual(g5Note.octave.previousOctave(), NoteOctave.four)
+        XCTAssertEqual(e6Note.octave.previousOctave(), NoteOctave.five)
+    }
+    
+    func testNextOctave() {
+        XCTAssertEqual(c3Note.octave.nextOctave(), NoteOctave.four)
+        XCTAssertEqual(f4Note.octave.nextOctave(), NoteOctave.five)
+        XCTAssertEqual(g5Note.octave.nextOctave(), NoteOctave.six)
+        XCTAssertEqual(e6Note.octave.nextOctave(), NoteOctave.seven)
+    }
+    
+    func testCapitalizedLetter() {
+        XCTAssertEqual(c3Note.capitalizedLetter(from: .flat), "C")
+        XCTAssertEqual(c3Note.capitalizedLetter(from: .natural), "C")
+        XCTAssertEqual(c3Note.capitalizedLetter(from: .sharp), "B")
+        
+        XCTAssertEqual(f4Note.capitalizedLetter(from: .flat), "F")
+        XCTAssertEqual(f4Note.capitalizedLetter(from: .natural), "F")
+        XCTAssertEqual(f4Note.capitalizedLetter(from: .sharp), "E")
+        
+        XCTAssertEqual(g5Note.capitalizedLetter(from: .flat), "G")
+        XCTAssertEqual(g5Note.capitalizedLetter(from: .natural), "G")
+        XCTAssertEqual(g5Note.capitalizedLetter(from: .sharp), "G")
+        
+        XCTAssertEqual(a5Note.capitalizedLetter(from: .flat), "A")
+        XCTAssertEqual(a5Note.capitalizedLetter(from: .natural), "A")
+        XCTAssertEqual(a5Note.capitalizedLetter(from: .sharp), "A")
+        
+        XCTAssertEqual(b5Note.capitalizedLetter(from: .flat), "C")
+        XCTAssertEqual(b5Note.capitalizedLetter(from: .natural), "B")
+        XCTAssertEqual(b5Note.capitalizedLetter(from: .sharp), "B")
+        
+        XCTAssertEqual(e6Note.capitalizedLetter(from: .flat), "F")
+        XCTAssertEqual(e6Note.capitalizedLetter(from: .natural), "E")
+        XCTAssertEqual(e6Note.capitalizedLetter(from: .sharp), "E")
+    }
 }

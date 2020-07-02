@@ -141,31 +141,29 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-//#if DEBUG
-//import SwiftUI
-//
-//struct NoteChartViewRepresentable: UIViewRepresentable {
-//    func makeUIView(context: Context) -> UIView {
-//        return NoteChartViewController().view
-//    }
-//    
-//    func updateUIView(_ view: UIView, context: Context) {
-//        // Update your code here
-//    }
-//}
-//
-//@available(iOS 13.0, *)
-//struct NoteChartViewController_Preview: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            NoteChartViewRepresentable()
-//                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-//                .previewDisplayName("iPhone XS Max")
-//            
-//            NoteChartViewRepresentable()
-//                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-//                .previewDisplayName("iPhone SE")
-//        }
-//    }
-//}
-//#endif
+#if DEBUG
+import SwiftUI
+
+struct NoteChartViewRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        return NoteChartViewController().view
+    }
+    
+    func updateUIView(_ view: UIView, context: Context) {
+        // Update your code here
+    }
+}
+
+struct NoteChartViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            NoteChartViewRepresentable()
+                .previewDisplayName("iPhone 11 Pro Max")
+                .previewDevice("iPhone 11 Pro Max")
+            NoteChartViewRepresentable()
+                .previewDisplayName("iPhone SE (2nd generation)")
+                .previewDevice("iPhone SE (2nd generation)")
+        }
+    }
+}
+#endif

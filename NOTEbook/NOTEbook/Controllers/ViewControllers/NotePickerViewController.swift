@@ -113,8 +113,8 @@ class NotePickerViewController: UIViewController {
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.startingNote)
         
         configureHeader()
-        configureSwipeArrows()
         configureNoteLetter()
+        configureSwipeArrows()
         configureFingeringPageView()
         configureBottomStaff()
         configurePicker()
@@ -165,6 +165,36 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
+    func configureNoteLetter() {
+        addGradientLabel()
+        view.addSubview(noteLetterView)
+        
+        letterFlat.alpha = 0
+        addGradientFlat()
+        view.addSubview(letterFlat)
+        
+        letterSharp.alpha = 0
+        addGradientSharp()
+        view.addSubview(letterSharp)
+        
+        NSLayoutConstraint.activate([
+            noteLetterView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor, constant: -60),
+            noteLetterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noteLetterView.heightAnchor.constraint(equalToConstant: 100),
+            noteLetterView.widthAnchor.constraint(equalToConstant: 85),
+            
+            letterFlat.centerYAnchor.constraint(equalTo: noteLetterView.centerYAnchor),
+            letterFlat.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
+            letterFlat.heightAnchor.constraint(equalToConstant: 60),
+            letterFlat.widthAnchor.constraint(equalToConstant: 18.25),
+            
+            letterSharp.centerYAnchor.constraint(equalTo: noteLetterView.centerYAnchor),
+            letterSharp.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
+            letterSharp.heightAnchor.constraint(equalToConstant: 68),
+            letterSharp.widthAnchor.constraint(equalToConstant: 26.87),
+        ])
+    }
+    
     func configureSwipeArrows() {
         view.addSubview(rightArrow)
         view.addSubview(rightArrowNatural)
@@ -178,7 +208,7 @@ class NotePickerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             rightArrow.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            rightArrow.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            rightArrow.centerYAnchor.constraint(equalTo: noteLetterView.centerYAnchor, constant: -60),
             
             rightArrowNatural.trailingAnchor.constraint(equalTo: rightArrow.leadingAnchor, constant: -5),
             rightArrowNatural.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
@@ -194,36 +224,6 @@ class NotePickerViewController: UIViewController {
             
             arrowFlat.leadingAnchor.constraint(equalTo: leftArrow.trailingAnchor, constant: 5),
             arrowFlat.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor)
-        ])
-    }
-    
-    func configureNoteLetter() {
-        addGradientLabel()
-        view.addSubview(noteLetterView)
-        
-        letterFlat.alpha = 0
-        addGradientFlat()
-        view.addSubview(letterFlat)
-        
-        letterSharp.alpha = 0
-        addGradientSharp()
-        view.addSubview(letterSharp)
-        
-        NSLayoutConstraint.activate([
-            noteLetterView.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
-            noteLetterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            noteLetterView.heightAnchor.constraint(equalToConstant: 100),
-            noteLetterView.widthAnchor.constraint(equalToConstant: 85),
-            
-            letterFlat.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
-            letterFlat.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
-            letterFlat.heightAnchor.constraint(equalToConstant: 60),
-            letterFlat.widthAnchor.constraint(equalToConstant: 18.25),
-            
-            letterSharp.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
-            letterSharp.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
-            letterSharp.heightAnchor.constraint(equalToConstant: 68),
-            letterSharp.widthAnchor.constraint(equalToConstant: 26.87),
         ])
     }
     
@@ -261,7 +261,7 @@ class NotePickerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             fingeringPageViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -100),
+            fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -50),
             fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40),
             fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: 170)
         ])
@@ -269,7 +269,7 @@ class NotePickerViewController: UIViewController {
     
     func configureBottomStaff() {
         let width: CGFloat = view.bounds.width - 40
-        let bottomInset: CGFloat = view.bounds.height / 4 - letterLabel.bounds.height / 2 - NotePickerViewController.spaceBetweenStaffLines * 2
+        let bottomInset: CGFloat = 200 - NotePickerViewController.spaceBetweenStaffLines * 3
         
         for i in 0..<5 {
             addStaffLine(bottomInset: bottomInset + (NotePickerViewController.spaceBetweenStaffLines * (4 - CGFloat(i))), width: width)
@@ -327,8 +327,8 @@ class NotePickerViewController: UIViewController {
         NSLayoutConstraint.activate([
             picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            picker.centerYAnchor.constraint(equalTo: trebleClefImageView.centerYAnchor, constant: -2.5),
-            picker.heightAnchor.constraint(equalToConstant: 400)
+            picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 14.4)
         ])
     }
     
@@ -475,7 +475,7 @@ extension NotePickerViewController: UICollectionViewDelegate {
         
         fingeringPageViewController.fingerings = currentNoteFingering.fingerings
         
-        letterLabel.text = currentNote.letter.rawValue.capitalized
+        letterLabel.text = currentNote.capitalizedLetter(from: currentNoteType)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -517,31 +517,29 @@ extension NotePickerViewController: UICollectionViewDataSource {
     }
 }
 
-//#if DEBUG
-//import SwiftUI
-//
-//struct NotePickerViewRepresentable: UIViewRepresentable {
-//    func makeUIView(context: Context) -> UIView {
-//        return NotePickerViewController().view
-//    }
-//    
-//    func updateUIView(_ view: UIView, context: Context) {
-//        // Update your code here
-//    }
-//}
-//
-//@available(iOS 13.0, *)
-//struct NotePickerViewController_Preview: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            NotePickerViewRepresentable()
-//                .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-//                .previewDisplayName("iPhone XS Max")
-//            
-//            NotePickerViewRepresentable()
-//                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-//                .previewDisplayName("iPhone SE")
-//        }
-//    }
-//}
-//#endif
+#if DEBUG
+import SwiftUI
+
+struct NotePickerViewRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        return NotePickerViewController().view
+    }
+    
+    func updateUIView(_ view: UIView, context: Context) {
+        // Update your code here
+    }
+}
+
+struct NotePickerViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            NoteChartViewRepresentable()
+                .previewDisplayName("iPhone 11 Pro Max")
+                .previewDevice("iPhone 11 Pro Max")
+            NoteChartViewRepresentable()
+                .previewDisplayName("iPhone SE (2nd generation)")
+                .previewDevice("iPhone SE (2nd generation)")
+        }
+    }
+}
+#endif
