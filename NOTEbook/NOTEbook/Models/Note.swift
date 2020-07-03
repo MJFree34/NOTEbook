@@ -116,6 +116,12 @@ struct Note: Codable, Equatable {
         }
     }()
     
+    init(letter: NoteLetter, type: NoteType, octave: NoteOctave) {
+        self.letter = letter
+        self.type = type
+        self.octave = octave
+    }
+    
     func previousNote() -> Note {
         var newNote = self
         

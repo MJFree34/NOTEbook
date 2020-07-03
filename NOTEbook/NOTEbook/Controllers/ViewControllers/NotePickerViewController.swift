@@ -269,7 +269,7 @@ class NotePickerViewController: UIViewController {
     
     func configureBottomStaff() {
         let width: CGFloat = view.bounds.width - 40
-        let bottomInset: CGFloat = 200 - NotePickerViewController.spaceBetweenStaffLines * 3
+        let bottomInset: CGFloat = 200 - NotePickerViewController.spaceBetweenStaffLines * 2.5
         
         for i in 0..<5 {
             addStaffLine(bottomInset: bottomInset + (NotePickerViewController.spaceBetweenStaffLines * (4 - CGFloat(i))), width: width)
@@ -328,7 +328,7 @@ class NotePickerViewController: UIViewController {
             picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 14.4)
+            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 15.8)
         ])
     }
     
