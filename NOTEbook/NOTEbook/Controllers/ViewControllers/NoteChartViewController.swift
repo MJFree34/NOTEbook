@@ -89,7 +89,8 @@ class NoteChartViewController: UIViewController {
     }
     
     @objc func settingsButtonTapped() {
-        // TODO: - Settings
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func instrumentsButtonTapped() {
