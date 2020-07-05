@@ -20,6 +20,32 @@ class NotePickerViewController: UIViewController {
     
     var currentNoteFingering: NoteFingering!
     
+    lazy var settingsBarButton: UIBarButtonItem = {
+        let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
+        let image = UIImage(systemName: "gear", withConfiguration: imageConfiguration)!
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingsButtonTapped))
+        
+        return button
+    }()
+    
+    lazy var gridButton: UIButton = {
+        let image = UIImage(named: "GridButton")!
+        let pressedImage = UIImage(named: "PressedGridButton")!
+        let button = UIButton(type: .custom)
+        button.setImage(image, for: .normal)
+        button.setImage(pressedImage, for: .highlighted)
+        button.addTarget(self, action: #selector(gridButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    lazy var instrumentsBarButton: UIBarButtonItem = {
+        let image = UIImage(named: "InstrumentsButton")!
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
+        
+        return button
+    }()
+    
     lazy var rightArrow: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,57 +138,15 @@ class NotePickerViewController: UIViewController {
         
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.startingNote)
         
-        configureHeader()
         configureNoteLetter()
         configureSwipeArrows()
         configureFingeringPageView()
         configureBottomStaff()
         configurePicker()
-    }
-    
-    func configureHeader() {
-        let settingsImageConfiguration = UIImage.SymbolConfiguration(pointSize: 50, weight: .heavy)
-        let settingsImage = UIImage(systemName: "gear", withConfiguration: settingsImageConfiguration)!
-        let settingsButton = UIButton(type: .custom)
-        settingsButton.setImage(settingsImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
-        settingsButton.setImage(settingsImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(settingsButton)
         
-        let gridButtonImage = UIImage(named: "GridButton")!
-        let gridButtonPressedImage = UIImage(named: "PressedGridButton")!
-        let gridButton = UIButton(type: .custom)
-        gridButton.setImage(gridButtonImage, for: .normal)
-        gridButton.setImage(gridButtonPressedImage, for: .highlighted)
-        gridButton.addTarget(self, action: #selector(gridButtonTapped), for: .touchUpInside)
-        gridButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(gridButton)
-        
-        let instrumentsButtonImage = UIImage(named: "InstrumentsButton")!
-        let instrumentsButton = UIButton(type: .custom)
-        instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
-        instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
-        instrumentsButton.addTarget(self, action: #selector(instrumentsButtonTapped), for: .touchUpInside)
-        instrumentsButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(instrumentsButton)
-        
-        NSLayoutConstraint.activate([
-            settingsButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            settingsButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            settingsButton.widthAnchor.constraint(equalToConstant: 50),
-            settingsButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            gridButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gridButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            gridButton.heightAnchor.constraint(equalToConstant: 50),
-            gridButton.widthAnchor.constraint(equalToConstant: 50),
-            
-            instrumentsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            instrumentsButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            instrumentsButton.widthAnchor.constraint(equalToConstant: 50),
-            instrumentsButton.heightAnchor.constraint(equalToConstant: 50),
-        ])
+        navigationItem.leftBarButtonItem = settingsBarButton
+        navigationItem.titleView = gridButton
+        navigationItem.rightBarButtonItem = instrumentsBarButton
     }
     
     func configureNoteLetter() {
@@ -178,7 +162,7 @@ class NotePickerViewController: UIViewController {
         view.addSubview(letterSharp)
         
         NSLayoutConstraint.activate([
-            noteLetterView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor, constant: -60),
+            noteLetterView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor, constant: -100),
             noteLetterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             noteLetterView.heightAnchor.constraint(equalToConstant: 100),
             noteLetterView.widthAnchor.constraint(equalToConstant: 85),

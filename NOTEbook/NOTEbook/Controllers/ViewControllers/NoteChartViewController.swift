@@ -9,9 +9,46 @@
 import UIKit
 
 class NoteChartViewController: UIViewController {
-    var collectionView: UICollectionView!
+    lazy var collectionView: UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        cv.dataSource = self
+        cv.delegate = self
+        cv.alwaysBounceVertical = true
+        cv.backgroundColor = .clear
+        cv.showsVerticalScrollIndicator = false
+        cv.register(NoteChartCell.self, forCellWithReuseIdentifier: NoteChartCell.reuseIdentifier)
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        
+        return cv
+    }()
     
     var chartsController = ChartsController.shared
+    
+    lazy var settingsBarButton: UIBarButtonItem = {
+        let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
+        let image = UIImage(systemName: "gear", withConfiguration: imageConfiguration)!
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingsButtonTapped))
+        
+        return button
+    }()
+    
+    lazy var pickerButton: UIButton = {
+        let image = UIImage(named: "PickerButton")!
+        let pressedImage = UIImage(named: "PressedPickerButton")!
+        let button = UIButton(type: .custom)
+        button.setImage(image, for: .normal)
+        button.setImage(pressedImage, for: .highlighted)
+        button.addTarget(self, action: #selector(pickerButtonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    lazy var instrumentsBarButton: UIBarButtonItem = {
+        let image = UIImage(named: "InstrumentsButton")!
+        let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
+        
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,68 +57,19 @@ class NoteChartViewController: UIViewController {
         
         view.addBackgroundGradient()
         
-        configureHeader()
         configureCollectionView()
-    }
-    
-    func configureHeader() {
-        let settingsImageConfiguration = UIImage.SymbolConfiguration(pointSize: 50, weight: .heavy)
-        let settingsImage = UIImage(systemName: "gear", withConfiguration: settingsImageConfiguration)!
-        let settingsButton = UIButton(type: .system)
-        settingsButton.setImage(settingsImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
-        settingsButton.setImage(settingsImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(settingsButton)
         
-        let pickerButtonImage = UIImage(named: "PickerButton")!
-        let pickerButtonPressedImage = UIImage(named: "PressedPickerButton")!
-        let pickerButton = UIButton(type: .custom)
-        pickerButton.setImage(pickerButtonImage, for: .normal)
-        pickerButton.setImage(pickerButtonPressedImage, for: .highlighted)
-        pickerButton.addTarget(self, action: #selector(pickerButtonTapped), for: .touchUpInside)
-        pickerButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(pickerButton)
-        
-        let instrumentsButtonImage = UIImage(named: "InstrumentsButton")!
-        let instrumentsButton = UIButton(type: .custom)
-        instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "DarkAqua")!, renderingMode: .alwaysOriginal), for: .normal)
-        instrumentsButton.setImage(instrumentsButtonImage.withTintColor(UIColor(named: "LightAqua")!, renderingMode: .alwaysOriginal), for: .highlighted)
-        instrumentsButton.addTarget(self, action: #selector(instrumentsButtonTapped), for: .touchUpInside)
-        instrumentsButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(instrumentsButton)
-        
-        NSLayoutConstraint.activate([
-            settingsButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            settingsButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            settingsButton.widthAnchor.constraint(equalToConstant: 50),
-            settingsButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            pickerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pickerButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            pickerButton.heightAnchor.constraint(equalToConstant: 50),
-            pickerButton.widthAnchor.constraint(equalToConstant: 50),
-            
-            instrumentsButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            instrumentsButton.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            instrumentsButton.widthAnchor.constraint(equalToConstant: 50),
-            instrumentsButton.heightAnchor.constraint(equalToConstant: 50),
-        ])
+        navigationItem.backBarButtonItem = nil
+        navigationItem.leftBarButtonItem = settingsBarButton
+        navigationItem.titleView = pickerButton
+        navigationItem.rightBarButtonItem = instrumentsBarButton
     }
     
     func configureCollectionView() {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.alwaysBounceVertical = true
-        collectionView.backgroundColor = .clear
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(NoteChartCell.self, forCellWithReuseIdentifier: NoteChartCell.reuseIdentifier)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 70),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -124,9 +112,7 @@ extension NoteChartViewController: UICollectionViewDataSource {
     }
 }
 
-extension NoteChartViewController: UICollectionViewDelegate {
-    
-}
+extension NoteChartViewController: UICollectionViewDelegate {}
 
 extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

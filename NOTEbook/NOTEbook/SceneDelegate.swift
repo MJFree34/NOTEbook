@@ -18,7 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let nav = UINavigationController(rootViewController: NotePickerViewController())
-        nav.isNavigationBarHidden = true
+        nav.navigationBar.tintColor = UIColor(named: "DarkAqua")!
+        nav.navigationBar.shadowImage = UIImage()
+        nav.navigationBar.barTintColor = UIColor(named: "White")
+        nav.navigationBar.isTranslucent = true
+        nav.navigationBar.barStyle = .default
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene

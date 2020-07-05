@@ -64,7 +64,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GridButton" width="50" height="50"/>
+        <image name="GridButton" width="44" height="44"/>
         <image name="PickerButton" width="50" height="50"/>
         <namedColor name="DarkAqua">
             <color red="0.27099999785423279" green="0.58799999952316284" blue="0.60799998044967651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
