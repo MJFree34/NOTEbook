@@ -427,7 +427,7 @@ class NotePickerViewController: UIViewController {
     }
     
     @objc func settingsButtonTapped() {
-        let vc = SettingsViewController()
+        let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
     

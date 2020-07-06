@@ -21,6 +21,7 @@
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
 		9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */; };
+		9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FED124B278380002D50C /* TutorialViewController.swift */; };
 		9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D423249C3BE1001E108B /* ChartsLoader.swift */; };
 		9A81D426249D5219001E108B /* FingeringPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D425249D5218001E108B /* FingeringPageViewController.swift */; };
 		9A81D428249D53A2001E108B /* FingeringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D427249D53A2001E108B /* FingeringViewController.swift */; };
@@ -65,6 +66,7 @@
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
 		9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9A73FED124B278380002D50C /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		9A81D423249C3BE1001E108B /* ChartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
 		9A81D425249D5218001E108B /* FingeringPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringPageViewController.swift; sourceTree = "<group>"; };
 		9A81D427249D53A2001E108B /* FingeringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */,
 				9A81D425249D5218001E108B /* FingeringPageViewController.swift */,
 				9A81D427249D53A2001E108B /* FingeringViewController.swift */,
+				9A73FED124B278380002D50C /* TutorialViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
 				9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */,
+				9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,
 				9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
