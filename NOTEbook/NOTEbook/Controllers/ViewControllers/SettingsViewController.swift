@@ -48,13 +48,17 @@ class SettingsViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else { fatalError() }
 
         cell.backgroundColor = UIColor(named: "LightestAqua")
+        cell.selectedBackgroundView = UIView()
+        cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
 
         switch sections[indexPath.section] {
         case .actions:
             cell.textLabel?.text = actions[indexPath.row]
             cell.textLabel?.textColor = UIColor(named: "DarkAqua")
+            cell.textLabel?.highlightedTextColor = UIColor(named: "LightAqua")
         case .about:
             cell.textLabel?.text = about[indexPath.row][0]
+            cell.selectionStyle = .none
 
             let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
             accessoryLabel.font = UIFont.preferredFont(forTextStyle: .body)
