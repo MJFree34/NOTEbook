@@ -27,6 +27,7 @@ class SettingsViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.backgroundColor = UIColor(named: "LightestestAqua")
+        tableView.isScrollEnabled = false
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,23 +103,23 @@ class SettingsViewController: UITableViewController {
 #if DEBUG
 import SwiftUI
 
-struct SettingsViewRepresentable: UIViewRepresentable {
-    func makeUIView(context: Context) -> UIView {
-        return SettingsViewController(style: .insetGrouped).view
+struct SettingsViewControllerRepresentable: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> some UIViewController {
+        return SettingsViewController(style: .insetGrouped)
     }
-
-    func updateUIView(_ view: UIView, context: Context) {
-        // Update your code here
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        // Update code
     }
 }
 
 struct SettingsViewController_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SettingsViewRepresentable()
+            SettingsViewControllerRepresentable()
                 .previewDisplayName("iPhone 11 Pro Max")
                 .previewDevice("iPhone 11 Pro Max")
-            SettingsViewRepresentable()
+            SettingsViewControllerRepresentable()
                 .preferredColorScheme(.dark)
                 .previewDisplayName("iPhone SE (2nd generation)")
                 .previewDevice("iPhone SE (2nd generation)")
