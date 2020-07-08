@@ -11,6 +11,7 @@ enum Section: String {
 }
 
 import UIKit
+import MessageUI
 
 class SettingsViewController: UITableViewController {
     let sections = [Section.actions, Section.about]
@@ -28,6 +29,8 @@ class SettingsViewController: UITableViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.backgroundColor = UIColor(named: "LightestestAqua")
         tableView.isScrollEnabled = false
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,12 +49,12 @@ class SettingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else { fatalError() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         cell.backgroundColor = UIColor(named: "LightestAqua")
         cell.selectedBackgroundView = UIView()
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
-
+        
         switch sections[indexPath.section] {
         case .actions:
             cell.textLabel?.text = actions[indexPath.row]
@@ -81,8 +84,7 @@ class SettingsViewController: UITableViewController {
                 // TODO: Show tutorial
                 print("Show tutorial")
             case 1:
-                // TODO: Show email
-                print("Show email")
+                sendEmail()
             default:
                 break
             }
@@ -97,6 +99,29 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+}
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mailVC = MFMailComposeViewController()
+            mailVC.mailComposeDelegate = self
+            mailVC.setToRecipients(["mjfree34@gmail.com"])
+            mailVC.setSubject("Feedback for NOTEbook")
+            
+            present(mailVC, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Error sending email", message: "Please make sure your device has mail setup.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Okay", style: .default))
+            
+            present(ac, animated: true)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+        tableView.deselectRow(at: IndexPath(row: 1, section: 0), animated: true)
     }
 }
 
