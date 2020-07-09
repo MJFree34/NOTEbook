@@ -108,8 +108,8 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         if MFMailComposeViewController.canSendMail() {
             let mailVC = MFMailComposeViewController()
             mailVC.mailComposeDelegate = self
-            mailVC.setToRecipients(["mjfree34@gmail.com"])
-            mailVC.setSubject("Feedback for NOTEbook")
+            mailVC.setToRecipients(["MusiciansNOTEbook.Feedback@gmail.com"])
+            mailVC.setSubject("NOTEbook Feedback and Suggestions")
             
             present(mailVC, animated: true)
         } else {

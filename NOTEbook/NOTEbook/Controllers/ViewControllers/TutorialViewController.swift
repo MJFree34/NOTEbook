@@ -26,7 +26,7 @@ class TutorialViewController: UIViewController {
         let button = UIButton(type: .roundedRect)
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
-        button.setTitleColor(UIColor(named: "LightAqua"), for: .normal)
+        button.setTitleColor(UIColor(named: "LightestAqua"), for: .normal)
         button.backgroundColor = UIColor(named: "MediumRed")
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
@@ -60,9 +60,9 @@ class TutorialViewController: UIViewController {
         view.addSubview(bottomButton)
         
         NSLayoutConstraint.activate([
-            bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bottomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bottomButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
+            bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            bottomButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            bottomButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             bottomButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
@@ -80,8 +80,8 @@ class TutorialViewController: UIViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomButton.topAnchor)
         ])
