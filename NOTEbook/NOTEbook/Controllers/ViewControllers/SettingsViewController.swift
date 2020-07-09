@@ -81,8 +81,9 @@ class SettingsViewController: UITableViewController {
         case .actions:
             switch indexPath.row {
             case 0:
-                // TODO: Show tutorial
-                print("Show tutorial")
+                navigationController?.present(TutorialViewController(), animated: true, completion: { [weak self] in
+                    self?.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+                })
             case 1:
                 sendEmail()
             default:

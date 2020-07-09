@@ -147,6 +147,11 @@ class NotePickerViewController: UIViewController {
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
+        
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
+            UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.tutorialHasShown)
+            navigationController?.present(TutorialViewController(), animated: true)
+        }
     }
     
     func configureNoteLetter() {

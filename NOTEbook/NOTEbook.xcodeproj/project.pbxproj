@@ -36,6 +36,7 @@
 		9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574224995B1D0078CB7E /* Instrument.swift */; };
 		9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574424995CAB0078CB7E /* NoteFingering.swift */; };
 		9AD5574724995EC10078CB7E /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5574624995EC10078CB7E /* Charts.json */; };
+		9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		9AD5574224995B1D0078CB7E /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		9AD5574424995CAB0078CB7E /* NoteFingering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingering.swift; sourceTree = "<group>"; };
 		9AD5574624995EC10078CB7E /* Charts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
+		9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				9AD55736249954B10078CB7E /* UIView+Extensions.swift */,
 				9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */,
 				9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */,
+				9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */,
 				9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,
+				9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */,
 				9A6CD4D424B4C35400D91A83 /* TutorialInfo.swift in Sources */,
 				9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,

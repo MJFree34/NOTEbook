@@ -22,6 +22,19 @@ class TutorialViewController: UIViewController {
         return label
     }()
     
+    lazy var bottomButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.setTitle("Continue", for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        button.setTitleColor(UIColor(named: "LightAqua"), for: .normal)
+        button.backgroundColor = UIColor(named: "MediumRed")
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     let tableView = UITableView()
     
     override func viewDidLoad() {
@@ -30,6 +43,7 @@ class TutorialViewController: UIViewController {
         view.backgroundColor = UIColor(named: "LightestAqua")
         
         addTitleLabel()
+        addBottomButton()
         setupTableView()
     }
     
@@ -37,8 +51,19 @@ class TutorialViewController: UIViewController {
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    func addBottomButton() {
+        view.addSubview(bottomButton)
+        
+        NSLayoutConstraint.activate([
+            bottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bottomButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
+            bottomButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
@@ -48,6 +73,7 @@ class TutorialViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -57,8 +83,12 @@ class TutorialViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: bottomButton.topAnchor)
         ])
+    }
+    
+    @objc func dismissButtonTapped() {
+        dismiss(animated: true)
     }
 }
 
