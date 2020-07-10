@@ -9,7 +9,7 @@
 import UIKit
 
 class TutorialViewController: UIViewController {
-    let tutorialInformation = [TutorialInfo(imageName: "PickerButton", description: "The picker screen allows you to pick a note and see its fingering."), TutorialInfo(imageName: "TODO", description: "Each note has alternate fingerings that you can scroll through to find the perfect one."), TutorialInfo(imageName: "TODO", description: "Swipe left and right to see notes down a half step, and righ tot left ot see notes up a half step."), TutorialInfo(imageName: "TODO", description: "Use the picker to select any note by swiping left or right or tapping on the desired note if it is visible."), TutorialInfo(imageName: "GridButton", description: "The grid screen allows you to see all the notes and fingerings together."), TutorialInfo(imageName: "gear", description: "Customize your experience in settings and send suggestions to the developer.")]
+    let tutorialInformation = [TutorialInfo(imageName: "PickerButton", description: "The picker screen allows you to pick a note and see its fingering."), TutorialInfo(imageName: "TutorialFingerings", description: "Each note has alternate fingerings that you can scroll through to find the perfect one."), TutorialInfo(imageName: "TutorialArrows", description: "Swipe left to right to see notes down a half-step, or right to left to see notes up a half-step."), TutorialInfo(imageName: "TutorialPicker", description: "Use the picker to select any note by swiping left or right or tapping on the desired note if it is visible."), TutorialInfo(imageName: "GridButton", description: "The grid screen allows you to see all the notes and fingerings together."), TutorialInfo(imageName: "gear", description: "Customize your experience in settings and send suggestions to the developer!")]
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -74,7 +74,7 @@ class TutorialViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(TutorialCell.self, forCellReuseIdentifier: TutorialCell.reuseIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)
@@ -100,30 +100,15 @@ extension TutorialViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TutorialCell.reuseIdentifier, for: indexPath) as? TutorialCell else { fatalError() }
         
-        cell.backgroundColor = .clear
-        
-        let descriptionLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
-        descriptionLabel.textColor = UIColor(named: "DarkAqua")
-        descriptionLabel.text = tutorialInformation[indexPath.row].description
-        descriptionLabel.textAlignment = .left
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        cell.contentView.addSubview(descriptionLabel)
-        
-        NSLayoutConstraint.activate([
-            descriptionLabel.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 200),
-            descriptionLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor)
-        ])
+        cell.setupCell(with: tutorialInformation[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 100
     }
 }
 
