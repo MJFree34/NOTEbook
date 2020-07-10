@@ -62,7 +62,7 @@ class NoteChartViewController: UIViewController {
         navigationItem.backBarButtonItem = nil
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = pickerButton
-        navigationItem.rightBarButtonItem = instrumentsBarButton
+//        navigationItem.rightBarButtonItem = instrumentsBarButton
     }
     
     func configureCollectionView() {

@@ -146,7 +146,7 @@ class NotePickerViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
-        navigationItem.rightBarButtonItem = instrumentsBarButton
+//        navigationItem.rightBarButtonItem = instrumentsBarButton
         
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
             UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.tutorialHasShown)
