@@ -63,7 +63,8 @@ class TutorialCell: UITableViewCell {
             
             descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: imageContainer.trailingAnchor),
-            descriptionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            descriptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     

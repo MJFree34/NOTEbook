@@ -21,14 +21,13 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-
         title = "Settings"
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tableView.backgroundColor = UIColor(named: "LightestestAqua")
         tableView.isScrollEnabled = false
+        tableView.estimatedRowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -54,6 +53,8 @@ class SettingsViewController: UITableViewController {
         cell.backgroundColor = UIColor(named: "LightestAqua")
         cell.selectedBackgroundView = UIView()
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
+        
+        cell.textLabel?.numberOfLines = 0
         
         switch sections[indexPath.section] {
         case .actions:
@@ -96,10 +97,6 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].rawValue.capitalized
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
     }
 }
 
@@ -147,6 +144,7 @@ struct SettingsViewController_Previews: PreviewProvider {
                 .previewDevice("iPhone 11 Pro Max")
             SettingsViewControllerRepresentable()
                 .preferredColorScheme(.dark)
+                .environment(\.sizeCategory, .large)
                 .previewDisplayName("iPhone SE (2nd generation)")
                 .previewDevice("iPhone SE (2nd generation)")
         }

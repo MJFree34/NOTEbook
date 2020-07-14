@@ -74,6 +74,7 @@ class TutorialViewController: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        tableView.estimatedRowHeight = 100
         tableView.register(TutorialCell.self, forCellReuseIdentifier: TutorialCell.reuseIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -106,10 +107,6 @@ extension TutorialViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
 }
 
 #if DEBUG
@@ -133,7 +130,7 @@ struct TutorialViewController_Previews: PreviewProvider {
                 .previewDevice("iPhone 11 Pro Max")
             TutorialViewControllerRepresentable()
                 .preferredColorScheme(.dark)
-                .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
+                .environment(\.sizeCategory, .extraLarge)
                 .previewDisplayName("iPhone SE (2nd generation)")
                 .previewDevice("iPhone SE (2nd generation)")
         }

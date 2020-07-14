@@ -124,6 +124,7 @@ class NotePickerViewController: UIViewController {
         super.viewDidLoad()
         
         view.addBackgroundGradient()
+        view.backgroundColor = UIColor(named: "White")
         
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
         swipeLeft.numberOfTouchesRequired = 1
