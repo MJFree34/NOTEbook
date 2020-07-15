@@ -140,6 +140,11 @@
         ],
         "flatNotes": [
             {
+                "letter": "c",
+                "type": "natural",
+                "octave": "three"
+            },
+            {
                 "letter": "d",
                 "type": "flat",
                 "octave": "three"
@@ -379,6 +384,11 @@
             {
                 "letter": "f",
                 "type": "natural",
+                "octave": "six"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
                 "octave": "six"
             }
         ],
@@ -1331,6 +1341,24 @@
                         "keys": [
                             true,
                             false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "octave": "six"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
                             false
                         ]
                     }
