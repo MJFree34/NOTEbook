@@ -66,7 +66,7 @@ class NotePicker: UIView {
     }
     
     override init(frame: CGRect) {
-        collectionView = UICollectionView(frame: frame, collectionViewLayout: NotePickerFlowLayout())
+        collectionView = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
         super.init(frame: frame)
         
         initialize()
@@ -89,8 +89,8 @@ class NotePicker: UIView {
         }
     }
     
-    private var flowLayout: NotePickerFlowLayout? {
-        return collectionView.collectionViewLayout as? NotePickerFlowLayout
+    private var flowLayout: UICollectionViewFlowLayout? {
+        return collectionView.collectionViewLayout as? UICollectionViewFlowLayout
     }
     
     private var forwardDelegate: NotePickerForwardDelegate!
@@ -196,13 +196,11 @@ extension NotePicker: UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidEndDecelerating?(scrollView)
-        
         didScroll(end: true)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         delegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
-        
         if !decelerate {
             didScroll(end: true)
         }
@@ -210,6 +208,8 @@ extension NotePicker: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll?(scrollView)
+        
+        didScroll(end: false)
         
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
@@ -220,12 +220,11 @@ extension NotePicker: UIScrollViewDelegate {
 
 extension NotePicker: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let number = collectionView.numberOfItems(inSection: section)
         let firstIndexPath = IndexPath(item: 0, section: section)
         let firstSize = self.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: firstIndexPath)
-        let lastIndexPath = IndexPath(item: number - 1, section: section)
+        let lastIndexPath = IndexPath(item: collectionView.numberOfItems(inSection: section) - 1, section: section)
         let lastSize = self.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: lastIndexPath)
-        return UIEdgeInsets(top: 0, left: (collectionView.bounds.size.width - firstSize.width/2) / 2, bottom: 0, right: (collectionView.bounds.size.width - lastSize.width/2) / 2)
+        return UIEdgeInsets(top: 0, left: (collectionView.bounds.size.width - firstSize.width / 2) / 2, bottom: 0, right: (collectionView.bounds.size.width - lastSize.width / 2) / 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

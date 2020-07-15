@@ -458,7 +458,6 @@ class NotePickerViewController: UIViewController {
 extension NotePickerViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.item
-        print("Selected index: \(index)")
         
         let currentNote = chartsController.currentNote(from: currentNoteType, index: index)
         
@@ -468,17 +467,9 @@ extension NotePickerViewController: UICollectionViewDelegate {
         
         letterLabel.text = currentNote.capitalizedLetter(from: currentNoteType)
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("Scroll: \(scrollView.contentOffset.x)")
-    }
 }
 
 extension NotePickerViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch currentNoteType {
         case .natural:

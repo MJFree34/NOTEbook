@@ -14,7 +14,6 @@
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
 		9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28E10D24A79828005B3EA4 /* NoteTests.swift */; };
 		9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */; };
-		9A438146249E3CA500EDC58F /* NotePickerFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438145249E3CA500EDC58F /* NotePickerFlowLayout.swift */; };
 		9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438147249E3CE400EDC58F /* NotePicker.swift */; };
 		9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438149249E3E2600EDC58F /* NotePickerCell.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
@@ -62,7 +61,6 @@
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A28E10D24A79828005B3EA4 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
-		9A438145249E3CA500EDC58F /* NotePickerFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerFlowLayout.swift; sourceTree = "<group>"; };
 		9A438147249E3CE400EDC58F /* NotePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePicker.swift; sourceTree = "<group>"; };
 		9A438149249E3E2600EDC58F /* NotePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCell.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */,
-				9A438145249E3CA500EDC58F /* NotePickerFlowLayout.swift */,
 				9A438147249E3CE400EDC58F /* NotePicker.swift */,
 				9A438149249E3E2600EDC58F /* NotePickerCell.swift */,
 				9ABA603724B8E6C900633E06 /* TutorialCell.swift */,
@@ -334,7 +331,6 @@
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
 				9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */,
-				9A438146249E3CA500EDC58F /* NotePickerFlowLayout.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
