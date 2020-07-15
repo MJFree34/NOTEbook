@@ -95,6 +95,8 @@ class NotePicker: UIView {
     
     private var forwardDelegate: NotePickerForwardDelegate!
     
+    private var selectedTapped = false
+    
     private func initialize() {
         addSubview(collectionView)
         
@@ -166,7 +168,8 @@ class NotePicker: UIView {
 // MARK: - UICollectionViewDelegate
 extension NotePicker: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectItem(at: indexPath.item, animated: true)
+        selectedTapped = true
+        selectItem(at: indexPath.row, animated: true)
     }
 }
 
@@ -209,12 +212,18 @@ extension NotePicker: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll?(scrollView)
         
-        didScroll(end: false)
+        if !selectedTapped {
+            didScroll(end: false)
+        }
         
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         collectionView.layer.mask?.frame = collectionView.bounds
         CATransaction.commit()
+    }
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        selectedTapped = false
     }
 }
 
