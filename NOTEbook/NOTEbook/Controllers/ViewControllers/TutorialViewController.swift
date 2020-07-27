@@ -89,6 +89,8 @@ class TutorialViewController: UIViewController {
     }
     
     @objc func dismissButtonTapped() {
+        UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        
         dismiss(animated: true)
     }
 }

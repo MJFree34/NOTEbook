@@ -27,6 +27,7 @@
 		9A81D428249D53A2001E108B /* FingeringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D427249D53A2001E108B /* FingeringViewController.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
 		9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA603724B8E6C900633E06 /* TutorialCell.swift */; };
+		9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */; };
 		9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5572E24994F110078CB7E /* Colors.xcassets */; };
 		9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573024994F880078CB7E /* UIFont+Extensions.swift */; };
 		9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD55736249954B10078CB7E /* UIView+Extensions.swift */; };
@@ -74,6 +75,7 @@
 		9A81D427249D53A2001E108B /* FingeringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringViewController.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
 		9ABA603724B8E6C900633E06 /* TutorialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCell.swift; sourceTree = "<group>"; };
+		9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AD5573024994F880078CB7E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9AD55736249954B10078CB7E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				9AD5573024994F880078CB7E /* UIFont+Extensions.swift */,
+				9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */,
 				9AD55736249954B10078CB7E /* UIView+Extensions.swift */,
 				9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */,
 				9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */,
@@ -335,6 +338,7 @@
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
 				9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */,
+				9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
 				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -510,7 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

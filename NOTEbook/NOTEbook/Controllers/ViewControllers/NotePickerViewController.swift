@@ -433,6 +433,8 @@ class NotePickerViewController: UIViewController {
     }
     
     @objc func settingsButtonTapped() {
+        UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        
         let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -442,6 +444,8 @@ class NotePickerViewController: UIViewController {
     }
     
     @objc func gridButtonTapped() {
+        UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        
         let vc = NoteChartViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -459,13 +463,18 @@ extension NotePickerViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.item
         
-        let currentNote = chartsController.currentNote(from: currentNoteType, index: index)
+        let selectedNote = chartsController.currentNote(from: currentNoteType, index: index)
+        let selectedFingering = chartsController.currentFingering(note: selectedNote)
         
-        currentNoteFingering = chartsController.currentFingering(note: currentNote)
-        
-        fingeringPageViewController.fingerings = currentNoteFingering.fingerings
-        
-        letterLabel.text = currentNote.capitalizedLetter(from: currentNoteType)
+        if currentNoteFingering != selectedFingering {
+            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+            
+            currentNoteFingering = selectedFingering
+            
+            fingeringPageViewController.fingerings = currentNoteFingering.fingerings
+            
+            letterLabel.text = selectedNote.capitalizedLetter(from: currentNoteType)
+        }
     }
 }
 

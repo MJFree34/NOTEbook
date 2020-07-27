@@ -23,7 +23,6 @@ class ChartsController {
         }
         
         currentChart = charts[0]
-        
     }
 }
 

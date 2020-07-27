@@ -8,7 +8,11 @@
 
 import Foundation
 
-struct NoteFingering: Codable {
+struct NoteFingering: Codable, Equatable {
     var notes: [Note]
     var fingerings: [Fingering]
+    
+    static func == (lhs: NoteFingering, rhs: NoteFingering) -> Bool {
+        return lhs.notes == rhs.notes && lhs.fingerings == rhs.fingerings
+    }
 }

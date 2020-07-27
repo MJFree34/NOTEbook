@@ -91,6 +91,8 @@ class NoteChartViewController: UIViewController {
     }
     
     @objc func settingsButtonTapped() {
+        UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        
         let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -100,6 +102,8 @@ class NoteChartViewController: UIViewController {
     }
     
     @objc func pickerButtonTapped() {
+        UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        
         navigationController?.popViewController(animated: true)
     }
     
