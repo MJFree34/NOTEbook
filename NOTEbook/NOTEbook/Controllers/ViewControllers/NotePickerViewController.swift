@@ -17,6 +17,7 @@ class NotePickerViewController: UIViewController {
     var letterLabel: UILabel!
     var fingeringPageViewController: FingeringPageViewController!
     var picker: NotePicker!
+    var staffView: StaffView!
     
     var currentNoteFingering: NoteFingering!
     
@@ -113,13 +114,6 @@ class NotePickerViewController: UIViewController {
         return view
     }()
     
-    lazy var trebleClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -142,8 +136,9 @@ class NotePickerViewController: UIViewController {
         configureNoteLetter()
         configureSwipeArrows()
         configureFingeringPageView()
-        configureBottomStaff()
         configurePicker()
+        configureStaffView()
+        configureIndicators()
         
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
@@ -257,50 +252,6 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
-    func configureBottomStaff() {
-        let width: CGFloat = view.bounds.width - 40
-        let bottomInset: CGFloat = 200 - NotePickerViewController.spaceBetweenStaffLines * 2.5
-        
-        for i in 0..<5 {
-            addStaffLine(bottomInset: bottomInset + (NotePickerViewController.spaceBetweenStaffLines * (4 - CGFloat(i))), width: width)
-        }
-        
-        view.addSubview(trebleClefImageView)
-        
-        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
-        leftIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(leftIndicator)
-        
-        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
-        rightIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(rightIndicator)
-
-        NSLayoutConstraint.activate([
-            trebleClefImageView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            trebleClefImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bottomInset + 40),
-            trebleClefImageView.heightAnchor.constraint(equalToConstant: 173),
-            trebleClefImageView.widthAnchor.constraint(equalToConstant: 62),
-            
-            leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45),
-            leftIndicator.centerYAnchor.constraint(equalTo: trebleClefImageView.centerYAnchor),
-            
-            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45),
-            rightIndicator.centerYAnchor.constraint(equalTo: trebleClefImageView.centerYAnchor),
-        ])
-    }
-    
-    func addStaffLine(bottomInset: CGFloat, width: CGFloat) {
-        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: width, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
-        staffImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(staffImageView)
-        
-        NSLayoutConstraint.activate([
-            staffImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -bottomInset),
-            staffImageView.heightAnchor.constraint(equalToConstant: 2),
-            staffImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-        ])
-    }
-    
     func configurePicker() {
         picker = NotePicker()
         picker.delegate = self
@@ -319,6 +270,40 @@ class NotePickerViewController: UIViewController {
             picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 15.8)
+        ])
+    }
+    
+    func configureStaffView() {
+        let staffWidth = view.bounds.width - 40
+        
+        staffView = StaffView(width: staffWidth)
+        view.addSubview(staffView)
+        
+        staffView.trebleClefImageView.isHidden = chartsController.currentChart.instrument.clef != .treble
+        staffView.bassClefImageView.isHidden = chartsController.currentChart.instrument.clef != .bass
+        
+        NSLayoutConstraint.activate([
+            staffView.centerXAnchor.constraint(equalTo: picker.centerXAnchor),
+            staffView.centerYAnchor.constraint(equalTo: picker.centerYAnchor, constant: NotePickerViewController.spaceBetweenStaffLines * 2),
+            staffView.widthAnchor.constraint(equalToConstant: staffWidth)
+        ])
+    }
+    
+    func configureIndicators() {
+        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
+        leftIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(leftIndicator)
+        
+        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
+        rightIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(rightIndicator)
+
+        NSLayoutConstraint.activate([
+            leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45),
+            leftIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
+            
+            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45),
+            rightIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
         ])
     }
     
