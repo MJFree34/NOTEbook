@@ -216,6 +216,15 @@ extension NotePicker: UIScrollViewDelegate {
             didScroll(end: false)
         }
         
+        let center = convert(collectionView.center, to: collectionView)
+        let totalCells = collectionView.numberOfItems(inSection: 0)
+        
+        if center.x < 209.5 {
+            scrollToItem(at: 0)
+        } else if center.x > 209.5 + 87.0 * CGFloat(totalCells - 1) {
+            scrollToItem(at: totalCells - 1)
+        }
+        
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         collectionView.layer.mask?.frame = collectionView.bounds

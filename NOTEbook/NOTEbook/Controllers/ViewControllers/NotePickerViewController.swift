@@ -342,9 +342,7 @@ class NotePickerViewController: UIViewController {
     }
     
     @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
-        let swipeDirection = swipe.direction
-        
-        if swipeDirection == .left {
+        if swipe.direction == .left {
             if currentNoteType == .natural {
                 currentNoteType = .sharp
                 

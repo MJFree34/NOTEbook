@@ -16,7 +16,7 @@ import MessageUI
 class SettingsViewController: UITableViewController {
     let sections = [Section.actions, Section.about]
     let actions = ["Show Tutorial", "Suggestions or Feedback?"]
-    let about = [["Current Version", "1.0 (6)"]]
+    let about = [["Current Version", "1.0 (7)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
