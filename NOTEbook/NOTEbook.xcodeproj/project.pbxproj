@@ -16,6 +16,7 @@
 		9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */; };
 		9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438147249E3CE400EDC58F /* NotePicker.swift */; };
 		9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438149249E3E2600EDC58F /* NotePickerCell.swift */; };
+		9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70724DB795300B493A1 /* DecodingTests.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
@@ -64,6 +65,7 @@
 		9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A438147249E3CE400EDC58F /* NotePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePicker.swift; sourceTree = "<group>"; };
 		9A438149249E3E2600EDC58F /* NotePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCell.swift; sourceTree = "<group>"; };
+		9A55D70724DB795300B493A1 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				9A022AFD249908C30052E819 /* Info.plist */,
 				9A28E10D24A79828005B3EA4 /* NoteTests.swift */,
+				9A55D70724DB795300B493A1 /* DecodingTests.swift */,
 			);
 			path = NOTEbookTests;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */,
 				9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,7 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -502,6 +506,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -514,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -522,6 +527,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

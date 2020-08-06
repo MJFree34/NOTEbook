@@ -231,21 +231,62 @@ extension NoteChartCell {
         }
         currentExtraLines.removeAll()
 
-        var firstNote = noteFingering.notes[0]
+        let firstNote = noteFingering.notes[0]
+        let secondNote = (noteFingering.notes.count == 2) ? noteFingering.notes[1] : noteFingering.notes[0]
         
-        let ab5Fix = firstNote.octave == .five && firstNote.letter == .g && firstNote.type == .sharp
-
-        if firstNote.extraLinesLocation != .none || ab5Fix {
-            let noteIsTop = firstNote.extraLinesLocation == .top || ab5Fix
-            let needsThickLine = firstNote.type == .flat || firstNote.type == .sharp
-            let properNumberOfExtraLines = (firstNote.octave == .five && firstNote.letter == .g && firstNote.type == .sharp) ? noteFingering.notes[1].numberOfExtraLines : firstNote.numberOfExtraLines
-            
-            let lineInsetFromTop: CGFloat = 0.2368421053 * NoteChartCell.cellHeight + (noteIsTop ? -40 : 40)
-            let lineInsetFromBottom: CGFloat = 0.5526315789 * NoteChartCell.cellHeight + (noteIsTop ? 40 : -40)
-            
-            for i in 1...properNumberOfExtraLines {
-                addExtraStaffLine(topInset: lineInsetFromTop + 10 * CGFloat(i) * (noteIsTop ? -1 : 1) + (noteIsTop ? 40 : 0), bottomInset: lineInsetFromBottom - 1 + 10 * (4 - CGFloat(i) * (noteIsTop ? -1 : 1)) - (noteIsTop ? 40 : 0), thickLine: needsThickLine)
-            }
+        let needsThickLine = firstNote.type == .flat || firstNote.type == .sharp
+        
+        let lineInsetFromTop: CGFloat = 0.2368421053 * NoteChartCell.cellHeight
+        let lineInsetFromBottom: CGFloat = 0.5526315789 * NoteChartCell.cellHeight
+        
+        switch firstNote.position {
+        case .bottom8thLine:
+            addExtraStaffLine(topInset: lineInsetFromTop + 119, bottomInset: lineInsetFromBottom - 80, thickLine: needsThickLine)
+            fallthrough
+        case .bottom7thLine, .bottom8thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 109, bottomInset: lineInsetFromBottom - 70, thickLine: needsThickLine)
+            fallthrough
+        case .bottom6thLine, .bottom7thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 99, bottomInset: lineInsetFromBottom - 60, thickLine: needsThickLine)
+            fallthrough
+        case .bottom5thLine, .bottom6thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 89, bottomInset: lineInsetFromBottom - 50, thickLine: needsThickLine)
+            fallthrough
+        case .bottom4thLine, .bottom5thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 79, bottomInset: lineInsetFromBottom - 40, thickLine: needsThickLine)
+            fallthrough
+        case .bottom3rdLine, .bottom4thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 69, bottomInset: lineInsetFromBottom - 30, thickLine: needsThickLine)
+            fallthrough
+        case .bottom2ndLine, .bottom3rdSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 59, bottomInset: lineInsetFromBottom - 20, thickLine: needsThickLine)
+            fallthrough
+        case .bottom1stLine, .bottom2ndSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop + 49, bottomInset: lineInsetFromBottom - 10, thickLine: needsThickLine)
+        default:
+            break
+        }
+        
+        switch secondNote.position {
+        case .top6thLine:
+            addExtraStaffLine(topInset: lineInsetFromTop - 60, bottomInset: lineInsetFromBottom + 99, thickLine: needsThickLine)
+            fallthrough
+        case .top5thLine, .top6thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop - 50, bottomInset: lineInsetFromBottom + 89, thickLine: needsThickLine)
+            fallthrough
+        case .top4thLine, .top5thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop - 40, bottomInset: lineInsetFromBottom + 79, thickLine: needsThickLine)
+            fallthrough
+        case .top3rdLine, .top4thSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop - 30, bottomInset: lineInsetFromBottom + 69, thickLine: needsThickLine)
+            fallthrough
+        case .top2ndLine, .top3rdSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop - 20, bottomInset: lineInsetFromBottom + 59, thickLine: needsThickLine)
+            fallthrough
+        case .top1stLine, .top2ndSpace:
+            addExtraStaffLine(topInset: lineInsetFromTop - 10, bottomInset: lineInsetFromBottom + 49, thickLine: needsThickLine)
+        default:
+            break
         }
     }
     
@@ -332,76 +373,82 @@ extension NoteChartCell {
     }
     
     func calculateNoteTopInset(note: Note) -> CGFloat {
-        switch note.octave {
-        case .three:
-            switch note.letter {
-            case .c:
-                return 115
-            case .d:
-                return 110
-            case .e:
-                return 105
-            case .f:
-                return 100
-            case .g:
-                return 95
-            case .a:
-                return 90
-            case .b:
-                return 85
-            }
-        case .four:
-            switch note.letter {
-            case .c:
-                return 80
-            case .d:
-                return 75
-            case .e:
-                return 70
-            case .f:
-                return 65
-            case .g:
-                return 60
-            case .a:
-                return 55
-            case .b:
-                return 50
-            }
-        case .five:
-            switch note.letter {
-            case .c:
-                return 45
-            case .d:
-                return 40
-            case .e:
-                return 35
-            case .f:
-                return 30
-            case .g:
-                return 25
-            case .a:
-                return 20
-            case .b:
-                return 15
-            }
-        case .six:
-            switch note.letter {
-            case .c:
-                return 10
-            case .d:
-                return 5
-            case .e:
-                return 0
-            case .f:
-                return -5
-            case .g, .a, .b:
-                break
-            }
-        case .zero, .one, .two, .seven:
-            break
+        switch note.position {
+        case .bottom8thLine:
+            return 150
+        case .bottom8thSpace:
+            return 145
+        case .bottom7thLine:
+            return 140
+        case .bottom7thSpace:
+            return 135
+        case .bottom6thLine:
+            return 130
+        case .bottom6thSpace:
+            return 125
+        case .bottom5thLine:
+            return 120
+        case .bottom5thSpace:
+            return 115
+        case .bottom4thLine:
+            return 110
+        case .bottom4thSpace:
+            return 105
+        case .bottom3rdLine:
+            return 100
+        case .bottom3rdSpace:
+            return 95
+        case .bottom2ndLine:
+            return 90
+        case .bottom2ndSpace:
+            return 85
+        case .bottom1stLine:
+            return 80
+        case .bottom1stSpace:
+            return 75
+        case .middle1stLine:
+            return 70
+        case .middle1stSpace:
+            return 65
+        case .middle2ndLine:
+            return 60
+        case .middle2ndSpace:
+            return 55
+        case .middle3rdLine:
+            return 50
+        case .middle3rdSpace:
+            return 45
+        case .middle4thLine:
+            return 40
+        case .middle4thSpace:
+            return 35
+        case .middle5thLine:
+            return 30
+        case .top1stSpace:
+            return 25
+        case .top1stLine:
+            return 20
+        case .top2ndSpace:
+            return 15
+        case .top2ndLine:
+            return 10
+        case .top3rdSpace:
+            return 5
+        case .top3rdLine:
+            return 0
+        case .top4thSpace:
+            return -5
+        case .top4thLine:
+            return -10
+        case .top5thSpace:
+            return -15
+        case .top5thLine:
+            return -20
+        case .top6thSpace:
+            return -25
+        case .top6thLine:
+            return -30
         }
-        
-        return 0
     }
     
     func createWholeNote() -> UIImageView {

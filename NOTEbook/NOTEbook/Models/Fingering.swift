@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Fingering: Codable, Equatable {
+struct Fingering: Decodable, Equatable {
     var keys: [Bool]
 }

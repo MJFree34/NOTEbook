@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct FingeringChart: Codable {
+struct FingeringChart: Decodable {
     var instrument: Instrument
-    var startingNote: Note
+    var centerNote: Note
     var naturalNotes: [Note]
     var flatNotes: [Note]
     var sharpNotes: [Note]

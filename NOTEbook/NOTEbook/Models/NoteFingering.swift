@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NoteFingering: Codable, Equatable {
+struct NoteFingering: Decodable, Equatable {
     var notes: [Note]
     var fingerings: [Fingering]
     

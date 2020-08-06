@@ -137,7 +137,7 @@ class NotePickerViewController: UIViewController {
         view.addGestureRecognizer(swipeLeft)
         view.addGestureRecognizer(swipeRight)
         
-        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.startingNote)
+        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
         configureNoteLetter()
         configureSwipeArrows()
@@ -159,11 +159,11 @@ class NotePickerViewController: UIViewController {
         addGradientLabel()
         view.addSubview(noteLetterView)
         
-        letterFlat.alpha = 0
+        letterFlat.isHidden = true
         addGradientFlat()
         view.addSubview(letterFlat)
         
-        letterSharp.alpha = 0
+        letterSharp.isHidden = true
         addGradientSharp()
         view.addSubview(letterSharp)
         
@@ -309,7 +309,7 @@ class NotePickerViewController: UIViewController {
         picker.collectionView.register(NotePickerCell.self, forCellWithReuseIdentifier: NotePickerCell.reuseIdentifier)
         picker.cellSpacing = 0
         picker.cellSize = 87
-        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.startingNote)!
+        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         picker.reloadData()
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
@@ -322,6 +322,25 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
+    func showOrHideLetterAccidentals() {
+        if currentNoteType == .flat {
+            if (currentNoteFingering.notes[0].letter == .b && currentNoteFingering.notes[0].type == .natural) || (currentNoteFingering.notes[0].letter == .e && currentNoteFingering.notes[0].type == .natural) {
+                letterFlat.isHidden = true
+            } else {
+                letterFlat.isHidden = false
+            }
+        } else if currentNoteType == .sharp {
+            if (currentNoteFingering.notes[0].letter == .f && currentNoteFingering.notes[0].type == .natural) || (currentNoteFingering.notes[0].letter == .c && currentNoteFingering.notes[0].type == .natural) {
+                letterSharp.isHidden = true
+            } else {
+                letterSharp.isHidden = false
+            }
+        } else {
+            letterFlat.isHidden = true
+            letterSharp.isHidden = true
+        }
+    }
+    
     @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
         let swipeDirection = swipe.direction
         
@@ -329,24 +348,13 @@ class NotePickerViewController: UIViewController {
             if currentNoteType == .natural {
                 currentNoteType = .sharp
                 
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.fingeringPageViewController.view.alpha = 0
-                }) { _ in
-                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote.nextNote())!.fingerings
-                    
-                    self.picker.reloadData()
-                    
-                    UIView.animate(withDuration: 0.25) {
-                        self.fingeringPageViewController.view.alpha = 1
-                    }
-                }
+                self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
                     self.arrowFlat.alpha = 0
                     self.rightArrow.alpha = 0
                     self.arrowSharp.alpha = 0
                     self.leftArrowNatural.alpha = 1
-                    self.letterSharp.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -354,24 +362,13 @@ class NotePickerViewController: UIViewController {
             } else if currentNoteType == .flat {
                 currentNoteType = .natural
                 
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.fingeringPageViewController.view.alpha = 0
-                }) { _ in
-                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote)!.fingerings
-                    
-                    self.picker.reloadData()
-                    
-                    UIView.animate(withDuration: 0.25) {
-                        self.fingeringPageViewController.view.alpha = 1
-                    }
-                }
+                self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
                     self.rightArrowNatural.alpha = 0
                     self.arrowSharp.alpha = 1
                     self.leftArrow.alpha = 1
                     self.arrowFlat.alpha = 1
-                    self.letterFlat.alpha = 0
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -381,24 +378,13 @@ class NotePickerViewController: UIViewController {
             if currentNoteType == .natural {
                 currentNoteType = .flat
                 
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.fingeringPageViewController.view.alpha = 0
-                }) { _ in
-                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote.previousNote())!.fingerings
-                    
-                    self.picker.reloadData()
-                    
-                    UIView.animate(withDuration: 0.25) {
-                        self.fingeringPageViewController.view.alpha = 1
-                    }
-                }
+                self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
                     self.arrowFlat.alpha = 0
                     self.leftArrow.alpha = 0
                     self.arrowSharp.alpha = 0
                     self.rightArrowNatural.alpha = 1
-                    self.letterFlat.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -406,24 +392,13 @@ class NotePickerViewController: UIViewController {
             } else if currentNoteType == .sharp {
                 currentNoteType = .natural
                 
-                UIView.animate(withDuration: 0.25, animations: {
-                    self.fingeringPageViewController.view.alpha = 0
-                }) { _ in
-                    self.fingeringPageViewController.fingerings = self.chartsController.noteFingeringInCurrentChart(for: self.chartsController.currentChart.startingNote)!.fingerings
-                    
-                    self.picker.reloadData()
-                    
-                    UIView.animate(withDuration: 0.25) {
-                        self.fingeringPageViewController.view.alpha = 1
-                    }
-                }
+                self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
                     self.leftArrowNatural.alpha = 0
                     self.arrowFlat.alpha = 1
                     self.rightArrow.alpha = 1
                     self.arrowSharp.alpha = 1
-                    self.letterSharp.alpha = 0
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -473,7 +448,9 @@ extension NotePickerViewController: UICollectionViewDelegate {
             
             fingeringPageViewController.fingerings = currentNoteFingering.fingerings
             
-            letterLabel.text = selectedNote.capitalizedLetter(from: currentNoteType)
+            letterLabel.text = selectedNote.capitalizedLetter()
+            
+            showOrHideLetterAccidentals()
         }
     }
 }

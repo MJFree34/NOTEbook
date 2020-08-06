@@ -10,105 +10,21 @@ import XCTest
 @testable import NOTEbook
 
 class NoteTests: XCTestCase {
-    var c3Note = Note(letter: .c, type: .natural, octave: .three)
-    var cSharp3Note = Note(letter: .c, type: .sharp, octave: .three)
-    var dFlat3Note = Note(letter: .d, type: .flat, octave: .three)
-    var d3Note = Note(letter: .d, type: .natural, octave: .three)
-    var f4Note = Note(letter: .f, type: .natural, octave: .four)
-    var g5Note = Note(letter: .g, type: .natural, octave: .five)
-    var a5Note = Note(letter: .a, type: .natural, octave: .five)
-    var b5Note = Note(letter: .b, type: .natural, octave: .five)
-    var e6Note = Note(letter: .e, type: .natural, octave: .six)
+    let bassHighMediumASharp = Note(letter: .a, type: .sharp, pitch: .highMedium, clef: .bass)
+    let bassLowMediumB = Note(letter: .b, type: .natural, pitch: .lowMedium, clef: .bass)
+    let trebleLowC = Note(letter: .c, type: .natural, pitch: .low, clef: .treble)
+    let trebleVeryHighDFlat = Note(letter: .d, type: .flat, pitch: .veryHigh, clef: .treble)
+    let bassHighE = Note(letter: .e, type: .natural, pitch: .high, clef: .bass)
+    let trebleVeryLowFSharp = Note(letter: .f, type: .sharp, pitch: .veryLow, clef: .treble)
+    let bassLowGFlat = Note(letter: .g, type: .flat, pitch: .low, clef: .bass)
     
-    func testNumberOfExtraLines() {
-        XCTAssertEqual(c3Note.numberOfExtraLines, 4)
-        XCTAssertEqual(cSharp3Note.numberOfExtraLines, 4)
-        XCTAssertEqual(dFlat3Note.numberOfExtraLines, 4)
-        XCTAssertEqual(d3Note.numberOfExtraLines, 4)
-        XCTAssertEqual(f4Note.numberOfExtraLines, 0)
-        XCTAssertEqual(g5Note.numberOfExtraLines, 0)
-        XCTAssertEqual(a5Note.numberOfExtraLines, 1)
-        XCTAssertEqual(b5Note.numberOfExtraLines, 1)
-        XCTAssertEqual(e6Note.numberOfExtraLines, 3)
-    }
-    
-    func testExtraLinesLocation() {
-        XCTAssertEqual(c3Note.extraLinesLocation, .bottom)
-        XCTAssertEqual(cSharp3Note.extraLinesLocation, .bottom)
-        XCTAssertEqual(dFlat3Note.extraLinesLocation, .bottom)
-        XCTAssertEqual(d3Note.extraLinesLocation, .bottom)
-        XCTAssertEqual(f4Note.extraLinesLocation, .none)
-        XCTAssertEqual(g5Note.extraLinesLocation, .none)
-        XCTAssertEqual(a5Note.extraLinesLocation, .top)
-        XCTAssertEqual(b5Note.extraLinesLocation, .top)
-        XCTAssertEqual(e6Note.extraLinesLocation, .top)
-    }
-    
-    func testPreviousNote() {
-        XCTAssertEqual(c3Note.previousNote(), Note(letter: .c, type: .natural, octave: .three))
-        XCTAssertEqual(cSharp3Note.previousNote(), Note(letter: .c, type: .natural, octave: .three))
-        XCTAssertEqual(dFlat3Note.previousNote(), Note(letter: .c, type: .natural, octave: .three))
-        XCTAssertEqual(d3Note.previousNote(), Note(letter: .d, type: .flat, octave: .three))
-        XCTAssertEqual(f4Note.previousNote(), Note(letter: .e, type: .natural, octave: .four))
-        XCTAssertEqual(g5Note.previousNote(), Note(letter: .g, type: .flat, octave: .five))
-        XCTAssertEqual(a5Note.previousNote(), Note(letter: .a, type: .flat, octave: .five))
-        XCTAssertEqual(b5Note.previousNote(), Note(letter: .b, type: .flat, octave: .five))
-        XCTAssertEqual(e6Note.previousNote(), Note(letter: .e, type: .flat, octave: .six))
-    }
-    
-    func testNextNote() {
-        XCTAssertEqual(c3Note.nextNote(), Note(letter: .c, type: .sharp, octave: .three))
-        XCTAssertEqual(cSharp3Note.nextNote(), Note(letter: .d, type: .natural, octave: .three))
-        XCTAssertEqual(dFlat3Note.nextNote(), Note(letter: .d, type: .natural, octave: .three))
-        XCTAssertEqual(d3Note.nextNote(), Note(letter: .d, type: .sharp, octave: .three))
-        XCTAssertEqual(f4Note.nextNote(), Note(letter: .f, type: .sharp, octave: .four))
-        XCTAssertEqual(g5Note.nextNote(), Note(letter: .g, type: .sharp, octave: .five))
-        XCTAssertEqual(a5Note.nextNote(), Note(letter: .a, type: .sharp, octave: .five))
-        XCTAssertEqual(b5Note.nextNote(), Note(letter: .c, type: .natural, octave: .six))
-        XCTAssertEqual(e6Note.nextNote(), Note(letter: .f, type: .natural, octave: .six))
-    }
-    
-    func testPreviousOctave() {
-        XCTAssertEqual(c3Note.octave.previousOctave(), NoteOctave.two)
-        XCTAssertEqual(f4Note.octave.previousOctave(), NoteOctave.three)
-        XCTAssertEqual(g5Note.octave.previousOctave(), NoteOctave.four)
-        XCTAssertEqual(e6Note.octave.previousOctave(), NoteOctave.five)
-    }
-    
-    func testNextOctave() {
-        XCTAssertEqual(c3Note.octave.nextOctave(), NoteOctave.four)
-        XCTAssertEqual(f4Note.octave.nextOctave(), NoteOctave.five)
-        XCTAssertEqual(g5Note.octave.nextOctave(), NoteOctave.six)
-        XCTAssertEqual(e6Note.octave.nextOctave(), NoteOctave.seven)
-    }
-    
-    func testCapitalizedLetter() {
-        XCTAssertEqual(a5Note.capitalizedLetter(from: .flat), "A")
-        XCTAssertEqual(a5Note.capitalizedLetter(from: .natural), "A")
-        XCTAssertEqual(a5Note.capitalizedLetter(from: .sharp), "A")
-        
-        XCTAssertEqual(b5Note.capitalizedLetter(from: .flat), "C")
-        XCTAssertEqual(b5Note.capitalizedLetter(from: .natural), "B")
-        XCTAssertEqual(b5Note.capitalizedLetter(from: .sharp), "B")
-        
-        XCTAssertEqual(c3Note.capitalizedLetter(from: .flat), "C")
-        XCTAssertEqual(c3Note.capitalizedLetter(from: .natural), "C")
-        XCTAssertEqual(c3Note.capitalizedLetter(from: .sharp), "B")
-        
-        XCTAssertEqual(d3Note.capitalizedLetter(from: .flat), "D")
-        XCTAssertEqual(d3Note.capitalizedLetter(from: .natural), "D")
-        XCTAssertEqual(d3Note.capitalizedLetter(from: .sharp), "D")
-        
-        XCTAssertEqual(f4Note.capitalizedLetter(from: .flat), "F")
-        XCTAssertEqual(f4Note.capitalizedLetter(from: .natural), "F")
-        XCTAssertEqual(f4Note.capitalizedLetter(from: .sharp), "E")
-        
-        XCTAssertEqual(g5Note.capitalizedLetter(from: .flat), "G")
-        XCTAssertEqual(g5Note.capitalizedLetter(from: .natural), "G")
-        XCTAssertEqual(g5Note.capitalizedLetter(from: .sharp), "G")
-        
-        XCTAssertEqual(e6Note.capitalizedLetter(from: .flat), "F")
-        XCTAssertEqual(e6Note.capitalizedLetter(from: .natural), "E")
-        XCTAssertEqual(e6Note.capitalizedLetter(from: .sharp), "E")
+    func testCalculatePosition() {
+        XCTAssertEqual(bassHighMediumASharp.position, NotePosition.middle1stSpace)
+        XCTAssertEqual(bassLowMediumB.position, NotePosition.bottom3rdSpace)
+        XCTAssertEqual(trebleLowC.position, NotePosition.bottom5thSpace)
+        XCTAssertEqual(trebleVeryHighDFlat.position, NotePosition.top6thLine)
+        XCTAssertEqual(bassHighE.position, NotePosition.top2ndLine)
+        XCTAssertEqual(trebleVeryLowFSharp.position, NotePosition.bottom7thSpace)
+        XCTAssertEqual(bassLowGFlat.position, NotePosition.bottom4thSpace)
     }
 }

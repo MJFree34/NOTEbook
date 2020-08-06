@@ -24,6 +24,10 @@ class NotePickerCell: UICollectionViewCell {
     var flat: UIImageView!
     var sharp: UIImageView!
     
+    var lowerLine8: UIImageView!
+    var lowerLine7: UIImageView!
+    var lowerLine6: UIImageView!
+    var lowerLine5: UIImageView!
     var lowerLine4: UIImageView!
     var lowerLine3: UIImageView!
     var lowerLine2: UIImageView!
@@ -31,16 +35,15 @@ class NotePickerCell: UICollectionViewCell {
     var upperLine1: UIImageView!
     var upperLine2: UIImageView!
     var upperLine3: UIImageView!
+    var upperLine4: UIImageView!
+    var upperLine5: UIImageView!
+    var upperLine6: UIImageView!
     
     var upperQuarterNoteCenterYConstraint: NSLayoutConstraint!
     var lowerQuarterNoteCenterYConstraint: NSLayoutConstraint!
     
     func initialize() {
-        let initNote = Note(letter: .c, type: .natural, octave: .five)
-        
-        if initNote.octave == .three || (initNote.octave == .four && initNote.letter != .b) {
-            quarterNoteOrientation = .lower
-        }
+        let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
         
         upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(UIColor(named: "Black")!))
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
@@ -90,6 +93,10 @@ class NotePickerCell: UICollectionViewCell {
     func configureExtraNoteLines() {
         let spacing = NotePickerViewController.spaceBetweenStaffLines
         
+        lowerLine8 = createExtraStaffLine()
+        lowerLine7 = createExtraStaffLine()
+        lowerLine6 = createExtraStaffLine()
+        lowerLine5 = createExtraStaffLine()
         lowerLine4 = createExtraStaffLine()
         lowerLine3 = createExtraStaffLine()
         lowerLine2 = createExtraStaffLine()
@@ -97,8 +104,15 @@ class NotePickerCell: UICollectionViewCell {
         upperLine1 = createExtraStaffLine()
         upperLine2 = createExtraStaffLine()
         upperLine3 = createExtraStaffLine()
+        upperLine4 = createExtraStaffLine()
+        upperLine5 = createExtraStaffLine()
+        upperLine6 = createExtraStaffLine()
         
         NSLayoutConstraint.activate([
+            lowerLine8.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 10),
+            lowerLine7.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 9),
+            lowerLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 8),
+            lowerLine5.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 7),
             lowerLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 6),
             lowerLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 5),
             lowerLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 4),
@@ -106,6 +120,9 @@ class NotePickerCell: UICollectionViewCell {
             upperLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -3),
             upperLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -4),
             upperLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -5),
+            upperLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -6),
+            upperLine5.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -7),
+            upperLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -8),
         ])
     }
     
@@ -124,7 +141,7 @@ class NotePickerCell: UICollectionViewCell {
     }
     
     func reloadViews() {
-        if note.octave == .three || (note.octave == .four && note.letter != .b) {
+        if note.position == .middle2ndSpace || note.position == .middle2ndLine || note.position == .middle1stSpace || note.position == .middle1stLine || note.position.findLocation() == .bottom {
             quarterNoteOrientation = .lower
         } else {
             quarterNoteOrientation = .upper
@@ -144,6 +161,10 @@ class NotePickerCell: UICollectionViewCell {
     }
     
     func displayExtraNoteLines() {
+        lowerLine8.isHidden = true
+        lowerLine7.isHidden = true
+        lowerLine6.isHidden = true
+        lowerLine5.isHidden = true
         lowerLine4.isHidden = true
         lowerLine3.isHidden = true
         lowerLine2.isHidden = true
@@ -151,37 +172,51 @@ class NotePickerCell: UICollectionViewCell {
         upperLine1.isHidden = true
         upperLine2.isHidden = true
         upperLine3.isHidden = true
+        upperLine4.isHidden = true
+        upperLine5.isHidden = true
+        upperLine6.isHidden = true
         
-        switch note.numberOfExtraLines {
-        case 4:
-            if note.extraLinesLocation == .top {
-                fatalError()
-            } else {
-                lowerLine4.isHidden = false
-                fallthrough
-            }
-        case 3:
-            if note.extraLinesLocation == .top {
-                upperLine3.isHidden = false
-                fallthrough
-            } else {
-                lowerLine3.isHidden = false
-                fallthrough
-            }
-        case 2:
-            if note.extraLinesLocation == .top {
-                upperLine2.isHidden = false
-                fallthrough
-            } else {
-                lowerLine2.isHidden = false
-                fallthrough
-            }
-        case 1:
-            if note.extraLinesLocation == .top {
-                upperLine1.isHidden = false
-            } else {
-                lowerLine1.isHidden = false
-            }
+        switch note.position {
+        case .bottom8thLine:
+            lowerLine8.isHidden = false
+            fallthrough
+        case .bottom7thLine, .bottom8thSpace:
+            lowerLine7.isHidden = false
+            fallthrough
+        case .bottom6thLine, .bottom7thSpace:
+            lowerLine6.isHidden = false
+            fallthrough
+        case .bottom5thLine, .bottom6thSpace:
+            lowerLine5.isHidden = false
+            fallthrough
+        case .bottom4thLine, .bottom5thSpace:
+            lowerLine4.isHidden = false
+            fallthrough
+        case .bottom3rdLine, .bottom4thSpace:
+            lowerLine3.isHidden = false
+            fallthrough
+        case .bottom2ndLine, .bottom3rdSpace:
+            lowerLine2.isHidden = false
+            fallthrough
+        case .bottom1stLine, .bottom2ndSpace:
+            lowerLine1.isHidden = false
+        case .top6thLine:
+            upperLine6.isHidden = false
+            fallthrough
+        case .top5thLine, .top6thSpace:
+            upperLine5.isHidden = false
+            fallthrough
+        case .top4thLine, .top5thSpace:
+            upperLine4.isHidden = false
+            fallthrough
+        case .top3rdLine, .top4thSpace:
+            upperLine3.isHidden = false
+            fallthrough
+        case .top2ndLine, .top3rdSpace:
+            upperLine2.isHidden = false
+            fallthrough
+        case .top1stLine, .top2ndSpace:
+            upperLine1.isHidden = false
         default:
             break
         }
@@ -192,76 +227,82 @@ class NotePickerCell: UICollectionViewCell {
         
         let spacing = NotePickerViewController.spaceBetweenStaffLines
         
-        switch note.octave {
-        case .three:
-            switch note.letter {
-            case .c:
-                return spacing * 6.5
-            case .d:
-                return spacing * 6
-            case .e:
-                return spacing * 5.5
-            case .f:
-                return spacing * 5
-            case .g:
-                return spacing * 4.5
-            case .a:
-                return spacing * 4
-            case .b:
-                return spacing * 3.5
-            }
-        case .four:
-            switch note.letter {
-            case .c:
-                return spacing * 3
-            case .d:
-                return spacing * 2.5
-            case .e:
-                return spacing * 2
-            case .f:
-                return spacing * 1.5
-            case .g:
-                return spacing
-            case .a:
-                return spacing * 0.5
-            case .b:
-                return 0
-            }
-        case .five:
-            switch note.letter {
-            case .c:
-                return -spacing * 0.5
-            case .d:
-                return -spacing
-            case .e:
-                return -spacing * 1.5
-            case .f:
-                return -spacing * 2
-            case .g:
-                return -spacing * 2.5
-            case .a:
-                return -spacing * 3
-            case .b:
-                return -spacing * 3.5
-            }
-        case .six:
-            switch note.letter {
-            case .c:
-                return -spacing * 4
-            case .d:
-                return -spacing * 4.5
-            case .e:
-                return -spacing * 5
-            case .f:
-                return -spacing * 5.5
-            case .g, .a, .b:
-                break
-            }
-        case .zero, .one, .two, .seven:
-            break
+        switch note.position {
+        case .bottom8thLine:
+            return spacing * 10
+        case .bottom8thSpace:
+            return spacing * 9.5
+        case .bottom7thLine:
+            return spacing * 9
+        case .bottom7thSpace:
+            return spacing * 8.5
+        case .bottom6thLine:
+            return spacing * 8
+        case .bottom6thSpace:
+            return spacing * 7.5
+        case .bottom5thLine:
+            return spacing * 7
+        case .bottom5thSpace:
+            return spacing * 6.5
+        case .bottom4thLine:
+            return spacing * 6
+        case .bottom4thSpace:
+            return spacing * 5.5
+        case .bottom3rdLine:
+            return spacing * 5
+        case .bottom3rdSpace:
+            return spacing * 4.5
+        case .bottom2ndLine:
+            return spacing * 4
+        case .bottom2ndSpace:
+            return spacing * 3.5
+        case .bottom1stLine:
+            return spacing * 3
+        case .bottom1stSpace:
+            return spacing * 2.5
+        case .middle1stLine:
+            return spacing * 2
+        case .middle1stSpace:
+            return spacing * 1.5
+        case .middle2ndLine:
+            return spacing
+        case .middle2ndSpace:
+            return spacing * 0.5
+        case .middle3rdLine:
+            return 0
+        case .middle3rdSpace:
+            return -spacing * 0.5
+        case .middle4thLine:
+            return -spacing
+        case .middle4thSpace:
+            return -spacing * 1.5
+        case .middle5thLine:
+            return -spacing * 2
+        case .top1stSpace:
+            return -spacing * 2.5
+        case .top1stLine:
+            return -spacing * 3
+        case .top2ndSpace:
+            return -spacing * 3.5
+        case .top2ndLine:
+            return -spacing * 4
+        case .top3rdSpace:
+            return -spacing * 4.5
+        case .top3rdLine:
+            return -spacing * 5
+        case .top4thSpace:
+            return -spacing * 5.5
+        case .top4thLine:
+            return -spacing * 6
+        case .top5thSpace:
+            return -spacing * 6.5
+        case .top5thLine:
+            return -spacing * 7
+        case .top6thSpace:
+            return -spacing * 7.5
+        case .top6thLine:
+            return -spacing * 8
         }
-        
-        return 0
     }
     
     convenience init(note: Note) {

@@ -2,394 +2,468 @@
     {
         "instrument": {
             "name": "Trumpet",
-            "numberOfKeys": 3
+            "clef": "treble"
         },
-        "startingNote": {
+        "centerNote": {
             "letter": "c",
             "type": "natural",
-            "octave": "five",
-            "numberOfExtraLines": 0,
-            "extraLinesLocation": "none"
+            "pitch": "highMedium",
+            "clef": "treble"
         },
         "naturalNotes": [
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "flatNotes": [
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "flat",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "flat",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "flat",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "flat",
-                "octave": "three"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "flat",
-                "octave": "three"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "flat",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "flat",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "flat",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "flat",
-                "octave": "four"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "flat",
-                "octave": "four"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "flat",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "flat",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "flat",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "flat",
-                "octave": "five"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "flat",
-                "octave": "five"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "flat",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "flat",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "e",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "sharpNotes": [
             {
                 "letter": "c",
                 "type": "sharp",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "sharp",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "sharp",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "sharp",
-                "octave": "three"
+                "pitch": "low",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "sharp",
-                "octave": "three"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "sharp",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "sharp",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "sharp",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "sharp",
-                "octave": "four"
+                "pitch": "lowMedium",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "sharp",
-                "octave": "four"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "sharp",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "sharp",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "sharp",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "g",
                 "type": "sharp",
-                "octave": "five"
+                "pitch": "highMedium",
+                "clef": "treble"
             },
             {
                 "letter": "a",
                 "type": "sharp",
-                "octave": "five"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "sharp",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "d",
                 "type": "sharp",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "natural",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             },
             {
                 "letter": "f",
                 "type": "sharp",
-                "octave": "six"
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "noteFingerings": [
@@ -398,7 +472,8 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -416,12 +491,14 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -439,7 +516,8 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -457,12 +535,14 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -480,7 +560,8 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -498,7 +579,8 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -516,12 +598,14 @@
                     {
                         "letter": "f",
                         "type": "sharp",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     },
                     {
                         "letter": "g",
                         "type": "flat",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -539,7 +623,8 @@
                     {
                         "letter": "g",
                         "type": "natural",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -557,12 +642,14 @@
                     {
                         "letter": "g",
                         "type": "sharp",
-                        "octave": "three"
+                        "pitch": "low",
+                        "clef": "treble"
                     },
                     {
                         "letter": "a",
                         "type": "flat",
-                        "octave": "three"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -580,7 +667,8 @@
                     {
                         "letter": "a",
                         "type": "natural",
-                        "octave": "three"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -605,585 +693,14 @@
                     {
                         "letter": "a",
                         "type": "sharp",
-                        "octave": "three"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     },
                     {
                         "letter": "b",
                         "type": "flat",
-                        "octave": "three"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": "three"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": "four"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": "four"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            false
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            true,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            false,
-                            true,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": "five"
-                    }
-                ],
-                "fingerings": [
-                    {
-                        "keys": [
-                            true,
-                            true,
-                            false
-                        ]
-                    },
-                    {
-                        "keys": [
-                            false,
-                            false,
-                            true
-                        ]
-                    }
-                ]
-            },
-            {
-                "notes": [
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": "five"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": "five"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1201,7 +718,8 @@
                     {
                         "letter": "b",
                         "type": "natural",
-                        "octave": "five"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1219,7 +737,8 @@
                     {
                         "letter": "c",
                         "type": "natural",
-                        "octave": "six"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1237,12 +756,621 @@
                     {
                         "letter": "c",
                         "type": "sharp",
-                        "octave": "six"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
                     },
                     {
                         "letter": "d",
                         "type": "flat",
-                        "octave": "six"
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1267,7 +1395,8 @@
                     {
                         "letter": "d",
                         "type": "natural",
-                        "octave": "six"
+                        "pitch": "high",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1292,12 +1421,14 @@
                     {
                         "letter": "d",
                         "type": "sharp",
-                        "octave": "six"
+                        "pitch": "high",
+                        "clef": "treble"
                     },
                     {
                         "letter": "e",
                         "type": "flat",
-                        "octave": "six"
+                        "pitch": "high",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1315,7 +1446,8 @@
                     {
                         "letter": "e",
                         "type": "natural",
-                        "octave": "six"
+                        "pitch": "high",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1333,7 +1465,8 @@
                     {
                         "letter": "f",
                         "type": "natural",
-                        "octave": "six"
+                        "pitch": "high",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [
@@ -1351,7 +1484,14 @@
                     {
                         "letter": "f",
                         "type": "sharp",
-                        "octave": "six"
+                        "pitch": "high",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "treble"
                     }
                 ],
                 "fingerings": [

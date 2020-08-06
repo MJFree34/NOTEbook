@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Instrument: Codable {
+struct Instrument: Decodable, Equatable {
     var name: String
-    var numberOfKeys: Int
+    var clef: Clef
 }
