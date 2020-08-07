@@ -22,7 +22,7 @@ class ChartsController {
             fatalError("Fail to load charts")
         }
         
-        currentChart = charts[0]
+        currentChart = charts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentInstrumentIndex)]
     }
 }
 
@@ -31,8 +31,18 @@ extension ChartsController {
         return currentChart.noteFingerings.count
     }
     
-    func chart(at index: Int) -> FingeringChart {
-        return charts[index]
+    var instruments: [InstrumentType] {
+        var instruments = [InstrumentType]()
+        
+        for chart in charts {
+            instruments.append(chart.instrument.type)
+        }
+        
+        return instruments
+    }
+    
+    func changeCurrentChartToChart(at index: Int) {
+        currentChart = charts[index]
     }
     
     func noteFingeringInCurrentChart(for note: Note) -> NoteFingering? {

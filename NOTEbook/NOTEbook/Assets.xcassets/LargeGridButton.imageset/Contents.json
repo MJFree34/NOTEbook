@@ -15,7 +15,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "TutorialFingerings@2x.png",
+      "filename" : "LargeGridButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -26,12 +26,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Group 1@2x.png",
+      "filename" : "LargePressedGridButton@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "TutorialFingerings@3x.png",
+      "filename" : "LargeGridButton@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -42,7 +42,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Group 1@3x.png",
+      "filename" : "LargePressedGridButton@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

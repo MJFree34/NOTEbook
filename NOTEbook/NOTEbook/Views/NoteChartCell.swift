@@ -465,45 +465,61 @@ extension NoteChartCell {
         
         currentFingerings.removeAll()
         
-        let trumpetViewWidth: CGFloat = 0.6875 * cellWidth
-        let trumpetViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
+        let roundFingeringViewWidth: CGFloat = 0.6875 * cellWidth
+        let roundFingeringViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
         
         if noteFingering.fingerings.count == 2 {
             let topInset: CGFloat = 0.7244736842 * NoteChartCell.cellHeight
             
-            let fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
+            let fingeringView: UIImageView
+            let fingeringView2: UIImageView
+            
+            switch ChartsController.shared.currentChart.instrument.type {
+            case .trumpet:
+                fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
+                fingeringView2 = createTrumpetNoteFingering(with: noteFingering.fingerings[1].keys)
+            case .euphoniumTCNC:
+                fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
+                fingeringView2 = createEuphoniumNoteFingering(with: noteFingering.fingerings[1].keys)
+            }
+            
             contentView.addSubview(fingeringView)
             currentFingerings.append(fingeringView)
             
-            NSLayoutConstraint.activate([
-                fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                fingeringView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-                fingeringView.heightAnchor.constraint(equalToConstant: trumpetViewHeight),
-                fingeringView.widthAnchor.constraint(equalToConstant: trumpetViewWidth),
-            ])
-            
-            let fingeringView2 = createTrumpetNoteFingering(with: noteFingering.fingerings[1].keys)
             contentView.addSubview(fingeringView2)
             currentFingerings.append(fingeringView2)
             
             NSLayoutConstraint.activate([
+                fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                fingeringView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
+                fingeringView.heightAnchor.constraint(equalToConstant: roundFingeringViewHeight),
+                fingeringView.widthAnchor.constraint(equalToConstant: roundFingeringViewWidth),
+                
                 fingeringView2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 fingeringView2.topAnchor.constraint(equalTo: fingeringView.bottomAnchor, constant: 2),
-                fingeringView2.heightAnchor.constraint(equalToConstant: trumpetViewHeight),
-                fingeringView2.widthAnchor.constraint(equalToConstant: trumpetViewWidth),
+                fingeringView2.heightAnchor.constraint(equalToConstant: roundFingeringViewHeight),
+                fingeringView2.widthAnchor.constraint(equalToConstant: roundFingeringViewWidth),
             ])
         } else {
             let topInset: CGFloat = 0.785 * NoteChartCell.cellHeight
             
-            let fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
+            let fingeringView: UIImageView
+            
+            switch ChartsController.shared.currentChart.instrument.type {
+            case .trumpet:
+                fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
+            case .euphoniumTCNC:
+                fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
+            }
+            
             contentView.addSubview(fingeringView)
             currentFingerings.append(fingeringView)
             
             NSLayoutConstraint.activate([
                 fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 fingeringView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-                fingeringView.heightAnchor.constraint(equalToConstant: trumpetViewHeight),
-                fingeringView.widthAnchor.constraint(equalToConstant: trumpetViewWidth),
+                fingeringView.heightAnchor.constraint(equalToConstant: roundFingeringViewHeight),
+                fingeringView.widthAnchor.constraint(equalToConstant: roundFingeringViewWidth),
             ])
         }
     }
@@ -518,8 +534,30 @@ extension NoteChartCell {
         
         let img = renderer.image { ctx in
             for (index, key) in keys.enumerated() {
-                let keyImage = UIImage(named: (key ? "CellTrumpetFingeringFull" : "CellTrumpetFingeringEmpty"))
+                let keyImage = UIImage(named: (key ? "RoundFingeringFull\(index + 1)" : "RoundFingeringEmpty\(index + 1)"))
                 keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * fingeringPositionMultiplier, y: 0), size: CGSize(width: trumpetFingeringWidth, height: trumpetFingeringWidth)))
+            }
+        }
+        
+        let imageView = UIImageView()
+        imageView.image = img.withTintColor(UIColor(named: "Black")!)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }
+    
+    func createEuphoniumNoteFingering(with keys: [Bool]) -> UIImageView {
+        let euphoniumViewWidth: CGFloat = 0.6875 * cellWidth
+        let euphoniumViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
+        let fingeringPositionMultiplier: CGFloat = 0.252 * euphoniumViewWidth
+        let euphoniumFingeringWidth: CGFloat = 0.161796875 * cellWidth
+        
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: euphoniumViewWidth, height: euphoniumViewHeight))
+        
+        let img = renderer.image { ctx in
+            for (index, key) in keys.enumerated() {
+                let keyImage = UIImage(named: (key ? "RoundFingeringFull\(index + 1)" : "RoundFingeringEmpty\(index + 1)"))
+                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * fingeringPositionMultiplier, y: 0), size: CGSize(width: euphoniumFingeringWidth, height: euphoniumFingeringWidth)))
             }
         }
         

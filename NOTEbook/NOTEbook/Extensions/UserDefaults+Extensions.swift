@@ -11,5 +11,6 @@ import Foundation
 extension UserDefaults {
     struct Keys {
         static let tutorialHasShown = "TutorialHasShown"
+        static let currentInstrumentIndex = "CurrentInstrumentIndex"
     }
 }

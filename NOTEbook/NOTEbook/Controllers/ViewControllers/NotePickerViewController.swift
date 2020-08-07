@@ -21,6 +21,8 @@ class NotePickerViewController: UIViewController {
     
     var currentNoteFingering: NoteFingering!
     
+    var fingeringViewWidthConstraint: NSLayoutConstraint!
+    
     lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
         let image = UIImage(systemName: "gear", withConfiguration: imageConfiguration)!
@@ -142,12 +144,18 @@ class NotePickerViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
-//        navigationItem.rightBarButtonItem = instrumentsBarButton
+        navigationItem.rightBarButtonItem = instrumentsBarButton
         
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
             UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.tutorialHasShown)
             navigationController?.present(TutorialViewController(), animated: true)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reloadInstrumentViews()
     }
     
     func configureNoteLetter() {
@@ -247,9 +255,11 @@ class NotePickerViewController: UIViewController {
         NSLayoutConstraint.activate([
             fingeringPageViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -50),
-            fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40),
-            fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: 170)
+            fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+        fingeringViewWidthConstraint = fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: CGFloat(chartsController.currentChart.instrument.fingeringWidth))
+        fingeringViewWidthConstraint.isActive = true
     }
     
     func configurePicker() {
@@ -277,10 +287,18 @@ class NotePickerViewController: UIViewController {
         let staffWidth = view.bounds.width - 40
         
         staffView = StaffView(width: staffWidth)
+        
+        resetStaffView()
+    }
+    
+    func resetStaffView() {
+        let staffWidth = view.bounds.width - 40
+        
+        staffView.removeFromSuperview()
+        
         view.addSubview(staffView)
         
-        staffView.trebleClefImageView.isHidden = chartsController.currentChart.instrument.clef != .treble
-        staffView.bassClefImageView.isHidden = chartsController.currentChart.instrument.clef != .bass
+        staffView.updateClef(with: chartsController.currentChart.instrument.clef)
         
         NSLayoutConstraint.activate([
             staffView.centerXAnchor.constraint(equalTo: picker.centerXAnchor),
@@ -305,6 +323,17 @@ class NotePickerViewController: UIViewController {
             rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45),
             rightIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
         ])
+    }
+    
+    func reloadInstrumentViews() {
+        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
+        
+        picker.reloadData()
+        
+        resetStaffView()
+        
+        fingeringViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
+        view.layoutIfNeeded()
     }
     
     func showOrHideLetterAccidentals() {
@@ -398,7 +427,8 @@ class NotePickerViewController: UIViewController {
     }
     
     @objc func instrumentsButtonTapped() {
-        // TODO: - Instruments
+        let vc = InstrumentsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func gridButtonTapped() {

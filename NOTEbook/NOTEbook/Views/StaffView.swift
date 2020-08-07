@@ -72,4 +72,15 @@ class StaffView: UIView {
             staffImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
+    
+    func updateClef(with clef: Clef) {
+        switch clef {
+        case .bass:
+            trebleClefImageView.isHidden = true
+            bassClefImageView.isHidden = false
+        case .treble:
+            trebleClefImageView.isHidden = false
+            bassClefImageView.isHidden = true
+        }
+    }
 }

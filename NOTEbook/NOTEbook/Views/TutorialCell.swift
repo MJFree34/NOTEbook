@@ -75,12 +75,15 @@ class TutorialCell: UITableViewCell {
     func setupCell(with info: TutorialInfo) {
         descriptionLabel.text = info.description
         
-        if info.imageName != "gear" {
-            tutorialImage.tintColor = .clear
-            tutorialImage.image = UIImage(named: info.imageName)
-        } else {
+        if info.imageName == "gear" {
             tutorialImage.image = UIImage(systemName: info.imageName)
             tutorialImage.tintColor = UIColor(named: "DarkAqua")
+        } else if info.imageName == "LargeInstrumentsButton" {
+            tutorialImage.image = UIImage(named: info.imageName)?.withRenderingMode(.alwaysTemplate)
+            tutorialImage.tintColor = UIColor(named: "DarkAqua")
+        } else {
+            tutorialImage.image = UIImage(named: info.imageName)
+            tutorialImage.tintColor = .clear
         }
     }
 }

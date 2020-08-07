@@ -8,7 +8,13 @@
 
 import Foundation
 
+enum InstrumentType: String, Decodable {
+    case trumpet = "Trumpet"
+    case euphoniumTCNC = "Euphonium T.C. Non-Compensating"
+}
+
 struct Instrument: Decodable, Equatable {
-    var name: String
+    var type: InstrumentType
     var clef: Clef
+    var fingeringWidth: Int
 }

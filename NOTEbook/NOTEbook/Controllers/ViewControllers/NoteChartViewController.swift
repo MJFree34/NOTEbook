@@ -53,6 +53,8 @@ class NoteChartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        collectionView.reloadData()
+        
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = nil
     }
@@ -76,7 +78,7 @@ class NoteChartViewController: UIViewController {
         navigationItem.backBarButtonItem = nil
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = pickerButton
-//        navigationItem.rightBarButtonItem = instrumentsBarButton
+        navigationItem.rightBarButtonItem = instrumentsBarButton
     }
     
     func configureCollectionView() {
@@ -98,7 +100,8 @@ class NoteChartViewController: UIViewController {
     }
     
     @objc func instrumentsButtonTapped() {
-        // TODO: - Instruments
+        let vc = InstrumentsViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func pickerButtonTapped() {
