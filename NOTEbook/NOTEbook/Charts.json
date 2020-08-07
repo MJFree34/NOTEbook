@@ -165,7 +165,7 @@
         ],
         "flatNotes": [
             {
-                "letter": "c",
+                "letter": "b",
                 "type": "natural",
                 "pitch": "low",
                 "clef": "treble"
@@ -468,6 +468,22 @@
             }
         ],
         "noteFingerings": [
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                        ]
+                    }
+                ]
+            },
             {
                 "notes": [
                     {
@@ -1657,11 +1673,29 @@
                 "type": "natural",
                 "pitch": "high",
                 "clef": "treble"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "flatNotes": [
             {
-                "letter": "c",
+                "letter": "b",
                 "type": "natural",
                 "pitch": "low",
                 "clef": "treble"
@@ -1794,6 +1828,24 @@
             },
             {
                 "letter": "d",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "g",
                 "type": "flat",
                 "pitch": "high",
                 "clef": "treble"
@@ -1937,12 +1989,50 @@
                 "type": "sharp",
                 "pitch": "high",
                 "clef": "treble"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "noteFingerings": [
             {
                 "notes": [
                     {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
                         "letter": "c",
                         "type": "natural",
                         "pitch": "low",
@@ -1978,10 +2068,6 @@
                 "fingerings": [
                     {
                         "keys": [
-                            true,
-                            true,
-                            true,
-                            true
                         ]
                     }
                 ]
@@ -2065,7 +2151,7 @@
                     {
                         "keys": [
                             true,
-                            false,
+                            true,
                             false,
                             true
                         ]
@@ -2073,7 +2159,7 @@
                     {
                         "keys": [
                             true,
-                            true,
+                            false,
                             false,
                             true
                         ]
@@ -2259,6 +2345,22 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -2421,6 +2523,22 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true,
+                            false
+                        ]
                     }
                 ]
             },
@@ -2439,6 +2557,22 @@
                             false,
                             false,
                             false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true,
                             false
                         ]
                     }
@@ -2561,6 +2695,14 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true,
+                            false
+                        ]
                     }
                 ]
             },
@@ -2591,6 +2733,22 @@
                     {
                         "keys": [
                             false,
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
                             false,
                             true,
                             false
@@ -2614,6 +2772,22 @@
                             false,
                             false,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false,
+                            true
                         ]
                     }
                 ]
@@ -2887,6 +3061,14 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false,
+                            false
+                        ]
                     }
                 ]
             },
@@ -2908,10 +3090,34 @@
                 "fingerings": [
                     {
                         "keys": [
+                            false,
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
                             true,
                             true,
                             false,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false,
+                            true
                         ]
                     }
                 ]
@@ -2928,9 +3134,25 @@
                 "fingerings": [
                     {
                         "keys": [
+                            false,
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
                             true,
                             false,
                             false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true,
                             false
                         ]
                     }
@@ -2956,6 +3178,134 @@
                         "keys": [
                             false,
                             true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            true,
+                            false,
                             false,
                             false
                         ]
