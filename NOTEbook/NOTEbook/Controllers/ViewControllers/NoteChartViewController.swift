@@ -54,16 +54,6 @@ class NoteChartViewController: UIViewController {
         super.viewWillAppear(animated)
         
         collectionView.reloadData()
-        
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewDidLoad() {
@@ -85,7 +75,7 @@ class NoteChartViewController: UIViewController {
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),

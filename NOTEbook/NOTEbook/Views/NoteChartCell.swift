@@ -10,7 +10,10 @@ import UIKit
 
 class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
-    static let cellHeight: CGFloat = 190
+    static let cellHeight: CGFloat = 240
+    
+    private let centerOfStaffInsetFromTop: CGFloat = 90
+    private let spaceBetweenStaffLines: CGFloat = 10
     
     private var cellWidth: CGFloat!
     private var noteFingering: NoteFingering!
@@ -90,17 +93,9 @@ extension NoteChartCell {
     }
     
     func configureStaff() {
-        // Adds staff
-        let lineInsetFromTop: CGFloat = 0.2368421053 * NoteChartCell.cellHeight
-        let lineInsetFromBottom: CGFloat = 0.5526315789 * NoteChartCell.cellHeight
-        
-        for i in 0..<5 {
-            addStaffLine(topInset: lineInsetFromTop + 10 * CGFloat(i), bottomInset: lineInsetFromBottom - 1 + (10 * (4 - CGFloat(i))))
+        for i in -2...2 {
+            addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
-        
-        // Adds clef
-        let trebleClefInsetFromTop: CGFloat = 0.1526315789 * NoteChartCell.cellHeight
-        let trebleClefInsetFromBottom: CGFloat = 0.4649473684 * NoteChartCell.cellHeight
         
         let trebleClefImageView = UIImageView(image: UIImage(named: "CellTrebleClef")!.withTintColor(UIColor(named: "Black")!))
         trebleClefImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,25 +103,23 @@ extension NoteChartCell {
         
         NSLayoutConstraint.activate([
             trebleClefImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            trebleClefImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: trebleClefInsetFromTop),
-            trebleClefImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -trebleClefInsetFromBottom)
+            trebleClefImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3 * spaceBetweenStaffLines + 5))
         ])
     }
     
-    func addStaffLine(topInset: CGFloat, bottomInset: CGFloat) {
+    func addStaffLine(topInset: CGFloat) {
         let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(UIColor(named: "Black")!))
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(staffImageView)
         
         NSLayoutConstraint.activate([
             staffImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-            staffImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -bottomInset),
             staffImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
     }
     
     func configureOutline() {
-        let insetFromTop: CGFloat = 0.2368421053 * NoteChartCell.cellHeight
+        let insetFromTop = centerOfStaffInsetFromTop - 2 * spaceBetweenStaffLines
         
         let leftOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: NoteChartCell.cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
         leftOutline.translatesAutoresizingMaskIntoConstraints = false
@@ -137,7 +130,6 @@ extension NoteChartCell {
         contentView.addSubview(bottomOutline)
         
         let rightOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: NoteChartCell.cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
-        
         rightOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(rightOutline)
         
@@ -159,10 +151,10 @@ extension NoteChartCell {
     }
     
     func configureNoteLetters() {
-        let topInset: CGFloat = -0.0736842105 * NoteChartCell.cellHeight
-        let leftRightInset: CGFloat = 0.06 * cellWidth
-        let textHeight: CGFloat = 0.2157894737 * NoteChartCell.cellHeight
-        let textWidth: CGFloat = 0.28 * cellWidth
+        let topInset: CGFloat = -13
+        let leftRightInset: CGFloat = 10
+        let textViewWidth: CGFloat = 28
+        let textViewHeight: CGFloat = 42
         
         let firstNoteIndex = (noteFingering.notes.count == 2) ? 1 : 0
         
@@ -187,9 +179,9 @@ extension NoteChartCell {
         
         NSLayoutConstraint.activate([
             leftTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-            leftTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftRightInset),
-            leftTextView.heightAnchor.constraint(equalToConstant: textHeight),
-            leftTextView.widthAnchor.constraint(equalToConstant: textWidth),
+            leftTextView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: leftRightInset - 5),
+            leftTextView.heightAnchor.constraint(equalToConstant: textViewHeight),
+            leftTextView.widthAnchor.constraint(equalToConstant: textViewWidth)
         ])
         
         if noteFingering.notes.count == 2 {
@@ -221,13 +213,13 @@ extension NoteChartCell {
             NSLayoutConstraint.activate([
                 rightTextView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
                 rightTextView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -leftRightInset),
-                rightTextView.heightAnchor.constraint(equalToConstant: textHeight),
-                rightTextView.widthAnchor.constraint(equalToConstant: textWidth),
+                rightTextView.heightAnchor.constraint(equalToConstant: textViewHeight),
+                rightTextView.widthAnchor.constraint(equalToConstant: textViewWidth),
                 
-                letterSharpView.leadingAnchor.constraint(equalTo: rightTextView.trailingAnchor, constant: -2),
+                letterSharpView.leadingAnchor.constraint(equalTo: rightTextView.trailingAnchor, constant: 2),
                 letterSharpView.centerYAnchor.constraint(equalTo: rightTextView.centerYAnchor, constant: 7),
                 
-                letterFlatView.trailingAnchor.constraint(equalTo: leftTextView.leadingAnchor),
+                letterFlatView.trailingAnchor.constraint(equalTo: leftTextView.leadingAnchor, constant: 3),
                 letterFlatView.centerYAnchor.constraint(equalTo: leftTextView.centerYAnchor, constant: 8)
             ])
         } else {
@@ -248,62 +240,59 @@ extension NoteChartCell {
         
         let needsThickLine = firstNote.type == .flat || firstNote.type == .sharp
         
-        let lineInsetFromTop: CGFloat = 0.2368421053 * NoteChartCell.cellHeight
-        let lineInsetFromBottom: CGFloat = 0.5526315789 * NoteChartCell.cellHeight
-        
         switch firstNote.position {
         case .bottom8thLine:
-            addExtraStaffLine(topInset: lineInsetFromTop + 119, bottomInset: lineInsetFromBottom - 80, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 10 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom7thLine, .bottom8thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 109, bottomInset: lineInsetFromBottom - 70, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 9 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom6thLine, .bottom7thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 99, bottomInset: lineInsetFromBottom - 60, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 8 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom5thLine, .bottom6thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 89, bottomInset: lineInsetFromBottom - 50, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 7 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom4thLine, .bottom5thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 79, bottomInset: lineInsetFromBottom - 40, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 6 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom3rdLine, .bottom4thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 69, bottomInset: lineInsetFromBottom - 30, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 5 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom2ndLine, .bottom3rdSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 59, bottomInset: lineInsetFromBottom - 20, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 4 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom1stLine, .bottom2ndSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop + 49, bottomInset: lineInsetFromBottom - 10, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 3 * spaceBetweenStaffLines, thickLine: needsThickLine)
         default:
             break
         }
         
         switch secondNote.position {
         case .top6thLine:
-            addExtraStaffLine(topInset: lineInsetFromTop - 60, bottomInset: lineInsetFromBottom + 99, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 8 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .top5thLine, .top6thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop - 50, bottomInset: lineInsetFromBottom + 89, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 7 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .top4thLine, .top5thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop - 40, bottomInset: lineInsetFromBottom + 79, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 6 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .top3rdLine, .top4thSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop - 30, bottomInset: lineInsetFromBottom + 69, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 5 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .top2ndLine, .top3rdSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop - 20, bottomInset: lineInsetFromBottom + 59, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 4 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .top1stLine, .top2ndSpace:
-            addExtraStaffLine(topInset: lineInsetFromTop - 10, bottomInset: lineInsetFromBottom + 49, thickLine: needsThickLine)
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 3 * spaceBetweenStaffLines, thickLine: needsThickLine)
         default:
             break
         }
     }
     
-    func addExtraStaffLine(topInset: CGFloat, bottomInset: CGFloat, thickLine: Bool) {
-        let lineWidth: CGFloat = 0.25 * cellWidth
+    func addExtraStaffLine(topInset: CGFloat, thickLine: Bool) {
+        let lineWidth: CGFloat = 30
         
         let extraLineImageView = thickLine ? UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!)) : UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!))
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -312,8 +301,7 @@ extension NoteChartCell {
         
         NSLayoutConstraint.activate([
             extraLineImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            extraLineImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-            extraLineImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -bottomInset),
+            extraLineImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset)
         ])
     }
     
@@ -329,10 +317,10 @@ extension NoteChartCell {
         
         let firstNote = noteFingering.notes[0]
         
-        let topInset: CGFloat = 0.1526315789 * NoteChartCell.cellHeight - 19 + calculateNoteTopInset(note: firstNote)
+        let firstNoteTopInset = calculateNoteTopInset(note: firstNote, noteHeight: noteHeight)
         
         if noteFingering.notes.count == 2 {
-            let topInset2: CGFloat = 0.1526315789 * NoteChartCell.cellHeight - 19 + calculateNoteTopInset(note: noteFingering.notes[1])
+            let secondNoteTopInset = calculateNoteTopInset(note: noteFingering.notes[1], noteHeight: noteHeight)
             
             let note1 = createWholeNote()
             contentView.addSubview(note1)
@@ -354,20 +342,20 @@ extension NoteChartCell {
             
             NSLayoutConstraint.activate([
                 note1.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: noteWidth / 2),
-                note1.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
+                note1.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset),
                 note1.widthAnchor.constraint(equalToConstant: noteWidth),
                 note1.heightAnchor.constraint(equalToConstant: noteHeight),
                 
                 note2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -noteWidth / 2),
-                note2.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset2),
+                note2.topAnchor.constraint(equalTo: contentView.topAnchor, constant: secondNoteTopInset),
                 note2.widthAnchor.constraint(equalToConstant: noteWidth),
                 note2.heightAnchor.constraint(equalToConstant: noteHeight),
                 
                 sharpView.leadingAnchor.constraint(equalTo: note1.trailingAnchor, constant: 1.5),
-                sharpView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset - 6),
+                sharpView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset - 6),
                 
                 flatView.trailingAnchor.constraint(equalTo: note2.leadingAnchor, constant: -2),
-                flatView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset2 - 10),
+                flatView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: secondNoteTopInset - 10),
             ])
         } else {
             let note = createWholeNote()
@@ -377,89 +365,91 @@ extension NoteChartCell {
             
             NSLayoutConstraint.activate([
                 note.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                note.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
+                note.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset),
                 note.widthAnchor.constraint(equalToConstant: noteWidth),
                 note.heightAnchor.constraint(equalToConstant: noteHeight),
             ])
         }
     }
     
-    func calculateNoteTopInset(note: Note) -> CGFloat {
+    func calculateNoteTopInset(note: Note, noteHeight: CGFloat) -> CGFloat {
+        let noteTopInset: CGFloat = centerOfStaffInsetFromTop - noteHeight / 2 + 0.5
+        
         switch note.position {
         case .bottom8thLine:
-            return 150
+            return noteTopInset + spaceBetweenStaffLines * 10
         case .bottom8thSpace:
-            return 145
+            return noteTopInset + spaceBetweenStaffLines * 9.5
         case .bottom7thLine:
-            return 140
+            return noteTopInset + spaceBetweenStaffLines * 9
         case .bottom7thSpace:
-            return 135
+            return noteTopInset + spaceBetweenStaffLines * 8.5
         case .bottom6thLine:
-            return 130
+            return noteTopInset + spaceBetweenStaffLines * 8
         case .bottom6thSpace:
-            return 125
+            return noteTopInset + spaceBetweenStaffLines * 7.5
         case .bottom5thLine:
-            return 120
+            return noteTopInset + spaceBetweenStaffLines * 7
         case .bottom5thSpace:
-            return 115
+            return noteTopInset + spaceBetweenStaffLines * 6.5
         case .bottom4thLine:
-            return 110
+            return noteTopInset + spaceBetweenStaffLines * 6
         case .bottom4thSpace:
-            return 105
+            return noteTopInset + spaceBetweenStaffLines * 5.5
         case .bottom3rdLine:
-            return 100
+            return noteTopInset + spaceBetweenStaffLines * 5
         case .bottom3rdSpace:
-            return 95
+            return noteTopInset + spaceBetweenStaffLines * 4.5
         case .bottom2ndLine:
-            return 90
+            return noteTopInset + spaceBetweenStaffLines * 4
         case .bottom2ndSpace:
-            return 85
+            return noteTopInset + spaceBetweenStaffLines * 3.5
         case .bottom1stLine:
-            return 80
+            return noteTopInset + spaceBetweenStaffLines * 3
         case .bottom1stSpace:
-            return 75
+            return noteTopInset + spaceBetweenStaffLines * 2.5
         case .middle1stLine:
-            return 70
+            return noteTopInset + spaceBetweenStaffLines * 2
         case .middle1stSpace:
-            return 65
+            return noteTopInset + spaceBetweenStaffLines * 1.5
         case .middle2ndLine:
-            return 60
+            return noteTopInset + spaceBetweenStaffLines
         case .middle2ndSpace:
-            return 55
+            return noteTopInset + spaceBetweenStaffLines * 0.5
         case .middle3rdLine:
-            return 50
+            return noteTopInset
         case .middle3rdSpace:
-            return 45
+            return noteTopInset - spaceBetweenStaffLines * 0.5
         case .middle4thLine:
-            return 40
+            return noteTopInset - spaceBetweenStaffLines
         case .middle4thSpace:
-            return 35
+            return noteTopInset - spaceBetweenStaffLines * 1.5
         case .middle5thLine:
-            return 30
+            return noteTopInset - spaceBetweenStaffLines * 2
         case .top1stSpace:
-            return 25
+            return noteTopInset - spaceBetweenStaffLines * 2.5
         case .top1stLine:
-            return 20
+            return noteTopInset - spaceBetweenStaffLines * 3
         case .top2ndSpace:
-            return 15
+            return noteTopInset - spaceBetweenStaffLines * 3.5
         case .top2ndLine:
-            return 10
+            return noteTopInset - spaceBetweenStaffLines * 4
         case .top3rdSpace:
-            return 5
+            return noteTopInset - spaceBetweenStaffLines * 4.5
         case .top3rdLine:
-            return 0
+            return noteTopInset - spaceBetweenStaffLines * 5
         case .top4thSpace:
-            return -5
+            return noteTopInset - spaceBetweenStaffLines * 5.5
         case .top4thLine:
-            return -10
+            return noteTopInset - spaceBetweenStaffLines * 6
         case .top5thSpace:
-            return -15
+            return noteTopInset - spaceBetweenStaffLines * 6.5
         case .top5thLine:
-            return -20
+            return noteTopInset - spaceBetweenStaffLines * 7
         case .top6thSpace:
-            return -25
+            return noteTopInset - spaceBetweenStaffLines * 7.5
         case .top6thLine:
-            return -30
+            return noteTopInset - spaceBetweenStaffLines * 8
         }
     }
     
@@ -477,14 +467,11 @@ extension NoteChartCell {
         
         currentFingerings.removeAll()
         
-        let roundFingeringViewWidth: CGFloat = 0.6875 * cellWidth
-        let roundFingeringViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
-        
         contentView.addSubview(optionalLabel)
         
         NSLayoutConstraint.activate([
             optionalLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            optionalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -18)
+            optionalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -13)
         ])
         
         if noteFingering.fingerings[0].keys.count == 0 {
@@ -493,8 +480,6 @@ extension NoteChartCell {
             optionalLabel.isHidden = true
             
             if noteFingering.fingerings.count == 2 {
-                let topInset: CGFloat = 0.7244736842 * NoteChartCell.cellHeight
-                
                 let fingeringView: UIImageView
                 let fingeringView2: UIImageView
                 
@@ -502,65 +487,78 @@ extension NoteChartCell {
                 case .trumpet:
                     fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
                     fingeringView2 = createTrumpetNoteFingering(with: noteFingering.fingerings[1].keys)
+                    
+                    contentView.addSubview(fingeringView)
+                    currentFingerings.append(fingeringView)
+                    
+                    contentView.addSubview(fingeringView2)
+                    currentFingerings.append(fingeringView2)
+                    
+                    NSLayoutConstraint.activate([
+                        fingeringView2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
+                        fingeringView2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+                        
+                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
+                        fingeringView.bottomAnchor.constraint(equalTo: fingeringView2.topAnchor, constant: -2)
+                    ])
                 case .euphoniumTCNC:
                     fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
                     fingeringView2 = createEuphoniumNoteFingering(with: noteFingering.fingerings[1].keys)
-                }
-                
-                contentView.addSubview(fingeringView)
-                currentFingerings.append(fingeringView)
-                
-                contentView.addSubview(fingeringView2)
-                currentFingerings.append(fingeringView2)
-                
-                NSLayoutConstraint.activate([
-                    fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                    fingeringView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-                    fingeringView.heightAnchor.constraint(equalToConstant: roundFingeringViewHeight),
-                    fingeringView.widthAnchor.constraint(equalToConstant: roundFingeringViewWidth),
                     
-                    fingeringView2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                    fingeringView2.topAnchor.constraint(equalTo: fingeringView.bottomAnchor, constant: 2),
-                    fingeringView2.heightAnchor.constraint(equalToConstant: roundFingeringViewHeight),
-                    fingeringView2.widthAnchor.constraint(equalToConstant: roundFingeringViewWidth),
-                ])
+                    contentView.addSubview(fingeringView)
+                    currentFingerings.append(fingeringView)
+                    
+                    contentView.addSubview(fingeringView2)
+                    currentFingerings.append(fingeringView2)
+                    
+                    NSLayoutConstraint.activate([
+                        fingeringView2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 2),
+                        fingeringView2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+                        
+                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 2),
+                        fingeringView.bottomAnchor.constraint(equalTo: fingeringView2.topAnchor, constant: -2)
+                    ])
+                }
             } else {
-                let topInset: CGFloat = 0.785 * NoteChartCell.cellHeight
-                
                 let fingeringView: UIImageView
                 
                 switch ChartsController.shared.currentChart.instrument.type {
                 case .trumpet:
                     fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
+                    
+                    contentView.addSubview(fingeringView)
+                    currentFingerings.append(fingeringView)
+                    
+                    NSLayoutConstraint.activate([
+                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
+                        fingeringView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+                    ])
                 case .euphoniumTCNC:
                     fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
+                    
+                    contentView.addSubview(fingeringView)
+                    currentFingerings.append(fingeringView)
+                    
+                    NSLayoutConstraint.activate([
+                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 2),
+                        fingeringView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+                    ])
                 }
-                
-                contentView.addSubview(fingeringView)
-                currentFingerings.append(fingeringView)
-                
-                NSLayoutConstraint.activate([
-                    fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                    fingeringView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
-                    fingeringView.heightAnchor.constraint(equalToConstant: roundFingeringViewHeight),
-                    fingeringView.widthAnchor.constraint(equalToConstant: roundFingeringViewWidth),
-                ])
             }
         }
     }
     
     func createTrumpetNoteFingering(with keys: [Bool]) -> UIImageView {
-        let trumpetViewWidth: CGFloat = 0.6875 * cellWidth
-        let trumpetViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
-        let fingeringPositionMultiplier: CGFloat = 0.3823863636 * trumpetViewWidth
-        let trumpetFingeringWidth: CGFloat = 0.161796875 * cellWidth
+        let trumpetFingeringHeight: CGFloat = 20
+        let trumpetFingeringGap: CGFloat = 30
+        let trumpetViewWidth: CGFloat = trumpetFingeringGap * 3
         
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: trumpetViewWidth, height: trumpetViewHeight))
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: trumpetViewWidth, height: trumpetFingeringHeight))
         
         let img = renderer.image { ctx in
             for (index, key) in keys.enumerated() {
                 let keyImage = UIImage(named: (key ? "RoundFingeringFull\(index + 1)" : "RoundFingeringEmpty\(index + 1)"))
-                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * fingeringPositionMultiplier, y: 0), size: CGSize(width: trumpetFingeringWidth, height: trumpetFingeringWidth)))
+                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * trumpetFingeringGap, y: 0), size: CGSize(width: trumpetFingeringHeight, height: trumpetFingeringHeight)))
             }
         }
         
@@ -572,17 +570,16 @@ extension NoteChartCell {
     }
     
     func createEuphoniumNoteFingering(with keys: [Bool]) -> UIImageView {
-        let euphoniumViewWidth: CGFloat = 0.6875 * cellWidth
-        let euphoniumViewHeight: CGFloat = 0.109 * NoteChartCell.cellHeight
-        let fingeringPositionMultiplier: CGFloat = 0.252 * euphoniumViewWidth
-        let euphoniumFingeringWidth: CGFloat = 0.161796875 * cellWidth
+        let euphoniumFingeringHeight: CGFloat = 20
+        let euphoniumFingeringGap: CGFloat = 21.25
+        let euphoniumViewWidth: CGFloat = 30 * 3
         
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: euphoniumViewWidth, height: euphoniumViewHeight))
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: euphoniumViewWidth, height: euphoniumFingeringHeight))
         
         let img = renderer.image { ctx in
             for (index, key) in keys.enumerated() {
                 let keyImage = UIImage(named: (key ? "RoundFingeringFull\(index + 1)" : "RoundFingeringEmpty\(index + 1)"))
-                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * fingeringPositionMultiplier, y: 0), size: CGSize(width: euphoniumFingeringWidth, height: euphoniumFingeringWidth)))
+                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * euphoniumFingeringGap, y: 0), size: CGSize(width: euphoniumFingeringHeight, height: euphoniumFingeringHeight)))
             }
         }
         

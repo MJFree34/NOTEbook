@@ -25,13 +25,17 @@ class InstrumentsViewController: UIViewController {
         
         return tv
     }()
-    
-    override func loadView() {
-        view = tableView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        ])
         
         view.backgroundColor = UIColor(named: "LightestestAqua")
         
