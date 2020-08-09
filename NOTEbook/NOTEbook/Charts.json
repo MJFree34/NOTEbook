@@ -162,6 +162,12 @@
                 "type": "natural",
                 "pitch": "high",
                 "clef": "treble"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "flatNotes": [
@@ -312,6 +318,12 @@
             {
                 "letter": "e",
                 "type": "natural",
+                "pitch": "high",
+                "clef": "treble"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
                 "pitch": "high",
                 "clef": "treble"
             }
@@ -466,6 +478,12 @@
                 "type": "sharp",
                 "pitch": "high",
                 "clef": "treble"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "treble"
             }
         ],
         "noteFingerings": [
@@ -501,6 +519,13 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -545,6 +570,13 @@
                             false,
                             true
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -570,6 +602,13 @@
                             true,
                             true
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -589,6 +628,13 @@
                             true,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -607,6 +653,13 @@
                             true,
                             false,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
                         ]
                     }
                 ]
@@ -633,6 +686,13 @@
                             true,
                             true
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -650,6 +710,13 @@
                         "keys": [
                             true,
                             false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
                             true
                         ]
                     }
@@ -675,6 +742,13 @@
                         "keys": [
                             false,
                             true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
                             true
                         ]
                     }
@@ -766,6 +840,13 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -791,6 +872,13 @@
                             true,
                             true
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -808,6 +896,13 @@
                         "keys": [
                             true,
                             false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
                             true
                         ]
                     }
@@ -833,6 +928,13 @@
                         "keys": [
                             false,
                             true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
                             true
                         ]
                     }
@@ -1101,6 +1203,13 @@
                     },
                     {
                         "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
                             false,
                             false,
                             true
@@ -1189,6 +1298,20 @@
                             true,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -1207,6 +1330,13 @@
                             true,
                             false,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
                         ]
                     }
                 ]
@@ -1233,6 +1363,20 @@
                             true,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
                     }
                 ]
             },
@@ -1258,6 +1402,13 @@
                             true,
                             false,
                             true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
                         ]
                     }
                 ]
@@ -1284,6 +1435,20 @@
                             true,
                             true
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
                     }
                 ]
             },
@@ -1309,6 +1474,20 @@
                             false,
                             false,
                             true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            false
                         ]
                     }
                 ]
@@ -1335,6 +1514,20 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
                     }
                 ]
             },
@@ -1354,6 +1547,20 @@
                             true,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -1372,6 +1579,20 @@
                             false,
                             false,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
                         ]
                     }
                 ]
@@ -1405,6 +1626,27 @@
                             true,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -1430,6 +1672,20 @@
                             true,
                             false,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
                         ]
                     }
                 ]
@@ -1456,6 +1712,27 @@
                             true,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -1472,6 +1749,34 @@
                     {
                         "keys": [
                             false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
                             false,
                             false
                         ]
@@ -1492,6 +1797,20 @@
                         "keys": [
                             true,
                             false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
                             false
                         ]
                     }
@@ -1518,6 +1837,89 @@
                             false,
                             true,
                             false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true
+                        ]
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "treble"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "treble"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys": [
                         ]
                     }
                 ]
@@ -3123,6 +3525,22 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false,
+                            true
+                        ]
                     }
                 ]
             },
@@ -3273,6 +3691,14 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            true,
+                            true,
+                            false
+                        ]
                     }
                 ]
             },
@@ -3289,6 +3715,14 @@
                     {
                         "keys": [
                             false,
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
                             true,
                             false,
                             false

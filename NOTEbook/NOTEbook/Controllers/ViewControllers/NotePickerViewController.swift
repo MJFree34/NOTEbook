@@ -120,7 +120,6 @@ class NotePickerViewController: UIViewController {
         picker.cellSpacing = 0
         picker.cellSize = 87
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
-        picker.reloadData()
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
         
@@ -128,7 +127,7 @@ class NotePickerViewController: UIViewController {
             picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 17)
+            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 18.1)
         ])
     }
     
@@ -165,7 +164,7 @@ class NotePickerViewController: UIViewController {
         let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
         rightIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rightIndicator)
-
+        
         NSLayoutConstraint.activate([
             leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45),
             leftIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
@@ -178,6 +177,8 @@ class NotePickerViewController: UIViewController {
     func reloadInstrumentViews() {
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         
+        updateNoteType(to: .natural, animate: false)
+        
         picker.reloadData()
         
         updateStaffView()
@@ -189,65 +190,53 @@ class NotePickerViewController: UIViewController {
     @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .left {
             if currentNoteType == .natural {
-                currentNoteType = .sharp
-                
-                self.picker.reloadData()
-                
-                UIView.animate(withDuration: 0.5, animations: {
+                updateNoteType(to: .sharp)
+            } else if currentNoteType == .flat {
+                updateNoteType(to: .natural)
+            }
+        } else {
+            if currentNoteType == .natural {
+                updateNoteType(to: .flat)
+            } else if currentNoteType == .sharp {
+                updateNoteType(to: .natural)
+            }
+        }
+        
+        picker.reloadData()
+    }
+    
+    func updateNoteType(to noteType: NoteType, animate: Bool = true) {
+        UIView.animate(withDuration: (animate ? 0.5 : 0)) {
+            if self.currentNoteType == .natural {
+                if noteType == .sharp {
                     self.letterArrowViewController.arrowFlat.alpha = 0
                     self.letterArrowViewController.rightArrow.alpha = 0
                     self.letterArrowViewController.arrowSharp.alpha = 0
                     self.letterArrowViewController.leftArrowNatural.alpha = 1
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
-            } else if currentNoteType == .flat {
-                currentNoteType = .natural
-                
-                self.picker.reloadData()
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.letterArrowViewController.rightArrowNatural.alpha = 0
-                    self.letterArrowViewController.arrowSharp.alpha = 1
-                    self.letterArrowViewController.leftArrow.alpha = 1
-                    self.letterArrowViewController.arrowFlat.alpha = 1
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
-            }
-        } else {
-            if currentNoteType == .natural {
-                currentNoteType = .flat
-                
-                self.picker.reloadData()
-                
-                UIView.animate(withDuration: 0.5, animations: {
+                } else if noteType == .flat {
                     self.letterArrowViewController.arrowFlat.alpha = 0
                     self.letterArrowViewController.leftArrow.alpha = 0
                     self.letterArrowViewController.arrowSharp.alpha = 0
                     self.letterArrowViewController.rightArrowNatural.alpha = 1
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
                 }
-            } else if currentNoteType == .sharp {
-                currentNoteType = .natural
-                
-                self.picker.reloadData()
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.letterArrowViewController.leftArrowNatural.alpha = 0
-                    self.letterArrowViewController.arrowFlat.alpha = 1
-                    self.letterArrowViewController.rightArrow.alpha = 1
-                    self.letterArrowViewController.arrowSharp.alpha = 1
-                    self.view.isUserInteractionEnabled = false
-                }) { _ in
-                    self.view.isUserInteractionEnabled = true
-                }
+            } else if self.currentNoteType == .flat {
+                self.letterArrowViewController.rightArrowNatural.alpha = 0
+                self.letterArrowViewController.arrowSharp.alpha = 1
+                self.letterArrowViewController.leftArrow.alpha = 1
+                self.letterArrowViewController.arrowFlat.alpha = 1
+            } else {
+                self.letterArrowViewController.leftArrowNatural.alpha = 0
+                self.letterArrowViewController.arrowFlat.alpha = 1
+                self.letterArrowViewController.rightArrow.alpha = 1
+                self.letterArrowViewController.arrowSharp.alpha = 1
             }
+            
+            self.view.isUserInteractionEnabled = false
+        } completion: { _ in
+            self.view.isUserInteractionEnabled = true
         }
+        
+        currentNoteType = noteType
     }
     
     @objc func settingsButtonTapped() {
@@ -336,7 +325,7 @@ struct NotePickerViewControllerRepresentable: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> some UIViewController {
         return NotePickerViewController()
     }
-
+    
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         // Update code
     }
