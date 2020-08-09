@@ -11,17 +11,25 @@ import UIKit
 class NotePickerViewController: UIViewController {
     var chartsController = ChartsController.shared
     
-    var currentNoteType: NoteType = .natural
-    static let spaceBetweenStaffLines: CGFloat = 24
+    var currentNoteFingering: NoteFingering! {
+        didSet {
+            letterArrowViewController.currentNoteFingering = currentNoteFingering
+        }
+    }
     
-    var letterLabel: UILabel!
-    var fingeringPageViewController: FingeringPageViewController!
-    var picker: NotePicker!
+    var currentNoteType: NoteType = .natural {
+        didSet {
+            letterArrowViewController.currentNoteType = currentNoteType
+        }
+    }
+    
+    static let spaceBetweenStaffLines: CGFloat = 20
+    
+    var picker = NotePicker()
     var staffView: StaffView!
+    var letterArrowViewController = LetterArrowViewController()
     
-    var currentNoteFingering: NoteFingering!
-    
-    var fingeringViewWidthConstraint: NSLayoutConstraint!
+    var staffCenterYAnchor: NSLayoutConstraint!
     
     lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
@@ -49,95 +57,17 @@ class NotePickerViewController: UIViewController {
         return button
     }()
     
-    lazy var rightArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var leftArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(rotationAngle: .pi)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var arrowFlat: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var arrowSharp: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var leftArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(UIColor(named: "Black")!))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var rightArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(UIColor(named: "Black")!))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var noteLetterView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 85, height: 100))
-        view.addLightMediumAquaGradient()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
-    
-    lazy var letterFlat: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 18.25, height: 60))
-        view.addLightMediumAquaGradient()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
-    
-    lazy var letterSharp: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 26.87, height: 68))
-        view.addLightMediumAquaGradient()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addBackgroundGradient()
         view.backgroundColor = UIColor(named: "White")
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
-        swipeLeft.numberOfTouchesRequired = 1
-        swipeLeft.direction = .left
-        
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
-        swipeRight.numberOfTouchesRequired = 1
-        swipeRight.direction = .right
-        
-        view.addGestureRecognizer(swipeLeft)
-        view.addGestureRecognizer(swipeRight)
+        addSwipeGestures()
         
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
-        configureNoteLetter()
-        configureSwipeArrows()
-        configureFingeringPageView()
+        configureLetterArrowView()
         configurePicker()
         configureStaffView()
         configureIndicators()
@@ -158,115 +88,34 @@ class NotePickerViewController: UIViewController {
         reloadInstrumentViews()
     }
     
-    func configureNoteLetter() {
-        addGradientLabel()
-        view.addSubview(noteLetterView)
+    func addSwipeGestures() {
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
+        swipeLeft.numberOfTouchesRequired = 1
+        swipeLeft.direction = .left
         
-        letterFlat.isHidden = true
-        addGradientFlat()
-        view.addSubview(letterFlat)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
+        swipeRight.numberOfTouchesRequired = 1
+        swipeRight.direction = .right
         
-        letterSharp.isHidden = true
-        addGradientSharp()
-        view.addSubview(letterSharp)
+        view.addGestureRecognizer(swipeLeft)
+        view.addGestureRecognizer(swipeRight)
+    }
+    
+    func configureLetterArrowView() {
+        letterArrowViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        add(letterArrowViewController)
         
         NSLayoutConstraint.activate([
-            noteLetterView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor, constant: -100),
-            noteLetterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            noteLetterView.heightAnchor.constraint(equalToConstant: 100),
-            noteLetterView.widthAnchor.constraint(equalToConstant: 85),
-            
-            letterFlat.centerYAnchor.constraint(equalTo: noteLetterView.centerYAnchor),
-            letterFlat.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
-            letterFlat.heightAnchor.constraint(equalToConstant: 60),
-            letterFlat.widthAnchor.constraint(equalToConstant: 18.25),
-            
-            letterSharp.centerYAnchor.constraint(equalTo: noteLetterView.centerYAnchor),
-            letterSharp.leadingAnchor.constraint(equalTo: noteLetterView.trailingAnchor),
-            letterSharp.heightAnchor.constraint(equalToConstant: 68),
-            letterSharp.widthAnchor.constraint(equalToConstant: 26.87),
+            letterArrowViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            letterArrowViewController.view.heightAnchor.constraint(equalToConstant: 250),
+            letterArrowViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            letterArrowViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
-    }
-    
-    func configureSwipeArrows() {
-        view.addSubview(rightArrow)
-        view.addSubview(rightArrowNatural)
-        view.addSubview(arrowSharp)
-        view.addSubview(leftArrow)
-        view.addSubview(leftArrowNatural)
-        view.addSubview(arrowFlat)
-        
-        rightArrowNatural.alpha = 0
-        leftArrowNatural.alpha = 0
-        
-        NSLayoutConstraint.activate([
-            rightArrow.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            rightArrow.centerYAnchor.constraint(equalTo: noteLetterView.centerYAnchor, constant: -60),
-            
-            rightArrowNatural.trailingAnchor.constraint(equalTo: rightArrow.leadingAnchor, constant: -5),
-            rightArrowNatural.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
-            
-            arrowSharp.trailingAnchor.constraint(equalTo: rightArrow.leadingAnchor, constant: -5),
-            arrowSharp.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
-            
-            leftArrow.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            leftArrow.centerYAnchor.constraint(equalTo: rightArrow.centerYAnchor),
-            
-            leftArrowNatural.leadingAnchor.constraint(equalTo: leftArrow.trailingAnchor, constant: 5),
-            leftArrowNatural.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor),
-            
-            arrowFlat.leadingAnchor.constraint(equalTo: leftArrow.trailingAnchor, constant: 5),
-            arrowFlat.centerYAnchor.constraint(equalTo: leftArrow.centerYAnchor)
-        ])
-    }
-    
-    func addGradientLabel() {
-        letterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 100))
-        letterLabel.text = "C"
-        letterLabel.font = UIFont.noteFont
-        letterLabel.textAlignment = .center
-        letterLabel.translatesAutoresizingMaskIntoConstraints = false
-        noteLetterView.addSubview(letterLabel)
-
-        noteLetterView.mask = letterLabel
-    }
-    
-    func addGradientFlat() {
-        let flatImageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
-        letterFlat.addSubview(flatImageView)
-
-        letterFlat.mask = flatImageView
-    }
-    
-    func addGradientSharp() {
-        let sharpImageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
-        letterSharp.addSubview(sharpImageView)
-
-        letterSharp.mask = sharpImageView
-    }
-    
-    func configureFingeringPageView() {
-        fingeringPageViewController = FingeringPageViewController()
-        fingeringPageViewController.fingerings = currentNoteFingering.fingerings
-        fingeringPageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        add(fingeringPageViewController)
-        
-        NSLayoutConstraint.activate([
-            fingeringPageViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -50),
-            fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        
-        fingeringViewWidthConstraint = fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: CGFloat(chartsController.currentChart.instrument.fingeringWidth))
-        fingeringViewWidthConstraint.isActive = true
     }
     
     func configurePicker() {
-        picker = NotePicker()
         picker.delegate = self
         picker.dataSource = self
-        picker.collectionView.reloadData()
         picker.collectionView.register(NotePickerCell.self, forCellWithReuseIdentifier: NotePickerCell.reuseIdentifier)
         picker.cellSpacing = 0
         picker.cellSize = 87
@@ -278,33 +127,34 @@ class NotePickerViewController: UIViewController {
         NSLayoutConstraint.activate([
             picker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             picker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 15.8)
+            picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            picker.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 17)
         ])
     }
     
     func configureStaffView() {
         let staffWidth = view.bounds.width - 40
-        
         staffView = StaffView(width: staffWidth)
-        
-        resetStaffView()
-    }
-    
-    func resetStaffView() {
-        let staffWidth = view.bounds.width - 40
-        
-        staffView.removeFromSuperview()
+        staffView.isUserInteractionEnabled = false
         
         view.addSubview(staffView)
         
-        staffView.updateClef(with: chartsController.currentChart.instrument.clef)
-        
         NSLayoutConstraint.activate([
             staffView.centerXAnchor.constraint(equalTo: picker.centerXAnchor),
-            staffView.centerYAnchor.constraint(equalTo: picker.centerYAnchor, constant: NotePickerViewController.spaceBetweenStaffLines * 2),
-            staffView.widthAnchor.constraint(equalToConstant: staffWidth)
+            staffView.widthAnchor.constraint(equalToConstant: staffWidth),
+            staffView.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 4)
         ])
+        
+        staffCenterYAnchor = staffView.centerYAnchor.constraint(equalTo: picker.centerYAnchor)
+        staffCenterYAnchor.isActive = true
+        
+        updateStaffView()
+    }
+    
+    func updateStaffView() {
+        staffView.updateClef(with: chartsController.currentChart.instrument.clef)
+        staffCenterYAnchor.constant = NotePickerViewController.spaceBetweenStaffLines * CGFloat(chartsController.currentChart.instrument.offset)
+        view.layoutIfNeeded()
     }
     
     func configureIndicators() {
@@ -330,29 +180,10 @@ class NotePickerViewController: UIViewController {
         
         picker.reloadData()
         
-        resetStaffView()
+        updateStaffView()
         
-        fingeringViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
-        view.layoutIfNeeded()
-    }
-    
-    func showOrHideLetterAccidentals() {
-        if currentNoteType == .flat {
-            if (currentNoteFingering.notes[0].letter == .b && currentNoteFingering.notes[0].type == .natural) || (currentNoteFingering.notes[0].letter == .e && currentNoteFingering.notes[0].type == .natural) {
-                letterFlat.isHidden = true
-            } else {
-                letterFlat.isHidden = false
-            }
-        } else if currentNoteType == .sharp {
-            if (currentNoteFingering.notes[0].letter == .f && currentNoteFingering.notes[0].type == .natural) || (currentNoteFingering.notes[0].letter == .c && currentNoteFingering.notes[0].type == .natural) {
-                letterSharp.isHidden = true
-            } else {
-                letterSharp.isHidden = false
-            }
-        } else {
-            letterFlat.isHidden = true
-            letterSharp.isHidden = true
-        }
+        letterArrowViewController.fingeringViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
+        letterArrowViewController.view.layoutIfNeeded()
     }
     
     @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
@@ -363,10 +194,10 @@ class NotePickerViewController: UIViewController {
                 self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.arrowFlat.alpha = 0
-                    self.rightArrow.alpha = 0
-                    self.arrowSharp.alpha = 0
-                    self.leftArrowNatural.alpha = 1
+                    self.letterArrowViewController.arrowFlat.alpha = 0
+                    self.letterArrowViewController.rightArrow.alpha = 0
+                    self.letterArrowViewController.arrowSharp.alpha = 0
+                    self.letterArrowViewController.leftArrowNatural.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -377,10 +208,10 @@ class NotePickerViewController: UIViewController {
                 self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.rightArrowNatural.alpha = 0
-                    self.arrowSharp.alpha = 1
-                    self.leftArrow.alpha = 1
-                    self.arrowFlat.alpha = 1
+                    self.letterArrowViewController.rightArrowNatural.alpha = 0
+                    self.letterArrowViewController.arrowSharp.alpha = 1
+                    self.letterArrowViewController.leftArrow.alpha = 1
+                    self.letterArrowViewController.arrowFlat.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -393,10 +224,10 @@ class NotePickerViewController: UIViewController {
                 self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.arrowFlat.alpha = 0
-                    self.leftArrow.alpha = 0
-                    self.arrowSharp.alpha = 0
-                    self.rightArrowNatural.alpha = 1
+                    self.letterArrowViewController.arrowFlat.alpha = 0
+                    self.letterArrowViewController.leftArrow.alpha = 0
+                    self.letterArrowViewController.arrowSharp.alpha = 0
+                    self.letterArrowViewController.rightArrowNatural.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -407,10 +238,10 @@ class NotePickerViewController: UIViewController {
                 self.picker.reloadData()
                 
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.leftArrowNatural.alpha = 0
-                    self.arrowFlat.alpha = 1
-                    self.rightArrow.alpha = 1
-                    self.arrowSharp.alpha = 1
+                    self.letterArrowViewController.leftArrowNatural.alpha = 0
+                    self.letterArrowViewController.arrowFlat.alpha = 1
+                    self.letterArrowViewController.rightArrow.alpha = 1
+                    self.letterArrowViewController.arrowSharp.alpha = 1
                     self.view.isUserInteractionEnabled = false
                 }) { _ in
                     self.view.isUserInteractionEnabled = true
@@ -459,11 +290,11 @@ extension NotePickerViewController: UICollectionViewDelegate {
             
             currentNoteFingering = selectedFingering
             
-            fingeringPageViewController.fingerings = currentNoteFingering.fingerings
+            letterArrowViewController.fingeringPageViewController.fingerings = currentNoteFingering.fingerings
             
-            letterLabel.text = selectedNote.capitalizedLetter()
+            letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
             
-            showOrHideLetterAccidentals()
+            letterArrowViewController.showOrHideLetterAccidentals()
         }
     }
 }

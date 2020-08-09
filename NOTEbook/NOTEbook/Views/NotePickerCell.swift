@@ -15,6 +15,9 @@ enum QuarterNoteOrientation {
 class NotePickerCell: UICollectionViewCell {
     static let reuseIdentifier = "NotePickerCell"
     
+    private var upperNoteCenterOffset: CGFloat = 16
+    private var lowerNoteCenterOffset: CGFloat = -21
+    
     var note: Note!
     
     var quarterNoteOrientation: QuarterNoteOrientation = .upper
@@ -42,6 +45,21 @@ class NotePickerCell: UICollectionViewCell {
     var upperQuarterNoteCenterYConstraint: NSLayoutConstraint!
     var lowerQuarterNoteCenterYConstraint: NSLayoutConstraint!
     
+    var lowerLine8CenterYConstraint: NSLayoutConstraint!
+    var lowerLine7CenterYConstraint: NSLayoutConstraint!
+    var lowerLine6CenterYConstraint: NSLayoutConstraint!
+    var lowerLine5CenterYConstraint: NSLayoutConstraint!
+    var lowerLine4CenterYConstraint: NSLayoutConstraint!
+    var lowerLine3CenterYConstraint: NSLayoutConstraint!
+    var lowerLine2CenterYConstraint: NSLayoutConstraint!
+    var lowerLine1CenterYConstraint: NSLayoutConstraint!
+    var upperLine1CenterYConstraint: NSLayoutConstraint!
+    var upperLine2CenterYConstraint: NSLayoutConstraint!
+    var upperLine3CenterYConstraint: NSLayoutConstraint!
+    var upperLine4CenterYConstraint: NSLayoutConstraint!
+    var upperLine5CenterYConstraint: NSLayoutConstraint!
+    var upperLine6CenterYConstraint: NSLayoutConstraint!
+    
     func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
         
@@ -65,34 +83,31 @@ class NotePickerCell: UICollectionViewCell {
         sharp.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(sharp)
         
-        upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 26.5 + noteOffset(standardNote: false))
+        upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: upperNoteCenterOffset + noteOffset(standardNote: false))
         upperQuarterNoteCenterYConstraint.isActive = true
         
-        lowerQuarterNoteCenterYConstraint = lowerQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -26.5 + noteOffset(standardNote: false))
+        lowerQuarterNoteCenterYConstraint = lowerQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: lowerNoteCenterOffset + noteOffset(standardNote: false))
         lowerQuarterNoteCenterYConstraint.isActive = true
         
         NSLayoutConstraint.activate([
             upperQuarterNote.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-
             lowerQuarterNote.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-
-            flat.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -41 : 12)),
+            
+            flat.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -29 : 0)),
             flat.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -26),
-
-            sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -28 : 28)),
+            
+            sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -16 : 16)),
             sharp.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -28),
         ])
         
-        configureExtraNoteLines()
+        initializeExtraNoteLines()
     }
     
     func setNote(_ note: Note) {
         self.note = note
     }
     
-    func configureExtraNoteLines() {
-        let spacing = NotePickerViewController.spaceBetweenStaffLines
-        
+    func initializeExtraNoteLines() {
         lowerLine8 = createExtraStaffLine()
         lowerLine7 = createExtraStaffLine()
         lowerLine6 = createExtraStaffLine()
@@ -108,22 +123,58 @@ class NotePickerCell: UICollectionViewCell {
         upperLine5 = createExtraStaffLine()
         upperLine6 = createExtraStaffLine()
         
-        NSLayoutConstraint.activate([
-            lowerLine8.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 10),
-            lowerLine7.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 9),
-            lowerLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 8),
-            lowerLine5.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 7),
-            lowerLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 6),
-            lowerLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 5),
-            lowerLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 4),
-            lowerLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * 3),
-            upperLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -3),
-            upperLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -4),
-            upperLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -5),
-            upperLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -6),
-            upperLine5.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -7),
-            upperLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: spacing * -8),
-        ])
+        lowerLine8CenterYConstraint = lowerLine8.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine8CenterYConstraint.isActive = true
+        lowerLine7CenterYConstraint = lowerLine7.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine7CenterYConstraint.isActive = true
+        lowerLine6CenterYConstraint = lowerLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine6CenterYConstraint.isActive = true
+        lowerLine5CenterYConstraint = lowerLine5.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine5CenterYConstraint.isActive = true
+        lowerLine4CenterYConstraint = lowerLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine4CenterYConstraint.isActive = true
+        lowerLine3CenterYConstraint = lowerLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine3CenterYConstraint.isActive = true
+        lowerLine2CenterYConstraint = lowerLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine2CenterYConstraint.isActive = true
+        lowerLine1CenterYConstraint = lowerLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        lowerLine1CenterYConstraint.isActive = true
+        upperLine1CenterYConstraint = upperLine1.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine1CenterYConstraint.isActive = true
+        upperLine2CenterYConstraint = upperLine2.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine2CenterYConstraint.isActive = true
+        upperLine3CenterYConstraint = upperLine3.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine3CenterYConstraint.isActive = true
+        upperLine4CenterYConstraint = upperLine4.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine4CenterYConstraint.isActive = true
+        upperLine5CenterYConstraint = upperLine5.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine5CenterYConstraint.isActive = true
+        upperLine6CenterYConstraint = upperLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine6CenterYConstraint.isActive = true
+        
+        configureExtraNoteLines()
+    }
+    
+    func configureExtraNoteLines() {
+        let spacing = NotePickerViewController.spaceBetweenStaffLines
+        let offset = NotePickerViewController.spaceBetweenStaffLines * CGFloat(ChartsController.shared.currentChart.instrument.offset)
+        
+        lowerLine8CenterYConstraint.constant = spacing * 10 + offset
+        lowerLine7CenterYConstraint.constant = spacing * 9 + offset
+        lowerLine6CenterYConstraint.constant = spacing * 8 + offset
+        lowerLine5CenterYConstraint.constant = spacing * 7 + offset
+        lowerLine4CenterYConstraint.constant = spacing * 6 + offset
+        lowerLine3CenterYConstraint.constant = spacing * 5 + offset
+        lowerLine2CenterYConstraint.constant = spacing * 4 + offset
+        lowerLine1CenterYConstraint.constant = spacing * 3 + offset
+        upperLine1CenterYConstraint.constant = spacing * -3 + offset
+        upperLine2CenterYConstraint.constant = spacing * -4 + offset
+        upperLine3CenterYConstraint.constant = spacing * -5 + offset
+        upperLine4CenterYConstraint.constant = spacing * -6 + offset
+        upperLine5CenterYConstraint.constant = spacing * -7 + offset
+        upperLine6CenterYConstraint.constant = spacing * -8 + offset
+        
+        contentView.layoutIfNeeded()
     }
     
     func createExtraStaffLine() -> UIImageView {
@@ -153,9 +204,10 @@ class NotePickerCell: UICollectionViewCell {
         sharp.isHidden = note.type != .sharp
         
         displayExtraNoteLines()
+        configureExtraNoteLines()
         
-        upperQuarterNoteCenterYConstraint.constant = 26.5 + noteOffset()
-        lowerQuarterNoteCenterYConstraint.constant = -26.5 + noteOffset()
+        upperQuarterNoteCenterYConstraint.constant = upperNoteCenterOffset + noteOffset() + NotePickerViewController.spaceBetweenStaffLines * CGFloat(ChartsController.shared.currentChart.instrument.offset)
+        lowerQuarterNoteCenterYConstraint.constant = lowerNoteCenterOffset + noteOffset() + NotePickerViewController.spaceBetweenStaffLines * CGFloat(ChartsController.shared.currentChart.instrument.offset)
         
         contentView.layoutIfNeeded()
     }

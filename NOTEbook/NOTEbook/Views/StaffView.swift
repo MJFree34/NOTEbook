@@ -11,6 +11,7 @@ import UIKit
 class StaffView: UIView {
     lazy var trebleClefImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true
         
@@ -19,6 +20,7 @@ class StaffView: UIView {
     
     lazy var bassClefImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(UIColor(named: "Black")!))
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true
         
@@ -49,15 +51,11 @@ class StaffView: UIView {
         addSubview(bassClefImageView)
         
         NSLayoutConstraint.activate([
-            trebleClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
-            trebleClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -47),
-            trebleClefImageView.heightAnchor.constraint(equalToConstant: 173),
-            trebleClefImageView.widthAnchor.constraint(equalToConstant: 62),
+            trebleClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -5),
+            trebleClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -2),
             
-            bassClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -10),
-            bassClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -54),
-            bassClefImageView.heightAnchor.constraint(equalToConstant: 87),
-            bassClefImageView.widthAnchor.constraint(equalToConstant: 76),
+            bassClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -5),
+            bassClefImageView.topAnchor.constraint(equalTo: topAnchor, constant: -0.5)
         ])
     }
     

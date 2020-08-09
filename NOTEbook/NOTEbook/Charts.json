@@ -3,7 +3,8 @@
         "instrument": {
             "type": "Trumpet",
             "clef": "treble",
-            "fingeringWidth": 140
+            "fingeringWidth": 140,
+            "offset": 0.5
         },
         "centerNote": {
             "letter": "c",
@@ -1527,7 +1528,8 @@
         "instrument": {
             "type": "Euphonium T.C. Non-Compensating",
             "clef": "treble",
-            "fingeringWidth": 180
+            "fingeringWidth": 180,
+            "offset": -0.25
         },
         "centerNote": {
             "letter": "c",
@@ -1713,19 +1715,19 @@
             {
                 "letter": "a",
                 "type": "natural",
-                "pitch": "high",
+                "pitch": "veryHigh",
                 "clef": "treble"
             },
             {
                 "letter": "b",
                 "type": "natural",
-                "pitch": "high",
+                "pitch": "veryHigh",
                 "clef": "treble"
             },
             {
                 "letter": "c",
                 "type": "natural",
-                "pitch": "high",
+                "pitch": "veryHigh",
                 "clef": "treble"
             }
         ],

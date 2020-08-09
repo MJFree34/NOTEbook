@@ -19,6 +19,7 @@
 		9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70724DB795300B493A1 /* DecodingTests.swift */; };
 		9A55D70E24DC7C9E00B493A1 /* StaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70D24DC7C9E00B493A1 /* StaffView.swift */; };
 		9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */; };
+		9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
@@ -70,6 +71,7 @@
 		9A55D70724DB795300B493A1 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
 		9A55D70D24DC7C9E00B493A1 /* StaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffView.swift; sourceTree = "<group>"; };
 		9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
+		9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterArrowViewController.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -163,11 +165,12 @@
 			children = (
 				9A022AE8249908C00052E819 /* NotePickerViewController.swift */,
 				9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */,
+				9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */,
 				9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */,
+				9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */,
 				9A81D425249D5218001E108B /* FingeringPageViewController.swift */,
 				9A81D427249D53A2001E108B /* FingeringViewController.swift */,
 				9A73FED124B278380002D50C /* TutorialViewController.swift */,
-				9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
+				9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */,
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
 				9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */,
 				9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
