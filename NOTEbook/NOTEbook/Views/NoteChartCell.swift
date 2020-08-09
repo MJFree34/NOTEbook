@@ -501,7 +501,7 @@ extension NoteChartCell {
                         fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
                         fingeringView.bottomAnchor.constraint(equalTo: fingeringView2.topAnchor, constant: -2)
                     ])
-                case .euphoniumTCNC:
+                case .euphoniumTCNC, .euphoniumTCC:
                     fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
                     fingeringView2 = createEuphoniumNoteFingering(with: noteFingering.fingerings[1].keys)
                     
@@ -533,7 +533,7 @@ extension NoteChartCell {
                         fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
                         fingeringView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
                     ])
-                case .euphoniumTCNC:
+                case .euphoniumTCNC, .euphoniumTCC:
                     fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
                     
                     contentView.addSubview(fingeringView)

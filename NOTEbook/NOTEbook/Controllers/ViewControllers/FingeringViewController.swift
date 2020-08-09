@@ -62,7 +62,7 @@ class FingeringViewController: UIViewController {
                     finger3.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45),
                     finger3.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                 ])
-            case .euphoniumTCNC:
+            case .euphoniumTCNC, .euphoniumTCC:
                 let finger1 = UIImageView(image: UIImage(named: (fingering.keys[0] ? "RoundFingeringFull1" : "RoundFingeringEmpty1"))!.withTintColor(UIColor(named: "Black")!))
                 finger1.translatesAutoresizingMaskIntoConstraints = false
                 view.addSubview(finger1)
