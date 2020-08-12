@@ -354,6 +354,12 @@ class NotePickerCell: UICollectionViewCell {
             return -spacing * 7.5
         case .top6thLine:
             return -spacing * 8
+        case .top7thSpace:
+            return -spacing * 8.5
+        case .top7thLine:
+            return -spacing * 9
+        case .top8thSpace:
+            return -spacing * 9.5
         }
     }
     

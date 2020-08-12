@@ -5949,6 +5949,38 @@
                             false,
                             false
                         ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            false,
+                            true,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            false,
+                            true
+                        ]
+                    },
+                    {
+                        "keys": [
+                            true,
+                            true,
+                            false,
+                            false
+                        ]
+                    },
+                    {
+                        "keys": [
+                            false,
+                            false,
+                            true,
+                            false
+                        ]
                     }
                 ]
             },

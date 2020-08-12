@@ -30,6 +30,7 @@ enum Clef: String, Decodable {
 }
 
 enum NotePitch: String, Decodable {
+    case veryVeryHigh
     case veryLow
     case low
     case lowMedium
@@ -82,6 +83,9 @@ enum NotePosition: String, Decodable {
     case top5thLine
     case top6thSpace
     case top6thLine
+    case top7thSpace
+    case top7thLine
+    case top8thSpace
     
     func findLocation() -> NoteLocation {
         switch self {
@@ -225,6 +229,23 @@ struct Note: Decodable, Equatable {
                 case .d:
                     return .top5thLine
                 case .e:
+                    return .top6thSpace
+                case .f:
+                    return .top6thLine
+                case .g:
+                    return .top7thSpace
+                }
+            case .veryVeryHigh:
+                switch letter {
+                case .a:
+                    return .top7thLine
+                case .b:
+                    return .top8thSpace
+                case .c:
+                    fatalError("Note not implemented")
+                case .d:
+                    fatalError("Note not implemented")
+                case .e:
                     fatalError("Note not implemented")
                 case .f:
                     fatalError("Note not implemented")
@@ -329,6 +350,23 @@ struct Note: Decodable, Equatable {
                     return .top6thSpace
                 case .d:
                     return .top6thLine
+                case .e:
+                    fatalError("Note not implemented")
+                case .f:
+                    fatalError("Note not implemented")
+                case .g:
+                    fatalError("Note not implemented")
+                }
+            case .veryVeryHigh:
+                switch letter {
+                case .a:
+                    fatalError("Note not implemented")
+                case .b:
+                    fatalError("Note not implemented")
+                case .c:
+                    fatalError("Note not implemented")
+                case .d:
+                    fatalError("Note not implemented")
                 case .e:
                     fatalError("Note not implemented")
                 case .f:

@@ -450,6 +450,12 @@ extension NoteChartCell {
             return noteTopInset - spaceBetweenStaffLines * 7.5
         case .top6thLine:
             return noteTopInset - spaceBetweenStaffLines * 8
+        case .top7thSpace:
+            return noteTopInset - spaceBetweenStaffLines * 8.5
+        case .top7thLine:
+            return noteTopInset - spaceBetweenStaffLines * 9
+        case .top8thSpace:
+            return noteTopInset - spaceBetweenStaffLines * 9.5
         }
     }
     

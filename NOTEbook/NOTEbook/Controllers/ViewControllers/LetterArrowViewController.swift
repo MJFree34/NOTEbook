@@ -104,7 +104,7 @@ class LetterArrowViewController: UIViewController {
         view.addSubview(letterSharp)
         
         NSLayoutConstraint.activate([
-            noteLetterView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            noteLetterView.topAnchor.constraint(equalTo: view.topAnchor, constant: 120),
             noteLetterView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             noteLetterView.heightAnchor.constraint(equalToConstant: 100),
             noteLetterView.widthAnchor.constraint(equalToConstant: 86),

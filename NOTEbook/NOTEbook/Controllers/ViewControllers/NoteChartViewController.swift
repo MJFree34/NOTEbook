@@ -9,6 +9,8 @@
 import UIKit
 
 class NoteChartViewController: UIViewController {
+    var chartsController = ChartsController.shared
+    
     lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.dataSource = self
@@ -17,12 +19,11 @@ class NoteChartViewController: UIViewController {
         cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         cv.register(NoteChartCell.self, forCellWithReuseIdentifier: NoteChartCell.reuseIdentifier)
+        cv.register(TitleCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCell.reuseIdentifier)
         cv.translatesAutoresizingMaskIntoConstraints = false
         
         return cv
     }()
-    
-    var chartsController = ChartsController.shared
     
     lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
@@ -78,7 +79,7 @@ class NoteChartViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -136,6 +137,22 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            let titleCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: TitleCell.reuseIdentifier, for: indexPath) as! TitleCell
+            titleCell.titleLabel.text = chartsController.currentChart.instrument.type.rawValue
+            
+            return titleCell
+        default:
+            fatalError("Unexpected element kind")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: 40)
     }
 }
 

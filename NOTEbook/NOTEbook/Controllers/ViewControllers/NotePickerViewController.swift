@@ -28,6 +28,7 @@ class NotePickerViewController: UIViewController {
     var picker = NotePicker()
     var staffView: StaffView!
     var letterArrowViewController = LetterArrowViewController()
+    var titleLabel = InstrumentTitleLabel()
     
     var staffCenterYAnchor: NSLayoutConstraint!
     
@@ -67,6 +68,7 @@ class NotePickerViewController: UIViewController {
         
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
+        configureTitleLabel()
         configureLetterArrowView()
         configurePicker()
         configureStaffView()
@@ -101,12 +103,22 @@ class NotePickerViewController: UIViewController {
         view.addGestureRecognizer(swipeRight)
     }
     
+    func configureTitleLabel() {
+        view.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            titleLabel.heightAnchor.constraint(equalToConstant: 20)
+        ])
+    }
+    
     func configureLetterArrowView() {
         letterArrowViewController.view.translatesAutoresizingMaskIntoConstraints = false
         add(letterArrowViewController)
         
         NSLayoutConstraint.activate([
-            letterArrowViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            letterArrowViewController.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             letterArrowViewController.view.heightAnchor.constraint(equalToConstant: 250),
             letterArrowViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             letterArrowViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
@@ -182,6 +194,8 @@ class NotePickerViewController: UIViewController {
         picker.reloadData()
         
         updateStaffView()
+        
+        titleLabel.text = chartsController.currentChart.instrument.type.rawValue
         
         letterArrowViewController.fingeringViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
         letterArrowViewController.view.layoutIfNeeded()
