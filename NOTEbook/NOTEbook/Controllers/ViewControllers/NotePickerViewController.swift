@@ -25,7 +25,7 @@ class NotePickerViewController: UIViewController {
     
     static let spaceBetweenStaffLines: CGFloat = 20
     
-    var picker = NotePicker()
+    var picker: NotePicker!
     var staffView: StaffView!
     var letterArrowViewController = LetterArrowViewController()
     var titleLabel = InstrumentTitleLabel()
@@ -126,6 +126,7 @@ class NotePickerViewController: UIViewController {
     }
     
     func configurePicker() {
+        picker = NotePicker(screenWidth: view.bounds.width)
         picker.delegate = self
         picker.dataSource = self
         picker.collectionView.register(NotePickerCell.self, forCellWithReuseIdentifier: NotePickerCell.reuseIdentifier)

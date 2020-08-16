@@ -61,8 +61,17 @@ class NotePicker: UIView {
         return CGSize(width: UIView.noIntrinsicMetric, height: cellSize)
     }
     
-    convenience init() {
+    convenience init(screenWidth: CGFloat) {
         self.init(frame: CGRect.zero)
+        print(screenWidth)
+        switch screenWidth {
+        case 375.0:
+            firstCellInset = 209.5
+        case 414.0:
+            firstCellInset = 229.0
+        default:
+            firstCellInset = 0
+        }
     }
     
     override init(frame: CGRect) {
@@ -96,6 +105,8 @@ class NotePicker: UIView {
     private var forwardDelegate: NotePickerForwardDelegate!
     
     private var selectedTapped = false
+    
+    private var firstCellInset: CGFloat!
     
     private func initialize() {
         addSubview(collectionView)
@@ -219,7 +230,7 @@ extension NotePicker: UIScrollViewDelegate {
         let center = convert(collectionView.center, to: collectionView)
         let totalCells = collectionView.numberOfItems(inSection: 0)
         
-        if center.x < 209.5 {
+        if center.x < firstCellInset {
             scrollToItem(at: 0)
         } else if center.x > 209.5 + 87.0 * CGFloat(totalCells - 1) {
             scrollToItem(at: totalCells - 1)
