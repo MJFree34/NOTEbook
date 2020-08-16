@@ -20,45 +20,45 @@ class NotePickerCell: UICollectionViewCell {
     
     var note: Note!
     
-    var quarterNoteOrientation: QuarterNoteOrientation = .upper
+    private var quarterNoteOrientation: QuarterNoteOrientation = .upper
     
-    var upperQuarterNote: UIImageView!
-    var lowerQuarterNote: UIImageView!
-    var flat: UIImageView!
-    var sharp: UIImageView!
+    private var upperQuarterNote: UIImageView!
+    private var lowerQuarterNote: UIImageView!
+    private var flat: UIImageView!
+    private var sharp: UIImageView!
     
-    var lowerLine8: UIImageView!
-    var lowerLine7: UIImageView!
-    var lowerLine6: UIImageView!
-    var lowerLine5: UIImageView!
-    var lowerLine4: UIImageView!
-    var lowerLine3: UIImageView!
-    var lowerLine2: UIImageView!
-    var lowerLine1: UIImageView!
-    var upperLine1: UIImageView!
-    var upperLine2: UIImageView!
-    var upperLine3: UIImageView!
-    var upperLine4: UIImageView!
-    var upperLine5: UIImageView!
-    var upperLine6: UIImageView!
+    private var lowerLine8: UIImageView!
+    private var lowerLine7: UIImageView!
+    private var lowerLine6: UIImageView!
+    private var lowerLine5: UIImageView!
+    private var lowerLine4: UIImageView!
+    private var lowerLine3: UIImageView!
+    private var lowerLine2: UIImageView!
+    private var lowerLine1: UIImageView!
+    private var upperLine1: UIImageView!
+    private var upperLine2: UIImageView!
+    private var upperLine3: UIImageView!
+    private var upperLine4: UIImageView!
+    private var upperLine5: UIImageView!
+    private var upperLine6: UIImageView!
     
-    var upperQuarterNoteCenterYConstraint: NSLayoutConstraint!
-    var lowerQuarterNoteCenterYConstraint: NSLayoutConstraint!
+    private var upperQuarterNoteCenterYConstraint: NSLayoutConstraint!
+    private var lowerQuarterNoteCenterYConstraint: NSLayoutConstraint!
     
-    var lowerLine8CenterYConstraint: NSLayoutConstraint!
-    var lowerLine7CenterYConstraint: NSLayoutConstraint!
-    var lowerLine6CenterYConstraint: NSLayoutConstraint!
-    var lowerLine5CenterYConstraint: NSLayoutConstraint!
-    var lowerLine4CenterYConstraint: NSLayoutConstraint!
-    var lowerLine3CenterYConstraint: NSLayoutConstraint!
-    var lowerLine2CenterYConstraint: NSLayoutConstraint!
-    var lowerLine1CenterYConstraint: NSLayoutConstraint!
-    var upperLine1CenterYConstraint: NSLayoutConstraint!
-    var upperLine2CenterYConstraint: NSLayoutConstraint!
-    var upperLine3CenterYConstraint: NSLayoutConstraint!
-    var upperLine4CenterYConstraint: NSLayoutConstraint!
-    var upperLine5CenterYConstraint: NSLayoutConstraint!
-    var upperLine6CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine8CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine7CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine6CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine5CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine4CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine3CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine2CenterYConstraint: NSLayoutConstraint!
+    private var lowerLine1CenterYConstraint: NSLayoutConstraint!
+    private var upperLine1CenterYConstraint: NSLayoutConstraint!
+    private var upperLine2CenterYConstraint: NSLayoutConstraint!
+    private var upperLine3CenterYConstraint: NSLayoutConstraint!
+    private var upperLine4CenterYConstraint: NSLayoutConstraint!
+    private var upperLine5CenterYConstraint: NSLayoutConstraint!
+    private var upperLine6CenterYConstraint: NSLayoutConstraint!
     
     private func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
@@ -112,10 +112,6 @@ class NotePickerCell: UICollectionViewCell {
         
         upperNoteCenterOffset *= NotePickerViewController.spaceBetweenStaffLines / 20
         lowerNoteCenterOffset *= NotePickerViewController.spaceBetweenStaffLines / 20
-    }
-    
-    func setNote(_ note: Note) {
-        self.note = note
     }
     
     private func initializeExtraNoteLines() {

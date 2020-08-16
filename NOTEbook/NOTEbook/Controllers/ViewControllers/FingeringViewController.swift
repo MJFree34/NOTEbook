@@ -11,7 +11,7 @@ import UIKit
 class FingeringViewController: UIViewController {
     var fingering: Fingering!
     
-    lazy var optionalLabel: UILabel = {
+    private lazy var optionalLabel: UILabel = {
         var lab = UILabel()
         lab.font = UIFont.preferredFont(forTextStyle: .title1)
         lab.textAlignment = .center

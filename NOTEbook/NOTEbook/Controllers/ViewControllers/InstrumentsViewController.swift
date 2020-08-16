@@ -9,11 +9,11 @@
 import UIKit
 
 class InstrumentsViewController: UIViewController {
-    let chartsController = ChartsController.shared
+    private let chartsController = ChartsController.shared
     
-    var selectedIndex: IndexPath!
+    private var selectedIndex: IndexPath!
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
         tv.delegate = self
@@ -25,6 +25,7 @@ class InstrumentsViewController: UIViewController {
         
         return tv
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

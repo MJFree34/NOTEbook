@@ -9,9 +9,9 @@
 import UIKit
 
 class NoteChartViewController: UIViewController {
-    var chartsController = ChartsController.shared
+    private var chartsController = ChartsController.shared
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.dataSource = self
         cv.delegate = self
@@ -25,7 +25,7 @@ class NoteChartViewController: UIViewController {
         return cv
     }()
     
-    lazy var settingsBarButton: UIBarButtonItem = {
+    private lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
         let image = UIImage(systemName: "gear", withConfiguration: imageConfiguration)!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingsButtonTapped))
@@ -33,7 +33,7 @@ class NoteChartViewController: UIViewController {
         return button
     }()
     
-    lazy var pickerButton: UIButton = {
+    private lazy var pickerButton: UIButton = {
         let image = UIImage(named: "PickerButton")!
         let pressedImage = UIImage(named: "PressedPickerButton")!
         let button = UIButton(type: .custom)
@@ -44,7 +44,7 @@ class NoteChartViewController: UIViewController {
         return button
     }()
     
-    lazy var instrumentsBarButton: UIBarButtonItem = {
+    private lazy var instrumentsBarButton: UIBarButtonItem = {
         let image = UIImage(named: "InstrumentsButton")!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
         
@@ -72,7 +72,7 @@ class NoteChartViewController: UIViewController {
         navigationItem.rightBarButtonItem = instrumentsBarButton
     }
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
@@ -83,19 +83,19 @@ class NoteChartViewController: UIViewController {
         ])
     }
     
-    @objc func settingsButtonTapped() {
+    @objc private func settingsButtonTapped() {
         UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
         
         let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func instrumentsButtonTapped() {
+    @objc private func instrumentsButtonTapped() {
         let vc = InstrumentsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func pickerButtonTapped() {
+    @objc private func pickerButtonTapped() {
         UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
         
         navigationController?.popViewController(animated: true)

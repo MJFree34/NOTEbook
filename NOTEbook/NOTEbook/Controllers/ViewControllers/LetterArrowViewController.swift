@@ -14,7 +14,7 @@ class LetterArrowViewController: UIViewController {
     
     var currentNoteFingering: NoteFingering!
     var currentNoteType: NoteType = .natural
-    var chartsController = ChartsController.shared
+    private var chartsController = ChartsController.shared
     
     var fingeringViewWidthConstraint: NSLayoutConstraint!
     
@@ -91,7 +91,7 @@ class LetterArrowViewController: UIViewController {
         configureFingeringPageView()
     }
     
-    func configureNoteLetter() {
+    private func configureNoteLetter() {
         addGradientLabel()
         view.addSubview(noteLetterView)
         
@@ -121,7 +121,7 @@ class LetterArrowViewController: UIViewController {
         ])
     }
     
-    func addGradientLabel() {
+    private func addGradientLabel() {
         letterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 100))
         letterLabel.text = "C"
         letterLabel.font = UIFont.noteFont
@@ -132,21 +132,21 @@ class LetterArrowViewController: UIViewController {
         noteLetterView.mask = letterLabel
     }
     
-    func addGradientFlat() {
+    private func addGradientFlat() {
         let flatImageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
         letterFlat.addSubview(flatImageView)
 
         letterFlat.mask = flatImageView
     }
     
-    func addGradientSharp() {
+    private func addGradientSharp() {
         let sharpImageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
         letterSharp.addSubview(sharpImageView)
 
         letterSharp.mask = sharpImageView
     }
     
-    func configureSwipeArrows() {
+    private func configureSwipeArrows() {
         view.addSubview(rightArrow)
         view.addSubview(rightArrowNatural)
         view.addSubview(arrowSharp)
@@ -178,7 +178,7 @@ class LetterArrowViewController: UIViewController {
         ])
     }
     
-    func configureFingeringPageView() {
+    private func configureFingeringPageView() {
         fingeringPageViewController = FingeringPageViewController()
         fingeringPageViewController.fingerings = currentNoteFingering.fingerings
         fingeringPageViewController.view.translatesAutoresizingMaskIntoConstraints = false

@@ -14,9 +14,9 @@ import UIKit
 import MessageUI
 
 class SettingsViewController: UITableViewController {
-    let sections = [Section.actions, Section.about]
-    let actions = ["Show Tutorial", "Fingerings, Features, or Feedback?"]
-    let about = [["Current Version", "1.0 (9)"]]
+    private let sections = [Section.actions, Section.about]
+    private let actions = ["Show Tutorial", "Fingerings, Features, or Feedback?"]
+    private let about = [["Current Version", "1.0 (9)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +101,7 @@ class SettingsViewController: UITableViewController {
 }
 
 extension SettingsViewController: MFMailComposeViewControllerDelegate {
-    func sendEmail() {
+    private func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
             let mailVC = MFMailComposeViewController()
             mailVC.mailComposeDelegate = self

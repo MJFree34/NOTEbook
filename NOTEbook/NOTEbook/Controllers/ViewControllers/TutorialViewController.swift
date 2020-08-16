@@ -9,9 +9,9 @@
 import UIKit
 
 class TutorialViewController: UIViewController {
-    let tutorialInformation = [TutorialInfo(imageName: "LargePickerButton", description: "The picker screen allows you to pick a note and see its fingering."), TutorialInfo(imageName: "TutorialFingerings", description: "Each note has alternate fingerings that you can scroll through to find the perfect one."), TutorialInfo(imageName: "TutorialArrows", description: "Swipe left to right to see notes down a half-step, or right to left to see notes up a half-step."), TutorialInfo(imageName: "TutorialPicker", description: "Use the picker to select any note by swiping left or right or tapping on the desired note if it is visible."), TutorialInfo(imageName: "LargeGridButton", description: "The grid screen allows you to see all the notes and fingerings together."), TutorialInfo(imageName: "LargeInstrumentsButton", description: "The instrument screen allows you to select any of many instruments to see their fingerings."), TutorialInfo(imageName: "gear", description: "Customize your experience in settings and send suggestions to the developer!")]
+    private let tutorialInformation = [TutorialInfo(imageName: "LargePickerButton", description: "The picker screen allows you to pick a note and see its fingering."), TutorialInfo(imageName: "TutorialFingerings", description: "Each note has alternate fingerings that you can scroll through to find the perfect one."), TutorialInfo(imageName: "TutorialArrows", description: "Swipe left to right to see notes down a half-step, or right to left to see notes up a half-step."), TutorialInfo(imageName: "TutorialPicker", description: "Use the picker to select any note by swiping left or right or tapping on the desired note if it is visible."), TutorialInfo(imageName: "LargeGridButton", description: "The grid screen allows you to see all the notes and fingerings together."), TutorialInfo(imageName: "LargeInstrumentsButton", description: "The instrument screen allows you to select any of many instruments to see their fingerings."), TutorialInfo(imageName: "gear", description: "Customize your experience in settings and send suggestions to the developer!")]
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.text = "Welcome to NOTEbook!"
@@ -22,7 +22,7 @@ class TutorialViewController: UIViewController {
         return label
     }()
     
-    lazy var bottomButton: UIButton = {
+    private lazy var bottomButton: UIButton = {
         let button = UIButton(type: .roundedRect)
         button.setTitle("Continue", for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
@@ -35,7 +35,7 @@ class TutorialViewController: UIViewController {
         return button
     }()
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
         tv.allowsSelection = false
@@ -60,7 +60,7 @@ class TutorialViewController: UIViewController {
         setupTableView()
     }
     
-    func addTitleLabel() {
+    private func addTitleLabel() {
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
@@ -69,7 +69,7 @@ class TutorialViewController: UIViewController {
         ])
     }
     
-    func addBottomButton() {
+    private func addBottomButton() {
         view.addSubview(bottomButton)
         
         NSLayoutConstraint.activate([
@@ -80,7 +80,7 @@ class TutorialViewController: UIViewController {
         ])
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -91,7 +91,7 @@ class TutorialViewController: UIViewController {
         ])
     }
     
-    @objc func dismissButtonTapped() {
+    @objc private func dismissButtonTapped() {
         UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
         
         dismiss(animated: true)

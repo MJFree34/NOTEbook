@@ -9,15 +9,15 @@
 import UIKit
 
 class NotePickerViewController: UIViewController {
-    var chartsController = ChartsController.shared
+    private var chartsController = ChartsController.shared
     
-    var currentNoteFingering: NoteFingering! {
+    private var currentNoteFingering: NoteFingering! {
         didSet {
             letterArrowViewController.currentNoteFingering = currentNoteFingering
         }
     }
     
-    var currentNoteType: NoteType = .natural {
+    private var currentNoteType: NoteType = .natural {
         didSet {
             letterArrowViewController.currentNoteType = currentNoteType
         }
@@ -25,14 +25,14 @@ class NotePickerViewController: UIViewController {
     
     static var spaceBetweenStaffLines: CGFloat = 20
     
-    var picker: NotePicker!
-    var staffView: StaffView!
-    var letterArrowViewController = LetterArrowViewController()
-    var titleLabel = InstrumentTitleLabel()
+    private var picker: NotePicker!
+    private var staffView: StaffView!
+    private var letterArrowViewController = LetterArrowViewController()
+    private var titleLabel = InstrumentTitleLabel()
     
-    var staffCenterYAnchor: NSLayoutConstraint!
+    private var staffCenterYAnchor: NSLayoutConstraint!
     
-    lazy var settingsBarButton: UIBarButtonItem = {
+    private lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
         let image = UIImage(systemName: "gear", withConfiguration: imageConfiguration)!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingsButtonTapped))
@@ -40,7 +40,7 @@ class NotePickerViewController: UIViewController {
         return button
     }()
     
-    lazy var gridButton: UIButton = {
+    private lazy var gridButton: UIButton = {
         let image = UIImage(named: "GridButton")!
         let pressedImage = UIImage(named: "PressedGridButton")!
         let button = UIButton(type: .custom)
@@ -51,7 +51,7 @@ class NotePickerViewController: UIViewController {
         return button
     }()
     
-    lazy var instrumentsBarButton: UIBarButtonItem = {
+    private lazy var instrumentsBarButton: UIBarButtonItem = {
         let image = UIImage(named: "InstrumentsButton")!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
         
@@ -60,10 +60,22 @@ class NotePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(view.bounds.height)
         if view.bounds.height == 896.0 {
-            // iPhone X and later
+            // iPhone XR, XS Max, 11, 11 Pro Max
             NotePickerViewController.spaceBetweenStaffLines = 25
+        } else if view.bounds.height == 812.0 {
+            // iPhone X, XS, 11 Pro
+            NotePickerViewController.spaceBetweenStaffLines = 24
+        } else if view.bounds.height == 736.0 {
+            // iPhone 7 and 8 Plus
+            NotePickerViewController.spaceBetweenStaffLines = 23
+        } else if view.bounds.height == 667.0 {
+            // iPhone 6, 6S, 7, and 8
+            NotePickerViewController.spaceBetweenStaffLines = 20
+        } else if view.bounds.height == 568 {
+            // iPhone SE
+            NotePickerViewController.spaceBetweenStaffLines = 19
         }
         
         view.addBackgroundGradient()
@@ -95,7 +107,7 @@ class NotePickerViewController: UIViewController {
         reloadInstrumentViews()
     }
     
-    func addSwipeGestures() {
+    private func addSwipeGestures() {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
         swipeLeft.numberOfTouchesRequired = 1
         swipeLeft.direction = .left
@@ -108,7 +120,7 @@ class NotePickerViewController: UIViewController {
         view.addGestureRecognizer(swipeRight)
     }
     
-    func configureTitleLabel() {
+    private func configureTitleLabel() {
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
@@ -118,7 +130,7 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
-    func configureLetterArrowView() {
+    private func configureLetterArrowView() {
         letterArrowViewController.view.translatesAutoresizingMaskIntoConstraints = false
         add(letterArrowViewController)
         
@@ -130,7 +142,7 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
-    func configurePicker() {
+    private func configurePicker() {
         picker = NotePicker(screenWidth: view.bounds.width)
         picker.delegate = self
         picker.dataSource = self
@@ -149,7 +161,7 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
-    func configureStaffView() {
+    private func configureStaffView() {
         let staffWidth = view.bounds.width - 40
         staffView = StaffView(width: staffWidth)
         staffView.isUserInteractionEnabled = false
@@ -168,13 +180,13 @@ class NotePickerViewController: UIViewController {
         updateStaffView()
     }
     
-    func updateStaffView() {
+    private func updateStaffView() {
         staffView.updateClef(with: chartsController.currentChart.instrument.clef)
         staffCenterYAnchor.constant = NotePickerViewController.spaceBetweenStaffLines * CGFloat(chartsController.currentChart.instrument.offset)
         view.layoutIfNeeded()
     }
     
-    func configureIndicators() {
+    private func configureIndicators() {
         let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
         leftIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(leftIndicator)
@@ -192,7 +204,7 @@ class NotePickerViewController: UIViewController {
         ])
     }
     
-    func reloadInstrumentViews() {
+    private func reloadInstrumentViews() {
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         
         updateNoteType(to: .natural, animate: false)
@@ -207,7 +219,7 @@ class NotePickerViewController: UIViewController {
         letterArrowViewController.view.layoutIfNeeded()
     }
     
-    @objc func changeNoteType(swipe: UISwipeGestureRecognizer) {
+    @objc private func changeNoteType(swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .left {
             if currentNoteType == .natural {
                 updateNoteType(to: .sharp)
@@ -225,7 +237,7 @@ class NotePickerViewController: UIViewController {
         picker.reloadData()
     }
     
-    func updateNoteType(to noteType: NoteType, animate: Bool = true) {
+    private func updateNoteType(to noteType: NoteType, animate: Bool = true) {
         UIView.animate(withDuration: (animate ? 0.5 : 0)) {
             if self.currentNoteType == .natural {
                 if noteType == .sharp {
@@ -259,19 +271,19 @@ class NotePickerViewController: UIViewController {
         currentNoteType = noteType
     }
     
-    @objc func settingsButtonTapped() {
+    @objc private func settingsButtonTapped() {
         UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
         
         let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func instrumentsButtonTapped() {
+    @objc private func instrumentsButtonTapped() {
         let vc = InstrumentsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func gridButtonTapped() {
+    @objc private func gridButtonTapped() {
         UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
         
         let vc = NoteChartViewController()
@@ -325,11 +337,11 @@ extension NotePickerViewController: UICollectionViewDataSource {
         
         switch currentNoteType {
         case .natural:
-            cell.setNote(chartsController.currentChart.naturalNotes[indexPath.item])
+            cell.note = chartsController.currentChart.naturalNotes[indexPath.item]
         case .sharp:
-            cell.setNote(chartsController.currentChart.sharpNotes[indexPath.item])
+            cell.note = chartsController.currentChart.sharpNotes[indexPath.item]
         case .flat:
-            cell.setNote(chartsController.currentChart.flatNotes[indexPath.item])
+            cell.note = chartsController.currentChart.flatNotes[indexPath.item]
         }
         
         cell.reloadViews()

@@ -9,9 +9,9 @@
 import UIKit
 
 class FingeringPageViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
-    var pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    private var pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
-    lazy var pageControl: UIPageControl = {
+    private lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         control.currentPage = 0
         control.currentPageIndicatorTintColor = UIColor(named: "Black")!

@@ -9,7 +9,7 @@
 import UIKit
 
 class StaffView: UIView {
-    lazy var trebleClefImageView: UIImageView = {
+    private lazy var trebleClefImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +18,7 @@ class StaffView: UIView {
         return imageView
     }()
     
-    lazy var bassClefImageView: UIImageView = {
+    private lazy var bassClefImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(UIColor(named: "Black")!))
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,13 +40,13 @@ class StaffView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addLines(width: CGFloat) {
+    private func addLines(width: CGFloat) {
         for i in 0..<5 {
             addStaffLine(bottomInset: NotePickerViewController.spaceBetweenStaffLines * (4 - CGFloat(i)), width: width)
         }
     }
     
-    func addClefs() {
+    private func addClefs() {
         addSubview(trebleClefImageView)
         addSubview(bassClefImageView)
         
@@ -60,7 +60,7 @@ class StaffView: UIView {
         ])
     }
     
-    func addStaffLine(bottomInset: CGFloat, width: CGFloat) {
+    private func addStaffLine(bottomInset: CGFloat, width: CGFloat) {
         let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: width, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(staffImageView)

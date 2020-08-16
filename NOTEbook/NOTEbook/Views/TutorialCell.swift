@@ -11,7 +11,7 @@ import UIKit
 class TutorialCell: UITableViewCell {
     static let reuseIdentifier = "TutorialCell"
     
-    lazy var descriptionLabel: UILabel = {
+    private lazy var descriptionLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = UIColor(named: "DarkAqua")
@@ -23,7 +23,7 @@ class TutorialCell: UITableViewCell {
         return label
     }()
     
-    lazy var tutorialImage: UIImageView = {
+    private lazy var tutorialImage: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class TutorialCell: UITableViewCell {
         return imgView
     }()
     
-    lazy var imageContainer: UIView = {
+    private lazy var imageContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         

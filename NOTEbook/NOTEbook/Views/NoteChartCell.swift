@@ -18,11 +18,11 @@ class NoteChartCell: UICollectionViewCell {
     private var cellWidth: CGFloat!
     private var noteFingering: NoteFingering!
     
-    var currentExtraLines = [UIImageView]()
-    var currentWholeNotes = [UIImageView]()
-    var currentFingerings = [UIImageView]()
+    private var currentExtraLines = [UIImageView]()
+    private var currentWholeNotes = [UIImageView]()
+    private var currentFingerings = [UIImageView]()
     
-    lazy var optionalLabel: UILabel = {
+    private lazy var optionalLabel: UILabel = {
         var lab = UILabel()
         lab.font = UIFont.preferredFont(forTextStyle: .title3)
         lab.textAlignment = .center
@@ -34,7 +34,7 @@ class NoteChartCell: UICollectionViewCell {
         return lab
     }()
     
-    lazy var leftTextView: UITextView = {
+    private lazy var leftTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 34)
         textView.textAlignment = .center
@@ -45,7 +45,7 @@ class NoteChartCell: UICollectionViewCell {
         return textView
     }()
     
-    lazy var rightTextView: UITextView = {
+    private lazy var rightTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 34)
         textView.textAlignment = .center
@@ -56,14 +56,14 @@ class NoteChartCell: UICollectionViewCell {
         return textView
     }()
     
-    lazy var letterFlatView: UIImageView = {
+    private lazy var letterFlatView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "CellFlat")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
-    lazy var letterSharpView: UIImageView = {
+    private lazy var letterSharpView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "CellSharp")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -92,7 +92,7 @@ extension NoteChartCell {
         configureFingering()
     }
     
-    func configureStaff() {
+    private func configureStaff() {
         for i in -2...2 {
             addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
@@ -107,7 +107,7 @@ extension NoteChartCell {
         ])
     }
     
-    func addStaffLine(topInset: CGFloat) {
+    private func addStaffLine(topInset: CGFloat) {
         let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(UIColor(named: "Black")!))
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(staffImageView)
@@ -118,7 +118,7 @@ extension NoteChartCell {
         ])
     }
     
-    func configureOutline() {
+    private func configureOutline() {
         let insetFromTop = centerOfStaffInsetFromTop - 2 * spaceBetweenStaffLines
         
         let leftOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: NoteChartCell.cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
@@ -150,7 +150,7 @@ extension NoteChartCell {
         ])
     }
     
-    func configureNoteLetters() {
+    private func configureNoteLetters() {
         let topInset: CGFloat = -13
         let leftRightInset: CGFloat = 10
         let textViewWidth: CGFloat = 28
@@ -229,7 +229,7 @@ extension NoteChartCell {
         }
     }
     
-    func configureExtraNoteLines() {
+    private func configureExtraNoteLines() {
         for line in currentExtraLines {
             line.removeFromSuperview()
         }
@@ -291,7 +291,7 @@ extension NoteChartCell {
         }
     }
     
-    func addExtraStaffLine(topInset: CGFloat, thickLine: Bool) {
+    private func addExtraStaffLine(topInset: CGFloat, thickLine: Bool) {
         let lineWidth: CGFloat = 30
         
         let extraLineImageView = thickLine ? UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!)) : UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!))
@@ -305,7 +305,7 @@ extension NoteChartCell {
         ])
     }
     
-    func configureNotes() {
+    private func configureNotes() {
         for note in currentWholeNotes {
             note.removeFromSuperview()
         }
@@ -372,7 +372,7 @@ extension NoteChartCell {
         }
     }
     
-    func calculateNoteTopInset(note: Note, noteHeight: CGFloat) -> CGFloat {
+    private func calculateNoteTopInset(note: Note, noteHeight: CGFloat) -> CGFloat {
         let noteTopInset: CGFloat = centerOfStaffInsetFromTop - noteHeight / 2 + 0.5
         
         switch note.position {
@@ -459,14 +459,14 @@ extension NoteChartCell {
         }
     }
     
-    func createWholeNote() -> UIImageView {
+    private func createWholeNote() -> UIImageView {
         let imageView = UIImageView(image: UIImage(named: "CellWholeNote")!.withTintColor(UIColor(named: "Black")!))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }
     
-    func configureFingering() {
+    private func configureFingering() {
         for fingering in currentFingerings {
             fingering.removeFromSuperview()
         }
@@ -554,7 +554,7 @@ extension NoteChartCell {
         }
     }
     
-    func createTrumpetNoteFingering(with keys: [Bool]) -> UIImageView {
+    private func createTrumpetNoteFingering(with keys: [Bool]) -> UIImageView {
         let trumpetFingeringHeight: CGFloat = 20
         let trumpetFingeringGap: CGFloat = 30
         let trumpetViewWidth: CGFloat = trumpetFingeringGap * 3
@@ -575,7 +575,7 @@ extension NoteChartCell {
         return imageView
     }
     
-    func createEuphoniumNoteFingering(with keys: [Bool]) -> UIImageView {
+    private func createEuphoniumNoteFingering(with keys: [Bool]) -> UIImageView {
         let euphoniumFingeringHeight: CGFloat = 20
         let euphoniumFingeringGap: CGFloat = 21.25
         let euphoniumViewWidth: CGFloat = 30 * 3
