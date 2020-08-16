@@ -10,9 +10,9 @@ import UIKit
 
 class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
-    static let cellHeight: CGFloat = 240
+    static let cellHeight: CGFloat = 250
     
-    private let centerOfStaffInsetFromTop: CGFloat = 90
+    private let centerOfStaffInsetFromTop: CGFloat = 100
     private let spaceBetweenStaffLines: CGFloat = 10
     
     private var cellWidth: CGFloat!
@@ -80,8 +80,19 @@ class NoteChartCell: UICollectionViewCell {
         return imageView
     }()
     
+    private lazy var bassClef: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "CellBassClef")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        contentView.addSubview(trebleClef)
+        contentView.addSubview(bassClef)
     }
     
     required init?(coder: NSCoder) {
@@ -107,11 +118,20 @@ extension NoteChartCell {
             addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
         
-        contentView.addSubview(trebleClef)
+        if ChartsController.shared.currentChart.instrument.clef == .treble {
+            trebleClef.isHidden = false
+            bassClef.isHidden = true
+        } else {
+            trebleClef.isHidden = true
+            bassClef.isHidden = false
+        }
         
         NSLayoutConstraint.activate([
             trebleClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3 * spaceBetweenStaffLines + 5))
+            trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3 * spaceBetweenStaffLines + 5)),
+            
+            bassClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            bassClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (2 * spaceBetweenStaffLines)),
         ])
     }
     
@@ -277,7 +297,10 @@ extension NoteChartCell {
         }
         
         switch secondNote.position {
-        case .top6thLine:
+        case .top7thLine, .top8thSpace:
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 9 * spaceBetweenStaffLines, thickLine: needsThickLine)
+            fallthrough
+        case .top6thLine, .top7thSpace:
             addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 8 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .top5thLine, .top6thSpace:
@@ -489,15 +512,15 @@ extension NoteChartCell {
         } else {
             optionalLabel.isHidden = true
             
-            for (index, fingering) in noteFingering.fingerings.enumerated() {
+            for (index, fingering) in noteFingering.fingerings.reversed().enumerated() {
                 let fingeringView: FingeringView
                 let bottomInset: CGFloat
                 
                 switch ChartsController.shared.currentChart.instrument.type {
-                case .trumpet:
+                case .trumpet, .baritoneTC, .baritoneBC:
                     fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 0.5)
                     bottomInset = CGFloat(-15 - 22 * index)
-                case .euphoniumTCNC, .euphoniumTCC:
+                case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
                     fingeringView = FourValveFingeringView(fingering: fingering, ratio: 0.5)
                     bottomInset = CGFloat(-15 - 22 * index)
                 }

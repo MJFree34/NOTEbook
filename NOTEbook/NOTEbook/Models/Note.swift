@@ -30,13 +30,13 @@ enum Clef: String, Decodable {
 }
 
 enum NotePitch: String, Decodable {
-    case veryVeryHigh
     case veryLow
     case low
     case lowMedium
     case highMedium
     case high
     case veryHigh
+    case veryVeryHigh
 }
 
 enum NoteLocation {

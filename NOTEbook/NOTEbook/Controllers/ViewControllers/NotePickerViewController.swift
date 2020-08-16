@@ -60,7 +60,7 @@ class NotePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(view.bounds.height)
+        
         if view.bounds.height == 896.0 {
             // iPhone XR, XS Max, 11, 11 Pro Max
             NotePickerViewController.spaceBetweenStaffLines = 25

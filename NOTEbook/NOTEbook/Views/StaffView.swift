@@ -51,11 +51,11 @@ class StaffView: UIView {
         addSubview(bassClefImageView)
         
         NSLayoutConstraint.activate([
-            trebleClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -5),
-            trebleClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -2),
+            trebleClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -2),
+            trebleClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -2 * NotePickerViewController.spaceBetweenStaffLines / 20),
             
-            bassClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -5),
-            bassClefImageView.topAnchor.constraint(equalTo: topAnchor, constant: -0.5)
+            bassClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -2),
+            bassClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -9.75 * NotePickerViewController.spaceBetweenStaffLines / 20)
         ])
     }
     

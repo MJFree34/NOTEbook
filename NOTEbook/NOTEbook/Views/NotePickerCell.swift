@@ -41,6 +41,7 @@ class NotePickerCell: UICollectionViewCell {
     private var upperLine4: UIImageView!
     private var upperLine5: UIImageView!
     private var upperLine6: UIImageView!
+    private var upperLine7: UIImageView!
     
     private var upperQuarterNoteCenterYConstraint: NSLayoutConstraint!
     private var lowerQuarterNoteCenterYConstraint: NSLayoutConstraint!
@@ -59,6 +60,7 @@ class NotePickerCell: UICollectionViewCell {
     private var upperLine4CenterYConstraint: NSLayoutConstraint!
     private var upperLine5CenterYConstraint: NSLayoutConstraint!
     private var upperLine6CenterYConstraint: NSLayoutConstraint!
+    private var upperLine7CenterYConstraint: NSLayoutConstraint!
     
     private func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
@@ -129,6 +131,7 @@ class NotePickerCell: UICollectionViewCell {
         upperLine4 = createExtraStaffLine()
         upperLine5 = createExtraStaffLine()
         upperLine6 = createExtraStaffLine()
+        upperLine7 = createExtraStaffLine()
         
         lowerLine8CenterYConstraint = lowerLine8.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         lowerLine8CenterYConstraint.isActive = true
@@ -158,6 +161,8 @@ class NotePickerCell: UICollectionViewCell {
         upperLine5CenterYConstraint.isActive = true
         upperLine6CenterYConstraint = upperLine6.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         upperLine6CenterYConstraint.isActive = true
+        upperLine7CenterYConstraint = upperLine7.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        upperLine7CenterYConstraint.isActive = true
         
         configureExtraNoteLines()
     }
@@ -180,6 +185,7 @@ class NotePickerCell: UICollectionViewCell {
         upperLine4CenterYConstraint.constant = spacing * -6 + offset
         upperLine5CenterYConstraint.constant = spacing * -7 + offset
         upperLine6CenterYConstraint.constant = spacing * -8 + offset
+        upperLine7CenterYConstraint.constant = spacing * -8 + offset
         
         contentView.layoutIfNeeded()
     }
@@ -234,6 +240,7 @@ class NotePickerCell: UICollectionViewCell {
         upperLine4.isHidden = true
         upperLine5.isHidden = true
         upperLine6.isHidden = true
+        upperLine7.isHidden = true
         
         switch note.position {
         case .bottom8thLine:
@@ -259,7 +266,10 @@ class NotePickerCell: UICollectionViewCell {
             fallthrough
         case .bottom1stLine, .bottom2ndSpace:
             lowerLine1.isHidden = false
-        case .top6thLine:
+        case .top7thLine, .top8thSpace:
+            upperLine7.isHidden = false
+            fallthrough
+        case .top6thLine, .top7thSpace:
             upperLine6.isHidden = false
             fallthrough
         case .top5thLine, .top6thSpace:

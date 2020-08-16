@@ -9,9 +9,13 @@
 import Foundation
 
 enum InstrumentType: String, Decodable {
-    case trumpet = "Trumpet"
+    case trumpet = "Trumpet (Cornet)"
     case euphoniumTCNC = "Euphonium T.C. Non-Compensating"
     case euphoniumTCC = "Euphonium T.C. Compensating"
+    case euphoniumBCNC = "Euphonium B.C. Non-Compensating"
+    case euphoniumBCC = "Euphonium B.C. Compensating"
+    case baritoneTC = "Baritone T.C."
+    case baritoneBC = "Baritone B.C."
 }
 
 struct Instrument: Decodable, Equatable {
