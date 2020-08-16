@@ -20,7 +20,7 @@ class NoteChartCell: UICollectionViewCell {
     
     private var currentExtraLines = [UIImageView]()
     private var currentWholeNotes = [UIImageView]()
-    private var currentFingerings = [UIImageView]()
+    private var currentFingerings = [FingeringView]()
     
     private lazy var optionalLabel: UILabel = {
         var lab = UILabel()
@@ -58,6 +58,7 @@ class NoteChartCell: UICollectionViewCell {
     
     private lazy var letterFlatView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "CellFlat")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -65,6 +66,15 @@ class NoteChartCell: UICollectionViewCell {
     
     private lazy var letterSharpView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "CellSharp")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    private lazy var trebleClef: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "CellTrebleClef")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -97,13 +107,11 @@ extension NoteChartCell {
             addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
         
-        let trebleClefImageView = UIImageView(image: UIImage(named: "CellTrebleClef")!.withTintColor(UIColor(named: "Black")!))
-        trebleClefImageView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(trebleClefImageView)
+        contentView.addSubview(trebleClef)
         
         NSLayoutConstraint.activate([
-            trebleClefImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            trebleClefImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3 * spaceBetweenStaffLines + 5))
+            trebleClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3 * spaceBetweenStaffLines + 5))
         ])
     }
     
@@ -292,7 +300,7 @@ extension NoteChartCell {
     }
     
     private func addExtraStaffLine(topInset: CGFloat, thickLine: Bool) {
-        let lineWidth: CGFloat = 30
+        let lineWidth: CGFloat = 30 * spaceBetweenStaffLines / 10
         
         let extraLineImageView = thickLine ? UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!)) : UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!))
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -312,8 +320,8 @@ extension NoteChartCell {
         
         currentWholeNotes.removeAll()
         
-        let noteWidth: CGFloat = 14
-        let noteHeight: CGFloat = 10
+        let noteWidth: CGFloat = 14 * spaceBetweenStaffLines / 10
+        let noteHeight: CGFloat = 10 * spaceBetweenStaffLines / 10
         
         let firstNote = noteFingering.notes[0]
         
@@ -343,13 +351,9 @@ extension NoteChartCell {
             NSLayoutConstraint.activate([
                 note1.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: noteWidth / 2),
                 note1.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset),
-                note1.widthAnchor.constraint(equalToConstant: noteWidth),
-                note1.heightAnchor.constraint(equalToConstant: noteHeight),
                 
                 note2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -noteWidth / 2),
                 note2.topAnchor.constraint(equalTo: contentView.topAnchor, constant: secondNoteTopInset),
-                note2.widthAnchor.constraint(equalToConstant: noteWidth),
-                note2.heightAnchor.constraint(equalToConstant: noteHeight),
                 
                 sharpView.leadingAnchor.constraint(equalTo: note1.trailingAnchor, constant: 1.5),
                 sharpView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset - 6),
@@ -366,8 +370,6 @@ extension NoteChartCell {
             NSLayoutConstraint.activate([
                 note.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                 note.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset),
-                note.widthAnchor.constraint(equalToConstant: noteWidth),
-                note.heightAnchor.constraint(equalToConstant: noteHeight),
             ])
         }
     }
@@ -461,6 +463,7 @@ extension NoteChartCell {
     
     private func createWholeNote() -> UIImageView {
         let imageView = UIImageView(image: UIImage(named: "CellWholeNote")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -473,6 +476,7 @@ extension NoteChartCell {
         
         currentFingerings.removeAll()
         
+        optionalLabel.removeFromSuperview()
         contentView.addSubview(optionalLabel)
         
         NSLayoutConstraint.activate([
@@ -485,114 +489,27 @@ extension NoteChartCell {
         } else {
             optionalLabel.isHidden = true
             
-            if noteFingering.fingerings.count == 2 {
-                let fingeringView: UIImageView
-                let fingeringView2: UIImageView
+            for (index, fingering) in noteFingering.fingerings.enumerated() {
+                let fingeringView: FingeringView
+                let bottomInset: CGFloat
                 
                 switch ChartsController.shared.currentChart.instrument.type {
                 case .trumpet:
-                    fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
-                    fingeringView2 = createTrumpetNoteFingering(with: noteFingering.fingerings[1].keys)
-                    
-                    contentView.addSubview(fingeringView)
-                    currentFingerings.append(fingeringView)
-                    
-                    contentView.addSubview(fingeringView2)
-                    currentFingerings.append(fingeringView2)
-                    
-                    NSLayoutConstraint.activate([
-                        fingeringView2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
-                        fingeringView2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-                        
-                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
-                        fingeringView.bottomAnchor.constraint(equalTo: fingeringView2.topAnchor, constant: -2)
-                    ])
+                    fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomInset = CGFloat(-15 - 22 * index)
                 case .euphoniumTCNC, .euphoniumTCC:
-                    fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
-                    fingeringView2 = createEuphoniumNoteFingering(with: noteFingering.fingerings[1].keys)
-                    
-                    contentView.addSubview(fingeringView)
-                    currentFingerings.append(fingeringView)
-                    
-                    contentView.addSubview(fingeringView2)
-                    currentFingerings.append(fingeringView2)
-                    
-                    NSLayoutConstraint.activate([
-                        fingeringView2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 2),
-                        fingeringView2.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-                        
-                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 2),
-                        fingeringView.bottomAnchor.constraint(equalTo: fingeringView2.topAnchor, constant: -2)
-                    ])
+                    fingeringView = FourValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomInset = CGFloat(-15 - 22 * index)
                 }
-            } else {
-                let fingeringView: UIImageView
                 
-                switch ChartsController.shared.currentChart.instrument.type {
-                case .trumpet:
-                    fingeringView = createTrumpetNoteFingering(with: noteFingering.fingerings[0].keys)
-                    
-                    contentView.addSubview(fingeringView)
-                    currentFingerings.append(fingeringView)
-                    
-                    NSLayoutConstraint.activate([
-                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 5),
-                        fingeringView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
-                    ])
-                case .euphoniumTCNC, .euphoniumTCC:
-                    fingeringView = createEuphoniumNoteFingering(with: noteFingering.fingerings[0].keys)
-                    
-                    contentView.addSubview(fingeringView)
-                    currentFingerings.append(fingeringView)
-                    
-                    NSLayoutConstraint.activate([
-                        fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 2),
-                        fingeringView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
-                    ])
-                }
+                fingeringView.translatesAutoresizingMaskIntoConstraints = false
+                contentView.addSubview(fingeringView)
+                
+                fingeringView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+                fingeringView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: bottomInset).isActive = true
+                
+                currentFingerings.append(fingeringView)
             }
         }
-    }
-    
-    private func createTrumpetNoteFingering(with keys: [Bool]) -> UIImageView {
-        let trumpetFingeringHeight: CGFloat = 20
-        let trumpetFingeringGap: CGFloat = 30
-        let trumpetViewWidth: CGFloat = trumpetFingeringGap * 3
-        
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: trumpetViewWidth, height: trumpetFingeringHeight))
-        
-        let img = renderer.image { ctx in
-            for (index, key) in keys.enumerated() {
-                let keyImage = UIImage(named: (key ? "RoundFingeringFull\(index + 1)" : "RoundFingeringEmpty\(index + 1)"))
-                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * trumpetFingeringGap, y: 0), size: CGSize(width: trumpetFingeringHeight, height: trumpetFingeringHeight)))
-            }
-        }
-        
-        let imageView = UIImageView()
-        imageView.image = img.withTintColor(UIColor(named: "Black")!)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }
-    
-    private func createEuphoniumNoteFingering(with keys: [Bool]) -> UIImageView {
-        let euphoniumFingeringHeight: CGFloat = 20
-        let euphoniumFingeringGap: CGFloat = 21.25
-        let euphoniumViewWidth: CGFloat = 30 * 3
-        
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: euphoniumViewWidth, height: euphoniumFingeringHeight))
-        
-        let img = renderer.image { ctx in
-            for (index, key) in keys.enumerated() {
-                let keyImage = UIImage(named: (key ? "RoundFingeringFull\(index + 1)" : "RoundFingeringEmpty\(index + 1)"))
-                keyImage?.draw(in: CGRect(origin: CGPoint(x: CGFloat(index) * euphoniumFingeringGap, y: 0), size: CGSize(width: euphoniumFingeringHeight, height: euphoniumFingeringHeight)))
-            }
-        }
-        
-        let imageView = UIImageView()
-        imageView.image = img.withTintColor(UIColor(named: "Black")!)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
     }
 }
