@@ -60,15 +60,17 @@ class NotePickerCell: UICollectionViewCell {
     var upperLine5CenterYConstraint: NSLayoutConstraint!
     var upperLine6CenterYConstraint: NSLayoutConstraint!
     
-    func initialize() {
+    private func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
         
         upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(UIColor(named: "Black")!))
+        upperQuarterNote.contentMode = .scaleAspectFill
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
         upperQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(upperQuarterNote)
         
         lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote")!.withTintColor(UIColor(named: "Black")!))
+        lowerQuarterNote.contentMode = .scaleAspectFill
         lowerQuarterNote.isHidden = quarterNoteOrientation == .upper
         lowerQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(lowerQuarterNote)
@@ -91,23 +93,32 @@ class NotePickerCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate([
             upperQuarterNote.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
             lowerQuarterNote.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
-            flat.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -29 : 0)),
-            flat.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -26),
+            flat.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -29 * NotePickerViewController.spaceBetweenStaffLines / 20 : 0)),
+            flat.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -26 * NotePickerViewController.spaceBetweenStaffLines / 20),
             
-            sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -16 : 16)),
-            sharp.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -28),
+            sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -16 * NotePickerViewController.spaceBetweenStaffLines / 20 : 16 * NotePickerViewController.spaceBetweenStaffLines / 20)),
+            sharp.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -28 * NotePickerViewController.spaceBetweenStaffLines / 20),
         ])
         
         initializeExtraNoteLines()
+        
+        upperQuarterNote.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
+        lowerQuarterNote.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
+        sharp.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
+        flat.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
+        
+        upperNoteCenterOffset *= NotePickerViewController.spaceBetweenStaffLines / 20
+        lowerNoteCenterOffset *= NotePickerViewController.spaceBetweenStaffLines / 20
     }
     
     func setNote(_ note: Note) {
         self.note = note
     }
     
-    func initializeExtraNoteLines() {
+    private func initializeExtraNoteLines() {
         lowerLine8 = createExtraStaffLine()
         lowerLine7 = createExtraStaffLine()
         lowerLine6 = createExtraStaffLine()
@@ -155,7 +166,7 @@ class NotePickerCell: UICollectionViewCell {
         configureExtraNoteLines()
     }
     
-    func configureExtraNoteLines() {
+    private func configureExtraNoteLines() {
         let spacing = NotePickerViewController.spaceBetweenStaffLines
         let offset = NotePickerViewController.spaceBetweenStaffLines * CGFloat(ChartsController.shared.currentChart.instrument.offset)
         
@@ -177,8 +188,8 @@ class NotePickerCell: UICollectionViewCell {
         contentView.layoutIfNeeded()
     }
     
-    func createExtraStaffLine() -> UIImageView {
-        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 35, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
+    private func createExtraStaffLine() -> UIImageView {
+        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 35 * NotePickerViewController.spaceBetweenStaffLines / 20, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
         extraLineImageView.isHidden = true
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(extraLineImageView)
@@ -212,7 +223,7 @@ class NotePickerCell: UICollectionViewCell {
         contentView.layoutIfNeeded()
     }
     
-    func displayExtraNoteLines() {
+    private func displayExtraNoteLines() {
         lowerLine8.isHidden = true
         lowerLine7.isHidden = true
         lowerLine6.isHidden = true
@@ -274,7 +285,7 @@ class NotePickerCell: UICollectionViewCell {
         }
     }
     
-    func noteOffset(standardNote: Bool = true) -> CGFloat {
+    private func noteOffset(standardNote: Bool = true) -> CGFloat {
         guard standardNote else { return 0 }
         
         let spacing = NotePickerViewController.spaceBetweenStaffLines

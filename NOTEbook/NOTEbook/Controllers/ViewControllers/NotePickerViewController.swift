@@ -23,7 +23,7 @@ class NotePickerViewController: UIViewController {
         }
     }
     
-    static let spaceBetweenStaffLines: CGFloat = 20
+    static var spaceBetweenStaffLines: CGFloat = 20
     
     var picker: NotePicker!
     var staffView: StaffView!
@@ -60,6 +60,11 @@ class NotePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if view.bounds.height == 896.0 {
+            // iPhone X and later
+            NotePickerViewController.spaceBetweenStaffLines = 25
+        }
         
         view.addBackgroundGradient()
         view.backgroundColor = UIColor(named: "White")
@@ -131,7 +136,7 @@ class NotePickerViewController: UIViewController {
         picker.dataSource = self
         picker.collectionView.register(NotePickerCell.self, forCellWithReuseIdentifier: NotePickerCell.reuseIdentifier)
         picker.cellSpacing = 0
-        picker.cellSize = 87
+        picker.cellSize = 87 * NotePickerViewController.spaceBetweenStaffLines / 20
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
@@ -179,10 +184,10 @@ class NotePickerViewController: UIViewController {
         view.addSubview(rightIndicator)
         
         NSLayoutConstraint.activate([
-            leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45),
+            leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45 * NotePickerViewController.spaceBetweenStaffLines / 20),
             leftIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
             
-            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45),
+            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45 * NotePickerViewController.spaceBetweenStaffLines / 20),
             rightIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
         ])
     }

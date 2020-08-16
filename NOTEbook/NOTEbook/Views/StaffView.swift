@@ -11,7 +11,7 @@ import UIKit
 class StaffView: UIView {
     lazy var trebleClefImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true
         
@@ -53,6 +53,7 @@ class StaffView: UIView {
         NSLayoutConstraint.activate([
             trebleClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -5),
             trebleClefImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -2),
+            trebleClefImageView.heightAnchor.constraint(equalToConstant: NotePickerViewController.spaceBetweenStaffLines * 7.5),
             
             bassClefImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: -5),
             bassClefImageView.topAnchor.constraint(equalTo: topAnchor, constant: -0.5)

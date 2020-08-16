@@ -63,12 +63,12 @@ class NotePicker: UIView {
     
     convenience init(screenWidth: CGFloat) {
         self.init(frame: CGRect.zero)
-        print(screenWidth)
+        
         switch screenWidth {
         case 375.0:
             firstCellInset = 209.5
         case 414.0:
-            firstCellInset = 229.0
+            firstCellInset = 209.5 + 20 * NotePickerViewController.spaceBetweenStaffLines / 20
         default:
             firstCellInset = 0
         }
@@ -232,7 +232,7 @@ extension NotePicker: UIScrollViewDelegate {
         
         if center.x < firstCellInset {
             scrollToItem(at: 0)
-        } else if center.x > 209.5 + 87.0 * CGFloat(totalCells - 1) {
+        } else if center.x > firstCellInset + 87.0 * NotePickerViewController.spaceBetweenStaffLines / 20 * CGFloat(totalCells - 1) {
             scrollToItem(at: totalCells - 1)
         }
         

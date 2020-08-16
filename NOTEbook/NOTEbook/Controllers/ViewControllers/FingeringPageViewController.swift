@@ -32,6 +32,7 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
             }
             
             pageControl.numberOfPages = fingeringViewControllers.count
+            pageControl.currentPage = 0
             
             pageViewController.setViewControllers([fingeringViewControllers[0]], direction: .forward, animated: false, completion: nil)
             
