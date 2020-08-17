@@ -185,7 +185,7 @@ class NotePickerCell: UICollectionViewCell {
         upperLine4CenterYConstraint.constant = spacing * -6 + offset
         upperLine5CenterYConstraint.constant = spacing * -7 + offset
         upperLine6CenterYConstraint.constant = spacing * -8 + offset
-        upperLine7CenterYConstraint.constant = spacing * -8 + offset
+        upperLine7CenterYConstraint.constant = spacing * -9 + offset
         
         contentView.layoutIfNeeded()
     }

@@ -6586,7 +6586,7 @@
             "type": "Euphonium B.C. Non-Compensating",
             "clef": "bass",
             "fingeringWidth": 180,
-            "offset": 1.25
+            "offset": 1.75
         },
         "centerNote": {
             "letter": "d",
@@ -8736,7 +8736,7 @@
             "type": "Euphonium B.C. Compensating",
             "clef": "bass",
             "fingeringWidth": 180,
-            "offset": 1.25
+            "offset": 1.75
         },
         "centerNote": {
             "letter": "d",
