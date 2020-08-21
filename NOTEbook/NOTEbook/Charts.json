@@ -13609,7 +13609,7 @@
         "instrument": {
             "type": "Tenor Trombone",
             "clef": "bass",
-            "fingeringWidth": 200,
+            "fingeringWidth": 44,
             "offset": 1.75
         },
         "centerNote": {
@@ -14232,7 +14232,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14247,7 +14252,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14268,7 +14278,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14283,7 +14298,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14304,7 +14324,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14319,7 +14344,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14340,7 +14370,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14422,6 +14457,8 @@
                     }
                 ],
                 "fingerings": [
+                    {
+                    }
                 ]
             },
             {
@@ -14435,7 +14472,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14450,7 +14492,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14471,7 +14518,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14486,7 +14538,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14507,7 +14564,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14522,7 +14584,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14543,7 +14610,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14558,7 +14630,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14573,7 +14650,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14594,7 +14676,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14609,7 +14696,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14630,7 +14722,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14645,10 +14742,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14663,10 +14770,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14687,7 +14804,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14702,7 +14824,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14723,10 +14850,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14741,10 +14878,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14765,10 +14912,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14783,10 +14940,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14801,10 +14968,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14825,10 +15002,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14843,13 +15030,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14870,10 +15072,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "#6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "sharp"
+                        }
                     }
                 ]
             },
@@ -14888,13 +15100,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "#5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "sharp"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14909,13 +15136,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "#4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "sharp"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14936,13 +15178,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "#3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "sharp"
+                        }
                     },
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14957,13 +15214,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "#2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "sharp"
+                        }
                     },
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -14984,13 +15256,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "7"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15005,13 +15292,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15032,13 +15334,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15053,13 +15370,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15074,13 +15406,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "6"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15101,13 +15448,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "5"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15122,13 +15484,28 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "#3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "sharp"
+                        }
                     },
                     {
-                        "position": "4"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15149,10 +15526,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "#2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "sharp"
+                        }
                     },
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15167,7 +15554,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15182,7 +15574,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15203,7 +15600,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "#3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "sharp"
+                        }
                     }
                 ]
             },
@@ -15218,7 +15620,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "#2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "sharp"
+                        }
                     }
                 ]
             },
@@ -15239,7 +15646,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15254,7 +15666,12 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "2"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2",
+                            "type": "natural"
+                        }
                     }
                 ]
             },
@@ -15275,10 +15692,20 @@
                 ],
                 "fingerings": [
                     {
-                        "position": "1"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1",
+                            "type": "natural"
+                        }
                     },
                     {
-                        "position": "3"
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3",
+                            "type": "natural"
+                        }
                     }
                 ]
             }

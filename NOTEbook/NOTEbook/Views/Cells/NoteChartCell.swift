@@ -504,7 +504,7 @@ extension NoteChartCell {
         
         NSLayoutConstraint.activate([
             optionalLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            optionalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -13)
+            optionalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
         
         if noteFingering.fingerings[0].keys == nil {
@@ -523,6 +523,9 @@ extension NoteChartCell {
                 case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
                     fingeringView = FourValveFingeringView(fingering: fingering, ratio: 0.5)
                     bottomInset = CGFloat(-15 - 22 * index)
+                case .tenorTrombone:
+                    fingeringView = PositionFingeringView(fingering: fingering, ratio: 0.75)
+                    bottomInset = CGFloat(-15 - 25 * index)
                 }
                 
                 fingeringView.translatesAutoresizingMaskIntoConstraints = false

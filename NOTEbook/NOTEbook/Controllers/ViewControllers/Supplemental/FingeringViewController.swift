@@ -45,6 +45,8 @@ class FingeringViewController: UIViewController {
                 fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 1)
             case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
                 fingeringView = FourValveFingeringView(fingering: fingering, ratio: 1)
+            case .tenorTrombone:
+                fingeringView = PositionFingeringView(fingering: fingering, ratio: 1)
             }
             
             fingeringView.translatesAutoresizingMaskIntoConstraints = false
