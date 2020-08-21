@@ -498,8 +498,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             },
@@ -1926,8 +1924,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             }
@@ -2728,8 +2724,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             },
@@ -4108,8 +4102,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             }
@@ -6574,8 +6566,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             }
@@ -7194,8 +7184,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             },
@@ -7392,8 +7380,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             },
@@ -9344,8 +9330,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             },
@@ -12407,8 +12391,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             }
@@ -12775,8 +12757,6 @@
                 ],
                 "fingerings": [
                     {
-                        "keys": [
-                        ]
                     }
                 ]
             },
@@ -13620,6 +13600,1685 @@
                             false,
                             false
                         ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instrument": {
+            "type": "Tenor Trombone",
+            "clef": "bass",
+            "fingeringWidth": 200,
+            "offset": 1.75
+        },
+        "centerNote": {
+            "letter": "d",
+            "type": "natural",
+            "pitch": "highMedium",
+            "clef": "bass"
+        },
+        "naturalNotes": [
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "veryVeryHigh",
+                "clef": "bass"
+            }
+        ],
+        "flatNotes": [
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "veryVeryHigh",
+                "clef": "bass"
+            }
+        ],
+        "sharpNotes": [
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "veryVeryHigh",
+                "clef": "bass"
+            }
+        ],
+        "noteFingerings": [
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "low",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "low",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "4"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "low",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "4"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "4"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "4"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "4"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "4"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    },
+                    {
+                        "position": "#6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "#5"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "#4"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "#3"
+                    },
+                    {
+                        "position": "5"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "#2"
+                    },
+                    {
+                        "position": "4"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    },
+                    {
+                        "position": "5"
+                    },
+                    {
+                        "position": "7"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "4"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "3"
+                    },
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "4"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "3"
+                    },
+                    {
+                        "position": "6"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    },
+                    {
+                        "position": "4"
+                    },
+                    {
+                        "position": "5"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "#3"
+                    },
+                    {
+                        "position": "4"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "#2"
+                    },
+                    {
+                        "position": "3"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "#3"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "#2"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "3"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "2"
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "position": "1"
+                    },
+                    {
+                        "position": "3"
                     }
                 ]
             }

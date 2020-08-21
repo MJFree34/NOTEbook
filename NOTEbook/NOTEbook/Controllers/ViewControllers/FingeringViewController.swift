@@ -35,7 +35,7 @@ class FingeringViewController: UIViewController {
         
         let currentInstrumentType = ChartsController.shared.currentChart.instrument.type
         
-        if fingering.keys.count == 0 {
+        if fingering.keys == nil {
             optionalLabel.isHidden = false
         } else {
             let fingeringView: FingeringView

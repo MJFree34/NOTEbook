@@ -507,7 +507,7 @@ extension NoteChartCell {
             optionalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -13)
         ])
         
-        if noteFingering.fingerings[0].keys.count == 0 {
+        if noteFingering.fingerings[0].keys == nil {
             optionalLabel.isHidden = false
         } else {
             optionalLabel.isHidden = true
