@@ -47,6 +47,8 @@ class FingeringViewController: UIViewController {
                 fingeringView = FourValveFingeringView(fingering: fingering, ratio: 1)
             case .tenorTrombone:
                 fingeringView = PositionFingeringView(fingering: fingering, ratio: 1)
+            case .fTriggerTenorTrombone:
+                fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 1)
             }
             
             fingeringView.translatesAutoresizingMaskIntoConstraints = false

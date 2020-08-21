@@ -22,8 +22,8 @@ class PositionFingeringView: FingeringView {
     }()
     
     private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "CellFlat")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
+        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -31,8 +31,8 @@ class PositionFingeringView: FingeringView {
     }()
     
     private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "CellSharp")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
+        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -56,10 +56,10 @@ class PositionFingeringView: FingeringView {
             positionLetter.centerXAnchor.constraint(equalTo: centerXAnchor),
             positionLetter.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            letterFlatView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -17 * ratio),
+            letterFlatView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -38 * ratio),
             letterFlatView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            letterSharpView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -17 * ratio),
+            letterSharpView.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -39 * ratio),
             letterSharpView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }

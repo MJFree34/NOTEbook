@@ -526,6 +526,9 @@ extension NoteChartCell {
                 case .tenorTrombone:
                     fingeringView = PositionFingeringView(fingering: fingering, ratio: 0.75)
                     bottomInset = CGFloat(-15 - 25 * index)
+                case .fTriggerTenorTrombone:
+                    fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 0.75)
+                    bottomInset = CGFloat(-18 - 32 * index)
                 }
                 
                 fingeringView.translatesAutoresizingMaskIntoConstraints = false

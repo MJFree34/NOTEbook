@@ -13609,7 +13609,7 @@
         "instrument": {
             "type": "Tenor Trombone",
             "clef": "bass",
-            "fingeringWidth": 44,
+            "fingeringWidth": 140,
             "offset": 1.75
         },
         "centerNote": {
@@ -14235,7 +14235,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -14255,7 +14255,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -14281,7 +14281,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -14301,7 +14301,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     }
@@ -14327,7 +14327,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     }
@@ -14347,7 +14347,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     }
@@ -14373,7 +14373,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     }
@@ -14475,7 +14475,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -14495,7 +14495,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -14521,7 +14521,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -14541,7 +14541,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     }
@@ -14567,7 +14567,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     }
@@ -14587,7 +14587,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     }
@@ -14613,7 +14613,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     }
@@ -14633,7 +14633,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -14653,7 +14653,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -14679,7 +14679,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -14699,7 +14699,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     }
@@ -14725,7 +14725,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     }
@@ -14745,7 +14745,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -14753,7 +14753,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -14773,7 +14773,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -14781,7 +14781,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -14807,7 +14807,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -14827,7 +14827,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     }
@@ -14853,7 +14853,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     },
@@ -14861,7 +14861,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -14881,7 +14881,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -14889,7 +14889,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -14915,7 +14915,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -14923,7 +14923,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -14943,7 +14943,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     },
@@ -14951,7 +14951,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -14971,7 +14971,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     },
@@ -14979,7 +14979,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -15005,7 +15005,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -15013,7 +15013,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -15033,7 +15033,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -15041,7 +15041,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     },
@@ -15049,7 +15049,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -15075,7 +15075,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     },
@@ -15083,7 +15083,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "sharp"
                         }
                     }
@@ -15103,7 +15103,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -15111,7 +15111,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "sharp"
                         }
                     },
@@ -15119,7 +15119,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -15139,7 +15139,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -15147,7 +15147,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "sharp"
                         }
                     },
@@ -15155,7 +15155,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -15181,7 +15181,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "sharp"
                         }
                     },
@@ -15189,7 +15189,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     },
@@ -15197,7 +15197,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -15217,7 +15217,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "sharp"
                         }
                     },
@@ -15225,7 +15225,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     },
@@ -15233,7 +15233,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -15259,7 +15259,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     },
@@ -15267,7 +15267,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     },
@@ -15275,7 +15275,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "7",
+                            "value": "7th",
                             "type": "natural"
                         }
                     }
@@ -15295,7 +15295,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -15303,7 +15303,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     },
@@ -15311,7 +15311,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -15337,7 +15337,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -15345,7 +15345,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     },
@@ -15353,7 +15353,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -15373,7 +15373,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -15381,7 +15381,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     },
@@ -15389,7 +15389,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -15409,7 +15409,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -15417,7 +15417,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     },
@@ -15425,7 +15425,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "6",
+                            "value": "6th",
                             "type": "natural"
                         }
                     }
@@ -15451,7 +15451,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     },
@@ -15459,7 +15459,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     },
@@ -15467,7 +15467,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "5",
+                            "value": "5th",
                             "type": "natural"
                         }
                     }
@@ -15487,7 +15487,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -15495,7 +15495,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "sharp"
                         }
                     },
@@ -15503,7 +15503,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "4",
+                            "value": "4th",
                             "type": "natural"
                         }
                     }
@@ -15529,7 +15529,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "sharp"
                         }
                     },
@@ -15537,7 +15537,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     }
@@ -15557,7 +15557,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     }
@@ -15577,7 +15577,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     }
@@ -15603,7 +15603,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "sharp"
                         }
                     }
@@ -15623,7 +15623,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "sharp"
                         }
                     }
@@ -15649,7 +15649,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
                     }
@@ -15669,7 +15669,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "2",
+                            "value": "2nd",
                             "type": "natural"
                         }
                     }
@@ -15695,7 +15695,7 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "1",
+                            "value": "1st",
                             "type": "natural"
                         }
                     },
@@ -15703,9 +15703,2325 @@
                         "keys" : [
                         ],
                         "position": {
-                            "value": "3",
+                            "value": "3rd",
                             "type": "natural"
                         }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "instrument": {
+            "type": "F-Trigger Tenor Trombone",
+            "clef": "bass",
+            "fingeringWidth": 150,
+            "offset": 1.75
+        },
+        "centerNote": {
+            "letter": "d",
+            "type": "natural",
+            "pitch": "highMedium",
+            "clef": "bass"
+        },
+        "naturalNotes": [
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "natural",
+                "pitch": "veryVeryHigh",
+                "clef": "bass"
+            }
+        ],
+        "flatNotes": [
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "b",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "e",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "flat",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "flat",
+                "pitch": "veryVeryHigh",
+                "clef": "bass"
+            }
+        ],
+        "sharpNotes": [
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "low",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "lowMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "highMedium",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "high",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "c",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "d",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "natural",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "f",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "g",
+                "type": "sharp",
+                "pitch": "veryHigh",
+                "clef": "bass"
+            },
+            {
+                "letter": "a",
+                "type": "sharp",
+                "pitch": "veryVeryHigh",
+                "clef": "bass"
+            }
+        ],
+        "noteFingerings": [
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "low",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "low",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "low",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "low",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "lowMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "flat"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": true
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "highMedium",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "high",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "high",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "7th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "b",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "6th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "c",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "d",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "5th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "4th",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "d",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "e",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "e",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "f",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "g",
+                        "type": "flat",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "natural",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "sharp"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "g",
+                        "type": "sharp",
+                        "pitch": "veryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "a",
+                        "type": "flat",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "natural",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "2nd",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    }
+                ]
+            },
+            {
+                "notes": [
+                    {
+                        "letter": "a",
+                        "type": "sharp",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    },
+                    {
+                        "letter": "b",
+                        "type": "flat",
+                        "pitch": "veryVeryHigh",
+                        "clef": "bass"
+                    }
+                ],
+                "fingerings": [
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "1st",
+                            "type": "natural"
+                        },
+                        "trigger": false
+                    },
+                    {
+                        "keys" : [
+                        ],
+                        "position": {
+                            "value": "3rd",
+                            "type": "natural"
+                        },
+                        "trigger": false
                     }
                 ]
             }

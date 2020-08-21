@@ -9,13 +9,13 @@
 import Foundation
 
 enum PositionValue: String, Decodable {
-    case first = "1"
-    case second = "2"
-    case third = "3"
-    case fourth = "4"
-    case fifth = "5"
-    case sixth = "6"
-    case seventh = "7"
+    case first = "1st"
+    case second = "2nd"
+    case third = "3rd"
+    case fourth = "4th"
+    case fifth = "5th"
+    case sixth = "6th"
+    case seventh = "7th"
 }
 
 struct Position: Decodable, Equatable {
