@@ -92,7 +92,9 @@ class TutorialViewController: UIViewController {
     }
     
     @objc private func dismissButtonTapped() {
-        UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        }
         
         dismiss(animated: true)
     }

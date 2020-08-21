@@ -84,19 +84,27 @@ class NoteChartViewController: UIViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        }
         
         let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func instrumentsButtonTapped() {
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        }
+        
         let vc = InstrumentsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func pickerButtonTapped() {
-        UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        }
         
         navigationController?.popViewController(animated: true)
     }

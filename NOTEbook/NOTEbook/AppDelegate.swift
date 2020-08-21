@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UserDefaults.standard.register(defaults: [
             UserDefaults.Keys.tutorialHasShown: false,
-            UserDefaults.Keys.currentInstrumentIndex: 0
+            UserDefaults.Keys.currentInstrumentIndex: 0,
+            UserDefaults.Keys.hapticsEnabled: true
         ])
         
         return true

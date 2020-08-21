@@ -7,16 +7,17 @@
 //
 
 enum Section: String {
-    case actions, about
+    case customize, actions, about
 }
 
 import UIKit
 import MessageUI
 
 class SettingsViewController: UITableViewController {
-    private let sections = [Section.actions, Section.about]
+    private let sections = [Section.customize, Section.actions, Section.about]
+    private let customize = ["Haptics Enabled"]
     private let actions = ["Show Tutorial", "Fingerings, Features, or Feedback?"]
-    private let about = [["Current Version", "1.0 (9)"]]
+    private let about = [["Current Version", "1.0 (10)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,10 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return actions.count
+            return customize.count
         case 1:
+            return actions.count
+        case 2:
             return about.count
         default:
             return 0
@@ -57,6 +60,16 @@ class SettingsViewController: UITableViewController {
         cell.textLabel?.numberOfLines = 0
         
         switch sections[indexPath.section] {
+        case .customize:
+            cell.textLabel?.text = customize[indexPath.row]
+            cell.textLabel?.textColor = UIColor(named: "Black")
+            
+            let switchView = UISwitch()
+            switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
+            switchView.onTintColor = UIColor(named: "MediumAqua")
+            switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
+            
+            cell.accessoryView = switchView
         case .actions:
             cell.textLabel?.text = actions[indexPath.row]
             cell.textLabel?.textColor = UIColor(named: "DarkAqua")
@@ -79,6 +92,8 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch sections[indexPath.section] {
+        case .customize:
+            break
         case .actions:
             switch indexPath.row {
             case 0:
@@ -97,6 +112,11 @@ class SettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].rawValue.capitalized
+    }
+    
+    @objc func toggleHaptics() {
+        let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
+        UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }
 }
 

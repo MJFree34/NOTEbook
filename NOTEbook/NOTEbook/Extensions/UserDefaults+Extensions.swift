@@ -12,5 +12,6 @@ extension UserDefaults {
     struct Keys {
         static let tutorialHasShown = "TutorialHasShown"
         static let currentInstrumentIndex = "CurrentInstrumentIndex"
+        static let hapticsEnabled = "HapticsEnabled"
     }
 }

@@ -272,19 +272,27 @@ class NotePickerViewController: UIViewController {
     }
     
     @objc private func settingsButtonTapped() {
-        UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        }
         
         let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func instrumentsButtonTapped() {
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+        }
+        
         let vc = InstrumentsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func gridButtonTapped() {
-        UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+            UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+        }
         
         let vc = NoteChartViewController()
         navigationController?.pushViewController(vc, animated: true)
@@ -307,7 +315,9 @@ extension NotePickerViewController: UICollectionViewDelegate {
         let selectedFingering = chartsController.currentFingering(note: selectedNote)
         
         if currentNoteFingering != selectedFingering {
-            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+            if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+                UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+            }
             
             currentNoteFingering = selectedFingering
             
