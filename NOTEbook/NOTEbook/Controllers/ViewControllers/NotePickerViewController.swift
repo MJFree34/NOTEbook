@@ -31,6 +31,8 @@ class NotePickerViewController: UIViewController {
     private var titleLabel = InstrumentTitleLabel()
     
     private var staffCenterYAnchor: NSLayoutConstraint!
+    private var leftIndicatorCenterYAnchor: NSLayoutConstraint!
+    private var rightIndicatorCenterYAnchor: NSLayoutConstraint!
     
     private lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
@@ -197,11 +199,23 @@ class NotePickerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45 * NotePickerViewController.spaceBetweenStaffLines / 20),
-            leftIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
             
             rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45 * NotePickerViewController.spaceBetweenStaffLines / 20),
-            rightIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor),
         ])
+        
+        leftIndicatorCenterYAnchor = leftIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor)
+        leftIndicatorCenterYAnchor.isActive = true
+        
+        rightIndicatorCenterYAnchor = rightIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor)
+        rightIndicatorCenterYAnchor.isActive = true
+        
+        updateIndicators()
+    }
+    
+    private func updateIndicators() {
+        leftIndicatorCenterYAnchor.constant = NotePickerViewController.spaceBetweenStaffLines * CGFloat(chartsController.currentChart.instrument.offset)
+        rightIndicatorCenterYAnchor.constant = NotePickerViewController.spaceBetweenStaffLines * CGFloat(chartsController.currentChart.instrument.offset)
+        view.layoutIfNeeded()
     }
     
     private func reloadInstrumentViews() {
@@ -212,6 +226,7 @@ class NotePickerViewController: UIViewController {
         picker.reloadData()
         
         updateStaffView()
+        updateIndicators()
         
         titleLabel.text = chartsController.currentChart.instrument.type.rawValue
         

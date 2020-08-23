@@ -79,6 +79,7 @@
 		9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A438147249E3CE400EDC58F /* NotePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePicker.swift; sourceTree = "<group>"; };
 		9A438149249E3E2600EDC58F /* NotePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCell.swift; sourceTree = "<group>"; };
+		9A52139124F2007C0007C08A /* NoteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteList.json; sourceTree = "<group>"; };
 		9A55D70724DB795300B493A1 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
 		9A55D70D24DC7C9E00B493A1 /* StaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffView.swift; sourceTree = "<group>"; };
 		9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +161,7 @@
 				9A022AED249908C20052E819 /* Assets.xcassets */,
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
 				9AD5574624995EC10078CB7E /* Charts.json */,
+				9A52139124F2007C0007C08A /* NoteList.json */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
 				9A022AF2249908C20052E819 /* Info.plist */,
 			);

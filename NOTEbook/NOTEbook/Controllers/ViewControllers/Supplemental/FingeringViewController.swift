@@ -41,7 +41,7 @@ class FingeringViewController: UIViewController {
             let fingeringView: FingeringView
             
             switch currentInstrumentType {
-            case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba, .threeValveEbTuba:
+            case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba, .threeValveEbTuba, .fFrenchHorn:
                 fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 1)
             case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
                 fingeringView = FourValveFingeringView(fingering: fingering, ratio: 1)

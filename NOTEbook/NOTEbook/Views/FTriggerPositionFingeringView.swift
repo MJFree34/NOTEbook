@@ -20,7 +20,7 @@ class FTriggerPositionFingeringView: PositionFingeringView {
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)
         
-//        if fingering.trigger! {
+//        if fingering.trigger! { // For if do not want to show empty triggers
             addSubview(fTrigger)
             
             NSLayoutConstraint.activate([

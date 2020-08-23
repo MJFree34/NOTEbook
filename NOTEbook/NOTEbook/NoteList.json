@@ -1,0 +1,1277 @@
+"naturalNotesTreble": [
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    }
+]
+
+"flatNotesTreble": [
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    }
+]
+
+"sharpNotesTreble": [
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    }
+]
+
+"naturalNotesBass": [
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "natural",
+        "pitch": "veryVeryHigh",
+        "clef": "bass"
+    }
+]
+
+"flatNotesBass": [
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "veryLow",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "flat",
+        "pitch": "veryVeryHigh",
+        "clef": "bass"
+    }
+]
+
+"sharpNotesBass": [
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "veryLow",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "veryLow",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "low",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "lowMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "highMedium",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "veryHigh",
+        "clef": "bass"
+    },
+    {
+        "letter": "a",
+        "type": "sharp",
+        "pitch": "veryVeryHigh",
+        "clef": "bass"
+    }
+]
