@@ -243,7 +243,7 @@ class NotePickerCell: UICollectionViewCell {
         upperLine7.isHidden = true
         
         switch note.position {
-        case .bottom8thLine:
+        case .bottom8thLine, .bottom9thSpace:
             lowerLine8.isHidden = false
             fallthrough
         case .bottom7thLine, .bottom8thSpace:
@@ -297,6 +297,8 @@ class NotePickerCell: UICollectionViewCell {
         let spacing = NotePickerViewController.spaceBetweenStaffLines
         
         switch note.position {
+        case .bottom9thSpace:
+            return spacing * 10.5
         case .bottom8thLine:
             return spacing * 10
         case .bottom8thSpace:

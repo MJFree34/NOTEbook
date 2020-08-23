@@ -10,7 +10,7 @@ import UIKit
 
 class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
-    static let cellHeight: CGFloat = 250
+    static let cellHeight: CGFloat = 255
     
     private let centerOfStaffInsetFromTop: CGFloat = 100
     private let spaceBetweenStaffLines: CGFloat = 10
@@ -269,7 +269,7 @@ extension NoteChartCell {
         let needsThickLine = firstNote.type == .flat || firstNote.type == .sharp
         
         switch firstNote.position {
-        case .bottom8thLine:
+        case .bottom8thLine, .bottom9thSpace:
             addExtraStaffLine(topInset: centerOfStaffInsetFromTop + 10 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
         case .bottom7thLine, .bottom8thSpace:
@@ -401,6 +401,8 @@ extension NoteChartCell {
         let noteTopInset: CGFloat = centerOfStaffInsetFromTop - noteHeight / 2 + 0.5
         
         switch note.position {
+        case .bottom9thSpace:
+            return noteTopInset + spaceBetweenStaffLines * 10.5
         case .bottom8thLine:
             return noteTopInset + spaceBetweenStaffLines * 10
         case .bottom8thSpace:
@@ -529,6 +531,9 @@ extension NoteChartCell {
                 case .fTriggerTenorTrombone:
                     fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 0.75)
                     bottomInset = CGFloat(-18 - 32 * index)
+                case .fBbFrenchHorn:
+                    fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomInset = CGFloat(-15 - 22 * index)
                 }
                 
                 fingeringView.translatesAutoresizingMaskIntoConstraints = false

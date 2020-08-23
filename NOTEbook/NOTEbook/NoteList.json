@@ -1,5 +1,29 @@
 "naturalNotesTreble": [
     {
+        "letter": "c",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
         "letter": "g",
         "type": "natural",
         "pitch": "veryLow",
@@ -195,6 +219,30 @@
 
 "flatNotesTreble": [
     {
+        "letter": "b",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
         "letter": "g",
         "type": "flat",
         "pitch": "veryLow",
@@ -389,6 +437,30 @@
 ]
 
 "sharpNotesTreble": [
+    {
+        "letter": "c",
+        "type": "sharp",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "veryLow",
+        "clef": "treble"
+    },
     {
         "letter": "g",
         "type": "sharp",

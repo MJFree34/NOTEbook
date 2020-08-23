@@ -46,6 +46,7 @@ enum NoteLocation {
 }
 
 enum NotePosition: String, Decodable {
+    case bottom9thSpace
     case bottom8thLine
     case bottom8thSpace
     case bottom7thLine
@@ -89,7 +90,7 @@ enum NotePosition: String, Decodable {
     
     func findLocation() -> NoteLocation {
         switch self {
-        case .bottom8thLine, .bottom8thSpace, .bottom7thLine, .bottom7thSpace, .bottom6thLine, .bottom6thSpace, .bottom5thLine, .bottom5thSpace, .bottom4thLine, .bottom4thSpace, .bottom3rdLine, .bottom3rdSpace, .bottom2ndLine, .bottom2ndSpace, .bottom1stLine, .bottom1stSpace:
+        case .bottom9thSpace, .bottom8thLine, .bottom8thSpace, .bottom7thLine, .bottom7thSpace, .bottom6thLine, .bottom6thSpace, .bottom5thLine, .bottom5thSpace, .bottom4thLine, .bottom4thSpace, .bottom3rdLine, .bottom3rdSpace, .bottom2ndLine, .bottom2ndSpace, .bottom1stLine, .bottom1stSpace:
             return .bottom
         case .middle1stLine, .middle1stSpace, .middle2ndLine, .middle2ndSpace, .middle3rdLine, .middle3rdSpace, .middle4thLine, .middle4thSpace, .middle5thLine:
             return .middle
@@ -260,7 +261,7 @@ struct Note: Decodable, Equatable {
                 case .a:
                     fatalError("Note not implemented")
                 case .b:
-                    fatalError("Note not implemented")
+                    return .bottom9thSpace
                 case .c:
                     return .bottom8thLine
                 case .d:
