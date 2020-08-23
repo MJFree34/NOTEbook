@@ -11,5 +11,5 @@ import Foundation
 struct Fingering: Decodable, Equatable {
     var keys: [Bool]?
     var position: Position?
-    var trigger: Bool?
+    var triggers: [Bool]?
 }

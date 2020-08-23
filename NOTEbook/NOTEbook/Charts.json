@@ -16330,7 +16330,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16351,7 +16353,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16360,7 +16364,9 @@
                             "value": "2nd",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16381,7 +16387,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16390,7 +16398,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16417,7 +16427,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16438,7 +16450,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16465,7 +16479,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16486,7 +16502,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16513,7 +16531,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16548,7 +16568,9 @@
                             "value": "6th",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16575,7 +16597,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16596,7 +16620,9 @@
                             "value": "4th",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16623,7 +16649,9 @@
                             "value": "3rd",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16644,7 +16672,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16653,7 +16683,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16674,7 +16706,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16683,7 +16717,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16710,7 +16746,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16731,7 +16769,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16740,7 +16780,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16767,7 +16809,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16776,7 +16820,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16797,7 +16843,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16806,7 +16854,9 @@
                             "value": "4th",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16833,7 +16883,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16842,7 +16894,9 @@
                             "value": "3rd",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16863,7 +16917,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16872,7 +16928,9 @@
                             "value": "2nd",
                             "type": "flat"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16893,7 +16951,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -16902,7 +16962,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": true
+                        "triggers": [
+                            true
+                        ]
                     }
                 ]
             },
@@ -16929,7 +16991,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16950,7 +17014,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16977,7 +17043,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -16998,7 +17066,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17007,7 +17077,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17028,7 +17100,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17037,7 +17111,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17064,7 +17140,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17085,7 +17163,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17112,7 +17192,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17121,7 +17203,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17142,7 +17226,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17151,7 +17237,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17178,7 +17266,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17187,7 +17277,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17208,7 +17300,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17217,7 +17311,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17238,7 +17334,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17247,7 +17345,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17274,7 +17374,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17283,7 +17385,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17304,7 +17408,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17313,7 +17419,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17322,7 +17430,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17349,7 +17459,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17358,7 +17470,9 @@
                             "value": "6th",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17379,7 +17493,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17388,7 +17504,9 @@
                             "value": "5th",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17397,7 +17515,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17418,7 +17538,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17427,7 +17549,9 @@
                             "value": "4th",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17436,7 +17560,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17463,7 +17589,9 @@
                             "value": "3rd",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17472,7 +17600,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17481,7 +17611,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17502,7 +17634,9 @@
                             "value": "2nd",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17511,7 +17645,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17520,7 +17656,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17547,7 +17685,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17556,7 +17696,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17565,7 +17707,9 @@
                             "value": "7th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17586,7 +17730,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17595,7 +17741,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17604,7 +17752,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17631,7 +17781,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17640,7 +17792,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17649,7 +17803,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17670,7 +17826,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17679,7 +17837,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17688,7 +17848,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17709,7 +17871,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17718,7 +17882,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17727,7 +17893,9 @@
                             "value": "6th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17754,7 +17922,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17763,7 +17933,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17772,7 +17944,9 @@
                             "value": "5th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17793,7 +17967,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17802,7 +17978,9 @@
                             "value": "3rd",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17811,7 +17989,9 @@
                             "value": "4th",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17838,7 +18018,9 @@
                             "value": "2nd",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -17847,7 +18029,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17868,7 +18052,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17889,7 +18075,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17916,7 +18104,9 @@
                             "value": "3rd",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17937,7 +18127,9 @@
                             "value": "2nd",
                             "type": "sharp"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17964,7 +18156,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -17985,7 +18179,9 @@
                             "value": "2nd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             },
@@ -18012,7 +18208,9 @@
                             "value": "1st",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     },
                     {
                         "keys" : [
@@ -18021,7 +18219,9 @@
                             "value": "3rd",
                             "type": "natural"
                         },
-                        "trigger": false
+                        "triggers": [
+                            false
+                        ]
                     }
                 ]
             }
