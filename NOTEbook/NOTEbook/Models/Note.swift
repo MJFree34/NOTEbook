@@ -144,11 +144,11 @@ struct Note: Decodable, Equatable {
                 case .d:
                     fatalError("Note not implemented")
                 case .e:
-                    fatalError("Note not implemented")
+                    return .bottom8thLine
                 case .f:
-                    fatalError("Note not implemented")
+                    return .bottom8thSpace
                 case .g:
-                    fatalError("Note not implemented")
+                    return .bottom7thLine
                 }
             case .low:
                 switch letter {

@@ -517,7 +517,7 @@ extension NoteChartCell {
                 let bottomInset: CGFloat
                 
                 switch ChartsController.shared.currentChart.instrument.type {
-                case .trumpet, .baritoneTC, .baritoneBC, .mellophone:
+                case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba:
                     fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 0.5)
                     bottomInset = CGFloat(-15 - 22 * index)
                 case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:

@@ -19,6 +19,7 @@ enum InstrumentType: String, Decodable {
     case tenorTrombone = "Tenor Trombone"
     case fTriggerTenorTrombone = "F-Trigger Tenor Trombone"
     case mellophone = "Mellophone"
+    case threeValveBBbTuba = "3-Valve BBb Tuba"
 }
 
 struct Instrument: Decodable, Equatable {
