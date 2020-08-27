@@ -10,9 +10,9 @@ import UIKit
 
 class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
-    static let cellHeight: CGFloat = 255
+    static let cellHeight: CGFloat = 260
     
-    private let centerOfStaffInsetFromTop: CGFloat = 100
+    private let centerOfStaffInsetFromTop: CGFloat = 105
     private let spaceBetweenStaffLines: CGFloat = 10
     
     private var cellWidth: CGFloat!
@@ -57,32 +57,32 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "CellFlat")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
+        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "CellSharp")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
+        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     private lazy var trebleClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "CellTrebleClef")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
+        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     private lazy var bassClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "CellBassClef")!.withTintColor(UIColor(named: "Black")!))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
+        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(UIColor(named: "Black")!))
+        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -127,11 +127,11 @@ extension NoteChartCell {
         }
         
         NSLayoutConstraint.activate([
-            trebleClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3 * spaceBetweenStaffLines + 5)),
+            trebleClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -14),
+            trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (7.62 * spaceBetweenStaffLines)),
             
-            bassClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            bassClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (2 * spaceBetweenStaffLines)),
+            bassClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -14),
+            bassClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3.5 * spaceBetweenStaffLines)),
         ])
     }
     
@@ -244,10 +244,10 @@ extension NoteChartCell {
                 rightTextView.heightAnchor.constraint(equalToConstant: textViewHeight),
                 rightTextView.widthAnchor.constraint(equalToConstant: textViewWidth),
                 
-                letterSharpView.leadingAnchor.constraint(equalTo: rightTextView.trailingAnchor, constant: 2),
+                letterSharpView.leadingAnchor.constraint(equalTo: rightTextView.trailingAnchor, constant: -5),
                 letterSharpView.centerYAnchor.constraint(equalTo: rightTextView.centerYAnchor, constant: 7),
                 
-                letterFlatView.trailingAnchor.constraint(equalTo: leftTextView.leadingAnchor, constant: 3),
+                letterFlatView.trailingAnchor.constraint(equalTo: leftTextView.leadingAnchor, constant: 8),
                 letterFlatView.centerYAnchor.constraint(equalTo: leftTextView.centerYAnchor, constant: 8)
             ])
         } else {
@@ -361,12 +361,14 @@ extension NoteChartCell {
             contentView.addSubview(note2)
             currentWholeNotes.append(note2)
             
-            let sharpView = UIImageView(image: UIImage(named: "CellSharp")!.withTintColor(UIColor(named: "Black")!))
+            let sharpView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+            sharpView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
             sharpView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(sharpView)
             currentWholeNotes.append(sharpView)
             
-            let flatView = UIImageView(image: UIImage(named: "CellFlat")!.withTintColor(UIColor(named: "Black")!))
+            let flatView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+            flatView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
             flatView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(flatView)
             currentWholeNotes.append(flatView)
@@ -378,11 +380,11 @@ extension NoteChartCell {
                 note2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -noteWidth / 2),
                 note2.topAnchor.constraint(equalTo: contentView.topAnchor, constant: secondNoteTopInset),
                 
-                sharpView.leadingAnchor.constraint(equalTo: note1.trailingAnchor, constant: 1.5),
-                sharpView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: firstNoteTopInset - 6),
+                sharpView.leadingAnchor.constraint(equalTo: note1.trailingAnchor, constant: -2),
+                sharpView.centerYAnchor.constraint(equalTo: note1.centerYAnchor),
                 
-                flatView.trailingAnchor.constraint(equalTo: note2.leadingAnchor, constant: -2),
-                flatView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: secondNoteTopInset - 10),
+                flatView.trailingAnchor.constraint(equalTo: note2.leadingAnchor),
+                flatView.centerYAnchor.constraint(equalTo: note2.centerYAnchor, constant: -6)
             ])
         } else {
             let note = createWholeNote()

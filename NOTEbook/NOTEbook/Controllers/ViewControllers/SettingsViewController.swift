@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private let customize = ["Haptics Enabled"]
     private let actions = ["Show Tutorial", "Fingerings, Features, or Feedback?"]
-    private let about = [["Current Version", "1.0 (10)"]]
+    private let about = [["Current Version", "1.0 (11)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()

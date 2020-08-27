@@ -12,6 +12,8 @@
 		9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A022AE8249908C00052E819 /* NotePickerViewController.swift */; };
 		9A022AEE249908C20052E819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AED249908C20052E819 /* Assets.xcassets */; };
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
+		9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D624F82F700052B364 /* Instruments.xcassets */; };
+		9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D824F84B220052B364 /* MusicSymbols.xcassets */; };
 		9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28E10D24A79828005B3EA4 /* NoteTests.swift */; };
 		9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D738824E96EA300A1A515 /* FingeringView.swift */; };
 		9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */; };
@@ -73,6 +75,8 @@
 		9A022AF2249908C20052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A022AF7249908C30052E819 /* NOTEbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A1022D624F82F700052B364 /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
+		9A1022D824F84B220052B364 /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
 		9A28E10D24A79828005B3EA4 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		9A3D738824E96EA300A1A515 /* FingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringView.swift; sourceTree = "<group>"; };
 		9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				9AD5573B249957960078CB7E /* Models */,
 				9AD55738249954F70078CB7E /* Extensions */,
 				9A022AED249908C20052E819 /* Assets.xcassets */,
+				9A1022D824F84B220052B364 /* MusicSymbols.xcassets */,
+				9A1022D624F82F700052B364 /* Instruments.xcassets */,
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
 				9AD5574624995EC10078CB7E /* Charts.json */,
 				9A52139124F2007C0007C08A /* NoteList.json */,
@@ -353,7 +359,9 @@
 				9AD5574724995EC10078CB7E /* Charts.json in Resources */,
 				9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */,
 				9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */,
+				9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */,
 				9A022AEE249908C20052E819 /* Assets.xcassets in Resources */,
+				9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +572,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -585,7 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
