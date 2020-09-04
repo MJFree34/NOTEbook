@@ -10,17 +10,22 @@ import UIKit
 
 class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
-    static let cellHeight: CGFloat = 260
     
-    private let centerOfStaffInsetFromTop: CGFloat = 105
+    private var cellHeight: CGFloat!
+    private var centerOfStaffInsetFromTop: CGFloat!
     private let spaceBetweenStaffLines: CGFloat = 10
     
     private var cellWidth: CGFloat!
     private var noteFingering: NoteFingering!
     
+    private var currentStaffLines = [UIImageView]()
+    private var currentOutline = [UIImageView]()
     private var currentExtraLines = [UIImageView]()
     private var currentWholeNotes = [UIImageView]()
     private var currentFingerings = [FingeringView]()
+    
+    private var trebleClefTopConstraint: NSLayoutConstraint!
+    private var bassClefTopConstraint: NSLayoutConstraint!
     
     private lazy var optionalLabel: UILabel = {
         var lab = UILabel()
@@ -93,6 +98,16 @@ class NoteChartCell: UICollectionViewCell {
         
         contentView.addSubview(trebleClef)
         contentView.addSubview(bassClef)
+        
+        NSLayoutConstraint.activate([
+            trebleClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -14),
+            bassClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -14),
+        ])
+        
+        trebleClefTopConstraint = trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor)
+        bassClefTopConstraint = bassClef.topAnchor.constraint(equalTo: contentView.topAnchor)
+        trebleClefTopConstraint.isActive = true
+        bassClefTopConstraint.isActive = true
     }
     
     required init?(coder: NSCoder) {
@@ -104,6 +119,8 @@ extension NoteChartCell {
     func configureCell(collectionViewWidth: CGFloat, noteFingering: NoteFingering) {
         self.cellWidth = collectionViewWidth / 3
         self.noteFingering = noteFingering
+        centerOfStaffInsetFromTop = CGFloat(ChartsController.shared.currentChart.instrument.chartCenterOfStaffFromTop)
+        cellHeight = CGFloat(ChartsController.shared.currentChart.instrument.chartCellHeight)
         
         configureStaff()
         configureOutline()
@@ -114,6 +131,12 @@ extension NoteChartCell {
     }
     
     private func configureStaff() {
+        for staffLine in currentStaffLines {
+            staffLine.removeFromSuperview()
+        }
+        
+        currentStaffLines.removeAll()
+        
         for i in -2...2 {
             addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
@@ -126,13 +149,10 @@ extension NoteChartCell {
             bassClef.isHidden = false
         }
         
-        NSLayoutConstraint.activate([
-            trebleClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -14),
-            trebleClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (7.62 * spaceBetweenStaffLines)),
-            
-            bassClef.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -14),
-            bassClef.topAnchor.constraint(equalTo: contentView.topAnchor, constant: centerOfStaffInsetFromTop - (3.5 * spaceBetweenStaffLines)),
-        ])
+        trebleClefTopConstraint.constant = centerOfStaffInsetFromTop - (7.62 * spaceBetweenStaffLines)
+        bassClefTopConstraint.constant = centerOfStaffInsetFromTop - (3.5 * spaceBetweenStaffLines)
+        
+        contentView.layoutIfNeeded()
     }
     
     private func addStaffLine(topInset: CGFloat) {
@@ -144,27 +164,38 @@ extension NoteChartCell {
             staffImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topInset),
             staffImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
+        
+        currentStaffLines.append(staffImageView)
     }
     
     private func configureOutline() {
+        for outline in currentOutline {
+            outline.removeFromSuperview()
+        }
+        
+        currentOutline.removeAll()
+        
         let insetFromTop = centerOfStaffInsetFromTop - 2 * spaceBetweenStaffLines
         
-        let leftOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: NoteChartCell.cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
+        let leftOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
         leftOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(leftOutline)
+        currentOutline.append(leftOutline)
         
         let bottomOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(UIColor(named: "Black")!))
         bottomOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(bottomOutline)
+        currentOutline.append(bottomOutline)
         
-        let rightOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: NoteChartCell.cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
+        let rightOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
         rightOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(rightOutline)
+        currentOutline.append(rightOutline)
         
         NSLayoutConstraint.activate([
             leftOutline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -0.1),
             leftOutline.topAnchor.constraint(equalTo: contentView.topAnchor, constant: insetFromTop),
-            leftOutline.heightAnchor.constraint(equalToConstant: NoteChartCell.cellHeight - insetFromTop),
+            leftOutline.heightAnchor.constraint(equalToConstant: cellHeight - insetFromTop),
             leftOutline.widthAnchor.constraint(equalToConstant: 0.5),
             
             bottomOutline.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -173,7 +204,7 @@ extension NoteChartCell {
             
             rightOutline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             rightOutline.topAnchor.constraint(equalTo: contentView.topAnchor, constant: insetFromTop),
-            rightOutline.heightAnchor.constraint(equalToConstant: NoteChartCell.cellHeight - insetFromTop),
+            rightOutline.heightAnchor.constraint(equalToConstant: cellHeight - insetFromTop),
             rightOutline.widthAnchor.constraint(equalToConstant: 0.5),
         ])
     }
@@ -297,6 +328,9 @@ extension NoteChartCell {
         }
         
         switch secondNote.position {
+        case .top8thLine:
+            addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 10 * spaceBetweenStaffLines, thickLine: needsThickLine)
+            fallthrough
         case .top7thLine, .top8thSpace:
             addExtraStaffLine(topInset: centerOfStaffInsetFromTop - 9 * spaceBetweenStaffLines, thickLine: needsThickLine)
             fallthrough
@@ -485,6 +519,8 @@ extension NoteChartCell {
             return noteTopInset - spaceBetweenStaffLines * 9
         case .top8thSpace:
             return noteTopInset - spaceBetweenStaffLines * 9.5
+        case .top8thLine:
+            return noteTopInset - spaceBetweenStaffLines * 10
         }
     }
     
@@ -535,6 +571,9 @@ extension NoteChartCell {
                     bottomInset = CGFloat(-18 - 32 * index)
                 case .fBbFrenchHorn:
                     fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomInset = CGFloat(-15 - 22 * index)
+                case .flute:
+                    fingeringView = FluteFingeringView(fingering: fingering, ratio: 0.4)
                     bottomInset = CGFloat(-15 - 22 * index)
                 }
                 

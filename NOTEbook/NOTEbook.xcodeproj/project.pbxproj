@@ -14,6 +14,7 @@
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
 		9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D624F82F700052B364 /* Instruments.xcassets */; };
 		9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D824F84B220052B364 /* MusicSymbols.xcassets */; };
+		9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1022DA24FA83640052B364 /* FluteFingeringView.swift */; };
 		9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28E10D24A79828005B3EA4 /* NoteTests.swift */; };
 		9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D738824E96EA300A1A515 /* FingeringView.swift */; };
 		9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */; };
@@ -77,6 +78,7 @@
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A1022D624F82F700052B364 /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
 		9A1022D824F84B220052B364 /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
+		9A1022DA24FA83640052B364 /* FluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
 		9A28E10D24A79828005B3EA4 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		9A3D738824E96EA300A1A515 /* FingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringView.swift; sourceTree = "<group>"; };
 		9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				9A3D738C24E97C3800A1A515 /* FourValveFingeringView.swift */,
 				9A89FFDF24F015830059295C /* PositionFingeringView.swift */,
 				9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */,
+				9A1022DA24FA83640052B364 /* FluteFingeringView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */,
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,

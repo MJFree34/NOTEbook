@@ -188,7 +188,7 @@ class LetterArrowViewController: UIViewController {
         NSLayoutConstraint.activate([
             fingeringPageViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             fingeringPageViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -50),
-            fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 40)
+            fingeringPageViewController.view.heightAnchor.constraint(equalToConstant: 70)
         ])
         
         fingeringViewWidthConstraint = fingeringPageViewController.view.widthAnchor.constraint(equalToConstant: CGFloat(chartsController.currentChart.instrument.fingeringWidth))

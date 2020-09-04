@@ -87,6 +87,7 @@ enum NotePosition: String, Decodable {
     case top7thSpace
     case top7thLine
     case top8thSpace
+    case top8thLine
     
     func findLocation() -> NoteLocation {
         switch self {
@@ -352,16 +353,16 @@ struct Note: Decodable, Equatable {
                 case .d:
                     return .top6thLine
                 case .e:
-                    fatalError("Note not implemented")
+                    return .top7thSpace
                 case .f:
-                    fatalError("Note not implemented")
+                    return .top7thLine
                 case .g:
-                    fatalError("Note not implemented")
+                    return .top8thSpace
                 }
             case .veryVeryHigh:
                 switch letter {
                 case .a:
-                    fatalError("Note not implemented")
+                    return .top8thLine
                 case .b:
                     fatalError("Note not implemented")
                 case .c:

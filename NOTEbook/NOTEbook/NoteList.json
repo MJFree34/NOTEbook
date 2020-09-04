@@ -214,6 +214,30 @@
         "type": "natural",
         "pitch": "veryHigh",
         "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "natural",
+        "pitch": "veryHigh",
+        "clef": "treble"
     }
 ]
 
@@ -433,6 +457,30 @@
         "type": "natural",
         "pitch": "veryHigh",
         "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "e",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "flat",
+        "pitch": "high",
+        "clef": "treble"
     }
 ]
 
@@ -651,6 +699,30 @@
         "letter": "c",
         "type": "sharp",
         "pitch": "veryHigh",
+        "clef": "treble"
+    },
+    {
+        "letter": "d",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "natural",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "f",
+        "type": "sharp",
+        "pitch": "high",
+        "clef": "treble"
+    },
+    {
+        "letter": "g",
+        "type": "sharp",
+        "pitch": "high",
         "clef": "treble"
     }
 ]

@@ -23,11 +23,14 @@ enum InstrumentType: String, Decodable {
     case threeValveEbTuba = "3-Valve Eb Tuba"
     case fFrenchHorn = "F French Horn"
     case fBbFrenchHorn = "F/Bb French Horn"
+    case flute = "Flute"
 }
 
 struct Instrument: Decodable, Equatable {
     var type: InstrumentType
     var clef: Clef
     var fingeringWidth: Int
+    var chartCellHeight: Int
+    var chartCenterOfStaffFromTop: Int
     var offset: Double
 }
