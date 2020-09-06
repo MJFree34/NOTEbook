@@ -43,6 +43,18 @@ class FingeringPageViewController: UIViewController, UIPageViewControllerDelegat
                 pageControl.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor, constant: 30),
                 pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ])
+            
+            isPagingEnabled = pageControl.numberOfPages != 1
+        }
+    }
+    
+    var isPagingEnabled: Bool = true {
+        didSet {
+            for view in pageViewController.view.subviews {
+                if let subView = view as? UIScrollView {
+                    subView.isScrollEnabled = isPagingEnabled
+                }
+            }
         }
     }
     
