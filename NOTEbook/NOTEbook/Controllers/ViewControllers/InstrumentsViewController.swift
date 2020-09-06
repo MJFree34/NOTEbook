@@ -11,7 +11,7 @@ import UIKit
 class InstrumentsViewController: UIViewController {
     private let chartsController = ChartsController.shared
     
-    private var selectedIndex: IndexPath!
+    private var selectedCategory: IndexPath!
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -42,48 +42,65 @@ class InstrumentsViewController: UIViewController {
         
         title = "Instruments"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
 }
 
 extension InstrumentsViewController: UITableViewDelegate {}
 
 extension InstrumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chartsController.instruments.count
+        return chartsController.numberOfCategories
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let cellInstrumentType = chartsController.instruments[indexPath.row]
+        let cellChartCategoryName = chartsController.chartCategories[indexPath.row].name
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.textLabel?.textColor = UIColor(named: "Black")
-        cell.textLabel?.text = cellInstrumentType.rawValue
+        cell.textLabel?.text = cellChartCategoryName
         cell.backgroundColor = .clear
-        cell.tintColor = UIColor(named: "MediumRed")
         cell.selectionStyle = .none
         
-        if cellInstrumentType == chartsController.currentChart.instrument.type {
+        if cellChartCategoryName == chartsController.currentChartCategory.name {
+            cell.tintColor = UIColor(named: "MediumRed")
+            selectedCategory = indexPath
+        } else {
+            cell.tintColor = UIColor(named: "MediumAqua")
+        }
+        
+        if chartsController.chartCategories[indexPath.row].fingeringCharts.count == 1 {
             cell.accessoryType = .checkmark
-            selectedIndex = indexPath
+        } else {
+            let chevronImageView = UIImageView(image: UIImage(systemName: "chevron.right"))
+            cell.accessoryView = chevronImageView
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath), cell.accessoryType != .checkmark {
-            cell.accessoryType = .checkmark
-            
-            if let cell2 = tableView.cellForRow(at: selectedIndex) {
-                cell2.accessoryType = .none
+        if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
+            if chartsController.chartCategories[indexPath.row].fingeringCharts.count == 1 {
+                cell.tintColor = UIColor(named: "MediumRed")
+                
+                if let cell2 = tableView.cellForRow(at: selectedCategory) {
+                    cell2.tintColor = UIColor(named: "MediumAqua")
+                }
+                
+                selectedCategory = indexPath
+                
+                chartsController.changeCurrentChart(to: indexPath.row, instrumentIndex: 0)
+            } else {
+                let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[indexPath.row], index: indexPath.row)
+                navigationController?.pushViewController(vc, animated: true)
             }
-            
-            selectedIndex = indexPath
-            
-            chartsController.changeCurrentChartToChart(at: indexPath.row)
-            
-            UserDefaults.standard.setValue(indexPath.row, forKey: UserDefaults.Keys.currentInstrumentIndex)
         }
     }
 }

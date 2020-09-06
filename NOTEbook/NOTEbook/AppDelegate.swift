@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.register(defaults: [
             UserDefaults.Keys.tutorialHasShown: false,
             UserDefaults.Keys.currentInstrumentIndex: 0,
+            UserDefaults.Keys.currentChartCategoryIndex: 0,
             UserDefaults.Keys.hapticsEnabled: true
         ])
         

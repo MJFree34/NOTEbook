@@ -11,7 +11,8 @@ import Foundation
 extension UserDefaults {
     struct Keys {
         static let tutorialHasShown = "TutorialHasShown"
-        static let currentInstrumentIndex = "CurrentInstrumentIndex"
+        static let currentInstrumentIndex = "CurrentInstrumentTypeIndex"
         static let hapticsEnabled = "HapticsEnabled"
+        static let currentChartCategoryIndex = "CurrentChartCategoryIndex"
     }
 }

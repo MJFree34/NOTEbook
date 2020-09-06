@@ -11,18 +11,20 @@ import Foundation
 class ChartsController {
     static let shared = ChartsController()
     
-    private var charts = [FingeringChart]()
+    private(set) var chartCategories = [ChartCategory]()
     
     var currentChart: FingeringChart
+    var currentChartCategory: ChartCategory
     
     init() {
         do {
-            charts = try ChartsLoader.loadCharts()
+            chartCategories = try ChartsLoader.loadCharts()
         } catch {
             fatalError("Fail to load charts")
         }
         
-        currentChart = charts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentInstrumentIndex)]
+        currentChartCategory = chartCategories[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentChartCategoryIndex)]
+        currentChart = currentChartCategory.fingeringCharts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentInstrumentIndex)]
     }
 }
 
@@ -31,18 +33,20 @@ extension ChartsController {
         return currentChart.noteFingerings.count
     }
     
-    var instruments: [InstrumentType] {
-        var instruments = [InstrumentType]()
-        
-        for chart in charts {
-            instruments.append(chart.instrument.type)
-        }
-        
-        return instruments
+    var numberOfCategories: Int {
+        return chartCategories.count
     }
     
-    func changeCurrentChartToChart(at index: Int) {
-        currentChart = charts[index]
+    var currentCategoryInstrumentsCount: Int {
+        return currentChartCategory.fingeringCharts.count
+    }
+    
+    func changeCurrentChart(to categoryIndex: Int, instrumentIndex: Int) {
+        currentChartCategory = chartCategories[categoryIndex]
+        currentChart = currentChartCategory.fingeringCharts[instrumentIndex]
+        
+        UserDefaults.standard.setValue(categoryIndex, forKey: UserDefaults.Keys.currentChartCategoryIndex)
+        UserDefaults.standard.setValue(instrumentIndex, forKey: UserDefaults.Keys.currentInstrumentIndex)
     }
     
     func noteFingeringInCurrentChart(for note: Note) -> NoteFingering? {

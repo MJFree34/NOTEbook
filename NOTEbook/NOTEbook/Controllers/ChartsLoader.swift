@@ -15,14 +15,14 @@ enum ChartLoadingError: Error {
 }
 
 struct ChartsLoader {
-    static func loadCharts() throws -> [FingeringChart] {
+    static func loadCharts() throws -> [ChartCategory] {
         guard let chartsURL = Bundle.main.url(forResource: "Charts", withExtension: "json") else { throw ChartLoadingError.invalidURL }
         guard let data = try? Data(contentsOf: chartsURL) else { throw ChartLoadingError.unloadableData }
         
         let decoder = JSONDecoder()
         
         do {
-            return try decoder.decode([FingeringChart].self, from: data)
+            return try decoder.decode([ChartCategory].self, from: data)
         } catch {
             throw ChartLoadingError.decodingError
         }
