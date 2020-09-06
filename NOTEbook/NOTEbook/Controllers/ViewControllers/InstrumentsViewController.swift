@@ -13,6 +13,8 @@ class InstrumentsViewController: UIViewController {
     
     private var selectedCategory: IndexPath!
     
+    private lazy var woodwindStartIndex: Int = chartsController.chartCategories.count - 1
+    
     private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
@@ -53,14 +55,25 @@ class InstrumentsViewController: UIViewController {
 extension InstrumentsViewController: UITableViewDelegate {}
 
 extension InstrumentsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chartsController.numberOfCategories
+        switch section {
+        case 0:
+            return chartsController.chartCategories.count - 1
+        case 1:
+            return 1
+        default:
+            return 100
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let cellChartCategoryName = chartsController.chartCategories[indexPath.row].name
+        let cellChartCategoryName = chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].name
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.textLabel?.textColor = UIColor(named: "Black")
@@ -75,10 +88,11 @@ extension InstrumentsViewController: UITableViewDataSource {
             cell.tintColor = UIColor(named: "MediumAqua")
         }
         
-        if chartsController.chartCategories[indexPath.row].fingeringCharts.count == 1 {
+        if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].fingeringCharts.count == 1 {
             cell.accessoryType = .checkmark
         } else {
-            let chevronImageView = UIImageView(image: UIImage(systemName: "chevron.right"))
+            let chevronConfiguration = UIImage.SymbolConfiguration.init(font: UIFont.preferredFont(forTextStyle: .title3))
+            let chevronImageView = UIImageView(image: UIImage(systemName: "chevron.right", withConfiguration: chevronConfiguration))
             cell.accessoryView = chevronImageView
         }
         
@@ -87,7 +101,7 @@ extension InstrumentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
-            if chartsController.chartCategories[indexPath.row].fingeringCharts.count == 1 {
+            if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].fingeringCharts.count == 1 {
                 cell.tintColor = UIColor(named: "MediumRed")
                 
                 if let cell2 = tableView.cellForRow(at: selectedCategory) {
@@ -96,11 +110,29 @@ extension InstrumentsViewController: UITableViewDataSource {
                 
                 selectedCategory = indexPath
                 
-                chartsController.changeCurrentChart(to: indexPath.row, instrumentIndex: 0)
+                chartsController.changeCurrentChart(to: (indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex), instrumentIndex: 0)
             } else {
-                let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[indexPath.row], index: indexPath.row)
+                let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)], index: (indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex))
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let titleCell = TitleCell()
+        titleCell.titleLabel.textColor = UIColor(named: "DarkAqua")
+        titleCell.titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        titleCell.cellDivider.isHidden = false
+        
+        switch section {
+        case 0:
+            titleCell.titleLabel.text = "Brass"
+        case 1:
+            titleCell.titleLabel.text = "Woodwinds"
+        default:
+            break
+        }
+        
+        return titleCell
     }
 }

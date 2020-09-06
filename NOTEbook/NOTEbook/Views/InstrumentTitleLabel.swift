@@ -12,7 +12,7 @@ class InstrumentTitleLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        font = UIFont.preferredFont(forTextStyle: .title3)
+        font = UIFont.systemFont(ofSize: 20)
         textAlignment = .center
         textColor = UIColor(named: "MediumAqua")
         translatesAutoresizingMaskIntoConstraints = false
