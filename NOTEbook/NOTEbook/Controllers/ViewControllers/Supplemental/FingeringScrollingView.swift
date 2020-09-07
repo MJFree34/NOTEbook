@@ -62,7 +62,7 @@ class FingeringScrollingView: UIView {
             
             NSLayoutConstraint.activate([
                 fingeringView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                fingeringView.centerYAnchor.constraint(equalTo: centerYAnchor)
+                fingeringView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -5)
             ])
         }
     }

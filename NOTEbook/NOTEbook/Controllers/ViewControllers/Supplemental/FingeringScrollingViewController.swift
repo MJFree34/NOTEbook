@@ -17,6 +17,10 @@ class FingeringScrollingViewController: UIViewController {
         control.addTarget(self, action: #selector(pageControlChanged), for: .valueChanged)
         control.translatesAutoresizingMaskIntoConstraints = false
         
+        if #available(iOS 14.0, *) {
+            control.allowsContinuousInteraction = false
+        }
+        
         return control
     }()
     
@@ -76,7 +80,7 @@ class FingeringScrollingViewController: UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: LetterArrowViewController.fingeringHeight),
             
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 15),
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
