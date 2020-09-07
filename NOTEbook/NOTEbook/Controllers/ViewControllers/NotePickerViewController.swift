@@ -336,7 +336,7 @@ extension NotePickerViewController: UICollectionViewDelegate {
             
             currentNoteFingering = selectedFingering
             
-            letterArrowViewController.fingeringPageViewController.fingerings = currentNoteFingering.fingerings
+            letterArrowViewController.fingeringScrollingViewController.fingerings = currentNoteFingering.fingerings
             
             letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
             

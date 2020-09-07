@@ -1,16 +1,14 @@
 //
-//  FingeringViewController.swift
+//  FingeringScrollingView.swift
 //  NOTEbook
 //
-//  Created by Matt Free on 6/19/20.
+//  Created by Matt Free on 9/6/20.
 //  Copyright © 2020 Matt Free. All rights reserved.
 //
 
 import UIKit
 
-class FingeringViewController: UIViewController {
-    var fingering: Fingering!
-    
+class FingeringScrollingView: UIView {
     private lazy var optionalLabel: UILabel = {
         var lab = UILabel()
         lab.font = UIFont.preferredFont(forTextStyle: .title1)
@@ -23,14 +21,18 @@ class FingeringViewController: UIViewController {
         return lab
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var fingering: Fingering
+    
+    init(fingering: Fingering) {
+        self.fingering = fingering
         
-        view.addSubview(optionalLabel)
+        super.init(frame: .zero)
+        
+        addSubview(optionalLabel)
         
         NSLayoutConstraint.activate([
-            optionalLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            optionalLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            optionalLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            optionalLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         let currentInstrumentType = ChartsController.shared.currentChart.instrument.type
@@ -56,12 +58,16 @@ class FingeringViewController: UIViewController {
             }
             
             fingeringView.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(fingeringView)
+            addSubview(fingeringView)
             
             NSLayoutConstraint.activate([
-                fingeringView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                fingeringView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+                fingeringView.centerXAnchor.constraint(equalTo: centerXAnchor),
+                fingeringView.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

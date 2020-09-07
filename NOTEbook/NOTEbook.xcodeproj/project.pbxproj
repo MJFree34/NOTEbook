@@ -33,14 +33,14 @@
 		9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */; };
 		9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FED124B278380002D50C /* TutorialViewController.swift */; };
 		9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D423249C3BE1001E108B /* ChartsLoader.swift */; };
-		9A81D426249D5219001E108B /* FingeringPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D425249D5218001E108B /* FingeringPageViewController.swift */; };
-		9A81D428249D53A2001E108B /* FingeringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D427249D53A2001E108B /* FingeringViewController.swift */; };
 		9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFDF24F015830059295C /* PositionFingeringView.swift */; };
 		9A89FFE224F016F10059295C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFE124F016F10059295C /* Position.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
 		9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */; };
 		9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */; };
 		9AB9B8FD2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */; };
+		9AB9B8FF2505802000A5B0E6 /* FingeringScrollingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B8FE2505802000A5B0E6 /* FingeringScrollingViewController.swift */; };
+		9AB9B901250581B200A5B0E6 /* FingeringScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B900250581B200A5B0E6 /* FingeringScrollingView.swift */; };
 		9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA603724B8E6C900633E06 /* TutorialCell.swift */; };
 		9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */; };
 		9AC57B7124E42EF4002F8CB9 /* InstrumentTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */; };
@@ -100,14 +100,14 @@
 		9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A73FED124B278380002D50C /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		9A81D423249C3BE1001E108B /* ChartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
-		9A81D425249D5218001E108B /* FingeringPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringPageViewController.swift; sourceTree = "<group>"; };
-		9A81D427249D53A2001E108B /* FingeringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringViewController.swift; sourceTree = "<group>"; };
 		9A89FFDF24F015830059295C /* PositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionFingeringView.swift; sourceTree = "<group>"; };
 		9A89FFE124F016F10059295C /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
 		9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
 		9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
 		9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsCategoryViewController.swift; sourceTree = "<group>"; };
+		9AB9B8FE2505802000A5B0E6 /* FingeringScrollingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringScrollingViewController.swift; sourceTree = "<group>"; };
+		9AB9B900250581B200A5B0E6 /* FingeringScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringScrollingView.swift; sourceTree = "<group>"; };
 		9ABA603724B8E6C900633E06 /* TutorialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCell.swift; sourceTree = "<group>"; };
 		9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentTitleLabel.swift; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */,
-				9A81D425249D5218001E108B /* FingeringPageViewController.swift */,
-				9A81D427249D53A2001E108B /* FingeringViewController.swift */,
+				9AB9B8FE2505802000A5B0E6 /* FingeringScrollingViewController.swift */,
+				9AB9B900250581B200A5B0E6 /* FingeringScrollingView.swift */,
 			);
 			path = Supplemental;
 			sourceTree = "<group>";
@@ -396,11 +396,9 @@
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
-				9A81D426249D5219001E108B /* FingeringPageViewController.swift in Sources */,
 				9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */,
 				9A3D738D24E97C3800A1A515 /* FourValveFingeringView.swift in Sources */,
 				9AD5573D249957A50078CB7E /* Fingering.swift in Sources */,
-				9A81D428249D53A2001E108B /* FingeringViewController.swift in Sources */,
 				9AD5574124995A000078CB7E /* FingeringChart.swift in Sources */,
 				9AC57B7124E42EF4002F8CB9 /* InstrumentTitleLabel.swift in Sources */,
 				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
@@ -418,6 +416,7 @@
 				9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
+				9AB9B8FF2505802000A5B0E6 /* FingeringScrollingViewController.swift in Sources */,
 				9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */,
 				9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */,
 				9A89FFE224F016F10059295C /* Position.swift in Sources */,
@@ -426,6 +425,7 @@
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
 				9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */,
+				9AB9B901250581B200A5B0E6 /* FingeringScrollingView.swift in Sources */,
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
 				9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */,
 				9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */,
