@@ -22,6 +22,7 @@
 		9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */; };
 		9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438147249E3CE400EDC58F /* NotePicker.swift */; };
 		9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A438149249E3E2600EDC58F /* NotePickerCell.swift */; };
+		9A485B3A250707CD00407910 /* ClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A485B39250707CD00407910 /* ClarinetFingeringView.swift */; };
 		9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70724DB795300B493A1 /* DecodingTests.swift */; };
 		9A55D70E24DC7C9E00B493A1 /* StaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70D24DC7C9E00B493A1 /* StaffView.swift */; };
 		9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */; };
@@ -88,6 +89,8 @@
 		9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		9A438147249E3CE400EDC58F /* NotePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePicker.swift; sourceTree = "<group>"; };
 		9A438149249E3E2600EDC58F /* NotePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCell.swift; sourceTree = "<group>"; };
+		9A485B39250707CD00407910 /* ClarinetFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarinetFingeringView.swift; sourceTree = "<group>"; };
+		9A485B3F2507FACF00407910 /* ClarinetFullFingerings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ClarinetFullFingerings.json; sourceTree = "<group>"; };
 		9A52139124F2007C0007C08A /* NoteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteList.json; sourceTree = "<group>"; };
 		9A55D70724DB795300B493A1 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
 		9A55D70D24DC7C9E00B493A1 /* StaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffView.swift; sourceTree = "<group>"; };
@@ -178,6 +181,7 @@
 				9AD5574624995EC10078CB7E /* Charts.json */,
 				9A52139124F2007C0007C08A /* NoteList.json */,
 				9AC8957025031FE20033250B /* FluteFullFingerings.json */,
+				9A485B3F2507FACF00407910 /* ClarinetFullFingerings.json */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
 				9A022AF2249908C20052E819 /* Info.plist */,
 			);
@@ -222,6 +226,7 @@
 				9A89FFDF24F015830059295C /* PositionFingeringView.swift */,
 				9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */,
 				9A1022DA24FA83640052B364 /* FluteFingeringView.swift */,
+				9A485B39250707CD00407910 /* ClarinetFingeringView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */,
 				9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */,
 				9A89FFE224F016F10059295C /* Position.swift in Sources */,
+				9A485B3A250707CD00407910 /* ClarinetFingeringView.swift in Sources */,
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
 				9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,

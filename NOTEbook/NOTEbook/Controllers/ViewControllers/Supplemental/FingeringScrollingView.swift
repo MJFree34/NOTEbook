@@ -41,6 +41,7 @@ class FingeringScrollingView: UIView {
             optionalLabel.isHidden = false
         } else {
             let fingeringView: FingeringView
+            var yConstant: CGFloat = 0
             
             switch currentInstrumentType {
             case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba, .threeValveEbTuba, .fFrenchHorn:
@@ -55,6 +56,10 @@ class FingeringScrollingView: UIView {
                 fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 1)
             case .flute:
                 fingeringView = FluteFingeringView(fingering: fingering, ratio: 1)
+                yConstant = -5
+            case .clarinet:
+                fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.75)
+                yConstant = -15
             }
             
             fingeringView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +67,7 @@ class FingeringScrollingView: UIView {
             
             NSLayoutConstraint.activate([
                 fingeringView.centerXAnchor.constraint(equalTo: centerXAnchor),
-                fingeringView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -5)
+                fingeringView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: yConstant)
             ])
         }
     }

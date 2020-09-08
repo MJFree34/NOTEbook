@@ -9,7 +9,7 @@
 import UIKit
 
 class LetterArrowViewController: UIViewController {
-    static var fingeringHeight: CGFloat = 75
+    static var fingeringHeight: CGFloat = 85
     
     var letterLabel: UILabel!
     var fingeringScrollingViewController: FingeringScrollingViewController!
@@ -188,7 +188,7 @@ class LetterArrowViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             fingeringScrollingViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fingeringScrollingViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -45),
+            fingeringScrollingViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -40),
             fingeringScrollingViewController.view.heightAnchor.constraint(equalToConstant: LetterArrowViewController.fingeringHeight)
         ])
         

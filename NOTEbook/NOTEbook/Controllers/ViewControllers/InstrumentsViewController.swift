@@ -13,7 +13,7 @@ class InstrumentsViewController: UIViewController {
     
     private var selectedCategory: IndexPath!
     
-    private lazy var woodwindStartIndex: Int = chartsController.chartCategories.count - 1
+    private lazy var woodwindStartIndex: Int = chartsController.chartCategories.count - 2
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -62,9 +62,9 @@ extension InstrumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return chartsController.chartCategories.count - 1
+            return woodwindStartIndex
         case 1:
-            return 1
+            return chartsController.chartCategories.count - woodwindStartIndex
         default:
             return 100
         }
