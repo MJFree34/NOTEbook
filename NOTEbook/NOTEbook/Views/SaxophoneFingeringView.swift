@@ -199,7 +199,7 @@ class SaxophoneFingeringView: FingeringView {
         return imageView
     }()
     
-    private lazy var octaveKey: UIImageView = {
+    lazy var octaveKey: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: (fingering.keys![22] ? "SaxophoneOctaveKeyFull" : "SaxophoneOctaveKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false

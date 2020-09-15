@@ -12,6 +12,7 @@
 		9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A022AE8249908C00052E819 /* NotePickerViewController.swift */; };
 		9A022AEE249908C20052E819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AED249908C20052E819 /* Assets.xcassets */; };
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
+		9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06636D2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift */; };
 		9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D624F82F700052B364 /* Instruments.xcassets */; };
 		9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D824F84B220052B364 /* MusicSymbols.xcassets */; };
 		9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1022DA24FA83640052B364 /* FluteFingeringView.swift */; };
@@ -80,6 +81,7 @@
 		9A022AF2249908C20052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A022AF7249908C30052E819 /* NOTEbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A06636D2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
 		9A1022D624F82F700052B364 /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
 		9A1022D824F84B220052B364 /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
 		9A1022DA24FA83640052B364 /* FluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				9A1022DA24FA83640052B364 /* FluteFingeringView.swift */,
 				9A485B39250707CD00407910 /* ClarinetFingeringView.swift */,
 				9A9261AB25101E1E00312643 /* SaxophoneFingeringView.swift */,
+				9A06636D2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */,
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
+				9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,

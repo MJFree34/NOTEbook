@@ -578,8 +578,11 @@ extension NoteChartCell {
                 case .clarinet:
                     fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.35)
                     bottomInset = CGFloat(-27 - 34 * index)
-                case .altoSaxophone:
+                case .altoSaxophone, .tenorSaxophone:
                     fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.38)
+                    bottomInset = CGFloat(-21 - 42 * index)
+                case .baritoneSaxophone:
+                    fingeringView = BaritoneSaxophoneFingeringView(fingering: fingering, ratio: 0.35)
                     bottomInset = CGFloat(-21 - 42 * index)
                 }
                 
