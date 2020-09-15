@@ -461,25 +461,25 @@
     {
         "letter": "d",
         "type": "flat",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     },
     {
         "letter": "e",
         "type": "flat",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     },
     {
         "letter": "e",
         "type": "natural",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     },
     {
         "letter": "g",
         "type": "flat",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     }
 ]
@@ -704,25 +704,25 @@
     {
         "letter": "d",
         "type": "sharp",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     },
     {
         "letter": "f",
         "type": "natural",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     },
     {
         "letter": "f",
         "type": "sharp",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     },
     {
         "letter": "g",
         "type": "sharp",
-        "pitch": "high",
+        "pitch": "veryHigh",
         "clef": "treble"
     }
 ]

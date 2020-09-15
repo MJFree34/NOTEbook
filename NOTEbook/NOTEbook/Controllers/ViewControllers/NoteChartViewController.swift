@@ -160,7 +160,7 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 40)
+        return CGSize(width: 0, height: 25)
     }
 }
 

@@ -127,8 +127,7 @@ class NotePickerViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            titleLabel.heightAnchor.constraint(equalToConstant: 22)
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
     }
     
@@ -137,7 +136,7 @@ class NotePickerViewController: UIViewController {
         add(letterArrowViewController)
         
         NSLayoutConstraint.activate([
-            letterArrowViewController.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            letterArrowViewController.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             letterArrowViewController.view.heightAnchor.constraint(equalToConstant: 220),
             letterArrowViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             letterArrowViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)

@@ -13,7 +13,7 @@ class InstrumentsViewController: UIViewController {
     
     private var selectedCategory: IndexPath!
     
-    private lazy var woodwindStartIndex: Int = chartsController.chartCategories.count - 2
+    private lazy var woodwindStartIndex: Int = chartsController.chartCategories.count - 3
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()

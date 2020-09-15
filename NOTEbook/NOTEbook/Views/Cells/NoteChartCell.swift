@@ -576,8 +576,11 @@ extension NoteChartCell {
                     fingeringView = FluteFingeringView(fingering: fingering, ratio: 0.4)
                     bottomInset = CGFloat(-17 - 25 * index)
                 case .clarinet:
-                    fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.375)
+                    fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.35)
                     bottomInset = CGFloat(-27 - 34 * index)
+                case .altoSaxophone:
+                    fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.38)
+                    bottomInset = CGFloat(-21 - 42 * index)
                 }
                 
                 fingeringView.translatesAutoresizingMaskIntoConstraints = false

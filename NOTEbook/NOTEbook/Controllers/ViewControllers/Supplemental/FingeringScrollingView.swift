@@ -60,6 +60,8 @@ class FingeringScrollingView: UIView {
             case .clarinet:
                 fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.75)
                 yConstant = -15
+            case .altoSaxophone:
+                fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.70)
             }
             
             fingeringView.translatesAutoresizingMaskIntoConstraints = false
