@@ -90,10 +90,12 @@ extension InstrumentsViewController: UITableViewDataSource {
         
         if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].fingeringCharts.count == 1 {
             cell.accessoryType = .checkmark
+            cell.accessoryView = nil
         } else {
             let chevronConfiguration = UIImage.SymbolConfiguration.init(font: UIFont.preferredFont(forTextStyle: .title3))
             let chevronImageView = UIImageView(image: UIImage(systemName: "chevron.right", withConfiguration: chevronConfiguration))
             cell.accessoryView = chevronImageView
+            cell.accessoryType = .none
         }
         
         return cell
@@ -102,6 +104,10 @@ extension InstrumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
             if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].fingeringCharts.count == 1 {
+                if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+                    UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+                }
+                
                 cell.tintColor = UIColor(named: "MediumRed")
                 
                 if let cell2 = tableView.cellForRow(at: selectedCategory) {

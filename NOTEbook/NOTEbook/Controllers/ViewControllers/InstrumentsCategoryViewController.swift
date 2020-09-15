@@ -88,6 +88,10 @@ extension InstrumentsCategoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") {
+            if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+                UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+            }
+            
             cell.tintColor = UIColor(named: "MediumRed")
             
             if let index = selectedInstrumentIndex, let cell2 = tableView.cellForRow(at: index) {
