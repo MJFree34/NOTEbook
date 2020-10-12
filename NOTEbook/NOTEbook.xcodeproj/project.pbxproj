@@ -59,6 +59,8 @@
 		9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574424995CAB0078CB7E /* NoteFingering.swift */; };
 		9AD5574724995EC10078CB7E /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5574624995EC10078CB7E /* Charts.json */; };
 		9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */; };
+		9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */; };
+		9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E12534A10300B3008B /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		9AD5574424995CAB0078CB7E /* NoteFingering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingering.swift; sourceTree = "<group>"; };
 		9AD5574624995EC10078CB7E /* Charts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
 		9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
+		9AF3A7E12534A10300B3008B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,7 @@
 				9A5CFB3A2499C2C400DF319F /* ViewControllers */,
 				9A5CFB42249C203800DF319F /* ChartsController.swift */,
 				9A81D423249C3BE1001E108B /* ChartsLoader.swift */,
+				9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				9A89FFE124F016F10059295C /* Position.swift */,
 				9AD55739249955AD0078CB7E /* Note.swift */,
 				9A6CD4D324B4C35400D91A83 /* TutorialInfo.swift */,
+				9AF3A7E12534A10300B3008B /* Configuration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
 				9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
+				9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
 				9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */,
@@ -420,6 +427,7 @@
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
 				9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */,
 				9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */,
+				9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */,
 				9AB9B8FD2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift in Sources */,
 				9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,

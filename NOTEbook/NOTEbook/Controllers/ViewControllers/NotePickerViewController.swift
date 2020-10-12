@@ -103,6 +103,10 @@ class NotePickerViewController: UIViewController {
             UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.tutorialHasShown)
             navigationController?.present(TutorialViewController(), animated: true)
         }
+        
+        if Configuration.appConfiguration == .AppStore {
+            StoreKitHelper.displayStoreKit()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

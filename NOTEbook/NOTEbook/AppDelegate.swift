@@ -11,6 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        StoreKitHelper.incrementNumberOfTimesLaunched()
+        
         UserDefaults.standard.register(defaults: [
             UserDefaults.Keys.tutorialHasShown: false,
             UserDefaults.Keys.currentInstrumentIndex: 0,
