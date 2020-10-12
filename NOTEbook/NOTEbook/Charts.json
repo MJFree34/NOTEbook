@@ -58138,9 +58138,9 @@
                     "type": "3-Valve Eb Tuba",
                     "clef": "bass",
                     "fingeringWidth": 140,
-                    "chartCellHeight": 220,
-                    "chartCenterOfStaffFromTop": 85,
-                    "offset": -0.5
+                    "chartCellHeight": 205,
+                    "chartCenterOfStaffFromTop": 70,
+                    "offset": -1.5
                 },
                 "centerNote": {
                     "letter": "d",
@@ -58322,24 +58322,6 @@
                         "type": "natural",
                         "pitch": "veryHigh",
                         "clef": "bass"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
                     }
                 ],
                 "flatNotes": [
@@ -58516,24 +58498,6 @@
                         "type": "flat",
                         "pitch": "veryHigh",
                         "clef": "bass"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
                     }
                 ],
                 "sharpNotes": [
@@ -58707,24 +58671,6 @@
                     },
                     {
                         "letter": "a",
-                        "type": "sharp",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "pitch": "veryHigh",
-                        "clef": "bass"
-                    },
-                    {
-                        "letter": "d",
                         "type": "sharp",
                         "pitch": "veryHigh",
                         "clef": "bass"
@@ -59929,134 +59875,6 @@
                             {
                                 "keys": [
                                     false,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "b",
-                                "type": "natural",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "natural",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "sharp",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            },
-                            {
-                                "letter": "d",
-                                "type": "flat",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "natural",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "sharp",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            },
-                            {
-                                "letter": "e",
-                                "type": "flat",
-                                "pitch": "veryHigh",
-                                "clef": "bass"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
                                     false,
                                     false
                                 ]
