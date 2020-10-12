@@ -11,13 +11,13 @@ enum Section: String {
 }
 
 import UIKit
-import MessageUI
+import SafariServices
 
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private let customize = ["Haptics Enabled"]
-    private let actions = ["Show Tutorial", "Fingerings, Features, or Feedback?"]
-    private let about = [["Current Version", "1.0.1 (1)"]]
+    private let actions = ["Show Tutorial", "Send Feedback", "Rate in App Store"]
+    private let about = [["Current Version", "1.0.1 (2)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +101,9 @@ class SettingsViewController: UITableViewController {
                     self?.tableView.deselectRow(at: IndexPath(row: 0, section: 1), animated: true)
                 })
             case 1:
-                sendEmail()
+                openFeedback()
+            case 2:
+                openAppStore()
             default:
                 break
             }
@@ -114,34 +116,24 @@ class SettingsViewController: UITableViewController {
         return sections[section].rawValue.capitalized
     }
     
-    @objc func toggleHaptics() {
-        let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
-        UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
-    }
-}
-
-extension SettingsViewController: MFMailComposeViewControllerDelegate {
-    private func sendEmail() {
-        if MFMailComposeViewController.canSendMail() {
-            let mailVC = MFMailComposeViewController()
-            mailVC.mailComposeDelegate = self
-            mailVC.setToRecipients(["MusiciansNOTEbook.Feedback@gmail.com"])
-            mailVC.setSubject("NOTEbook Feedback and Suggestions")
+    func openFeedback() {
+        if let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdsy1jt7xngJS4BYxV_DyyogpLKVY6346X2RcogstWbtqo6Rw/viewform") {
+            let vc = SFSafariViewController(url: url)
             
-            present(mailVC, animated: true)
-        } else {
-            let ac = UIAlertController(title: "Error sending email", message: "Please make sure your device has mail setup.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "Okay", style: .default))
-            
-            present(ac, animated: true, completion: { [weak self] in
-                self?.tableView.deselectRow(at: IndexPath(row: 1, section: 1), animated: true)
-            })
+            present(vc, animated: true)
         }
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true)
-        tableView.deselectRow(at: IndexPath(row: 1, section: 1), animated: true)
+    func openAppStore() {
+        let appID = 1523098465
+        if let url = URL(string: "https://itunes.apple.com/app/id\(appID)?action=write-review") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
+    @objc func toggleHaptics() {
+        let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
+        UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }
 }
 
