@@ -101,6 +101,8 @@ extension InstrumentsCategoryViewController: UITableViewDataSource {
             selectedInstrumentIndex = indexPath
                 
             chartsController.changeCurrentChart(to: categoryIndex, instrumentIndex: indexPath.row)
+            
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 }

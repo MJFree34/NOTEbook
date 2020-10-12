@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private let customize = ["Haptics Enabled"]
     private let actions = ["Show Tutorial", "Fingerings, Features, or Feedback?"]
-    private let about = [["Current Version", "1.0 (14)"]]
+    private let about = [["Current Version", "1.0.1 (1)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,8 +97,8 @@ class SettingsViewController: UITableViewController {
         case .actions:
             switch indexPath.row {
             case 0:
-                navigationController?.present(TutorialViewController(), animated: true, completion: { [weak self] in
-                    self?.tableView.deselectRow(at: IndexPath(row: 0, section: 0), animated: true)
+                present(TutorialViewController(), animated: true, completion: { [weak self] in
+                    self?.tableView.deselectRow(at: IndexPath(row: 0, section: 1), animated: true)
                 })
             case 1:
                 sendEmail()
@@ -133,13 +133,15 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
             let ac = UIAlertController(title: "Error sending email", message: "Please make sure your device has mail setup.", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Okay", style: .default))
             
-            present(ac, animated: true)
+            present(ac, animated: true, completion: { [weak self] in
+                self?.tableView.deselectRow(at: IndexPath(row: 1, section: 1), animated: true)
+            })
         }
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
-        tableView.deselectRow(at: IndexPath(row: 1, section: 0), animated: true)
+        tableView.deselectRow(at: IndexPath(row: 1, section: 1), animated: true)
     }
 }
 

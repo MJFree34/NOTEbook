@@ -13,7 +13,7 @@ class InstrumentsViewController: UIViewController {
     
     private var selectedCategory: IndexPath!
     
-    private lazy var woodwindStartIndex: Int = chartsController.chartCategories.count - 3
+    private lazy var brassStartIndex: Int = chartsController.chartCategories.count - 7
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -62,9 +62,9 @@ extension InstrumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return woodwindStartIndex
+            return brassStartIndex
         case 1:
-            return chartsController.chartCategories.count - woodwindStartIndex
+            return chartsController.chartCategories.count - brassStartIndex
         default:
             return 100
         }
@@ -73,7 +73,7 @@ extension InstrumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let cellChartCategoryName = chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].name
+        let cellChartCategoryName = chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)].name
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.textLabel?.textColor = UIColor(named: "Black")
@@ -88,7 +88,7 @@ extension InstrumentsViewController: UITableViewDataSource {
             cell.tintColor = UIColor(named: "MediumAqua")
         }
         
-        if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].fingeringCharts.count == 1 {
+        if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)].fingeringCharts.count == 1 {
             cell.accessoryType = .checkmark
             cell.accessoryView = nil
         } else {
@@ -103,7 +103,7 @@ extension InstrumentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
-            if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)].fingeringCharts.count == 1 {
+            if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)].fingeringCharts.count == 1 {
                 if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
                     UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
                 }
@@ -116,9 +116,11 @@ extension InstrumentsViewController: UITableViewDataSource {
                 
                 selectedCategory = indexPath
                 
-                chartsController.changeCurrentChart(to: (indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex), instrumentIndex: 0)
+                chartsController.changeCurrentChart(to: (indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex), instrumentIndex: 0)
+                
+                navigationController?.popToRootViewController(animated: true)
             } else {
-                let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex)], index: (indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindStartIndex))
+                let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)], index: (indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex))
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
@@ -132,9 +134,9 @@ extension InstrumentsViewController: UITableViewDataSource {
         
         switch section {
         case 0:
-            titleCell.titleLabel.text = "Brass"
-        case 1:
             titleCell.titleLabel.text = "Woodwinds"
+        case 1:
+            titleCell.titleLabel.text = "Brass"
         default:
             break
         }
