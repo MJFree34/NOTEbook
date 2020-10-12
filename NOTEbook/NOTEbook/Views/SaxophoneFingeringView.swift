@@ -167,11 +167,11 @@ class SaxophoneFingeringView: FingeringView {
             if fingering.keys![19] {
                 imageView = UIImageView(image: UIImage(named: "SaxophoneMiddleLowKeysFull")!.withTintColor(UIColor(named: "Black")!))
             } else {
-                imageView = UIImageView(image: UIImage(named: "SaxophoneMiddleLowKeysEmptyFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "SaxophoneMiddleLowKeysFullEmpty")!.withTintColor(UIColor(named: "Black")!))
             }
         } else {
             if fingering.keys![19] {
-                imageView = UIImageView(image: UIImage(named: "SaxophoneMiddleLowKeysFullEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "SaxophoneMiddleLowKeysEmptyFull")!.withTintColor(UIColor(named: "Black")!))
             } else {
                 imageView = UIImageView(image: UIImage(named: "SaxophoneMiddleLowKeysEmpty")!.withTintColor(UIColor(named: "Black")!))
             }

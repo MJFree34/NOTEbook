@@ -93,6 +93,8 @@ class NotePickerViewController: UIViewController {
         configureStaffView()
         configureIndicators()
         
+        navigationItem.backButtonTitle = "Note Picker"
+        
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
         navigationItem.rightBarButtonItem = instrumentsBarButton

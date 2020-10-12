@@ -42,7 +42,7 @@ class NoteChartCell: UICollectionViewCell {
     private lazy var leftTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 34)
-        textView.textAlignment = .center
+        textView.textAlignment = .left
         textView.backgroundColor = .clear
         textView.isUserInteractionEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class NoteChartCell: UICollectionViewCell {
     private lazy var rightTextView: UITextView = {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 34)
-        textView.textAlignment = .center
+        textView.textAlignment = .right
         textView.backgroundColor = .clear
         textView.isUserInteractionEnabled = false
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -414,10 +414,10 @@ extension NoteChartCell {
                 note2.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -noteWidth / 2),
                 note2.topAnchor.constraint(equalTo: contentView.topAnchor, constant: secondNoteTopInset),
                 
-                sharpView.leadingAnchor.constraint(equalTo: note1.trailingAnchor, constant: -2),
+                sharpView.leadingAnchor.constraint(equalTo: note1.trailingAnchor, constant: -4),
                 sharpView.centerYAnchor.constraint(equalTo: note1.centerYAnchor),
                 
-                flatView.trailingAnchor.constraint(equalTo: note2.leadingAnchor),
+                flatView.trailingAnchor.constraint(equalTo: note2.leadingAnchor, constant: 2),
                 flatView.centerYAnchor.constraint(equalTo: note2.centerYAnchor, constant: -6)
             ])
         } else {
@@ -580,10 +580,10 @@ extension NoteChartCell {
                     bottomInset = CGFloat(-27 - 34 * index)
                 case .altoSaxophone, .tenorSaxophone:
                     fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.38)
-                    bottomInset = CGFloat(-21 - 42 * index)
+                    bottomInset = CGFloat(-21 - 41 * index)
                 case .baritoneSaxophone:
                     fingeringView = BaritoneSaxophoneFingeringView(fingering: fingering, ratio: 0.35)
-                    bottomInset = CGFloat(-21 - 42 * index)
+                    bottomInset = CGFloat(-21 - 41 * index)
                 }
                 
                 fingeringView.translatesAutoresizingMaskIntoConstraints = false
