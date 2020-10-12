@@ -10,20 +10,6 @@ import XCTest
 @testable import NOTEbook
 
 class DecodingTests: XCTestCase {
-    func testInstrumentDecoding() {
-        let instrumentData = """
-        {
-            "name": "Trumpet",
-            "clef": "treble"
-        }
-        """.data(using: .utf8)!
-        
-        let instrument = Instrument(name: "Trumpet", clef: .treble)
-
-        XCTAssertNoThrow(try JSONDecoder().decode(Instrument.self, from: instrumentData))
-        XCTAssertEqual(try! JSONDecoder().decode(Instrument.self, from: instrumentData), instrument)
-    }
-    
     func testNoteFingeringDecoding() {
         let noteFingeringData = """
         {

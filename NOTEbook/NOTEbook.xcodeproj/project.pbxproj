@@ -61,6 +61,7 @@
 		9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */; };
 		9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */; };
 		9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E12534A10300B3008B /* Configuration.swift */; };
+		9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
 		9AF3A7E12534A10300B3008B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				9A022AFD249908C30052E819 /* Info.plist */,
 				9A28E10D24A79828005B3EA4 /* NoteTests.swift */,
 				9A55D70724DB795300B493A1 /* DecodingTests.swift */,
+				9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */,
 			);
 			path = NOTEbookTests;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */,
 				9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */,
 				9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */,
 			);
