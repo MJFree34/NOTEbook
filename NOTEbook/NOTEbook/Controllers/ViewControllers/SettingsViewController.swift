@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private let customize = ["Haptics Enabled"]
     private let actions = ["Show Tutorial", "Send Feedback", "Rate in App Store"]
-    private let about = [["Current Version", "1.0.1 (2)"]]
+    private let about = [["Current Version", "1.0.1 (3)"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +127,9 @@ class SettingsViewController: UITableViewController {
     func openAppStore() {
         let appID = 1523098465
         if let url = URL(string: "https://itunes.apple.com/app/id\(appID)?action=write-review") {
-            UIApplication.shared.open(url, options: [:])
+            UIApplication.shared.open(url, options: [:]) { [weak self] _ in
+                self?.tableView.deselectRow(at: IndexPath(row: 2, section: 1), animated: true)
+            }
         }
     }
     
