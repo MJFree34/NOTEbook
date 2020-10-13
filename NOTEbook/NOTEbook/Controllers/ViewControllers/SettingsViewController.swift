@@ -10,15 +10,26 @@ enum Section: String {
     case customize, actions, about
 }
 
-import UIKit
 import SafariServices
+import UIKit
 
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
-    private let customize = ["Haptics Enabled"]
+    private let customize = ["Haptics Enabled", "Fingerings Limit"]
     private let actions = ["Show Tutorial", "Send Feedback", "Rate in App Store"]
-    private let about = [["Current Version", "1.0.1 (3)"]]
+    private let about = [["Current Version", "1.1 (1)"]]
 
+    private lazy var fingeringsLimitAccessoryLabel: UILabel = {
+        let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        lab.font = UIFont.preferredFont(forTextStyle: .body)
+        lab.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
+        lab.textColor = .secondaryLabel
+        lab.textAlignment = .right
+        lab.translatesAutoresizingMaskIntoConstraints = false
+        
+        return lab
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +42,12 @@ class SettingsViewController: UITableViewController {
         tableView.estimatedRowHeight = 60
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,12 +81,26 @@ class SettingsViewController: UITableViewController {
             cell.textLabel?.text = customize[indexPath.row]
             cell.textLabel?.textColor = UIColor(named: "Black")
             
-            let switchView = UISwitch()
-            switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
-            switchView.onTintColor = UIColor(named: "MediumAqua")
-            switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
-            
-            cell.accessoryView = switchView
+            switch indexPath.row {
+            case 0:
+                let switchView = UISwitch()
+                switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
+                switchView.onTintColor = UIColor(named: "MediumAqua")
+                switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
+                
+                cell.accessoryView = switchView
+            case 1:
+                cell.accessoryType = .disclosureIndicator
+                
+                cell.addSubview(fingeringsLimitAccessoryLabel)
+                
+                NSLayoutConstraint.activate([
+                    fingeringsLimitAccessoryLabel.centerYAnchor.constraint(equalTo: cell.textLabel!.centerYAnchor),
+                    fingeringsLimitAccessoryLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -40)
+                ])
+            default:
+                break
+            }
         case .actions:
             cell.textLabel?.text = actions[indexPath.row]
             cell.textLabel?.textColor = UIColor(named: "DarkAqua")
@@ -93,11 +124,20 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch sections[indexPath.section] {
         case .customize:
-            break
+            switch indexPath.row {
+            case 0:
+                break
+            case 1:
+                let vc = FingeringLimitViewController(style: .insetGrouped)
+                navigationController?.pushViewController(vc, animated: true)
+            default:
+                break
+            }
         case .actions:
             switch indexPath.row {
             case 0:
-                present(TutorialViewController(), animated: true, completion: { [weak self] in
+                let vc = TutorialViewController()
+                present(vc, animated: true, completion: { [weak self] in
                     self?.tableView.deselectRow(at: IndexPath(row: 0, section: 1), animated: true)
                 })
             case 1:

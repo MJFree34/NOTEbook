@@ -63,6 +63,7 @@
 		9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E12534A10300B3008B /* Configuration.swift */; };
 		9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */; };
 		9AF3A7ED2534CFD400B3008B /* ChartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7EC2534CFD400B3008B /* ChartTests.swift */; };
+		9AF9B00C25365DED00148365 /* FingeringLimitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF9B00B25365DED00148365 /* FingeringLimitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		9AF3A7E12534A10300B3008B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringTests.swift; sourceTree = "<group>"; };
 		9AF3A7EC2534CFD400B3008B /* ChartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTests.swift; sourceTree = "<group>"; };
+		9AF9B00B25365DED00148365 /* FingeringLimitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringLimitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */,
 				9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */,
 				9A73FED124B278380002D50C /* TutorialViewController.swift */,
+				9AF9B00A25365DA800148365 /* SettingsScreens */,
 				9A89FFE424F0223D0059295C /* Supplemental */,
 			);
 			path = ViewControllers;
@@ -306,6 +309,14 @@
 				9AF3A7E12534A10300B3008B /* Configuration.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9AF9B00A25365DA800148365 /* SettingsScreens */ = {
+			isa = PBXGroup;
+			children = (
+				9AF9B00B25365DED00148365 /* FingeringLimitViewController.swift */,
+			);
+			path = SettingsScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,6 +428,7 @@
 				9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */,
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
+				9AF9B00C25365DED00148365 /* FingeringLimitViewController.swift in Sources */,
 				9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
 				9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */,
@@ -616,7 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -624,7 +636,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -637,7 +649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -645,7 +657,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.Keys.tutorialHasShown: false,
             UserDefaults.Keys.currentInstrumentIndex: 0,
             UserDefaults.Keys.currentChartCategoryIndex: 3,
-            UserDefaults.Keys.hapticsEnabled: true
+            UserDefaults.Keys.hapticsEnabled: true,
+            UserDefaults.Keys.fingeringsLimit: 7
         ])
         
         return true
