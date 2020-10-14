@@ -63,15 +63,21 @@ class NotePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if view.bounds.height == 896.0 {
+        if view.bounds.height == 926.0 {
+            // iPhone 12 Pro Max
+            NotePickerViewController.spaceBetweenStaffLines = 26
+        } else if view.bounds.height == 896.0 {
             // iPhone XR, XS Max, 11, 11 Pro Max
             NotePickerViewController.spaceBetweenStaffLines = 25
-        } else if view.bounds.height == 812.0 {
-            // iPhone X, XS, 11 Pro
+        } else if view.bounds.height == 844.0 {
+            // iPhone 12, 12 Pro
             NotePickerViewController.spaceBetweenStaffLines = 24
+        } else if view.bounds.height == 812.0 {
+            // iPhone X, XS, 11 Pro, 12 mini
+            NotePickerViewController.spaceBetweenStaffLines = 23
         } else if view.bounds.height == 736.0 {
             // iPhone 7 and 8 Plus
-            NotePickerViewController.spaceBetweenStaffLines = 23
+            NotePickerViewController.spaceBetweenStaffLines = 22
         } else if view.bounds.height == 667.0 {
             // iPhone 6, 6S, 7, and 8
             NotePickerViewController.spaceBetweenStaffLines = 20
@@ -81,7 +87,6 @@ class NotePickerViewController: UIViewController {
         }
         
         view.addBackgroundGradient()
-        view.backgroundColor = UIColor(named: "White")
         
         addSwipeGestures()
         
@@ -237,6 +242,8 @@ class NotePickerViewController: UIViewController {
         
         letterArrowViewController.fingeringViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
         letterArrowViewController.view.layoutIfNeeded()
+        
+        letterArrowViewController.fingeringScrollingViewController.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
     }
     
     @objc private func changeNoteType(swipe: UISwipeGestureRecognizer) {
@@ -341,7 +348,7 @@ extension NotePickerViewController: UICollectionViewDelegate {
             
             currentNoteFingering = selectedFingering
             
-            letterArrowViewController.fingeringScrollingViewController.fingerings = currentNoteFingering.fingerings
+            letterArrowViewController.fingeringScrollingViewController.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
             
             letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
             
@@ -379,31 +386,3 @@ extension NotePickerViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-struct NotePickerViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some UIViewController {
-        return NotePickerViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        // Update code
-    }
-}
-
-struct NotePickerViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NotePickerViewControllerRepresentable()
-                .previewDisplayName("iPhone 11 Pro Max")
-                .previewDevice("iPhone 11 Pro Max")
-            NotePickerViewControllerRepresentable()
-                .preferredColorScheme(.dark)
-                .previewDisplayName("iPhone SE (2nd generation)")
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
-#endif

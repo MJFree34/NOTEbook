@@ -195,7 +195,7 @@ class LetterArrowViewController: UIViewController {
         fingeringViewWidthConstraint = fingeringScrollingViewController.view.widthAnchor.constraint(equalToConstant: CGFloat(chartsController.currentChart.instrument.fingeringWidth))
         fingeringViewWidthConstraint.isActive = true
         
-        fingeringScrollingViewController.fingerings = currentNoteFingering.fingerings
+        fingeringScrollingViewController.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
     }
     
     func showOrHideLetterAccidentals() {

@@ -115,32 +115,3 @@ extension TutorialViewController: UITableViewDataSource {
         return cell
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-struct TutorialViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some UIViewController {
-        return TutorialViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        // Update code
-    }
-}
-
-struct TutorialViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            TutorialViewControllerRepresentable()
-                .previewDisplayName("iPhone 11 Pro Max")
-                .previewDevice("iPhone 11 Pro Max")
-            TutorialViewControllerRepresentable()
-                .preferredColorScheme(.dark)
-                .environment(\.sizeCategory, .extraLarge)
-                .previewDisplayName("iPhone SE (2nd generation)")
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
-#endif

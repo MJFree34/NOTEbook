@@ -15,4 +15,15 @@ struct NoteFingering: Decodable, Equatable {
     static func == (lhs: NoteFingering, rhs: NoteFingering) -> Bool {
         return lhs.notes == rhs.notes && lhs.fingerings == rhs.fingerings
     }
+    
+    func shorten(to limit: Int) -> [Fingering] {
+        let removeAmount = fingerings.count - limit
+        
+        if removeAmount > 0 {
+            let shortenedFingerings = fingerings[0...fingerings.count - removeAmount - 1]
+            return Array(shortenedFingerings)
+        }
+        
+        return fingerings
+    }
 }

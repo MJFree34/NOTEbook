@@ -49,6 +49,7 @@
 		9AC57B7124E42EF4002F8CB9 /* InstrumentTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */; };
 		9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC57B7224E436F0002F8CB9 /* TitleCell.swift */; };
 		9AC89573250448AB0033250B /* ChartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC89572250448AB0033250B /* ChartCategory.swift */; };
+		9AD2A20D253791E30027446A /* NoteFingeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD2A20C253791E30027446A /* NoteFingeringTests.swift */; };
 		9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5572E24994F110078CB7E /* Colors.xcassets */; };
 		9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573024994F880078CB7E /* UIFont+Extensions.swift */; };
 		9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD55736249954B10078CB7E /* UIView+Extensions.swift */; };
@@ -126,6 +127,7 @@
 		9AC57B7224E436F0002F8CB9 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		9AC8957025031FE20033250B /* FluteFullFingerings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FluteFullFingerings.json; sourceTree = "<group>"; };
 		9AC89572250448AB0033250B /* ChartCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCategory.swift; sourceTree = "<group>"; };
+		9AD2A20C253791E30027446A /* NoteFingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingeringTests.swift; sourceTree = "<group>"; };
 		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AD5573024994F880078CB7E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		9AD55736249954B10078CB7E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				9A55D70724DB795300B493A1 /* DecodingTests.swift */,
 				9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */,
 				9AF3A7EC2534CFD400B3008B /* ChartTests.swift */,
+				9AD2A20C253791E30027446A /* NoteFingeringTests.swift */,
 			);
 			path = NOTEbookTests;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				9AF3A7ED2534CFD400B3008B /* ChartTests.swift in Sources */,
 				9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */,
 				9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */,
+				9AD2A20D253791E30027446A /* NoteFingeringTests.swift in Sources */,
 				9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

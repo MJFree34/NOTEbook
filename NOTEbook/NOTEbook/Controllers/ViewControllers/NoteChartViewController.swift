@@ -165,31 +165,3 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 0, height: 25)
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-struct NoteChartViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some UIViewController {
-        return NoteChartViewController()
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        // Update code
-    }
-}
-
-struct NoteChartViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            NoteChartViewControllerRepresentable()
-                .previewDisplayName("iPhone 11 Pro Max")
-                .previewDevice("iPhone 11 Pro Max")
-            NoteChartViewControllerRepresentable()
-                .preferredColorScheme(.dark)
-                .previewDisplayName("iPhone SE (2nd generation)")
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
-#endif

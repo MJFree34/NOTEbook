@@ -178,32 +178,3 @@ class SettingsViewController: UITableViewController {
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-struct SettingsViewControllerRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> some UIViewController {
-        return SettingsViewController(style: .insetGrouped)
-    }
-    
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        // Update code
-    }
-}
-
-struct SettingsViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SettingsViewControllerRepresentable()
-                .previewDisplayName("iPhone 11 Pro Max")
-                .previewDevice("iPhone 11 Pro Max")
-            SettingsViewControllerRepresentable()
-                .preferredColorScheme(.dark)
-                .environment(\.sizeCategory, .large)
-                .previewDisplayName("iPhone SE (2nd generation)")
-                .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
-#endif
