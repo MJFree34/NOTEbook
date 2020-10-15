@@ -224,9 +224,7 @@
 				9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */,
 				9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */,
 				9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */,
-				9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */,
-				9A73FED124B278380002D50C /* TutorialViewController.swift */,
-				9AF9B00A25365DA800148365 /* SettingsScreens */,
+				9AF9B00A25365DA800148365 /* SettingsVCs */,
 				9A89FFE424F0223D0059295C /* Supplemental */,
 			);
 			path = ViewControllers;
@@ -314,12 +312,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9AF9B00A25365DA800148365 /* SettingsScreens */ = {
+		9AF9B00A25365DA800148365 /* SettingsVCs */ = {
 			isa = PBXGroup;
 			children = (
+				9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */,
+				9A73FED124B278380002D50C /* TutorialViewController.swift */,
 				9AF9B00B25365DED00148365 /* FingeringLimitViewController.swift */,
 			);
-			path = SettingsScreens;
+			path = SettingsVCs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -640,7 +640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -661,7 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

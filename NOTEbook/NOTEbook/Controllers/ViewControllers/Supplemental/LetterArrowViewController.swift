@@ -93,6 +93,21 @@ class LetterArrowViewController: UIViewController {
         configureFingeringScrollingView()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        noteLetterView.removeAllSublayers()
+        noteLetterView.addLightMediumAquaGradient()
+        
+        letterFlat.removeAllSublayers()
+        letterFlat.addLightMediumAquaGradient()
+        
+        letterSharp.removeAllSublayers()
+        letterSharp.addLightMediumAquaGradient()
+    }
+    
     private func configureNoteLetter() {
         addGradientLabel()
         view.addSubview(noteLetterView)
