@@ -9,7 +9,9 @@
                     "fingeringWidth": 290,
                     "chartCellHeight": 330,
                     "chartCenterOfStaffFromTop": 110,
-                    "offset": 3
+                    "offset": 3,
+                    "chartFingeringHeight": 25,
+                    "maximumSpacingFingerings": 6.75
                 },
                 "centerNote": {
                     "letter": "d",
@@ -5722,7 +5724,9 @@
                     "fingeringWidth": 250,
                     "chartCellHeight": 368,
                     "chartCenterOfStaffFromTop": 90,
-                    "offset": 1
+                    "offset": 1,
+                    "chartFingeringHeight": 34,
+                    "maximumSpacingFingerings": 6
                 },
                 "centerNote": {
                     "letter": "c",
@@ -12432,9 +12436,11 @@
                     "type": "Alto Saxophone",
                     "clef": "treble",
                     "fingeringWidth": 220,
-                    "chartCellHeight": 390,
+                    "chartCellHeight": 430,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 2.75
+                    "offset": 2.75,
+                    "chartFingeringHeight": 41,
+                    "maximumSpacingFingerings": 6.5
                 },
                 "centerNote": {
                     "letter": "g",
@@ -13865,6 +13871,39 @@
                                     
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -14331,6 +14370,39 @@
                                     false,
                                     false,
                                     false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
                                     
                                     false,
                                     
@@ -16169,6 +16241,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -16369,6 +16474,39 @@
                                     true,
                                     true,
                                     false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    true,
                                     
                                     false,
                                     false,
@@ -16595,6 +16733,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    true,
+                                    false,
+                                    true,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -16787,6 +16958,39 @@
                                     
                                     false,
                                     true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
                                     false,
                                     false,
                                     
@@ -17021,6 +17225,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -17214,6 +17451,39 @@
                                     false,
                                     true,
                                     true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
                                     false,
                                     
                                     false,
@@ -17447,6 +17717,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -17646,6 +17949,39 @@
                                     false,
                                     false,
                                     false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
                                     true,
                                     
                                     false,
@@ -17862,6 +18198,39 @@
                                     false,
                                     false,
                                     true,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
                                     
                                     false,
                                     
@@ -18083,6 +18452,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -18238,6 +18640,39 @@
                                     false,
                                     
                                     true,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
                                     false,
                                     
                                     false,
@@ -18476,6 +18911,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -18665,6 +19133,39 @@
                                     
                                     false,
                                     true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
                                     
                                     false,
                                     false,
@@ -18886,6 +19387,39 @@
                                     false,
                                     false,
                                     false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
                                     
                                     false,
                                     false,
@@ -19023,9 +19557,11 @@
                     "type": "Tenor Saxophone",
                     "clef": "treble",
                     "fingeringWidth": 220,
-                    "chartCellHeight": 390,
+                    "chartCellHeight": 430,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 2.75
+                    "offset": 2.75,
+                    "chartFingeringHeight": 41,
+                    "maximumSpacingFingerings": 6.5
                 },
                 "centerNote": {
                     "letter": "g",
@@ -20456,6 +20992,39 @@
                                     
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -20922,6 +21491,39 @@
                                     false,
                                     false,
                                     false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
                                     
                                     false,
                                     
@@ -22826,6 +23428,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -23023,6 +23658,39 @@
                                     
                                     false,
                                     true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
                                     false,
                                     false,
                                     false,
@@ -23252,6 +23920,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -23441,6 +24142,39 @@
                                     
                                     false,
                                     true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
                                     
                                     false,
                                     false,
@@ -23678,6 +24412,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -23887,6 +24654,39 @@
                                     false,
                                     
                                     true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    false
                                 ]
                             }
                         ]
@@ -24104,6 +24904,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -24297,6 +25130,39 @@
                                     false,
                                     false,
                                     false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    true,
                                     false,
                                     
                                     false,
@@ -24524,6 +25390,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -24740,6 +25639,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -24940,6 +25872,39 @@
                                     true,
                                     true,
                                     true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
                                     
                                     false,
                                     false,
@@ -25166,6 +26131,39 @@
                                     
                                     true
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -25355,6 +26353,39 @@
                                     
                                     false,
                                     false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    true,
                                     
                                     false,
                                     false,
@@ -25576,6 +26607,39 @@
                                     false,
                                     true,
                                     false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
                                     
                                     false,
                                     false,
@@ -25713,9 +26777,11 @@
                     "type": "Baritone Saxophone",
                     "clef": "treble",
                     "fingeringWidth": 228,
-                    "chartCellHeight": 390,
+                    "chartCellHeight": 430,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 2.75
+                    "offset": 2.75,
+                    "chartFingeringHeight": 41,
+                    "maximumSpacingFingerings": 6.5
                 },
                 "centerNote": {
                     "letter": "g",
@@ -27287,6 +28353,39 @@
                                     false,
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -27770,6 +28869,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -29653,6 +30785,39 @@
                                     true,
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -29868,6 +31033,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -30091,6 +31289,39 @@
                                     true,
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -30306,6 +31537,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -30529,6 +31793,39 @@
                                     true,
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -30744,6 +32041,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -30967,6 +32297,39 @@
                                     true,
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -31182,6 +32545,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -31398,6 +32794,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -31620,6 +33049,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    false,
+                                    false,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -32059,6 +33521,39 @@
                                     true,
                                     false
                                 ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    true,
+                                    false,
+                                    
+                                    true,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
+                                ]
                             }
                         ]
                     },
@@ -32274,6 +33769,39 @@
                                     
                                     true,
                                     false
+                                ]
+                            },
+                            {
+                                "keys": [
+                                    true,
+                                    true,
+                                    true,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    false,
+                                    false,
+                                    false,
+                                    
+                                    false,
+                                    
+                                    true
                                 ]
                             }
                         ]
@@ -32594,7 +34122,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 215,
                     "chartCenterOfStaffFromTop": 75,
-                    "offset": -0.25
+                    "offset": -0.25,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 2.5
                 },
                 "centerNote": {
                     "letter": "c",
@@ -34531,7 +36061,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 160,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": -0.5
+                    "offset": -0.5,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1
                 },
                 "centerNote": {
                     "letter": "c",
@@ -35599,7 +37131,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 205,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": -2
+                    "offset": -2,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1.25
                 },
                 "centerNote": {
                     "letter": "c",
@@ -37324,7 +38858,9 @@
                     "fingeringWidth": 200,
                     "chartCellHeight": 225,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": -3
+                    "offset": -3,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1.5
                 },
                 "centerNote": {
                     "letter": "c",
@@ -39687,7 +41223,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 210,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 1.75
+                    "offset": 1.75,
+                    "chartFingeringHeight": 25,
+                    "maximumSpacingFingerings": 1
                 },
                 "centerNote": {
                     "letter": "d",
@@ -41795,7 +43333,9 @@
                     "fingeringWidth": 150,
                     "chartCellHeight": 240,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 1.75
+                    "offset": 1.75,
+                    "chartFingeringHeight": 32,
+                    "maximumSpacingFingerings": 1.5
                 },
                 "centerNote": {
                     "letter": "d",
@@ -44318,7 +45858,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 165,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": -0.5
+                    "offset": -0.5,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1.25
                 },
                 "centerNote": {
                     "letter": "c",
@@ -45528,7 +47070,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 170,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": 1.25
+                    "offset": 1.25,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 2
                 },
                 "centerNote": {
                     "letter": "d",
@@ -46743,7 +48287,9 @@
                     "fingeringWidth": 180,
                     "chartCellHeight": 235,
                     "chartCenterOfStaffFromTop": 90,
-                    "offset": -0.25
+                    "offset": -0.25,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 2
                 },
                 "centerNote": {
                     "letter": "c",
@@ -48923,7 +50469,9 @@
                     "fingeringWidth": 180,
                     "chartCellHeight": 240,
                     "chartCenterOfStaffFromTop": 90,
-                    "offset": -0.25
+                    "offset": -0.25,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 2
                 },
                 "centerNote": {
                     "letter": "c",
@@ -51389,7 +52937,9 @@
                     "fingeringWidth": 180,
                     "chartCellHeight": 230,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 1.75
+                    "offset": 1.75,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1.75
                 },
                 "centerNote": {
                     "letter": "d",
@@ -53649,7 +55199,9 @@
                     "fingeringWidth": 180,
                     "chartCellHeight": 245,
                     "chartCenterOfStaffFromTop": 105,
-                    "offset": 1.75
+                    "offset": 1.75,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 2.5
                 },
                 "centerNote": {
                     "letter": "d",
@@ -56127,7 +57679,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 220,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": -1.75
+                    "offset": -1.75,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1.5
                 },
                 "centerNote": {
                     "letter": "f",
@@ -58140,7 +59694,9 @@
                     "fingeringWidth": 140,
                     "chartCellHeight": 205,
                     "chartCenterOfStaffFromTop": 70,
-                    "offset": -1.5
+                    "offset": -1.5,
+                    "chartFingeringHeight": 22,
+                    "maximumSpacingFingerings": 1.25
                 },
                 "centerNote": {
                     "letter": "d",

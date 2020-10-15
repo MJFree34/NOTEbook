@@ -11,6 +11,8 @@ import UIKit
 class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
     
+    private let chartsController = ChartsController.shared
+    
     private var cellHeight: CGFloat!
     private var centerOfStaffInsetFromTop: CGFloat!
     private let spaceBetweenStaffLines: CGFloat = 10
@@ -119,8 +121,8 @@ extension NoteChartCell {
     func configureCell(collectionViewWidth: CGFloat, noteFingering: NoteFingering) {
         self.cellWidth = collectionViewWidth / 3
         self.noteFingering = noteFingering
-        centerOfStaffInsetFromTop = CGFloat(ChartsController.shared.currentChart.instrument.chartCenterOfStaffFromTop)
-        cellHeight = CGFloat(ChartsController.shared.currentChart.instrument.chartCellHeight)
+        centerOfStaffInsetFromTop = CGFloat(chartsController.currentChart.instrument.chartCenterOfStaffFromTop)
+        cellHeight = CGFloat(chartsController.chartCellHeight())
         
         configureStaff()
         configureOutline()
@@ -141,7 +143,7 @@ extension NoteChartCell {
             addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
         
-        if ChartsController.shared.currentChart.instrument.clef == .treble {
+        if chartsController.currentChart.instrument.clef == .treble {
             trebleClef.isHidden = false
             bassClef.isHidden = true
         } else {
@@ -552,39 +554,41 @@ extension NoteChartCell {
         } else {
             optionalLabel.isHidden = true
             
-            for (index, fingering) in noteFingering.fingerings.reversed().enumerated() {
+            for (index, fingering) in noteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit)).reversed().enumerated() {
                 let fingeringView: FingeringView
-                let bottomInset: CGFloat
+                let bottomSpacing: CGFloat
                 
-                switch ChartsController.shared.currentChart.instrument.type {
+                switch chartsController.currentChart.instrument.type {
                 case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba, .threeValveEbTuba, .fFrenchHorn:
                     fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 0.5)
-                    bottomInset = CGFloat(-15 - 22 * index)
+                    bottomSpacing = -15
                 case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
                     fingeringView = FourValveFingeringView(fingering: fingering, ratio: 0.5)
-                    bottomInset = CGFloat(-15 - 22 * index)
+                    bottomSpacing = -15
                 case .tenorTrombone:
                     fingeringView = PositionFingeringView(fingering: fingering, ratio: 0.75)
-                    bottomInset = CGFloat(-15 - 25 * index)
+                    bottomSpacing = -15
                 case .fTriggerTenorTrombone:
                     fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 0.75)
-                    bottomInset = CGFloat(-18 - 32 * index)
+                    bottomSpacing = -18
                 case .fBbFrenchHorn:
                     fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 0.5)
-                    bottomInset = CGFloat(-15 - 22 * index)
+                    bottomSpacing = -15
                 case .flute:
                     fingeringView = FluteFingeringView(fingering: fingering, ratio: 0.4)
-                    bottomInset = CGFloat(-17 - 25 * index)
+                    bottomSpacing = -17
                 case .clarinet:
                     fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.35)
-                    bottomInset = CGFloat(-27 - 34 * index)
+                    bottomSpacing = -27
                 case .altoSaxophone, .tenorSaxophone:
                     fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.38)
-                    bottomInset = CGFloat(-21 - 41 * index)
+                    bottomSpacing = -21
                 case .baritoneSaxophone:
                     fingeringView = BaritoneSaxophoneFingeringView(fingering: fingering, ratio: 0.35)
-                    bottomInset = CGFloat(-21 - 41 * index)
+                    bottomSpacing = -21
                 }
+                
+                let bottomInset = bottomSpacing - CGFloat(chartsController.currentChart.instrument.chartFingeringHeight * index)
                 
                 fingeringView.translatesAutoresizingMaskIntoConstraints = false
                 contentView.addSubview(fingeringView)

@@ -138,7 +138,7 @@ extension NoteChartViewController: UICollectionViewDelegate {}
 
 extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width / 3, height: CGFloat(chartsController.currentChart.instrument.chartCellHeight))
+        return CGSize(width: collectionView.bounds.width / 3, height: CGFloat(chartsController.chartCellHeight()))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

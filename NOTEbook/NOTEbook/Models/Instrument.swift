@@ -37,4 +37,6 @@ struct Instrument: Decodable, Equatable {
     var chartCellHeight: Int
     var chartCenterOfStaffFromTop: Int
     var offset: Double
+    var chartFingeringHeight: Int
+    var maximumSpacingFingerings: Double
 }

@@ -84,4 +84,13 @@ extension ChartsController {
             return currentChart.flatNotes[index]
         }
     }
+    
+    func chartCellHeight() -> Double {
+        let chartCellHeight = Double(currentChart.instrument.chartCellHeight)
+        let chartFingeringHeight = Double(currentChart.instrument.chartFingeringHeight)
+        let instrumentMaximumFingerings = currentChart.instrument.maximumSpacingFingerings
+        let fingeringsLimit = Double(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
+        
+        return (instrumentMaximumFingerings >= fingeringsLimit ? chartCellHeight - ((instrumentMaximumFingerings - fingeringsLimit) * chartFingeringHeight) : chartCellHeight)
+    }
 }
