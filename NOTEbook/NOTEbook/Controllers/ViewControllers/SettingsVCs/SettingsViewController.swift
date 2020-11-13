@@ -17,7 +17,7 @@ class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private let customize = ["Haptics Enabled", "Fingerings Limit"]
     private let actions = ["Show Tutorial", "Send Feedback", "Rate in App Store"]
-    private let about = [["Current Version", "1.1.0 (1)"]]
+    private let about = [["Current Version", "1.1.0 (2)"]]
 
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
         let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
