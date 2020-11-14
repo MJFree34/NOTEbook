@@ -76,13 +76,13 @@ class NotePickerViewController: UIViewController {
             // iPhone X, XS, 11 Pro, 12 mini
             NotePickerViewController.spaceBetweenStaffLines = 23
         } else if view.bounds.height == 736.0 {
-            // iPhone 7 and 8 Plus
+            // iPhone 6S Plus, 7 Plus, 8 Plus
             NotePickerViewController.spaceBetweenStaffLines = 22
         } else if view.bounds.height == 667.0 {
-            // iPhone 6, 6S, 7, and 8
+            // iPhone 6S, 7, 8
             NotePickerViewController.spaceBetweenStaffLines = 20
         } else if view.bounds.height == 568 {
-            // iPhone SE
+            // iPhone SE, SE (2nd Generation)
             NotePickerViewController.spaceBetweenStaffLines = 19
         }
         
