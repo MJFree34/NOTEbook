@@ -37,6 +37,8 @@
 		9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D423249C3BE1001E108B /* ChartsLoader.swift */; };
 		9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFDF24F015830059295C /* PositionFingeringView.swift */; };
 		9A89FFE224F016F10059295C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFE124F016F10059295C /* Position.swift */; };
+		9A8A95BD255F772F00E4E737 /* FluteFullFingerings.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A95BB255F772F00E4E737 /* FluteFullFingerings.json */; };
+		9A8A95BE255F772F00E4E737 /* ClarinetFullFingerings.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A95BC255F772F00E4E737 /* ClarinetFullFingerings.json */; };
 		9A9261AC25101E1E00312643 /* SaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9261AB25101E1E00312643 /* SaxophoneFingeringView.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
 		9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */; };
@@ -99,7 +101,6 @@
 		9A438147249E3CE400EDC58F /* NotePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePicker.swift; sourceTree = "<group>"; };
 		9A438149249E3E2600EDC58F /* NotePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCell.swift; sourceTree = "<group>"; };
 		9A485B39250707CD00407910 /* ClarinetFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarinetFingeringView.swift; sourceTree = "<group>"; };
-		9A485B3F2507FACF00407910 /* ClarinetFullFingerings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ClarinetFullFingerings.json; sourceTree = "<group>"; };
 		9A52139124F2007C0007C08A /* NoteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteList.json; sourceTree = "<group>"; };
 		9A55D70724DB795300B493A1 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
 		9A55D70D24DC7C9E00B493A1 /* StaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffView.swift; sourceTree = "<group>"; };
@@ -114,6 +115,8 @@
 		9A81D423249C3BE1001E108B /* ChartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
 		9A89FFDF24F015830059295C /* PositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionFingeringView.swift; sourceTree = "<group>"; };
 		9A89FFE124F016F10059295C /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		9A8A95BB255F772F00E4E737 /* FluteFullFingerings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FluteFullFingerings.json; sourceTree = "<group>"; };
+		9A8A95BC255F772F00E4E737 /* ClarinetFullFingerings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClarinetFullFingerings.json; sourceTree = "<group>"; };
 		9A9261AB25101E1E00312643 /* SaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaxophoneFingeringView.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
 		9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
@@ -125,7 +128,6 @@
 		9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentTitleLabel.swift; sourceTree = "<group>"; };
 		9AC57B7224E436F0002F8CB9 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
-		9AC8957025031FE20033250B /* FluteFullFingerings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FluteFullFingerings.json; sourceTree = "<group>"; };
 		9AC89572250448AB0033250B /* ChartCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCategory.swift; sourceTree = "<group>"; };
 		9AD2A20C253791E30027446A /* NoteFingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingeringTests.swift; sourceTree = "<group>"; };
 		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -194,10 +196,9 @@
 				9A1022D824F84B220052B364 /* MusicSymbols.xcassets */,
 				9A1022D624F82F700052B364 /* Instruments.xcassets */,
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
+				9A8A95C1255F773300E4E737 /* ExtraUnnecessaryFingerings */,
 				9AD5574624995EC10078CB7E /* Charts.json */,
 				9A52139124F2007C0007C08A /* NoteList.json */,
-				9AC8957025031FE20033250B /* FluteFullFingerings.json */,
-				9A485B3F2507FACF00407910 /* ClarinetFullFingerings.json */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
 				9A022AF2249908C20052E819 /* Info.plist */,
 			);
@@ -281,6 +282,15 @@
 				9AB9B900250581B200A5B0E6 /* FingeringScrollingView.swift */,
 			);
 			path = Supplemental;
+			sourceTree = "<group>";
+		};
+		9A8A95C1255F773300E4E737 /* ExtraUnnecessaryFingerings */ = {
+			isa = PBXGroup;
+			children = (
+				9A8A95BC255F772F00E4E737 /* ClarinetFullFingerings.json */,
+				9A8A95BB255F772F00E4E737 /* FluteFullFingerings.json */,
+			);
+			path = ExtraUnnecessaryFingerings;
 			sourceTree = "<group>";
 		};
 		9AD55738249954F70078CB7E /* Extensions */ = {
@@ -407,6 +417,8 @@
 				9AD5574724995EC10078CB7E /* Charts.json in Resources */,
 				9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */,
 				9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */,
+				9A8A95BD255F772F00E4E737 /* FluteFullFingerings.json in Resources */,
+				9A8A95BE255F772F00E4E737 /* ClarinetFullFingerings.json in Resources */,
 				9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */,
 				9A022AEE249908C20052E819 /* Assets.xcassets in Resources */,
 				9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */,
@@ -632,7 +644,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -653,7 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

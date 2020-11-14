@@ -10,14 +10,15 @@ enum Section: String {
     case customize, actions, about
 }
 
+import MessageUI
 import SafariServices
 import UIKit
 
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private let customize = ["Haptics Enabled", "Fingerings Limit"]
-    private let actions = ["Show Tutorial", "Send Feedback", "Rate in App Store"]
-    private let about = [["Current Version", "1.1.0 (2)"]]
+    private let actions = ["Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer"]
+    private let about = [["Current Version", "1.1.0 (3)"]]
 
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
         let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
@@ -59,6 +60,9 @@ class SettingsViewController: UITableViewController {
         case 0:
             return customize.count
         case 1:
+            if Configuration.appConfiguration == .AppStore {
+                return actions.count - 1
+            }
             return actions.count
         case 2:
             return about.count
@@ -143,9 +147,12 @@ class SettingsViewController: UITableViewController {
                     self?.tableView.deselectRow(at: IndexPath(row: 0, section: 1), animated: true)
                 })
             case 1:
-                openFeedback()
-            case 2:
                 openAppStore()
+            case 2:
+                openFeedback()
+            case 3:
+                // Only occurs when not AppStore version
+                openEmail()
             default:
                 break
             }
@@ -180,3 +187,24 @@ class SettingsViewController: UITableViewController {
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }
 }
+
+extension SettingsViewController: MFMailComposeViewControllerDelegate {
+     private func openEmail() {
+         if MFMailComposeViewController.canSendMail() {
+             let mailVC = MFMailComposeViewController()
+             mailVC.mailComposeDelegate = self
+             mailVC.setToRecipients(["MusiciansNOTEbook.Feedback@gmail.com"])
+             mailVC.setSubject("NOTEbook Feedback and Suggestions")
+
+             present(mailVC, animated: true)
+         } else {
+             let ac = UIAlertController(title: "Error sending email", message: "Please make sure your device has mail setup.", preferredStyle: .alert)
+             ac.addAction(UIAlertAction(title: "Okay", style: .default))
+         }
+     }
+
+     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+         controller.dismiss(animated: true)
+         tableView.deselectRow(at: IndexPath(row: 3, section: 1), animated: true)
+     }
+ }
