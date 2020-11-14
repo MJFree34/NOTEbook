@@ -54,7 +54,8 @@ class NoteChartViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        collectionView.reloadData()
+        // Scrolls to the very top
+        collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
     
     override func viewDidLoad() {
