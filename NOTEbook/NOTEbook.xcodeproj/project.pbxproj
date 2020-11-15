@@ -39,6 +39,7 @@
 		9A89FFE224F016F10059295C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFE124F016F10059295C /* Position.swift */; };
 		9A8A95BD255F772F00E4E737 /* FluteFullFingerings.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A95BB255F772F00E4E737 /* FluteFullFingerings.json */; };
 		9A8A95BE255F772F00E4E737 /* ClarinetFullFingerings.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A8A95BC255F772F00E4E737 /* ClarinetFullFingerings.json */; };
+		9A8A95C82561701800E4E737 /* Notification.Name+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8A95C72561701800E4E737 /* Notification.Name+Extensions.swift */; };
 		9A9261AC25101E1E00312643 /* SaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9261AB25101E1E00312643 /* SaxophoneFingeringView.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
 		9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */; };
@@ -117,6 +118,7 @@
 		9A89FFE124F016F10059295C /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		9A8A95BB255F772F00E4E737 /* FluteFullFingerings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FluteFullFingerings.json; sourceTree = "<group>"; };
 		9A8A95BC255F772F00E4E737 /* ClarinetFullFingerings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ClarinetFullFingerings.json; sourceTree = "<group>"; };
+		9A8A95C72561701800E4E737 /* Notification.Name+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extensions.swift"; sourceTree = "<group>"; };
 		9A9261AB25101E1E00312643 /* SaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaxophoneFingeringView.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
 		9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */,
 				9A438143249D5CE600EDC58F /* UIViewController+Extensions.swift */,
 				9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */,
+				9A8A95C72561701800E4E737 /* Notification.Name+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
+				9A8A95C82561701800E4E737 /* Notification.Name+Extensions.swift in Sources */,
 				9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */,
 				9A3D738D24E97C3800A1A515 /* FourValveFingeringView.swift in Sources */,
 				9AD5573D249957A50078CB7E /* Fingering.swift in Sources */,

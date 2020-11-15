@@ -103,6 +103,7 @@ extension InstrumentsCategoryViewController: UITableViewDataSource {
             chartsController.changeCurrentChart(to: categoryIndex, instrumentIndex: indexPath.row)
             
             navigationController?.popToRootViewController(animated: true)
+            NotificationCenter.default.post(name: .reloadInstrumentViews, object: nil)
         }
     }
 }

@@ -119,6 +119,7 @@ extension InstrumentsViewController: UITableViewDataSource {
                 chartsController.changeCurrentChart(to: (indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex), instrumentIndex: 0)
                 
                 navigationController?.popToRootViewController(animated: true)
+                NotificationCenter.default.post(name: .reloadInstrumentViews, object: nil)
             } else {
                 let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)], index: (indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex))
                 navigationController?.pushViewController(vc, animated: true)

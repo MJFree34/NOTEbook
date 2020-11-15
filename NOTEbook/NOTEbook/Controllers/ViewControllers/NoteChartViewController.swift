@@ -55,6 +55,7 @@ class NoteChartViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Scrolls to the very top
+        collectionView.reloadData()
         collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
     
@@ -132,6 +133,37 @@ extension NoteChartViewController: UICollectionViewDataSource {
         cell.configureCell(collectionViewWidth: collectionView.bounds.width, noteFingering: chartsController.currentChart.noteFingerings[indexPath.item])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let noteFingering = chartsController.currentChart.noteFingerings[indexPath.row]
+        let firstNote = noteFingering.notes[0]
+        
+        navigationController?.popViewController(animated: true)
+        
+        if let naturalIndex = chartsController.currentChart.naturalNotes.firstIndex(of: firstNote) {
+            let userInfo = ["type" : NoteType.natural, "index" : naturalIndex] as [String : Any]
+            
+            NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
+        } else if let sharpIndex = chartsController.currentChart.sharpNotes.firstIndex(of: firstNote) {
+            let userInfo = ["type" : NoteType.sharp, "index" : sharpIndex] as [String : Any]
+            
+            NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
+        } else {
+            // Means this is the first note chosen and sharp does not exist, only flats (which can be a natural B or E)
+            if let naturalNoteFlatIndex = chartsController.currentChart.flatNotes.firstIndex(of: firstNote) {
+                let userInfo = ["type" : NoteType.flat, "index" : naturalNoteFlatIndex] as [String : Any]
+                
+                NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
+            } else {
+                let secondNote = noteFingering.notes[1]
+                let flatIndex = chartsController.currentChart.flatNotes.firstIndex(of: secondNote)!
+                
+                let userInfo = ["type" : NoteType.flat, "index" : flatIndex] as [String : Any]
+                
+                NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
+            }
+        }
     }
 }
 

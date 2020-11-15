@@ -112,12 +112,9 @@ class NotePickerViewController: UIViewController {
         if Configuration.appConfiguration == .AppStore {
             StoreKitHelper.displayStoreKit()
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        reloadInstrumentViews()
+        NotificationCenter.default.addObserver(self, selector: #selector(noteTypeIndexReceived(_:)), name: .noteTypeIndexReceived, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadInstrumentViews), name: .reloadInstrumentViews, object: nil)
     }
     
     private func addSwipeGestures() {
@@ -228,10 +225,14 @@ class NotePickerViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    private func reloadInstrumentViews() {
+    @objc private func reloadInstrumentViews() {
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         
-        updateNoteType(to: .natural, animate: false)
+        updateNoteType(to: .natural, animate: false) { _ in
+            self.currentNoteType = .natural
+            self.view.isUserInteractionEnabled = true
+            self.picker.reloadData()
+        }
         
         picker.reloadData()
         
@@ -249,23 +250,37 @@ class NotePickerViewController: UIViewController {
     @objc private func changeNoteType(swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .left {
             if currentNoteType == .natural {
-                updateNoteType(to: .sharp)
+                updateNoteType(to: .sharp) { _ in
+                    self.currentNoteType = .sharp
+                    self.view.isUserInteractionEnabled = true
+                    self.picker.reloadData()
+                }
             } else if currentNoteType == .flat {
-                updateNoteType(to: .natural)
+                updateNoteType(to: .natural) { _ in
+                    self.currentNoteType = .natural
+                    self.view.isUserInteractionEnabled = true
+                    self.picker.reloadData()
+                }
             }
         } else {
             if currentNoteType == .natural {
-                updateNoteType(to: .flat)
+                updateNoteType(to: .flat) { _ in
+                    self.currentNoteType = .flat
+                    self.view.isUserInteractionEnabled = true
+                    self.picker.reloadData()
+                }
             } else if currentNoteType == .sharp {
-                updateNoteType(to: .natural)
+                updateNoteType(to: .natural) { _ in
+                    self.currentNoteType = .natural
+                    self.view.isUserInteractionEnabled = true
+                    self.picker.reloadData()
+                }
             }
         }
-        
-        picker.reloadData()
     }
     
-    private func updateNoteType(to noteType: NoteType, animate: Bool = true) {
-        UIView.animate(withDuration: (animate ? 0.5 : 0)) {
+    private func updateNoteType(to noteType: NoteType, animate: Bool = true, completion: @escaping (Bool) -> Void) {
+        UIView.animate(withDuration: (animate ? 0.5 : 0), animations: {
             if self.currentNoteType == .natural {
                 if noteType == .sharp {
                     self.letterArrowViewController.arrowFlat.alpha = 0
@@ -291,11 +306,19 @@ class NotePickerViewController: UIViewController {
             }
             
             self.view.isUserInteractionEnabled = false
-        } completion: { _ in
-            self.view.isUserInteractionEnabled = true
-        }
+        }, completion: completion)
+    }
+    
+    @objc private func noteTypeIndexReceived(_ notification: Notification) {
+        guard let noteType = notification.userInfo?["type"] as? NoteType else { return }
+        guard let index = notification.userInfo?["index"] as? Int else { return }
         
-        currentNoteType = noteType
+        updateNoteType(to: noteType, animate: false) { _ in
+            self.currentNoteType = noteType
+            self.view.isUserInteractionEnabled = true
+            self.picker.reloadData()
+            self.picker.selectItem(at: index, animated: false)
+        }
     }
     
     @objc private func settingsButtonTapped() {
