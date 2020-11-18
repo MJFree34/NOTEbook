@@ -131,6 +131,8 @@ class NotePickerViewController: UIViewController {
     }
     
     private func configureTitleLabel() {
+        titleLabel.text = chartsController.currentChart.instrument.type.rawValue
+        
         view.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
