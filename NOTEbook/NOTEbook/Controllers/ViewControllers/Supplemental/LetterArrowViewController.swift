@@ -12,13 +12,13 @@ class LetterArrowViewController: UIViewController {
     static var fingeringHeight: CGFloat = 85
     
     var letterLabel: UILabel!
-    var fingeringScrollingViewController: FingeringScrollingViewController!
+    var fingeringScrollingView: FingeringScrollingView!
     
     var currentNoteFingering: NoteFingering!
     var currentNoteType: NoteType = .natural
     private var chartsController = ChartsController.shared
     
-    var fingeringViewWidthConstraint: NSLayoutConstraint!
+    var fingeringScrollingViewWidthConstraint: NSLayoutConstraint!
     
     lazy var rightArrow: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
@@ -196,21 +196,20 @@ class LetterArrowViewController: UIViewController {
     }
     
     private func configureFingeringScrollingView() {
-        fingeringScrollingViewController = FingeringScrollingViewController()
-        fingeringScrollingViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        add(fingeringScrollingViewController)
+        fingeringScrollingView = FingeringScrollingView()
+        fingeringScrollingView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(fingeringScrollingView)
         
         NSLayoutConstraint.activate([
-            fingeringScrollingViewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            fingeringScrollingViewController.view.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -40),
-            fingeringScrollingViewController.view.heightAnchor.constraint(equalToConstant: LetterArrowViewController.fingeringHeight)
+            fingeringScrollingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fingeringScrollingView.bottomAnchor.constraint(equalTo: noteLetterView.topAnchor, constant: -40),
+            fingeringScrollingView.heightAnchor.constraint(equalToConstant: LetterArrowViewController.fingeringHeight)
         ])
         
-        fingeringViewWidthConstraint = fingeringScrollingViewController.view.widthAnchor.constraint(equalToConstant: CGFloat(chartsController.currentChart.instrument.fingeringWidth))
-        fingeringViewWidthConstraint.isActive = true
+        fingeringScrollingViewWidthConstraint = fingeringScrollingView.widthAnchor.constraint(equalToConstant: CGFloat(chartsController.currentChart.instrument.fingeringWidth))
+        fingeringScrollingViewWidthConstraint.isActive = true
         
-        fingeringScrollingViewController.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
+        fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
     }
     
     func showOrHideLetterAccidentals() {

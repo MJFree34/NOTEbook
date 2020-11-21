@@ -1,5 +1,5 @@
 //
-//  FingeringScrollingView.swift
+//  FingeringScrollView.swift
 //  NOTEbook
 //
 //  Created by Matt Free on 9/6/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FingeringScrollingView: UIView {
+class FingeringScrollView: UIView {
     private lazy var optionalLabel: UILabel = {
         var lab = UILabel()
         lab.font = UIFont.preferredFont(forTextStyle: .title1)

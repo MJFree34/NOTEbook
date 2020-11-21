@@ -243,10 +243,10 @@ class NotePickerViewController: UIViewController {
         
         titleLabel.text = chartsController.currentChart.instrument.type.rawValue
         
-        letterArrowViewController.fingeringViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
+        letterArrowViewController.fingeringScrollingViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
         letterArrowViewController.view.layoutIfNeeded()
         
-        letterArrowViewController.fingeringScrollingViewController.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
+        letterArrowViewController.fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
     }
     
     @objc private func changeNoteType(swipe: UISwipeGestureRecognizer) {
@@ -373,7 +373,7 @@ extension NotePickerViewController: UICollectionViewDelegate {
             
             currentNoteFingering = selectedFingering
             
-            letterArrowViewController.fingeringScrollingViewController.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
+            letterArrowViewController.fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
             
             letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
             
