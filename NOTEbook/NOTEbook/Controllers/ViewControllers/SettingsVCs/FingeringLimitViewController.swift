@@ -59,6 +59,7 @@ class FingeringLimitViewController: UITableViewController {
         
         selectedIndex = indexPath
         UserDefaults.standard.set(fingeringLimitOptions[indexPath.row], forKey: UserDefaults.Keys.fingeringsLimit)
+        NotificationCenter.default.post(name: .reloadInstrumentViews, object: nil)
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

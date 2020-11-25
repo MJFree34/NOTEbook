@@ -9,7 +9,15 @@
 import UIKit
 
 class TutorialView: UIView {
-    private let tutorialInformation = [["title" : "Welcome!", "imageType" : "png", "imageName" : "AppIcon200x200", "description" : "Welcome to NOTEbook, your one source for comprehensive fingering charts.  This tutorial will show you the gestures to make the most out of this resource for all musicians"], ["title" : "Pick any note", "imageType" : "gif", "imageName" : "NotePickerFinal", "description" : "Swipe through the custom note picker to select the note for which you wish to see the fingering"], ["title" : "Choose an alternate fingering", "imageType" : "gif", "imageName" : "AlternateFingeringsFinal", "description" : "Swipe through the expansive database of fingerings to find the perfect one for your need"], ["title" : "Select an accidental", "imageType" : "gif", "imageName" : "AccidentalsFinal", "description" : "Swipe left or right to switch accidentals"], ["title" : "Use the chart", "imageType" : "gif", "imageName" : "ChartFinal", "description" : "See the notes chromatically with all alternate fingerings visible in order of commonality"], ["title" : "Try all instruments", "imageType" : "gif", "imageName" : "InstrumentsFinal", "description" : "View any of 10 instrument groups for a 14-day period, after which you will have one group for free forever!"], ["title" : "Get started!", "imageType" : "png", "imageName" : "GetStartedIcons", "description" : "Customize this app for your needs in settings and enjoy!"]]
+    private let tutorialInformation = [
+        ["title" : "Welcome!", "imageType" : "png", "imageName" : "AppIcon200x200", "description" : "Welcome to NOTEbook:  your one source for comprehensive fingering charts!  This tutorial will show you a few common gestures to unlock NOTEbook's full potential"],
+        ["title" : "Pick any note", "imageType" : "gif", "imageName" : "NotePickerFinal", "description" : "Swipe through the custom note picker to select any note"],
+        ["title" : "Choose an alternate fingering", "imageType" : "gif", "imageName" : "AlternateFingeringsFinal", "description" : "Swipe through alternate fingerings to find the perfect one for your need\n(tip: you can set a fingering limit in settings)"],
+        ["title" : "Select an accidental", "imageType" : "gif", "imageName" : "AccidentalsFinal", "description" : "Swipe left or right to cycle through accidentals"],
+        ["title" : "Use the chart", "imageType" : "gif", "imageName" : "ChartFinal", "description" : "See the notes in chromatic context along with their fingerings\n(tip: common fingerings are on the top and less common are on the bottom)"],
+        ["title" : "Try all instruments", "imageType" : "gif", "imageName" : "InstrumentsFinal", "description" : "View all of the 10 instrument groups for a 14-day period, after which you will select one group to have free forever!"],
+        ["title" : "Get started!", "imageType" : "png", "imageName" : "GetStartedIcons", "description" : "Customize this app to your needs in settings and enjoy!"]
+    ]
     
     private let compromiseLightestestAqua = UIColor(red: 237 / 255, green: 1, blue: 253 / 255, alpha: 1)
     private let compromiseDarkestestAqua = UIColor(red: 15 / 255, green: 81 / 255, blue: 79 / 255, alpha: 1)
@@ -39,6 +47,19 @@ class TutorialView: UIView {
         sv.translatesAutoresizingMaskIntoConstraints = false
         
         return sv
+    }()
+    
+    private lazy var exitButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Get started!", for: .normal)
+        button.setTitleColor((traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .normal)
+        button.backgroundColor = UIColor(named: "DarkAqua")
+        button.setTitleColor((traitCollection.userInterfaceStyle != UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .highlighted)
+        button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(tutorialDismissed), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -83,35 +104,7 @@ class TutorialView: UIView {
                 tutorialPage.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
             
-            // Subviews
-            let titleLabel = UILabel()
-            titleLabel.text = information["title"]
-            titleLabel.textColor = UIColor(named: "MediumRed")
-            titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
-            titleLabel.textAlignment = .center
-            titleLabel.numberOfLines = 0
-            
-            let imageView = UIImageView()
-            imageView.contentMode = .scaleAspectFit
-            
-            if information["imageType"]! == "gif" {
-                let imageData = try? Data(contentsOf: Bundle.main.url(forResource: information["imageName"]! + (traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? "Light" : "Dark"), withExtension: "gif")!)
-                let gifImage = UIImage.gifImageWithData(imageData!)!
-                
-                imageView.image = gifImage
-            } else {
-                imageView.image = UIImage(named: information["imageName"]!)
-            }
-            
-            let descriptionLabel = UILabel()
-            descriptionLabel.text = information["description"]
-            descriptionLabel.textColor = UIColor(named: "DarkAqua")
-            descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
-            descriptionLabel.textAlignment = .center
-            descriptionLabel.numberOfLines = 0
-            
-            // Adding subviews into stackView
-            let stackView = UIStackView(arrangedSubviews: [titleLabel, imageView, descriptionLabel])
+            let stackView = UIStackView(arrangedSubviews: createSubviews(information: information))
             stackView.alignment = .center
             stackView.axis = .vertical
             stackView.distribution = .fillEqually
@@ -120,13 +113,6 @@ class TutorialView: UIView {
             tutorialPage.addSubview(stackView)
             
             if index == tutorialInformation.count - 1 {
-                let exitButton = UIButton(type: .custom)
-                exitButton.setTitle("Get started!", for: .normal)
-                exitButton.setTitleColor((traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .normal)
-                exitButton.backgroundColor = UIColor(named: "DarkAqua")
-                exitButton.layer.cornerRadius = 10
-                exitButton.addTarget(self, action: #selector(tutorialDismissed), for: .touchUpInside)
-                exitButton.translatesAutoresizingMaskIntoConstraints = false
                 tutorialPage.addSubview(exitButton)
                 
                 NSLayoutConstraint.activate([
@@ -147,6 +133,36 @@ class TutorialView: UIView {
                 stackView.trailingAnchor.constraint(equalTo: tutorialPage.trailingAnchor, constant: -10)
             ])
         }
+    }
+    
+    private func createSubviews(information: [String : String]) -> [UIView] {
+        let titleLabel = UILabel()
+        titleLabel.text = information["title"]
+        titleLabel.textColor = UIColor(named: "MediumRed")
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 0
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
+        if information["imageType"]! == "gif" {
+            let imageData = try? Data(contentsOf: Bundle.main.url(forResource: information["imageName"]! + (traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? "Light" : "Dark"), withExtension: "gif")!)
+            let gifImage = UIImage.gifImageWithData(imageData!)!
+            
+            imageView.image = gifImage
+        } else {
+            imageView.image = UIImage(named: information["imageName"]!)
+        }
+        
+        let descriptionLabel = UILabel()
+        descriptionLabel.text = information["description"]
+        descriptionLabel.textColor = UIColor(named: "DarkAqua")
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.numberOfLines = 0
+        
+        return [titleLabel, imageView, descriptionLabel]
     }
     
     @objc private func tutorialDismissed() {
