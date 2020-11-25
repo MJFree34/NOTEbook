@@ -41,6 +41,7 @@ class InstrumentsViewController: UIViewController {
         ])
         
         view.backgroundColor = UIColor(named: "LightestestAqua")
+//        view.backgroundColor = (traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? UIColor(red: 237 / 255, green: 1, blue: 253 / 255, alpha: 1) : UIColor(red: 15 / 255, green: 81 / 255, blue: 79 / 255, alpha: 1)) // For when taking screenshot for tutorial (Light: effect with 101 lightness, Dark: effect with 118 lightness)
         
         title = "Instruments"
     }

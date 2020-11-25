@@ -98,13 +98,8 @@ class LetterArrowViewController: UIViewController {
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        noteLetterView.removeAllSublayers()
         noteLetterView.addLightMediumAquaGradient()
-        
-        letterFlat.removeAllSublayers()
         letterFlat.addLightMediumAquaGradient()
-        
-        letterSharp.removeAllSublayers()
         letterSharp.addLightMediumAquaGradient()
     }
     

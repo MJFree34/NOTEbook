@@ -17,6 +17,7 @@
 		9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D824F84B220052B364 /* MusicSymbols.xcassets */; };
 		9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1022DA24FA83640052B364 /* FluteFingeringView.swift */; };
 		9A23CDBF256967FB0038DF4A /* FingeringScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A23CDBE256967FB0038DF4A /* FingeringScrollingView.swift */; };
+		9A23CDCE256B45F70038DF4A /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A23CDCD256B45F70038DF4A /* TutorialView.swift */; };
 		9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A28E10D24A79828005B3EA4 /* NoteTests.swift */; };
 		9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D738824E96EA300A1A515 /* FingeringView.swift */; };
 		9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */; };
@@ -32,9 +33,7 @@
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
-		9A6CD4D424B4C35400D91A83 /* TutorialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6CD4D324B4C35400D91A83 /* TutorialInfo.swift */; };
 		9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */; };
-		9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FED124B278380002D50C /* TutorialViewController.swift */; };
 		9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D423249C3BE1001E108B /* ChartsLoader.swift */; };
 		9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFDF24F015830059295C /* PositionFingeringView.swift */; };
 		9A89FFE224F016F10059295C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFE124F016F10059295C /* Position.swift */; };
@@ -47,11 +46,20 @@
 		9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */; };
 		9AB9B8FD2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */; };
 		9AB9B901250581B200A5B0E6 /* FingeringScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */; };
-		9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA603724B8E6C900633E06 /* TutorialCell.swift */; };
 		9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */; };
 		9AC57B7124E42EF4002F8CB9 /* InstrumentTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */; };
 		9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC57B7224E436F0002F8CB9 /* TitleCell.swift */; };
 		9AC89573250448AB0033250B /* ChartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC89572250448AB0033250B /* ChartCategory.swift */; };
+		9AD25F48256D56B000F8B4A1 /* AccidentalsFinalDark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F46256D56AE00F8B4A1 /* AccidentalsFinalDark.gif */; };
+		9AD25F49256D56B000F8B4A1 /* AccidentalsFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F47256D56AF00F8B4A1 /* AccidentalsFinalLight.gif */; };
+		9AD25F50256D6DFF00F8B4A1 /* AlternateFingeringsFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F4E256D6DFE00F8B4A1 /* AlternateFingeringsFinalLight.gif */; };
+		9AD25F51256D6DFF00F8B4A1 /* AlternateFingeringsFinalDark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F4F256D6DFF00F8B4A1 /* AlternateFingeringsFinalDark.gif */; };
+		9AD25F57256D7CCE00F8B4A1 /* NotePickerFinalDark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F55256D7CCE00F8B4A1 /* NotePickerFinalDark.gif */; };
+		9AD25F60256D96D000F8B4A1 /* ChartFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F5E256D96CF00F8B4A1 /* ChartFinalLight.gif */; };
+		9AD25F61256D96D000F8B4A1 /* ChartFinalDark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F5F256D96D000F8B4A1 /* ChartFinalDark.gif */; };
+		9AD25F7D256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F7C256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif */; };
+		9AD25F91256E0A4000F8B4A1 /* InstrumentsFinalDark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F90256E0A4000F8B4A1 /* InstrumentsFinalDark.gif */; };
+		9AD25F95256E0C3A00F8B4A1 /* NotePickerFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F94256E0C3A00F8B4A1 /* NotePickerFinalLight.gif */; };
 		9AD2A20D253791E30027446A /* NoteFingeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD2A20C253791E30027446A /* NoteFingeringTests.swift */; };
 		9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5572E24994F110078CB7E /* Colors.xcassets */; };
 		9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5573024994F880078CB7E /* UIFont+Extensions.swift */; };
@@ -95,6 +103,7 @@
 		9A1022D824F84B220052B364 /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
 		9A1022DA24FA83640052B364 /* FluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
 		9A23CDBE256967FB0038DF4A /* FingeringScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringScrollingView.swift; sourceTree = "<group>"; };
+		9A23CDCD256B45F70038DF4A /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		9A28E10D24A79828005B3EA4 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		9A3D738824E96EA300A1A515 /* FingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringView.swift; sourceTree = "<group>"; };
 		9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
@@ -111,9 +120,7 @@
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
-		9A6CD4D324B4C35400D91A83 /* TutorialInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialInfo.swift; sourceTree = "<group>"; };
 		9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		9A73FED124B278380002D50C /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		9A81D423249C3BE1001E108B /* ChartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
 		9A89FFDF24F015830059295C /* PositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionFingeringView.swift; sourceTree = "<group>"; };
 		9A89FFE124F016F10059295C /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
@@ -126,11 +133,20 @@
 		9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
 		9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsCategoryViewController.swift; sourceTree = "<group>"; };
 		9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringScrollView.swift; sourceTree = "<group>"; };
-		9ABA603724B8E6C900633E06 /* TutorialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCell.swift; sourceTree = "<group>"; };
 		9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentTitleLabel.swift; sourceTree = "<group>"; };
 		9AC57B7224E436F0002F8CB9 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		9AC89572250448AB0033250B /* ChartCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCategory.swift; sourceTree = "<group>"; };
+		9AD25F46256D56AE00F8B4A1 /* AccidentalsFinalDark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AccidentalsFinalDark.gif; sourceTree = "<group>"; };
+		9AD25F47256D56AF00F8B4A1 /* AccidentalsFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AccidentalsFinalLight.gif; sourceTree = "<group>"; };
+		9AD25F4E256D6DFE00F8B4A1 /* AlternateFingeringsFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AlternateFingeringsFinalLight.gif; sourceTree = "<group>"; };
+		9AD25F4F256D6DFF00F8B4A1 /* AlternateFingeringsFinalDark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AlternateFingeringsFinalDark.gif; sourceTree = "<group>"; };
+		9AD25F55256D7CCE00F8B4A1 /* NotePickerFinalDark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = NotePickerFinalDark.gif; sourceTree = "<group>"; };
+		9AD25F5E256D96CF00F8B4A1 /* ChartFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ChartFinalLight.gif; sourceTree = "<group>"; };
+		9AD25F5F256D96D000F8B4A1 /* ChartFinalDark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ChartFinalDark.gif; sourceTree = "<group>"; };
+		9AD25F7C256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = InstrumentsFinalLight.gif; sourceTree = "<group>"; };
+		9AD25F90256E0A4000F8B4A1 /* InstrumentsFinalDark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = InstrumentsFinalDark.gif; sourceTree = "<group>"; };
+		9AD25F94256E0C3A00F8B4A1 /* NotePickerFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = NotePickerFinalLight.gif; path = "../../../../../NOTEbook Resources/TutorialMedia/NotePickerFinalLight.gif"; sourceTree = "<group>"; };
 		9AD2A20C253791E30027446A /* NoteFingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingeringTests.swift; sourceTree = "<group>"; };
 		9AD5572E24994F110078CB7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9AD5573024994F880078CB7E /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
@@ -198,6 +214,7 @@
 				9A1022D824F84B220052B364 /* MusicSymbols.xcassets */,
 				9A1022D624F82F700052B364 /* Instruments.xcassets */,
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
+				9A23CDE0256B62D40038DF4A /* TutorialVideos */,
 				9A8A95C1255F773300E4E737 /* ExtraUnnecessaryFingerings */,
 				9AD5574624995EC10078CB7E /* Charts.json */,
 				9A52139124F2007C0007C08A /* NoteList.json */,
@@ -237,6 +254,23 @@
 			path = FingeringViews;
 			sourceTree = "<group>";
 		};
+		9A23CDE0256B62D40038DF4A /* TutorialVideos */ = {
+			isa = PBXGroup;
+			children = (
+				9AD25F46256D56AE00F8B4A1 /* AccidentalsFinalDark.gif */,
+				9AD25F47256D56AF00F8B4A1 /* AccidentalsFinalLight.gif */,
+				9AD25F4F256D6DFF00F8B4A1 /* AlternateFingeringsFinalDark.gif */,
+				9AD25F4E256D6DFE00F8B4A1 /* AlternateFingeringsFinalLight.gif */,
+				9AD25F55256D7CCE00F8B4A1 /* NotePickerFinalDark.gif */,
+				9AD25F94256E0C3A00F8B4A1 /* NotePickerFinalLight.gif */,
+				9AD25F5F256D96D000F8B4A1 /* ChartFinalDark.gif */,
+				9AD25F5E256D96CF00F8B4A1 /* ChartFinalLight.gif */,
+				9AD25F90256E0A4000F8B4A1 /* InstrumentsFinalDark.gif */,
+				9AD25F7C256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif */,
+			);
+			path = TutorialVideos;
+			sourceTree = "<group>";
+		};
 		9A5CFB3A2499C2C400DF319F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,12 +288,13 @@
 			isa = PBXGroup;
 			children = (
 				9A89FFE324F022110059295C /* Cells */,
+				9A23CDCA25696D210038DF4A /* FingeringViews */,
 				9A438147249E3CE400EDC58F /* NotePicker.swift */,
 				9A55D70D24DC7C9E00B493A1 /* StaffView.swift */,
 				9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */,
 				9A23CDBE256967FB0038DF4A /* FingeringScrollingView.swift */,
 				9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */,
-				9A23CDCA25696D210038DF4A /* FingeringViews */,
+				9A23CDCD256B45F70038DF4A /* TutorialView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,7 +316,6 @@
 				9A438149249E3E2600EDC58F /* NotePickerCell.swift */,
 				9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */,
 				9AC57B7224E436F0002F8CB9 /* TitleCell.swift */,
-				9ABA603724B8E6C900633E06 /* TutorialCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -327,7 +361,6 @@
 				9AD5573C249957A50078CB7E /* Fingering.swift */,
 				9A89FFE124F016F10059295C /* Position.swift */,
 				9AD55739249955AD0078CB7E /* Note.swift */,
-				9A6CD4D324B4C35400D91A83 /* TutorialInfo.swift */,
 				9AF3A7E12534A10300B3008B /* Configuration.swift */,
 			);
 			path = Models;
@@ -337,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */,
-				9A73FED124B278380002D50C /* TutorialViewController.swift */,
 				9AF9B00B25365DED00148365 /* FingeringLimitViewController.swift */,
 			);
 			path = SettingsVCs;
@@ -359,6 +391,8 @@
 			dependencies = (
 			);
 			name = NOTEbook;
+			packageProductDependencies = (
+			);
 			productName = NOTEbook;
 			productReference = 9A022AE1249908C00052E819 /* NOTEbook.app */;
 			productType = "com.apple.product-type.application";
@@ -410,6 +444,8 @@
 				Base,
 			);
 			mainGroup = 9A022AD8249908C00052E819;
+			packageReferences = (
+			);
 			productRefGroup = 9A022AE2249908C00052E819 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -425,14 +461,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AD25F51256D6DFF00F8B4A1 /* AlternateFingeringsFinalDark.gif in Resources */,
 				9AD5574724995EC10078CB7E /* Charts.json in Resources */,
 				9AD5572F24994F120078CB7E /* Colors.xcassets in Resources */,
+				9AD25F50256D6DFF00F8B4A1 /* AlternateFingeringsFinalLight.gif in Resources */,
+				9AD25F61256D96D000F8B4A1 /* ChartFinalDark.gif in Resources */,
+				9AD25F7D256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif in Resources */,
 				9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */,
+				9AD25F91256E0A4000F8B4A1 /* InstrumentsFinalDark.gif in Resources */,
+				9AD25F48256D56B000F8B4A1 /* AccidentalsFinalDark.gif in Resources */,
 				9A8A95BD255F772F00E4E737 /* FluteFullFingerings.json in Resources */,
 				9A8A95BE255F772F00E4E737 /* ClarinetFullFingerings.json in Resources */,
+				9AD25F57256D7CCE00F8B4A1 /* NotePickerFinalDark.gif in Resources */,
 				9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */,
+				9AD25F95256E0C3A00F8B4A1 /* NotePickerFinalLight.gif in Resources */,
+				9AD25F49256D56B000F8B4A1 /* AccidentalsFinalLight.gif in Resources */,
 				9A022AEE249908C20052E819 /* Assets.xcassets in Resources */,
 				9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */,
+				9AD25F60256D96D000F8B4A1 /* ChartFinalLight.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A23CDCE256B45F70038DF4A /* TutorialView.swift in Sources */,
 				9A9261AC25101E1E00312643 /* SaxophoneFingeringView.swift in Sources */,
 				9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */,
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
@@ -472,13 +519,11 @@
 				9A55D70E24DC7C9E00B493A1 /* StaffView.swift in Sources */,
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
 				9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */,
-				9A73FED224B278380002D50C /* TutorialViewController.swift in Sources */,
 				9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */,
 				9AB9B8FD2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift in Sources */,
 				9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,
 				9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */,
-				9A6CD4D424B4C35400D91A83 /* TutorialInfo.swift in Sources */,
 				9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */,
 				9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
@@ -488,7 +533,6 @@
 				9A89FFE224F016F10059295C /* Position.swift in Sources */,
 				9A485B3A250707CD00407910 /* ClarinetFingeringView.swift in Sources */,
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
-				9ABA603824B8E6C900633E06 /* TutorialCell.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
 				9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */,
@@ -569,6 +613,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -630,6 +675,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

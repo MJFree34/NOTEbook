@@ -60,6 +60,23 @@ class NotePickerViewController: UIViewController {
         return button
     }()
     
+    private lazy var visualEffectView: UIVisualEffectView = {
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
+    private lazy var tutorialView: TutorialView = {
+        let width: CGFloat = 300
+        let height: CGFloat = 500
+        
+        let view = TutorialView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,8 +105,6 @@ class NotePickerViewController: UIViewController {
         
         view.addBackgroundGradient()
         
-        addSwipeGestures()
-        
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
         configureTitleLabel()
@@ -104,17 +119,23 @@ class NotePickerViewController: UIViewController {
         navigationItem.titleView = gridButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
         
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
-            UserDefaults.standard.setValue(true, forKey: UserDefaults.Keys.tutorialHasShown)
-            navigationController?.present(TutorialViewController(), animated: true)
-        }
-        
         if Configuration.appConfiguration == .AppStore {
             StoreKitHelper.displayStoreKit()
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(noteTypeIndexReceived(_:)), name: .noteTypeIndexReceived, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(noteTypeIndexReceived), name: .noteTypeIndexReceived, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadInstrumentViews), name: .reloadInstrumentViews, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tutorialDismissed), name: .tutorialDismissed, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
+            displayTutorialView()
+        } else {
+            addSwipeGestures()
+        }
     }
     
     private func addSwipeGestures() {
@@ -227,6 +248,30 @@ class NotePickerViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
+    private func displayTutorialView() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        visualEffectView.alpha = 1
+        tutorialView.alpha = 1
+        
+        view.addSubview(visualEffectView)
+        view.addSubview(tutorialView)
+        
+        NSLayoutConstraint.activate([
+            visualEffectView.topAnchor.constraint(equalTo: view.topAnchor),
+            visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            visualEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            visualEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            tutorialView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tutorialView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            tutorialView.widthAnchor.constraint(equalToConstant: tutorialView.frame.width),
+            tutorialView.heightAnchor.constraint(equalToConstant: tutorialView.frame.height)
+        ])
+        
+        tutorialView.setupTutorialPages()
+    }
+    
     @objc private func reloadInstrumentViews() {
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         
@@ -320,6 +365,22 @@ class NotePickerViewController: UIViewController {
             self.view.isUserInteractionEnabled = true
             self.picker.reloadData()
             self.picker.selectItem(at: index, animated: false)
+        }
+    }
+    
+    @objc private func tutorialDismissed() {
+        UIView.animate(withDuration: 1) {
+            self.tutorialView.alpha = 0
+            self.visualEffectView.alpha = 0
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.view.isUserInteractionEnabled = false
+        } completion: { _ in
+            self.tutorialView.removeFromSuperview()
+            self.visualEffectView.removeFromSuperview()
+            self.view.isUserInteractionEnabled = true
+            
+            self.addSwipeGestures()
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.tutorialHasShown)
         }
     }
     

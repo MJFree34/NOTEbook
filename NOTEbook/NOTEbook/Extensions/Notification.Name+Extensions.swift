@@ -11,4 +11,5 @@ import Foundation
 extension Notification.Name {
     static let noteTypeIndexReceived = Notification.Name("noteTypeIndexReceived")
     static let reloadInstrumentViews = Notification.Name("reloadInstrumentViews")
+    static let tutorialDismissed = Notification.Name("tutorialDismissed")
 }

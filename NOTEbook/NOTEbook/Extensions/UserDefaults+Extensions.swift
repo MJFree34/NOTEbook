@@ -10,7 +10,7 @@ import Foundation
 
 extension UserDefaults {
     struct Keys {
-        static let tutorialHasShown = "TutorialHasShown"
+        static let tutorialHasShown = "TutorialHasShown2"
         static let hapticsEnabled = "HapticsEnabled"
         static let fingeringsLimit = "FingeringsLimit"
         

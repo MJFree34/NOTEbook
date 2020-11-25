@@ -141,10 +141,8 @@ class SettingsViewController: UITableViewController {
         case .actions:
             switch indexPath.row {
             case 0:
-                let vc = TutorialViewController()
-                present(vc, animated: true, completion: { [weak self] in
-                    self?.tableView.deselectRow(at: IndexPath(row: 0, section: 1), animated: true)
-                })
+                UserDefaults.standard.set(false, forKey: UserDefaults.Keys.tutorialHasShown)
+                navigationController?.popToRootViewController(animated: true)
             case 1:
                 openAppStore()
             case 2:
@@ -164,7 +162,7 @@ class SettingsViewController: UITableViewController {
         return sections[section].rawValue.capitalized
     }
     
-    func editSettingsForDevice() {
+    private func editSettingsForDevice() {
         if isOldDevice() {
             customize.remove(at: 1)
         } else if Configuration.appConfiguration == .AppStore {
@@ -172,7 +170,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    func isOldDevice() -> Bool {
+    private func isOldDevice() -> Bool {
         var systemInfo = utsname()
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
@@ -185,7 +183,7 @@ class SettingsViewController: UITableViewController {
         return identifier == "iPhone8,1" || identifier == "iPhone8,2"
     }
     
-    func openFeedback() {
+    private func openFeedback() {
         if let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdsy1jt7xngJS4BYxV_DyyogpLKVY6346X2RcogstWbtqo6Rw/viewform") {
             let vc = SFSafariViewController(url: url)
             
@@ -193,7 +191,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    func openAppStore() {
+    private func openAppStore() {
         let appID = 1523098465
         if let url = URL(string: "https://itunes.apple.com/app/id\(appID)?action=write-review") {
             UIApplication.shared.open(url, options: [:]) { [weak self] _ in
@@ -202,7 +200,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    @objc func toggleHaptics() {
+    @objc private func toggleHaptics() {
         let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }

@@ -65,6 +65,7 @@ class NoteChartViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         view.addBackgroundGradient()
+        view.backgroundColor = UIColor(named: "LightestestAqua")
         
         configureCollectionView()
         

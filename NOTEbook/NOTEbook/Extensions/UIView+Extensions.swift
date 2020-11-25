@@ -27,7 +27,7 @@ extension UIView {
         layer.insertSublayer(gradient, at: 0)
     }
     
-    func removeAllSublayers() {
+    private func removeAllSublayers() {
         if let sublayers = layer.sublayers {
             sublayers[0].removeFromSuperlayer()
         }
