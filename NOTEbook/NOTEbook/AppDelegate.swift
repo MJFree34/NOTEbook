@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.Keys.currentInstrumentIndex: 0,
             UserDefaults.Keys.currentChartCategoryIndex: 3,
             UserDefaults.Keys.hapticsEnabled: true,
+            UserDefaults.Keys.gradientEnabled: true,
             UserDefaults.Keys.fingeringsLimit: 7
         ])
         

@@ -71,6 +71,8 @@ class NotePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = nil
+        
         if view.bounds.height == 926.0 {
             // iPhone 12 Pro Max
             NotePickerViewController.spaceBetweenStaffLines = 26
@@ -93,8 +95,6 @@ class NotePickerViewController: UIViewController {
             // iPhone SE, SE (2nd Generation)
             NotePickerViewController.spaceBetweenStaffLines = 19
         }
-        
-        view.addBackgroundGradient()
         
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
@@ -121,6 +121,8 @@ class NotePickerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        view.addBackground()
         
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
             displayTutorialView()

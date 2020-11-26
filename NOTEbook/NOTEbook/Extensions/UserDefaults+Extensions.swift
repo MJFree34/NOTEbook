@@ -12,6 +12,7 @@ extension UserDefaults {
     struct Keys {
         static let tutorialHasShown = "TutorialHasShown2"
         static let hapticsEnabled = "HapticsEnabled"
+        static let gradientEnabled = "GradientEnabled"
         static let fingeringsLimit = "FingeringsLimit"
         
         static let currentInstrumentIndex = "CurrentInstrumentTypeIndex2"

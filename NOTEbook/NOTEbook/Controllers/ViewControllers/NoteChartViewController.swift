@@ -51,21 +51,10 @@ class NoteChartViewController: UIViewController {
         return button
     }()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Scrolls to the very top
-        collectionView.reloadData()
-        collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
-        view.addBackgroundGradient()
-        view.backgroundColor = UIColor(named: "LightestestAqua")
         
         configureCollectionView()
         
@@ -75,6 +64,16 @@ class NoteChartViewController: UIViewController {
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = pickerButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.addBackground()
+        
+        // Scrolls to the very top
+        collectionView.reloadData()
+        collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
     
     private func configureCollectionView() {

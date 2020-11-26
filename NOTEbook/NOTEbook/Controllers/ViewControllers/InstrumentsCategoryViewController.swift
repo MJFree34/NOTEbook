@@ -42,7 +42,7 @@ class InstrumentsCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addBackgroundGradient()
+        view.addBackground()
         
         view.addSubview(tableView)
         
@@ -63,7 +63,7 @@ class InstrumentsCategoryViewController: UIViewController {
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        view.addBackgroundGradient()
+        view.addBackground()
     }
 }
 

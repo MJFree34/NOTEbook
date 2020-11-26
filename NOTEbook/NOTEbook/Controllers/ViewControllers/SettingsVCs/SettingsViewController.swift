@@ -16,7 +16,7 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
-    private var customize = ["Fingerings Limit", "Haptics Enabled"]
+    private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
     private var actions = ["Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer"]
     private var about = [["Current Version", "1.1.0 (5)"]]
     
@@ -40,7 +40,6 @@ class SettingsViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-//        tableView.backgroundColor = UIColor(named: "LightestestAqua")
         tableView.isScrollEnabled = false
         tableView.estimatedRowHeight = 60
         tableView.delegate = self
@@ -50,9 +49,7 @@ class SettingsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let backgroundView = UIView(frame: tableView.frame)
-        backgroundView.addBackgroundGradient()
-        tableView.backgroundView = backgroundView
+        updateBackground()
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
     }
@@ -98,13 +95,18 @@ class SettingsViewController: UITableViewController {
                     fingeringsLimitAccessoryLabel.centerYAnchor.constraint(equalTo: cell.textLabel!.centerYAnchor),
                     fingeringsLimitAccessoryLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -40)
                 ])
-            case 1:
+            case 1, 2:
                 cell.selectionStyle = .none
                 
                 let switchView = UISwitch()
-                switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
                 switchView.onTintColor = UIColor(named: "MediumAqua")
-                switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
+                if indexPath.row == 1 {
+                    switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
+                    switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
+                } else if indexPath.row == 2 {
+                    switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled)
+                    switchView.addTarget(self, action: #selector(toggleGradient), for: .valueChanged)
+                }
                 
                 cell.accessoryView = switchView
             default:
@@ -209,14 +211,32 @@ class SettingsViewController: UITableViewController {
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }
     
+    @objc private func toggleGradient() {
+        let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled)
+        UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.gradientEnabled)
+        
+        updateBackground()
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        let backgroundView = UIView(frame: tableView.frame)
-        backgroundView.addBackgroundGradient()
-        tableView.backgroundView = backgroundView
+        updateBackground()
+    }
+    
+    private func updateBackground() {
+        tableView.backgroundView = nil
+        tableView.backgroundColor = nil
+        
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
+            let backgroundView = UIView(frame: tableView.frame)
+            backgroundView.addBackgroundGradient()
+            tableView.backgroundView = backgroundView
+        } else {
+            tableView.backgroundColor = UIColor(named: "LightestestAqua")
+        }
     }
 }
 

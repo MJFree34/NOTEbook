@@ -20,7 +20,6 @@ class FingeringLimitViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        tableView.backgroundColor = UIColor(named: "LightestestAqua")
         tableView.isScrollEnabled = false
         tableView.estimatedRowHeight = 60
         tableView.delegate = self
@@ -30,9 +29,7 @@ class FingeringLimitViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let backgroundView = UIView(frame: tableView.frame)
-        backgroundView.addBackgroundGradient()
-        tableView.backgroundView = backgroundView
+        updateBackground()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,8 +76,19 @@ class FingeringLimitViewController: UITableViewController {
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        let backgroundView = UIView(frame: tableView.frame)
-        backgroundView.addBackgroundGradient()
-        tableView.backgroundView = backgroundView
+        updateBackground()
+    }
+    
+    private func updateBackground() {
+        tableView.backgroundView = nil
+        tableView.backgroundColor = nil
+        
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
+            let backgroundView = UIView(frame: tableView.frame)
+            backgroundView.addBackgroundGradient()
+            tableView.backgroundView = backgroundView
+        } else {
+            tableView.backgroundColor = UIColor(named: "LightestestAqua")
+        }
     }
 }

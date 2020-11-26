@@ -18,6 +18,21 @@ extension UIView {
         layer.insertSublayer(gradient, at: 0)
     }
     
+    func addBackground() {
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
+            backgroundColor = nil
+            
+            let gradient = CAGradientLayer()
+            gradient.frame = bounds
+            gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestAqua")!.cgColor]
+            layer.insertSublayer(gradient, at: 0)
+        } else {
+            removeAllSublayers()
+            
+            backgroundColor = UIColor(named: "LightestestAqua")
+        }
+    }
+    
     func addLightMediumAquaGradient() {
         removeAllSublayers()
         
@@ -29,7 +44,11 @@ extension UIView {
     
     private func removeAllSublayers() {
         if let sublayers = layer.sublayers {
-            sublayers[0].removeFromSuperlayer()
+            for sublayer in sublayers {
+                if let gradientLayer = sublayer as? CAGradientLayer {
+                    gradientLayer.removeFromSuperlayer()
+                }
+            }
         }
     }
 }
