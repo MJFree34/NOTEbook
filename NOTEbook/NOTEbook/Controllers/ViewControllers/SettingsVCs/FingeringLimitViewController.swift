@@ -26,6 +26,14 @@ class FingeringLimitViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let backgroundView = UIView(frame: tableView.frame)
+        backgroundView.addBackgroundGradient()
+        tableView.backgroundView = backgroundView
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fingeringLimitOptions.count
@@ -64,5 +72,15 @@ class FingeringLimitViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Number of fingerings shown for each note"
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        let backgroundView = UIView(frame: tableView.frame)
+        backgroundView.addBackgroundGradient()
+        tableView.backgroundView = backgroundView
     }
 }

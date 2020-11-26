@@ -42,6 +42,8 @@ class InstrumentsCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addBackgroundGradient()
+        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -54,6 +56,14 @@ class InstrumentsCategoryViewController: UIViewController {
         view.backgroundColor = UIColor(named: "LightestestAqua")
         
         title = category.name
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        view.addBackgroundGradient()
     }
 }
 

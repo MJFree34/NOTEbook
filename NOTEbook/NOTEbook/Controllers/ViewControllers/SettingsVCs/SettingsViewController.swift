@@ -40,7 +40,7 @@ class SettingsViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        tableView.backgroundColor = UIColor(named: "LightestestAqua")
+//        tableView.backgroundColor = UIColor(named: "LightestestAqua")
         tableView.isScrollEnabled = false
         tableView.estimatedRowHeight = 60
         tableView.delegate = self
@@ -49,6 +49,10 @@ class SettingsViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let backgroundView = UIView(frame: tableView.frame)
+        backgroundView.addBackgroundGradient()
+        tableView.backgroundView = backgroundView
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
     }
@@ -203,6 +207,16 @@ class SettingsViewController: UITableViewController {
     @objc private func toggleHaptics() {
         let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        let backgroundView = UIView(frame: tableView.frame)
+        backgroundView.addBackgroundGradient()
+        tableView.backgroundView = backgroundView
     }
 }
 

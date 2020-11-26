@@ -83,8 +83,7 @@ class FingeringScrollingView: UIView {
             scrollView.heightAnchor.constraint(equalToConstant: LetterArrowViewController.fingeringHeight),
             
             pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10),
-            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         
         scrollViewWidthAnchor = scrollView.widthAnchor.constraint(equalToConstant: 0)
