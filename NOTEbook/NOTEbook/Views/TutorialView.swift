@@ -180,7 +180,7 @@ class TutorialView: UIView {
 }
 
 extension TutorialView: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x / frame.size.width)
         pageControl.currentPage = Int(pageIndex)
     }

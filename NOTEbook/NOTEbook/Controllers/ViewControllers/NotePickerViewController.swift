@@ -27,6 +27,7 @@ class NotePickerViewController: UIViewController {
     
     private var picker: NotePicker!
     private var staffView: StaffView!
+    private var tutorialView: TutorialView!
     private var letterArrowViewController = LetterArrowViewController()
     private var titleLabel = InstrumentTitleLabel()
     
@@ -62,16 +63,6 @@ class NotePickerViewController: UIViewController {
     
     private lazy var visualEffectView: UIVisualEffectView = {
         let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
-        return view
-    }()
-    
-    private lazy var tutorialView: TutorialView = {
-        let width: CGFloat = 300
-        let height: CGFloat = 500
-        
-        let view = TutorialView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -249,12 +240,17 @@ class NotePickerViewController: UIViewController {
     }
     
     private func displayTutorialView() {
+        let width: CGFloat = 300
+        let height: CGFloat = 500
+        
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         visualEffectView.alpha = 1
-        tutorialView.alpha = 1
-        
         view.addSubview(visualEffectView)
+        
+        tutorialView = TutorialView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        tutorialView.alpha = 1
+        tutorialView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tutorialView)
         
         NSLayoutConstraint.activate([
@@ -265,8 +261,8 @@ class NotePickerViewController: UIViewController {
             
             tutorialView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            tutorialView.widthAnchor.constraint(equalToConstant: tutorialView.frame.width),
-            tutorialView.heightAnchor.constraint(equalToConstant: tutorialView.frame.height)
+            tutorialView.widthAnchor.constraint(equalToConstant: width),
+            tutorialView.heightAnchor.constraint(equalToConstant: height)
         ])
         
         tutorialView.setupTutorialPages()
@@ -376,6 +372,7 @@ class NotePickerViewController: UIViewController {
             self.view.isUserInteractionEnabled = false
         } completion: { _ in
             self.tutorialView.removeFromSuperview()
+            self.tutorialView = nil
             self.visualEffectView.removeFromSuperview()
             self.view.isUserInteractionEnabled = true
             
