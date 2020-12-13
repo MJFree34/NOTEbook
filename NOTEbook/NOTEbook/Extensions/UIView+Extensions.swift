@@ -14,7 +14,7 @@ extension UIView {
         
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestAqua")!.cgColor]
+        gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestestAqua")!.cgColor]
         layer.insertSublayer(gradient, at: 0)
     }
     
@@ -24,7 +24,7 @@ extension UIView {
             
             let gradient = CAGradientLayer()
             gradient.frame = bounds
-            gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestAqua")!.cgColor]
+            gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestestAqua")!.cgColor]
             layer.insertSublayer(gradient, at: 0)
         } else {
             removeAllSublayers()

@@ -9,9 +9,10 @@
 import Foundation
 
 enum AppConfiguration {
-    case Debug
-    case TestFlight
-    case AppStore
+    case simulator
+    case debug
+    case testFlight
+    case appStore
 }
 
 struct Configuration {
@@ -19,19 +20,29 @@ struct Configuration {
     
     private static var isDebug: Bool {
         #if DEBUG
-            return true
+        return true
         #else
-            return false
+        return false
+        #endif
+    }
+    
+    private static var isSimulator: Bool {
+        #if targetEnvironment(simulator)
+        return true
+        #else
+        return false
         #endif
     }
     
     static var appConfiguration: AppConfiguration {
         if isDebug {
-            return .Debug
+            return .debug
         } else if isTestFlight {
-            return .TestFlight
+            return .testFlight
+        } else if isSimulator {
+            return .simulator
         } else {
-            return .AppStore
+            return .appStore
         }
     }
 }

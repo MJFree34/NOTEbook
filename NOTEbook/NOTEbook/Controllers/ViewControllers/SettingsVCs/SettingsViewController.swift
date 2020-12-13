@@ -18,7 +18,7 @@ class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
     private var actions = ["Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer"]
-    private var about = [["Current Version", "1.1.0 (5)"]]
+    private var about = [["Current Version", "1.1.0 (6)"]]
     
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
         let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
@@ -171,7 +171,7 @@ class SettingsViewController: UITableViewController {
     private func editSettingsForDevice() {
         if isOldDevice() {
             customize.remove(at: 1)
-        } else if Configuration.appConfiguration == .AppStore {
+        } else if Configuration.appConfiguration == .appStore {
             actions.remove(at: 3)
         }
     }

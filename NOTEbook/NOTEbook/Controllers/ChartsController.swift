@@ -16,6 +16,43 @@ class ChartsController {
     var currentChart: FingeringChart
     var currentChartCategory: ChartCategory
     
+    lazy var purchasableInstrumentGroups: [PurchasableInstrumentGroup] = {
+        var groups = [PurchasableInstrumentGroup]()
+        
+        var appendingInstrumentNames: [String]?
+        
+        for category in chartCategories {
+            if category.name == "Mellophone" || category.name == "Baritone" {
+                var names = [String]()
+                
+                for chart in category.fingeringCharts {
+                    let name = chart.instrument.type.rawValue
+                    names.append(name)
+                }
+                
+                appendingInstrumentNames = names
+            } else {
+                let name = category.name
+                var titles = [String]()
+                
+                for chart in category.fingeringCharts {
+                    let title = chart.instrument.type.rawValue
+                    titles.append(title)
+                }
+                
+                if let appendingInstrumentNames = appendingInstrumentNames {
+                    titles += appendingInstrumentNames
+                }
+                
+                appendingInstrumentNames = nil
+                
+                groups.append(PurchasableInstrumentGroup(groupTitle: name, instrumentTitles: titles))
+            }
+        }
+        
+        return groups
+    }()
+    
     init() {
         do {
             chartCategories = try ChartsLoader.loadCharts()
