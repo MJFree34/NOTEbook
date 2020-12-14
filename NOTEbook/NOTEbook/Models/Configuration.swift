@@ -34,6 +34,10 @@ struct Configuration {
         #endif
     }
     
+    private static var isOnDevice: Bool {
+        return isDebug && !isSimulator
+    }
+    
     static var appConfiguration: AppConfiguration {
         if isDebug {
             return .debug

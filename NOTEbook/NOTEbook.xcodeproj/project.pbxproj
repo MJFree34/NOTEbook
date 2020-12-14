@@ -14,7 +14,6 @@
 		9A022AF1249908C20052E819 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A022AEF249908C20052E819 /* LaunchScreen.storyboard */; };
 		9A054DF1257DB45F00DCE8FF /* Instruments.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 9A054DF0257DB45F00DCE8FF /* Instruments.storekit */; };
 		9A054DF2257DB45F00DCE8FF /* Instruments.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 9A054DF0257DB45F00DCE8FF /* Instruments.storekit */; };
-		9A054E04257DBB4D00DCE8FF /* PaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E03257DBB4D00DCE8FF /* PaywallViewController.swift */; };
 		9A054E0A2583F1BA00DCE8FF /* SelectInstrumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */; };
 		9A054E0E25840A0C00DCE8FF /* SelectInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */; };
 		9A054E122584755E00DCE8FF /* PurchasableInstrumentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */; };
@@ -111,7 +110,6 @@
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A054DF0257DB45F00DCE8FF /* Instruments.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Instruments.storekit; sourceTree = "<group>"; };
 		9A054DFD257DB80B00DCE8FF /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
-		9A054E03257DBB4D00DCE8FF /* PaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallViewController.swift; sourceTree = "<group>"; };
 		9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentViewController.swift; sourceTree = "<group>"; };
 		9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentCell.swift; sourceTree = "<group>"; };
 		9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasableInstrumentGroup.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */,
 				9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */,
 				9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */,
-				9A054E03257DBB4D00DCE8FF /* PaywallViewController.swift */,
 				9AF9B00A25365DA800148365 /* SettingsVCs */,
 				9A054E172585AB1400DCE8FF /* IAPVCs */,
 				9A89FFE424F0223D0059295C /* Supplemental */,
@@ -592,7 +589,6 @@
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
-				9A054E04257DBB4D00DCE8FF /* PaywallViewController.swift in Sources */,
 				9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */,
 				9AB9B901250581B200A5B0E6 /* FingeringScrollView.swift in Sources */,
 				9A054E122584755E00DCE8FF /* PurchasableInstrumentGroup.swift in Sources */,

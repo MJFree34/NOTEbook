@@ -173,8 +173,30 @@ class PurchaseInstrumentsViewController: UIViewController {
     }
     
     @objc private func continuePressed() {
-        // TODO: - Purchase selected item
-        dismiss(animated: true)
+        // TODO: - Purchase selected item if anything selected before dismissing
+        if let selectedIndex = selectedCellIndex {
+            let index: Int
+            
+            switch selectedIndex.section {
+            case 0:
+                index = selectedIndex.row
+            case 1:
+                index = selectedIndex.row + 1
+            case 2:
+                index = selectedIndex.row + 3
+            default:
+                fatalError()
+            }
+            
+            
+            Purchases.shared.purchasePackage(packages[index]) { (transaction, purchaserInfo, error, userCancelled) in
+                if !userCancelled {
+                    self.navigationController?.dismiss(animated: true)
+                }
+            }
+        } else {
+            navigationController?.dismiss(animated: true)
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

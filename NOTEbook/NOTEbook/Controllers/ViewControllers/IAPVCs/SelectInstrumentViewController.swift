@@ -102,8 +102,12 @@ class SelectInstrumentViewController: UIViewController {
     }
     
     @objc private func continuePressed() {
-        // TODO: - Push next screen and save selection while not doing anything when no selection
-        dismiss(animated: true)
+        // TODO: - Push next screen and save selection while not doing anything when no selection and change selected index of instrument in UserDefaults to chosen instrument
+        if let selectedIndex = selectedCellIndex {
+            let vc = PurchaseInstrumentsViewController()
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
