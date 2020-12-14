@@ -195,7 +195,7 @@ class PurchaseInstrumentsViewController: UIViewController {
                 }
             }
         } else {
-            navigationController?.dismiss(animated: true)
+            dismiss(animated: true)
         }
     }
     

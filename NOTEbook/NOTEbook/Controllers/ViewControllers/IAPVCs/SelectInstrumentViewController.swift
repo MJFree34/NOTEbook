@@ -102,10 +102,11 @@ class SelectInstrumentViewController: UIViewController {
     }
     
     @objc private func continuePressed() {
-        // TODO: - Push next screen and save selection while not doing anything when no selection and change selected index of instrument in UserDefaults to chosen instrument
         if let selectedIndex = selectedCellIndex {
-            let vc = PurchaseInstrumentsViewController()
+            UserDefaults.standard.set(selectedIndex.item, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)
             
+            let vc = PurchaseInstrumentsViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
     }

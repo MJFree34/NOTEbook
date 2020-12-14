@@ -17,7 +17,7 @@ import UIKit
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
-    private var actions = ["Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer"]
+    private var actions = ["Shop Instruments", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow"]
     private var about = [["Current Version", "1.1.0 (6)"]]
     
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
@@ -141,21 +141,27 @@ class SettingsViewController: UITableViewController {
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
                 break
+            case 2:
+                break
             default:
                 break
             }
         case .actions:
             switch indexPath.row {
             case 0:
-                UserDefaults.standard.set(false, forKey: UserDefaults.Keys.tutorialHasShown)
-                navigationController?.popToRootViewController(animated: true)
+                openIAPScreen()
             case 1:
-                openAppStore()
+                openTutorial()
             case 2:
-                openFeedback()
+                openAppStore()
             case 3:
+                openFeedback()
+            case 4:
                 // Only occurs when not AppStore version
                 openEmail()
+            case 5:
+                // Only occurs in Debug version
+                openIAPFlow()
             default:
                 break
             }
@@ -170,9 +176,15 @@ class SettingsViewController: UITableViewController {
     
     private func editSettingsForDevice() {
         if isOldDevice() {
-            customize.remove(at: 1)
-        } else if Configuration.appConfiguration == .appStore {
-            actions.remove(at: 3)
+            customize.removeAll { $0 == "Haptics Enabled" }
+        }
+        
+        if Configuration.appConfiguration == .appStore {
+            actions.removeAll { $0 == "Email Developer" }
+        }
+        
+        if Configuration.appConfiguration != .debug {
+            actions.removeAll { $0 == "Reset IAP Flow" }
         }
     }
     
@@ -187,6 +199,17 @@ class SettingsViewController: UITableViewController {
         
         // iPhone 6s or 6s Plus
         return identifier == "iPhone8,1" || identifier == "iPhone8,2"
+    }
+    
+    private func openIAPScreen() {
+        let vc = PurchaseInstrumentsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    private func openTutorial() {
+        UserDefaults.standard.set(false, forKey: UserDefaults.Keys.tutorialHasShown)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func openFeedback() {
@@ -204,6 +227,11 @@ class SettingsViewController: UITableViewController {
                 self?.tableView.deselectRow(at: IndexPath(row: 2, section: 1), animated: true)
             }
         }
+    }
+    
+    private func openIAPFlow() {
+        UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func toggleHaptics() {
