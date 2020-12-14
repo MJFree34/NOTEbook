@@ -17,7 +17,7 @@ class SelectInstrumentViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         cv.dataSource = self
         cv.delegate = self
-        cv.alwaysBounceVertical = true
+        cv.alwaysBounceVertical = false
         cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         cv.register(SelectInstrumentCell.self, forCellWithReuseIdentifier: SelectInstrumentCell.reuseIdentifier)
@@ -88,7 +88,7 @@ class SelectInstrumentViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             collectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -20),
             
-            continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             continueButton.heightAnchor.constraint(equalToConstant: 50),
             continueButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             continueButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)

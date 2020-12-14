@@ -18,6 +18,9 @@
 		9A054E0A2583F1BA00DCE8FF /* SelectInstrumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */; };
 		9A054E0E25840A0C00DCE8FF /* SelectInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */; };
 		9A054E122584755E00DCE8FF /* PurchasableInstrumentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */; };
+		9A054E232585AB5D00DCE8FF /* PurchaseInstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E222585AB5D00DCE8FF /* PurchaseInstrumentsViewController.swift */; };
+		9A054E292585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E282585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift */; };
+		9A054E2D2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A054E2C2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift */; };
 		9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A06636D2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift */; };
 		9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D624F82F700052B364 /* Instruments.xcassets */; };
 		9A1022D924F84B230052B364 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1022D824F84B220052B364 /* MusicSymbols.xcassets */; };
@@ -112,6 +115,9 @@
 		9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentViewController.swift; sourceTree = "<group>"; };
 		9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentCell.swift; sourceTree = "<group>"; };
 		9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasableInstrumentGroup.swift; sourceTree = "<group>"; };
+		9A054E222585AB5D00DCE8FF /* PurchaseInstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInstrumentsViewController.swift; sourceTree = "<group>"; };
+		9A054E282585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInstrumentSmallCell.swift; sourceTree = "<group>"; };
+		9A054E2C2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInstrumentLargeCell.swift; sourceTree = "<group>"; };
 		9A06636D2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
 		9A1022D624F82F700052B364 /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
 		9A1022D824F84B220052B364 /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
@@ -232,7 +238,7 @@
 				9A1022D824F84B220052B364 /* MusicSymbols.xcassets */,
 				9A1022D624F82F700052B364 /* Instruments.xcassets */,
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
-				9A23CDE0256B62D40038DF4A /* TutorialVideos */,
+				9A23CDE0256B62D40038DF4A /* TutorialGifs */,
 				9A8A95C1255F773300E4E737 /* ExtraUnnecessaryFingerings */,
 				9A054DF0257DB45F00DCE8FF /* Instruments.storekit */,
 				9A054DFD257DB80B00DCE8FF /* StoreKitTestCertificate.cer */,
@@ -257,6 +263,15 @@
 			path = NOTEbookTests;
 			sourceTree = "<group>";
 		};
+		9A054E172585AB1400DCE8FF /* IAPVCs */ = {
+			isa = PBXGroup;
+			children = (
+				9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */,
+				9A054E222585AB5D00DCE8FF /* PurchaseInstrumentsViewController.swift */,
+			);
+			path = IAPVCs;
+			sourceTree = "<group>";
+		};
 		9A23CDCA25696D210038DF4A /* FingeringViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +289,7 @@
 			path = FingeringViews;
 			sourceTree = "<group>";
 		};
-		9A23CDE0256B62D40038DF4A /* TutorialVideos */ = {
+		9A23CDE0256B62D40038DF4A /* TutorialGifs */ = {
 			isa = PBXGroup;
 			children = (
 				9AD25F46256D56AE00F8B4A1 /* AccidentalsFinalDark.gif */,
@@ -288,19 +303,19 @@
 				9AD25F90256E0A4000F8B4A1 /* InstrumentsFinalDark.gif */,
 				9AD25F7C256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif */,
 			);
-			path = TutorialVideos;
+			path = TutorialGifs;
 			sourceTree = "<group>";
 		};
 		9A5CFB3A2499C2C400DF319F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9A022AE8249908C00052E819 /* NotePickerViewController.swift */,
-				9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */,
 				9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */,
 				9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */,
 				9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */,
 				9A054E03257DBB4D00DCE8FF /* PaywallViewController.swift */,
 				9AF9B00A25365DA800148365 /* SettingsVCs */,
+				9A054E172585AB1400DCE8FF /* IAPVCs */,
 				9A89FFE424F0223D0059295C /* Supplemental */,
 			);
 			path = ViewControllers;
@@ -336,9 +351,11 @@
 			isa = PBXGroup;
 			children = (
 				9A438149249E3E2600EDC58F /* NotePickerCell.swift */,
-				9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */,
 				9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */,
 				9AC57B7224E436F0002F8CB9 /* TitleCell.swift */,
+				9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */,
+				9A054E282585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift */,
+				9A054E2C2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -562,7 +579,9 @@
 				9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,
 				9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */,
+				9A054E232585AB5D00DCE8FF /* PurchaseInstrumentsViewController.swift in Sources */,
 				9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */,
+				9A054E2D2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift in Sources */,
 				9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
@@ -582,6 +601,7 @@
 				9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */,
 				9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
 				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
+				9A054E292585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

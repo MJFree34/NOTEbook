@@ -114,15 +114,17 @@ class NotePickerViewController: UIViewController {
             StoreKitHelper.displayStoreKit()
         }
         
-        let ac = UIAlertController(title: "Trial Ended", message: "Your free trial has ended. Select your permanently free instrument now!", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Select instrument", style: .cancel, handler: { action in
-            let vc = SelectInstrumentViewController()
-            vc.modalPresentationStyle = .fullScreen
-            
-            self.present(vc, animated: true)
-        }))
+//        showAlert(title: "Trial Ended", message: "Your free trial has ended. Select your permanently free instrument now!", actionTitle: "Select instrument") { action in
+//            let vc = SelectInstrumentViewController()
+//            vc.modalPresentationStyle = .fullScreen
+//
+//            self.present(vc, animated: true)
+//        }
         
-        present(ac, animated: true)
+        let vc = PurchaseInstrumentsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.present(vc, animated: true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(noteTypeIndexReceived), name: .noteTypeIndexReceived, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadInstrumentViews), name: .reloadInstrumentViews, object: nil)
