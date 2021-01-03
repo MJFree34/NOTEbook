@@ -254,6 +254,8 @@ class NotePickerViewController: UIViewController {
     }
     
     private func displayTutorialView() {
+        guard tutorialView == nil else { return }
+        
         let width: CGFloat = 300
         let height: CGFloat = 500
         

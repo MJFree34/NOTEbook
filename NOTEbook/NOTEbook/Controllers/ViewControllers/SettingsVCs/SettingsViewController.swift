@@ -202,6 +202,7 @@ class SettingsViewController: UITableViewController {
     }
     
     private func openIAPScreen() {
+        ChartsController.shared.updatePurchasableInstrumentGroups()
         let vc = PurchaseInstrumentsViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -231,6 +232,7 @@ class SettingsViewController: UITableViewController {
     
     private func openIAPFlow() {
         UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
+        ChartsController.shared.updatePurchasableInstrumentGroups()
         navigationController?.popToRootViewController(animated: true)
     }
     

@@ -14,6 +14,9 @@ class PurchaseInstrumentsViewController: UIViewController {
     private var selectedCellIndex: IndexPath?
     private var packages = [Purchases.Package]()
     
+    private var containsWoodwinds = true
+    private var containsBrass = true
+    
     private lazy var allPurchasableInstrumentGroup: PurchasableInstrumentGroup = {
         var titles = [String]()
         
@@ -27,8 +30,11 @@ class PurchaseInstrumentsViewController: UIViewController {
     private lazy var woodwindsPurchasableInstrumentGroup: PurchasableInstrumentGroup = {
         var titles = [String]()
         
-        for group in chartsController.purchasableInstrumentGroups[0..<3] {
-            titles.append(group.groupTitle)
+        var i = 0
+        
+        while i < chartsController.purchasableInstrumentGroups.count - 1 && chartsController.purchasableInstrumentGroups[i].groupTitle != "Trumpet" && chartsController.purchasableInstrumentGroups[i].groupTitle != "French Horn" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Trombone" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Euphonium" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Tuba" {
+            titles.append(chartsController.purchasableInstrumentGroups[i].groupTitle)
+            i += 1
         }
         
         return PurchasableInstrumentGroup(groupTitle: "Woodwinds", instrumentTitles: titles)
@@ -37,9 +43,14 @@ class PurchaseInstrumentsViewController: UIViewController {
     private lazy var brassPurchasableInstrumentGroup: PurchasableInstrumentGroup = {
         var titles = [String]()
         
-        for group in chartsController.purchasableInstrumentGroups[3..<chartsController.purchasableInstrumentGroups.count] {
-            titles.append(group.groupTitle)
+        var i = chartsController.purchasableInstrumentGroups.count - 1
+        
+        while i >= 0 && chartsController.purchasableInstrumentGroups[i].groupTitle != "Flute" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Clarinet" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Saxophone" {
+            titles.append(chartsController.purchasableInstrumentGroups[i].groupTitle)
+            i -= 1
         }
+        
+        titles.reverse()
         
         return PurchasableInstrumentGroup(groupTitle: "Brass", instrumentTitles: titles)
     }()
@@ -106,8 +117,6 @@ class PurchaseInstrumentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadPackages()
-        
         view.addSubview(titleLabel)
         view.addSubview(subtitleLabel)
         view.addSubview(collectionView)
@@ -143,12 +152,16 @@ class PurchaseInstrumentsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         view.addBackground()
+        
+        loadPackages()
     }
     
     private func loadPackages() {
         loadingIndicator.startAnimating()
         closeButton.isEnabled = false
-                
+        
+        var availableOfferings: Purchases.Offerings?
+        
         Purchases.shared.offerings { (offerings, error) in
             if error != nil {
                 self.showAlert(title: "Error", message: "Unable to fetch offerings") { (action) in
@@ -156,13 +169,78 @@ class PurchaseInstrumentsViewController: UIViewController {
                 }
             }
             
-            if let packages = offerings?.current?.availablePackages {
-                self.packages = packages
+            availableOfferings = offerings
+        }
+        
+        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+            if purchaserInfo?.entitlements["all"]?.isActive == true {
+                self.packages = [Purchases.Package]()
+                self.containsWoodwinds = false
+                self.containsBrass = false
+            } else if purchaserInfo?.entitlements["brass"]?.isActive == true || purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
+                guard let allDiscountedPackages = availableOfferings?.offering(identifier: "all-discounted")?.availablePackages else {
+                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    return
+                }
+                
+                self.packages = allDiscountedPackages
+                self.containsWoodwinds = false
+                self.containsBrass = false
+            } else if purchaserInfo?.entitlements["flute"]?.isActive == true || purchaserInfo?.entitlements["clarinet"]?.isActive == true || purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+                guard let woodwindsDiscountedPackages = availableOfferings?.offering(identifier: "woodwinds-discounted")?.availablePackages else {
+                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    return
+                }
+                
+                self.packages = woodwindsDiscountedPackages
+                self.containsWoodwinds = false
+            } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true || purchaserInfo?.entitlements["french_horn"]?.isActive == true || purchaserInfo?.entitlements["trombone"]?.isActive == true || purchaserInfo?.entitlements["euphonium"]?.isActive == true || purchaserInfo?.entitlements["tuba"]?.isActive == true {
+                guard let brassDiscountedPackages = availableOfferings?.offering(identifier: "brass-discounted")?.availablePackages else {
+                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    return
+                }
+                
+                self.packages = brassDiscountedPackages
+                self.containsBrass = false
+            } else {
+                guard let currentPackages = availableOfferings?.current?.availablePackages else {
+                    self.showAlert(title: "Error", message: "No current offerings found") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    return
+                }
+                
+                self.packages = currentPackages
             }
             
             if self.packages.count == 0 {
-                self.showAlert(title: "Error", message: "No packages found") { (action) in
-                    self.dismiss(animated: true)
+                if !self.containsBrass && !self.containsWoodwinds {
+                    self.showAlert(title: "Congratulations!", message: "You have bought all instruments and have infinite access to them, including future additions!") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                } else {
+                    self.showAlert(title: "Error", message: "No packages found") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+            
+            let freeGroup = self.chartsController.allInstrumentGroups[UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)]
+            
+            for (index, package) in self.packages.enumerated() {
+                if package.product.localizedTitle == freeGroup.groupTitle {
+                    self.packages.remove(at: index)
+                    break
                 }
             }
             
@@ -190,9 +268,15 @@ class PurchaseInstrumentsViewController: UIViewController {
             
             
             Purchases.shared.purchasePackage(packages[index]) { (transaction, purchaserInfo, error, userCancelled) in
-                if !userCancelled {
-                    self.navigationController?.dismiss(animated: true)
+                if userCancelled {
+                    self.showAlert(title: "Purchase cancelled", message: nil) { (action) in
+                        self.collectionView(self.collectionView, didSelectItemAt: self.selectedCellIndex!)
+                    }
+                    
+                    return
                 }
+                
+                self.dismiss(animated: true)
             }
         } else {
             dismiss(animated: true)
@@ -219,11 +303,20 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
         if packages.count != 0 {
             switch section {
             case 0:
-                return 1
+                if packages.count != 0 {
+                    return 1
+                }
+                return 0
             case 1:
-                return 2
+                if containsBrass || containsWoodwinds {
+                    return 2
+                }
+                return 0
             case 2:
-                return packages.count - 3
+                if containsBrass || containsWoodwinds {
+                    return packages.count - 3
+                }
+                return 0
             default:
                 return 0
             }
@@ -264,8 +357,26 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             
             return cell
         case 2:
+            var purchasableGroups = chartsController.purchasableInstrumentGroups
+            
+            if !containsWoodwinds && !containsBrass {
+                // TODO: -
+            } else if !containsWoodwinds {
+                for (index, group) in purchasableGroups.enumerated().reversed() {
+                    if group.groupTitle == "Flute" || group.groupTitle == "Clarinet" || group.groupTitle == "Saxophone" {
+                        purchasableGroups.remove(at: index)
+                    }
+                }
+            } else if !containsBrass {
+                for (index, group) in purchasableGroups.enumerated().reversed() {
+                    if group.groupTitle == "Trumpet" || group.groupTitle == "French Horn" || group.groupTitle == "Saxophone" {
+                        purchasableGroups.remove(at: index)
+                    }
+                }
+            }
+            
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PurchaseInstrumentSmallCell.reuseIdentifier, for: indexPath) as? PurchaseInstrumentSmallCell else { fatalError() }
-            cell.purchasableInstrumentGroup = chartsController.purchasableInstrumentGroups[indexPath.item]
+            cell.purchasableInstrumentGroup = purchasableGroups[indexPath.item]
             cell.package = packages[indexPath.item + 3]
             cell.setupSubviews()
             cell.backgroundColor = UIColor(named: "LightestAqua")
