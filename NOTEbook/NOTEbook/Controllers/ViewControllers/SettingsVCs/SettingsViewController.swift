@@ -11,13 +11,14 @@ enum Section: String {
 }
 
 import MessageUI
+import Purchases
 import SafariServices
 import UIKit
 
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
-    private var actions = ["Shop Instruments", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow"]
+    private var actions = ["Shop Instruments", "Restore Purchases", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow"]
     private var about = [["Current Version", "1.1.0 (6)"]]
     
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
@@ -151,15 +152,17 @@ class SettingsViewController: UITableViewController {
             case 0:
                 openIAPScreen()
             case 1:
-                openTutorial()
+                restorePurchases()
             case 2:
-                openAppStore()
+                openTutorial()
             case 3:
-                openFeedback()
+                openAppStore()
             case 4:
+                openFeedback()
+            case 5:
                 // Only occurs when not AppStore version
                 openEmail()
-            case 5:
+            case 6:
                 // Only occurs in Debug version
                 openIAPFlow()
             default:
@@ -208,6 +211,29 @@ class SettingsViewController: UITableViewController {
         present(vc, animated: true)
     }
     
+    private func restorePurchases() {
+        let loadingIndicator = UIActivityIndicatorView(style: .medium)
+        loadingIndicator.hidesWhenStopped = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: loadingIndicator)
+        
+        loadingIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
+        
+        Purchases.shared.restoreTransactions { (purchaserInfo, error) in
+            loadingIndicator.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+
+            self.tableView.deselectRow(at: IndexPath(row: 1, section: 1), animated: true)
+
+            if let error = error {
+                self.showAlert(title: "Error restoring purchases: \(error.localizedDescription)", message: nil)
+            } else {
+                self.showAlert(title: "Purchases restored!", message: nil)
+            }
+        }
+    }
+    
     private func openTutorial() {
         UserDefaults.standard.set(false, forKey: UserDefaults.Keys.tutorialHasShown)
         navigationController?.popToRootViewController(animated: true)
@@ -231,9 +257,16 @@ class SettingsViewController: UITableViewController {
     }
     
     private func openIAPFlow() {
-        UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
         ChartsController.shared.updatePurchasableInstrumentGroups()
-        navigationController?.popToRootViewController(animated: true)
+        
+        if ChartsController.shared.purchasableInstrumentGroups.count != 0 {
+            UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            showAlert(title: "Error", message: "Reset purchases to open IAP flow") { (action) in
+                self.tableView.deselectRow(at: IndexPath(row: 6, section: 1), animated: true)
+            }
+        }
     }
     
     @objc private func toggleHaptics() {

@@ -251,7 +251,6 @@ class PurchaseInstrumentsViewController: UIViewController {
     }
     
     @objc private func continuePressed() {
-        // TODO: - Purchase selected item if anything selected before dismissing
         if let selectedIndex = selectedCellIndex {
             let index: Int
             

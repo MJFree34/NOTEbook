@@ -137,63 +137,72 @@ extension ChartsController {
     }
     
     func updatePurchasableInstrumentGroups() {
-        var groups = allInstrumentGroups
-        
-        let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         
         if iapFlowHasShown {
-            groups.remove(at: freeInstrumentIndex)
-        }
-        
-        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
-            if purchaserInfo?.entitlements["all"]?.isActive == true {
-                groups.removeAll()
-            } else if purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
-                if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
-                    groups.remove(at: 3)
-                } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
-                    groups.remove(at: 4)
-                } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
-                    groups.remove(at: 5)
-                } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
-                    groups.remove(at: 6)
-                } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
-                    groups.remove(at: 7)
-                }
-                
-                groups.removeFirst(Constants.numberOfWoodwindGroups)
-            } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
-                groups.removeLast(Constants.numberOfBrassGroups)
-                
-                if purchaserInfo?.entitlements["flute"]?.isActive == true {
-                    groups.remove(at: 0)
-                } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
-                    groups.remove(at: 1)
-                } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
-                    groups.remove(at: 2)
-                }
-            } else {
-                if purchaserInfo?.entitlements["flute"]?.isActive == true {
-                    groups.remove(at: 0)
-                } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
-                    groups.remove(at: 1)
-                } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
-                    groups.remove(at: 2)
-                } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
-                    groups.remove(at: 3)
-                } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
-                    groups.remove(at: 4)
-                } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
-                    groups.remove(at: 5)
-                } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
-                    groups.remove(at: 6)
-                } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
-                    groups.remove(at: 7)
-                }
-            }
+            var groups = allInstrumentGroups
             
-            self.purchasableInstrumentGroups = groups
+            let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
+            let freeGroup = allInstrumentGroups[freeInstrumentIndex]
+            
+            Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+                if purchaserInfo?.entitlements["all"]?.isActive == true {
+                    groups.removeAll()
+                } else if purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
+                    if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
+                        groups.remove(at: 3)
+                    } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
+                        groups.remove(at: 4)
+                    } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
+                        groups.remove(at: 5)
+                    } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
+                        groups.remove(at: 6)
+                    } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
+                        groups.remove(at: 7)
+                    }
+                    
+                    groups.removeFirst(Constants.numberOfWoodwindGroups)
+                } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
+                    groups.removeLast(Constants.numberOfBrassGroups)
+                    
+                    if purchaserInfo?.entitlements["flute"]?.isActive == true {
+                        groups.remove(at: 0)
+                    } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
+                        groups.remove(at: 1)
+                    } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+                        groups.remove(at: 2)
+                    }
+                } else {
+                    if purchaserInfo?.entitlements["flute"]?.isActive == true {
+                        groups.remove(at: 0)
+                    } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
+                        groups.remove(at: 1)
+                    } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+                        groups.remove(at: 2)
+                    } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
+                        groups.remove(at: 3)
+                    } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
+                        groups.remove(at: 4)
+                    } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
+                        groups.remove(at: 5)
+                    } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
+                        groups.remove(at: 6)
+                    } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
+                        groups.remove(at: 7)
+                    }
+                }
+                
+                for (index, group) in groups.enumerated() {
+                    if group.groupTitle == freeGroup.groupTitle {
+                        groups.remove(at: index)
+                        break
+                    }
+                }
+                
+                self.purchasableInstrumentGroups = groups
+            }
+        } else {
+            purchasableInstrumentGroups = allInstrumentGroups
         }
     }
 }

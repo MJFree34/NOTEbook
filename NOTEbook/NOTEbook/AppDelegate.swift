@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: "HFqficbsMOZqTtlTYRadSMfyFkwVlSpn")
         
+        print(Purchases.shared.appUserID)
+        
         StoreKitHelper.incrementNumberOfTimesLaunched()
         
         UserDefaults.standard.register(defaults: [
