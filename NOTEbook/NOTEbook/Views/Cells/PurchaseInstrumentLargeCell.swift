@@ -109,11 +109,15 @@ class PurchaseInstrumentLargeCell: UICollectionViewCell {
     private func calculateDiscount() -> Int {
         switch package.identifier {
         case "all":
-            return 56
-        case "woodwinds":
-            return 33
-        case "brass":
-            return 60
+            let purchasableGroups = ChartsController.shared.purchasableInstrumentGroups
+            let instrumentPrice = UserDefaults.standard.double(forKey: UserDefaults.Keys.instrumentPrice)
+            let allPrice = Double(truncating: package.product.price)
+            
+            let invertedFraction = allPrice / (instrumentPrice * Double(purchasableGroups.count))
+            let fraction = 1 - invertedFraction
+            let percentage = Int(ceil(fraction * 100))
+            
+            return percentage
         default:
             return 0
         }

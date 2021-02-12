@@ -103,12 +103,26 @@ class PurchaseInstrumentSmallCell: UICollectionViewCell {
     
     private func calculateDiscount() -> Int {
         switch package.identifier {
-        case "all":
-            return 56
-        case "woodwinds":
-            return 33
-        case "brass":
-            return 60
+        case "woodwinds", "brass":
+            let purchasableGroups = ChartsController.shared.purchasableInstrumentGroups
+            let instrumentPrice = UserDefaults.standard.double(forKey: UserDefaults.Keys.instrumentPrice)
+            let groupPrice = Double(truncating: package.product.price)
+            
+            var groupPurchasableGroups = [PurchasableInstrumentGroup]()
+            
+            for group in purchasableGroups {
+                if package.identifier == "woodwinds" && (group.groupTitle == "Flute" || group.groupTitle == "Clarinet" || group.groupTitle == "Saxophone") {
+                    groupPurchasableGroups.append(group)
+                } else if package.identifier == "brass" && (group.groupTitle == "Trumpet" || group.groupTitle == "French Horn" || group.groupTitle == "Trombone" || group.groupTitle == "Euphonium" || group.groupTitle == "Tuba") {
+                    groupPurchasableGroups.append(group)
+                }
+            }
+            
+            let invertedFraction = groupPrice / (instrumentPrice * Double(groupPurchasableGroups.count))
+            let fraction = 1 - invertedFraction
+            let percentage = Int(ceil(fraction * 100))
+            
+            return percentage
         default:
             return 0
         }

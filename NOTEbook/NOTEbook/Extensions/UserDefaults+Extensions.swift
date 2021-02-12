@@ -23,5 +23,7 @@ extension UserDefaults {
         
         static let numberOfTimesLaunched = "NumberOfTimesLaunched"
         static let lastVersion = "LastVersion"
+        
+        static let instrumentPrice = "InstrumentPrice"
     }
 }

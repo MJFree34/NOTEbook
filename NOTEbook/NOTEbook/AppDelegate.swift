@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.Keys.gradientEnabled: true,
             UserDefaults.Keys.fingeringsLimit: 7,
             UserDefaults.Keys.chosenFreeInstrumentGroupIndex: 0,
-            UserDefaults.Keys.iapFlowHasShown: false
+            UserDefaults.Keys.iapFlowHasShown: false,
+            UserDefaults.Keys.instrumentPrice: 1.99
         ])
         
         return true
