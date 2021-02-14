@@ -14,6 +14,9 @@ class ChartsController {
     
     private(set) var chartCategories = [ChartCategory]()
     
+    private(set) var purchasedChartCategories = [ChartCategory]()
+    private(set) var purchasableInstrumentGroups = [PurchasableInstrumentGroup]()
+    
     var currentChart: FingeringChart
     var currentChartCategory: ChartCategory
     
@@ -54,8 +57,6 @@ class ChartsController {
         return groups
     }()
     
-    var purchasableInstrumentGroups = [PurchasableInstrumentGroup]()
-    
     init() {
         do {
             chartCategories = try ChartsLoader.loadCharts()
@@ -84,7 +85,7 @@ extension ChartsController {
     }
     
     func changeCurrentChart(to categoryIndex: Int, instrumentIndex: Int) {
-        currentChartCategory = chartCategories[categoryIndex]
+        currentChartCategory = purchasedChartCategories[categoryIndex]
         currentChart = currentChartCategory.fingeringCharts[instrumentIndex]
         
         UserDefaults.standard.setValue(categoryIndex, forKey: UserDefaults.Keys.currentChartCategoryIndex)
@@ -135,7 +136,9 @@ extension ChartsController {
         
         return (instrumentMaximumFingerings >= fingeringsLimit ? chartCellHeight - ((instrumentMaximumFingerings - fingeringsLimit) * chartFingeringHeight) : chartCellHeight)
     }
-    
+}
+
+extension ChartsController {
     func updatePurchasableInstrumentGroups() {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         
@@ -200,9 +203,73 @@ extension ChartsController {
                 }
                 
                 self.purchasableInstrumentGroups = groups
+                self.updatePurchasedChartCategories()
             }
         } else {
             purchasableInstrumentGroups = allInstrumentGroups
+            updatePurchasedChartCategories()
         }
+    }
+    
+    private func updatePurchasedChartCategories() {
+        var purchasedInstrumentGroups = [PurchasableInstrumentGroup]()
+        
+        for group in allInstrumentGroups {
+            var purchased = true
+            
+            for purchasableGroup in purchasableInstrumentGroups {
+                if purchasableGroup.groupTitle == group.groupTitle {
+                    purchased = false
+                    break
+                }
+            }
+            
+            if purchased {
+                purchasedInstrumentGroups.append(group)
+            }
+        }
+        
+        var purchasedCC = [ChartCategory]()
+        
+        for group in purchasedInstrumentGroups {
+            switch group.groupTitle {
+            case "Flute":
+                purchasedCC.append(chartCategory(with: "Flute")!)
+            case "Clarinet":
+                purchasedCC.append(chartCategory(with: "Clarinet")!)
+            case "Saxophone":
+                purchasedCC.append(chartCategory(with: "Saxophone")!)
+            case "Trumpet":
+                purchasedCC.append(chartCategory(with: "Trumpet")!)
+            case "French Horn":
+                purchasedCC.append(chartCategory(with: "Mellophone")!)
+                purchasedCC.append(chartCategory(with: "French Horn")!)
+            case "Trombone":
+                purchasedCC.append(chartCategory(with: "Trombone")!)
+            case "Euphonium":
+                purchasedCC.append(chartCategory(with: "Baritone")!)
+                purchasedCC.append(chartCategory(with: "Euphonium")!)
+            case "Tuba":
+                purchasedCC.append(chartCategory(with: "Tuba")!)
+            default:
+                print("Inproper group title \(#fileID) \(#line)")
+            }
+        }
+        
+        purchasedChartCategories = purchasedCC
+        
+        print("PurchasableInstrumentGroups: \(purchasableInstrumentGroups)")
+        print("PurchasedInstrumentGroups: \(purchasedInstrumentGroups)")
+        print("PurchasedChartCategoriesCount: \(purchasedChartCategories.count)")
+    }
+    
+    private func chartCategory(with name: String) -> ChartCategory? {
+        for category in chartCategories {
+            if category.name == name {
+                return category
+            }
+        }
+        
+        return nil
     }
 }

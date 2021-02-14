@@ -39,11 +39,10 @@ class PurchaseInstrumentsViewController: UIViewController {
     private lazy var woodwindsPurchasableInstrumentGroup: PurchasableInstrumentGroup = {
         var titles = [String]()
         
-        var i = 0
-        
-        while i < chartsController.purchasableInstrumentGroups.count - 1 && chartsController.purchasableInstrumentGroups[i].groupTitle != "Trumpet" && chartsController.purchasableInstrumentGroups[i].groupTitle != "French Horn" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Trombone" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Euphonium" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Tuba" {
-            titles.append(chartsController.purchasableInstrumentGroups[i].groupTitle)
-            i += 1
+        for group in chartsController.purchasableInstrumentGroups {
+            if group.groupTitle == "Flute" || group.groupTitle == "Clarinet" || group.groupTitle == "Saxophone" {
+                titles.append(group.groupTitle)
+            }
         }
         
         return PurchasableInstrumentGroup(groupTitle: "Woodwinds", instrumentTitles: titles)
@@ -52,14 +51,11 @@ class PurchaseInstrumentsViewController: UIViewController {
     private lazy var brassPurchasableInstrumentGroup: PurchasableInstrumentGroup = {
         var titles = [String]()
         
-        var i = chartsController.purchasableInstrumentGroups.count - 1
-        
-        while i >= 0 && chartsController.purchasableInstrumentGroups[i].groupTitle != "Flute" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Clarinet" && chartsController.purchasableInstrumentGroups[i].groupTitle != "Saxophone" {
-            titles.append(chartsController.purchasableInstrumentGroups[i].groupTitle)
-            i -= 1
+        for group in chartsController.purchasableInstrumentGroups {
+            if group.groupTitle == "Trumpet" || group.groupTitle == "French Horn" || group.groupTitle == "Trombone" || group.groupTitle == "Euphonium" || group.groupTitle == "Tuba" {
+                titles.append(group.groupTitle)
+            }
         }
-        
-        titles.reverse()
         
         return PurchasableInstrumentGroup(groupTitle: "Brass", instrumentTitles: titles)
     }()
@@ -317,6 +313,7 @@ class PurchaseInstrumentsViewController: UIViewController {
                     return
                 }
                 
+                self.chartsController.updatePurchasableInstrumentGroups()
                 self.dismiss(animated: true)
             }
         } else {
@@ -408,7 +405,7 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
                 }
             } else if offeringType == .brassDiscounted || offeringType == .allDiscountedWoodwindInstruments {
                 for (index, group) in purchasableGroups.enumerated().reversed() {
-                    if group.groupTitle == "Trumpet" || group.groupTitle == "French Horn" || group.groupTitle == "Saxophone" {
+                    if group.groupTitle == "Trumpet" || group.groupTitle == "French Horn" || group.groupTitle == "Trombone" || group.groupTitle == "Euphonium" || group.groupTitle == "Tuba" {
                         purchasableGroups.remove(at: index)
                     }
                 }
