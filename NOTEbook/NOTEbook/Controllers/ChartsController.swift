@@ -64,8 +64,8 @@ class ChartsController {
             fatalError("Fail to load charts")
         }
         
-        currentChartCategory = chartCategories[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentChartCategoryIndex)]
-        currentChart = currentChartCategory.fingeringCharts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentInstrumentIndex)]
+        currentChartCategory = chartCategories[0]
+        currentChart = currentChartCategory.fingeringCharts[0]
         
         updatePurchasableInstrumentGroups()
     }
@@ -90,6 +90,8 @@ extension ChartsController {
         
         UserDefaults.standard.setValue(categoryIndex, forKey: UserDefaults.Keys.currentChartCategoryIndex)
         UserDefaults.standard.setValue(instrumentIndex, forKey: UserDefaults.Keys.currentInstrumentIndex)
+        
+        NotificationCenter.default.post(Notification(name: .reloadInstrumentViews))
     }
     
     func noteFingeringInCurrentChart(for note: Note) -> NoteFingering? {
@@ -139,7 +141,7 @@ extension ChartsController {
 }
 
 extension ChartsController {
-    func updatePurchasableInstrumentGroups() {
+    func updatePurchasableInstrumentGroups(freeInstrument: Bool = false) {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         
         if iapFlowHasShown {
@@ -203,15 +205,14 @@ extension ChartsController {
                 }
                 
                 self.purchasableInstrumentGroups = groups
-                self.updatePurchasedChartCategories()
+                self.updatePurchasedChartCategories(freeInstrument: freeInstrument)
             }
         } else {
             purchasableInstrumentGroups = allInstrumentGroups
-            updatePurchasedChartCategories()
         }
     }
     
-    private func updatePurchasedChartCategories() {
+    private func updatePurchasedChartCategories(freeInstrument: Bool = false) {
         var purchasedInstrumentGroups = [PurchasableInstrumentGroup]()
         
         for group in allInstrumentGroups {
@@ -252,15 +253,25 @@ extension ChartsController {
             case "Tuba":
                 purchasedCC.append(chartCategory(with: "Tuba")!)
             default:
-                print("Inproper group title \(#fileID) \(#line)")
+                print("Improper group title \(#fileID) \(#line)")
             }
         }
         
         purchasedChartCategories = purchasedCC
         
-        print("PurchasableInstrumentGroups: \(purchasableInstrumentGroups)")
-        print("PurchasedInstrumentGroups: \(purchasedInstrumentGroups)")
-        print("PurchasedChartCategoriesCount: \(purchasedChartCategories.count)")
+        if freeInstrument {
+            switch purchasedChartCategories[0].name {
+            case "Mellophone", "Baritone":
+                changeCurrentChart(to: 1, instrumentIndex: 0)
+            default:
+                changeCurrentChart(to: 0, instrumentIndex: 0)
+            }
+        } else {
+            currentChartCategory = purchasedChartCategories[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentChartCategoryIndex)]
+            currentChart = currentChartCategory.fingeringCharts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentInstrumentIndex)]
+            
+            NotificationCenter.default.post(Notification(name: .reloadInstrumentViews))
+        }
     }
     
     private func chartCategory(with name: String) -> ChartCategory? {

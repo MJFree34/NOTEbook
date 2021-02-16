@@ -291,7 +291,7 @@ class PurchaseInstrumentsViewController: UIViewController {
     @objc private func continuePressed() {
         if let selectedIndex = selectedCellIndex {
             let index: Int
-            
+
             switch selectedIndex.section {
             case 0:
                 index = selectedIndex.row
@@ -302,17 +302,17 @@ class PurchaseInstrumentsViewController: UIViewController {
             default:
                 fatalError()
             }
-            
-            
+
+
             Purchases.shared.purchasePackage(packages[index]) { (transaction, purchaserInfo, error, userCancelled) in
                 if userCancelled {
                     self.showAlert(title: "Purchase cancelled", message: nil) { (action) in
                         self.collectionView(self.collectionView, didSelectItemAt: self.selectedCellIndex!)
                     }
-                    
+
                     return
                 }
-                
+
                 self.chartsController.updatePurchasableInstrumentGroups()
                 self.dismiss(animated: true)
             }

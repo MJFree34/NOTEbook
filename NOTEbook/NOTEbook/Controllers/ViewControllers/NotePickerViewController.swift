@@ -27,13 +27,15 @@ class NotePickerViewController: UIViewController {
     
     private var picker: NotePicker!
     private var staffView: StaffView!
+    private var leftIndicator: UIImageView!
+    private var rightIndicator: UIImageView!
     private var tutorialView: TutorialView!
     private var letterArrowViewController = LetterArrowViewController()
     private var titleLabel = InstrumentTitleLabel()
     
-    private var staffCenterYAnchor: NSLayoutConstraint!
-    private var leftIndicatorCenterYAnchor: NSLayoutConstraint!
-    private var rightIndicatorCenterYAnchor: NSLayoutConstraint!
+    private var staffCenterYAnchor = NSLayoutConstraint()
+    private var leftIndicatorCenterYAnchor = NSLayoutConstraint()
+    private var rightIndicatorCenterYAnchor = NSLayoutConstraint()
     
     private lazy var settingsBarButton: UIBarButtonItem = {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
@@ -110,10 +112,6 @@ class NotePickerViewController: UIViewController {
         navigationItem.titleView = gridButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
         
-        if Configuration.appConfiguration == .appStore && Configuration.appConfiguration != .simulator {
-            StoreKitHelper.displayStoreKit()
-        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(noteTypeIndexReceived), name: .noteTypeIndexReceived, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadInstrumentViews), name: .reloadInstrumentViews, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(tutorialDismissed), name: .tutorialDismissed, object: nil)
@@ -128,6 +126,10 @@ class NotePickerViewController: UIViewController {
             displayTutorialView()
         } else {
             addSwipeGestures()
+        }
+        
+        if Configuration.appConfiguration == .appStore && Configuration.appConfiguration != .simulator {
+            StoreKitHelper.displayStoreKit()
         }
         
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown) {
@@ -202,7 +204,6 @@ class NotePickerViewController: UIViewController {
         let staffWidth = view.bounds.width - 40
         staffView = StaffView(width: staffWidth)
         staffView.isUserInteractionEnabled = false
-        
         view.addSubview(staffView)
         
         NSLayoutConstraint.activate([
@@ -224,18 +225,17 @@ class NotePickerViewController: UIViewController {
     }
     
     private func configureIndicators() {
-        let leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
+        leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
         leftIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(leftIndicator)
         
-        let rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
+        rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
         rightIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rightIndicator)
         
         NSLayoutConstraint.activate([
             leftIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -45 * NotePickerViewController.spaceBetweenStaffLines / 20),
-            
-            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45 * NotePickerViewController.spaceBetweenStaffLines / 20),
+            rightIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 45 * NotePickerViewController.spaceBetweenStaffLines / 20)
         ])
         
         leftIndicatorCenterYAnchor = leftIndicator.centerYAnchor.constraint(equalTo: picker.centerYAnchor)

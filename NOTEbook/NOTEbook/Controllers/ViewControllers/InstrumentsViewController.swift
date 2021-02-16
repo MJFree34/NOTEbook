@@ -13,7 +13,29 @@ class InstrumentsViewController: UIViewController {
     
     private var selectedCategory: IndexPath!
     
-//    private lazy var brassStartIndex: Int = chartsController.chartCategories.count - Constants.numberOfBrassGroups
+    private lazy var woodwindsChartCategories: [ChartCategory] = {
+        var categories = [ChartCategory]()
+        
+        for category in chartsController.purchasedChartCategories {
+            if category.name == "Flute" || category.name == "Clarinet" || category.name == "Saxophone" {
+                categories.append(category)
+            }
+        }
+        
+        return categories
+    }()
+    
+    private lazy var brassChartCategories: [ChartCategory] = {
+        var categories = [ChartCategory]()
+        
+        for category in chartsController.purchasedChartCategories {
+            if category.name == "Trumpet" || category.name == "Mellophone" || category.name == "French Horn" || category.name == "Trombone" || category.name == "Baritone" || category.name == "Euphonium" || category.name == "Tuba" {
+                categories.append(category)
+            }
+        }
+        
+        return categories
+    }()
     
     private lazy var tableView: UITableView = {
         let tv = UITableView()
@@ -63,43 +85,39 @@ class InstrumentsViewController: UIViewController {
 extension InstrumentsViewController: UITableViewDelegate {}
 
 extension InstrumentsViewController: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch section {
-//        case 0:
-//            return brassStartIndex
-//        case 1:
-//            return chartsController.chartCategories.count - brassStartIndex
-//        default:
-//            return 100
-//        }
-        return chartsController.purchasedChartCategories.count
+        switch section {
+        case 0:
+            return woodwindsChartCategories.count
+        case 1:
+            return brassChartCategories.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-//        let cellChartCategoryName = chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)].name
-        let cellChartCategoryName = chartsController.purchasedChartCategories[indexPath.row].name
+        let cellChartCategory = indexPath.section == 0 ? woodwindsChartCategories[indexPath.row] : brassChartCategories[indexPath.row]
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.textLabel?.textColor = UIColor(named: "Black")
-        cell.textLabel?.text = cellChartCategoryName
+        cell.textLabel?.text = cellChartCategory.name
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         
-        if cellChartCategoryName == chartsController.currentChartCategory.name {
+        if cellChartCategory.name == chartsController.currentChartCategory.name {
             cell.tintColor = UIColor(named: "MediumRed")
             selectedCategory = indexPath
         } else {
             cell.tintColor = UIColor(named: "MediumAqua")
         }
         
-//        if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)].fingeringCharts.count == 1 {
-        if chartsController.purchasedChartCategories[indexPath.row].fingeringCharts.count == 1 {
+        if cellChartCategory.fingeringCharts.count == 1 {
             cell.accessoryType = .checkmark
             cell.accessoryView = nil
         } else {
@@ -114,8 +132,10 @@ extension InstrumentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
-//            if chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)].fingeringCharts.count == 1 {
-            if chartsController.purchasedChartCategories[indexPath.row].fingeringCharts.count == 1 {
+            let cellChartCategory = indexPath.section == 0 ? woodwindsChartCategories[indexPath.row] : brassChartCategories[indexPath.row]
+            let categoryIndex = indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindsChartCategories.count
+            
+            if cellChartCategory.fingeringCharts.count == 1 {
                 if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
                     UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
                 }
@@ -128,34 +148,32 @@ extension InstrumentsViewController: UITableViewDataSource {
                 
                 selectedCategory = indexPath
                 
-                chartsController.changeCurrentChart(to: indexPath.row, instrumentIndex: 0)
-//                chartsController.changeCurrentChart(to: (indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex), instrumentIndex: 0)
+                chartsController.changeCurrentChart(to: categoryIndex, instrumentIndex: 0)
                 
                 navigationController?.popToRootViewController(animated: true)
                 NotificationCenter.default.post(name: .reloadInstrumentViews, object: nil)
             } else {
-//                let vc = InstrumentsCategoryViewController(category: chartsController.chartCategories[(indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex)], index: (indexPath.section == 0 ? indexPath.row : indexPath.row + brassStartIndex))
-                let vc = InstrumentsCategoryViewController(category: chartsController.purchasedChartCategories[indexPath.row], index: indexPath.row)
+                let vc = InstrumentsCategoryViewController(category: cellChartCategory, index: categoryIndex)
                 navigationController?.pushViewController(vc, animated: true)
             }
         }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let titleCell = TitleCell()
-//        titleCell.titleLabel.textColor = UIColor(named: "DarkAqua")
-//        titleCell.titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
-//        titleCell.cellDivider.isHidden = false
-//        
-//        switch section {
-//        case 0:
-//            titleCell.titleLabel.text = "Woodwinds"
-//        case 1:
-//            titleCell.titleLabel.text = "Brass"
-//        default:
-//            break
-//        }
-//        
-//        return titleCell
-//    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let titleCell = TitleCell()
+        titleCell.titleLabel.textColor = UIColor(named: "DarkAqua")
+        titleCell.titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        titleCell.cellDivider.isHidden = false
+        
+        switch section {
+        case 0:
+            titleCell.titleLabel.text = "Woodwinds"
+        case 1:
+            titleCell.titleLabel.text = "Brass"
+        default:
+            break
+        }
+        
+        return titleCell
+    }
 }

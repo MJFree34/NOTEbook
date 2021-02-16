@@ -1,4 +1,8 @@
 {
+  "identifier" : "A571B32E",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
     {
       "displayPrice" : "6.99",
@@ -249,6 +253,6 @@
   ],
   "version" : {
     "major" : 1,
-    "minor" : 0
+    "minor" : 1
   }
 }

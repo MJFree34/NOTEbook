@@ -257,10 +257,9 @@ class SettingsViewController: UITableViewController {
     }
     
     private func openIAPFlow() {
-        ChartsController.shared.updatePurchasableInstrumentGroups()
-        
         if ChartsController.shared.purchasableInstrumentGroups.count != 0 {
             UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
+            ChartsController.shared.updatePurchasableInstrumentGroups()
             navigationController?.popToRootViewController(animated: true)
         } else {
             showAlert(title: "Error", message: "Reset purchases to open IAP flow") { (action) in

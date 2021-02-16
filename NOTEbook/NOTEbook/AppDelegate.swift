@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.Keys.instrumentPrice: 1.99
         ])
         
+        _ = ChartsController.shared
+        
         return true
     }
 }
