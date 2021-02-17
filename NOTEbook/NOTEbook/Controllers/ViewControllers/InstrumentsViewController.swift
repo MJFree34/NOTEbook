@@ -86,13 +86,21 @@ extension InstrumentsViewController: UITableViewDelegate {}
 
 extension InstrumentsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if woodwindsChartCategories.count == 0 || brassChartCategories.count == 0 {
+            return 1
+        }
+        
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return woodwindsChartCategories.count
+            if woodwindsChartCategories.count != 0 {
+                return woodwindsChartCategories.count
+            } else {
+                return brassChartCategories.count
+            }
         case 1:
             return brassChartCategories.count
         default:
@@ -102,7 +110,13 @@ extension InstrumentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let cellChartCategory = indexPath.section == 0 ? woodwindsChartCategories[indexPath.row] : brassChartCategories[indexPath.row]
+        let cellChartCategory: ChartCategory
+        
+        if indexPath.section == 0 && woodwindsChartCategories.count != 0 {
+            cellChartCategory = woodwindsChartCategories[indexPath.row]
+        } else {
+            cellChartCategory = brassChartCategories[indexPath.row]
+        }
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         cell.textLabel?.textColor = UIColor(named: "Black")
@@ -132,7 +146,14 @@ extension InstrumentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
-            let cellChartCategory = indexPath.section == 0 ? woodwindsChartCategories[indexPath.row] : brassChartCategories[indexPath.row]
+            let cellChartCategory: ChartCategory
+            
+            if indexPath.section == 0 && woodwindsChartCategories.count != 0 {
+                cellChartCategory = woodwindsChartCategories[indexPath.row]
+            } else {
+                cellChartCategory = brassChartCategories[indexPath.row]
+            }
+            
             let categoryIndex = indexPath.section == 0 ? indexPath.row : indexPath.row + woodwindsChartCategories.count
             
             if cellChartCategory.fingeringCharts.count == 1 {
@@ -165,13 +186,14 @@ extension InstrumentsViewController: UITableViewDataSource {
         titleCell.titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleCell.cellDivider.isHidden = false
         
-        switch section {
-        case 0:
-            titleCell.titleLabel.text = "Woodwinds"
-        case 1:
+        if section == 0 {
+            if woodwindsChartCategories.count != 0 {
+                titleCell.titleLabel.text = "Woodwinds"
+            } else {
+                titleCell.titleLabel.text = "Brass"
+            }
+        } else if section == 1 {
             titleCell.titleLabel.text = "Brass"
-        default:
-            break
         }
         
         return titleCell
