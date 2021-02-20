@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.register(defaults: [
             UserDefaults.Keys.tutorialHasShown: false,
-            UserDefaults.Keys.currentInstrumentIndex: 0,
-            UserDefaults.Keys.currentChartCategoryIndex: 3,
+            UserDefaults.Keys.currentChartCategoryName: "Trumpet",
+            UserDefaults.Keys.currentChartIndex: 0,
             UserDefaults.Keys.hapticsEnabled: true,
             UserDefaults.Keys.gradientEnabled: true,
             UserDefaults.Keys.fingeringsLimit: 7,

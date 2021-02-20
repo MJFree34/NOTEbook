@@ -169,7 +169,7 @@ extension InstrumentsViewController: UITableViewDataSource {
                 
                 selectedCategory = indexPath
                 
-                chartsController.changeCurrentChart(to: categoryIndex, instrumentIndex: 0)
+                chartsController.changeCurrentChart(to: chartsController.purchasedChartCategories[categoryIndex].name, chartIndex: 0)
                 
                 navigationController?.popToRootViewController(animated: true)
                 NotificationCenter.default.post(name: .reloadInstrumentViews, object: nil)

@@ -105,7 +105,7 @@ class SelectInstrumentViewController: UIViewController {
         if let selectedInteger = selectedCellIndex?.item {
             UserDefaults.standard.set(selectedInteger, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)
-            chartsController.updatePurchasableInstrumentGroups(freeInstrument: true)
+            chartsController.updatePurchasableInstrumentGroups()
 
             let vc = PurchaseInstrumentsViewController()
             navigationController?.pushViewController(vc, animated: true)

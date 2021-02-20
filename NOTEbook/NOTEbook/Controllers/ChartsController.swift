@@ -17,8 +17,8 @@ class ChartsController {
     private(set) var purchasedChartCategories = [ChartCategory]()
     private(set) var purchasableInstrumentGroups = [PurchasableInstrumentGroup]()
     
-    var currentChart: FingeringChart
-    var currentChartCategory: ChartCategory
+    var currentChart: FingeringChart!
+    var currentChartCategory: ChartCategory!
     
     lazy var allInstrumentGroups: [PurchasableInstrumentGroup] = {
         var groups = [PurchasableInstrumentGroup]()
@@ -64,8 +64,8 @@ class ChartsController {
             fatalError("Fail to load charts")
         }
         
-        currentChartCategory = chartCategories[0]
-        currentChart = currentChartCategory.fingeringCharts[0]
+        currentChartCategory = chartCategory(with: UserDefaults.standard.string(forKey: UserDefaults.Keys.currentChartCategoryName)!)!
+        currentChart = currentChartCategory.fingeringCharts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentChartIndex)]
         
         updatePurchasableInstrumentGroups()
     }
@@ -84,14 +84,12 @@ extension ChartsController {
         return currentChartCategory.fingeringCharts.count
     }
     
-    func changeCurrentChart(to categoryIndex: Int, instrumentIndex: Int) {
-        currentChartCategory = purchasedChartCategories[categoryIndex]
-        currentChart = currentChartCategory.fingeringCharts[instrumentIndex]
+    func changeCurrentChart(to categoryName: String, chartIndex: Int) {
+        currentChartCategory = chartCategory(with: categoryName)!
+        currentChart = currentChartCategory.fingeringCharts[chartIndex]
         
-        UserDefaults.standard.setValue(categoryIndex, forKey: UserDefaults.Keys.currentChartCategoryIndex)
-        UserDefaults.standard.setValue(instrumentIndex, forKey: UserDefaults.Keys.currentInstrumentIndex)
-        
-        NotificationCenter.default.post(Notification(name: .reloadInstrumentViews))
+        UserDefaults.standard.setValue(categoryName, forKey: UserDefaults.Keys.currentChartCategoryName)
+        UserDefaults.standard.setValue(chartIndex, forKey: UserDefaults.Keys.currentChartIndex)
     }
     
     func noteFingeringInCurrentChart(for note: Note) -> NoteFingering? {
@@ -138,10 +136,20 @@ extension ChartsController {
         
         return (instrumentMaximumFingerings >= fingeringsLimit ? chartCellHeight - ((instrumentMaximumFingerings - fingeringsLimit) * chartFingeringHeight) : chartCellHeight)
     }
+    
+    private func chartCategory(with categoryName: String) -> ChartCategory? {
+        for category in chartCategories {
+            if category.name == categoryName {
+                return category
+            }
+        }
+        
+        return nil
+    }
 }
 
 extension ChartsController {
-    func updatePurchasableInstrumentGroups(freeInstrument: Bool = false) {
+    func updatePurchasableInstrumentGroups() {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         
         if iapFlowHasShown {
@@ -205,14 +213,14 @@ extension ChartsController {
                 }
                 
                 self.purchasableInstrumentGroups = groups
-                self.updatePurchasedChartCategories(freeInstrument: freeInstrument)
+                self.updatePurchasedChartCategories()
             }
         } else {
             purchasableInstrumentGroups = allInstrumentGroups
         }
     }
     
-    private func updatePurchasedChartCategories(freeInstrument: Bool = false) {
+    private func updatePurchasedChartCategories() {
         var purchasedInstrumentGroups = [PurchasableInstrumentGroup]()
         
         for group in allInstrumentGroups {
@@ -259,28 +267,8 @@ extension ChartsController {
         
         purchasedChartCategories = purchasedCC
         
-        if freeInstrument {
-            switch purchasedChartCategories[0].name {
-            case "Mellophone", "Baritone":
-                changeCurrentChart(to: 1, instrumentIndex: 0)
-            default:
-                changeCurrentChart(to: 0, instrumentIndex: 0)
-            }
-        } else {
-            currentChartCategory = purchasedChartCategories[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentChartCategoryIndex)]
-            currentChart = currentChartCategory.fingeringCharts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentInstrumentIndex)]
-            
-            NotificationCenter.default.post(Notification(name: .reloadInstrumentViews))
-        }
-    }
-    
-    private func chartCategory(with name: String) -> ChartCategory? {
-        for category in chartCategories {
-            if category.name == name {
-                return category
-            }
-        }
+        changeCurrentChart(to: purchasedChartCategories[0].name, chartIndex: 0)
         
-        return nil
+        NotificationCenter.default.post(Notification(name: .reloadInstrumentViews))
     }
 }

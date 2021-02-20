@@ -286,14 +286,13 @@ class NotePickerViewController: UIViewController {
     
     @objc private func reloadInstrumentViews() {
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
+        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
         updateNoteType(to: .natural, animate: false) { _ in
             self.currentNoteType = .natural
             self.view.isUserInteractionEnabled = true
             self.picker.reloadData()
         }
-        
-        picker.reloadData()
         
         updateStaffView()
         updateIndicators()

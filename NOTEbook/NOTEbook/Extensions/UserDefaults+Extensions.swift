@@ -17,8 +17,8 @@ extension UserDefaults {
         static let gradientEnabled = "GradientEnabled"
         static let fingeringsLimit = "FingeringsLimit"
         
-        static let currentInstrumentIndex = "CurrentInstrumentTypeIndex2"
-        static let currentChartCategoryIndex = "CurrentChartCategoryIndex2"
+        static let currentChartCategoryName = "CurrentChartCategoryName"
+        static let currentChartIndex = "CurrentChartIndex"
         static let chosenFreeInstrumentGroupIndex = "ChosenFreeInstrumentGroupIndex"
         
         static let numberOfTimesLaunched = "NumberOfTimesLaunched"
