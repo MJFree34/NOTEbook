@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if firstLaunchDate.timeIntervalSince1970 < now.timeIntervalSince1970 - twoWeeks && Configuration.appConfiguration != .testFlight {
                 UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
-            } else {
+            } else if Configuration.appConfiguration != .debug {
                 UserDefaults.standard.set(false, forKey: UserDefaults.Keys.freeTrialOver)
             }
         }
