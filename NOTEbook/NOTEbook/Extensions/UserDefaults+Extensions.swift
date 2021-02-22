@@ -23,6 +23,9 @@ extension UserDefaults {
         
         static let numberOfTimesLaunched = "NumberOfTimesLaunched"
         static let lastVersion = "LastVersion"
+        static let firstLaunchDate = "FirstLaunchDate"
+        static let firstLaunch = "FirstLaunch"
+        static let freeTrialOver = "FreeTrialOver"
         
         static let instrumentPrice = "InstrumentPrice"
     }

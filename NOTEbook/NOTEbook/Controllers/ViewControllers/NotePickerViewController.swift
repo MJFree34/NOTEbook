@@ -132,7 +132,10 @@ class NotePickerViewController: UIViewController {
             StoreKitHelper.displayStoreKit()
         }
         
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown) {
+        let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
+        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
+        
+        if !iapFlowHasShown && freeTrialOver {
             showAlert(title: "Trial Ended", message: "Your free trial has ended. Select your permanently free instrument now!", actionTitle: "Select instrument") { action in
                 let vc = SelectInstrumentViewController()
                 

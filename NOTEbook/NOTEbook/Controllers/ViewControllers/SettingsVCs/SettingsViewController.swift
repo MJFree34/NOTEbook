@@ -18,7 +18,7 @@ import UIKit
 class SettingsViewController: UITableViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
-    private var actions = ["Shop Instruments", "Restore Purchases", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow"]
+    private var actions = ["Shop Instruments", "Restore Purchases", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow", "End Free Trial"]
     private var about = [["Current Version", "1.1.0 (6)"]]
     
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
@@ -148,23 +148,23 @@ class SettingsViewController: UITableViewController {
                 break
             }
         case .actions:
-            switch indexPath.row {
-            case 0:
+            switch actions[indexPath.row] {
+            case "Shop Instruments":
                 openIAPScreen()
-            case 1:
+            case "Restore Purchases":
                 restorePurchases()
-            case 2:
+            case "Show Tutorial":
                 openTutorial()
-            case 3:
+            case "Rate in App Store":
                 openAppStore()
-            case 4:
+            case "Send Feedback":
                 openFeedback()
-            case 5:
-                // Only occurs when not AppStore version
+            case "Email Developer":
                 openEmail()
-            case 6:
-                // Only occurs in Debug version
+            case "Reset IAP Flow":
                 openIAPFlow()
+            case "End Free Trial":
+                endFreeTrial()
             default:
                 break
             }
@@ -178,6 +178,9 @@ class SettingsViewController: UITableViewController {
     }
     
     private func editSettingsForDevice() {
+        let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
+        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
+        
         if isOldDevice() {
             customize.removeAll { $0 == "Haptics Enabled" }
         }
@@ -188,6 +191,17 @@ class SettingsViewController: UITableViewController {
         
         if Configuration.appConfiguration != .debug {
             actions.removeAll { $0 == "Reset IAP Flow" }
+            actions.removeAll { $0 == "End Free Trial" }
+        }
+        
+        if !freeTrialOver && !iapFlowHasShown {
+            actions.removeAll { $0 == "Shop Instruments" }
+            actions.removeAll { $0 == "Restore Purchases" }
+            actions.removeAll { $0 == "Reset IAP Flow" }
+        }
+        
+        if freeTrialOver {
+            actions.removeAll { $0 == "End Free Trial" }
         }
     }
     
@@ -266,6 +280,11 @@ class SettingsViewController: UITableViewController {
                 self.tableView.deselectRow(at: IndexPath(row: 6, section: 1), animated: true)
             }
         }
+    }
+    
+    private func endFreeTrial() {
+        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
+        tableView.deselectRow(at: IndexPath(row: 4, section: 1), animated: true)
     }
     
     @objc private func toggleHaptics() {

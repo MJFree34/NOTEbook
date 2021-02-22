@@ -151,8 +151,11 @@ extension ChartsController {
 extension ChartsController {
     func updatePurchasableInstrumentGroups() {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
+        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
         
-        if iapFlowHasShown {
+        if freeTrialOver && !iapFlowHasShown {
+            purchasableInstrumentGroups = allInstrumentGroups
+        } else if freeTrialOver {
             var groups = allInstrumentGroups
             
             let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
@@ -216,7 +219,7 @@ extension ChartsController {
                 self.updatePurchasedChartCategories()
             }
         } else {
-            purchasableInstrumentGroups = allInstrumentGroups
+            updatePurchasedChartCategories()
         }
     }
     

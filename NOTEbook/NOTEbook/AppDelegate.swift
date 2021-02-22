@@ -15,10 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: "HFqficbsMOZqTtlTYRadSMfyFkwVlSpn")
         
-        print(Purchases.shared.appUserID)
-        
-        StoreKitHelper.incrementNumberOfTimesLaunched()
-        
         UserDefaults.standard.register(defaults: [
             UserDefaults.Keys.tutorialHasShown: false,
             UserDefaults.Keys.currentChartCategoryName: "Trumpet",
@@ -28,10 +24,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.Keys.fingeringsLimit: 7,
             UserDefaults.Keys.chosenFreeInstrumentGroupIndex: 0,
             UserDefaults.Keys.iapFlowHasShown: false,
-            UserDefaults.Keys.instrumentPrice: 1.99
+            UserDefaults.Keys.instrumentPrice: 1.99,
+            UserDefaults.Keys.firstLaunchDate: 0.0,
+            UserDefaults.Keys.firstLaunch: true,
+            UserDefaults.Keys.freeTrialOver: false
         ])
+        
+        let now = Date()
+        
+        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.firstLaunch) {
+            UserDefaults.standard.set(now.timeIntervalSince1970, forKey: UserDefaults.Keys.firstLaunchDate)
+            UserDefaults.standard.set(false, forKey: UserDefaults.Keys.firstLaunch)
+        } else {
+            let firstLaunchDate = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: UserDefaults.Keys.firstLaunchDate))
+            let twoWeeks = 60.0 * 60.0 * 24.0 * 14.0
+            
+            if firstLaunchDate.timeIntervalSince1970 < now.timeIntervalSince1970 - twoWeeks && Configuration.appConfiguration != .testFlight {
+                UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
+            } else {
+                UserDefaults.standard.set(false, forKey: UserDefaults.Keys.freeTrialOver)
+            }
+        }
+        
+        StoreKitHelper.incrementNumberOfTimesLaunched()
         
         return true
     }
 }
-
