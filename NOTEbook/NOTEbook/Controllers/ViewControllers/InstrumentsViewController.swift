@@ -64,7 +64,8 @@ class InstrumentsViewController: UIViewController {
         
         title = "Instruments"
         
-        if chartsController.purchasableInstrumentGroups.count != 0 {
+        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
+        if  freeTrialOver {
             let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
             let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
             let shopBarButtonItem = UIBarButtonItem(image: shopImage, style: .plain, target: self, action: #selector(shopPressed))

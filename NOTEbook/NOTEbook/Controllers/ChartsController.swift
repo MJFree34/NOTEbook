@@ -153,7 +153,7 @@ extension ChartsController {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
         
-        if freeTrialOver && !iapFlowHasShown {
+        if !freeTrialOver && !iapFlowHasShown {
             purchasableInstrumentGroups = allInstrumentGroups
         } else if freeTrialOver {
             var groups = allInstrumentGroups

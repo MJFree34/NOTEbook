@@ -303,7 +303,6 @@ class PurchaseInstrumentsViewController: UIViewController {
                 fatalError()
             }
 
-
             Purchases.shared.purchasePackage(packages[index]) { (transaction, purchaserInfo, error, userCancelled) in
                 if userCancelled {
                     self.showAlert(title: "Purchase cancelled", message: nil) { (action) in
