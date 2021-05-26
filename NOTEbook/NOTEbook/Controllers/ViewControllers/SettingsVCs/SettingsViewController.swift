@@ -247,7 +247,7 @@ class SettingsViewController: UITableViewController {
             loadingIndicator.stopAnimating()
             self.view.isUserInteractionEnabled = true
 
-            self.tableView.deselectRow(at: IndexPath(row: 1, section: 1), animated: true)
+            self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "Restore Purchases") ?? 0, section: 1), animated: true)
 
             if let error = error {
                 self.showAlert(title: "Error restoring purchases: \(error.localizedDescription)", message: nil)
@@ -274,7 +274,7 @@ class SettingsViewController: UITableViewController {
         let appID = 1523098465
         if let url = URL(string: "https://itunes.apple.com/app/id\(appID)?action=write-review") {
             UIApplication.shared.open(url, options: [:]) { [weak self] _ in
-                self?.tableView.deselectRow(at: IndexPath(row: 2, section: 1), animated: true)
+                self?.tableView.deselectRow(at: IndexPath(row: self?.actions.firstIndex(of: "Rate in App Store") ?? 0, section: 1), animated: true)
             }
         }
     }
@@ -285,15 +285,16 @@ class SettingsViewController: UITableViewController {
             ChartsController.shared.updatePurchasableInstrumentGroups()
             navigationController?.popToRootViewController(animated: true)
         } else {
-            showAlert(title: "Error", message: "Reset purchases to open IAP flow") { (action) in
-                self.tableView.deselectRow(at: IndexPath(row: 6, section: 1), animated: true)
+            showAlert(title: "Error", message: "Reset purchases to open IAP flow") { action in
+                self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "Reset IAP Flow") ?? 0, section: 1), animated: true)
             }
         }
     }
     
     private func endFreeTrial() {
         UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
-        tableView.deselectRow(at: IndexPath(row: 4, section: 1), animated: true)
+        tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func toggleHaptics() {
@@ -347,6 +348,6 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
-        tableView.deselectRow(at: IndexPath(row: 3, section: 1), animated: true)
+        tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "Email Developer") ?? 0, section: 1), animated: true)
     }
 }

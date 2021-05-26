@@ -79,20 +79,19 @@ class InstrumentsViewController: UIViewController {
         tableView.reloadData()
     }
     
+    @objc private func shopPressed() {
+        ChartsController.shared.updatePurchasableInstrumentGroups()
+        let vc = PurchaseInstrumentsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        view.addBackground()
-    }
-    
-    @objc
-    private func shopPressed() {
-        ChartsController.shared.updatePurchasableInstrumentGroups()
-        let vc = PurchaseInstrumentsViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        view.addBackgroundGradient()
     }
 }
 

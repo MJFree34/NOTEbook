@@ -62,6 +62,10 @@ class TutorialView: UIView {
         return button
     }()
     
+    var pageIndex: Int {
+        return pageControl.currentPage
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -133,6 +137,10 @@ class TutorialView: UIView {
                 stackView.trailingAnchor.constraint(equalTo: tutorialPage.trailingAnchor, constant: -10)
             ])
         }
+    }
+    
+    func select(index: Int) {
+        pageControlValueChanged(to: index, animated: false)
     }
     
     private func createSubviews(information: [String : String]) -> [UIView] {
