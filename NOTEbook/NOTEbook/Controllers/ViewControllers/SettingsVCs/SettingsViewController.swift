@@ -80,6 +80,7 @@ class SettingsViewController: UITableViewController {
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
         
         cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
         switch sections[indexPath.section] {
         case .customize:
@@ -117,6 +118,14 @@ class SettingsViewController: UITableViewController {
             cell.textLabel?.text = actions[indexPath.row]
             cell.textLabel?.textColor = UIColor(named: "DarkAqua")
             cell.textLabel?.highlightedTextColor = UIColor(named: "LightAqua")
+            
+            if actions[indexPath.row] == "Shop Instruments" {
+                let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
+                let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
+                let shopImageView = UIImageView(image: shopImage)
+                shopImageView.tintColor = UIColor(named: "MediumAqua")
+                cell.accessoryView = shopImageView
+            }
         case .about:
             cell.textLabel?.text = about[indexPath.row][0]
             cell.selectionStyle = .none

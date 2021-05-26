@@ -24,7 +24,6 @@ class InstrumentsViewController: UIViewController {
         
         return categories
     }()
-    
     private lazy var brassChartCategories: [ChartCategory] = {
         var categories = [ChartCategory]()
         
@@ -36,7 +35,6 @@ class InstrumentsViewController: UIViewController {
         
         return categories
     }()
-    
     private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear
@@ -65,6 +63,13 @@ class InstrumentsViewController: UIViewController {
         ])
         
         title = "Instruments"
+        
+        if chartsController.purchasableInstrumentGroups.count != 0 {
+            let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
+            let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
+            let shopBarButtonItem = UIBarButtonItem(image: shopImage, style: .plain, target: self, action: #selector(shopPressed))
+            navigationItem.rightBarButtonItem = shopBarButtonItem
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +84,14 @@ class InstrumentsViewController: UIViewController {
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
         view.addBackground()
+    }
+    
+    @objc
+    private func shopPressed() {
+        ChartsController.shared.updatePurchasableInstrumentGroups()
+        let vc = PurchaseInstrumentsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
