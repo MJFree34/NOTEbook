@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum AppConfiguration {
-    case simulator
-    case debug
-    case testFlight
-    case appStore
+enum AppConfiguration: String {
+    case simulator = "Simulator"
+    case debug = "Debug"
+    case testFlight = "TestFlight"
+    case appStore = "AppStore"
 }
 
 struct Configuration {

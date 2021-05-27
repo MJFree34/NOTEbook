@@ -17,9 +17,22 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
-    private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
-    private var actions = ["Shop Instruments", "Restore Purchases", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow", "End Free Trial"]
-    private var about = [["\(Bundle.main.appName) Version", "\(Bundle.main.appVersion) (\(Bundle.main.buildNumber))"]]
+    private var customize = ["Fingerings Limit",
+                             "Haptics Enabled",
+                             "Gradient Enabled"]
+    private var actions = ["Shop Instruments",
+                           "Restore Purchases",
+                           "Show Tutorial",
+                           "Rate in App Store",
+                           "Send Feedback",
+                           "Email Developer",
+                           "Reset IAP Flow",
+                           "End Free Trial"]
+    private var about = [["\(Bundle.main.appName) Version", "\(Bundle.main.appVersion) (\(Bundle.main.buildNumber))"],
+                         ["Configuration", "\(Configuration.appConfiguration.rawValue)"],
+                         ["Free Trial Left", ""]]
+    
+    private var freeTrialTimer: Timer?
     
     private lazy var fingeringsLimitAccessoryLabel: UILabel = {
         let lab = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
@@ -63,6 +76,8 @@ class SettingsViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
+        
+        refreshFreeTrialLeft()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,9 +85,19 @@ class SettingsViewController: UIViewController {
         
         tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "Shop Instruments") ?? 0, section: 1), animated: true)
         
-//        updateBackground()
-        
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
+        
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
+            freeTrialTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementFreeTrialLeft), userInfo: nil, repeats: true)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
+            freeTrialTimer?.invalidate()
+        }
     }
     
     private func editSettingsForDevice() {
@@ -87,13 +112,19 @@ class SettingsViewController: UIViewController {
             actions.removeAll { $0 == "Email Developer" }
         }
         
+        if freeTrialOver {
+            about.removeAll { $0[0] == "Free Trial Left" }
+            
+            if Configuration.appConfiguration == .debug {
+                actions.removeAll { $0 == "End Free Trial" }
+            }
+        }
+        
         if Configuration.appConfiguration != .debug {
             actions.removeAll { $0 == "Reset IAP Flow" }
             actions.removeAll { $0 == "End Free Trial" }
         } else if !freeTrialOver && !iapFlowHasShown {
             actions.removeAll { $0 == "Reset IAP Flow" }
-        } else if freeTrialOver {
-            actions.removeAll { $0 == "End Free Trial" }
         }
         
         if !freeTrialOver && !iapFlowHasShown {
@@ -115,6 +146,13 @@ class SettingsViewController: UIViewController {
         
         // iPhone 6s or 6s Plus
         return identifier == "iPhone8,1" || identifier == "iPhone8,2"
+    }
+    
+    private func refreshFreeTrialLeft() {
+        var freeTrialData = FreeTrialData()
+        about[2][1] = "\(freeTrialData.daysRemaining)D:\(freeTrialData.hoursRemaining)H:\(freeTrialData.minutesRemaining)M:\(freeTrialData.secondsRemaining)S"
+        
+        tableView.reloadRows(at: [IndexPath(row: 2, section: 2)], with: .none)
     }
     
     private func openIAPScreen() {
@@ -186,6 +224,10 @@ class SettingsViewController: UIViewController {
         ChartsController.shared.updatePurchasableInstrumentGroups()
         tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc private func decrementFreeTrialLeft() {
+        refreshFreeTrialLeft()
     }
     
     @objc private func toggleHaptics() {
@@ -287,7 +329,7 @@ extension SettingsViewController: UITableViewDataSource {
             cell.textLabel?.text = about[indexPath.row][0]
             cell.selectionStyle = .none
             
-            let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+            let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 20))
             accessoryLabel.font = UIFont.preferredFont(forTextStyle: .body)
             accessoryLabel.text = about[indexPath.row][1]
             accessoryLabel.textColor = .secondaryLabel

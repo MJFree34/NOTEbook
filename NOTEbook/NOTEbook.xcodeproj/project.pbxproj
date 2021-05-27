@@ -53,6 +53,7 @@
 		9A977BE22571688B00F93C2E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A977BE12571688B00F93C2E /* StoreKit.framework */; };
 		9A99A9B92587E8E600AF84BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A99A9B82587E8E600AF84BD /* Constants.swift */; };
 		9AA55E11265FD7E6008BCDCF /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA55E10265FD7E6008BCDCF /* Bundle+Extensions.swift */; };
+		9AA55E13266034FE008BCDCF /* FreeTrialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA55E12266034FE008BCDCF /* FreeTrialData.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
 		9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */; };
 		9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */; };
@@ -151,6 +152,7 @@
 		9A977BE12571688B00F93C2E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		9A99A9B82587E8E600AF84BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9AA55E10265FD7E6008BCDCF /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		9AA55E12266034FE008BCDCF /* FreeTrialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTrialData.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
 		9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
 		9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				9AD55739249955AD0078CB7E /* Note.swift */,
 				9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */,
 				9AF3A7E12534A10300B3008B /* Configuration.swift */,
+				9AA55E12266034FE008BCDCF /* FreeTrialData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				9AB9B901250581B200A5B0E6 /* FingeringScrollView.swift in Sources */,
 				9A054E122584755E00DCE8FF /* PurchasableInstrumentGroup.swift in Sources */,
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
+				9AA55E13266034FE008BCDCF /* FreeTrialData.swift in Sources */,
 				9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */,
 				9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */,
 				9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
