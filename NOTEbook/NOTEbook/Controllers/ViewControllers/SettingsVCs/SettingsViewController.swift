@@ -90,16 +90,17 @@ class SettingsViewController: UIViewController {
         if Configuration.appConfiguration != .debug {
             actions.removeAll { $0 == "Reset IAP Flow" }
             actions.removeAll { $0 == "End Free Trial" }
+        } else if !freeTrialOver && !iapFlowHasShown {
+            actions.removeAll { $0 == "Reset IAP Flow" }
+        } else if freeTrialOver {
+            actions.removeAll { $0 == "End Free Trial" }
         }
         
         if !freeTrialOver && !iapFlowHasShown {
-            actions.removeAll { $0 == "Shop Instruments" }
+            if Configuration.appConfiguration != .testFlight {
+                actions.removeAll { $0 == "Shop Instruments" }
+            }
             actions.removeAll { $0 == "Restore Purchases" }
-            actions.removeAll { $0 == "Reset IAP Flow" }
-        }
-        
-        if freeTrialOver {
-            actions.removeAll { $0 == "End Free Trial" }
         }
     }
     
