@@ -24,6 +24,7 @@ class InstrumentsViewController: UIViewController {
         
         return categories
     }()
+    
     private lazy var brassChartCategories: [ChartCategory] = {
         var categories = [ChartCategory]()
         
@@ -35,6 +36,7 @@ class InstrumentsViewController: UIViewController {
         
         return categories
     }()
+    
     private lazy var tableView: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = .clear

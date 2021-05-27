@@ -15,7 +15,7 @@ import Purchases
 import SafariServices
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UIViewController {
     private let sections = [Section.customize, Section.actions, Section.about]
     private var customize = ["Fingerings Limit", "Haptics Enabled", "Gradient Enabled"]
     private var actions = ["Shop Instruments", "Restore Purchases", "Show Tutorial", "Rate in App Store", "Send Feedback", "Email Developer", "Reset IAP Flow", "End Free Trial"]
@@ -32,6 +32,20 @@ class SettingsViewController: UITableViewController {
         return lab
     }()
     
+    private lazy var tableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .insetGrouped)
+        tv.backgroundColor = .clear
+        tv.delegate = self
+        tv.dataSource = self
+        tv.showsVerticalScrollIndicator = false
+        tv.estimatedRowHeight = 60
+        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tv.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tv
+    }()
+    
     override func viewDidLoad() {
         editSettingsForDevice()
         
@@ -39,12 +53,16 @@ class SettingsViewController: UITableViewController {
         
         title = "Settings"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        tableView.isScrollEnabled = false
-        tableView.estimatedRowHeight = 60
-        tableView.delegate = self
-        tableView.dataSource = self
+        view.addBackground()
+        
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,137 +71,6 @@ class SettingsViewController: UITableViewController {
         updateBackground()
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return customize.count
-        case 1:
-            return actions.count
-        case 2:
-            return about.count
-        default:
-            return 0
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        cell.backgroundColor = UIColor(named: "LightestAqua")
-        cell.selectedBackgroundView = UIView()
-        cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
-        
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
-        
-        switch sections[indexPath.section] {
-        case .customize:
-            cell.textLabel?.text = customize[indexPath.row]
-            cell.textLabel?.textColor = UIColor(named: "Black")
-            
-            switch indexPath.row {
-            case 0:
-                cell.accessoryType = .disclosureIndicator
-                
-                cell.addSubview(fingeringsLimitAccessoryLabel)
-                
-                NSLayoutConstraint.activate([
-                    fingeringsLimitAccessoryLabel.centerYAnchor.constraint(equalTo: cell.textLabel!.centerYAnchor),
-                    fingeringsLimitAccessoryLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -40)
-                ])
-            case 1, 2:
-                cell.selectionStyle = .none
-                
-                let switchView = UISwitch()
-                switchView.onTintColor = UIColor(named: "MediumAqua")
-                if indexPath.row == 1 {
-                    switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
-                    switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
-                } else if indexPath.row == 2 {
-                    switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled)
-                    switchView.addTarget(self, action: #selector(toggleGradient), for: .valueChanged)
-                }
-                
-                cell.accessoryView = switchView
-            default:
-                break
-            }
-        case .actions:
-            cell.textLabel?.text = actions[indexPath.row]
-            cell.textLabel?.textColor = UIColor(named: "DarkAqua")
-            cell.textLabel?.highlightedTextColor = UIColor(named: "LightAqua")
-            
-            if actions[indexPath.row] == "Shop Instruments" {
-                let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
-                let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
-                let shopImageView = UIImageView(image: shopImage)
-                shopImageView.tintColor = UIColor(named: "MediumAqua")
-                cell.accessoryView = shopImageView
-            }
-        case .about:
-            cell.textLabel?.text = about[indexPath.row][0]
-            cell.selectionStyle = .none
-            
-            let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-            accessoryLabel.font = UIFont.preferredFont(forTextStyle: .body)
-            accessoryLabel.text = about[indexPath.row][1]
-            accessoryLabel.textColor = .secondaryLabel
-            accessoryLabel.textAlignment = .right
-            
-            cell.accessoryView = accessoryLabel
-        }
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch sections[indexPath.section] {
-        case .customize:
-            switch indexPath.row {
-            case 0:
-                let vc = FingeringLimitViewController(style: .insetGrouped)
-                navigationController?.pushViewController(vc, animated: true)
-            case 1:
-                break
-            case 2:
-                break
-            default:
-                break
-            }
-        case .actions:
-            switch actions[indexPath.row] {
-            case "Shop Instruments":
-                openIAPScreen()
-            case "Restore Purchases":
-                restorePurchases()
-            case "Show Tutorial":
-                openTutorial()
-            case "Rate in App Store":
-                openAppStore()
-            case "Send Feedback":
-                openFeedback()
-            case "Email Developer":
-                openEmail()
-            case "Reset IAP Flow":
-                openIAPFlow()
-            case "End Free Trial":
-                endFreeTrial()
-            default:
-                break
-            }
-        case .about:
-            break
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].rawValue.capitalized
     }
     
     private func editSettingsForDevice() {
@@ -328,6 +215,141 @@ class SettingsViewController: UITableViewController {
         } else {
             tableView.backgroundColor = UIColor(named: "LightestestAqua")
         }
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate {}
+
+extension SettingsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return customize.count
+        case 1:
+            return actions.count
+        case 2:
+            return about.count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        cell.backgroundColor = UIColor(named: "LightestAqua")
+        cell.selectedBackgroundView = UIView()
+        cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
+        
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        
+        switch sections[indexPath.section] {
+        case .customize:
+            cell.textLabel?.text = customize[indexPath.row]
+            cell.textLabel?.textColor = UIColor(named: "Black")
+            
+            switch indexPath.row {
+            case 0:
+                cell.accessoryType = .disclosureIndicator
+                
+                cell.addSubview(fingeringsLimitAccessoryLabel)
+                
+                NSLayoutConstraint.activate([
+                    fingeringsLimitAccessoryLabel.centerYAnchor.constraint(equalTo: cell.textLabel!.centerYAnchor),
+                    fingeringsLimitAccessoryLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor, constant: -40)
+                ])
+            case 1, 2:
+                cell.selectionStyle = .none
+                
+                let switchView = UISwitch()
+                switchView.onTintColor = UIColor(named: "MediumAqua")
+                if indexPath.row == 1 {
+                    switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
+                    switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
+                } else if indexPath.row == 2 {
+                    switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled)
+                    switchView.addTarget(self, action: #selector(toggleGradient), for: .valueChanged)
+                }
+                
+                cell.accessoryView = switchView
+            default:
+                break
+            }
+        case .actions:
+            cell.textLabel?.text = actions[indexPath.row]
+            cell.textLabel?.textColor = UIColor(named: "DarkAqua")
+            cell.textLabel?.highlightedTextColor = UIColor(named: "LightAqua")
+            
+            if actions[indexPath.row] == "Shop Instruments" {
+                let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
+                let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
+                let shopImageView = UIImageView(image: shopImage)
+                shopImageView.tintColor = UIColor(named: "MediumAqua")
+                cell.accessoryView = shopImageView
+            }
+        case .about:
+            cell.textLabel?.text = about[indexPath.row][0]
+            cell.selectionStyle = .none
+            
+            let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+            accessoryLabel.font = UIFont.preferredFont(forTextStyle: .body)
+            accessoryLabel.text = about[indexPath.row][1]
+            accessoryLabel.textColor = .secondaryLabel
+            accessoryLabel.textAlignment = .right
+            
+            cell.accessoryView = accessoryLabel
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch sections[indexPath.section] {
+        case .customize:
+            switch indexPath.row {
+            case 0:
+                let vc = FingeringLimitViewController(style: .insetGrouped)
+                navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                break
+            case 2:
+                break
+            default:
+                break
+            }
+        case .actions:
+            switch actions[indexPath.row] {
+            case "Shop Instruments":
+                openIAPScreen()
+            case "Restore Purchases":
+                restorePurchases()
+            case "Show Tutorial":
+                openTutorial()
+            case "Rate in App Store":
+                openAppStore()
+            case "Send Feedback":
+                openFeedback()
+            case "Email Developer":
+                openEmail()
+            case "Reset IAP Flow":
+                openIAPFlow()
+            case "End Free Trial":
+                endFreeTrial()
+            default:
+                break
+            }
+        case .about:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].rawValue.capitalized
     }
 }
 

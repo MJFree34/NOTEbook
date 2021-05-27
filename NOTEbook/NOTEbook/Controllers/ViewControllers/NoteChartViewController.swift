@@ -92,7 +92,7 @@ class NoteChartViewController: UIViewController {
             UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
         }
         
-        let vc = SettingsViewController(style: .insetGrouped)
+        let vc = SettingsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
