@@ -68,6 +68,8 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "Shop Instruments") ?? 0, section: 1), animated: true)
+        
         updateBackground()
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
@@ -180,6 +182,7 @@ class SettingsViewController: UIViewController {
     
     private func endFreeTrial() {
         UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
+        ChartsController.shared.updatePurchasableInstrumentGroups()
         tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
         navigationController?.popToRootViewController(animated: true)
     }

@@ -148,6 +148,12 @@ class NotePickerViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        picker.endScroll()
+    }
+    
     private func addSwipeGestures() {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(changeNoteType))
         swipeLeft.numberOfTouchesRequired = 1
@@ -445,28 +451,7 @@ class NotePickerViewController: UIViewController {
     }
 }
 
-extension NotePickerViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = indexPath.item
-        
-        let selectedNote = chartsController.currentNote(from: currentNoteType, index: index)
-        let selectedFingering = chartsController.currentFingering(note: selectedNote)
-        
-        if currentNoteFingering != selectedFingering {
-            if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
-                UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
-            }
-            
-            currentNoteFingering = selectedFingering
-            
-            letterArrowViewController.fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
-            
-            letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
-            
-            letterArrowViewController.showOrHideLetterAccidentals()
-        }
-    }
-}
+extension NotePickerViewController: UICollectionViewDelegate {}
 
 extension NotePickerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -495,5 +480,26 @@ extension NotePickerViewController: UICollectionViewDataSource {
         cell.reloadViews()
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let index = indexPath.item
+        
+        let selectedNote = chartsController.currentNote(from: currentNoteType, index: index)
+        let selectedFingering = chartsController.currentFingering(note: selectedNote)
+        
+        if currentNoteFingering != selectedFingering {
+            if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
+                UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+            }
+            
+            currentNoteFingering = selectedFingering
+            
+            letterArrowViewController.fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
+            
+            letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
+            
+            letterArrowViewController.showOrHideLetterAccidentals()
+        }
     }
 }

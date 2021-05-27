@@ -153,9 +153,11 @@ extension ChartsController {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
         
-        if !freeTrialOver && !iapFlowHasShown {
+        if freeTrialOver && !iapFlowHasShown {
+            // To pick free instrument from all purchasable groups
             purchasableInstrumentGroups = allInstrumentGroups
         } else if freeTrialOver {
+            // Where one or more has been purchased or was free
             var groups = allInstrumentGroups
             
             let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
@@ -219,6 +221,7 @@ extension ChartsController {
                 self.updatePurchasedChartCategories()
             }
         } else {
+            // Free trial currently or TF user
             updatePurchasedChartCategories()
         }
     }

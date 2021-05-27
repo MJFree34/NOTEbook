@@ -201,6 +201,10 @@ extension NotePicker {
 
 // MARK: - UIScrollViewDelegate
 extension NotePicker: UIScrollViewDelegate {
+    func endScroll() {
+        didScroll(end: true)
+    }
+    
     private func didScroll(end: Bool) {
         let center = convert(collectionView.center, to: collectionView)
         if let indexPath = collectionView.indexPathForItem(at: center) {
