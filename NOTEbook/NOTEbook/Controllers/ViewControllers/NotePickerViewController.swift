@@ -429,18 +429,19 @@ class NotePickerViewController: UIViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection),
-              tutorialView != nil else { return }
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
         view.addBackgroundGradient()
         
-        let pageIndex = tutorialView.pageIndex
-        
-        tutorialView.removeFromSuperview()
-        tutorialView = nil
-        
-        displayTutorialView()
-        tutorialView.select(index: pageIndex)
+        if tutorialView != nil {
+            let pageIndex = tutorialView.pageIndex
+            
+            tutorialView.removeFromSuperview()
+            tutorialView = nil
+            
+            displayTutorialView()
+            tutorialView.select(index: pageIndex)
+        }
     }
 }
 
