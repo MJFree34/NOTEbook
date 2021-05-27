@@ -437,7 +437,7 @@ class NotePickerViewController: UIViewController {
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        view.addBackgroundGradient()
+        view.addBackground()
         
         if tutorialView != nil {
             let pageIndex = tutorialView.pageIndex

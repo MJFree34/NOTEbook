@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func addBackgroundGradient() {
+    private func addBackgroundGradient() {
         removeAllSublayers()
         
         let gradient = CAGradientLayer()
@@ -22,10 +22,7 @@ extension UIView {
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
             backgroundColor = nil
             
-            let gradient = CAGradientLayer()
-            gradient.frame = bounds
-            gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestestAqua")!.cgColor]
-            layer.insertSublayer(gradient, at: 0)
+            addBackgroundGradient()
         } else {
             removeAllSublayers()
             

@@ -8,35 +8,65 @@
 
 import UIKit
 
-class FingeringLimitViewController: UITableViewController {
+class FingeringLimitViewController: UIViewController {
     let fingeringLimitOptions = [1, 2, 3, 4, 5, 6, 7]
     
-    var selectedIndex: IndexPath!
+    private var selectedIndex: IndexPath!
+    
+    private lazy var tableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .insetGrouped)
+        tv.backgroundColor = .clear
+        tv.delegate = self
+        tv.dataSource = self
+        tv.showsVerticalScrollIndicator = false
+        tv.estimatedRowHeight = 60
+        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tv.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tv
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Fingering Limit"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        tableView.isScrollEnabled = false
-        tableView.estimatedRowHeight = 60
-        tableView.delegate = self
-        tableView.dataSource = self
+        view.addBackground()
+        
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        updateBackground()
+        view.addBackground()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
+        
+        view.addBackground()
+    }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension FingeringLimitViewController: UITableViewDelegate {}
+
+extension FingeringLimitViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fingeringLimitOptions.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         cell.backgroundColor = UIColor(named: "LightestAqua")
@@ -55,7 +85,7 @@ class FingeringLimitViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         guard let cell2 = tableView.cellForRow(at: selectedIndex) else { return }
         
@@ -67,28 +97,7 @@ class FingeringLimitViewController: UITableViewController {
         NotificationCenter.default.post(name: .reloadInstrumentViews, object: nil)
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Number of fingerings shown for each note"
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        
-        updateBackground()
-    }
-    
-    private func updateBackground() {
-        tableView.backgroundView = nil
-        tableView.backgroundColor = nil
-        
-        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
-            let backgroundView = UIView(frame: tableView.frame)
-            backgroundView.addBackgroundGradient()
-            tableView.backgroundView = backgroundView
-        } else {
-            tableView.backgroundColor = UIColor(named: "LightestestAqua")
-        }
     }
 }

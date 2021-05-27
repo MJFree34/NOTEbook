@@ -117,7 +117,7 @@ class SelectInstrumentViewController: UIViewController {
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        view.addBackgroundGradient()
+        view.addBackground()
     }
 }
 

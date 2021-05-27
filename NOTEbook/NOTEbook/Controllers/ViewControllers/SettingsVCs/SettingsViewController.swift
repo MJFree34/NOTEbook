@@ -70,7 +70,7 @@ class SettingsViewController: UIViewController {
         
         tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "Shop Instruments") ?? 0, section: 1), animated: true)
         
-        updateBackground()
+//        updateBackground()
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
     }
@@ -197,7 +197,7 @@ class SettingsViewController: UIViewController {
         let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled)
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.gradientEnabled)
         
-        updateBackground()
+        view.addBackground()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -205,20 +205,7 @@ class SettingsViewController: UIViewController {
         
         guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
         
-        updateBackground()
-    }
-    
-    private func updateBackground() {
-        tableView.backgroundView = nil
-        tableView.backgroundColor = nil
-        
-        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
-            let backgroundView = UIView(frame: tableView.frame)
-            backgroundView.addBackgroundGradient()
-            tableView.backgroundView = backgroundView
-        } else {
-            tableView.backgroundColor = UIColor(named: "LightestestAqua")
-        }
+        view.addBackground()
     }
 }
 
@@ -317,7 +304,7 @@ extension SettingsViewController: UITableViewDataSource {
         case .customize:
             switch indexPath.row {
             case 0:
-                let vc = FingeringLimitViewController(style: .insetGrouped)
+                let vc = FingeringLimitViewController()
                 navigationController?.pushViewController(vc, animated: true)
             case 1:
                 break
