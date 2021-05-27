@@ -33,6 +33,8 @@ class PurchaseInstrumentsViewController: UIViewController {
             titles.append(group.groupTitle)
         }
         
+        titles.append("Future instruments")
+        
         return PurchasableInstrumentGroup(groupTitle: "All", instrumentTitles: titles)
     }()
     
