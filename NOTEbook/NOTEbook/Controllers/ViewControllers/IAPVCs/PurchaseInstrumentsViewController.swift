@@ -263,8 +263,14 @@ class PurchaseInstrumentsViewController: UIViewController {
             
             if self.packages.count == 0 {
                 if self.offeringType == .none {
-                    self.showAlert(title: "Congratulations!", message: "You have bought all instruments and have infinite access to them, including future additions!") { (action) in
-                        self.dismiss(animated: true)
+                    if Configuration.appConfiguration == .testFlight {
+                        self.showAlert(title: "Congratulations!", message: "You have access to all instruments as a TestFlight user!") { action in
+                            self.dismiss(animated: true)
+                        }
+                    } else {
+                        self.showAlert(title: "Congratulations!", message: "You have bought all instruments and have infinite access to them, including future additions!") { action in
+                            self.dismiss(animated: true)
+                        }
                     }
                 } else {
                     self.showAlert(title: "Error", message: "No packages found") { (action) in
