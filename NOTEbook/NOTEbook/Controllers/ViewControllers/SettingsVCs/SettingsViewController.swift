@@ -77,7 +77,9 @@ class SettingsViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
         
-        refreshFreeTrialLeft()
+        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
+            refreshFreeTrialLeft()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
