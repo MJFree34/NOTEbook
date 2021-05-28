@@ -52,7 +52,6 @@ class SettingsViewController: UIViewController {
         tv.dataSource = self
         tv.showsVerticalScrollIndicator = false
         tv.estimatedRowHeight = 60
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tv.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         tv.translatesAutoresizingMaskIntoConstraints = false
         
@@ -274,12 +273,11 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         
         cell.backgroundColor = UIColor(named: "LightestAqua")
         cell.selectedBackgroundView = UIView()
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
-        cell.accessoryView = nil
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
