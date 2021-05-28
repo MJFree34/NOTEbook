@@ -33,12 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let now = Date()
         
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.firstLaunch) {
-            UserDefaults.standard.set(now.timeIntervalSince1970, forKey: UserDefaults.Keys.firstLaunchDate)
+            Purchases.shared.purchaserInfo { purchaserInfo, error in
+                let firstSeenDate = purchaserInfo?.firstSeen ?? now
+                UserDefaults.standard.set(firstSeenDate.timeIntervalSince1970, forKey: UserDefaults.Keys.firstLaunchDate)
+            }
             UserDefaults.standard.set(false, forKey: UserDefaults.Keys.firstLaunch)
         } else {
             let firstLaunchDate = Date(timeIntervalSince1970: UserDefaults.standard.double(forKey: UserDefaults.Keys.firstLaunchDate))
             let twoWeeks = 60.0 * 60.0 * 24.0 * 14.0
-            
+
             if firstLaunchDate.timeIntervalSince1970 < now.timeIntervalSince1970 - twoWeeks && Configuration.appConfiguration != .testFlight {
                 UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
             } else if Configuration.appConfiguration != .debug {
