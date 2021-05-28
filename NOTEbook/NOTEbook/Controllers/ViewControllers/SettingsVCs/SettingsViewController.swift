@@ -279,7 +279,7 @@ extension SettingsViewController: UITableViewDataSource {
         cell.backgroundColor = UIColor(named: "LightestAqua")
         cell.selectedBackgroundView = UIView()
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
-        
+        cell.accessoryView = nil
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
