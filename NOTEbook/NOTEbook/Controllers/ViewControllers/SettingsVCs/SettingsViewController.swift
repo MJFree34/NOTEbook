@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
                            "End Free Trial"]
     private var about = [["\(Bundle.main.appName) Version", "\(Bundle.main.appVersion) (\(Bundle.main.buildNumber))"],
                          ["Configuration", "\(Configuration.appConfiguration.rawValue)"],
+                         ["UserID", ""],
                          ["Free Trial Left", ""]]
     
     private var freeTrialTimer: Timer?
@@ -75,10 +76,6 @@ class SettingsViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
-        
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
-            refreshFreeTrialLeft()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,9 +85,17 @@ class SettingsViewController: UIViewController {
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
         
+        var userID = Purchases.shared.appUserID
+        let userIDIndex = about.firstIndex { $0[0] == "UserID" } ?? 0
+        userID.removeFirst(15)
+        about[userIDIndex][1] = userID
+        
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
             freeTrialTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementFreeTrialLeft), userInfo: nil, repeats: true)
+            refreshFreeTrialLeft()
         }
+        
+        print(Purchases.shared.appUserID)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -151,9 +156,9 @@ class SettingsViewController: UIViewController {
     
     private func refreshFreeTrialLeft() {
         var freeTrialData = FreeTrialData()
-        about[2][1] = "\(freeTrialData.daysRemaining)D:\(freeTrialData.hoursRemaining)H:\(freeTrialData.minutesRemaining)M:\(freeTrialData.secondsRemaining)S"
-        
-        tableView.reloadRows(at: [IndexPath(row: 2, section: 2)], with: .none)
+        let freeTrialLeftIndex = about.firstIndex { $0[0] == "Free Trial Left" } ?? 0
+        about[freeTrialLeftIndex][1] = "\(freeTrialData.daysRemaining)D:\(freeTrialData.hoursRemaining)H:\(freeTrialData.minutesRemaining)M:\(freeTrialData.secondsRemaining)S"
+        tableView.reloadRows(at: [IndexPath(row: freeTrialLeftIndex, section: 2)], with: .none)
     }
     
     private func openIAPScreen() {
