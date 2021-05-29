@@ -26,7 +26,6 @@ class SettingsViewController: UIViewController {
                            "Rate in App Store",
                            "Send Feedback",
                            "Email Developer",
-                           "Reset IAP Flow",
                            "End Free Trial"]
     private var about = [["\(Bundle.main.appName) Version", "\(Bundle.main.appVersion) (\(Bundle.main.buildNumber))"],
                          ["Configuration", "\(Configuration.appConfiguration.rawValue)"],
@@ -241,18 +240,6 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func openIAPFlow() {
-        if ChartsController.shared.purchasableInstrumentGroups.count != 0 {
-            UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
-            ChartsController.shared.updatePurchasableInstrumentGroups()
-            navigationController?.popToRootViewController(animated: true)
-        } else {
-            showAlert(title: "Error", message: "Reset purchases to open IAP flow") { action in
-                self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "Reset IAP Flow") ?? 0, section: 1), animated: true)
-            }
-        }
-    }
-    
     private func endFreeTrial() {
         UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
         ChartsController.shared.updatePurchasableInstrumentGroups()
@@ -412,8 +399,6 @@ extension SettingsViewController: UITableViewDataSource {
                 openFeedback()
             case "Email Developer":
                 openEmail()
-            case "Reset IAP Flow":
-                openIAPFlow()
             case "End Free Trial":
                 endFreeTrial()
             default:
