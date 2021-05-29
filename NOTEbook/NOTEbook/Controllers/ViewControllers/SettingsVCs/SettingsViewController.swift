@@ -86,10 +86,8 @@ class SettingsViewController: UIViewController {
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
         
         Purchases.shared.purchaserInfo { purchaserInfo, error in
-            var userID = purchaserInfo?.originalAppUserId ?? "None"
-            let userIDIndex = self.about.firstIndex { $0[0] == "UserID" } ?? 0
-            userID.removeFirst(15)
-            self.about[userIDIndex][1] = userID
+            let userID = purchaserInfo?.originalAppUserId ?? "None"
+            self.refreshUserID(userID)
         }
         
         freeTrialTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementFreeTrialLeft), userInfo: nil, repeats: true)
@@ -148,6 +146,13 @@ class SettingsViewController: UIViewController {
         tableView.reloadRows(at: [IndexPath(row: freeTrialLeftIndex, section: 2)], with: .none)
     }
     
+    private func refreshUserID(_ userID: String) {
+        var userID = userID
+        let userIDIndex = about.firstIndex { $0[0] == "UserID" } ?? 0
+        userID.removeFirst(15)
+        about[userIDIndex][1] = userID
+    }
+    
     private func openIAPScreen() {
         ChartsController.shared.updatePurchasableInstrumentGroups()
         let vc = PurchaseInstrumentsViewController()
@@ -164,16 +169,45 @@ class SettingsViewController: UIViewController {
         loadingIndicator.startAnimating()
         view.isUserInteractionEnabled = false
         
-        Purchases.shared.restoreTransactions { (purchaserInfo, error) in
+        Purchases.shared.restoreTransactions { purchaserInfo, error in
             loadingIndicator.stopAnimating()
             self.view.isUserInteractionEnabled = true
-
+            
             self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "Restore Purchases") ?? 0, section: 1), animated: true)
-
+            
             if let error = error {
                 self.showAlert(title: "Error restoring purchases: \(error.localizedDescription)", message: nil)
             } else {
-                self.showAlert(title: "Purchases restored!", message: nil)
+                self.showAlert(title: "Purchases restored!", message: nil) { _ in
+                    let firstSeenDate = purchaserInfo?.firstSeen ?? Date()
+                    UserDefaults.standard.set(firstSeenDate.timeIntervalSince1970, forKey: UserDefaults.Keys.firstLaunchDate)
+                    self.refreshFreeTrialLeft()
+                    
+                    let userID = purchaserInfo?.originalAppUserId ?? "None"
+                    self.refreshUserID(userID)
+                    
+                    let twoWeeks = 60.0
+                    
+                    if purchaserInfo?.entitlements["all"]?.isActive == true ||
+                        purchaserInfo?.entitlements["woodwinds"]?.isActive == true ||
+                        purchaserInfo?.entitlements["brass"]?.isActive == true ||
+                        purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["saxophone"]?.isActive == true ||
+                        purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                        purchaserInfo?.entitlements["tuba"]?.isActive == true ||
+                        firstSeenDate.timeIntervalSince1970 < Date().timeIntervalSince1970 - twoWeeks {
+                        if purchaserInfo?.entitlements["all"]?.isActive == true {
+                            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)
+                            UserDefaults.standard.set(0, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
+                        }
+                        
+                        self.endFreeTrial()
+                    }
+                }
             }
         }
     }

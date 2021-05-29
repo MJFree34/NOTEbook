@@ -180,7 +180,6 @@ class PurchaseInstrumentsViewController: UIViewController {
         }
         
         Purchases.shared.purchaserInfo { purchaserInfo, error in
-            // Saves the price of a single instrument for discounting
             guard let defaultPackages = availableOfferings?.offering(identifier: "default")?.availablePackages else {
                 self.showAlert(title: "Error", message: "No current offerings found") { (action) in
                     self.dismiss(animated: true)
@@ -189,6 +188,7 @@ class PurchaseInstrumentsViewController: UIViewController {
                 return
             }
 
+            // Saves the price of a single instrument for discounting
             let flutePriceString = defaultPackages[3].product.price
             UserDefaults.standard.set(flutePriceString, forKey: UserDefaults.Keys.instrumentPrice)
             
