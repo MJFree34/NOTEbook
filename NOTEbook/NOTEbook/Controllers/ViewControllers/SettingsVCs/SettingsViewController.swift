@@ -189,6 +189,8 @@ class SettingsViewController: UIViewController {
                     
                     let twoWeeks = 60.0 * 60.0 * 24.0 * 14.0
                     
+                    guard UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) == false else { return }
+                    
                     if purchaserInfo?.entitlements["all"]?.isActive == true ||
                         purchaserInfo?.entitlements["woodwinds"]?.isActive == true ||
                         purchaserInfo?.entitlements["brass"]?.isActive == true ||
@@ -206,8 +208,6 @@ class SettingsViewController: UIViewController {
                             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)
                             UserDefaults.standard.set(0, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
                         }
-                        
-                        self.endFreeTrial()
                     }
                 }
             }
