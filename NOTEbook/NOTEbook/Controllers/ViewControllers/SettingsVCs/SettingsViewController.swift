@@ -112,6 +112,11 @@ class SettingsViewController: UIViewController {
         
         if Configuration.appConfiguration == .appStore {
             actions.removeAll { $0 == "Email Developer" }
+            about.removeAll { $0[0] == "UserID" }
+        }
+        
+        if Configuration.appConfiguration != .testFlight && freeTrialOver {
+            about.removeAll { $0[0] == "Free Trial Left" }
         }
         
         if Configuration.appConfiguration != .debug {
