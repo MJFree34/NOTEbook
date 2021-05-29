@@ -208,6 +208,8 @@ class SettingsViewController: UIViewController {
                             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)
                             UserDefaults.standard.set(0, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
                         }
+                        
+                        self.endFreeTrial()
                     }
                 }
             }
