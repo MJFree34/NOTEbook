@@ -85,25 +85,21 @@ class SettingsViewController: UIViewController {
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
         
-        var userID = Purchases.shared.appUserID
-        let userIDIndex = about.firstIndex { $0[0] == "UserID" } ?? 0
-        userID.removeFirst(15)
-        about[userIDIndex][1] = userID
-        
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
-            freeTrialTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementFreeTrialLeft), userInfo: nil, repeats: true)
-            refreshFreeTrialLeft()
+        Purchases.shared.purchaserInfo { purchaserInfo, error in
+            var userID = purchaserInfo?.originalAppUserId ?? "None"
+            let userIDIndex = self.about.firstIndex { $0[0] == "UserID" } ?? 0
+            userID.removeFirst(15)
+            self.about[userIDIndex][1] = userID
         }
         
-        print(Purchases.shared.appUserID)
+        freeTrialTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementFreeTrialLeft), userInfo: nil, repeats: true)
+        refreshFreeTrialLeft()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver) {
-            freeTrialTimer?.invalidate()
-        }
+        freeTrialTimer?.invalidate()
     }
     
     private func editSettingsForDevice() {
@@ -118,26 +114,17 @@ class SettingsViewController: UIViewController {
             actions.removeAll { $0 == "Email Developer" }
         }
         
-        if freeTrialOver {
-            about.removeAll { $0[0] == "Free Trial Left" }
-            
-            if Configuration.appConfiguration == .debug {
-                actions.removeAll { $0 == "End Free Trial" }
-            }
-        }
-        
         if Configuration.appConfiguration != .debug {
             actions.removeAll { $0 == "Reset IAP Flow" }
             actions.removeAll { $0 == "End Free Trial" }
         } else if !freeTrialOver && !iapFlowHasShown {
             actions.removeAll { $0 == "Reset IAP Flow" }
+        } else if freeTrialOver {
+            actions.removeAll { $0 == "End Free Trial" }
         }
         
-        if !freeTrialOver && !iapFlowHasShown {
-            if Configuration.appConfiguration != .testFlight {
-                actions.removeAll { $0 == "Shop Instruments" }
-            }
-            actions.removeAll { $0 == "Restore Purchases" }
+        if !freeTrialOver && !iapFlowHasShown && Configuration.appConfiguration != .testFlight {
+            actions.removeAll { $0 == "Shop Instruments" }
         }
     }
     
