@@ -179,7 +179,7 @@ class PurchaseInstrumentsViewController: UIViewController {
             availableOfferings = offerings
         }
         
-        Purchases.shared.purchaserInfo { (purchaserInfo, error) in
+        Purchases.shared.purchaserInfo { purchaserInfo, error in
             // Saves the price of a single instrument for discounting
             guard let defaultPackages = availableOfferings?.offering(identifier: "default")?.availablePackages else {
                 self.showAlert(title: "Error", message: "No current offerings found") { (action) in
@@ -188,11 +188,11 @@ class PurchaseInstrumentsViewController: UIViewController {
                 
                 return
             }
-            
+
             let flutePriceString = defaultPackages[3].product.price
             UserDefaults.standard.set(flutePriceString, forKey: UserDefaults.Keys.instrumentPrice)
             
-            if purchaserInfo?.entitlements["all"]?.isActive == true {
+            if purchaserInfo?.entitlements["all"]?.isActive == true || Configuration.appConfiguration == .testFlight {
                 self.packages = [Purchases.Package]()
                 self.offeringType = .none
             } else if (purchaserInfo?.entitlements["woodwinds"]?.isActive == true && (purchaserInfo?.entitlements["trumpet"]?.isActive == true || purchaserInfo?.entitlements["french_horn"]?.isActive == true || purchaserInfo?.entitlements["trombone"]?.isActive == true || purchaserInfo?.entitlements["euphonium"]?.isActive == true || purchaserInfo?.entitlements["tuba"]?.isActive == true)) || (purchaserInfo?.entitlements["brass"]?.isActive == true && (purchaserInfo?.entitlements["flute"]?.isActive == true || purchaserInfo?.entitlements["clarinet"]?.isActive == true || purchaserInfo?.entitlements["saxophone"]?.isActive == true)) {
