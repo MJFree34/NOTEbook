@@ -118,12 +118,7 @@ class SettingsViewController: UIViewController {
             about.removeAll { $0[0] == "Free Trial Left" }
         }
         
-        if Configuration.appConfiguration != .debug {
-            actions.removeAll { $0 == "Reset IAP Flow" }
-            actions.removeAll { $0 == "End Free Trial" }
-        } else if !freeTrialOver && !iapFlowHasShown {
-            actions.removeAll { $0 == "Reset IAP Flow" }
-        } else if freeTrialOver {
+        if freeTrialOver || Configuration.appConfiguration == .testFlight {
             actions.removeAll { $0 == "End Free Trial" }
         }
         
@@ -241,10 +236,17 @@ class SettingsViewController: UIViewController {
     }
     
     private func endFreeTrial() {
-        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
-        ChartsController.shared.updatePurchasableInstrumentGroups()
-        tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
-        navigationController?.popToRootViewController(animated: true)
+        let alert = UIAlertController(title: "End free trial", message: "Are you sure you want to end the free trial? This is unrevocable.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
+        })
+        alert.addAction(UIAlertAction(title: "End", style: .destructive) { _ in
+            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
+            ChartsController.shared.updatePurchasableInstrumentGroups()
+            self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+        self.present(alert, animated: true)
     }
     
     @objc private func decrementFreeTrialLeft() {
