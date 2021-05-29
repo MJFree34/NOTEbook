@@ -50,7 +50,7 @@ class InstrumentsCategoryViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
         view.backgroundColor = UIColor(named: "LightestestAqua")

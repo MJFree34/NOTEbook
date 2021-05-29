@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -187,7 +187,7 @@ class SettingsViewController: UIViewController {
                     let userID = purchaserInfo?.originalAppUserId ?? "None"
                     self.refreshUserID(userID)
                     
-                    let twoWeeks = 60.0
+                    let twoWeeks = 60.0 * 60.0 * 24.0 * 14.0
                     
                     if purchaserInfo?.entitlements["all"]?.isActive == true ||
                         purchaserInfo?.entitlements["woodwinds"]?.isActive == true ||
@@ -200,7 +200,8 @@ class SettingsViewController: UIViewController {
                         purchaserInfo?.entitlements["trombone"]?.isActive == true ||
                         purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
                         purchaserInfo?.entitlements["tuba"]?.isActive == true ||
-                        firstSeenDate.timeIntervalSince1970 < Date().timeIntervalSince1970 - twoWeeks {
+                        (firstSeenDate.timeIntervalSince1970 < Date().timeIntervalSince1970 - twoWeeks &&
+                        Configuration.appConfiguration != .testFlight) {
                         if purchaserInfo?.entitlements["all"]?.isActive == true {
                             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)
                             UserDefaults.standard.set(0, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
@@ -235,18 +236,22 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func endFreeTrial() {
+    private func endFreeTrialAlert() {
         let alert = UIAlertController(title: "End free trial", message: "Are you sure you want to end the free trial? This is irrevocable.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
         })
         alert.addAction(UIAlertAction(title: "End", style: .destructive) { _ in
-            UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
-            ChartsController.shared.updatePurchasableInstrumentGroups()
-            self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
-            self.navigationController?.popToRootViewController(animated: true)
+            self.endFreeTrial()
         })
         self.present(alert, animated: true)
+    }
+    
+    private func endFreeTrial() {
+        UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
+        ChartsController.shared.updatePurchasableInstrumentGroups()
+        tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     @objc private func decrementFreeTrialLeft() {
@@ -402,7 +407,7 @@ extension SettingsViewController: UITableViewDataSource {
             case "Email Developer":
                 openEmail()
             case "End Free Trial":
-                endFreeTrial()
+                endFreeTrialAlert()
             default:
                 break
             }
