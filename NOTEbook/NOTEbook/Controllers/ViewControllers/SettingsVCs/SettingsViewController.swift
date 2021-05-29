@@ -54,6 +54,7 @@ class SettingsViewController: UIViewController {
         tv.showsVerticalScrollIndicator = false
         tv.estimatedRowHeight = 60
         tv.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tv.translatesAutoresizingMaskIntoConstraints = false
         
         return tv
@@ -82,6 +83,7 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         
         tableView.deselectRow(at: IndexPath(row: actions.firstIndex(of: "Shop Instruments") ?? 0, section: 1), animated: true)
+        tableView.deselectRow(at: IndexPath(row: customize.firstIndex(of: "Fingerings Limit") ?? 0, section: 0), animated: true)
         
         fingeringsLimitAccessoryLabel.text = "\(UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))"
         
@@ -299,11 +301,18 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        if let containsFingeringsLimitRow = tableView.indexPathsForVisibleRows?.contains(IndexPath(row: customize.firstIndex(of: "Fingerings Limit") ?? 0, section: 0)) {
+            if !containsFingeringsLimitRow {
+                fingeringsLimitAccessoryLabel.removeFromSuperview()
+            }
+        }
         
         cell.backgroundColor = UIColor(named: "LightestAqua")
         cell.selectedBackgroundView = UIView()
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
+        cell.accessoryView = nil
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
@@ -314,6 +323,7 @@ extension SettingsViewController: UITableViewDataSource {
             
             switch indexPath.row {
             case 0:
+                cell.selectionStyle = .default
                 cell.accessoryType = .disclosureIndicator
                 
                 cell.addSubview(fingeringsLimitAccessoryLabel)
@@ -343,6 +353,8 @@ extension SettingsViewController: UITableViewDataSource {
             cell.textLabel?.text = actions[indexPath.row]
             cell.textLabel?.textColor = UIColor(named: "DarkAqua")
             cell.textLabel?.highlightedTextColor = UIColor(named: "LightAqua")
+            
+            cell.selectionStyle = .default
             
             if actions[indexPath.row] == "Shop Instruments" {
                 let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
