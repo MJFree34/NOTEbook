@@ -236,7 +236,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func endFreeTrial() {
-        let alert = UIAlertController(title: "End free trial", message: "Are you sure you want to end the free trial? This is unrevocable.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "End free trial", message: "Are you sure you want to end the free trial? This is irrevocable.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
             self.tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
         })
