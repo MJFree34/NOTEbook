@@ -31,7 +31,7 @@ class SelectInstrumentViewController: UIViewController {
         label.text = "Choose Your Instrument"
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 34)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textColor = UIColor(named: "MediumRed")
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -41,10 +41,10 @@ class SelectInstrumentViewController: UIViewController {
     private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "This instrument group will be free forever!"
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.minimumScaleFactor = 0.01
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textColor = UIColor(named: "DarkAqua")
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -76,17 +76,15 @@ class SelectInstrumentViewController: UIViewController {
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40),
             
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             subtitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            subtitleLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            collectionView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 10),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            collectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -20),
+            collectionView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -10),
             
             continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             continueButton.heightAnchor.constraint(equalToConstant: 50),

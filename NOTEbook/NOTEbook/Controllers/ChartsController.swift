@@ -153,15 +153,11 @@ extension ChartsController {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
         
-        if !iapFlowHasShown && freeTrialOver {
-            // To pick free instrument from all purchasable groups
-            purchasableInstrumentGroups = allInstrumentGroups
-        } else if freeTrialOver {
-            // Where one or more has been purchased or was free
+        if !freeTrialOver || !iapFlowHasShown {
+            // Free trial or TF user aka no purchasable categories
+            updatePurchasedChartCategories()
+        } else {
             var groups = allInstrumentGroups
-            
-            let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
-            let freeGroup = allInstrumentGroups[freeInstrumentIndex]
             
             Purchases.shared.purchaserInfo { (purchaserInfo, error) in
                 if purchaserInfo?.entitlements["all"]?.isActive == true {
@@ -210,19 +206,22 @@ extension ChartsController {
                     }
                 }
                 
-                for (index, group) in groups.enumerated() {
-                    if group.groupTitle == freeGroup.groupTitle {
-                        groups.remove(at: index)
-                        break
+                if freeTrialOver && iapFlowHasShown {
+                    // Where one or more has been purchased or was free
+                    let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
+                    let freeGroup = self.allInstrumentGroups[freeInstrumentIndex]
+                    
+                    for (index, group) in groups.enumerated() {
+                        if group.groupTitle == freeGroup.groupTitle {
+                            groups.remove(at: index)
+                            break
+                        }
                     }
                 }
                 
                 self.purchasableInstrumentGroups = groups
                 self.updatePurchasedChartCategories()
             }
-        } else {
-            // Free trial or TF user
-            updatePurchasedChartCategories()
         }
     }
     
