@@ -14,27 +14,11 @@ class InstrumentsViewController: UIViewController {
     private var selectedCategory: IndexPath!
     
     private lazy var woodwindsChartCategories: [ChartCategory] = {
-        var categories = [ChartCategory]()
-        
-        for category in chartsController.purchasedChartCategories {
-            if category.name == "Flute" || category.name == "Clarinet" || category.name == "Saxophone" {
-                categories.append(category)
-            }
-        }
-        
-        return categories
+        return reloadWoodwindChartCategories()
     }()
     
     private lazy var brassChartCategories: [ChartCategory] = {
-        var categories = [ChartCategory]()
-        
-        for category in chartsController.purchasedChartCategories {
-            if category.name == "Trumpet" || category.name == "Mellophone" || category.name == "French Horn" || category.name == "Trombone" || category.name == "Baritone" || category.name == "Euphonium" || category.name == "Tuba" {
-                categories.append(category)
-            }
-        }
-        
-        return categories
+        return reloadBrassChartCategories()
     }()
     
     private lazy var tableView: UITableView = {
@@ -78,7 +62,34 @@ class InstrumentsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        woodwindsChartCategories = reloadWoodwindChartCategories()
+        brassChartCategories = reloadBrassChartCategories()
+        
         tableView.reloadData()
+    }
+    
+    private func reloadWoodwindChartCategories() -> [ChartCategory] {
+        var categories = [ChartCategory]()
+        
+        for category in chartsController.purchasedChartCategories {
+            if category.name == "Flute" || category.name == "Clarinet" || category.name == "Saxophone" {
+                categories.append(category)
+            }
+        }
+        
+        return categories
+    }
+    
+    private func reloadBrassChartCategories() -> [ChartCategory] {
+        var categories = [ChartCategory]()
+        
+        for category in chartsController.purchasedChartCategories {
+            if category.name == "Trumpet" || category.name == "Mellophone" || category.name == "French Horn" || category.name == "Trombone" || category.name == "Baritone" || category.name == "Euphonium" || category.name == "Tuba" {
+                categories.append(category)
+            }
+        }
+        
+        return categories
     }
     
     @objc private func shopPressed() {

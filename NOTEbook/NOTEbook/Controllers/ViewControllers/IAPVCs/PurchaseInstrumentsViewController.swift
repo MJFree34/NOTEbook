@@ -305,7 +305,11 @@ class PurchaseInstrumentsViewController: UIViewController {
             case 1:
                 index = selectedIndex.row + 1
             case 2:
-                index = selectedIndex.row + 3
+                if offeringType == .current || offeringType == .woodwindsDiscounted || offeringType == .brassDiscounted {
+                    index = selectedIndex.row + 3
+                } else {
+                    index = selectedIndex.row + 1
+                }
             default:
                 fatalError()
             }

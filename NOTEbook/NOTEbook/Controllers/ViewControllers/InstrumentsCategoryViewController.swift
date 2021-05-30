@@ -56,6 +56,21 @@ class InstrumentsCategoryViewController: UIViewController {
         view.backgroundColor = UIColor(named: "LightestestAqua")
         
         title = category.name
+        
+        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
+        if freeTrialOver || Configuration.appConfiguration == .testFlight {
+            let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
+            let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
+            let shopBarButtonItem = UIBarButtonItem(image: shopImage, style: .plain, target: self, action: #selector(shopPressed))
+            navigationItem.rightBarButtonItem = shopBarButtonItem
+        }
+    }
+    
+    @objc private func shopPressed() {
+        ChartsController.shared.updatePurchasableInstrumentGroups()
+        let vc = PurchaseInstrumentsViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
