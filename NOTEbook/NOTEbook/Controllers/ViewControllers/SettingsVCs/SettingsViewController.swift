@@ -142,16 +142,18 @@ class SettingsViewController: UIViewController {
     
     private func refreshFreeTrialLeft() {
         var freeTrialData = FreeTrialData()
-        let freeTrialLeftIndex = about.firstIndex { $0[0] == "Free Trial Left" } ?? 0
-        about[freeTrialLeftIndex][1] = "\(freeTrialData.daysRemaining)D:\(freeTrialData.hoursRemaining)H:\(freeTrialData.minutesRemaining)M:\(freeTrialData.secondsRemaining)S"
-        tableView.reloadRows(at: [IndexPath(row: freeTrialLeftIndex, section: 2)], with: .none)
+        if let freeTrialLeftIndex = about.firstIndex(where: { $0[0] == "Free Trial Left" }) {
+            about[freeTrialLeftIndex][1] = "\(freeTrialData.daysRemaining)D:\(freeTrialData.hoursRemaining)H:\(freeTrialData.minutesRemaining)M:\(freeTrialData.secondsRemaining)S"
+            tableView.reloadRows(at: [IndexPath(row: freeTrialLeftIndex, section: 2)], with: .none)
+        }
     }
     
     private func refreshUserID(_ userID: String) {
         var userID = userID
-        let userIDIndex = about.firstIndex { $0[0] == "UserID" } ?? 0
-        userID.removeFirst(15)
-        about[userIDIndex][1] = userID
+        if let userIDIndex = about.firstIndex(where: { $0[0] == "UserID" }) {
+            userID.removeFirst(15)
+            about[userIDIndex][1] = userID
+        }
     }
     
     private func openIAPScreen() {
@@ -314,6 +316,7 @@ extension SettingsViewController: UITableViewDataSource {
         cell.selectedBackgroundView = UIView()
         cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
         cell.accessoryView = nil
+        cell.accessoryType = .none
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         
@@ -366,9 +369,10 @@ extension SettingsViewController: UITableViewDataSource {
             }
         case .about:
             cell.textLabel?.text = about[indexPath.row][0]
+            cell.textLabel?.textColor = UIColor(named: "Black")
             cell.selectionStyle = .none
             
-            let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 20))
+            let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: UIFont.preferredFont(forTextStyle: .body).lineHeight))
             accessoryLabel.font = UIFont.preferredFont(forTextStyle: .body)
             accessoryLabel.text = about[indexPath.row][1]
             accessoryLabel.textColor = .secondaryLabel

@@ -152,13 +152,10 @@ extension ChartsController {
     func updatePurchasableInstrumentGroups() {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
-        
-        if !freeTrialOver || !iapFlowHasShown {
-            // Free trial or TF user aka no purchasable categories
-            updatePurchasedChartCategories()
-        } else {
+
+        if freeTrialOver {
             var groups = allInstrumentGroups
-            
+
             Purchases.shared.purchaserInfo { (purchaserInfo, error) in
                 if purchaserInfo?.entitlements["all"]?.isActive == true {
                     groups.removeAll()
@@ -174,11 +171,11 @@ extension ChartsController {
                     } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
                         groups.remove(at: 7)
                     }
-                    
+
                     groups.removeFirst(Constants.numberOfWoodwindGroups)
                 } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
                     groups.removeLast(Constants.numberOfBrassGroups)
-                    
+
                     if purchaserInfo?.entitlements["flute"]?.isActive == true {
                         groups.remove(at: 0)
                     } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
@@ -205,23 +202,27 @@ extension ChartsController {
                         groups.remove(at: 7)
                     }
                 }
+
+                self.purchasableInstrumentGroups = groups
                 
-                if freeTrialOver && iapFlowHasShown {
+                if iapFlowHasShown {
                     // Where one or more has been purchased or was free
                     let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
                     let freeGroup = self.allInstrumentGroups[freeInstrumentIndex]
-                    
+
                     for (index, group) in groups.enumerated() {
                         if group.groupTitle == freeGroup.groupTitle {
-                            groups.remove(at: index)
+                            self.purchasableInstrumentGroups.remove(at: index)
                             break
                         }
                     }
+                    
+                    self.updatePurchasedChartCategories()
                 }
-                
-                self.purchasableInstrumentGroups = groups
-                self.updatePurchasedChartCategories()
             }
+        } else {
+            // Free trial or TF user aka no purchasable categories
+            updatePurchasedChartCategories()
         }
     }
     
