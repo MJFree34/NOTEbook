@@ -112,7 +112,6 @@
 		9A022AF7249908C30052E819 /* NOTEbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A022AFD249908C30052E819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A054DF0257DB45F00DCE8FF /* Instruments.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Instruments.storekit; sourceTree = "<group>"; };
-		9A054DFD257DB80B00DCE8FF /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		9A054E092583F1BA00DCE8FF /* SelectInstrumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentViewController.swift; sourceTree = "<group>"; };
 		9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentCell.swift; sourceTree = "<group>"; };
 		9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasableInstrumentGroup.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		9AD5574424995CAB0078CB7E /* NoteFingering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingering.swift; sourceTree = "<group>"; };
 		9AD5574624995EC10078CB7E /* Charts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
 		9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		9AF35F672665CE25008B8518 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ExtraUnnecessaryFingerings/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
 		9AF3A7E12534A10300B3008B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringTests.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 				9AD5572E24994F110078CB7E /* Colors.xcassets */,
 				9A23CDE0256B62D40038DF4A /* TutorialGifs */,
 				9A8A95C1255F773300E4E737 /* ExtraUnnecessaryFingerings */,
-				9A054DFD257DB80B00DCE8FF /* StoreKitTestCertificate.cer */,
+				9AF35F672665CE25008B8518 /* StoreKitTestCertificate.cer */,
 				9AD5574624995EC10078CB7E /* Charts.json */,
 				9A52139124F2007C0007C08A /* NoteList.json */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
@@ -358,8 +358,8 @@
 				9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */,
 				9AC57B7224E436F0002F8CB9 /* TitleCell.swift */,
 				9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */,
-				9A054E282585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift */,
 				9A054E2C2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift */,
+				9A054E282585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -770,7 +770,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -791,7 +791,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

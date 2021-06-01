@@ -13,6 +13,7 @@ enum OfferingType {
     case current
     case woodwindsDiscounted
     case brassDiscounted
+    case woodwindsBrassDiscounted
     case allDiscountedWoodwindInstruments
     case allDiscountedBrassInstruments
     case allDiscounted
@@ -194,7 +195,16 @@ class PurchaseInstrumentsViewController: UIViewController {
             if purchaserInfo?.entitlements["all"]?.isActive == true || Configuration.appConfiguration == .testFlight {
                 self.packages = [Purchases.Package]()
                 self.offeringType = .none
-            } else if (purchaserInfo?.entitlements["woodwinds"]?.isActive == true && (purchaserInfo?.entitlements["trumpet"]?.isActive == true || purchaserInfo?.entitlements["french_horn"]?.isActive == true || purchaserInfo?.entitlements["trombone"]?.isActive == true || purchaserInfo?.entitlements["euphonium"]?.isActive == true || purchaserInfo?.entitlements["tuba"]?.isActive == true)) || (purchaserInfo?.entitlements["brass"]?.isActive == true && (purchaserInfo?.entitlements["flute"]?.isActive == true || purchaserInfo?.entitlements["clarinet"]?.isActive == true || purchaserInfo?.entitlements["saxophone"]?.isActive == true)) {
+            } else if (purchaserInfo?.entitlements["woodwinds"]?.isActive == true &&
+                        (purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                        purchaserInfo?.entitlements["tuba"]?.isActive == true)) ||
+                        (purchaserInfo?.entitlements["brass"]?.isActive == true &&
+                        (purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["saxophone"]?.isActive == true)) {
                 guard let allDiscountedPackages = availableOfferings?.offering(identifier: "all-discounted")?.availablePackages else {
                     self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
                         self.dismiss(animated: true)
@@ -227,7 +237,27 @@ class PurchaseInstrumentsViewController: UIViewController {
                 
                 self.packages = allDiscountedWoodwindInstrumentsPackages
                 self.offeringType = .allDiscountedWoodwindInstruments
-            } else if purchaserInfo?.entitlements["flute"]?.isActive == true || purchaserInfo?.entitlements["clarinet"]?.isActive == true || purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+            } else if (purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["saxophone"]?.isActive == true) &&
+                        (purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                        purchaserInfo?.entitlements["tuba"]?.isActive == true) {
+                guard let woodwindsBrassDiscounted = availableOfferings?.offering(identifier: "woodwinds-brass-discounted")?.availablePackages else {
+                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
+                        self.dismiss(animated: true)
+                    }
+                    
+                    return
+                }
+                
+                self.packages = woodwindsBrassDiscounted
+                self.offeringType = .woodwindsBrassDiscounted
+            } else if purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["saxophone"]?.isActive == true {
                 guard let woodwindsDiscountedPackages = availableOfferings?.offering(identifier: "woodwinds-discounted")?.availablePackages else {
                     self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
                         self.dismiss(animated: true)
@@ -238,7 +268,11 @@ class PurchaseInstrumentsViewController: UIViewController {
                 
                 self.packages = woodwindsDiscountedPackages
                 self.offeringType = .woodwindsDiscounted
-            } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true || purchaserInfo?.entitlements["french_horn"]?.isActive == true || purchaserInfo?.entitlements["trombone"]?.isActive == true || purchaserInfo?.entitlements["euphonium"]?.isActive == true || purchaserInfo?.entitlements["tuba"]?.isActive == true {
+            } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                        purchaserInfo?.entitlements["tuba"]?.isActive == true {
                 guard let brassDiscountedPackages = availableOfferings?.offering(identifier: "brass-discounted")?.availablePackages else {
                     self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
                         self.dismiss(animated: true)
@@ -357,7 +391,7 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             }
             return 0
         case 1:
-            if offeringType == .current || offeringType == .woodwindsDiscounted || offeringType == .brassDiscounted {
+            if offeringType == .current || offeringType == .woodwindsDiscounted || offeringType == .brassDiscounted || offeringType == .woodwindsBrassDiscounted {
                 return 2
             }
             return 0

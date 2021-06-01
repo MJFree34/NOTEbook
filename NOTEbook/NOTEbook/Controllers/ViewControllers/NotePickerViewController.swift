@@ -128,7 +128,7 @@ class NotePickerViewController: UIViewController {
             addSwipeGestures()
         }
         
-        if Configuration.appConfiguration == .appStore && Configuration.appConfiguration != .simulator {
+        if Configuration.appConfiguration == .appStore {
             StoreKitHelper.displayStoreKit()
         }
         
