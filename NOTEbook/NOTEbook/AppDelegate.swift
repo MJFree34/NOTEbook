@@ -44,6 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             if firstSeenDate.timeIntervalSince1970 < now.timeIntervalSince1970 - twoWeeks && Configuration.appConfiguration != .testFlight {
                 UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
+            } else if Configuration.appConfiguration == .testFlight {
+                UserDefaults.standard.set(false, forKey: UserDefaults.Keys.freeTrialOver)
+                UserDefaults.standard.set(false, forKey: UserDefaults.Keys.iapFlowHasShown)
             }
         }
         

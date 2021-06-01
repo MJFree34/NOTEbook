@@ -154,6 +154,10 @@ extension ChartsController {
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
 
         if freeTrialOver {
+            if Configuration.appConfiguration == .testFlight {
+                updatePurchasedChartCategories()
+            }
+            
             var groups = allInstrumentGroups
 
             Purchases.shared.purchaserInfo { (purchaserInfo, error) in
