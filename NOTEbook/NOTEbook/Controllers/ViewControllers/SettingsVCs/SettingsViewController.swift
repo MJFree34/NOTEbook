@@ -27,10 +27,10 @@ class SettingsViewController: UIViewController {
                            "Send Feedback",
                            "Email Developer",
                            "End Free Trial"]
-    private var about = [["\(Bundle.main.appName) Version", "\(Bundle.main.appVersion) (\(Bundle.main.buildNumber))"],
+    private var about = [["Free Trial Left", ""],
                          ["Configuration", "\(Configuration.appConfiguration.rawValue)"],
                          ["UserID", ""],
-                         ["Free Trial Left", ""]]
+                         ["\(Bundle.main.appName) Version", "\(Bundle.main.appVersion) (\(Bundle.main.buildNumber))"]]
     
     private var freeTrialTimer: Timer?
     
