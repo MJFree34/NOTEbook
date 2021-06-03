@@ -31,7 +31,7 @@ class PositionFingeringView: FingeringView {
     }()
     
     private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -67,24 +67,24 @@ class NotePickerCell: UICollectionViewCell {
     private func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
         
-        upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(.notebookBlack))
+        upperQuarterNote = UIImageView(image: UIImage(named: UIImage.MusicSymbols.upperQuarterNote)!.withTintColor(.notebookBlack))
         upperQuarterNote.contentMode = .scaleAspectFill
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
         upperQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(upperQuarterNote)
         
-        lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote")!.withTintColor(.notebookBlack))
+        lowerQuarterNote = UIImageView(image: UIImage(named: UIImage.MusicSymbols.lowerQuarterNote)!.withTintColor(.notebookBlack))
         lowerQuarterNote.contentMode = .scaleAspectFill
         lowerQuarterNote.isHidden = quarterNoteOrientation == .upper
         lowerQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(lowerQuarterNote)
         
-        flat = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
+        flat = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
         flat.isHidden = initNote.type != .flat
         flat.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(flat)
         
-        sharp = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
+        sharp = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
         sharp.isHidden = initNote.type != .sharp
         sharp.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(sharp)

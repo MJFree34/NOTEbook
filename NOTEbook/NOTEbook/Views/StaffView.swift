@@ -10,7 +10,7 @@ import UIKit
 
 class StaffView: UIView {
     private lazy var trebleClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.trebleClef)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true
@@ -19,7 +19,7 @@ class StaffView: UIView {
     }()
     
     private lazy var bassClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.bassClef)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true

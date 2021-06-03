@@ -21,14 +21,14 @@ class LetterArrowViewController: UIViewController {
     var fingeringScrollingViewWidthConstraint: NSLayoutConstraint!
     
     lazy var rightArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.Assets.swipeArrow)!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var leftArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.Assets.swipeArrow)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(rotationAngle: .pi)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,28 +36,28 @@ class LetterArrowViewController: UIViewController {
     }()
     
     lazy var arrowFlat: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var arrowSharp: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var leftArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.natural)!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var rightArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.natural)!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -145,14 +145,14 @@ class LetterArrowViewController: UIViewController {
     }
     
     private func addGradientFlat() {
-        let flatImageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
+        let flatImageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
         letterFlat.addSubview(flatImageView)
 
         letterFlat.mask = flatImageView
     }
     
     private func addGradientSharp() {
-        let sharpImageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
+        let sharpImageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
         letterSharp.addSubview(sharpImageView)
 
         letterSharp.mask = sharpImageView

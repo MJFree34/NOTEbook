@@ -46,8 +46,8 @@ class NotePickerViewController: UIViewController {
     }()
     
     private lazy var gridButton: UIButton = {
-        let image = UIImage(named: "GridButton")!
-        let pressedImage = UIImage(named: "PressedGridButton")!
+        let image = UIImage(named: UIImage.Assets.gridButton)!
+        let pressedImage = UIImage(named: UIImage.Assets.pressedGridButton)!
         let button = UIButton(type: .custom)
         button.setImage(image, for: .normal)
         button.setImage(pressedImage, for: .highlighted)
@@ -57,7 +57,7 @@ class NotePickerViewController: UIViewController {
     }()
     
     private lazy var instrumentsBarButton: UIBarButtonItem = {
-        let image = UIImage(named: "InstrumentsButton")!
+        let image = UIImage(named: UIImage.Assets.instrumentsButton)!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
         
         return button

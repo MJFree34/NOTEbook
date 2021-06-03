@@ -34,8 +34,8 @@ class NoteChartViewController: UIViewController {
     }()
     
     private lazy var pickerButton: UIButton = {
-        let image = UIImage(named: "PickerButton")!
-        let pressedImage = UIImage(named: "PressedPickerButton")!
+        let image = UIImage(named: UIImage.Assets.pickerButton)!
+        let pressedImage = UIImage(named: UIImage.Assets.pressedPickerButton)!
         let button = UIButton(type: .custom)
         button.setImage(image, for: .normal)
         button.setImage(pressedImage, for: .highlighted)
@@ -45,7 +45,7 @@ class NoteChartViewController: UIViewController {
     }()
     
     private lazy var instrumentsBarButton: UIBarButtonItem = {
-        let image = UIImage(named: "InstrumentsButton")!
+        let image = UIImage(named: UIImage.Assets.instrumentsButton)!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
         
         return button

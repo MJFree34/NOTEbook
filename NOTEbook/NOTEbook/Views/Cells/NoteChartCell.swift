@@ -64,7 +64,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -72,7 +72,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -80,7 +80,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var trebleClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.trebleClef)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -88,7 +88,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var bassClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.bassClef)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -397,13 +397,13 @@ extension NoteChartCell {
             contentView.addSubview(note2)
             currentWholeNotes.append(note2)
             
-            let sharpView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
+            let sharpView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
             sharpView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
             sharpView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(sharpView)
             currentWholeNotes.append(sharpView)
             
-            let flatView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
+            let flatView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
             flatView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
             flatView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(flatView)
@@ -527,7 +527,7 @@ extension NoteChartCell {
     }
     
     private func createWholeNote() -> UIImageView {
-        let imageView = UIImageView(image: UIImage(named: "CellWholeNote")!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.cellWholeNote)!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

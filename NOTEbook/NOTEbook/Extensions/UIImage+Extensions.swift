@@ -21,7 +21,27 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 extension UIImage {
-    static let
+    struct Assets {
+        static let appIcon200x200 = "AppIcon200x200"
+        static let getStartedIcons = "GetStartedIcons"
+        static let gridButton = "GridButton"
+        static let instrumentsButton = "InstrumentsButton"
+        static let pickerButton = "PickerButton"
+        static let pressedGridButton = "PressedGridButton"
+        static let pressedPickerButton = "PressedPickerButton"
+        static let swipeArrow = "SwipeArrow"
+    }
+    
+    struct MusicSymbols {
+        static let bassClef = "BassClef"
+        static let cellWholeNote = "CellWholeNote"
+        static let flat = "Flat"
+        static let lowerQuarterNote = "LowerQuarterNote"
+        static let natural = "Natural"
+        static let sharp = "Sharp"
+        static let trebleClef = "TrebleClef"
+        static let upperQuarterNote = "UpperQuarterNote"
+    }
     
     static func drawStaffLine(color: UIColor, size: CGSize, rounded: Bool) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: size)
