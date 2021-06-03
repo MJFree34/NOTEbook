@@ -51,6 +51,46 @@ extension UIImage {
         static let instruments = "InstrumentsFinal"
     }
     
+    struct Instruments {
+        struct Triggers {
+            static let bbTriggerEmpty = "BbTriggerEmpty"
+            static let bbTriggerFull = "BbTriggerFull"
+        }
+        
+        struct Clarinet {
+            static let bottomKeysEmpty = "ClarinetBottomKeysEmpty"
+            static let bottomKeysEmptyFull = "ClarinetBottomKeysEmptyFull"
+            static let bottomKeysFull = "ClarinetBottomKeysFull"
+            static let bottomKeysFullEmpty = "ClarinetBottomKeysFullEmpty"
+            static let circleKeyEmpty = "ClarinetCircleKeyEmpty"
+            static let circleKeyFull = "ClarinetCircleKeyFull"
+            static let largeSideKeyEmpty = "ClarinetLargeSideKeyEmpty"
+            static let largeSideKeyFull = "ClarinetLargeSideKeyFull"
+            static let middleLeverKeyEmpty = "ClarinetMiddleLeverKeyEmpty"
+            static let middleLeverKeyFull = "ClarinetMiddleLeverKeyFull"
+            static let smallSideKeyEmpty = "ClarinetSmallSideKeyEmpty"
+            static let smallSideKeyFull = "ClarinetSmallSideKeyFull"
+            static let thinLeftLeverKeyEmpty = "ClarinetThinLeftLeverKeyEmpty"
+            static let thinLeftLeverKeyFull = "ClarinetThinLeftLeverKeyFull"
+            static let thinRightLeverKeyEmpty = "ClarinetThinRightLeverKeyEmpty"
+            static let thinRightLeverKeyFull = "ClarinetThinRightLeverKeyFull"
+            static let thumbKeysEmpty = "ClarinetThumbKeysEmpty"
+            static let thumbKeysEmptyFull = "ClarinetThumbKeysEmptyFull"
+            static let thumbKeysFull = "ClarinetThumbKeysFull"
+            static let thumbKeysFullEmpty = "ClarinetThumbKeysFullEmpty"
+            static let topLeverKeyEmpty = "ClarinetTopLeverKeyEmpty"
+            static let topLeverKeyFull = "ClarinetTopLeverKeyFull"
+            static let triggerGroupKeysEmpty = "ClarinetTriggerGroupKeysEmpty"
+            static let triggerGroupKeysEmptyEmptyFull = "ClarinetTriggerGroupKeysEmptyEmptyFull"
+            static let triggerGroupKeysEmptyFullEmpty = "ClarinetTriggerGroupKeysEmptyFullEmpty"
+            static let triggerGroupKeysEmptyFullFull = "ClarinetTriggerGroupKeysEmptyFullFull"
+            static let triggerGroupKeysFull = "ClarinetTriggerGroupKeysFull"
+            static let triggerGroupKeysFullEmptyEmpty = "ClarinetTriggerGroupKeysFullEmptyEmpty"
+            static let triggerGroupKeysFullEmptyFull = "ClarinetTriggerGroupKeysFullEmptyFull"
+            static let triggerGroupKeysFullFullEmpty = "ClarinetTriggerGroupKeysFullFullEmpty"
+        }
+    }
+    
     static func drawStaffLine(color: UIColor, size: CGSize, rounded: Bool) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: size)
         

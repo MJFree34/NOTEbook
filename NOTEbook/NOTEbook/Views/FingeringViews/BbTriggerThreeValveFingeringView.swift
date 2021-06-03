@@ -10,7 +10,7 @@ import UIKit
 
 class BbTriggerThreeValveFingeringView: ThreeValveFingeringView {
     private lazy var bbTrigger: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? "BbTriggerFull" : "BbTriggerEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? UIImage.Instruments.Triggers.bbTriggerFull : UIImage.Instruments.Triggers.bbTriggerEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -20,14 +20,12 @@ class BbTriggerThreeValveFingeringView: ThreeValveFingeringView {
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)
         
-//        if fingering.trigger! { // For if do not want to show empty triggers
-            addSubview(bbTrigger)
-            
-            NSLayoutConstraint.activate([
-                bbTrigger.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -85 * ratio),
-                bbTrigger.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
-//        }
+        addSubview(bbTrigger)
+        
+        NSLayoutConstraint.activate([
+            bbTrigger.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -85 * ratio),
+            bbTrigger.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
     
     required init?(coder: NSCoder) {

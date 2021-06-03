@@ -10,7 +10,7 @@ import UIKit
 
 class ClarinetFingeringView: FingeringView {
     private lazy var circleKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? "ClarinetCircleKeyFull" : "ClarinetCircleKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? UIImage.Instruments.Clarinet.circleKeyFull : UIImage.Instruments.Clarinet.circleKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -18,7 +18,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var circleKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? "ClarinetCircleKeyFull" : "ClarinetCircleKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? UIImage.Instruments.Clarinet.circleKeyFull : UIImage.Instruments.Clarinet.circleKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -26,7 +26,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var circleKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? "ClarinetCircleKeyFull" : "ClarinetCircleKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? UIImage.Instruments.Clarinet.circleKeyFull : UIImage.Instruments.Clarinet.circleKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -34,7 +34,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var circleKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? "ClarinetCircleKeyFull" : "ClarinetCircleKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? UIImage.Instruments.Clarinet.circleKeyFull : UIImage.Instruments.Clarinet.circleKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -42,7 +42,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var circleKey5: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![4] ? "ClarinetCircleKeyFull" : "ClarinetCircleKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![4] ? UIImage.Instruments.Clarinet.circleKeyFull : UIImage.Instruments.Clarinet.circleKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,7 +50,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var circleKey6: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![5] ? "ClarinetCircleKeyFull" : "ClarinetCircleKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![5] ? UIImage.Instruments.Clarinet.circleKeyFull : UIImage.Instruments.Clarinet.circleKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -62,15 +62,15 @@ class ClarinetFingeringView: FingeringView {
         
         if fingering.keys![6] {
             if fingering.keys![7] {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysFull")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysFull)!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysEmptyFull")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysEmptyFull)!.withTintColor(.notebookBlack))
             }
         } else {
             if fingering.keys![7] {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysFullEmpty")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysFullEmpty)!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysEmpty")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysEmpty)!.withTintColor(.notebookBlack))
             }
         }
         
@@ -85,15 +85,15 @@ class ClarinetFingeringView: FingeringView {
         
         if fingering.keys![8] {
             if fingering.keys![9] {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysFull")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysFull)!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysEmptyFull")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysEmptyFull)!.withTintColor(.notebookBlack))
             }
         } else {
             if fingering.keys![9] {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysFullEmpty")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysFullEmpty)!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "ClarinetBottomKeysEmpty")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.bottomKeysEmpty)!.withTintColor(.notebookBlack))
             }
         }
         
@@ -104,7 +104,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var leverKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![10] ? "ClarinetThinLeverLeftKeyFull" : "ClarinetThinLeverLeftKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![10] ? UIImage.Instruments.Clarinet.thinLeftLeverKeyFull : UIImage.Instruments.Clarinet.thinLeftLeverKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -112,7 +112,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var leverKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![11] ? "ClarinetMiddleLeverKeyFull" : "ClarinetMiddleLeverKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![11] ? UIImage.Instruments.Clarinet.middleLeverKeyFull : UIImage.Instruments.Clarinet.middleLeverKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -120,7 +120,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var leverKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![12] ? "ClarinetThinRightLeverKeyFull" : "ClarinetThinRightLeverKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![12] ? UIImage.Instruments.Clarinet.thinRightLeverKeyFull : UIImage.Instruments.Clarinet.thinRightLeverKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -128,7 +128,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var leverKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![13] ? "ClarinetTopLeverKeyFull" : "ClarinetTopLeverKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![13] ? UIImage.Instruments.Clarinet.topLeverKeyFull : UIImage.Instruments.Clarinet.topLeverKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -136,7 +136,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var leverKey5: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![14] ? "ClarinetTopLeverKeyFull" : "ClarinetTopLeverKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![14] ? UIImage.Instruments.Clarinet.topLeverKeyFull : UIImage.Instruments.Clarinet.topLeverKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -149,29 +149,29 @@ class ClarinetFingeringView: FingeringView {
         if fingering.keys![15] {
             if fingering.keys![16] {
                 if fingering.keys![17] {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysFull")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysFull)!.withTintColor(.notebookBlack))
                 } else {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysFullFullEmpty")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysFullFullEmpty)!.withTintColor(.notebookBlack))
                 }
             } else {
                 if fingering.keys![17] {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysFullEmptyFull")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysFullEmptyFull)!.withTintColor(.notebookBlack))
                 } else {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysFullEmptyEmpty")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysFullEmptyEmpty)!.withTintColor(.notebookBlack))
                 }
             }
         } else {
             if fingering.keys![16] {
                 if fingering.keys![17] {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysEmptyFullFull")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysEmptyFullFull)!.withTintColor(.notebookBlack))
                 } else {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysEmptyFullEmpty")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysEmptyFullEmpty)!.withTintColor(.notebookBlack))
                 }
             } else {
                 if fingering.keys![17] {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysEmptyEmptyFull")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysEmptyEmptyFull)!.withTintColor(.notebookBlack))
                 } else {
-                    imageView = UIImageView(image: UIImage(named: "ClarinetTriggerGroupKeysEmpty")!.withTintColor(.notebookBlack))
+                    imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.triggerGroupKeysEmpty)!.withTintColor(.notebookBlack))
                 }
             }
         }
@@ -183,7 +183,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var sideKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![18] ? "ClarinetLargeSideKeyFull" : "ClarinetLargeSideKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![18] ? UIImage.Instruments.Clarinet.largeSideKeyFull : UIImage.Instruments.Clarinet.largeSideKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -191,7 +191,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var sideKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![19] ? "ClarinetLargeSideKeyFull" : "ClarinetLargeSideKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![19] ? UIImage.Instruments.Clarinet.largeSideKeyFull : UIImage.Instruments.Clarinet.largeSideKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -199,7 +199,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var sideKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![20] ? "ClarinetSmallSideKeyFull" : "ClarinetSmallSideKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![20] ? UIImage.Instruments.Clarinet.smallSideKeyFull : UIImage.Instruments.Clarinet.smallSideKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -207,7 +207,7 @@ class ClarinetFingeringView: FingeringView {
     }()
     
     private lazy var sideKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![21] ? "ClarinetSmallSideKeyFull" : "ClarinetSmallSideKeyEmpty"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![21] ? UIImage.Instruments.Clarinet.smallSideKeyFull : UIImage.Instruments.Clarinet.smallSideKeyEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -219,15 +219,15 @@ class ClarinetFingeringView: FingeringView {
         
         if fingering.keys![22] {
             if fingering.keys![23] {
-                imageView = UIImageView(image: UIImage(named: "ClarinetThumbKeysFull")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.thumbKeysFull)!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "ClarinetThumbKeysEmptyFull")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.thumbKeysEmptyFull)!.withTintColor(.notebookBlack))
             }
         } else {
             if fingering.keys![23] {
-                imageView = UIImageView(image: UIImage(named: "ClarinetThumbKeysFullEmpty")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.thumbKeysFullEmpty)!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "ClarinetThumbKeysEmpty")!.withTintColor(.notebookBlack))
+                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Clarinet.thumbKeysEmpty)!.withTintColor(.notebookBlack))
             }
         }
         
