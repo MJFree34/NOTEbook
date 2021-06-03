@@ -32,7 +32,7 @@ class SelectInstrumentViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textColor = UIColor(named: "MediumRed")
+        label.textColor = .notebookMediumRed
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -45,7 +45,7 @@ class SelectInstrumentViewController: UIViewController {
         label.minimumScaleFactor = 0.01
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textColor = UIColor(named: "DarkAqua")
+        label.textColor = .notebookDarkAqua
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -54,9 +54,9 @@ class SelectInstrumentViewController: UIViewController {
     private lazy var continueButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(continuePressed), for: .touchUpInside)
-        button.backgroundColor = UIColor(named: "DarkAqua")
+        button.backgroundColor = .notebookDarkAqua
         button.setTitle("Continue", for: .normal)
-        button.setTitleColor(UIColor(named: "LightestestAqua"), for: .normal)
+        button.setTitleColor(.notebookLightestestAqua, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -130,9 +130,9 @@ extension SelectInstrumentViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectInstrumentCell.reuseIdentifier, for: indexPath) as? SelectInstrumentCell else { fatalError() }
         cell.purchasableInstrumentGroup = chartsController.purchasableInstrumentGroups[indexPath.item]
         cell.setupSubviews()
-        cell.backgroundColor = UIColor(named: "LightestAqua")
+        cell.backgroundColor = .notebookLightestAqua
         cell.layer.cornerRadius = 20
-        cell.layer.borderColor = UIColor(named: "MediumRed")?.cgColor
+        cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
         
         return cell
     }

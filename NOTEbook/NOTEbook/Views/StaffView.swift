@@ -10,7 +10,7 @@ import UIKit
 
 class StaffView: UIView {
     private lazy var trebleClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true
@@ -19,7 +19,7 @@ class StaffView: UIView {
     }()
     
     private lazy var bassClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isHidden = true
@@ -60,7 +60,7 @@ class StaffView: UIView {
     }
     
     private func addStaffLine(bottomInset: CGFloat, width: CGFloat) {
-        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: width, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
+        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: width, height: 2), rounded: true).withTintColor(.notebookBlack))
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(staffImageView)
         

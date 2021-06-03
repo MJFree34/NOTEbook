@@ -67,24 +67,24 @@ class NotePickerCell: UICollectionViewCell {
     private func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
         
-        upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(UIColor(named: "Black")!))
+        upperQuarterNote = UIImageView(image: UIImage(named: "UpperQuarterNote")!.withTintColor(.notebookBlack))
         upperQuarterNote.contentMode = .scaleAspectFill
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
         upperQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(upperQuarterNote)
         
-        lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote")!.withTintColor(UIColor(named: "Black")!))
+        lowerQuarterNote = UIImageView(image: UIImage(named: "LowerQuarterNote")!.withTintColor(.notebookBlack))
         lowerQuarterNote.contentMode = .scaleAspectFill
         lowerQuarterNote.isHidden = quarterNoteOrientation == .upper
         lowerQuarterNote.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(lowerQuarterNote)
         
-        flat = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        flat = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
         flat.isHidden = initNote.type != .flat
         flat.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(flat)
         
-        sharp = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        sharp = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
         sharp.isHidden = initNote.type != .sharp
         sharp.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(sharp)
@@ -197,7 +197,7 @@ class NotePickerCell: UICollectionViewCell {
     }
     
     private func createExtraStaffLine() -> UIImageView {
-        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 35 * NotePickerViewController.spaceBetweenStaffLines / 20, height: 2), rounded: true).withTintColor(UIColor(named: "Black")!))
+        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: 35 * NotePickerViewController.spaceBetweenStaffLines / 20, height: 2), rounded: true).withTintColor(.notebookBlack))
         extraLineImageView.isHidden = true
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(extraLineImageView)

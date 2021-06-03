@@ -12,8 +12,8 @@ class FingeringScrollingView: UIView {
     private lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
         control.currentPage = 0
-        control.currentPageIndicatorTintColor = UIColor(named: "Black")!
-        control.pageIndicatorTintColor = UIColor(named: "LightAqua")!
+        control.currentPageIndicatorTintColor = .notebookBlack
+        control.pageIndicatorTintColor = .notebookLightAqua
         control.addTarget(self, action: #selector(pageControlChanged), for: .valueChanged)
         control.translatesAutoresizingMaskIntoConstraints = false
         

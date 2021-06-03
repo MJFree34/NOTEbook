@@ -29,7 +29,7 @@ class SelectInstrumentCell: UICollectionViewCell {
         groupTitleLabel.numberOfLines = 0
         groupTitleLabel.textAlignment = .center
         groupTitleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        groupTitleLabel.textColor = UIColor(named: "DarkAqua")
+        groupTitleLabel.textColor = .notebookDarkAqua
         groupTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(groupTitleLabel)
         
@@ -45,7 +45,7 @@ class SelectInstrumentCell: UICollectionViewCell {
             instrumentTitleLabel.text = title
             instrumentTitleLabel.textAlignment = .natural
             instrumentTitleLabel.font = UIFont.systemFont(ofSize: instrumentTitleSize)
-            instrumentTitleLabel.textColor = UIColor(named: "DarkAqua")
+            instrumentTitleLabel.textColor = .notebookDarkAqua
             instrumentTitleLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(instrumentTitleLabel)
             

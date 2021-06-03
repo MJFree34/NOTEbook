@@ -10,7 +10,7 @@ import UIKit
 
 class ThreeValveFingeringView: FingeringView {
     private lazy var finger1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? "RoundFingeringFull1" : "RoundFingeringEmpty1"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? "RoundFingeringFull1" : "RoundFingeringEmpty1"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -18,7 +18,7 @@ class ThreeValveFingeringView: FingeringView {
     }()
     
     private lazy var finger2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? "RoundFingeringFull2" : "RoundFingeringEmpty2"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? "RoundFingeringFull2" : "RoundFingeringEmpty2"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -26,7 +26,7 @@ class ThreeValveFingeringView: FingeringView {
     }()
     
     private lazy var finger3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? "RoundFingeringFull3" : "RoundFingeringEmpty3"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? "RoundFingeringFull3" : "RoundFingeringEmpty3"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

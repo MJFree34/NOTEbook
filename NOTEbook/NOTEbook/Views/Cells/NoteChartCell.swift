@@ -33,7 +33,7 @@ class NoteChartCell: UICollectionViewCell {
         var lab = UILabel()
         lab.font = UIFont.preferredFont(forTextStyle: .title3)
         lab.textAlignment = .center
-        lab.textColor = UIColor(named: "Black")
+        lab.textColor = .notebookBlack
         lab.isHidden = true
         lab.text = "N/A"
         lab.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +64,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -72,7 +72,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -80,7 +80,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var trebleClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "TrebleClef")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -88,7 +88,7 @@ class NoteChartCell: UICollectionViewCell {
     }()
     
     private lazy var bassClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "BassClef")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -158,7 +158,7 @@ extension NoteChartCell {
     }
     
     private func addStaffLine(topInset: CGFloat) {
-        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(UIColor(named: "Black")!))
+        let staffImageView = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(.notebookBlack))
         staffImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(staffImageView)
         
@@ -179,17 +179,17 @@ extension NoteChartCell {
         
         let insetFromTop = centerOfStaffInsetFromTop - 2 * spaceBetweenStaffLines
         
-        let leftOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
+        let leftOutline = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: 0.5, height: cellHeight - insetFromTop), rounded: false).withTintColor(.notebookBlack))
         leftOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(leftOutline)
         currentOutline.append(leftOutline)
         
-        let bottomOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(UIColor(named: "Black")!))
+        let bottomOutline = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: cellWidth, height: 1), rounded: false).withTintColor(.notebookBlack))
         bottomOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(bottomOutline)
         currentOutline.append(bottomOutline)
         
-        let rightOutline = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 0.5, height: cellHeight - insetFromTop), rounded: false).withTintColor(UIColor(named: "Black")!))
+        let rightOutline = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: 0.5, height: cellHeight - insetFromTop), rounded: false).withTintColor(.notebookBlack))
         rightOutline.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(rightOutline)
         currentOutline.append(rightOutline)
@@ -361,7 +361,7 @@ extension NoteChartCell {
     private func addExtraStaffLine(topInset: CGFloat, thickLine: Bool) {
         let lineWidth: CGFloat = 30 * spaceBetweenStaffLines / 10
         
-        let extraLineImageView = thickLine ? UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!)) : UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(UIColor(named: "Black")!))
+        let extraLineImageView = thickLine ? UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: lineWidth, height: 1), rounded: true).withTintColor(.notebookBlack)) : UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(.notebookBlack))
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(extraLineImageView)
         currentExtraLines.append(extraLineImageView)
@@ -397,13 +397,13 @@ extension NoteChartCell {
             contentView.addSubview(note2)
             currentWholeNotes.append(note2)
             
-            let sharpView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+            let sharpView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
             sharpView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
             sharpView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(sharpView)
             currentWholeNotes.append(sharpView)
             
-            let flatView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+            let flatView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
             flatView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
             flatView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(flatView)
@@ -527,7 +527,7 @@ extension NoteChartCell {
     }
     
     private func createWholeNote() -> UIImageView {
-        let imageView = UIImageView(image: UIImage(named: "CellWholeNote")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "CellWholeNote")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10, y: spaceBetweenStaffLines / 10)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

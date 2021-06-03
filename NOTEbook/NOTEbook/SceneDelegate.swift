@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let nav = UINavigationController(rootViewController: NotePickerViewController())
-        nav.navigationBar.tintColor = UIColor(named: "DarkAqua")!
+        nav.navigationBar.tintColor = .notebookDarkAqua
         nav.navigationBar.setBackgroundImage(UIImage(), for: .default)
         nav.navigationBar.shadowImage = UIImage()
         

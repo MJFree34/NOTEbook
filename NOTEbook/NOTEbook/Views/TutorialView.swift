@@ -24,8 +24,8 @@ class TutorialView: UIView {
     
     private lazy var pageControl: UIPageControl = {
         let control = UIPageControl()
-        control.currentPageIndicatorTintColor = UIColor(named: "Black")!
-        control.pageIndicatorTintColor = UIColor(named: "LightAqua")!
+        control.currentPageIndicatorTintColor = .notebookBlack
+        control.pageIndicatorTintColor = .notebookLightAqua
         control.addTarget(self, action: #selector(pageControlChanged), for: .valueChanged)
         control.numberOfPages = tutorialInformation.count
         control.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class TutorialView: UIView {
         let button = UIButton(type: .custom)
         button.setTitle("Get started!", for: .normal)
         button.setTitleColor((traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .normal)
-        button.backgroundColor = UIColor(named: "DarkAqua")
+        button.backgroundColor = .notebookDarkAqua
         button.setTitleColor((traitCollection.userInterfaceStyle != UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .highlighted)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(tutorialDismissed), for: .touchUpInside)
@@ -146,7 +146,7 @@ class TutorialView: UIView {
     private func createSubviews(information: [String : String]) -> [UIView] {
         let titleLabel = UILabel()
         titleLabel.text = information["title"]
-        titleLabel.textColor = UIColor(named: "MediumRed")
+        titleLabel.textColor = .notebookMediumRed
         titleLabel.font = UIFont.preferredFont(forTextStyle: .title1)
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
@@ -165,7 +165,7 @@ class TutorialView: UIView {
         
         let descriptionLabel = UILabel()
         descriptionLabel.text = information["description"]
-        descriptionLabel.textColor = UIColor(named: "DarkAqua")
+        descriptionLabel.textColor = .notebookDarkAqua
         descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 0

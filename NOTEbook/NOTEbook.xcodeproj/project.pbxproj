@@ -84,6 +84,7 @@
 		9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD5574424995CAB0078CB7E /* NoteFingering.swift */; };
 		9AD5574724995EC10078CB7E /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AD5574624995EC10078CB7E /* Charts.json */; };
 		9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */; };
+		9AF35F6926694370008B8518 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF35F6826694370008B8518 /* UIColor+Extensions.swift */; };
 		9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */; };
 		9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E12534A10300B3008B /* Configuration.swift */; };
 		9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */; };
@@ -183,6 +184,7 @@
 		9AD5574624995EC10078CB7E /* Charts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
 		9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		9AF35F672665CE25008B8518 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ExtraUnnecessaryFingerings/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
+		9AF35F6826694370008B8518 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
 		9AF3A7E12534A10300B3008B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringTests.swift; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */,
 				9A8A95C72561701800E4E737 /* Notification.Name+Extensions.swift */,
 				9AA55E10265FD7E6008BCDCF /* Bundle+Extensions.swift */,
+				9AF35F6826694370008B8518 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				9A054E0A2583F1BA00DCE8FF /* SelectInstrumentViewController.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
 				9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */,
+				9AF35F6926694370008B8518 /* UIColor+Extensions.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
 				9A8A95C82561701800E4E737 /* Notification.Name+Extensions.swift in Sources */,

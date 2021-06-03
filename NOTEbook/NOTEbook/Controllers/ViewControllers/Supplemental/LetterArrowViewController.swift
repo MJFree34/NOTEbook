@@ -21,14 +21,14 @@ class LetterArrowViewController: UIViewController {
     var fingeringScrollingViewWidthConstraint: NSLayoutConstraint!
     
     lazy var rightArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var leftArrow: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "SwipeArrow")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(rotationAngle: .pi)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -36,28 +36,28 @@ class LetterArrowViewController: UIViewController {
     }()
     
     lazy var arrowFlat: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var arrowSharp: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var leftArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     lazy var rightArrowNatural: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Natural")!.withTintColor(.notebookBlack))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -145,14 +145,14 @@ class LetterArrowViewController: UIViewController {
     }
     
     private func addGradientFlat() {
-        let flatImageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        let flatImageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
         letterFlat.addSubview(flatImageView)
 
         letterFlat.mask = flatImageView
     }
     
     private func addGradientSharp() {
-        let sharpImageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        let sharpImageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
         letterSharp.addSubview(sharpImageView)
 
         letterSharp.mask = sharpImageView

@@ -23,7 +23,7 @@ class PurchaseInstrumentSmallCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = UIColor(named: "DarkAqua")
+        label.textColor = .notebookDarkAqua
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -34,7 +34,7 @@ class PurchaseInstrumentSmallCell: UICollectionViewCell {
         label.text = package.localizedPriceString
         label.textAlignment = .left
         label.font = UIFont.boldSystemFont(ofSize: instrumentTitleSize + 4)
-        label.textColor = UIColor(named: "DarkAqua")
+        label.textColor = .notebookDarkAqua
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -49,7 +49,7 @@ class PurchaseInstrumentSmallCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.textAlignment = .right
         label.font = UIFont.boldSystemFont(ofSize: instrumentTitleSize - 2)
-        label.textColor = UIColor(named: "MediumRed")
+        label.textColor = .notebookMediumRed
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -88,7 +88,7 @@ class PurchaseInstrumentSmallCell: UICollectionViewCell {
             instrumentTitleLabel.text = title
             instrumentTitleLabel.textAlignment = .natural
             instrumentTitleLabel.font = UIFont.systemFont(ofSize: instrumentTitleSize)
-            instrumentTitleLabel.textColor = UIColor(named: "DarkAqua")
+            instrumentTitleLabel.textColor = .notebookDarkAqua
             instrumentTitleLabel.translatesAutoresizingMaskIntoConstraints = false
             addSubview(instrumentTitleLabel)
             

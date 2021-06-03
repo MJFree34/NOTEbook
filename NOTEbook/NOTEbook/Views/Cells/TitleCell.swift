@@ -17,7 +17,7 @@ class TitleCell: UICollectionViewCell {
     lazy var titleLabel = InstrumentTitleLabel()
     lazy var cellDivider: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "MediumAqua")
+        view.backgroundColor = .notebookMediumAqua
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = true
         

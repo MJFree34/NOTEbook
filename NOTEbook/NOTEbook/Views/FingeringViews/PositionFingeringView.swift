@@ -14,7 +14,7 @@ class PositionFingeringView: FingeringView {
         lab.text = fingering.position?.value.rawValue
         lab.font = UIFont.systemFont(ofSize: 40)
         lab.textAlignment = .center
-        lab.textColor = UIColor(named: "Black")
+        lab.textColor = .notebookBlack
         lab.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         lab.translatesAutoresizingMaskIntoConstraints = false
         
@@ -22,7 +22,7 @@ class PositionFingeringView: FingeringView {
     }()
     
     private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class PositionFingeringView: FingeringView {
     }()
     
     private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: "Sharp")!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
         imageView.isHidden = true
         imageView.translatesAutoresizingMaskIntoConstraints = false

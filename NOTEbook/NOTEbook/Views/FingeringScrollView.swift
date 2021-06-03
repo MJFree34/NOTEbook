@@ -13,7 +13,7 @@ class FingeringScrollView: UIView {
         var lab = UILabel()
         lab.font = UIFont.preferredFont(forTextStyle: .title1)
         lab.textAlignment = .center
-        lab.textColor = UIColor(named: "Black")
+        lab.textColor = .notebookBlack
         lab.isHidden = true
         lab.text = "N/A"
         lab.translatesAutoresizingMaskIntoConstraints = false

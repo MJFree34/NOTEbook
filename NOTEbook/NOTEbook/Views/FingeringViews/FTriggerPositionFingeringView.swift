@@ -10,7 +10,7 @@ import UIKit
 
 class FTriggerPositionFingeringView: PositionFingeringView {
     private lazy var fTrigger: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? "FTriggerFull" : "FTriggerEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? "FTriggerFull" : "FTriggerEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

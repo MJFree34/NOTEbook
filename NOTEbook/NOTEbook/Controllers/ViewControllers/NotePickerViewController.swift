@@ -234,11 +234,11 @@ class NotePickerViewController: UIViewController {
     }
     
     private func configureIndicators() {
-        leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
+        leftIndicator = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(.notebookOffWhite.withAlphaComponent(0.75)))
         leftIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(leftIndicator)
         
-        rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .black, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(UIColor(named: "OffWhite")!.withAlphaComponent(0.75)))
+        rightIndicator = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: 4, height: 200), rounded: true).withTintColor(.notebookOffWhite.withAlphaComponent(0.75)))
         rightIndicator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(rightIndicator)
         

@@ -14,7 +14,7 @@ extension UIView {
         
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = [UIColor(named: "White")!.cgColor, UIColor(named: "LightestestAqua")!.cgColor]
+        gradient.colors = [UIColor.notebookWhite.cgColor, UIColor.notebookLightestestAqua.cgColor]
         layer.insertSublayer(gradient, at: 0)
     }
     
@@ -26,7 +26,7 @@ extension UIView {
         } else {
             removeAllSublayers()
             
-            backgroundColor = UIColor(named: "LightestestAqua")
+            backgroundColor = .notebookLightestestAqua
         }
     }
     
@@ -35,7 +35,7 @@ extension UIView {
         
         let gradient = CAGradientLayer()
         gradient.frame = bounds
-        gradient.colors = [UIColor(named: "LightAqua")!.cgColor, UIColor(named: "MediumAqua")!.cgColor]
+        gradient.colors = [UIColor.notebookLightAqua.cgColor, UIColor.notebookMediumAqua.cgColor]
         layer.insertSublayer(gradient, at: 0)
     }
     

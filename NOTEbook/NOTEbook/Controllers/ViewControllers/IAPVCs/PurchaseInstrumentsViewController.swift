@@ -82,7 +82,7 @@ class PurchaseInstrumentsViewController: UIViewController {
         label.text = "Unlock Instruments"
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textColor = UIColor(named: "MediumRed")
+        label.textColor = .notebookMediumRed
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -95,7 +95,7 @@ class PurchaseInstrumentsViewController: UIViewController {
         label.minimumScaleFactor = 0.01
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textColor = UIColor(named: "DarkAqua")
+        label.textColor = .notebookDarkAqua
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -104,9 +104,9 @@ class PurchaseInstrumentsViewController: UIViewController {
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(continuePressed), for: .touchUpInside)
-        button.backgroundColor = UIColor(named: "DarkAqua")
+        button.backgroundColor = .notebookDarkAqua
         button.setTitle("Close", for: .normal)
-        button.setTitleColor(UIColor(named: "LightestestAqua"), for: .normal)
+        button.setTitleColor(.notebookLightestestAqua, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 28)
         button.layer.cornerRadius = 25
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -414,9 +414,9 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             cell.purchasableInstrumentGroup = allPurchasableInstrumentGroup
             cell.package = packages[indexPath.item]
             cell.setupSubviews()
-            cell.backgroundColor = UIColor(named: "LightestAqua")
+            cell.backgroundColor = .notebookLightestAqua
             cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor(named: "MediumRed")?.cgColor
+            cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
             
             return cell
         case 1:
@@ -433,9 +433,9 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             }
             
             cell.setupSubviews()
-            cell.backgroundColor = UIColor(named: "LightestAqua")
+            cell.backgroundColor = .notebookLightestAqua
             cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor(named: "MediumRed")?.cgColor
+            cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
             
             return cell
         case 2:
@@ -459,9 +459,9 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             cell.purchasableInstrumentGroup = purchasableGroups[indexPath.item]
             cell.package = packages[indexPath.item + (offeringType == .current || offeringType == .woodwindsDiscounted || offeringType == .brassDiscounted ? 3 : 1)]
             cell.setupSubviews()
-            cell.backgroundColor = UIColor(named: "LightestAqua")
+            cell.backgroundColor = .notebookLightestAqua
             cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor(named: "MediumRed")?.cgColor
+            cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
             
             return cell
         default:

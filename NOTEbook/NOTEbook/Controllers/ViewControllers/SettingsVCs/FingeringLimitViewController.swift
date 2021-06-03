@@ -69,13 +69,13 @@ extension FingeringLimitViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.backgroundColor = UIColor(named: "LightestAqua")
+        cell.backgroundColor = .notebookLightestAqua
         cell.selectionStyle = .none
-        cell.tintColor = UIColor(named: "MediumRed")
+        cell.tintColor = .notebookMediumRed
         
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = "\(fingeringLimitOptions[indexPath.row])"
-        cell.textLabel?.textColor = UIColor(named: "Black")
+        cell.textLabel?.textColor = .notebookBlack
         
         if fingeringLimitOptions[indexPath.row] == UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit) {
             cell.accessoryType = .checkmark

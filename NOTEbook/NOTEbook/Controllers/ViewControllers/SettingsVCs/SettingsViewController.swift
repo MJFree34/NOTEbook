@@ -312,9 +312,9 @@ extension SettingsViewController: UITableViewDataSource {
             }
         }
         
-        cell.backgroundColor = UIColor(named: "LightestAqua")
+        cell.backgroundColor = .notebookLightestAqua
         cell.selectedBackgroundView = UIView()
-        cell.selectedBackgroundView?.backgroundColor = UIColor(named: "MediumAqua")
+        cell.selectedBackgroundView?.backgroundColor = .notebookMediumAqua
         cell.accessoryView = nil
         cell.accessoryType = .none
         cell.textLabel?.numberOfLines = 0
@@ -323,7 +323,7 @@ extension SettingsViewController: UITableViewDataSource {
         switch sections[indexPath.section] {
         case .customize:
             cell.textLabel?.text = customize[indexPath.row]
-            cell.textLabel?.textColor = UIColor(named: "Black")
+            cell.textLabel?.textColor = .notebookBlack
             
             switch indexPath.row {
             case 0:
@@ -340,7 +340,7 @@ extension SettingsViewController: UITableViewDataSource {
                 cell.selectionStyle = .none
                 
                 let switchView = UISwitch()
-                switchView.onTintColor = UIColor(named: "MediumAqua")
+                switchView.onTintColor = .notebookMediumAqua
                 if indexPath.row == 1 {
                     switchView.isOn = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
                     switchView.addTarget(self, action: #selector(toggleHaptics), for: .valueChanged)
@@ -355,8 +355,8 @@ extension SettingsViewController: UITableViewDataSource {
             }
         case .actions:
             cell.textLabel?.text = actions[indexPath.row]
-            cell.textLabel?.textColor = UIColor(named: "DarkAqua")
-            cell.textLabel?.highlightedTextColor = UIColor(named: "LightAqua")
+            cell.textLabel?.textColor = .notebookDarkAqua
+            cell.textLabel?.highlightedTextColor = .notebookLightAqua
             
             cell.selectionStyle = .default
             
@@ -364,12 +364,12 @@ extension SettingsViewController: UITableViewDataSource {
                 let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
                 let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
                 let shopImageView = UIImageView(image: shopImage)
-                shopImageView.tintColor = UIColor(named: "MediumAqua")
+                shopImageView.tintColor = .notebookMediumAqua
                 cell.accessoryView = shopImageView
             }
         case .about:
             cell.textLabel?.text = about[indexPath.row][0]
-            cell.textLabel?.textColor = UIColor(named: "Black")
+            cell.textLabel?.textColor = .notebookBlack
             cell.selectionStyle = .none
             
             let accessoryLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: UIFont.preferredFont(forTextStyle: .body).lineHeight))

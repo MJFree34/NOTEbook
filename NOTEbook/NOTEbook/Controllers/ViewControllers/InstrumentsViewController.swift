@@ -145,16 +145,16 @@ extension InstrumentsViewController: UITableViewDataSource {
         }
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        cell.textLabel?.textColor = UIColor(named: "Black")
+        cell.textLabel?.textColor = .notebookBlack
         cell.textLabel?.text = cellChartCategory.name
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         
         if cellChartCategory.name == chartsController.currentChartCategory.name {
-            cell.tintColor = UIColor(named: "MediumRed")
+            cell.tintColor = .notebookMediumRed
             selectedCategory = indexPath
         } else {
-            cell.tintColor = UIColor(named: "MediumAqua")
+            cell.tintColor = .notebookMediumAqua
         }
         
         if cellChartCategory.fingeringCharts.count == 1 {
@@ -171,7 +171,7 @@ extension InstrumentsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") || cell.accessoryView != nil {
+        if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != .notebookMediumRed || cell.accessoryView != nil {
             let cellChartCategory: ChartCategory
             
             if indexPath.section == 0 && woodwindsChartCategories.count != 0 {
@@ -187,10 +187,10 @@ extension InstrumentsViewController: UITableViewDataSource {
                     UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
                 }
                 
-                cell.tintColor = UIColor(named: "MediumRed")
+                cell.tintColor = .notebookMediumRed
                 
                 if let cell2 = tableView.cellForRow(at: selectedCategory) {
-                    cell2.tintColor = UIColor(named: "MediumAqua")
+                    cell2.tintColor = .notebookMediumAqua
                 }
                 
                 selectedCategory = indexPath
@@ -208,7 +208,7 @@ extension InstrumentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleCell = TitleCell()
-        titleCell.titleLabel.textColor = UIColor(named: "DarkAqua")
+        titleCell.titleLabel.textColor = .notebookDarkAqua
         titleCell.titleLabel.font = UIFont.preferredFont(forTextStyle: .title3)
         titleCell.cellDivider.isHidden = false
         

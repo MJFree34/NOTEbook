@@ -21,6 +21,8 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 }
 
 extension UIImage {
+    static let
+    
     static func drawStaffLine(color: UIColor, size: CGSize, rounded: Bool) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: size)
         

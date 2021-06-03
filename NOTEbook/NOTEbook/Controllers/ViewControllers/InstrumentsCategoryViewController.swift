@@ -53,7 +53,7 @@ class InstrumentsCategoryViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        view.backgroundColor = UIColor(named: "LightestestAqua")
+        view.backgroundColor = .notebookLightestestAqua
         
         title = category.name
         
@@ -95,32 +95,32 @@ extension InstrumentsCategoryViewController: UITableViewDataSource {
         let cellInstrumentType = category.fingeringCharts[indexPath.row].instrument.type
         
         cell.textLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        cell.textLabel?.textColor = UIColor(named: "Black")
+        cell.textLabel?.textColor = .notebookBlack
         cell.textLabel?.text = cellInstrumentType.rawValue
         cell.backgroundColor = .clear
         cell.accessoryType = .checkmark
         cell.selectionStyle = .none
         
         if cellInstrumentType == chartsController.currentChart.instrument.type {
-            cell.tintColor = UIColor(named: "MediumRed")
+            cell.tintColor = .notebookMediumRed
             selectedInstrumentIndex = indexPath
         } else {
-            cell.tintColor = UIColor(named: "MediumAqua")
+            cell.tintColor = .notebookMediumAqua
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != UIColor(named: "MediumRed") {
+        if let cell = tableView.cellForRow(at: indexPath), cell.tintColor != .notebookMediumRed {
             if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
                 UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
             }
             
-            cell.tintColor = UIColor(named: "MediumRed")
+            cell.tintColor = .notebookMediumRed
             
             if let index = selectedInstrumentIndex, let cell2 = tableView.cellForRow(at: index) {
-                cell2.tintColor = UIColor(named: "MediumAqua")
+                cell2.tintColor = .notebookMediumAqua
             }
             
             selectedInstrumentIndex = indexPath

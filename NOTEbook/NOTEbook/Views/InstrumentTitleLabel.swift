@@ -14,7 +14,7 @@ class InstrumentTitleLabel: UILabel {
         
         font = UIFont.systemFont(ofSize: 20)
         textAlignment = .center
-        textColor = UIColor(named: "MediumAqua")
+        textColor = .notebookMediumAqua
         translatesAutoresizingMaskIntoConstraints = false
     }
     

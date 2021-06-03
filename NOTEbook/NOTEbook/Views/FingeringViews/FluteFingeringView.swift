@@ -10,7 +10,7 @@ import UIKit
 
 class FluteFingeringView: FingeringView {
     private lazy var circleKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -18,7 +18,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var circleKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -26,7 +26,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var circleKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -34,7 +34,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var circleKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -42,7 +42,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var circleKey5: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![4] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![4] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -50,7 +50,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var circleKey6: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![5] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![5] ? "FluteCircleKeyFull" : "FluteCircleKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -58,7 +58,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var pinkyKey: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![6] ? "FlutePinkyKeyFull" : "FlutePinkyKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![6] ? "FlutePinkyKeyFull" : "FlutePinkyKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -70,15 +70,15 @@ class FluteFingeringView: FingeringView {
         
         if fingering.keys![7] {
             if fingering.keys![8] {
-                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysFull")!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysEmptyFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysEmptyFull")!.withTintColor(.notebookBlack))
             }
         } else {
             if fingering.keys![8] {
-                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysFullEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysFullEmpty")!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteLeverKeysEmpty")!.withTintColor(.notebookBlack))
             }
         }
         
@@ -89,7 +89,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var trillKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![9] ? "FluteTrillKeyFull" : "FluteTrillKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![9] ? "FluteTrillKeyFull" : "FluteTrillKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -97,7 +97,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var trillKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![10] ? "FluteTrillKeyFull" : "FluteTrillKeyEmpty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![10] ? "FluteTrillKeyFull" : "FluteTrillKeyEmpty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -105,7 +105,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var footKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![11] ? "FluteFootKey1Full" : "FluteFootKey1Empty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![11] ? "FluteFootKey1Full" : "FluteFootKey1Empty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -113,7 +113,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var footKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![12] ? "FluteFootKey2Full" : "FluteFootKey2Empty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![12] ? "FluteFootKey2Full" : "FluteFootKey2Empty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -121,7 +121,7 @@ class FluteFingeringView: FingeringView {
     }()
     
     private lazy var footKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![13] ? "FluteFootKey2Full" : "FluteFootKey2Empty"))!.withTintColor(UIColor(named: "Black")!))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![13] ? "FluteFootKey2Full" : "FluteFootKey2Empty"))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -133,15 +133,15 @@ class FluteFingeringView: FingeringView {
         
         if fingering.keys![14] {
             if fingering.keys![15] {
-                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysFull")!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysEmptyFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysEmptyFull")!.withTintColor(.notebookBlack))
             }
         } else {
             if fingering.keys![15] {
-                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysFullEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysFullEmpty")!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "FluteThumbKeysEmpty")!.withTintColor(.notebookBlack))
             }
         }
         

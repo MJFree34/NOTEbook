@@ -14,15 +14,15 @@ class BaritoneSaxophoneFingeringView: SaxophoneFingeringView {
         
         if fingering.keys![22] {
             if fingering.keys![23] {
-                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysFull")!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysEmptyFull")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysEmptyFull")!.withTintColor(.notebookBlack))
             }
         } else {
             if fingering.keys![23] {
-                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysFullEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysFullEmpty")!.withTintColor(.notebookBlack))
             } else {
-                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysEmpty")!.withTintColor(UIColor(named: "Black")!))
+                imageView = UIImageView(image: UIImage(named: "SaxophoneBaritoneOctaveKeysEmpty")!.withTintColor(.notebookBlack))
             }
         }
         
