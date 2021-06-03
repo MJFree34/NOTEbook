@@ -43,6 +43,14 @@ extension UIImage {
         static let upperQuarterNote = "UpperQuarterNote"
     }
     
+    struct TutorialGifs {
+        static let accidentals = "AccidentalsFinal"
+        static let alternateFingerings = "AlternateFingeringsFinal"
+        static let notePicker = "NotePickerFinal"
+        static let chart = "ChartFinal"
+        static let instruments = "InstrumentsFinal"
+    }
+    
     static func drawStaffLine(color: UIColor, size: CGSize, rounded: Bool) -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: size)
         
