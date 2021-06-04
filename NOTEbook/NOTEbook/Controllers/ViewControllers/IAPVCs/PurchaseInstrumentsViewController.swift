@@ -357,7 +357,7 @@ class PurchaseInstrumentsViewController: UIViewController {
                     return
                 }
 
-                self.chartsController.updatePurchasableInstrumentGroups()
+                self.chartsController.updatePurchasableInstrumentGroups(resetIndex: true)
                 self.dismiss(animated: true)
             }
         } else {

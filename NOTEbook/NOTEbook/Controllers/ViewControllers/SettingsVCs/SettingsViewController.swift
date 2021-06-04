@@ -253,7 +253,7 @@ class SettingsViewController: UIViewController {
     
     private func endFreeTrial() {
         UserDefaults.standard.set(true, forKey: UserDefaults.Keys.freeTrialOver)
-        ChartsController.shared.updatePurchasableInstrumentGroups()
+        ChartsController.shared.updatePurchasableInstrumentGroups(resetIndex: true)
         tableView.deselectRow(at: IndexPath(row: self.actions.firstIndex(of: "End Free Trial") ?? 0, section: 1), animated: true)
         navigationController?.popToRootViewController(animated: true)
     }

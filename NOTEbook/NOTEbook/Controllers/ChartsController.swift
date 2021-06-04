@@ -149,13 +149,13 @@ extension ChartsController {
 }
 
 extension ChartsController {
-    func updatePurchasableInstrumentGroups() {
+    func updatePurchasableInstrumentGroups(resetIndex: Bool = false) {
         let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
 
         if freeTrialOver {
             if Configuration.appConfiguration == .testFlight {
-                updatePurchasedChartCategories()
+                updatePurchasedChartCategories(resetIndex: resetIndex)
             }
             
             var groups = allInstrumentGroups
@@ -221,16 +221,16 @@ extension ChartsController {
                         }
                     }
                     
-                    self.updatePurchasedChartCategories()
+                    self.updatePurchasedChartCategories(resetIndex: resetIndex)
                 }
             }
         } else {
             // Free trial or TF user aka no purchasable categories
-            updatePurchasedChartCategories()
+            updatePurchasedChartCategories(resetIndex: resetIndex)
         }
     }
     
-    private func updatePurchasedChartCategories() {
+    private func updatePurchasedChartCategories(resetIndex: Bool = false) {
         var purchasedInstrumentGroups = [PurchasableInstrumentGroup]()
         
         for group in allInstrumentGroups {
@@ -277,7 +277,9 @@ extension ChartsController {
         
         purchasedChartCategories = purchasedCC
         
-        changeCurrentChart(to: purchasedChartCategories[0].name, chartIndex: 0)
+        if resetIndex {
+            changeCurrentChart(to: purchasedChartCategories[0].name, chartIndex: 0)
+        }
         
         NotificationCenter.default.post(Notification(name: .reloadInstrumentViews))
     }
