@@ -247,6 +247,7 @@
 				9A5CFB44249C204500DF319F /* Controllers */,
 				9A5CFB3F249A8B9500DF319F /* Views */,
 				9AD5573B249957960078CB7E /* Models */,
+				9AF35F792669FA95008B8518 /* Helpers */,
 				9AD55738249954F70078CB7E /* Extensions */,
 				9A022AED249908C20052E819 /* Assets.xcassets */,
 				9A1022D824F84B220052B364 /* MusicSymbols.xcassets */,
@@ -288,8 +289,8 @@
 		9A23CDCA25696D210038DF4A /* FingeringViews */ = {
 			isa = PBXGroup;
 			children = (
-				9A3D738824E96EA300A1A515 /* FingeringView.swift */,
-				9AF35F6C2669E450008B8518 /* ValveFingeringView.swift */,
+				9AF35F782669F9B2008B8518 /* Superviews */,
+				9AF35F772669F970008B8518 /* ComponentViews */,
 				9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */,
 				9A3D738C24E97C3800A1A515 /* FourValveFingeringView.swift */,
 				9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */,
@@ -345,8 +346,6 @@
 				9A23CDBE256967FB0038DF4A /* FingeringScrollingView.swift */,
 				9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */,
 				9A23CDCD256B45F70038DF4A /* TutorialView.swift */,
-				9AF35F6E2669E6EF008B8518 /* FingeringKeyView.swift */,
-				9AF35F702669EA06008B8518 /* PositionFingeringAccidental.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,8 +355,6 @@
 			children = (
 				9A5CFB3A2499C2C400DF319F /* ViewControllers */,
 				9A5CFB42249C203800DF319F /* ChartsController.swift */,
-				9A81D423249C3BE1001E108B /* ChartsLoader.swift */,
-				9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +416,17 @@
 		9AD5573B249957960078CB7E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9AF35F762669F90F008B8518 /* Charts */,
+				9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */,
+				9AF3A7E12534A10300B3008B /* Configuration.swift */,
+				9AA55E12266034FE008BCDCF /* FreeTrialData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9AF35F762669F90F008B8518 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
 				9AC89572250448AB0033250B /* ChartCategory.swift */,
 				9AD5574024995A000078CB7E /* FingeringChart.swift */,
 				9AD5574224995B1D0078CB7E /* Instrument.swift */,
@@ -426,11 +434,35 @@
 				9AD5573C249957A50078CB7E /* Fingering.swift */,
 				9A89FFE124F016F10059295C /* Position.swift */,
 				9AD55739249955AD0078CB7E /* Note.swift */,
-				9A054E112584755E00DCE8FF /* PurchasableInstrumentGroup.swift */,
-				9AF3A7E12534A10300B3008B /* Configuration.swift */,
-				9AA55E12266034FE008BCDCF /* FreeTrialData.swift */,
 			);
-			path = Models;
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		9AF35F772669F970008B8518 /* ComponentViews */ = {
+			isa = PBXGroup;
+			children = (
+				9AF35F6E2669E6EF008B8518 /* FingeringKeyView.swift */,
+				9AF35F702669EA06008B8518 /* PositionFingeringAccidental.swift */,
+			);
+			path = ComponentViews;
+			sourceTree = "<group>";
+		};
+		9AF35F782669F9B2008B8518 /* Superviews */ = {
+			isa = PBXGroup;
+			children = (
+				9A3D738824E96EA300A1A515 /* FingeringView.swift */,
+				9AF35F6C2669E450008B8518 /* ValveFingeringView.swift */,
+			);
+			path = Superviews;
+			sourceTree = "<group>";
+		};
+		9AF35F792669FA95008B8518 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9A81D423249C3BE1001E108B /* ChartsLoader.swift */,
+				9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		9AF9B00A25365DA800148365 /* SettingsVCs */ = {
