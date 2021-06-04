@@ -9,22 +9,17 @@
 import UIKit
 
 class FTriggerPositionFingeringView: PositionFingeringView {
-    private lazy var fTrigger: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? UIImage.Instruments.Triggers.fFull : UIImage.Instruments.Triggers.fEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var fTrigger = FingeringKeyView(imageName: fingering.triggers![0] ? UIImage.Instruments.Triggers.fFull : UIImage.Instruments.Triggers.fEmpty, ratio: ratio)
     
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)
-            addSubview(fTrigger)
-            
-            NSLayoutConstraint.activate([
-                fTrigger.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -60 * ratio),
-                fTrigger.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
+        
+        addSubview(fTrigger)
+        
+        NSLayoutConstraint.activate([
+            fTrigger.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -60 * ratio),
+            fTrigger.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
     }
     
     required init?(coder: NSCoder) {

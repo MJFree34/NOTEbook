@@ -9,27 +9,20 @@
 import UIKit
 
 class BaritoneSaxophoneFingeringView: SaxophoneFingeringView {
-    private lazy var baritoneOctaveKey: UIImageView = {
-        let imageView: UIImageView!
-        
+    private lazy var baritoneOctaveKey: FingeringKeyView = {
         if fingering.keys![22] {
             if fingering.keys![23] {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.baritoneOctaveKeysFull)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysFull, ratio: ratio)
             } else {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.baritoneOctaveKeysEmptyFull)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysEmptyFull, ratio: ratio)
             }
         } else {
             if fingering.keys![23] {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.baritoneOctaveKeysFullEmpty)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysFullEmpty, ratio: ratio)
             } else {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.baritoneOctaveKeysEmpty)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysEmpty, ratio: ratio)
             }
         }
-        
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
     }()
     
     override init(fingering: Fingering, ratio: CGFloat) {

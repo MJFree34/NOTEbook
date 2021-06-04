@@ -9,203 +9,59 @@
 import UIKit
 
 class SaxophoneFingeringView: FingeringView {
-    private lazy var circleKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var circleKey1 = FingeringKeyView(imageName: fingering.keys![0] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
+    private lazy var circleKey2 = FingeringKeyView(imageName: fingering.keys![1] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
+    private lazy var circleKey3 = FingeringKeyView(imageName: fingering.keys![2] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
+    private lazy var circleKey4 = FingeringKeyView(imageName: fingering.keys![3] ? UIImage.Instruments.Saxophone.circleKeyWithLineFull :  UIImage.Instruments.Saxophone.circleKeyWithLineEmpty, ratio: ratio)
+    private lazy var circleKey5 = FingeringKeyView(imageName: fingering.keys![4] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
+    private lazy var circleKey6 = FingeringKeyView(imageName: fingering.keys![5] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
     
-    private lazy var circleKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var circleKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var circleKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? UIImage.Instruments.Saxophone.circleKeyWithLineFull :  UIImage.Instruments.Saxophone.circleKeyWithLineEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var circleKey5: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![4] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var circleKey6: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![5] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var bottomKeys: UIImageView = {
-        let imageView: UIImageView!
-        
+    private lazy var bottomKeys: FingeringKeyView = {
         if fingering.keys![6] {
             if fingering.keys![7] {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.bottomKeysFull)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysFull, ratio: ratio)
             } else {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.bottomKeysEmptyFull)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysEmptyFull, ratio: ratio)
             }
         } else {
             if fingering.keys![7] {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.bottomKeysFullEmpty)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysFullEmpty, ratio: ratio)
             } else {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.bottomKeysEmpty)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysEmpty, ratio: ratio)
             }
         }
-        
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
     }()
     
-    private lazy var sideKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![8] ? UIImage.Instruments.Saxophone.chromaticFSharpKeyFull :  UIImage.Instruments.Saxophone.chromaticFSharpKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var sideKey1 = FingeringKeyView(imageName: fingering.keys![8] ? UIImage.Instruments.Saxophone.chromaticFSharpKeyFull :  UIImage.Instruments.Saxophone.chromaticFSharpKeyEmpty, ratio: ratio)
+    private lazy var sideKey2 = FingeringKeyView(imageName: fingering.keys![9] ? UIImage.Instruments.Saxophone.smallSideKeyFull :  UIImage.Instruments.Saxophone.smallSideKeyEmpty, ratio: ratio)
+    private lazy var sideKey3 = FingeringKeyView(imageName: fingering.keys![10] ? UIImage.Instruments.Saxophone.smallSideKeyFull :  UIImage.Instruments.Saxophone.smallSideKeyEmpty, ratio: ratio)
+    private lazy var sideKey4 = FingeringKeyView(imageName: fingering.keys![11] ? UIImage.Instruments.Saxophone.largeSideKeyFull :  UIImage.Instruments.Saxophone.largeSideKeyEmpty, ratio: ratio)
+    private lazy var leverKey1 = FingeringKeyView(imageName: fingering.keys![12] ? UIImage.Instruments.Saxophone.highFSharpKeyFull :  UIImage.Instruments.Saxophone.highFSharpKeyEmpty, ratio: ratio)
+    private lazy var leverKey2 = FingeringKeyView(imageName: fingering.keys![13] ? UIImage.Instruments.Saxophone.forkKeyFull :  UIImage.Instruments.Saxophone.forkKeyEmpty, ratio: ratio)
+    private lazy var leverKey3 = FingeringKeyView(imageName: fingering.keys![14] ? UIImage.Instruments.Saxophone.topLeverKeyFull :  UIImage.Instruments.Saxophone.topLeverKeyEmpty, ratio: ratio)
+    private lazy var leverKey4 = FingeringKeyView(imageName: fingering.keys![15] ? UIImage.Instruments.Saxophone.topLeverKeyFull :  UIImage.Instruments.Saxophone.topLeverKeyEmpty, ratio: ratio)
+    private lazy var leverKey5 = FingeringKeyView(imageName: fingering.keys![16] ? UIImage.Instruments.Saxophone.topLeverKeyFull :  UIImage.Instruments.Saxophone.topLeverKeyEmpty, ratio: ratio)
+    private lazy var rightBottomGroup = FingeringKeyView(imageName: fingering.keys![17] ? UIImage.Instruments.Saxophone.bottomLowKeyFull :  UIImage.Instruments.Saxophone.bottomLowKeyEmpty, ratio: ratio)
     
-    private lazy var sideKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![9] ? UIImage.Instruments.Saxophone.smallSideKeyFull :  UIImage.Instruments.Saxophone.smallSideKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var sideKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![10] ? UIImage.Instruments.Saxophone.smallSideKeyFull :  UIImage.Instruments.Saxophone.smallSideKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var sideKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![11] ? UIImage.Instruments.Saxophone.largeSideKeyFull :  UIImage.Instruments.Saxophone.largeSideKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var leverKey1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![12] ? UIImage.Instruments.Saxophone.highFSharpKeyFull :  UIImage.Instruments.Saxophone.highFSharpKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var leverKey2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![13] ? UIImage.Instruments.Saxophone.forkKeyFull :  UIImage.Instruments.Saxophone.forkKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var leverKey3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![14] ? UIImage.Instruments.Saxophone.topLeverKeyFull :  UIImage.Instruments.Saxophone.topLeverKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var leverKey4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![15] ? UIImage.Instruments.Saxophone.topLeverKeyFull :  UIImage.Instruments.Saxophone.topLeverKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var leverKey5: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![16] ? UIImage.Instruments.Saxophone.topLeverKeyFull :  UIImage.Instruments.Saxophone.topLeverKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var rightBottomGroup: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![17] ? UIImage.Instruments.Saxophone.bottomLowKeyFull :  UIImage.Instruments.Saxophone.bottomLowKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var rightMiddleGroup: UIImageView = {
-        let imageView: UIImageView!
-        
+    private lazy var rightMiddleGroup: FingeringKeyView = {
         if fingering.keys![18] {
             if fingering.keys![19] {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.middleLowKeysFull)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysFull, ratio: ratio)
             } else {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.middleLowKeysFullEmpty)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysFullEmpty, ratio: ratio)
             }
         } else {
             if fingering.keys![19] {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.middleLowKeysEmptyFull)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysEmptyFull, ratio: ratio)
             } else {
-                imageView = UIImageView(image: UIImage(named: UIImage.Instruments.Saxophone.middleLowKeysEmpty)!.withTintColor(.notebookBlack))
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysEmpty, ratio: ratio)
             }
         }
-        
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
     }()
     
-    private lazy var rightTopGroup: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![20] ? UIImage.Instruments.Saxophone.upperLowKeyFull :  UIImage.Instruments.Saxophone.upperLowKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var bisKey: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![21] ? UIImage.Instruments.Saxophone.bisKeyFull :  UIImage.Instruments.Saxophone.bisKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    lazy var octaveKey: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![22] ? UIImage.Instruments.Saxophone.octaveKeyFull :  UIImage.Instruments.Saxophone.octaveKeyEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var rightTopGroup = FingeringKeyView(imageName: fingering.keys![20] ? UIImage.Instruments.Saxophone.upperLowKeyFull :  UIImage.Instruments.Saxophone.upperLowKeyEmpty, ratio: ratio)
+    private lazy var bisKey = FingeringKeyView(imageName: fingering.keys![21] ? UIImage.Instruments.Saxophone.bisKeyFull :  UIImage.Instruments.Saxophone.bisKeyEmpty, ratio: ratio)
+    lazy var octaveKey = FingeringKeyView(imageName: fingering.keys![22] ? UIImage.Instruments.Saxophone.octaveKeyFull :  UIImage.Instruments.Saxophone.octaveKeyEmpty, ratio: ratio)
     
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)

@@ -9,13 +9,7 @@
 import UIKit
 
 class BbTriggerThreeValveFingeringView: ThreeValveFingeringView {
-    private lazy var bbTrigger: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? UIImage.Instruments.Triggers.bbFull : UIImage.Instruments.Triggers.bbEmpty))!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var bbTrigger = FingeringKeyView(imageName: fingering.triggers![0] ? UIImage.Instruments.Triggers.bbFull : UIImage.Instruments.Triggers.bbEmpty, ratio: ratio)
     
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)

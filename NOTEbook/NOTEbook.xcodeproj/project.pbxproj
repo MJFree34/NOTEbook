@@ -86,6 +86,8 @@
 		9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AED650724B6AE8C00760672 /* UserDefaults+Extensions.swift */; };
 		9AF35F6926694370008B8518 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF35F6826694370008B8518 /* UIColor+Extensions.swift */; };
 		9AF35F6D2669E450008B8518 /* ValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF35F6C2669E450008B8518 /* ValveFingeringView.swift */; };
+		9AF35F6F2669E6EF008B8518 /* FingeringKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF35F6E2669E6EF008B8518 /* FingeringKeyView.swift */; };
+		9AF35F712669EA06008B8518 /* PositionFingeringAccidental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF35F702669EA06008B8518 /* PositionFingeringAccidental.swift */; };
 		9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */; };
 		9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E12534A10300B3008B /* Configuration.swift */; };
 		9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */; };
@@ -187,6 +189,8 @@
 		9AF35F672665CE25008B8518 /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ExtraUnnecessaryFingerings/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		9AF35F6826694370008B8518 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9AF35F6C2669E450008B8518 /* ValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValveFingeringView.swift; sourceTree = "<group>"; };
+		9AF35F6E2669E6EF008B8518 /* FingeringKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringKeyView.swift; sourceTree = "<group>"; };
+		9AF35F702669EA06008B8518 /* PositionFingeringAccidental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionFingeringAccidental.swift; sourceTree = "<group>"; };
 		9AF3A7DB25349C5F00B3008B /* StoreKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitHelper.swift; sourceTree = "<group>"; };
 		9AF3A7E12534A10300B3008B /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9AF3A7E82534C5BC00B3008B /* FingeringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringTests.swift; sourceTree = "<group>"; };
@@ -285,9 +289,9 @@
 			isa = PBXGroup;
 			children = (
 				9A3D738824E96EA300A1A515 /* FingeringView.swift */,
+				9AF35F6C2669E450008B8518 /* ValveFingeringView.swift */,
 				9A3D738A24E9787C00A1A515 /* ThreeValveFingeringView.swift */,
 				9A3D738C24E97C3800A1A515 /* FourValveFingeringView.swift */,
-				9AF35F6C2669E450008B8518 /* ValveFingeringView.swift */,
 				9AAAF81224F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift */,
 				9A89FFDF24F015830059295C /* PositionFingeringView.swift */,
 				9AAFFEA124F08C06002CD2B8 /* FTriggerPositionFingeringView.swift */,
@@ -341,6 +345,8 @@
 				9A23CDBE256967FB0038DF4A /* FingeringScrollingView.swift */,
 				9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */,
 				9A23CDCD256B45F70038DF4A /* TutorialView.swift */,
+				9AF35F6E2669E6EF008B8518 /* FingeringKeyView.swift */,
+				9AF35F702669EA06008B8518 /* PositionFingeringAccidental.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */,
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
+				9AF35F6F2669E6EF008B8518 /* FingeringKeyView.swift in Sources */,
 				9AF9B00C25365DED00148365 /* FingeringLimitViewController.swift in Sources */,
 				9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */,
 				9A054E0A2583F1BA00DCE8FF /* SelectInstrumentViewController.swift in Sources */,
@@ -617,6 +624,7 @@
 				9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
 				9A99A9B92587E8E600AF84BD /* Constants.swift in Sources */,
 				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
+				9AF35F712669EA06008B8518 /* PositionFingeringAccidental.swift in Sources */,
 				9A054E292585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

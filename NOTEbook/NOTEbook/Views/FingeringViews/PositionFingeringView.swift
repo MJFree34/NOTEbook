@@ -21,23 +21,8 @@ class PositionFingeringView: FingeringView {
         return lab
     }()
     
-    private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "Flat")!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
-        imageView.isHidden = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: ratio - 0.3, y: ratio - 0.3)
-        imageView.isHidden = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var letterFlatView = PositionFingeringAccidental(type: .flat, ratio: ratio)
+    private lazy var letterSharpView = PositionFingeringAccidental(type: .sharp, ratio: ratio)
     
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)
