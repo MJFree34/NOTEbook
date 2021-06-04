@@ -53,8 +53,10 @@ extension UIImage {
     
     struct Instruments {
         struct Triggers {
-            static let bbTriggerEmpty = "BbTriggerEmpty"
-            static let bbTriggerFull = "BbTriggerFull"
+            static let bbEmpty = "BbTriggerEmpty"
+            static let bbFull = "BbTriggerFull"
+            static let fEmpty = "FTriggerEmpty"
+            static let fFull = "FTriggerFull"
         }
         
         struct Clarinet {
@@ -88,6 +90,77 @@ extension UIImage {
             static let triggerGroupKeysFullEmptyEmpty = "ClarinetTriggerGroupKeysFullEmptyEmpty"
             static let triggerGroupKeysFullEmptyFull = "ClarinetTriggerGroupKeysFullEmptyFull"
             static let triggerGroupKeysFullFullEmpty = "ClarinetTriggerGroupKeysFullFullEmpty"
+        }
+        
+        struct Flute {
+            static let circleKeyEmpty = "FluteCircleKeyEmpty"
+            static let circleKeyFull = "FluteCircleKeyFull"
+            static let footKey1Empty = "FluteFootKey1Empty"
+            static let footKey1Full = "FluteFootKey1Full"
+            static let footKey2Empty = "FluteFootKey2Empty"
+            static let footKey2Full = "FluteFootKey2Full"
+            static let leverKeysEmpty = "FluteLeverKeysEmpty"
+            static let leverKeysEmptyFull = "FluteLeverKeysEmptyFull"
+            static let leverKeysFull = "FluteLeverKeysFull"
+            static let leverKeysFullEmpty = "FluteLeverKeysFullEmpty"
+            static let pinkyKeyEmpty = "FlutePinkyKeyEmpty"
+            static let pinkyKeyFull = "FlutePinkyKeyFull"
+            static let thumbKeysEmpty = "FluteThumbKeysEmpty"
+            static let thumbKeysEmptyFull = "FluteThumbKeysEmptyFull"
+            static let thumbKeysFull = "FluteThumbKeysFull"
+            static let thumbKeysFullEmpty = "FluteThumbKeysFullEmpty"
+            static let trillKeyEmpty = "FluteTrillKeyEmpty"
+            static let trillKeyFull = "FluteTrillKeyFull"
+        }
+        
+        struct Round {
+            static let empty1 = "RoundFingeringEmpty1"
+            static let empty2 = "RoundFingeringEmpty2"
+            static let empty3 = "RoundFingeringEmpty3"
+            static let empty4 = "RoundFingeringEmpty4"
+            static let full1 = "RoundFingeringFull1"
+            static let full2 = "RoundFingeringFull2"
+            static let full3 = "RoundFingeringFull3"
+            static let full4 = "RoundFingeringFull4"
+        }
+        
+        struct Saxophone {
+            static let baritoneOctaveKeysEmpty = "SaxophoneBaritoneOctaveKeysEmpty"
+            static let baritoneOctaveKeysEmptyFull = "SaxophoneBaritoneOctaveKeysEmptyFull"
+            static let baritoneOctaveKeysFull = "SaxophoneBaritoneOctaveKeysFull"
+            static let baritoneOctaveKeysFullEmpty = "SaxophoneBaritoneOctaveKeysFullEmpty"
+            static let bisKeyEmpty = "SaxophoneBisKeyEmpty"
+            static let bisKeyFull = "SaxophoneBisKeyFull"
+            static let bottomKeysEmpty = "SaxophoneBottomKeysEmpty"
+            static let bottomKeysEmptyFull = "SaxophoneBottomKeysEmptyFull"
+            static let bottomKeysFull = "SaxophoneBottomKeysFull"
+            static let bottomKeysFullEmpty = "SaxophoneBottomKeysFullEmpty"
+            static let bottomLowKeyEmpty = "SaxophoneBottomLowKeyEmpty"
+            static let bottomLowKeyFull = "SaxophoneBottomLowKeyFull"
+            static let chromaticFSharpKeyEmpty = "SaxophoneChromaticF#KeyEmpty"
+            static let chromaticFSharpKeyFull = "SaxophoneChromaticF#KeyFull"
+            static let circleKeyEmpty = "SaxophoneCircleKeyEmpty"
+            static let circleKeyFull = "SaxophoneCircleKeyFull"
+            static let circleKeyWithLineEmpty = "SaxophoneCircleKeyWithLineEmpty"
+            static let circleKeyWithLineFull = "SaxophoneCircleKeyWithLineFull"
+            static let forkKeyEmpty = "SaxophoneForkKeyEmpty"
+            static let forkKeyFull = "SaxophoneForkKeyFull"
+            static let highFSharpKeyEmpty = "SaxophoneHighF#KeyEmpty"
+            static let highFSharpKeyFull = "SaxophoneHighF#KeyFull"
+            static let largeSideKeyEmpty = "SaxophoneLargeSideKeyEmpty"
+            static let largeSideKeyFull = "SaxophoneLargeSideKeyFull"
+            static let middleLowKeysEmpty = "SaxophoneMiddleLowKeysEmpty"
+            static let middleLowKeysEmptyFull = "SaxophoneMiddleLowKeysEmptyFull"
+            static let middleLowKeysFull = "SaxophoneMiddleLowKeysFull"
+            static let middleLowKeysFullEmpty = "SaxophoneMiddleLowKeysFullEmpty"
+            static let octaveKeyEmpty = "SaxophoneOctaveKeyEmpty"
+            static let octaveKeyFull = "SaxophoneOctaveKeyFull"
+            static let smallSideKeyEmpty = "SaxophoneSmallSideKeyEmpty"
+            static let smallSideKeyFull = "SaxophoneSmallSideKeyFull"
+            static let topLeverKeyEmpty = "SaxophoneTopLeverKeyEmpty"
+            static let topLeverKeyFull = "SaxophoneTopLeverKeyFull"
+            static let upperLowKeyEmpty = "SaxophoneUpperLowKeyEmpty"
+            static let upperLowKeyFull = "SaxophoneUpperLowKeyFull"
         }
     }
     

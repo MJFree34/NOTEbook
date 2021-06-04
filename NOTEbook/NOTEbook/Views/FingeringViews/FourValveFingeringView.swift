@@ -10,7 +10,7 @@ import UIKit
 
 class FourValveFingeringView: FingeringView {
     private lazy var finger1: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? "RoundFingeringFull1" : "RoundFingeringEmpty1"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![0] ? UIImage.Instruments.Round.full1 : UIImage.Instruments.Round.empty1))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -18,7 +18,7 @@ class FourValveFingeringView: FingeringView {
     }()
     
     private lazy var finger2: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? "RoundFingeringFull2" : "RoundFingeringEmpty2"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![1] ? UIImage.Instruments.Round.full2 : UIImage.Instruments.Round.empty2))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -26,7 +26,7 @@ class FourValveFingeringView: FingeringView {
     }()
     
     private lazy var finger3: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? "RoundFingeringFull3" : "RoundFingeringEmpty3"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![2] ? UIImage.Instruments.Round.full3 : UIImage.Instruments.Round.empty3))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -34,7 +34,7 @@ class FourValveFingeringView: FingeringView {
     }()
     
     private lazy var finger4: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? "RoundFingeringFull4" : "RoundFingeringEmpty4"))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.keys![3] ? UIImage.Instruments.Round.full4 : UIImage.Instruments.Round.empty4))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

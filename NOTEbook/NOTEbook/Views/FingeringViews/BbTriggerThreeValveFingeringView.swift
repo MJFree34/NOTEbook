@@ -10,7 +10,7 @@ import UIKit
 
 class BbTriggerThreeValveFingeringView: ThreeValveFingeringView {
     private lazy var bbTrigger: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? UIImage.Instruments.Triggers.bbTriggerFull : UIImage.Instruments.Triggers.bbTriggerEmpty))!.withTintColor(.notebookBlack))
+        let imageView = UIImageView(image: UIImage(named: (fingering.triggers![0] ? UIImage.Instruments.Triggers.bbFull : UIImage.Instruments.Triggers.bbEmpty))!.withTintColor(.notebookBlack))
         imageView.transform = CGAffineTransform(scaleX: ratio, y: ratio)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
