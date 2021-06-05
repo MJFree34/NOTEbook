@@ -150,7 +150,6 @@ extension ChartsController {
 
 extension ChartsController {
     func updatePurchasableInstrumentGroups(resetIndex: Bool = false) {
-        let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
         let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
 
         if freeTrialOver {
@@ -158,76 +157,85 @@ extension ChartsController {
                 updatePurchasedChartCategories(resetIndex: resetIndex)
             }
             
-            var groups = allInstrumentGroups
-
-            Purchases.shared.purchaserInfo { (purchaserInfo, error) in
-                if purchaserInfo?.entitlements["all"]?.isActive == true {
-                    groups.removeAll()
-                } else if purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
-                    if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
-                        groups.remove(at: 3)
-                    } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
-                        groups.remove(at: 4)
-                    } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
-                        groups.remove(at: 5)
-                    } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
-                        groups.remove(at: 6)
-                    } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
-                        groups.remove(at: 7)
-                    }
-
-                    groups.removeFirst(Constants.numberOfWoodwindGroups)
-                } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
-                    groups.removeLast(Constants.numberOfBrassGroups)
-
-                    if purchaserInfo?.entitlements["flute"]?.isActive == true {
-                        groups.remove(at: 0)
-                    } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
-                        groups.remove(at: 1)
-                    } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
-                        groups.remove(at: 2)
-                    }
-                } else {
-                    if purchaserInfo?.entitlements["flute"]?.isActive == true {
-                        groups.remove(at: 0)
-                    } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
-                        groups.remove(at: 1)
-                    } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
-                        groups.remove(at: 2)
-                    } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
-                        groups.remove(at: 3)
-                    } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
-                        groups.remove(at: 4)
-                    } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
-                        groups.remove(at: 5)
-                    } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
-                        groups.remove(at: 6)
-                    } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
-                        groups.remove(at: 7)
-                    }
+            Purchases.shared.purchaserInfo { purchaserInfo, error in
+                self.purchasableInstrumentGroups = self.entitlementsRemove(purchaserInfo: purchaserInfo)
+                if let index = self.freeInstrumentRemoveIndex(purchasableInstrumentGroups: self.purchasableInstrumentGroups) {
+                    self.purchasableInstrumentGroups.remove(at: index)
                 }
-
-                self.purchasableInstrumentGroups = groups
-                
-                if iapFlowHasShown {
-                    // Where one or more has been purchased or was free
-                    let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
-                    let freeGroup = self.allInstrumentGroups[freeInstrumentIndex]
-
-                    for (index, group) in groups.enumerated() {
-                        if group.groupTitle == freeGroup.groupTitle {
-                            self.purchasableInstrumentGroups.remove(at: index)
-                            break
-                        }
-                    }
-                    
-                    self.updatePurchasedChartCategories(resetIndex: resetIndex)
-                }
+                self.updatePurchasedChartCategories(resetIndex: true)
             }
         } else {
-            // Free trial or TF user aka no purchasable categories
             updatePurchasedChartCategories(resetIndex: resetIndex)
         }
+    }
+    
+    private func entitlementsRemove(purchaserInfo: Purchases.PurchaserInfo?) -> [PurchasableInstrumentGroup] {
+        var groups = ChartsController.shared.allInstrumentGroups
+        
+        if purchaserInfo?.entitlements["all"]?.isActive == true {
+            groups.removeAll()
+        } else if purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
+            if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
+                groups.remove(at: 3)
+            } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
+                groups.remove(at: 4)
+            } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
+                groups.remove(at: 5)
+            } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
+                groups.remove(at: 6)
+            } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
+                groups.remove(at: 7)
+            }
+            
+            groups.removeFirst(Constants.numberOfWoodwindGroups)
+        } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
+            groups.removeLast(Constants.numberOfBrassGroups)
+            
+            if purchaserInfo?.entitlements["flute"]?.isActive == true {
+                groups.remove(at: 0)
+            } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
+                groups.remove(at: 1)
+            } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+                groups.remove(at: 2)
+            }
+        } else {
+            if purchaserInfo?.entitlements["flute"]?.isActive == true {
+                groups.remove(at: 0)
+            } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
+                groups.remove(at: 1)
+            } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+                groups.remove(at: 2)
+            } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
+                groups.remove(at: 3)
+            } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
+                groups.remove(at: 4)
+            } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
+                groups.remove(at: 5)
+            } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
+                groups.remove(at: 6)
+            } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
+                groups.remove(at: 7)
+            }
+        }
+        
+        return groups
+    }
+    
+    private func freeInstrumentRemoveIndex(purchasableInstrumentGroups: [PurchasableInstrumentGroup]) -> Int? {
+        let iapFlowHasShown = UserDefaults.standard.bool(forKey: UserDefaults.Keys.iapFlowHasShown)
+        
+        if iapFlowHasShown {
+            let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
+            let freeGroup = ChartsController.shared.allInstrumentGroups[freeInstrumentIndex]
+            
+            for (index, group) in purchasableInstrumentGroups.enumerated() {
+                if group.groupTitle == freeGroup.groupTitle {
+                    return index
+                }
+            }
+        }
+        
+        return nil
     }
     
     private func updatePurchasedChartCategories(resetIndex: Bool = false) {
