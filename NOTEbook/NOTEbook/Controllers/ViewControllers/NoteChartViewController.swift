@@ -11,18 +11,14 @@ import UIKit
 class NoteChartViewController: UIViewController {
     private var chartsController = ChartsController.shared
     
-    private lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        cv.dataSource = self
-        cv.delegate = self
-        cv.alwaysBounceVertical = true
-        cv.backgroundColor = .clear
-        cv.showsVerticalScrollIndicator = false
-        cv.register(NoteChartCell.self, forCellWithReuseIdentifier: NoteChartCell.reuseIdentifier)
-        cv.register(TitleCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TitleCell.reuseIdentifier)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        
-        return cv
+    private lazy var collectionView: ChartCollectionView = {
+        let chart = ChartCollectionView(reuseIdentifiers: [NoteChartCell.reuseIdentifier])
+        chart.dataSource = self
+        chart.delegate = self
+        chart.register(TitleCell.self,
+                       forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                       withReuseIdentifier: TitleCell.reuseIdentifier)
+        return chart
     }()
     
     private lazy var settingsBarButton: UIBarButtonItem = {

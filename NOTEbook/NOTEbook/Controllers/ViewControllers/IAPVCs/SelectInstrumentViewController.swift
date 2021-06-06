@@ -13,17 +13,11 @@ class SelectInstrumentViewController: UIViewController {
     
     private var selectedCellIndex: IndexPath?
     
-    private lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        cv.dataSource = self
-        cv.delegate = self
-        cv.alwaysBounceVertical = false
-        cv.backgroundColor = .clear
-        cv.showsVerticalScrollIndicator = false
-        cv.register(SelectInstrumentCell.self, forCellWithReuseIdentifier: SelectInstrumentCell.reuseIdentifier)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        
-        return cv
+    private lazy var collectionView: ChartCollectionView = {
+        let chart = ChartCollectionView(reuseIdentifiers: [SelectInstrumentCell.reuseIdentifier])
+        chart.dataSource = self
+        chart.delegate = self
+        return chart
     }()
     
     private lazy var titleLabel: UILabel = {

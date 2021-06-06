@@ -63,18 +63,11 @@ class PurchaseInstrumentsViewController: UIViewController {
         return PurchasableInstrumentGroup(groupTitle: "Brass", instrumentTitles: titles)
     }()
     
-    private lazy var collectionView: UICollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        cv.dataSource = self
-        cv.delegate = self
-        cv.alwaysBounceVertical = true
-        cv.backgroundColor = .clear
-        cv.showsVerticalScrollIndicator = false
-        cv.register(PurchaseInstrumentSmallCell.self, forCellWithReuseIdentifier: PurchaseInstrumentSmallCell.reuseIdentifier)
-        cv.register(PurchaseInstrumentLargeCell.self, forCellWithReuseIdentifier: PurchaseInstrumentLargeCell.reuseIdentifier)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        
-        return cv
+    private lazy var collectionView: ChartCollectionView = {
+        let chart = ChartCollectionView(reuseIdentifiers: [PurchaseInstrumentSmallCell.reuseIdentifier, PurchaseInstrumentLargeCell.reuseIdentifier])
+        chart.dataSource = self
+        chart.delegate = self
+        return chart
     }()
     
     private lazy var titleLabel: UILabel = {
