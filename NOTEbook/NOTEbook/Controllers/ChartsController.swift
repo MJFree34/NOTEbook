@@ -162,7 +162,7 @@ extension ChartsController {
                 if let index = self.freeInstrumentRemoveIndex(purchasableInstrumentGroups: self.purchasableInstrumentGroups) {
                     self.purchasableInstrumentGroups.remove(at: index)
                 }
-                self.updatePurchasedChartCategories(resetIndex: true)
+                self.updatePurchasedChartCategories(resetIndex: resetIndex)
             }
         } else {
             updatePurchasedChartCategories(resetIndex: resetIndex)
@@ -199,22 +199,29 @@ extension ChartsController {
                 groups.remove(at: 2)
             }
         } else {
+            if purchaserInfo?.entitlements["tuba"]?.isActive == true {
+                groups.remove(at: 7)
+            }
+            if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
+                groups.remove(at: 6)
+            }
+            if purchaserInfo?.entitlements["trombone"]?.isActive == true {
+                groups.remove(at: 5)
+            }
+            if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
+                groups.remove(at: 4)
+            }
+            if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
+                groups.remove(at: 3)
+            }
+            if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+                groups.remove(at: 2)
+            }
+            if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
+                groups.remove(at: 1)
+            }
             if purchaserInfo?.entitlements["flute"]?.isActive == true {
                 groups.remove(at: 0)
-            } else if purchaserInfo?.entitlements["clarinet"]?.isActive == true {
-                groups.remove(at: 1)
-            } else if purchaserInfo?.entitlements["saxophone"]?.isActive == true {
-                groups.remove(at: 2)
-            } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true {
-                groups.remove(at: 3)
-            } else if purchaserInfo?.entitlements["french_horn"]?.isActive == true {
-                groups.remove(at: 4)
-            } else if purchaserInfo?.entitlements["trombone"]?.isActive == true {
-                groups.remove(at: 5)
-            } else if purchaserInfo?.entitlements["euphonium"]?.isActive == true {
-                groups.remove(at: 6)
-            } else if purchaserInfo?.entitlements["tuba"]?.isActive == true {
-                groups.remove(at: 7)
             }
         }
         
