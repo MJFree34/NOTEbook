@@ -170,7 +170,7 @@ extension ChartsController {
     }
     
     private func entitlementsRemove(purchaserInfo: Purchases.PurchaserInfo?) -> [PurchasableInstrumentGroup] {
-        var groups = ChartsController.shared.allInstrumentGroups
+        var groups = allInstrumentGroups
         
         if purchaserInfo?.entitlements["all"]?.isActive == true {
             groups.removeAll()
@@ -226,7 +226,7 @@ extension ChartsController {
         
         if iapFlowHasShown {
             let freeInstrumentIndex = UserDefaults.standard.integer(forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
-            let freeGroup = ChartsController.shared.allInstrumentGroups[freeInstrumentIndex]
+            let freeGroup = allInstrumentGroups[freeInstrumentIndex]
             
             for (index, group) in purchasableInstrumentGroups.enumerated() {
                 if group.groupTitle == freeGroup.groupTitle {
