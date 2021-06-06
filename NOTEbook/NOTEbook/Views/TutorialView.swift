@@ -43,45 +43,22 @@ class TutorialView: UIView {
     private let compromiseLightestestAqua = UIColor(red: 237 / 255, green: 1, blue: 253 / 255, alpha: 1)
     private let compromiseDarkestestAqua = UIColor(red: 15 / 255, green: 81 / 255, blue: 79 / 255, alpha: 1)
     
-    private lazy var pageControl: UIPageControl = {
-        let control = UIPageControl()
-        control.currentPageIndicatorTintColor = .notebookBlack
-        control.pageIndicatorTintColor = .notebookLightAqua
+    private lazy var pageControl: NotebookPageControl = {
+        let control = NotebookPageControl(pages: tutorialInformation.count)
         control.addTarget(self, action: #selector(pageControlChanged), for: .valueChanged)
-        control.numberOfPages = tutorialInformation.count
-        control.translatesAutoresizingMaskIntoConstraints = false
-        
-        if #available(iOS 14.0, *) {
-            control.allowsContinuousInteraction = false
-        }
-        
         return control
     }()
     
-    private lazy var scrollView: UIScrollView = {
-        let sv = UIScrollView()
-        sv.isPagingEnabled = true
-        sv.bounces = false
-        sv.showsHorizontalScrollIndicator = false
-        sv.showsVerticalScrollIndicator = false
+    private lazy var scrollView: NotebookScrollView = {
+        let sv = NotebookScrollView()
         sv.delegate = self
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        
         return sv
     }()
     
-    private lazy var exitButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setTitle("Get started!", for: .normal)
-        button.setTitleColor((traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua),
-                             for: .normal)
-        button.backgroundColor = .notebookDarkAqua
-        button.setTitleColor((traitCollection.userInterfaceStyle != UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua),
-                             for: .highlighted)
-        button.layer.cornerRadius = 10
-        button.addTarget(self, action: #selector(tutorialDismissed), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
+    private lazy var continueButton: ContinueButton = {
+        let button = ContinueButton(title: "Get started!",
+                                    normalTitleColor: traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua)
+        button.addTarget(self, action: #selector(continuePressed), for: .touchUpInside)
         return button
     }()
     
@@ -140,15 +117,15 @@ class TutorialView: UIView {
             tutorialPage.addSubview(stackView)
             
             if index == tutorialInformation.count - 1 {
-                tutorialPage.addSubview(exitButton)
+                tutorialPage.addSubview(continueButton)
                 
                 NSLayoutConstraint.activate([
-                    stackView.bottomAnchor.constraint(equalTo: exitButton.topAnchor, constant: 10),
+                    stackView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: 10),
                     
-                    exitButton.bottomAnchor.constraint(equalTo: tutorialPage.bottomAnchor, constant: -30),
-                    exitButton.leadingAnchor.constraint(equalTo: tutorialPage.leadingAnchor, constant: 10),
-                    exitButton.trailingAnchor.constraint(equalTo: tutorialPage.trailingAnchor, constant: -10),
-                    exitButton.heightAnchor.constraint(equalToConstant: 44)
+                    continueButton.bottomAnchor.constraint(equalTo: tutorialPage.bottomAnchor, constant: -30),
+                    continueButton.leadingAnchor.constraint(equalTo: tutorialPage.leadingAnchor, constant: 10),
+                    continueButton.trailingAnchor.constraint(equalTo: tutorialPage.trailingAnchor, constant: -10),
+                    continueButton.heightAnchor.constraint(equalToConstant: 44)
                 ])
             } else {
                 stackView.bottomAnchor.constraint(equalTo: tutorialPage.bottomAnchor, constant: -30).isActive = true
@@ -196,7 +173,7 @@ class TutorialView: UIView {
         return [titleLabel, imageView, descriptionLabel]
     }
     
-    @objc private func tutorialDismissed() {
+    @objc private func continuePressed() {
         NotificationCenter.default.post(name: .tutorialDismissed, object: nil)
     }
     

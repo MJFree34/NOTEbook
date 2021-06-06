@@ -94,16 +94,9 @@ class PurchaseInstrumentsViewController: UIViewController {
         return label
     }()
     
-    private lazy var closeButton: UIButton = {
-        let button = UIButton()
+    private lazy var closeButton: ContinueButton = {
+        let button = ContinueButton(title: "Close", normalTitleColor: .notebookLightestestAqua)
         button.addTarget(self, action: #selector(continuePressed), for: .touchUpInside)
-        button.backgroundColor = .notebookDarkAqua
-        button.setTitle("Close", for: .normal)
-        button.setTitleColor(.notebookLightestestAqua, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 28)
-        button.layer.cornerRadius = 25
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     

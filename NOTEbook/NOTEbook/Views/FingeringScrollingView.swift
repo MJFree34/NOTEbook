@@ -9,33 +9,6 @@
 import UIKit
 
 class FingeringScrollingView: UIView {
-    private lazy var pageControl: UIPageControl = {
-        let control = UIPageControl()
-        control.currentPage = 0
-        control.currentPageIndicatorTintColor = .notebookBlack
-        control.pageIndicatorTintColor = .notebookLightAqua
-        control.addTarget(self, action: #selector(pageControlChanged), for: .valueChanged)
-        control.translatesAutoresizingMaskIntoConstraints = false
-        
-        if #available(iOS 14.0, *) {
-            control.allowsContinuousInteraction = false
-        }
-        
-        return control
-    }()
-    
-    private lazy var scrollView: UIScrollView = {
-        let sv = UIScrollView()
-        sv.isPagingEnabled = true
-        sv.bounces = true
-        sv.showsHorizontalScrollIndicator = false
-        sv.showsVerticalScrollIndicator = false
-        sv.delegate = self
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        
-        return sv
-    }()
-    
     var fingerings = [Fingering]() {
         didSet {
             for fingeringScrollView in fingeringScrollViews {
@@ -58,6 +31,18 @@ class FingeringScrollingView: UIView {
         }
     }
     
+    private lazy var pageControl: NotebookPageControl = {
+        let control = NotebookPageControl(pages: 0)
+        control.addTarget(self, action: #selector(pageControlChanged), for: .valueChanged)
+        return control
+    }()
+    
+    private lazy var scrollView: NotebookScrollView = {
+        let sv = NotebookScrollView()
+        sv.delegate = self
+        return sv
+    }()
+    
     private var width = 0 {
         didSet {
             scrollViewWidthAnchor.constant = CGFloat(width)
@@ -65,7 +50,6 @@ class FingeringScrollingView: UIView {
     }
     
     private var scrollViewWidthAnchor: NSLayoutConstraint!
-    
     private var fingeringScrollViews = [FingeringScrollView]()
     
     override init(frame: CGRect) {
@@ -84,8 +68,8 @@ class FingeringScrollingView: UIView {
         ])
         
         scrollViewWidthAnchor = scrollView.widthAnchor.constraint(equalToConstant: 0)
-        width = ChartsController.shared.currentChart.instrument.fingeringWidth
         scrollViewWidthAnchor.isActive = true
+        width = ChartsController.shared.currentChart.instrument.fingeringWidth
     }
     
     required init?(coder: NSCoder) {

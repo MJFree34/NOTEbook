@@ -364,7 +364,7 @@ extension SettingsViewController: UITableViewDataSource {
                 let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
                 let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
                 let shopImageView = UIImageView(image: shopImage)
-                shopImageView.tintColor = .notebookMediumAqua
+                shopImageView.tintColor = .notebookDarkAqua
                 cell.accessoryView = shopImageView
             }
         case .about:

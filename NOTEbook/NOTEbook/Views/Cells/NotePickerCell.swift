@@ -15,17 +15,17 @@ enum QuarterNoteOrientation {
 class NotePickerCell: UICollectionViewCell {
     static let reuseIdentifier = "NotePickerCell"
     
+    var note: Note!
+    
     private var upperNoteCenterOffset: CGFloat = 16
     private var lowerNoteCenterOffset: CGFloat = -21
     
-    var note: Note!
-    
     private var quarterNoteOrientation: QuarterNoteOrientation = .upper
     
-    private var upperQuarterNote: UIImageView!
-    private var lowerQuarterNote: UIImageView!
-    private var flat: UIImageView!
-    private var sharp: UIImageView!
+    private var upperQuarterNote: NotePickerCellQuarterNote!
+    private var lowerQuarterNote: NotePickerCellQuarterNote!
+    private var flat: NotePickerCellAccidental!
+    private var sharp: NotePickerCellAccidental!
     
     private var lowerLine8: UIImageView!
     private var lowerLine7: UIImageView!
@@ -67,32 +67,24 @@ class NotePickerCell: UICollectionViewCell {
     private func initialize() {
         let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
         
-        upperQuarterNote = UIImageView(image: UIImage(named: UIImage.MusicSymbols.upperQuarterNote)!.withTintColor(.notebookBlack))
-        upperQuarterNote.contentMode = .scaleAspectFill
-        upperQuarterNote.isHidden = quarterNoteOrientation == .lower
-        upperQuarterNote.translatesAutoresizingMaskIntoConstraints = false
+        upperQuarterNote = NotePickerCellQuarterNote(quarterNoteOrientation: .upper, hide: quarterNoteOrientation == .lower)
         contentView.addSubview(upperQuarterNote)
         
-        lowerQuarterNote = UIImageView(image: UIImage(named: UIImage.MusicSymbols.lowerQuarterNote)!.withTintColor(.notebookBlack))
-        lowerQuarterNote.contentMode = .scaleAspectFill
-        lowerQuarterNote.isHidden = quarterNoteOrientation == .upper
-        lowerQuarterNote.translatesAutoresizingMaskIntoConstraints = false
+        lowerQuarterNote = NotePickerCellQuarterNote(quarterNoteOrientation: .lower, hide: quarterNoteOrientation == .upper)
         contentView.addSubview(lowerQuarterNote)
         
-        flat = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
-        flat.isHidden = initNote.type != .flat
-        flat.translatesAutoresizingMaskIntoConstraints = false
+        flat = NotePickerCellAccidental(noteType: .flat, hide: initNote.type != .flat)
         contentView.addSubview(flat)
         
-        sharp = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
-        sharp.isHidden = initNote.type != .sharp
-        sharp.translatesAutoresizingMaskIntoConstraints = false
+        sharp = NotePickerCellAccidental(noteType: .sharp, hide: initNote.type != .sharp)
         contentView.addSubview(sharp)
         
-        upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: upperNoteCenterOffset + noteOffset(standardNote: false))
+        upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,
+                                                                                      constant: upperNoteCenterOffset + noteOffset(standardNote: false))
         upperQuarterNoteCenterYConstraint.isActive = true
         
-        lowerQuarterNoteCenterYConstraint = lowerQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: lowerNoteCenterOffset + noteOffset(standardNote: false))
+        lowerQuarterNoteCenterYConstraint = lowerQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,
+                                                                                      constant: lowerNoteCenterOffset + noteOffset(standardNote: false))
         lowerQuarterNoteCenterYConstraint.isActive = true
         
         NSLayoutConstraint.activate([
@@ -103,16 +95,13 @@ class NotePickerCell: UICollectionViewCell {
             flat.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -29 * NotePickerViewController.spaceBetweenStaffLines / 20 : 0)),
             flat.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -26 * NotePickerViewController.spaceBetweenStaffLines / 20),
             
-            sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor, constant: (quarterNoteOrientation == .upper ? -16 * NotePickerViewController.spaceBetweenStaffLines / 20 : 16 * NotePickerViewController.spaceBetweenStaffLines / 20)),
-            sharp.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor, constant: -28 * NotePickerViewController.spaceBetweenStaffLines / 20),
+            sharp.centerYAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerYAnchor,
+                                           constant: (quarterNoteOrientation == .upper ? -16 * NotePickerViewController.spaceBetweenStaffLines / 20 : 16 * NotePickerViewController.spaceBetweenStaffLines / 20)),
+            sharp.centerXAnchor.constraint(equalTo: (quarterNoteOrientation == .upper ? upperQuarterNote : lowerQuarterNote)!.centerXAnchor,
+                                           constant: -28 * NotePickerViewController.spaceBetweenStaffLines / 20)
         ])
         
         initializeExtraNoteLines()
-        
-        upperQuarterNote.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
-        lowerQuarterNote.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
-        sharp.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
-        flat.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
         
         upperNoteCenterOffset *= NotePickerViewController.spaceBetweenStaffLines / 20
         lowerNoteCenterOffset *= NotePickerViewController.spaceBetweenStaffLines / 20
@@ -197,7 +186,9 @@ class NotePickerCell: UICollectionViewCell {
     }
     
     private func createExtraStaffLine() -> UIImageView {
-        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: 35 * NotePickerViewController.spaceBetweenStaffLines / 20, height: 2), rounded: true).withTintColor(.notebookBlack))
+        let extraLineImageView = UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack,
+                                                                          size: CGSize(width: 35 * NotePickerViewController.spaceBetweenStaffLines / 20, height: 2),
+                                                                          rounded: true).withTintColor(.notebookBlack))
         extraLineImageView.isHidden = true
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(extraLineImageView)

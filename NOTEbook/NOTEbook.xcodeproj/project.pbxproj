@@ -41,6 +41,11 @@
 		9A58BD6D266C5FC800740EA9 /* ChartCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */; };
 		9A58BD6F266C6DBC00740EA9 /* NoteChartCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */; };
 		9A58BD71266C6FAE00740EA9 /* OptionalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */; };
+		9A58BD73266D29C200740EA9 /* NotePickerCellQuarterNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */; };
+		9A58BD75266D2B7D00740EA9 /* NotePickerCellAccidental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD74266D2B7D00740EA9 /* NotePickerCellAccidental.swift */; };
+		9A58BD77266D45DF00740EA9 /* NotebookPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */; };
+		9A58BD79266D499A00740EA9 /* NotebookScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */; };
+		9A58BD7B266D4BEB00740EA9 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
@@ -147,6 +152,11 @@
 		9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionView.swift; sourceTree = "<group>"; };
 		9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCellTextView.swift; sourceTree = "<group>"; };
 		9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalLabel.swift; sourceTree = "<group>"; };
+		9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCellQuarterNote.swift; sourceTree = "<group>"; };
+		9A58BD74266D2B7D00740EA9 /* NotePickerCellAccidental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCellAccidental.swift; sourceTree = "<group>"; };
+		9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookPageControl.swift; sourceTree = "<group>"; };
+		9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookScrollView.swift; sourceTree = "<group>"; };
+		9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -355,6 +365,11 @@
 				9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */,
 				9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */,
 				9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */,
+				9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */,
+				9A58BD74266D2B7D00740EA9 /* NotePickerCellAccidental.swift */,
+				9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */,
+				9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */,
+				9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -612,11 +627,14 @@
 				9A23CDCE256B45F70038DF4A /* TutorialView.swift in Sources */,
 				9A9261AC25101E1E00312643 /* SaxophoneFingeringView.swift in Sources */,
 				9A1022DB24FA83640052B364 /* FluteFingeringView.swift in Sources */,
+				9A58BD7B266D4BEB00740EA9 /* ContinueButton.swift in Sources */,
+				9A58BD73266D29C200740EA9 /* NotePickerCellQuarterNote.swift in Sources */,
 				9AD55737249954B10078CB7E /* UIView+Extensions.swift in Sources */,
 				9A022AE9249908C00052E819 /* NotePickerViewController.swift in Sources */,
 				9AF35F6F2669E6EF008B8518 /* FingeringKeyView.swift in Sources */,
 				9AF9B00C25365DED00148365 /* FingeringLimitViewController.swift in Sources */,
 				9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */,
+				9A58BD77266D45DF00740EA9 /* NotebookPageControl.swift in Sources */,
 				9A054E0A2583F1BA00DCE8FF /* SelectInstrumentViewController.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
 				9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */,
@@ -628,9 +646,11 @@
 				9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */,
 				9A3D738D24E97C3800A1A515 /* FourValveFingeringView.swift in Sources */,
 				9AD5573D249957A50078CB7E /* Fingering.swift in Sources */,
+				9A58BD75266D2B7D00740EA9 /* NotePickerCellAccidental.swift in Sources */,
 				9AD5574124995A000078CB7E /* FingeringChart.swift in Sources */,
 				9AC57B7124E42EF4002F8CB9 /* InstrumentTitleLabel.swift in Sources */,
 				9AF35F6D2669E450008B8518 /* ValveFingeringView.swift in Sources */,
+				9A58BD79266D499A00740EA9 /* NotebookScrollView.swift in Sources */,
 				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
 				9AC89573250448AB0033250B /* ChartCategory.swift in Sources */,
 				9A23CDBF256967FB0038DF4A /* FingeringScrollingView.swift in Sources */,
@@ -830,7 +850,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -851,7 +871,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;

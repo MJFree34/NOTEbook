@@ -45,16 +45,9 @@ class SelectInstrumentViewController: UIViewController {
         return label
     }()
     
-    private lazy var continueButton: UIButton = {
-        let button = UIButton()
+    private lazy var continueButton: ContinueButton = {
+        let button = ContinueButton(title: "Continue", normalTitleColor: .notebookLightestestAqua)
         button.addTarget(self, action: #selector(continuePressed), for: .touchUpInside)
-        button.backgroundColor = .notebookDarkAqua
-        button.setTitle("Continue", for: .normal)
-        button.setTitleColor(.notebookLightestestAqua, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 28)
-        button.layer.cornerRadius = 25
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     
