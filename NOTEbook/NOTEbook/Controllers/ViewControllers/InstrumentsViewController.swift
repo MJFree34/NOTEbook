@@ -112,7 +112,7 @@ extension InstrumentsViewController: UITableViewDelegate {}
 
 extension InstrumentsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if woodwindsChartCategories.count == 0 || brassChartCategories.count == 0 {
+        if woodwindsChartCategories.isEmpty || brassChartCategories.isEmpty {
             return 1
         }
         

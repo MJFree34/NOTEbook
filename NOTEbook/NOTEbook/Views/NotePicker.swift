@@ -40,10 +40,16 @@ class NotePicker: UIView {
     let collectionView: UICollectionView
     
     var cellSpacing: CGFloat = 10
-    
     var cellSize: CGFloat = 100
-    
     var selectedIndex: Int = 0
+    
+    private var flowLayout: UICollectionViewFlowLayout? {
+        return collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+    }
+    
+    private var forwardDelegate: NotePickerForwardDelegate!
+    private var selectedTapped = false
+    private var firstCellInset: CGFloat!
     
     weak var dataSource: UICollectionViewDataSource? {
         didSet {
@@ -98,16 +104,6 @@ class NotePicker: UIView {
         }
     }
     
-    private var flowLayout: UICollectionViewFlowLayout? {
-        return collectionView.collectionViewLayout as? UICollectionViewFlowLayout
-    }
-    
-    private var forwardDelegate: NotePickerForwardDelegate!
-    
-    private var selectedTapped = false
-    
-    private var firstCellInset: CGFloat!
-    
     private func initialize() {
         addSubview(collectionView)
         
@@ -129,6 +125,7 @@ class NotePicker: UIView {
     private func offsetForItem(at index: Int) -> CGFloat {
         let firstIndexPath = IndexPath(item: 0, section: 0)
         let firstSize = self.collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: firstIndexPath)
+        
         var offset: CGFloat = collectionView.bounds.width / 2 - firstSize.width / 4
         
         for i in 0 ..< index {
@@ -140,7 +137,6 @@ class NotePicker: UIView {
         let selectedIndexPath = IndexPath(item: index, section: 0)
         let selectedSize = collectionView(collectionView, layout: collectionView.collectionViewLayout, sizeForItemAt: selectedIndexPath)
         offset -= collectionView.bounds.width / 2 - selectedSize.width / 2
-        
         return offset
     }
     
@@ -151,6 +147,7 @@ class NotePicker: UIView {
     private func selectItem(at index: Int, animated: Bool, scroll: Bool, notifySelection: Bool) {
         let indexPath = IndexPath(item: index, section: 0)
         collectionView.selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionView.ScrollPosition())
+        
         if scroll {
             scrollToItem(at: index, animated: animated)
         }
@@ -226,7 +223,6 @@ extension NotePicker: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         delegate?.scrollViewDidScroll?(scrollView)
-        
         if !selectedTapped {
             didScroll(end: false)
         }

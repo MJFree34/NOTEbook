@@ -10,13 +10,34 @@ import UIKit
 
 class TutorialView: UIView {
     private let tutorialInformation = [
-        ["title" : "Welcome!", "imageType" : "png", "imageName" : UIImage.Assets.appIcon200x200, "description" : "Welcome to NOTEbook:  your one source for comprehensive fingering charts!"],
-        ["title" : "Pick any note", "imageType" : "gif", "imageName" : UIImage.TutorialGifs.notePicker, "description" : "Swipe through the custom note picker to select any note"],
-        ["title" : "Choose an alternate fingering", "imageType" : "gif", "imageName" : UIImage.TutorialGifs.alternateFingerings, "description" : "Swipe through alternate fingerings to find the perfect one for your need\n(tip: you can set a fingering limit in settings)"],
-        ["title" : "Select an accidental", "imageType" : "gif", "imageName" : UIImage.TutorialGifs.accidentals, "description" : "Swipe left or right to cycle through accidentals"],
-        ["title" : "Use the chart", "imageType" : "gif", "imageName" : UIImage.TutorialGifs.chart, "description" : "See the notes in chromatic context along with their fingerings\n(tip: common on top to least common on bottom)"],
-        ["title" : "Try all instruments", "imageType" : "gif", "imageName" : UIImage.TutorialGifs.instruments, "description" : "14-day free trial for all 10 instrument groups, after which you will select one group to have free forever!"],
-        ["title" : "Get started!", "imageType" : "png", "imageName" : UIImage.Assets.getStartedIcons, "description" : "Customize this app to your needs in settings and enjoy!"]
+        ["title" : "Welcome!",
+         "imageType" : "png",
+         "imageName" : UIImage.Assets.appIcon200x200,
+         "description" : "Welcome to NOTEbook:  your one source for comprehensive fingering charts!"],
+        ["title" : "Pick any note",
+         "imageType" : "gif",
+         "imageName" : UIImage.TutorialGifs.notePicker,
+         "description" : "Swipe through the custom note picker to select any note"],
+        ["title" : "Choose an alternate fingering",
+         "imageType" : "gif",
+         "imageName" : UIImage.TutorialGifs.alternateFingerings,
+         "description" : "Swipe through alternate fingerings to find the perfect one for your need\n(tip: you can set a fingering limit in settings)"],
+        ["title" : "Select an accidental",
+         "imageType" : "gif",
+         "imageName" : UIImage.TutorialGifs.accidentals,
+         "description" : "Swipe left or right to cycle through accidentals"],
+        ["title" : "Use the chart",
+         "imageType" : "gif",
+         "imageName" : UIImage.TutorialGifs.chart,
+         "description" : "See the notes in chromatic context along with their fingerings\n(tip: common on top to least common on bottom)"],
+        ["title" : "Try all instruments",
+         "imageType" : "gif",
+         "imageName" : UIImage.TutorialGifs.instruments,
+         "description" : "14-day free trial for all 10 instrument groups, after which you will select one group to have free forever!"],
+        ["title" : "Get started!",
+         "imageType" : "png",
+         "imageName" : UIImage.Assets.getStartedIcons,
+         "description" : "Customize this app to your needs in settings and enjoy!"]
     ]
     
     private let compromiseLightestestAqua = UIColor(red: 237 / 255, green: 1, blue: 253 / 255, alpha: 1)
@@ -52,9 +73,11 @@ class TutorialView: UIView {
     private lazy var exitButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("Get started!", for: .normal)
-        button.setTitleColor((traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .normal)
+        button.setTitleColor((traitCollection.userInterfaceStyle == UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua),
+                             for: .normal)
         button.backgroundColor = .notebookDarkAqua
-        button.setTitleColor((traitCollection.userInterfaceStyle != UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua), for: .highlighted)
+        button.setTitleColor((traitCollection.userInterfaceStyle != UIUserInterfaceStyle.light ? compromiseLightestestAqua : compromiseDarkestestAqua),
+                             for: .highlighted)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(tutorialDismissed), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false

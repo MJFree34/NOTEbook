@@ -11,7 +11,6 @@ import UIKit
 extension UIView {
     private func addBackgroundGradient() {
         removeAllSublayers()
-        
         let gradient = CAGradientLayer()
         gradient.frame = bounds
         gradient.colors = [UIColor.notebookWhite.cgColor, UIColor.notebookLightestestAqua.cgColor]
@@ -21,18 +20,15 @@ extension UIView {
     func addBackground() {
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled) {
             backgroundColor = nil
-            
             addBackgroundGradient()
         } else {
             removeAllSublayers()
-            
             backgroundColor = .notebookLightestestAqua
         }
     }
     
     func addLightMediumAquaGradient() {
         removeAllSublayers()
-        
         let gradient = CAGradientLayer()
         gradient.frame = bounds
         gradient.colors = [UIColor.notebookLightAqua.cgColor, UIColor.notebookMediumAqua.cgColor]

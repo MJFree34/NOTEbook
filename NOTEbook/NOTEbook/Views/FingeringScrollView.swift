@@ -9,17 +9,7 @@
 import UIKit
 
 class FingeringScrollView: UIView {
-    private lazy var optionalLabel: UILabel = {
-        var lab = UILabel()
-        lab.font = UIFont.preferredFont(forTextStyle: .title1)
-        lab.textAlignment = .center
-        lab.textColor = .notebookBlack
-        lab.isHidden = true
-        lab.text = "N/A"
-        lab.translatesAutoresizingMaskIntoConstraints = false
-        
-        return lab
-    }()
+    private lazy var optionalLabel = OptionalLabel(large: true)
     
     var fingering: Fingering
     
@@ -41,6 +31,7 @@ class FingeringScrollView: UIView {
             optionalLabel.isHidden = false
         } else {
             let fingeringView: FingeringView
+            
             var yConstant: CGFloat = 0
             
             switch currentInstrumentType {

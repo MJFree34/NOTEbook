@@ -50,13 +50,10 @@ class FingeringScrollingView: UIView {
             }
             
             width = ChartsController.shared.currentChart.instrument.fingeringWidth
-            
             scrollView.contentSize = CGSize(width: CGFloat(width * fingeringScrollViews.count), height: LetterArrowViewController.fingeringHeight)
-            
             addFingeringScrollViews()
             
             pageControl.numberOfPages = fingeringScrollViews.count
-            
             pageControlValueChanged(to: 0, animated: false)
         }
     }
@@ -103,7 +100,8 @@ class FingeringScrollingView: UIView {
             NSLayoutConstraint.activate([
                 fingeringScrollView.heightAnchor.constraint(equalToConstant: LetterArrowViewController.fingeringHeight),
                 fingeringScrollView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
-                fingeringScrollView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: CGFloat(ChartsController.shared.currentChart.instrument.fingeringWidth * index)),
+                fingeringScrollView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,
+                                                             constant: CGFloat(ChartsController.shared.currentChart.instrument.fingeringWidth * index)),
                 fingeringScrollView.widthAnchor.constraint(equalToConstant: CGFloat(ChartsController.shared.currentChart.instrument.fingeringWidth))
             ])
         }

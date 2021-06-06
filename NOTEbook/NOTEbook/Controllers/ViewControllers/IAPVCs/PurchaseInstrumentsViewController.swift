@@ -289,7 +289,7 @@ class PurchaseInstrumentsViewController: UIViewController {
                 self.offeringType = .current
             }
             
-            if self.packages.count == 0 {
+            if self.packages.isEmpty {
                 if self.offeringType == .none {
                     if Configuration.appConfiguration == .testFlight {
                         self.showAlert(title: "Congratulations!", message: "You have access to all instruments as a TestFlight user!") { action in

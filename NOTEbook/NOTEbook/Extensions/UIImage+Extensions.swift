@@ -179,7 +179,6 @@ extension UIImage {
             imageView.layer.cornerRadius = min(size.height, size.width) / 2
             
             let imageViewRenderer = UIGraphicsImageRenderer(size: size)
-            
             img = imageViewRenderer.image { ctx in
                 imageView.layer.render(in: ctx.cgContext)
             }
@@ -190,32 +189,19 @@ extension UIImage {
     
     // MARK: - Gif Functions
     static func gifImageWithData(_ data: Data) -> UIImage? {
-        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-            return nil
-        }
-        
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else { return nil }
         return UIImage.animatedImageWithSource(source)
     }
     
     static func gifImageWithURL(_ gifUrl:String) -> UIImage? {
-        guard let bundleURL: URL = URL(string: gifUrl) else {
-            return nil
-        }
-        
-        guard let imageData = try? Data(contentsOf: bundleURL) else {
-            return nil
-        }
-        
+        guard let bundleURL = URL(string: gifUrl),
+              let imageData = try? Data(contentsOf: bundleURL) else { return nil }
         return gifImageWithData(imageData)
     }
     
     static func gifImageWithName(_ name: String) -> UIImage? {
-        guard let bundleURL = Bundle.main.url(forResource: name, withExtension: "gif") else {
-            return nil
-        }
-        guard let imageData = try? Data(contentsOf: bundleURL) else {
-            return nil
-        }
+        guard let bundleURL = Bundle.main.url(forResource: name, withExtension: "gif"),
+              let imageData = try? Data(contentsOf: bundleURL) else { return nil }
         
         return gifImageWithData(imageData)
     }
@@ -224,12 +210,18 @@ extension UIImage {
         var delay = 0.1
         
         let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
-        let gifProperties = unsafeBitCast(CFDictionaryGetValue(cfProperties, Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()), to: CFDictionary.self)
+        let gifProperties = unsafeBitCast(CFDictionaryGetValue(cfProperties,
+                                                               Unmanaged.passUnretained(kCGImagePropertyGIFDictionary).toOpaque()),
+                                          to: CFDictionary.self)
         
-        var delayObject: AnyObject = unsafeBitCast(CFDictionaryGetValue(gifProperties, Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()), to: AnyObject.self)
+        var delayObject: AnyObject = unsafeBitCast(CFDictionaryGetValue(gifProperties,
+                                                                        Unmanaged.passUnretained(kCGImagePropertyGIFUnclampedDelayTime).toOpaque()),
+                                                   to: AnyObject.self)
         
         if delayObject.doubleValue == 0 {
-            delayObject = unsafeBitCast(CFDictionaryGetValue(gifProperties, Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()), to: AnyObject.self)
+            delayObject = unsafeBitCast(CFDictionaryGetValue(gifProperties,
+                                                             Unmanaged.passUnretained(kCGImagePropertyGIFDelayTime).toOpaque()),
+                                        to: AnyObject.self)
         }
         
         delay = delayObject as! Double
@@ -290,6 +282,7 @@ extension UIImage {
     
     static func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
         let count = CGImageSourceGetCount(source)
+        
         var images = [CGImage]()
         var delays = [Int]()
         
@@ -313,10 +306,11 @@ extension UIImage {
         }()
         
         let gcd = gcdForArray(delays)
-        var frames = [UIImage]()
         
+        var frames: [UIImage] = []
         var frame: UIImage
         var frameCount: Int
+        
         for i in 0..<count {
             frame = UIImage(cgImage: images[Int(i)])
             frameCount = Int(delays[Int(i)] / gcd)

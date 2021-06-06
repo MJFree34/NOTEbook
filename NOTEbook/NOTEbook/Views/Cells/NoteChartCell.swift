@@ -12,14 +12,13 @@ class NoteChartCell: UICollectionViewCell {
     static let reuseIdentifier = "NoteChartCell"
     
     private let chartsController = ChartsController.shared
-    
-    private var cellHeight: CGFloat!
-    private var centerOfStaffInsetFromTop: CGFloat!
     private let spaceBetweenStaffLines: CGFloat = 10
     
+    private var cellHeight: CGFloat!
     private var cellWidth: CGFloat!
-    private var noteFingering: NoteFingering!
+    private var centerOfStaffInsetFromTop: CGFloat!
     
+    private var noteFingering: NoteFingering!
     private var currentStaffLines = [UIImageView]()
     private var currentOutline = [UIImageView]()
     private var currentExtraLines = [UIImageView]()
@@ -29,39 +28,10 @@ class NoteChartCell: UICollectionViewCell {
     private var trebleClefTopConstraint: NSLayoutConstraint!
     private var bassClefTopConstraint: NSLayoutConstraint!
     
-    private lazy var optionalLabel: UILabel = {
-        var lab = UILabel()
-        lab.font = UIFont.preferredFont(forTextStyle: .title3)
-        lab.textAlignment = .center
-        lab.textColor = .notebookBlack
-        lab.isHidden = true
-        lab.text = "N/A"
-        lab.translatesAutoresizingMaskIntoConstraints = false
-        
-        return lab
-    }()
+    private lazy var optionalLabel = OptionalLabel(large: false)
     
-    private lazy var leftTextView: UITextView = {
-        let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 34)
-        textView.textAlignment = .left
-        textView.backgroundColor = .clear
-        textView.isUserInteractionEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return textView
-    }()
-    
-    private lazy var rightTextView: UITextView = {
-        let textView = UITextView()
-        textView.font = UIFont.systemFont(ofSize: 34)
-        textView.textAlignment = .right
-        textView.backgroundColor = .clear
-        textView.isUserInteractionEnabled = false
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return textView
-    }()
+    private lazy var leftTextView = NoteChartCellTextView(alignment: .left)
+    private lazy var rightTextView = NoteChartCellTextView(alignment: .right)
     
     private lazy var letterFlatView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))

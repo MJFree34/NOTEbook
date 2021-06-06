@@ -130,7 +130,7 @@ class FingeringTests: XCTestCase {
                             XCTAssertTrue(tromboneFingering.triggers?.count == 1, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
                         }
                         
-                        XCTAssertTrue(tromboneFingeringKeys.count == 0, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
+                        XCTAssertTrue(tromboneFingeringKeys.isEmpty, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
                         XCTAssertNotNil(tromboneFingering.position, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
                     } else {
                         XCTAssertNil(tromboneFingering.keys, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")

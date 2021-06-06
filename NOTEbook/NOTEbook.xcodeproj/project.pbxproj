@@ -39,6 +39,8 @@
 		9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */; };
 		9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */; };
 		9A58BD6D266C5FC800740EA9 /* ChartCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */; };
+		9A58BD6F266C6DBC00740EA9 /* NoteChartCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */; };
+		9A58BD71266C6FAE00740EA9 /* OptionalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
@@ -143,6 +145,8 @@
 		9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
 		9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterArrowViewController.swift; sourceTree = "<group>"; };
 		9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionView.swift; sourceTree = "<group>"; };
+		9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCellTextView.swift; sourceTree = "<group>"; };
+		9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalLabel.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 				9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */,
 				9A23CDCD256B45F70038DF4A /* TutorialView.swift */,
 				9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */,
+				9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */,
+				9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
 				9AF3A7DC25349C5F00B3008B /* StoreKitHelper.swift in Sources */,
 				9AF35F6926694370008B8518 /* UIColor+Extensions.swift in Sources */,
+				9A58BD6F266C6DBC00740EA9 /* NoteChartCellTextView.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
 				9A8A95C82561701800E4E737 /* Notification.Name+Extensions.swift in Sources */,
@@ -639,6 +646,7 @@
 				9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */,
 				9A054E2D2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift in Sources */,
 				9A3D738B24E9787C00A1A515 /* ThreeValveFingeringView.swift in Sources */,
+				9A58BD71266C6FAE00740EA9 /* OptionalLabel.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
 				9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */,
