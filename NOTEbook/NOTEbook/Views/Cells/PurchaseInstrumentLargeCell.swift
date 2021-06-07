@@ -6,44 +6,12 @@
 //  Copyright © 2020 Matt Free. All rights reserved.
 //
 
-import Purchases
 import UIKit
 
-class PurchaseInstrumentLargeCell: UICollectionViewCell {
+class PurchaseInstrumentLargeCell: PurchaseInstrumentCell {
     static let reuseIdentifier = "PurchaseInstrumentLargeCell"
     
-    private let instrumentTitleSize: CGFloat = 12
-    
-    var purchasableInstrumentGroup: PurchasableInstrumentGroup!
-    var package: Purchases.Package!
-    
     lazy var groupTitleLabel = PurchaseGroupTitleLabel(title: purchasableInstrumentGroup.groupTitle, alignment: .left)
-    
-    lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.text = package.localizedPriceString
-        label.textAlignment = .right
-        label.font = UIFont.boldSystemFont(ofSize: instrumentTitleSize + 4)
-        label.textColor = .notebookDarkAqua
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    lazy var discountLabel: UILabel = {
-        let label = UILabel()
-        label.tag = calculateDiscount()
-        label.numberOfLines = 2
-        label.minimumScaleFactor = 0.01
-        label.text = "SAVE\n\(calculateDiscount())%"
-        label.numberOfLines = 0
-        label.textAlignment = .right
-        label.font = UIFont.boldSystemFont(ofSize: instrumentTitleSize - 2)
-        label.textColor = .notebookMediumRed
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,24 +21,16 @@ class PurchaseInstrumentLargeCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupSubviews() {
-        addSubview(groupTitleLabel)
-        addSubview(priceLabel)
-        addSubview(discountLabel)
+    override func setupSubviews() {
+        super.setupSubviews()
         
-        discountLabel.isHidden = discountLabel.tag == 0
+        addSubview(groupTitleLabel)
         
         NSLayoutConstraint.activate([
             groupTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             groupTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            groupTitleLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -10),
-            groupTitleLabel.heightAnchor.constraint(equalToConstant: 18),
-            
-            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            priceLabel.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            
-            discountLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            discountLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
+            groupTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            groupTitleLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
         
         for (index, title) in purchasableInstrumentGroup.instrumentTitles.enumerated() {
@@ -88,23 +48,6 @@ class PurchaseInstrumentLargeCell: UICollectionViewCell {
             }
             
             instrumentTitleLabel.heightAnchor.constraint(equalToConstant: instrumentTitleSize).isActive = true
-        }
-    }
-    
-    private func calculateDiscount() -> Int {
-        switch package.identifier {
-        case "all":
-            let purchasableGroups = ChartsController.shared.purchasableInstrumentGroups
-            let instrumentPrice = UserDefaults.standard.double(forKey: UserDefaults.Keys.instrumentPrice)
-            let allPrice = Double(truncating: package.product.price)
-            
-            let invertedFraction = allPrice / (instrumentPrice * Double(purchasableGroups.count))
-            let fraction = 1 - invertedFraction
-            let percentage = Int(ceil(fraction * 100))
-            
-            return percentage
-        default:
-            return 0
         }
     }
 }

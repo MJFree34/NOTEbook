@@ -42,6 +42,7 @@ class NotePicker: UIView {
     var cellSpacing: CGFloat = 10
     var cellSize: CGFloat = 100
     var selectedIndex: Int = 0
+    var firstIndexSelected = true
     
     private var flowLayout: UICollectionViewFlowLayout? {
         return collectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -71,10 +72,16 @@ class NotePicker: UIView {
         self.init(frame: CGRect.zero)
         
         switch screenWidth {
+        case 320.0:
+            firstCellInset = 209.5 - 30 * NotePickerViewController.spaceBetweenStaffLines / 20
         case 375.0:
             firstCellInset = 209.5
+        case 390.0:
+            firstCellInset = 209.5 + 10 * NotePickerViewController.spaceBetweenStaffLines / 20
         case 414.0:
             firstCellInset = 209.5 + 20 * NotePickerViewController.spaceBetweenStaffLines / 20
+        case 428.0:
+            firstCellInset = 209.5 + 25 * NotePickerViewController.spaceBetweenStaffLines / 20
         default:
             firstCellInset = 0
         }
@@ -204,7 +211,7 @@ extension NotePicker: UIScrollViewDelegate {
     
     private func didScroll(end: Bool) {
         let center = convert(collectionView.center, to: collectionView)
-        if let indexPath = collectionView.indexPathForItem(at: center) {
+        if let indexPath = collectionView.indexPathForItem(at: center), !firstIndexSelected {
             selectItem(at: indexPath.item, animated: true, scroll: end, notifySelection: true)
         }
     }

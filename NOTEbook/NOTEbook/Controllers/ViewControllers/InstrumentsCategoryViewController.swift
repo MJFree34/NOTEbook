@@ -8,23 +8,14 @@
 
 import UIKit
 
-class InstrumentsCategoryViewController: UIViewController {
-    var chartsController = ChartsController.shared
-    var category: ChartCategory
-    var categoryIndex: Int
+class InstrumentsCategoryViewController: InstrumentsViewController {
+    private var category: ChartCategory
+    private var categoryIndex: Int
     
-    private var selectedInstrumentIndex: IndexPath!
-    
-    private lazy var tableView: UITableView = {
-        let tv = UITableView()
-        tv.backgroundColor = .clear
+    private lazy var tableView: ListTableView = {
+        let tv = ListTableView()
         tv.delegate = self
         tv.dataSource = self
-        tv.showsVerticalScrollIndicator = false
-        tv.estimatedRowHeight = 100
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        
         return tv
     }()
     
@@ -42,8 +33,6 @@ class InstrumentsCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addBackground()
-        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -53,32 +42,7 @@ class InstrumentsCategoryViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        view.backgroundColor = .notebookLightestestAqua
-        
         title = category.name
-        
-        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
-        if freeTrialOver || Configuration.appConfiguration == .testFlight {
-            let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
-            let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
-            let shopBarButtonItem = UIBarButtonItem(image: shopImage, style: .plain, target: self, action: #selector(shopPressed))
-            navigationItem.rightBarButtonItem = shopBarButtonItem
-        }
-    }
-    
-    @objc private func shopPressed() {
-        ChartsController.shared.updatePurchasableInstrumentGroups()
-        let vc = PurchaseInstrumentsViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        
-        view.addBackground()
     }
 }
 
@@ -103,7 +67,7 @@ extension InstrumentsCategoryViewController: UITableViewDataSource {
         
         if cellInstrumentType == chartsController.currentChart.instrument.type {
             cell.tintColor = .notebookMediumRed
-            selectedInstrumentIndex = indexPath
+            selectedIndex = indexPath
         } else {
             cell.tintColor = .notebookMediumAqua
         }
@@ -119,11 +83,11 @@ extension InstrumentsCategoryViewController: UITableViewDataSource {
             
             cell.tintColor = .notebookMediumRed
             
-            if let index = selectedInstrumentIndex, let cell2 = tableView.cellForRow(at: index) {
+            if let index = selectedIndex, let cell2 = tableView.cellForRow(at: index) {
                 cell2.tintColor = .notebookMediumAqua
             }
             
-            selectedInstrumentIndex = indexPath
+            selectedIndex = indexPath
                 
             chartsController.changeCurrentChart(to: category.name, chartIndex: indexPath.row)
             

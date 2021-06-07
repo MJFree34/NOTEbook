@@ -9,10 +9,10 @@
 import UIKit
 
 class AccidentalImageView: UIImageView {
-    init(noteType: NoteType, transformScale: CGFloat, hide: Bool = false) {
+    init(noteType: NoteType, transformScale: CGFloat = 1, hide: Bool = false) {
         switch noteType {
         case .natural:
-            fatalError("No natural image view")
+            super.init(image: UIImage(named: UIImage.MusicSymbols.natural))
         case .sharp:
             super.init(image: UIImage(named: UIImage.MusicSymbols.sharp))
         case .flat:

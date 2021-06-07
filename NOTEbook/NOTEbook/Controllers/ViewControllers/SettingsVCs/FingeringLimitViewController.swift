@@ -13,17 +13,10 @@ class FingeringLimitViewController: UIViewController {
     
     private var selectedIndex: IndexPath!
     
-    private lazy var tableView: UITableView = {
-        let tv = UITableView(frame: .zero, style: .insetGrouped)
-        tv.backgroundColor = .clear
+    private lazy var tableView: SectionedTableView = {
+        let tv = SectionedTableView()
         tv.delegate = self
         tv.dataSource = self
-        tv.showsVerticalScrollIndicator = false
-        tv.estimatedRowHeight = 60
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tv.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        
         return tv
     }()
     

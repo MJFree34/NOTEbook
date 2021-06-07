@@ -20,11 +20,15 @@ enum OfferingType {
     case none
 }
 
-class PurchaseInstrumentsViewController: UIViewController {
-    private let chartsController = ChartsController.shared
-    
-    private var selectedCellIndex: IndexPath?
-    private var packages = [Purchases.Package]()
+enum PurchasesErrorType {
+    case unableToFetchOfferings
+    case noCurrentOfferingsFound
+    case noDiscountedOfferingsFound
+    case noPackagesFound
+}
+
+class PurchaseInstrumentsViewController: PurchaseViewController {
+    private var packages: [Purchases.Package] = []
     private var offeringType = OfferingType.current
     
     private lazy var allPurchasableInstrumentGroup: PurchasableInstrumentGroup = {
@@ -70,29 +74,8 @@ class PurchaseInstrumentsViewController: UIViewController {
         return chart
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Unlock Instruments"
-        label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textColor = .notebookMediumRed
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Permanently unlock instrument groups, including future instruments of that group!"
-        label.numberOfLines = 0
-        label.minimumScaleFactor = 0.01
-        label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textColor = .notebookDarkAqua
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    private lazy var titleLabel = PurchaseTitleLabel(title: "Unlock Instruments")
+    private lazy var subtitleLabel = PurchaseSubtitleLabel(title: "Permanently unlock instrument groups, including future instruments of that group!")
     
     private lazy var closeButton: ContinueButton = {
         let button = ContinueButton(title: "Close", normalTitleColor: .notebookLightestestAqua)
@@ -104,7 +87,6 @@ class PurchaseInstrumentsViewController: UIViewController {
         let indicator = UIActivityIndicatorView(style: .medium)
         indicator.hidesWhenStopped = true
         indicator.translatesAutoresizingMaskIntoConstraints = false
-        
         return indicator
     }()
     
@@ -143,9 +125,6 @@ class PurchaseInstrumentsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        view.addBackground()
-        
         loadPackages()
     }
     
@@ -155,11 +134,9 @@ class PurchaseInstrumentsViewController: UIViewController {
         
         var availableOfferings: Purchases.Offerings?
         
-        Purchases.shared.offerings { (offerings, error) in
+        Purchases.shared.offerings { offerings, error in
             if error != nil {
-                self.showAlert(title: "Error", message: "Unable to fetch offerings") { (action) in
-                    self.dismiss(animated: true)
-                }
+                self.showErrorAlert(errorType: .unableToFetchOfferings)
             }
             
             availableOfferings = offerings
@@ -167,119 +144,63 @@ class PurchaseInstrumentsViewController: UIViewController {
         
         Purchases.shared.purchaserInfo { purchaserInfo, error in
             guard let defaultPackages = availableOfferings?.offering(identifier: "default")?.availablePackages else {
-                self.showAlert(title: "Error", message: "No current offerings found") { (action) in
-                    self.dismiss(animated: true)
-                }
-                
+                self.showErrorAlert(errorType: .noCurrentOfferingsFound)
                 return
             }
-
+            
             // Saves the price of a single instrument for discounting
             let flutePriceString = defaultPackages[3].product.price
             UserDefaults.standard.set(flutePriceString, forKey: UserDefaults.Keys.instrumentPrice)
             
-            if purchaserInfo?.entitlements["all"]?.isActive == true || Configuration.appConfiguration == .testFlight {
-                self.packages = [Purchases.Package]()
-                self.offeringType = .none
-            } else if (purchaserInfo?.entitlements["woodwinds"]?.isActive == true &&
-                        (purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
-                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
-                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
-                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
-                        purchaserInfo?.entitlements["tuba"]?.isActive == true)) ||
-                        (purchaserInfo?.entitlements["brass"]?.isActive == true &&
-                        (purchaserInfo?.entitlements["flute"]?.isActive == true ||
-                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
-                        purchaserInfo?.entitlements["saxophone"]?.isActive == true)) {
+            self.setOfferingType(purchaserInfo: purchaserInfo)
+            
+            switch self.offeringType {
+            case .none:
+                self.packages = []
+            case .allDiscounted:
                 guard let allDiscountedPackages = availableOfferings?.offering(identifier: "all-discounted")?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+                    self.showErrorAlert(errorType: .noDiscountedOfferingsFound)
                     return
                 }
-                
                 self.packages = allDiscountedPackages
-                self.offeringType = .allDiscounted
-            } else if purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
-                guard let allDiscountedBrassInstrumentsPackages = availableOfferings?.offering(identifier: "all-discounted-brass-instruments")?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+            case .allDiscountedBrassInstruments:
+                guard let allDiscountedBrassInstrumentsPackages = availableOfferings?.offering(identifier:
+                                                                                                "all-discounted-brass-instruments")?.availablePackages else {
+                    self.showErrorAlert(errorType: .noDiscountedOfferingsFound)
                     return
                 }
-                
                 self.packages = allDiscountedBrassInstrumentsPackages
-                self.offeringType = .allDiscountedBrassInstruments
-            } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
-                guard let allDiscountedWoodwindInstrumentsPackages = availableOfferings?.offering(identifier: "all-discounted-woodwind-instruments")?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+            case .allDiscountedWoodwindInstruments:
+                guard let allDiscountedWoodwindInstrumentsPackages = availableOfferings?.offering(identifier:
+                                                                                                    "all-discounted-woodwind-instruments")?.availablePackages else {
+                    self.showErrorAlert(errorType: .noDiscountedOfferingsFound)
                     return
                 }
-                
                 self.packages = allDiscountedWoodwindInstrumentsPackages
-                self.offeringType = .allDiscountedWoodwindInstruments
-            } else if (purchaserInfo?.entitlements["flute"]?.isActive == true ||
-                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
-                        purchaserInfo?.entitlements["saxophone"]?.isActive == true) &&
-                        (purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
-                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
-                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
-                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
-                        purchaserInfo?.entitlements["tuba"]?.isActive == true) {
+            case .woodwindsBrassDiscounted:
                 guard let woodwindsBrassDiscounted = availableOfferings?.offering(identifier: "woodwinds-brass-discounted")?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+                    self.showErrorAlert(errorType: .noDiscountedOfferingsFound)
                     return
                 }
-                
                 self.packages = woodwindsBrassDiscounted
-                self.offeringType = .woodwindsBrassDiscounted
-            } else if purchaserInfo?.entitlements["flute"]?.isActive == true ||
-                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
-                        purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+            case .woodwindsDiscounted:
                 guard let woodwindsDiscountedPackages = availableOfferings?.offering(identifier: "woodwinds-discounted")?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+                    self.showErrorAlert(errorType: .noDiscountedOfferingsFound)
                     return
                 }
-                
                 self.packages = woodwindsDiscountedPackages
-                self.offeringType = .woodwindsDiscounted
-            } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
-                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
-                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
-                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
-                        purchaserInfo?.entitlements["tuba"]?.isActive == true {
+            case .brassDiscounted:
                 guard let brassDiscountedPackages = availableOfferings?.offering(identifier: "brass-discounted")?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No discounted offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+                    self.showErrorAlert(errorType: .noDiscountedOfferingsFound)
                     return
                 }
-                
                 self.packages = brassDiscountedPackages
-                self.offeringType = .brassDiscounted
-            } else {
+            case .current:
                 guard let currentPackages = availableOfferings?.current?.availablePackages else {
-                    self.showAlert(title: "Error", message: "No current offerings found") { (action) in
-                        self.dismiss(animated: true)
-                    }
-                    
+                    self.showErrorAlert(errorType: .noCurrentOfferingsFound)
                     return
                 }
-                
                 self.packages = currentPackages
-                self.offeringType = .current
             }
             
             if self.packages.isEmpty {
@@ -294,9 +215,7 @@ class PurchaseInstrumentsViewController: UIViewController {
                         }
                     }
                 } else {
-                    self.showAlert(title: "Error", message: "No packages found") { (action) in
-                        self.dismiss(animated: true)
-                    }
+                    self.showErrorAlert(errorType: .noPackagesFound)
                 }
             }
             
@@ -315,10 +234,73 @@ class PurchaseInstrumentsViewController: UIViewController {
         }
     }
     
+    private func showErrorAlert(errorType: PurchasesErrorType) {
+        switch errorType {
+        case .unableToFetchOfferings:
+            showAlert(title: "Error", message: "Unable to fetch offerings") { action in
+                self.dismiss(animated: true)
+            }
+        case .noCurrentOfferingsFound:
+            showAlert(title: "Error", message: "No current offerings found") { action in
+                self.dismiss(animated: true)
+            }
+        case .noDiscountedOfferingsFound:
+            showAlert(title: "Error", message: "No discounted offerings found") { (action) in
+                self.dismiss(animated: true)
+            }
+        case .noPackagesFound:
+            showAlert(title: "Error", message: "No packages found") { (action) in
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func setOfferingType(purchaserInfo: Purchases.PurchaserInfo?) {
+        if purchaserInfo?.entitlements["all"]?.isActive == true || Configuration.appConfiguration == .testFlight {
+            offeringType = .none
+        } else if (purchaserInfo?.entitlements["woodwinds"]?.isActive == true &&
+                        (purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                        purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                        purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                        purchaserInfo?.entitlements["tuba"]?.isActive == true)) ||
+                    (purchaserInfo?.entitlements["brass"]?.isActive == true &&
+                        (purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                        purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                        purchaserInfo?.entitlements["saxophone"]?.isActive == true)) {
+            offeringType = .allDiscounted
+        } else if purchaserInfo?.entitlements["woodwinds"]?.isActive == true {
+            offeringType = .allDiscountedBrassInstruments
+        } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
+            offeringType = .allDiscountedWoodwindInstruments
+        } else if (purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                    purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                    purchaserInfo?.entitlements["saxophone"]?.isActive == true) &&
+                    (purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                    purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                    purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                    purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                    purchaserInfo?.entitlements["tuba"]?.isActive == true) {
+            offeringType = .woodwindsBrassDiscounted
+        } else if purchaserInfo?.entitlements["flute"]?.isActive == true ||
+                    purchaserInfo?.entitlements["clarinet"]?.isActive == true ||
+                    purchaserInfo?.entitlements["saxophone"]?.isActive == true {
+            offeringType = .woodwindsDiscounted
+        } else if purchaserInfo?.entitlements["trumpet"]?.isActive == true ||
+                    purchaserInfo?.entitlements["french_horn"]?.isActive == true ||
+                    purchaserInfo?.entitlements["trombone"]?.isActive == true ||
+                    purchaserInfo?.entitlements["euphonium"]?.isActive == true ||
+                    purchaserInfo?.entitlements["tuba"]?.isActive == true {
+            offeringType = .brassDiscounted
+        } else {
+            offeringType = .current
+        }
+    }
+    
     @objc private func continuePressed() {
         if let selectedIndex = selectedCellIndex {
             let index: Int
-
+            
             switch selectedIndex.section {
             case 0:
                 index = selectedIndex.row
@@ -331,32 +313,24 @@ class PurchaseInstrumentsViewController: UIViewController {
                     index = selectedIndex.row + 1
                 }
             default:
-                fatalError()
+                fatalError("Section unexpected")
             }
-
-            Purchases.shared.purchasePackage(packages[index]) { (transaction, purchaserInfo, error, userCancelled) in
+            
+            Purchases.shared.purchasePackage(packages[index]) { transaction, purchaserInfo, error, userCancelled in
                 if userCancelled {
                     self.showAlert(title: "Purchase cancelled", message: nil) { (action) in
                         self.collectionView(self.collectionView, didSelectItemAt: self.selectedCellIndex!)
                     }
-
+                    
                     return
                 }
-
+                
                 self.chartsController.updatePurchasableInstrumentGroups(resetIndex: true)
                 self.dismiss(animated: true)
             }
         } else {
             dismiss(animated: true)
         }
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        
-        view.addBackground()
     }
 }
 
@@ -396,17 +370,16 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PurchaseInstrumentLargeCell.reuseIdentifier, for: indexPath) as? PurchaseInstrumentLargeCell else { fatalError() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PurchaseInstrumentLargeCell.reuseIdentifier,
+                                                                for: indexPath) as? PurchaseInstrumentLargeCell else { fatalError() }
             cell.purchasableInstrumentGroup = allPurchasableInstrumentGroup
             cell.package = packages[indexPath.item]
             cell.setupSubviews()
-            cell.backgroundColor = .notebookLightestAqua
-            cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
             
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PurchaseInstrumentSmallCell.reuseIdentifier, for: indexPath) as? PurchaseInstrumentSmallCell else { fatalError() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PurchaseInstrumentSmallCell.reuseIdentifier,
+                                                                for: indexPath) as? PurchaseInstrumentSmallCell else { fatalError() }
             cell.package = packages[indexPath.item + 1]
             
             switch indexPath.item {
@@ -419,9 +392,6 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             }
             
             cell.setupSubviews()
-            cell.backgroundColor = .notebookLightestAqua
-            cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
             
             return cell
         case 2:
@@ -435,7 +405,11 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
                 }
             } else if offeringType == .brassDiscounted || offeringType == .allDiscountedWoodwindInstruments {
                 for (index, group) in purchasableGroups.enumerated().reversed() {
-                    if group.groupTitle == "Trumpet" || group.groupTitle == "French Horn" || group.groupTitle == "Trombone" || group.groupTitle == "Euphonium" || group.groupTitle == "Tuba" {
+                    if group.groupTitle == "Trumpet" ||
+                        group.groupTitle == "French Horn" ||
+                        group.groupTitle == "Trombone" ||
+                        group.groupTitle == "Euphonium" ||
+                        group.groupTitle == "Tuba" {
                         purchasableGroups.remove(at: index)
                     }
                 }
@@ -445,9 +419,6 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
             cell.purchasableInstrumentGroup = purchasableGroups[indexPath.item]
             cell.package = packages[indexPath.item + (offeringType == .current || offeringType == .woodwindsDiscounted || offeringType == .brassDiscounted ? 3 : 1)]
             cell.setupSubviews()
-            cell.backgroundColor = .notebookLightestAqua
-            cell.layer.cornerRadius = 20
-            cell.layer.borderColor = UIColor.notebookMediumRed.cgColor
             
             return cell
         default:
@@ -456,55 +427,29 @@ extension PurchaseInstrumentsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            guard let cell = collectionView.cellForItem(at: indexPath) as? PurchaseInstrumentLargeCell else { fatalError() }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? PurchaseInstrumentCell else { fatalError() }
+        
+        guard selectedCellIndex != indexPath else {
+            closeButton.setTitle("Close", for: .normal)
+            cell.layer.borderWidth = 0
+            selectedCellIndex = nil
             
-            guard selectedCellIndex != indexPath else {
-                closeButton.setTitle("Close", for: .normal)
-                cell.layer.borderWidth = 0
-                selectedCellIndex = nil
-                
-                return
-            }
-            
-            if let selectedCellIndex = selectedCellIndex {
-                if selectedCellIndex.section == 0 {
-                    guard let cell2 = collectionView.cellForItem(at: selectedCellIndex) as? PurchaseInstrumentLargeCell else { fatalError() }
-                    
-                    cell2.layer.borderWidth = 0
-                } else {
-                    guard let cell2 = collectionView.cellForItem(at: selectedCellIndex) as? PurchaseInstrumentSmallCell else { fatalError() }
-                    
-                    cell2.layer.borderWidth = 0
-                }
-            }
-            
-            cell.layer.borderWidth = 2
-        } else {
-            guard let cell = collectionView.cellForItem(at: indexPath) as? PurchaseInstrumentSmallCell else { fatalError() }
-            
-            guard selectedCellIndex != indexPath else {
-                closeButton.setTitle("Close", for: .normal)
-                cell.layer.borderWidth = 0
-                selectedCellIndex = nil
-                
-                return
-            }
-            
-            if let selectedCellIndex = selectedCellIndex {
-                if selectedCellIndex.section == 0 {
-                    guard let cell2 = collectionView.cellForItem(at: selectedCellIndex) as? PurchaseInstrumentLargeCell else { fatalError() }
-                    
-                    cell2.layer.borderWidth = 0
-                } else {
-                    guard let cell2 = collectionView.cellForItem(at: selectedCellIndex) as? PurchaseInstrumentSmallCell else { fatalError() }
-                    
-                    cell2.layer.borderWidth = 0
-                }
-            }
-            
-            cell.layer.borderWidth = 2
+            return
         }
+        
+        if let selectedCellIndex = selectedCellIndex {
+            if selectedCellIndex.section == 0 {
+                guard let cell2 = collectionView.cellForItem(at: selectedCellIndex) as? PurchaseInstrumentLargeCell else { fatalError() }
+                
+                cell2.layer.borderWidth = 0
+            } else {
+                guard let cell2 = collectionView.cellForItem(at: selectedCellIndex) as? PurchaseInstrumentSmallCell else { fatalError() }
+                
+                cell2.layer.borderWidth = 0
+            }
+        }
+        
+        cell.layer.borderWidth = 2
         
         selectedCellIndex = indexPath
         closeButton.setTitle("Purchase", for: .normal)
@@ -516,21 +461,19 @@ extension PurchaseInstrumentsViewController: UICollectionViewDelegateFlowLayout 
         if indexPath.section == 0 {
             return CGSize(width: (collectionView.bounds.width - 20) / 3 * 2 + 10, height: 150)
         }
-        
         return CGSize(width: (collectionView.bounds.width - 20) / 3, height: 150)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let largeCellWidth = (collectionView.bounds.width - 20) / 3 * 2 + 10
-        
         return UIEdgeInsets(top: 0, left: (section == 0 ? (collectionView.bounds.width - largeCellWidth) / -1 + 0.1 : 0), bottom: 10, right: 0)
     }
 }

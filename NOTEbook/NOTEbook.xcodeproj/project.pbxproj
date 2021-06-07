@@ -36,7 +36,7 @@
 		9A485B3A250707CD00407910 /* ClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A485B39250707CD00407910 /* ClarinetFingeringView.swift */; };
 		9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70724DB795300B493A1 /* DecodingTests.swift */; };
 		9A55D70E24DC7C9E00B493A1 /* StaffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70D24DC7C9E00B493A1 /* StaffView.swift */; };
-		9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */; };
+		9A55D71024DDB8D600B493A1 /* InstrumentsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D70F24DDB8D600B493A1 /* InstrumentsListViewController.swift */; };
 		9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */; };
 		9A58BD6D266C5FC800740EA9 /* ChartCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */; };
 		9A58BD6F266C6DBC00740EA9 /* NoteChartCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */; };
@@ -49,6 +49,14 @@
 		9A58BD7D266DC74200740EA9 /* ClefImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD7C266DC74200740EA9 /* ClefImageView.swift */; };
 		9A58BD7F266DC99200740EA9 /* PurchaseGroupTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */; };
 		9A58BD81266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */; };
+		9A58BD83266DCF5300740EA9 /* ArrowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD82266DCF5300740EA9 /* ArrowImageView.swift */; };
+		9A58BD85266DD0A500740EA9 /* PurchaseTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD84266DD0A500740EA9 /* PurchaseTitleLabel.swift */; };
+		9A58BD87266DD0FA00740EA9 /* PurchaseSubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD86266DD0FA00740EA9 /* PurchaseSubtitleLabel.swift */; };
+		9A58BD8D266E567700740EA9 /* PurchaseInstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD8C266E567700740EA9 /* PurchaseInstrumentCell.swift */; };
+		9A58BD8F266E5C8400740EA9 /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD8E266E5C8400740EA9 /* PurchaseViewController.swift */; };
+		9A58BD91266E5EBA00740EA9 /* SectionedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD90266E5EBA00740EA9 /* SectionedTableView.swift */; };
+		9A58BD93266E5FFF00740EA9 /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD92266E5FFF00740EA9 /* ListTableView.swift */; };
+		9A58BD95266E610D00740EA9 /* InstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD94266E610D00740EA9 /* InstrumentsViewController.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
@@ -150,7 +158,7 @@
 		9A52139124F2007C0007C08A /* NoteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoteList.json; sourceTree = "<group>"; };
 		9A55D70724DB795300B493A1 /* DecodingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingTests.swift; sourceTree = "<group>"; };
 		9A55D70D24DC7C9E00B493A1 /* StaffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffView.swift; sourceTree = "<group>"; };
-		9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
+		9A55D70F24DDB8D600B493A1 /* InstrumentsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsListViewController.swift; sourceTree = "<group>"; };
 		9A55D71324E0337200B493A1 /* LetterArrowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterArrowViewController.swift; sourceTree = "<group>"; };
 		9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionView.swift; sourceTree = "<group>"; };
 		9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCellTextView.swift; sourceTree = "<group>"; };
@@ -163,6 +171,14 @@
 		9A58BD7C266DC74200740EA9 /* ClefImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefImageView.swift; sourceTree = "<group>"; };
 		9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseGroupTitleLabel.swift; sourceTree = "<group>"; };
 		9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInstrumentTitleLabel.swift; sourceTree = "<group>"; };
+		9A58BD82266DCF5300740EA9 /* ArrowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowImageView.swift; sourceTree = "<group>"; };
+		9A58BD84266DD0A500740EA9 /* PurchaseTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseTitleLabel.swift; sourceTree = "<group>"; };
+		9A58BD86266DD0FA00740EA9 /* PurchaseSubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseSubtitleLabel.swift; sourceTree = "<group>"; };
+		9A58BD8C266E567700740EA9 /* PurchaseInstrumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInstrumentCell.swift; sourceTree = "<group>"; };
+		9A58BD8E266E5C8400740EA9 /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
+		9A58BD90266E5EBA00740EA9 /* SectionedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionedTableView.swift; sourceTree = "<group>"; };
+		9A58BD92266E5FFF00740EA9 /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
+		9A58BD94266E610D00740EA9 /* InstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsViewController.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -343,16 +359,50 @@
 			path = TutorialGifs;
 			sourceTree = "<group>";
 		};
+		9A58BD88266DD1A700740EA9 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */,
+				9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */,
+				9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */,
+				9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */,
+				9A58BD84266DD0A500740EA9 /* PurchaseTitleLabel.swift */,
+				9A58BD86266DD0FA00740EA9 /* PurchaseSubtitleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		9A58BD89266DD20200740EA9 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				9A58BD74266D2B7D00740EA9 /* AccidentalImageView.swift */,
+				9A58BD7C266DC74200740EA9 /* ClefImageView.swift */,
+				9A58BD82266DCF5300740EA9 /* ArrowImageView.swift */,
+				9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		9A58BD96266E68A400740EA9 /* Superclasses */ = {
+			isa = PBXGroup;
+			children = (
+				9A58BD8E266E5C8400740EA9 /* PurchaseViewController.swift */,
+				9A58BD94266E610D00740EA9 /* InstrumentsViewController.swift */,
+			);
+			path = Superclasses;
+			sourceTree = "<group>";
+		};
 		9A5CFB3A2499C2C400DF319F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9A022AE8249908C00052E819 /* NotePickerViewController.swift */,
 				9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */,
-				9A55D70F24DDB8D600B493A1 /* InstrumentsViewController.swift */,
+				9A55D70F24DDB8D600B493A1 /* InstrumentsListViewController.swift */,
 				9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */,
 				9AF9B00A25365DA800148365 /* SettingsVCs */,
 				9A054E172585AB1400DCE8FF /* IAPVCs */,
 				9A89FFE424F0223D0059295C /* Supplemental */,
+				9A58BD96266E68A400740EA9 /* Superclasses */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -362,23 +412,20 @@
 			children = (
 				9A89FFE324F022110059295C /* Cells */,
 				9A23CDCA25696D210038DF4A /* FingeringViews */,
+				9A58BD88266DD1A700740EA9 /* Labels */,
+				9A58BD89266DD20200740EA9 /* ImageViews */,
 				9A438147249E3CE400EDC58F /* NotePicker.swift */,
 				9A55D70D24DC7C9E00B493A1 /* StaffView.swift */,
-				9AC57B7024E42EF4002F8CB9 /* InstrumentTitleLabel.swift */,
 				9A23CDBE256967FB0038DF4A /* FingeringScrollingView.swift */,
 				9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */,
 				9A23CDCD256B45F70038DF4A /* TutorialView.swift */,
 				9A58BD6C266C5FC800740EA9 /* ChartCollectionView.swift */,
 				9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */,
-				9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */,
-				9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */,
-				9A58BD74266D2B7D00740EA9 /* AccidentalImageView.swift */,
 				9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */,
 				9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */,
 				9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */,
-				9A58BD7C266DC74200740EA9 /* ClefImageView.swift */,
-				9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */,
-				9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */,
+				9A58BD90266E5EBA00740EA9 /* SectionedTableView.swift */,
+				9A58BD92266E5FFF00740EA9 /* ListTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +446,7 @@
 				9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */,
 				9AC57B7224E436F0002F8CB9 /* TitleCell.swift */,
 				9A054E0D25840A0C00DCE8FF /* SelectInstrumentCell.swift */,
+				9A58BD8C266E567700740EA9 /* PurchaseInstrumentCell.swift */,
 				9A054E2C2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift */,
 				9A054E282585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift */,
 			);
@@ -643,6 +691,7 @@
 				9AF35F6F2669E6EF008B8518 /* FingeringKeyView.swift in Sources */,
 				9AF9B00C25365DED00148365 /* FingeringLimitViewController.swift in Sources */,
 				9A06636E2510F842003089B4 /* BaritoneSaxophoneFingeringView.swift in Sources */,
+				9A58BD8D266E567700740EA9 /* PurchaseInstrumentCell.swift in Sources */,
 				9A58BD77266D45DF00740EA9 /* NotebookPageControl.swift in Sources */,
 				9A054E0A2583F1BA00DCE8FF /* SelectInstrumentViewController.swift in Sources */,
 				9A3D738924E96EA300A1A515 /* FingeringView.swift in Sources */,
@@ -651,6 +700,7 @@
 				9A58BD6F266C6DBC00740EA9 /* NoteChartCellTextView.swift in Sources */,
 				9AC57B7324E436F0002F8CB9 /* TitleCell.swift in Sources */,
 				9A022AE5249908C00052E819 /* AppDelegate.swift in Sources */,
+				9A58BD8F266E5C8400740EA9 /* PurchaseViewController.swift in Sources */,
 				9A8A95C82561701800E4E737 /* Notification.Name+Extensions.swift in Sources */,
 				9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */,
 				9A3D738D24E97C3800A1A515 /* FourValveFingeringView.swift in Sources */,
@@ -662,13 +712,14 @@
 				9A58BD79266D499A00740EA9 /* NotebookScrollView.swift in Sources */,
 				9AD5573124994F880078CB7E /* UIFont+Extensions.swift in Sources */,
 				9AC89573250448AB0033250B /* ChartCategory.swift in Sources */,
+				9A58BD91266E5EBA00740EA9 /* SectionedTableView.swift in Sources */,
 				9A23CDBF256967FB0038DF4A /* FingeringScrollingView.swift in Sources */,
 				9A55D70E24DC7C9E00B493A1 /* StaffView.swift in Sources */,
 				9A022AE7249908C00052E819 /* SceneDelegate.swift in Sources */,
 				9A438148249E3CE400EDC58F /* NotePicker.swift in Sources */,
 				9AF3A7E22534A10300B3008B /* Configuration.swift in Sources */,
 				9AB9B8FD2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift in Sources */,
-				9A55D71024DDB8D600B493A1 /* InstrumentsViewController.swift in Sources */,
+				9A55D71024DDB8D600B493A1 /* InstrumentsListViewController.swift in Sources */,
 				9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */,
 				9AED650824B6AE8C00760672 /* UserDefaults+Extensions.swift in Sources */,
 				9A054E232585AB5D00DCE8FF /* PurchaseInstrumentsViewController.swift in Sources */,
@@ -680,12 +731,14 @@
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
 				9A58BD7F266DC99200740EA9 /* PurchaseGroupTitleLabel.swift in Sources */,
 				9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */,
+				9A58BD95266E610D00740EA9 /* InstrumentsViewController.swift in Sources */,
 				9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */,
 				9A58BD6D266C5FC800740EA9 /* ChartCollectionView.swift in Sources */,
 				9A89FFE224F016F10059295C /* Position.swift in Sources */,
 				9AA55E11265FD7E6008BCDCF /* Bundle+Extensions.swift in Sources */,
 				9A485B3A250707CD00407910 /* ClarinetFingeringView.swift in Sources */,
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
+				9A58BD83266DCF5300740EA9 /* ArrowImageView.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
 				9A58BD7D266DC74200740EA9 /* ClefImageView.swift in Sources */,
@@ -695,13 +748,16 @@
 				9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */,
 				9AA55E13266034FE008BCDCF /* FreeTrialData.swift in Sources */,
 				9A43814A249E3E2600EDC58F /* NotePickerCell.swift in Sources */,
+				9A58BD85266DD0A500740EA9 /* PurchaseTitleLabel.swift in Sources */,
 				9AAAF81324F2AE70009C4B26 /* BbTriggerThreeValveFingeringView.swift in Sources */,
 				9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
+				9A58BD93266E5FFF00740EA9 /* ListTableView.swift in Sources */,
 				9A99A9B92587E8E600AF84BD /* Constants.swift in Sources */,
 				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
 				9AF35F712669EA06008B8518 /* PositionFingeringAccidental.swift in Sources */,
 				9A054E292585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift in Sources */,
 				9A58BD81266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift in Sources */,
+				9A58BD87266DD0FA00740EA9 /* PurchaseSubtitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

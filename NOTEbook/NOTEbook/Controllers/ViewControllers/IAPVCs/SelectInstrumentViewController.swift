@@ -8,11 +8,7 @@
 
 import UIKit
 
-class SelectInstrumentViewController: UIViewController {
-    private let chartsController = ChartsController.shared
-    
-    private var selectedCellIndex: IndexPath?
-    
+class SelectInstrumentViewController: PurchaseViewController {
     private lazy var collectionView: ChartCollectionView = {
         let chart = ChartCollectionView(reuseIdentifiers: [SelectInstrumentCell.reuseIdentifier])
         chart.dataSource = self
@@ -20,30 +16,8 @@ class SelectInstrumentViewController: UIViewController {
         return chart
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Choose Your Instrument"
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textColor = .notebookMediumRed
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private lazy var subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "This instrument group will be free forever!"
-        label.numberOfLines = 0
-        label.minimumScaleFactor = 0.01
-        label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textColor = .notebookDarkAqua
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    private lazy var titleLabel = PurchaseTitleLabel(title: "Choose Your Instrument")
+    private lazy var subtitleLabel = PurchaseSubtitleLabel(title: "This instrument group will be free forever!")
     
     private lazy var continueButton: ContinueButton = {
         let button = ContinueButton(title: "Continue", normalTitleColor: .notebookLightestestAqua)
@@ -80,12 +54,6 @@ class SelectInstrumentViewController: UIViewController {
         ])
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        view.addBackground()
-    }
-    
     @objc private func continuePressed() {
         if let selectedInteger = selectedCellIndex?.item {
             UserDefaults.standard.set(selectedInteger, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
@@ -95,14 +63,6 @@ class SelectInstrumentViewController: UIViewController {
             let vc = PurchaseInstrumentsViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        
-        view.addBackground()
     }
 }
 
@@ -114,7 +74,8 @@ extension SelectInstrumentViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectInstrumentCell.reuseIdentifier, for: indexPath) as? SelectInstrumentCell else { fatalError() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectInstrumentCell.reuseIdentifier,
+                                                            for: indexPath) as? SelectInstrumentCell else { fatalError() }
         cell.purchasableInstrumentGroup = chartsController.purchasableInstrumentGroups[indexPath.item]
         cell.setupSubviews()
         cell.backgroundColor = .notebookLightestAqua

@@ -25,7 +25,6 @@ class NoteChartViewController: UIViewController {
         let imageConfiguration = UIImage.SymbolConfiguration(weight: .bold)
         let image = UIImage(systemName: "gear", withConfiguration: imageConfiguration)!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(settingsButtonTapped))
-        
         return button
     }()
     
@@ -36,14 +35,12 @@ class NoteChartViewController: UIViewController {
         button.setImage(image, for: .normal)
         button.setImage(pressedImage, for: .highlighted)
         button.addTarget(self, action: #selector(pickerButtonTapped), for: .touchUpInside)
-        
         return button
     }()
     
     private lazy var instrumentsBarButton: UIBarButtonItem = {
         let image = UIImage(named: UIImage.Assets.instrumentsButton)!
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(instrumentsButtonTapped))
-        
         return button
     }()
     
@@ -55,8 +52,6 @@ class NoteChartViewController: UIViewController {
         configureCollectionView()
         
         navigationItem.backButtonTitle = "Fingering Chart"
-        
-        navigationItem.backBarButtonItem = nil
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = pickerButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
@@ -83,29 +78,30 @@ class NoteChartViewController: UIViewController {
         ])
     }
     
-    @objc private func settingsButtonTapped() {
+    private func performHaptics(light: Bool) {
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
-            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+            if light {
+                UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
+            } else {
+                UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
+            }
         }
-        
+    }
+    
+    @objc private func settingsButtonTapped() {
+        performHaptics(light: true)
         let vc = SettingsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func instrumentsButtonTapped() {
-        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
-            UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
-        }
-        
-        let vc = InstrumentsViewController()
+        performHaptics(light: true)
+        let vc = InstrumentsListViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc private func pickerButtonTapped() {
-        if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
-            UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
-        }
-        
+        performHaptics(light: false)
         navigationController?.popViewController(animated: true)
     }
     
@@ -135,11 +131,8 @@ extension NoteChartViewController: UICollectionViewDataSource {
         let noteFingering = chartsController.currentChart.noteFingerings[indexPath.row]
         let firstNote = noteFingering.notes[0]
         
-        navigationController?.popViewController(animated: true)
-        
         if let naturalIndex = chartsController.currentChart.naturalNotes.firstIndex(of: firstNote) {
             let userInfo = ["type" : NoteType.natural, "index" : naturalIndex] as [String : Any]
-            
             NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
         } else if let sharpIndex = chartsController.currentChart.sharpNotes.firstIndex(of: firstNote) {
             let userInfo = ["type" : NoteType.sharp, "index" : sharpIndex] as [String : Any]
@@ -149,17 +142,16 @@ extension NoteChartViewController: UICollectionViewDataSource {
             // Means this is the first note chosen and sharp does not exist, only flats (which can be a natural B or E)
             if let naturalNoteFlatIndex = chartsController.currentChart.flatNotes.firstIndex(of: firstNote) {
                 let userInfo = ["type" : NoteType.flat, "index" : naturalNoteFlatIndex] as [String : Any]
-                
                 NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
             } else {
                 let secondNote = noteFingering.notes[1]
                 let flatIndex = chartsController.currentChart.flatNotes.firstIndex(of: secondNote)!
-                
                 let userInfo = ["type" : NoteType.flat, "index" : flatIndex] as [String : Any]
-                
                 NotificationCenter.default.post(name: .noteTypeIndexReceived, object: nil, userInfo: userInfo)
             }
         }
+        
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -179,15 +171,11 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let titleCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: TitleCell.reuseIdentifier, for: indexPath) as! TitleCell
-            titleCell.titleLabel.text = chartsController.currentChart.instrument.type.rawValue
-            
-            return titleCell
-        default:
-            fatalError("Unexpected element kind")
-        }
+        guard let titleCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                              withReuseIdentifier: TitleCell.reuseIdentifier,
+                                                                              for: indexPath) as? TitleCell else { fatalError() }
+        titleCell.titleLabel.text = chartsController.currentChart.instrument.type.rawValue
+        return titleCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

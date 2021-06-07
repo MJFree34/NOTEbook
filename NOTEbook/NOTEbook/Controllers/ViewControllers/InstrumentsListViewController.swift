@@ -1,5 +1,5 @@
 //
-//  InstrumentsViewController.swift
+//  InstrumentsListViewController.swift
 //  NOTEbook
 //
 //  Created by Matt Free on 8/7/20.
@@ -8,11 +8,7 @@
 
 import UIKit
 
-class InstrumentsViewController: UIViewController {
-    private let chartsController = ChartsController.shared
-    
-    private var selectedCategory: IndexPath!
-    
+class InstrumentsListViewController: InstrumentsViewController {
     private lazy var woodwindsChartCategories: [ChartCategory] = {
         return reloadWoodwindChartCategories()
     }()
@@ -21,23 +17,15 @@ class InstrumentsViewController: UIViewController {
         return reloadBrassChartCategories()
     }()
     
-    private lazy var tableView: UITableView = {
-        let tv = UITableView()
-        tv.backgroundColor = .clear
+    private lazy var tableView: ListTableView = {
+        let tv = ListTableView()
         tv.delegate = self
         tv.dataSource = self
-        tv.showsVerticalScrollIndicator = false
-        tv.estimatedRowHeight = 100
-        tv.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        
         return tv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addBackground()
         
         view.addSubview(tableView)
         
@@ -49,14 +37,6 @@ class InstrumentsViewController: UIViewController {
         ])
         
         title = "Instruments"
-        
-        let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
-        if freeTrialOver || Configuration.appConfiguration == .testFlight {
-            let configuration = UIImage.SymbolConfiguration(font: UIFont.preferredFont(forTextStyle: .title3))
-            let shopImage = UIImage(systemName: "dollarsign.circle",  withConfiguration: configuration)
-            let shopBarButtonItem = UIBarButtonItem(image: shopImage, style: .plain, target: self, action: #selector(shopPressed))
-            navigationItem.rightBarButtonItem = shopBarButtonItem
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,26 +71,11 @@ class InstrumentsViewController: UIViewController {
         
         return categories
     }
-    
-    @objc private func shopPressed() {
-        ChartsController.shared.updatePurchasableInstrumentGroups()
-        let vc = PurchaseInstrumentsViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        
-        guard traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) else { return }
-        
-        view.addBackground()
-    }
 }
 
-extension InstrumentsViewController: UITableViewDelegate {}
+extension InstrumentsListViewController: UITableViewDelegate {}
 
-extension InstrumentsViewController: UITableViewDataSource {
+extension InstrumentsListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if woodwindsChartCategories.isEmpty || brassChartCategories.isEmpty {
             return 1
@@ -152,7 +117,7 @@ extension InstrumentsViewController: UITableViewDataSource {
         
         if cellChartCategory.name == chartsController.currentChartCategory.name {
             cell.tintColor = .notebookMediumRed
-            selectedCategory = indexPath
+            selectedIndex = indexPath
         } else {
             cell.tintColor = .notebookMediumAqua
         }
@@ -189,11 +154,11 @@ extension InstrumentsViewController: UITableViewDataSource {
                 
                 cell.tintColor = .notebookMediumRed
                 
-                if let cell2 = tableView.cellForRow(at: selectedCategory) {
+                if let cell2 = tableView.cellForRow(at: selectedIndex) {
                     cell2.tintColor = .notebookMediumAqua
                 }
                 
-                selectedCategory = indexPath
+                selectedIndex = indexPath
                 
                 chartsController.changeCurrentChart(to: chartsController.purchasedChartCategories[categoryIndex].name, chartIndex: 0)
                 

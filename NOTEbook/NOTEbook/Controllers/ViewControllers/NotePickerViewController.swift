@@ -107,7 +107,6 @@ class NotePickerViewController: UIViewController {
         configureIndicators()
         
         navigationItem.backButtonTitle = "Note Picker"
-        
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
@@ -121,6 +120,8 @@ class NotePickerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         view.addBackground()
+        
+        picker.firstIndexSelected = false
         
         if !UserDefaults.standard.bool(forKey: UserDefaults.Keys.tutorialHasShown) {
             displayTutorialView()
@@ -419,7 +420,7 @@ class NotePickerViewController: UIViewController {
             UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
         }
         
-        let vc = InstrumentsViewController()
+        let vc = InstrumentsListViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -483,9 +484,7 @@ extension NotePickerViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let index = indexPath.item
-        
-        let selectedNote = chartsController.currentNote(from: currentNoteType, index: index)
+        let selectedNote = chartsController.currentNote(from: currentNoteType, index: indexPath.item)
         let selectedFingering = chartsController.currentFingering(note: selectedNote)
         
         if currentNoteFingering != selectedFingering {
@@ -496,9 +495,7 @@ extension NotePickerViewController: UICollectionViewDataSource {
             currentNoteFingering = selectedFingering
             
             letterArrowViewController.fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
-            
             letterArrowViewController.letterLabel.text = selectedNote.capitalizedLetter()
-            
             letterArrowViewController.showOrHideLetterAccidentals()
         }
     }
