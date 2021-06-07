@@ -8,11 +8,11 @@
 
 import UIKit
 
-class NotePickerCellAccidental: UIImageView {
-    init(noteType: NoteType, hide: Bool) {
+class AccidentalImageView: UIImageView {
+    init(noteType: NoteType, transformScale: CGFloat, hide: Bool = false) {
         switch noteType {
         case .natural:
-            fatalError("No natural should be shown")
+            fatalError("No natural image view")
         case .sharp:
             super.init(image: UIImage(named: UIImage.MusicSymbols.sharp))
         case .flat:
@@ -21,7 +21,7 @@ class NotePickerCellAccidental: UIImageView {
         
         isHidden = hide
         translatesAutoresizingMaskIntoConstraints = false
-        transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20, y: NotePickerViewController.spaceBetweenStaffLines / 20)
+        transform = CGAffineTransform(scaleX: transformScale, y: transformScale)
     }
     
     required init?(coder: NSCoder) {

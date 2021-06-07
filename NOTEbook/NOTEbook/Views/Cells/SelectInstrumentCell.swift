@@ -11,9 +11,11 @@ import UIKit
 class SelectInstrumentCell: UICollectionViewCell {
     static let reuseIdentifier = "SelectInstrumentCell"
     
+    var purchasableInstrumentGroup: PurchasableInstrumentGroup!
+    
     private let instrumentTitleSize: CGFloat = 12
     
-    var purchasableInstrumentGroup: PurchasableInstrumentGroup!
+    private lazy var groupTitleLabel = PurchaseGroupTitleLabel(title: purchasableInstrumentGroup.groupTitle)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,13 +26,6 @@ class SelectInstrumentCell: UICollectionViewCell {
     }
     
     func setupSubviews() {
-        let groupTitleLabel = UILabel()
-        groupTitleLabel.text = purchasableInstrumentGroup.groupTitle
-        groupTitleLabel.numberOfLines = 0
-        groupTitleLabel.textAlignment = .center
-        groupTitleLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        groupTitleLabel.textColor = .notebookDarkAqua
-        groupTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(groupTitleLabel)
         
         NSLayoutConstraint.activate([
@@ -41,16 +36,12 @@ class SelectInstrumentCell: UICollectionViewCell {
         ])
         
         for (index, title) in purchasableInstrumentGroup.instrumentTitles.enumerated() {
-            let instrumentTitleLabel = UILabel()
-            instrumentTitleLabel.text = title
-            instrumentTitleLabel.textAlignment = .natural
-            instrumentTitleLabel.font = UIFont.systemFont(ofSize: instrumentTitleSize)
-            instrumentTitleLabel.textColor = .notebookDarkAqua
-            instrumentTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+            let instrumentTitleLabel = PurchaseInstrumentTitleLabel(title: title, fontSize: instrumentTitleSize)
             addSubview(instrumentTitleLabel)
             
             NSLayoutConstraint.activate([
-                instrumentTitleLabel.topAnchor.constraint(equalTo: groupTitleLabel.bottomAnchor, constant: CGFloat(4 + (Int(instrumentTitleSize) + 4) * index)),
+                instrumentTitleLabel.topAnchor.constraint(equalTo: groupTitleLabel.bottomAnchor,
+                                                          constant: CGFloat(4 + (Int(instrumentTitleSize) + 4) * index)),
                 instrumentTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
                 instrumentTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
                 instrumentTitleLabel.heightAnchor.constraint(equalToConstant: instrumentTitleSize)

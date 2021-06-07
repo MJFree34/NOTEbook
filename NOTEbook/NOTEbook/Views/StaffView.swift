@@ -9,25 +9,8 @@
 import UIKit
 
 class StaffView: UIView {
-    private lazy var trebleClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.trebleClef)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20,
-                                                y: NotePickerViewController.spaceBetweenStaffLines / 20)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = true
-        
-        return imageView
-    }()
-    
-    private lazy var bassClefImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.bassClef)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: NotePickerViewController.spaceBetweenStaffLines / 20,
-                                                y: NotePickerViewController.spaceBetweenStaffLines / 20)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.isHidden = true
-        
-        return imageView
-    }()
+    private lazy var trebleClefImageView = ClefImageView(clef: .treble, transformScale: NotePickerViewController.spaceBetweenStaffLines / 20)
+    private lazy var bassClefImageView = ClefImageView(clef: .bass, transformScale: NotePickerViewController.spaceBetweenStaffLines / 20)
     
     init(width: CGFloat) {
         super.init(frame: .zero)
@@ -71,7 +54,7 @@ class StaffView: UIView {
         NSLayoutConstraint.activate([
             staffImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomInset),
             staffImageView.heightAnchor.constraint(equalToConstant: 2),
-            staffImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            staffImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
     

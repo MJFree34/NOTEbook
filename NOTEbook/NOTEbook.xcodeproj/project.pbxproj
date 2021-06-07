@@ -42,10 +42,13 @@
 		9A58BD6F266C6DBC00740EA9 /* NoteChartCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */; };
 		9A58BD71266C6FAE00740EA9 /* OptionalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */; };
 		9A58BD73266D29C200740EA9 /* NotePickerCellQuarterNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */; };
-		9A58BD75266D2B7D00740EA9 /* NotePickerCellAccidental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD74266D2B7D00740EA9 /* NotePickerCellAccidental.swift */; };
+		9A58BD75266D2B7D00740EA9 /* AccidentalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD74266D2B7D00740EA9 /* AccidentalImageView.swift */; };
 		9A58BD77266D45DF00740EA9 /* NotebookPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */; };
 		9A58BD79266D499A00740EA9 /* NotebookScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */; };
 		9A58BD7B266D4BEB00740EA9 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */; };
+		9A58BD7D266DC74200740EA9 /* ClefImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD7C266DC74200740EA9 /* ClefImageView.swift */; };
+		9A58BD7F266DC99200740EA9 /* PurchaseGroupTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */; };
+		9A58BD81266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */; };
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
@@ -153,10 +156,13 @@
 		9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCellTextView.swift; sourceTree = "<group>"; };
 		9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalLabel.swift; sourceTree = "<group>"; };
 		9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCellQuarterNote.swift; sourceTree = "<group>"; };
-		9A58BD74266D2B7D00740EA9 /* NotePickerCellAccidental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerCellAccidental.swift; sourceTree = "<group>"; };
+		9A58BD74266D2B7D00740EA9 /* AccidentalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalImageView.swift; sourceTree = "<group>"; };
 		9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookPageControl.swift; sourceTree = "<group>"; };
 		9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookScrollView.swift; sourceTree = "<group>"; };
 		9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
+		9A58BD7C266DC74200740EA9 /* ClefImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClefImageView.swift; sourceTree = "<group>"; };
+		9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseGroupTitleLabel.swift; sourceTree = "<group>"; };
+		9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInstrumentTitleLabel.swift; sourceTree = "<group>"; };
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
@@ -366,10 +372,13 @@
 				9A58BD6E266C6DBC00740EA9 /* NoteChartCellTextView.swift */,
 				9A58BD70266C6FAE00740EA9 /* OptionalLabel.swift */,
 				9A58BD72266D29C200740EA9 /* NotePickerCellQuarterNote.swift */,
-				9A58BD74266D2B7D00740EA9 /* NotePickerCellAccidental.swift */,
+				9A58BD74266D2B7D00740EA9 /* AccidentalImageView.swift */,
 				9A58BD76266D45DF00740EA9 /* NotebookPageControl.swift */,
 				9A58BD78266D499A00740EA9 /* NotebookScrollView.swift */,
 				9A58BD7A266D4BEB00740EA9 /* ContinueButton.swift */,
+				9A58BD7C266DC74200740EA9 /* ClefImageView.swift */,
+				9A58BD7E266DC99200740EA9 /* PurchaseGroupTitleLabel.swift */,
+				9A58BD80266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -646,7 +655,7 @@
 				9A438144249D5CE600EDC58F /* UIViewController+Extensions.swift in Sources */,
 				9A3D738D24E97C3800A1A515 /* FourValveFingeringView.swift in Sources */,
 				9AD5573D249957A50078CB7E /* Fingering.swift in Sources */,
-				9A58BD75266D2B7D00740EA9 /* NotePickerCellAccidental.swift in Sources */,
+				9A58BD75266D2B7D00740EA9 /* AccidentalImageView.swift in Sources */,
 				9AD5574124995A000078CB7E /* FingeringChart.swift in Sources */,
 				9AC57B7124E42EF4002F8CB9 /* InstrumentTitleLabel.swift in Sources */,
 				9AF35F6D2669E450008B8518 /* ValveFingeringView.swift in Sources */,
@@ -669,6 +678,7 @@
 				9A58BD71266C6FAE00740EA9 /* OptionalLabel.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
+				9A58BD7F266DC99200740EA9 /* PurchaseGroupTitleLabel.swift in Sources */,
 				9A89FFE024F015830059295C /* PositionFingeringView.swift in Sources */,
 				9AAFFEA224F08C06002CD2B8 /* FTriggerPositionFingeringView.swift in Sources */,
 				9A58BD6D266C5FC800740EA9 /* ChartCollectionView.swift in Sources */,
@@ -678,6 +688,7 @@
 				9AD5574324995B1D0078CB7E /* Instrument.swift in Sources */,
 				9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */,
 				9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */,
+				9A58BD7D266DC74200740EA9 /* ClefImageView.swift in Sources */,
 				9A55D71424E0337200B493A1 /* LetterArrowViewController.swift in Sources */,
 				9AB9B901250581B200A5B0E6 /* FingeringScrollView.swift in Sources */,
 				9A054E122584755E00DCE8FF /* PurchasableInstrumentGroup.swift in Sources */,
@@ -690,6 +701,7 @@
 				9AD5573A249955AD0078CB7E /* Note.swift in Sources */,
 				9AF35F712669EA06008B8518 /* PositionFingeringAccidental.swift in Sources */,
 				9A054E292585AD1000DCE8FF /* PurchaseInstrumentSmallCell.swift in Sources */,
+				9A58BD81266DCB0500740EA9 /* PurchaseInstrumentTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

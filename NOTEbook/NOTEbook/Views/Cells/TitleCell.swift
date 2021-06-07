@@ -15,6 +15,7 @@ class TitleCell: UICollectionViewCell {
     private var cellDividerInset: CGFloat = 100
     
     lazy var titleLabel = InstrumentTitleLabel()
+    
     lazy var cellDivider: UIView = {
         let view = UIView()
         view.backgroundColor = .notebookMediumAqua

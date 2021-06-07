@@ -24,8 +24,8 @@ class NotePickerCell: UICollectionViewCell {
     
     private var upperQuarterNote: NotePickerCellQuarterNote!
     private var lowerQuarterNote: NotePickerCellQuarterNote!
-    private var flat: NotePickerCellAccidental!
-    private var sharp: NotePickerCellAccidental!
+    private var flat: AccidentalImageView!
+    private var sharp: AccidentalImageView!
     
     private var lowerLine8: UIImageView!
     private var lowerLine7: UIImageView!
@@ -73,10 +73,10 @@ class NotePickerCell: UICollectionViewCell {
         lowerQuarterNote = NotePickerCellQuarterNote(quarterNoteOrientation: .lower, hide: quarterNoteOrientation == .upper)
         contentView.addSubview(lowerQuarterNote)
         
-        flat = NotePickerCellAccidental(noteType: .flat, hide: initNote.type != .flat)
+        flat = AccidentalImageView(noteType: .flat, transformScale: NotePickerViewController.spaceBetweenStaffLines / 20, hide: initNote.type != .flat)
         contentView.addSubview(flat)
         
-        sharp = NotePickerCellAccidental(noteType: .sharp, hide: initNote.type != .sharp)
+        sharp = AccidentalImageView(noteType: .sharp, transformScale: NotePickerViewController.spaceBetweenStaffLines / 20, hide: initNote.type != .sharp)
         contentView.addSubview(sharp)
         
         upperQuarterNoteCenterYConstraint = upperQuarterNote.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,

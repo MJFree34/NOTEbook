@@ -33,37 +33,11 @@ class NoteChartCell: UICollectionViewCell {
     private lazy var leftTextView = NoteChartCellTextView(alignment: .left)
     private lazy var rightTextView = NoteChartCellTextView(alignment: .right)
     
-    private lazy var letterFlatView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var letterFlatView = AccidentalImageView(noteType: .flat, transformScale: spaceBetweenStaffLines / 10 - 0.5)
+    private lazy var letterSharpView = AccidentalImageView(noteType: .sharp, transformScale: spaceBetweenStaffLines / 10 - 0.5)
     
-    private lazy var letterSharpView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var trebleClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.trebleClef)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private lazy var bassClef: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: UIImage.MusicSymbols.bassClef)!.withTintColor(.notebookBlack))
-        imageView.transform = CGAffineTransform(scaleX: spaceBetweenStaffLines / 10 - 0.5, y: spaceBetweenStaffLines / 10 - 0.5)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    private lazy var trebleClef = ClefImageView(clef: .treble, transformScale: spaceBetweenStaffLines / 10 - 0.5)
+    private lazy var bassClef = ClefImageView(clef: .bass, transformScale: spaceBetweenStaffLines / 10 - 0.5)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -177,7 +151,7 @@ extension NoteChartCell {
             rightOutline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             rightOutline.topAnchor.constraint(equalTo: contentView.topAnchor, constant: insetFromTop),
             rightOutline.heightAnchor.constraint(equalToConstant: cellHeight - insetFromTop),
-            rightOutline.widthAnchor.constraint(equalToConstant: 0.5),
+            rightOutline.widthAnchor.constraint(equalToConstant: 0.5)
         ])
     }
     
@@ -331,7 +305,9 @@ extension NoteChartCell {
     private func addExtraStaffLine(topInset: CGFloat, thickLine: Bool) {
         let lineWidth: CGFloat = 30 * spaceBetweenStaffLines / 10
         
-        let extraLineImageView = thickLine ? UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: lineWidth, height: 1), rounded: true).withTintColor(.notebookBlack)) : UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(.notebookBlack))
+        let extraLineImageView = thickLine ?
+            UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack,size: CGSize(width: lineWidth, height: 1),rounded: true).withTintColor(.notebookBlack)) :
+            UIImageView(image: UIImage.drawStaffLine(color: .notebookBlack, size: CGSize(width: lineWidth / 2, height: 1), rounded: true).withTintColor(.notebookBlack))
         extraLineImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(extraLineImageView)
         currentExtraLines.append(extraLineImageView)
@@ -353,7 +329,6 @@ extension NoteChartCell {
         let noteHeight: CGFloat = 10 * spaceBetweenStaffLines / 10
         
         let firstNote = noteFingering.notes[0]
-        
         let firstNoteTopInset = calculateNoteTopInset(note: firstNote, noteHeight: noteHeight)
         
         if noteFingering.notes.count == 2 {

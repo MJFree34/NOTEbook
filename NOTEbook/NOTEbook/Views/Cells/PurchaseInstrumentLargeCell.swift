@@ -17,17 +17,7 @@ class PurchaseInstrumentLargeCell: UICollectionViewCell {
     var purchasableInstrumentGroup: PurchasableInstrumentGroup!
     var package: Purchases.Package!
     
-    lazy var groupTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = purchasableInstrumentGroup.groupTitle
-        label.numberOfLines = 0
-        label.textAlignment = .left
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .notebookDarkAqua
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
+    lazy var groupTitleLabel = PurchaseGroupTitleLabel(title: purchasableInstrumentGroup.groupTitle, alignment: .left)
     
     lazy var priceLabel: UILabel = {
         let label = UILabel()
@@ -84,12 +74,7 @@ class PurchaseInstrumentLargeCell: UICollectionViewCell {
         ])
         
         for (index, title) in purchasableInstrumentGroup.instrumentTitles.enumerated() {
-            let instrumentTitleLabel = UILabel()
-            instrumentTitleLabel.text = title
-            instrumentTitleLabel.textAlignment = .natural
-            instrumentTitleLabel.font = UIFont.systemFont(ofSize: instrumentTitleSize)
-            instrumentTitleLabel.textColor = .notebookDarkAqua
-            instrumentTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+            let instrumentTitleLabel = PurchaseInstrumentTitleLabel(title: title, fontSize: instrumentTitleSize)
             addSubview(instrumentTitleLabel)
             
             if index < 5 {
