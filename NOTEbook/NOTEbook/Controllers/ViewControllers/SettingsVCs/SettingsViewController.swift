@@ -145,7 +145,8 @@ class SettingsViewController: UIViewController {
                 freeTrialData.hoursRemaining == 0 &&
                 freeTrialData.minutesRemaining == 0 &&
                 freeTrialData.secondsRemaining == 0 &&
-                !freeTrialOver {
+                !freeTrialOver &&
+                Configuration.appConfiguration != .testFlight {
                 endFreeTrial()
             }
         }
