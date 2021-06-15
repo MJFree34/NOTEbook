@@ -12,7 +12,8 @@ class InstrumentsViewController: UIViewController {
     var chartsController = ChartsController.shared
     var selectedIndex: IndexPath!
     
-    @objc func shopPressed() {
+    @objc
+    func shopPressed() {
         ChartsController.shared.updatePurchasableInstrumentGroups()
         let vc = PurchaseInstrumentsViewController()
         vc.modalPresentationStyle = .fullScreen

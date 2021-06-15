@@ -294,7 +294,8 @@ class NotePickerViewController: UIViewController {
         tutorialView.setupTutorialPages()
     }
     
-    @objc private func reloadInstrumentViews() {
+    @objc
+    private func reloadInstrumentViews() {
         picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
@@ -315,7 +316,8 @@ class NotePickerViewController: UIViewController {
         letterArrowViewController.fingeringScrollingView.fingerings = currentNoteFingering.shorten(to: UserDefaults.standard.integer(forKey: UserDefaults.Keys.fingeringsLimit))
     }
     
-    @objc private func changeNoteType(swipe: UISwipeGestureRecognizer) {
+    @objc
+    private func changeNoteType(swipe: UISwipeGestureRecognizer) {
         if swipe.direction == .left {
             if currentNoteType == .natural {
                 updateNoteType(to: .sharp) { _ in
@@ -377,7 +379,8 @@ class NotePickerViewController: UIViewController {
         }, completion: completion)
     }
     
-    @objc private func noteTypeIndexReceived(_ notification: Notification) {
+    @objc
+    private func noteTypeIndexReceived(_ notification: Notification) {
         guard let noteType = notification.userInfo?["type"] as? NoteType else { return }
         guard let index = notification.userInfo?["index"] as? Int else { return }
         
@@ -389,7 +392,8 @@ class NotePickerViewController: UIViewController {
         }
     }
     
-    @objc private func tutorialDismissed() {
+    @objc
+    private func tutorialDismissed() {
         UIView.animate(withDuration: 1) {
             self.tutorialView.alpha = 0
             self.visualEffectView.alpha = 0
@@ -406,7 +410,8 @@ class NotePickerViewController: UIViewController {
         }
     }
     
-    @objc private func settingsButtonTapped() {
+    @objc
+    private func settingsButtonTapped() {
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
             UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
         }
@@ -415,7 +420,8 @@ class NotePickerViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func instrumentsButtonTapped() {
+    @objc
+    private func instrumentsButtonTapped() {
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
             UIImpactFeedbackGenerator.lightTapticFeedbackOccurred()
         }
@@ -424,7 +430,8 @@ class NotePickerViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func gridButtonTapped() {
+    @objc
+    private func gridButtonTapped() {
         if UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled) {
             UIImpactFeedbackGenerator.mediumTapticFeedbackOccurred()
         }

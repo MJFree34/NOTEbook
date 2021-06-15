@@ -54,7 +54,8 @@ class SelectInstrumentViewController: PurchaseViewController {
         ])
     }
     
-    @objc private func continuePressed() {
+    @objc
+    private func continuePressed() {
         if let selectedInteger = selectedCellIndex?.item {
             UserDefaults.standard.set(selectedInteger, forKey: UserDefaults.Keys.chosenFreeInstrumentGroupIndex)
             UserDefaults.standard.set(true, forKey: UserDefaults.Keys.iapFlowHasShown)

@@ -297,7 +297,8 @@ class PurchaseInstrumentsViewController: PurchaseViewController {
         }
     }
     
-    @objc private func continuePressed() {
+    @objc
+    private func continuePressed() {
         if let selectedIndex = selectedCellIndex {
             let index: Int
             

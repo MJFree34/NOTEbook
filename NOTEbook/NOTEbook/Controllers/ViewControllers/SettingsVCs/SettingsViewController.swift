@@ -261,16 +261,19 @@ class SettingsViewController: UIViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc private func decrementFreeTrialLeft() {
+    @objc
+    private func decrementFreeTrialLeft() {
         refreshFreeTrialLeft()
     }
     
-    @objc private func toggleHaptics() {
+    @objc
+    private func toggleHaptics() {
         let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.hapticsEnabled)
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.hapticsEnabled)
     }
     
-    @objc private func toggleGradient() {
+    @objc
+    private func toggleGradient() {
         let pastSetting = UserDefaults.standard.bool(forKey: UserDefaults.Keys.gradientEnabled)
         UserDefaults.standard.setValue(!pastSetting, forKey: UserDefaults.Keys.gradientEnabled)
         

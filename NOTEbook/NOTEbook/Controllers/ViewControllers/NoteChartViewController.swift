@@ -88,19 +88,22 @@ class NoteChartViewController: UIViewController {
         }
     }
     
-    @objc private func settingsButtonTapped() {
+    @objc
+    private func settingsButtonTapped() {
         performHaptics(light: true)
         let vc = SettingsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func instrumentsButtonTapped() {
+    @objc
+    private func instrumentsButtonTapped() {
         performHaptics(light: true)
         let vc = InstrumentsListViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc private func pickerButtonTapped() {
+    @objc
+    private func pickerButtonTapped() {
         performHaptics(light: false)
         navigationController?.popViewController(animated: true)
     }

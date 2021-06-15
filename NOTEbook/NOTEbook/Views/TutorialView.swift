@@ -173,11 +173,13 @@ class TutorialView: UIView {
         return [titleLabel, imageView, descriptionLabel]
     }
     
-    @objc private func continuePressed() {
+    @objc
+    private func continuePressed() {
         NotificationCenter.default.post(name: .tutorialDismissed, object: nil)
     }
     
-    @objc private func pageControlChanged(sender: UIPageControl) {
+    @objc
+    private func pageControlChanged(sender: UIPageControl) {
         pageControlValueChanged(to: sender.currentPage)
     }
     

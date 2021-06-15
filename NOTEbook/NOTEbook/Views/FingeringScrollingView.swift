@@ -91,7 +91,8 @@ class FingeringScrollingView: UIView {
         }
     }
     
-    @objc private func pageControlChanged(sender: UIPageControl) {
+    @objc
+    private func pageControlChanged(sender: UIPageControl) {
         pageControlValueChanged(to: sender.currentPage)
     }
     
