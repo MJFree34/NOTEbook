@@ -10,7 +10,7 @@ import UIKit
 
 class ArrowImageView: UIImageView {
     init(left: Bool) {
-        super.init(image: UIImage(named: UIImage.Assets.swipeArrow))
+        super.init(image: UIImage(named: UIImage.Assets.swipeArrow)!.withTintColor(.notebookBlack))
         
         if left {
             transform = CGAffineTransform(rotationAngle: .pi)

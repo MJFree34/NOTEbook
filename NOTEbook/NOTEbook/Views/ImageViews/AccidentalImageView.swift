@@ -12,11 +12,11 @@ class AccidentalImageView: UIImageView {
     init(noteType: NoteType, transformScale: CGFloat = 1, hide: Bool = false) {
         switch noteType {
         case .natural:
-            super.init(image: UIImage(named: UIImage.MusicSymbols.natural))
+            super.init(image: UIImage(named: UIImage.MusicSymbols.natural)!.withTintColor(.notebookBlack))
         case .sharp:
-            super.init(image: UIImage(named: UIImage.MusicSymbols.sharp))
+            super.init(image: UIImage(named: UIImage.MusicSymbols.sharp)!.withTintColor(.notebookBlack))
         case .flat:
-            super.init(image: UIImage(named: UIImage.MusicSymbols.flat))
+            super.init(image: UIImage(named: UIImage.MusicSymbols.flat)!.withTintColor(.notebookBlack))
         }
         
         isHidden = hide
