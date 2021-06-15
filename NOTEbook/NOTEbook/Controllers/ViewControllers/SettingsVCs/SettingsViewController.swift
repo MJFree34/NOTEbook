@@ -138,6 +138,16 @@ class SettingsViewController: UIViewController {
         if let freeTrialLeftIndex = about.firstIndex(where: { $0[0] == "Free Trial Left" }) {
             about[freeTrialLeftIndex][1] = "\(freeTrialData.daysRemaining)D:\(freeTrialData.hoursRemaining)H:\(freeTrialData.minutesRemaining)M:\(freeTrialData.secondsRemaining)S"
             tableView.reloadRows(at: [IndexPath(row: freeTrialLeftIndex, section: 2)], with: .none)
+            
+            let freeTrialOver = UserDefaults.standard.bool(forKey: UserDefaults.Keys.freeTrialOver)
+            
+            if freeTrialData.daysRemaining == 0 &&
+                freeTrialData.hoursRemaining == 0 &&
+                freeTrialData.minutesRemaining == 0 &&
+                freeTrialData.secondsRemaining == 0 &&
+                !freeTrialOver {
+                endFreeTrial()
+            }
         }
     }
     
