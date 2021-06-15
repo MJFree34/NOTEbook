@@ -51,7 +51,7 @@ class NoteChartViewController: UIViewController {
         
         configureCollectionView()
         
-        navigationItem.backButtonTitle = "Fingering Chart"
+        navigationItem.backButtonTitle = "Chart"
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = pickerButton
         navigationItem.rightBarButtonItem = instrumentsBarButton

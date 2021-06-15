@@ -96,6 +96,9 @@ class NotePickerViewController: UIViewController {
         } else if view.bounds.height == 568 {
             // iPhone SE, SE (2nd Generation)
             NotePickerViewController.spaceBetweenStaffLines = 19
+        } else {
+            // Error
+            NotePickerViewController.spaceBetweenStaffLines = 1
         }
         
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
@@ -106,7 +109,7 @@ class NotePickerViewController: UIViewController {
         configureStaffView()
         configureIndicators()
         
-        navigationItem.backButtonTitle = "Note Picker"
+        navigationItem.backButtonTitle = "Picker"
         navigationItem.leftBarButtonItem = settingsBarButton
         navigationItem.titleView = gridButton
         navigationItem.rightBarButtonItem = instrumentsBarButton
