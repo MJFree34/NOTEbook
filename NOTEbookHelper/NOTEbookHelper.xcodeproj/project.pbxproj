@@ -20,7 +20,7 @@
 		9AE30B3B27E94B4400E3D44A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AE30B4127E94B4600E3D44A /* NOTEbook Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOTEbook Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9AE30B4727E94B4600E3D44A /* NOTEbook Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOTEbook Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AE30B4727E94B4600E3D44A /* NOTEbookHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOTEbookHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE30B4927E94B4600E3D44A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9AE30B4127E94B4600E3D44A /* NOTEbook Helper.app */,
-				9AE30B4727E94B4600E3D44A /* NOTEbook Helper.app */,
+				9AE30B4727E94B4600E3D44A /* NOTEbookHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,9 +81,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9AE30B4027E94B4600E3D44A /* NOTEbook Helper (iOS) */ = {
+		9AE30B4027E94B4600E3D44A /* NOTEbookHelper (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9AE30B5227E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbook Helper (iOS)" */;
+			buildConfigurationList = 9AE30B5227E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbookHelper (iOS)" */;
 			buildPhases = (
 				9AE30B3D27E94B4600E3D44A /* Sources */,
 				9AE30B3E27E94B4600E3D44A /* Frameworks */,
@@ -93,14 +93,14 @@
 			);
 			dependencies = (
 			);
-			name = "NOTEbook Helper (iOS)";
+			name = "NOTEbookHelper (iOS)";
 			productName = "NOTEbook Helper (iOS)";
 			productReference = 9AE30B4127E94B4600E3D44A /* NOTEbook Helper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9AE30B4627E94B4600E3D44A /* NOTEbook Helper (macOS) */ = {
+		9AE30B4627E94B4600E3D44A /* NOTEbookHelper (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9AE30B5527E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbook Helper (macOS)" */;
+			buildConfigurationList = 9AE30B5527E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbookHelper (macOS)" */;
 			buildPhases = (
 				9AE30B4327E94B4600E3D44A /* Sources */,
 				9AE30B4427E94B4600E3D44A /* Frameworks */,
@@ -110,9 +110,9 @@
 			);
 			dependencies = (
 			);
-			name = "NOTEbook Helper (macOS)";
+			name = "NOTEbookHelper (macOS)";
 			productName = "NOTEbook Helper (macOS)";
-			productReference = 9AE30B4727E94B4600E3D44A /* NOTEbook Helper.app */;
+			productReference = 9AE30B4727E94B4600E3D44A /* NOTEbookHelper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +133,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9AE30B3827E94B4400E3D44A /* Build configuration list for PBXProject "NOTEbook Helper" */;
+			buildConfigurationList = 9AE30B3827E94B4400E3D44A /* Build configuration list for PBXProject "NOTEbookHelper" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -146,8 +146,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9AE30B4027E94B4600E3D44A /* NOTEbook Helper (iOS) */,
-				9AE30B4627E94B4600E3D44A /* NOTEbook Helper (macOS) */,
+				9AE30B4027E94B4600E3D44A /* NOTEbookHelper (iOS) */,
+				9AE30B4627E94B4600E3D44A /* NOTEbookHelper (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -384,7 +384,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MatthewFree.NOTEbook-Helper";
-				PRODUCT_NAME = "NOTEbook Helper";
+				PRODUCT_NAME = NOTEbookHelper;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -412,7 +412,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MatthewFree.NOTEbook-Helper";
-				PRODUCT_NAME = "NOTEbook Helper";
+				PRODUCT_NAME = NOTEbookHelper;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -422,7 +422,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9AE30B3827E94B4400E3D44A /* Build configuration list for PBXProject "NOTEbook Helper" */ = {
+		9AE30B3827E94B4400E3D44A /* Build configuration list for PBXProject "NOTEbookHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9AE30B5027E94B4600E3D44A /* Debug */,
@@ -431,7 +431,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9AE30B5227E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbook Helper (iOS)" */ = {
+		9AE30B5227E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbookHelper (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9AE30B5327E94B4600E3D44A /* Debug */,
@@ -440,7 +440,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9AE30B5527E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbook Helper (macOS)" */ = {
+		9AE30B5527E94B4600E3D44A /* Build configuration list for PBXNativeTarget "NOTEbookHelper (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9AE30B5627E94B4600E3D44A /* Debug */,
