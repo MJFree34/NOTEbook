@@ -83,6 +83,8 @@
 		9AE30CA127EB8D6700E3D44A /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C8E27EB8D6700E3D44A /* UserDefaults+Extensions.swift */; };
 		9AE30CA227EB8D6700E3D44A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */; };
 		9AE30CA327EB8D6700E3D44A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */; };
+		9AE30CD127EB8F5400E3D44A /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD027EB8F5400E3D44A /* ChartsController.swift */; };
+		9AE30CD227EB8F5400E3D44A /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD027EB8F5400E3D44A /* ChartsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,7 @@
 		9AE30C8D27EB8D6700E3D44A /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		9AE30C8E27EB8D6700E3D44A /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		9AE30CD027EB8F5400E3D44A /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsController.swift; path = ../../../NOTEbook/NOTEbook/Controllers/ChartsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */,
-				9AE30C8527EB8D6700E3D44A /* Extensions */,
 				9AE30B3A27E94B4400E3D44A /* NOTEbook_HelperApp.swift */,
 				9AE30B3B27E94B4400E3D44A /* ContentView.swift */,
 				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
@@ -190,8 +192,10 @@
 			children = (
 				9AE30BED27EB516400E3D44A /* Charts.json */,
 				9AE30BEE27EB516400E3D44A /* NoteList.json */,
+				9AE30CD027EB8F5400E3D44A /* ChartsController.swift */,
 				9AE30C4027EB8CBB00E3D44A /* Models */,
 				9AE30C1627EB8C5F00E3D44A /* FingeringViews */,
+				9AE30C8527EB8D6700E3D44A /* Extensions */,
 			);
 			path = "NOTEbook Files";
 			sourceTree = "<group>";
@@ -274,7 +278,7 @@
 				9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */,
 			);
 			name = Extensions;
-			path = ../../NOTEbook/NOTEbook/Extensions;
+			path = ../../../NOTEbook/NOTEbook/Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +405,7 @@
 				9AE30CA027EB8D6700E3D44A /* UserDefaults+Extensions.swift in Sources */,
 				9AE30C2627EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */,
 				9AE30C5C27EB8CBB00E3D44A /* PurchasableInstrumentGroup.swift in Sources */,
+				9AE30CD127EB8F5400E3D44A /* ChartsController.swift in Sources */,
 				9AE30C3627EB8C5F00E3D44A /* ThreeValveFingeringView.swift in Sources */,
 				9AE30B4C27E94B4600E3D44A /* ContentView.swift in Sources */,
 				9AE30B4A27E94B4600E3D44A /* NOTEbook_HelperApp.swift in Sources */,
@@ -443,6 +448,7 @@
 				9AE30CA127EB8D6700E3D44A /* UserDefaults+Extensions.swift in Sources */,
 				9AE30C2D27EB8C5F00E3D44A /* SaxophoneFingeringView.swift in Sources */,
 				9AE30C5D27EB8CBB00E3D44A /* PurchasableInstrumentGroup.swift in Sources */,
+				9AE30CD227EB8F5400E3D44A /* ChartsController.swift in Sources */,
 				9AE30B4D27E94B4600E3D44A /* ContentView.swift in Sources */,
 				9AE30C2727EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */,
 				9AE30C3F27EB8C5F00E3D44A /* PositionFingeringView.swift in Sources */,
