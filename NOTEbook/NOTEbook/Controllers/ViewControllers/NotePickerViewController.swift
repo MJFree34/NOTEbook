@@ -172,7 +172,7 @@ class NotePickerViewController: UIViewController {
     }
     
     private func configureTitleLabel() {
-        titleLabel.text = chartsController.currentChart.instrument.type.rawValue
+        titleLabel.text = chartsController.currentChart.name
         
         view.addSubview(titleLabel)
         
@@ -311,7 +311,7 @@ class NotePickerViewController: UIViewController {
         updateStaffView()
         updateIndicators()
         
-        titleLabel.text = chartsController.currentChart.instrument.type.rawValue
+        titleLabel.text = chartsController.currentChart.name
         
         letterArrowViewController.fingeringScrollingViewWidthConstraint.constant = CGFloat(chartsController.currentChart.instrument.fingeringWidth)
         letterArrowViewController.view.layoutIfNeeded()

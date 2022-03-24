@@ -30,7 +30,7 @@ class ChartsController {
                 var names = [String]()
                 
                 for chart in category.fingeringCharts {
-                    let name = chart.instrument.type.rawValue
+                    let name = chart.name
                     names.append(name)
                 }
                 
@@ -40,7 +40,7 @@ class ChartsController {
                 var titles = [String]()
                 
                 for chart in category.fingeringCharts {
-                    let title = chart.instrument.type.rawValue
+                    let title = chart.name
                     titles.append(title)
                 }
                 

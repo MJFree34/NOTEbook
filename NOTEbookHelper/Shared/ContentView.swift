@@ -11,8 +11,17 @@ struct ContentView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     var body: some View {
-        List {
-            
+        NavigationView {
+            List {
+                ForEach(helperChartsController.chartCategories) { chartCategory in
+                    Section(chartCategory.name) {
+                        ForEach(chartCategory.fingeringCharts) { fingeringChart in
+                            Text(fingeringChart.name)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("NOTEbook Helper")
         }
     }
 }
@@ -20,5 +29,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(HelperChartsController.shared)
     }
 }

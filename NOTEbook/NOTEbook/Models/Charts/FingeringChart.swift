@@ -15,4 +15,10 @@ struct FingeringChart: Decodable {
     var flatNotes: [Note]
     var sharpNotes: [Note]
     var noteFingerings: [NoteFingering]
+    
+    var name: String { instrument.type.rawValue }
+}
+
+extension FingeringChart: Identifiable {
+    var id: String { name }
 }

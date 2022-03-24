@@ -177,7 +177,7 @@ extension NoteChartViewController: UICollectionViewDelegateFlowLayout {
         guard let titleCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                               withReuseIdentifier: TitleCell.reuseIdentifier,
                                                                               for: indexPath) as? TitleCell else { fatalError() }
-        titleCell.titleLabel.text = chartsController.currentChart.instrument.type.rawValue
+        titleCell.titleLabel.text = chartsController.currentChart.name
         return titleCell
     }
     

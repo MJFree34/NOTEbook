@@ -12,3 +12,7 @@ struct ChartCategory: Decodable {
     var name: String
     var fingeringCharts: [FingeringChart]
 }
+
+extension ChartCategory: Identifiable {
+    var id: String { name }
+}

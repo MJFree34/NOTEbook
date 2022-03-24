@@ -19,9 +19,9 @@ class FingeringTests: XCTestCase {
             for fluteNoteFingering in fluteChart.noteFingerings {
                 for fluteFingering in fluteNoteFingering.fingerings {
                     if let fluteFingeringKeys = fluteFingering.keys {
-                        XCTAssertTrue(fluteFingeringKeys.count == 16, "Instrument: \(fluteChart.instrument.type.rawValue), Note: \(fluteNoteFingering.notes[0]), Fingering: \(fluteFingering)")
+                        XCTAssertTrue(fluteFingeringKeys.count == 16, "Instrument: \(fluteChart.name), Note: \(fluteNoteFingering.notes[0]), Fingering: \(fluteFingering)")
                     } else {
-                        XCTAssertNil(fluteFingering.keys, "Instrument: \(fluteChart.instrument.type.rawValue), Note: \(fluteNoteFingering.notes[0]), Fingering: \(fluteFingering)")
+                        XCTAssertNil(fluteFingering.keys, "Instrument: \(fluteChart.name), Note: \(fluteNoteFingering.notes[0]), Fingering: \(fluteFingering)")
                     }
                 }
             }
@@ -35,9 +35,9 @@ class FingeringTests: XCTestCase {
             for clarinetNoteFingering in clarinetChart.noteFingerings {
                 for clarinetFingering in clarinetNoteFingering.fingerings {
                     if let clarinetFingeringKeys = clarinetFingering.keys {
-                        XCTAssertTrue(clarinetFingeringKeys.count == 24, "Instrument: \(clarinetChart.instrument.type.rawValue), Note: \(clarinetNoteFingering.notes[0]), Fingering: \(clarinetFingering)")
+                        XCTAssertTrue(clarinetFingeringKeys.count == 24, "Instrument: \(clarinetChart.name), Note: \(clarinetNoteFingering.notes[0]), Fingering: \(clarinetFingering)")
                     } else {
-                        XCTAssertNil(clarinetFingering.keys, "Instrument: \(clarinetChart.instrument.type.rawValue), Note: \(clarinetNoteFingering.notes[0]), Fingering: \(clarinetFingering)")
+                        XCTAssertNil(clarinetFingering.keys, "Instrument: \(clarinetChart.name), Note: \(clarinetNoteFingering.notes[0]), Fingering: \(clarinetFingering)")
                     }
                 }
             }
@@ -53,12 +53,12 @@ class FingeringTests: XCTestCase {
                     if let saxophoneFingeringKeys = saxophoneFingering.keys {
                         if index == 2 {
                             // Baritone Saxophone
-                            XCTAssertTrue(saxophoneFingeringKeys.count == 24, "Instrument: \(saxophoneChart.instrument.type.rawValue), Note: \(saxophoneNoteFingering.notes[0]), Fingering: \(saxophoneFingering)")
+                            XCTAssertTrue(saxophoneFingeringKeys.count == 24, "Instrument: \(saxophoneChart.name), Note: \(saxophoneNoteFingering.notes[0]), Fingering: \(saxophoneFingering)")
                         } else {
-                            XCTAssertTrue(saxophoneFingeringKeys.count == 23, "Instrument: \(saxophoneChart.instrument.type.rawValue), Note: \(saxophoneNoteFingering.notes[0]), Fingering: \(saxophoneFingering)")
+                            XCTAssertTrue(saxophoneFingeringKeys.count == 23, "Instrument: \(saxophoneChart.name), Note: \(saxophoneNoteFingering.notes[0]), Fingering: \(saxophoneFingering)")
                         }
                     } else {
-                        XCTAssertNil(saxophoneFingering.keys, "Instrument: \(saxophoneChart.instrument.type.rawValue), Note: \(saxophoneNoteFingering.notes[0]), Fingering: \(saxophoneFingering)")
+                        XCTAssertNil(saxophoneFingering.keys, "Instrument: \(saxophoneChart.name), Note: \(saxophoneNoteFingering.notes[0]), Fingering: \(saxophoneFingering)")
                     }
                 }
             }
@@ -72,9 +72,9 @@ class FingeringTests: XCTestCase {
             for trumpetNoteFingering in trumpetChart.noteFingerings {
                 for trumpetFingering in trumpetNoteFingering.fingerings {
                     if let trumpetFingeringKeys = trumpetFingering.keys {
-                        XCTAssertTrue(trumpetFingeringKeys.count == 3, "Instrument: \(trumpetChart.instrument.type.rawValue), Note: \(trumpetNoteFingering.notes[0]), Fingering: \(trumpetFingering)")
+                        XCTAssertTrue(trumpetFingeringKeys.count == 3, "Instrument: \(trumpetChart.name), Note: \(trumpetNoteFingering.notes[0]), Fingering: \(trumpetFingering)")
                     } else {
-                        XCTAssertNil(trumpetFingering.keys, "Instrument: \(trumpetChart.instrument.type.rawValue), Note: \(trumpetNoteFingering.notes[0]), Fingering: \(trumpetFingering)")
+                        XCTAssertNil(trumpetFingering.keys, "Instrument: \(trumpetChart.name), Note: \(trumpetNoteFingering.notes[0]), Fingering: \(trumpetFingering)")
                     }
                 }
             }
@@ -88,9 +88,9 @@ class FingeringTests: XCTestCase {
             for mellophoneNoteFingering in mellophoneChart.noteFingerings {
                 for mellophoneFingering in mellophoneNoteFingering.fingerings {
                     if let mellophoneFingeringKeys = mellophoneFingering.keys {
-                        XCTAssertTrue(mellophoneFingeringKeys.count == 3, "Instrument: \(mellophoneChart.instrument.type.rawValue), Note: \(mellophoneNoteFingering.notes[0]), Fingering: \(mellophoneFingering)")
+                        XCTAssertTrue(mellophoneFingeringKeys.count == 3, "Instrument: \(mellophoneChart.name), Note: \(mellophoneNoteFingering.notes[0]), Fingering: \(mellophoneFingering)")
                     } else {
-                        XCTAssertNil(mellophoneFingering.keys, "Instrument: \(mellophoneChart.instrument.type.rawValue), Note: \(mellophoneNoteFingering.notes[0]), Fingering: \(mellophoneFingering)")
+                        XCTAssertNil(mellophoneFingering.keys, "Instrument: \(mellophoneChart.name), Note: \(mellophoneNoteFingering.notes[0]), Fingering: \(mellophoneFingering)")
                     }
                 }
             }
@@ -106,12 +106,12 @@ class FingeringTests: XCTestCase {
                     if let frenchHornFingeringKeys = frenchHornFingering.keys {
                         if index == 1 {
                             // F/Bb French Horn
-                            XCTAssertTrue(frenchHornFingering.triggers?.count == 1, "Instrument: \(frenchHornChart.instrument.type.rawValue), Note: \(frenchHornNoteFingering.notes[0]), Fingering: \(frenchHornFingering)")
+                            XCTAssertTrue(frenchHornFingering.triggers?.count == 1, "Instrument: \(frenchHornChart.name), Note: \(frenchHornNoteFingering.notes[0]), Fingering: \(frenchHornFingering)")
                         }
                         
-                        XCTAssertTrue(frenchHornFingeringKeys.count == 3, "Instrument: \(frenchHornChart.instrument.type.rawValue), Note: \(frenchHornNoteFingering.notes[0]), Fingering: \(frenchHornFingering)")
+                        XCTAssertTrue(frenchHornFingeringKeys.count == 3, "Instrument: \(frenchHornChart.name), Note: \(frenchHornNoteFingering.notes[0]), Fingering: \(frenchHornFingering)")
                     } else {
-                        XCTAssertNil(frenchHornFingering.keys, "Instrument: \(frenchHornChart.instrument.type.rawValue), Note: \(frenchHornNoteFingering.notes[0]), Fingering: \(frenchHornFingering)")
+                        XCTAssertNil(frenchHornFingering.keys, "Instrument: \(frenchHornChart.name), Note: \(frenchHornNoteFingering.notes[0]), Fingering: \(frenchHornFingering)")
                     }
                 }
             }
@@ -127,13 +127,13 @@ class FingeringTests: XCTestCase {
                     if let tromboneFingeringKeys = tromboneFingering.keys {
                         if index == 1 {
                             // F-Trigger Tenor Trombone
-                            XCTAssertTrue(tromboneFingering.triggers?.count == 1, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
+                            XCTAssertTrue(tromboneFingering.triggers?.count == 1, "Instrument: \(tromboneChart.name), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
                         }
                         
-                        XCTAssertTrue(tromboneFingeringKeys.isEmpty, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
-                        XCTAssertNotNil(tromboneFingering.position, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
+                        XCTAssertTrue(tromboneFingeringKeys.isEmpty, "Instrument: \(tromboneChart.name), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
+                        XCTAssertNotNil(tromboneFingering.position, "Instrument: \(tromboneChart.name), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
                     } else {
-                        XCTAssertNil(tromboneFingering.keys, "Instrument: \(tromboneChart.instrument.type.rawValue), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
+                        XCTAssertNil(tromboneFingering.keys, "Instrument: \(tromboneChart.name), Note: \(tromboneNoteFingering.notes[0]), Fingering: \(tromboneFingering)")
                     }
                 }
             }
@@ -147,9 +147,9 @@ class FingeringTests: XCTestCase {
             for baritoneNoteFingering in baritoneChart.noteFingerings {
                 for baritoneFingering in baritoneNoteFingering.fingerings {
                     if let baritoneFingeringKeys = baritoneFingering.keys {
-                        XCTAssertTrue(baritoneFingeringKeys.count == 3, "Instrument: \(baritoneChart.instrument.type.rawValue), Note: \(baritoneNoteFingering.notes[0]), Fingering: \(baritoneFingering)")
+                        XCTAssertTrue(baritoneFingeringKeys.count == 3, "Instrument: \(baritoneChart.name), Note: \(baritoneNoteFingering.notes[0]), Fingering: \(baritoneFingering)")
                     } else {
-                        XCTAssertNil(baritoneFingering.keys, "Instrument: \(baritoneChart.instrument.type.rawValue), Note: \(baritoneNoteFingering.notes[0]), Fingering: \(baritoneFingering)")
+                        XCTAssertNil(baritoneFingering.keys, "Instrument: \(baritoneChart.name), Note: \(baritoneNoteFingering.notes[0]), Fingering: \(baritoneFingering)")
                     }
                 }
             }
@@ -163,9 +163,9 @@ class FingeringTests: XCTestCase {
             for euphoniumNoteFingering in euphoniumChart.noteFingerings {
                 for euphoniumFingering in euphoniumNoteFingering.fingerings {
                     if let euphoniumFingeringKeys = euphoniumFingering.keys {
-                        XCTAssertTrue(euphoniumFingeringKeys.count == 4, "Instrument: \(euphoniumChart.instrument.type.rawValue), Note: \(euphoniumNoteFingering.notes[0]), Fingering: \(euphoniumFingering)")
+                        XCTAssertTrue(euphoniumFingeringKeys.count == 4, "Instrument: \(euphoniumChart.name), Note: \(euphoniumNoteFingering.notes[0]), Fingering: \(euphoniumFingering)")
                     } else {
-                        XCTAssertNil(euphoniumFingering.keys, "Instrument: \(euphoniumChart.instrument.type.rawValue), Note: \(euphoniumNoteFingering.notes[0]), Fingering: \(euphoniumFingering)")
+                        XCTAssertNil(euphoniumFingering.keys, "Instrument: \(euphoniumChart.name), Note: \(euphoniumNoteFingering.notes[0]), Fingering: \(euphoniumFingering)")
                     }
                 }
             }
@@ -179,9 +179,9 @@ class FingeringTests: XCTestCase {
             for tubaNoteFingering in tubaChart.noteFingerings {
                 for tubaFingering in tubaNoteFingering.fingerings {
                     if let tubaFingeringKeys = tubaFingering.keys {
-                        XCTAssertTrue(tubaFingeringKeys.count == 3, "Instrument: \(tubaChart.instrument.type.rawValue), Note: \(tubaNoteFingering.notes[0]), Fingering: \(tubaFingering)")
+                        XCTAssertTrue(tubaFingeringKeys.count == 3, "Instrument: \(tubaChart.name), Note: \(tubaNoteFingering.notes[0]), Fingering: \(tubaFingering)")
                     } else {
-                        XCTAssertNil(tubaFingering.keys, "Instrument: \(tubaChart.instrument.type.rawValue), Note: \(tubaNoteFingering.notes[0]), Fingering: \(tubaFingering)")
+                        XCTAssertNil(tubaFingering.keys, "Instrument: \(tubaChart.name), Note: \(tubaNoteFingering.notes[0]), Fingering: \(tubaFingering)")
                     }
                 }
             }

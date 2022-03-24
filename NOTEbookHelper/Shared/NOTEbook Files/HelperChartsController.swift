@@ -22,8 +22,8 @@ class HelperChartsController: ObservableObject {
             fatalError("Fail to load charts")
         }
         
-        currentChartCategory = chartCategory(with: UserDefaults.standard.string(forKey: UserDefaults.Keys.currentChartCategoryName)!)!
-        currentChart = currentChartCategory.fingeringCharts[UserDefaults.standard.integer(forKey: UserDefaults.Keys.currentChartIndex)]
+        currentChartCategory = chartCategory(with: "Trumpet")
+        currentChart = currentChartCategory.fingeringCharts[0]
     }
 }
 
@@ -43,9 +43,6 @@ extension HelperChartsController {
     func changeCurrentChart(to categoryName: String, chartIndex: Int) {
         currentChartCategory = chartCategory(with: categoryName)!
         currentChart = currentChartCategory.fingeringCharts[chartIndex]
-        
-        UserDefaults.standard.setValue(categoryName, forKey: UserDefaults.Keys.currentChartCategoryName)
-        UserDefaults.standard.setValue(chartIndex, forKey: UserDefaults.Keys.currentChartIndex)
     }
     
     func noteFingeringInCurrentChart(for note: Note) -> NoteFingering? {

@@ -19,7 +19,7 @@ class ChartTests: XCTestCase {
                 let flatNotesCount = chart.flatNotes.count
                 let sharpNotesCount = chart.sharpNotes.count
                 
-                XCTAssertTrue(naturalNotesCount == flatNotesCount && naturalNotesCount == sharpNotesCount, "Instrument: \(chart.instrument.type.rawValue)")
+                XCTAssertTrue(naturalNotesCount == flatNotesCount && naturalNotesCount == sharpNotesCount, "Instrument: \(chart.name)")
             }
         }
     }
