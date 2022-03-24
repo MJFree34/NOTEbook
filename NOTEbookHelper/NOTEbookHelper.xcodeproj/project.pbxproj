@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AE30B4A27E94B4600E3D44A /* NOTEbook_HelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbook_HelperApp.swift */; };
-		9AE30B4B27E94B4600E3D44A /* NOTEbook_HelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbook_HelperApp.swift */; };
+		9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
+		9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4C27E94B4600E3D44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* ContentView.swift */; };
 		9AE30B4D27E94B4600E3D44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* ContentView.swift */; };
 		9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30B3C27E94B4600E3D44A /* Assets.xcassets */; };
@@ -83,12 +83,14 @@
 		9AE30CA127EB8D6700E3D44A /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C8E27EB8D6700E3D44A /* UserDefaults+Extensions.swift */; };
 		9AE30CA227EB8D6700E3D44A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */; };
 		9AE30CA327EB8D6700E3D44A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */; };
-		9AE30CD127EB8F5400E3D44A /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD027EB8F5400E3D44A /* ChartsController.swift */; };
-		9AE30CD227EB8F5400E3D44A /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD027EB8F5400E3D44A /* ChartsController.swift */; };
+		9AE30CD427ECAFAE00E3D44A /* HelperChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */; };
+		9AE30CD527ECAFAE00E3D44A /* HelperChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */; };
+		9AE30CD727ECB06000E3D44A /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */; };
+		9AE30CD827ECB06000E3D44A /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9AE30B3A27E94B4400E3D44A /* NOTEbook_HelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbook_HelperApp.swift; sourceTree = "<group>"; };
+		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
 		9AE30B3B27E94B4400E3D44A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AE30B4127E94B4600E3D44A /* NOTEbook Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOTEbook Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +131,8 @@
 		9AE30C8D27EB8D6700E3D44A /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
 		9AE30C8E27EB8D6700E3D44A /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		9AE30CD027EB8F5400E3D44A /* ChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsController.swift; path = ../../../NOTEbook/NOTEbook/Controllers/ChartsController.swift; sourceTree = "<group>"; };
+		9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperChartsController.swift; sourceTree = "<group>"; };
+		9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsLoader.swift; path = ../../../NOTEbook/NOTEbook/Helpers/ChartsLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */,
-				9AE30B3A27E94B4400E3D44A /* NOTEbook_HelperApp.swift */,
+				9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */,
 				9AE30B3B27E94B4400E3D44A /* ContentView.swift */,
 				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
 			);
@@ -192,7 +195,8 @@
 			children = (
 				9AE30BED27EB516400E3D44A /* Charts.json */,
 				9AE30BEE27EB516400E3D44A /* NoteList.json */,
-				9AE30CD027EB8F5400E3D44A /* ChartsController.swift */,
+				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
+				9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */,
 				9AE30C4027EB8CBB00E3D44A /* Models */,
 				9AE30C1627EB8C5F00E3D44A /* FingeringViews */,
 				9AE30C8527EB8D6700E3D44A /* Extensions */,
@@ -400,15 +404,16 @@
 				9AE30C9A27EB8D6700E3D44A /* UIColor+Extensions.swift in Sources */,
 				9AE30C3E27EB8C5F00E3D44A /* PositionFingeringView.swift in Sources */,
 				9AE30C5427EB8CBB00E3D44A /* FingeringChart.swift in Sources */,
+				9AE30CD427ECAFAE00E3D44A /* HelperChartsController.swift in Sources */,
 				9AE30C9C27EB8D6700E3D44A /* UIImage+Extensions.swift in Sources */,
 				9AE30C9427EB8D6700E3D44A /* UIView+Extensions.swift in Sources */,
 				9AE30CA027EB8D6700E3D44A /* UserDefaults+Extensions.swift in Sources */,
+				9AE30CD727ECB06000E3D44A /* ChartsLoader.swift in Sources */,
 				9AE30C2627EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */,
 				9AE30C5C27EB8CBB00E3D44A /* PurchasableInstrumentGroup.swift in Sources */,
-				9AE30CD127EB8F5400E3D44A /* ChartsController.swift in Sources */,
 				9AE30C3627EB8C5F00E3D44A /* ThreeValveFingeringView.swift in Sources */,
 				9AE30B4C27E94B4600E3D44A /* ContentView.swift in Sources */,
-				9AE30B4A27E94B4600E3D44A /* NOTEbook_HelperApp.swift in Sources */,
+				9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
 				9AE30C3427EB8C5F00E3D44A /* PositionFingeringAccidental.swift in Sources */,
 				9AE30C5627EB8CBB00E3D44A /* ChartCategory.swift in Sources */,
 				9AE30C5227EB8CBB00E3D44A /* NoteFingering.swift in Sources */,
@@ -443,12 +448,13 @@
 				9AE30C9B27EB8D6700E3D44A /* UIColor+Extensions.swift in Sources */,
 				9AE30C3127EB8C5F00E3D44A /* BbTriggerThreeValveFingeringView.swift in Sources */,
 				9AE30C5527EB8CBB00E3D44A /* FingeringChart.swift in Sources */,
+				9AE30CD527ECAFAE00E3D44A /* HelperChartsController.swift in Sources */,
 				9AE30C9D27EB8D6700E3D44A /* UIImage+Extensions.swift in Sources */,
 				9AE30C9527EB8D6700E3D44A /* UIView+Extensions.swift in Sources */,
 				9AE30CA127EB8D6700E3D44A /* UserDefaults+Extensions.swift in Sources */,
+				9AE30CD827ECB06000E3D44A /* ChartsLoader.swift in Sources */,
 				9AE30C2D27EB8C5F00E3D44A /* SaxophoneFingeringView.swift in Sources */,
 				9AE30C5D27EB8CBB00E3D44A /* PurchasableInstrumentGroup.swift in Sources */,
-				9AE30CD227EB8F5400E3D44A /* ChartsController.swift in Sources */,
 				9AE30B4D27E94B4600E3D44A /* ContentView.swift in Sources */,
 				9AE30C2727EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */,
 				9AE30C3F27EB8C5F00E3D44A /* PositionFingeringView.swift in Sources */,
@@ -458,7 +464,7 @@
 				9AE30C9327EB8D6700E3D44A /* UIViewController+Extensions.swift in Sources */,
 				9AE30C9727EB8D6700E3D44A /* String+Extensions.swift in Sources */,
 				9AE30C3327EB8C5F00E3D44A /* FingeringKeyView.swift in Sources */,
-				9AE30B4B27E94B4600E3D44A /* NOTEbook_HelperApp.swift in Sources */,
+				9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
 				9AE30C9127EB8D6700E3D44A /* Notification.Name+Extensions.swift in Sources */,
 				9AE30C9927EB8D6700E3D44A /* UIFont+Extensions.swift in Sources */,
 				9AE30C3D27EB8C5F00E3D44A /* ValveFingeringView.swift in Sources */,
