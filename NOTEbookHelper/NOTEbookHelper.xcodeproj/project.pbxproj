@@ -87,6 +87,12 @@
 		9AE30CD527ECAFAE00E3D44A /* HelperChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */; };
 		9AE30CD727ECB06000E3D44A /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */; };
 		9AE30CD827ECB06000E3D44A /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */; };
+		9AE30CDD27ECE1C400E3D44A /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */; };
+		9AE30CDE27ECE1C400E3D44A /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */; };
+		9AE30CDF27ECE1C400E3D44A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */; };
+		9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */; };
+		9AE30CE327ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */; };
+		9AE30CE427ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +139,9 @@
 		9AE30C8F27EB8D6700E3D44A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperChartsController.swift; sourceTree = "<group>"; };
 		9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsLoader.swift; path = ../../../NOTEbook/NOTEbook/Helpers/ChartsLoader.swift; sourceTree = "<group>"; };
+		9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Instruments.xcassets; path = ../../NOTEbook/NOTEbook/Instruments.xcassets; sourceTree = "<group>"; };
+		9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = ../../NOTEbook/NOTEbook/Colors.xcassets; sourceTree = "<group>"; };
+		9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MusicSymbols.xcassets; path = ../../NOTEbook/NOTEbook/MusicSymbols.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +177,9 @@
 				9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */,
 				9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */,
 				9AE30B3B27E94B4400E3D44A /* ContentView.swift */,
+				9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */,
+				9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */,
+				9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */,
 				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -364,9 +376,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE30CDF27ECE1C400E3D44A /* Colors.xcassets in Resources */,
+				9AE30CDD27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
 				9AE30BEF27EB516400E3D44A /* Charts.json in Resources */,
 				9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */,
 				9AE30BF127EB516400E3D44A /* NoteList.json in Resources */,
+				9AE30CE327ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,9 +389,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */,
+				9AE30CDE27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
 				9AE30BF027EB516400E3D44A /* Charts.json in Resources */,
 				9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */,
 				9AE30BF227EB516400E3D44A /* NoteList.json in Resources */,
+				9AE30CE427ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
