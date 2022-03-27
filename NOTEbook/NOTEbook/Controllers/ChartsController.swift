@@ -187,9 +187,9 @@ extension ChartsController {
                 groups.remove(at: 7)
             }
             
-            groups.removeFirst(Constants.numberOfWoodwindGroups)
+            groups.removeFirst(chartCategories.filter { $0.type == .woodwinds }.count)
         } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
-            groups.removeLast(Constants.numberOfBrassGroups)
+            groups.removeLast(chartCategories.filter { $0.type == .brass }.count)
             
             if purchaserInfo?.entitlements["flute"]?.isActive == true {
                 groups.remove(at: 0)

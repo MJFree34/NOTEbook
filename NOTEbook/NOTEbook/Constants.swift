@@ -10,6 +10,4 @@ import Foundation
 
 struct Constants {
     static let freeTrialPeriod = 14
-    static let numberOfWoodwindGroups = 3
-    static let numberOfBrassGroups = 5
 }

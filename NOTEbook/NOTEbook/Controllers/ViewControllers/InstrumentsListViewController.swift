@@ -52,7 +52,7 @@ class InstrumentsListViewController: InstrumentsViewController {
         var categories = [ChartCategory]()
         
         for category in chartsController.purchasedChartCategories {
-            if category.name == "Flute" || category.name == "Clarinet" || category.name == "Saxophone" {
+            if category.type == .woodwinds {
                 categories.append(category)
             }
         }
@@ -64,7 +64,7 @@ class InstrumentsListViewController: InstrumentsViewController {
         var categories = [ChartCategory]()
         
         for category in chartsController.purchasedChartCategories {
-            if category.name == "Trumpet" || category.name == "Mellophone" || category.name == "French Horn" || category.name == "Trombone" || category.name == "Baritone" || category.name == "Euphonium" || category.name == "Tuba" {
+            if category.type == .brass {
                 categories.append(category)
             }
         }

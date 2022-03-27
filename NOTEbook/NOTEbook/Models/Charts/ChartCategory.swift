@@ -8,8 +8,14 @@
 
 import Foundation
 
+enum ChartCategoryType: String, Decodable {
+    case woodwinds = "Woodwinds"
+    case brass = "Brass"
+}
+
 struct ChartCategory: Decodable {
     var name: String
+    var type: ChartCategoryType
     var fingeringCharts: [FingeringChart]
 }
 

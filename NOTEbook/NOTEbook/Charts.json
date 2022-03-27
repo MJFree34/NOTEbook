@@ -1,6 +1,7 @@
 [
     {
         "name": "Flute",
+        "type": "Woodwinds",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -5716,6 +5717,7 @@
     },
     {
         "name": "Clarinet",
+        "type": "Woodwinds",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -12430,6 +12432,7 @@
     },
     {
         "name": "Saxophone",
+        "type": "Woodwinds",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -34128,6 +34131,7 @@
     },
     {
         "name": "Trumpet",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -36067,6 +36071,7 @@
     },
     {
         "name": "Mellophone",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -37137,6 +37142,7 @@
     },
     {
         "name": "French Horn",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -41229,6 +41235,7 @@
     },
     {
         "name": "Trombone",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -45864,6 +45871,7 @@
     },
     {
         "name": "Baritone",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -48293,6 +48301,7 @@
     },
     {
         "name": "Euphonium",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
@@ -57685,6 +57694,7 @@
     },
     {
         "name": "Tuba",
+        "type": "Brass",
         "fingeringCharts": [
             {
                 "instrument": {
