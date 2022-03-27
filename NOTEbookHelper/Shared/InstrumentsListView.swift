@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct InstrumentsListView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     var body: some View {
@@ -16,7 +16,11 @@ struct ContentView: View {
                 ForEach(helperChartsController.chartCategories) { chartCategory in
                     Section(chartCategory.name) {
                         ForEach(chartCategory.fingeringCharts) { fingeringChart in
-                            Text(fingeringChart.name)
+                            NavigationLink {
+                                ChartDetailView(chart: fingeringChart)
+                            } label: {
+                                Text(fingeringChart.name)
+                            }
                         }
                     }
                 }
@@ -26,9 +30,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct InstrumentsListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        InstrumentsListView()
             .environmentObject(HelperChartsController.shared)
     }
 }

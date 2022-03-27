@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
-		9AE30B4C27E94B4600E3D44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* ContentView.swift */; };
-		9AE30B4D27E94B4600E3D44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* ContentView.swift */; };
+		9AE30B4C27E94B4600E3D44A /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */; };
+		9AE30B4D27E94B4600E3D44A /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */; };
 		9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30B3C27E94B4600E3D44A /* Assets.xcassets */; };
 		9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30B3C27E94B4600E3D44A /* Assets.xcassets */; };
 		9AE30BEF27EB516400E3D44A /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30BED27EB516400E3D44A /* Charts.json */; };
@@ -93,11 +93,13 @@
 		9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */; };
 		9AE30CE327ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */; };
 		9AE30CE427ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */; };
+		9AE30CE627F0130300E3D44A /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* ChartDetailView.swift */; };
+		9AE30CE727F0130300E3D44A /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* ChartDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
-		9AE30B3B27E94B4400E3D44A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsListView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AE30B4127E94B4600E3D44A /* NOTEbook Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOTEbook Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE30B4727E94B4600E3D44A /* NOTEbookHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOTEbookHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 		9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Instruments.xcassets; path = ../../NOTEbook/NOTEbook/Instruments.xcassets; sourceTree = "<group>"; };
 		9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = ../../NOTEbook/NOTEbook/Colors.xcassets; sourceTree = "<group>"; };
 		9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MusicSymbols.xcassets; path = ../../NOTEbook/NOTEbook/MusicSymbols.xcassets; sourceTree = "<group>"; };
+		9AE30CE527F0130300E3D44A /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,11 +179,13 @@
 			children = (
 				9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */,
 				9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */,
-				9AE30B3B27E94B4400E3D44A /* ContentView.swift */,
+				9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */,
+				9AE30CE527F0130300E3D44A /* ChartDetailView.swift */,
+				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
+				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
 				9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */,
 				9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */,
 				9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */,
-				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -207,7 +212,6 @@
 			children = (
 				9AE30BED27EB516400E3D44A /* Charts.json */,
 				9AE30BEE27EB516400E3D44A /* NoteList.json */,
-				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
 				9AE30CD627ECB06000E3D44A /* ChartsLoader.swift */,
 				9AE30C4027EB8CBB00E3D44A /* Models */,
 				9AE30C1627EB8C5F00E3D44A /* FingeringViews */,
@@ -413,6 +417,7 @@
 				9AE30C4C27EB8CBB00E3D44A /* Fingering.swift in Sources */,
 				9AE30CA227EB8D6700E3D44A /* Bundle+Extensions.swift in Sources */,
 				9AE30C3027EB8C5F00E3D44A /* BbTriggerThreeValveFingeringView.swift in Sources */,
+				9AE30CE627F0130300E3D44A /* ChartDetailView.swift in Sources */,
 				9AE30C5027EB8CBB00E3D44A /* Note.swift in Sources */,
 				9AE30C5A27EB8CBB00E3D44A /* FreeTrialData.swift in Sources */,
 				9AE30C2C27EB8C5F00E3D44A /* SaxophoneFingeringView.swift in Sources */,
@@ -430,7 +435,7 @@
 				9AE30C2627EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */,
 				9AE30C5C27EB8CBB00E3D44A /* PurchasableInstrumentGroup.swift in Sources */,
 				9AE30C3627EB8C5F00E3D44A /* ThreeValveFingeringView.swift in Sources */,
-				9AE30B4C27E94B4600E3D44A /* ContentView.swift in Sources */,
+				9AE30B4C27E94B4600E3D44A /* InstrumentsListView.swift in Sources */,
 				9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
 				9AE30C3427EB8C5F00E3D44A /* PositionFingeringAccidental.swift in Sources */,
 				9AE30C5627EB8CBB00E3D44A /* ChartCategory.swift in Sources */,
@@ -457,6 +462,7 @@
 				9AE30C4D27EB8CBB00E3D44A /* Fingering.swift in Sources */,
 				9AE30CA327EB8D6700E3D44A /* Bundle+Extensions.swift in Sources */,
 				9AE30C3927EB8C5F00E3D44A /* FluteFingeringView.swift in Sources */,
+				9AE30CE727F0130300E3D44A /* ChartDetailView.swift in Sources */,
 				9AE30C5127EB8CBB00E3D44A /* Note.swift in Sources */,
 				9AE30C5B27EB8CBB00E3D44A /* FreeTrialData.swift in Sources */,
 				9AE30C3727EB8C5F00E3D44A /* ThreeValveFingeringView.swift in Sources */,
@@ -473,7 +479,7 @@
 				9AE30CD827ECB06000E3D44A /* ChartsLoader.swift in Sources */,
 				9AE30C2D27EB8C5F00E3D44A /* SaxophoneFingeringView.swift in Sources */,
 				9AE30C5D27EB8CBB00E3D44A /* PurchasableInstrumentGroup.swift in Sources */,
-				9AE30B4D27E94B4600E3D44A /* ContentView.swift in Sources */,
+				9AE30B4D27E94B4600E3D44A /* InstrumentsListView.swift in Sources */,
 				9AE30C2727EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */,
 				9AE30C3F27EB8C5F00E3D44A /* PositionFingeringView.swift in Sources */,
 				9AE30C3B27EB8C5F00E3D44A /* FingeringView.swift in Sources */,
