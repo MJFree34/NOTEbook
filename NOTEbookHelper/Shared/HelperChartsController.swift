@@ -40,6 +40,10 @@ extension HelperChartsController {
         return currentChartCategory.fingeringCharts.count
     }
     
+    func chartCategories(of type: ChartCategoryType) -> [ChartCategory] {
+        chartCategories.filter { $0.type == type }
+    }
+    
     func changeCurrentChart(to categoryName: String, chartIndex: Int) {
         currentChartCategory = chartCategory(with: categoryName)!
         currentChart = currentChartCategory.fingeringCharts[chartIndex]

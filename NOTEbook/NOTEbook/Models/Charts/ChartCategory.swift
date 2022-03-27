@@ -8,9 +8,13 @@
 
 import Foundation
 
-enum ChartCategoryType: String, Decodable {
+enum ChartCategoryType: String, Decodable, CaseIterable {
     case woodwinds = "Woodwinds"
     case brass = "Brass"
+}
+
+extension ChartCategoryType: Identifiable {
+    var id: String { rawValue }
 }
 
 struct ChartCategory: Decodable {

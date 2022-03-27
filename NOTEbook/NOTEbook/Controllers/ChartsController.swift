@@ -84,6 +84,10 @@ extension ChartsController {
         return currentChartCategory.fingeringCharts.count
     }
     
+    func chartCategories(of type: ChartCategoryType) -> [ChartCategory] {
+        chartCategories.filter { $0.type == type }
+    }
+    
     func changeCurrentChart(to categoryName: String, chartIndex: Int) {
         currentChartCategory = chartCategory(with: categoryName)!
         currentChart = currentChartCategory.fingeringCharts[chartIndex]
@@ -187,9 +191,9 @@ extension ChartsController {
                 groups.remove(at: 7)
             }
             
-            groups.removeFirst(chartCategories.filter { $0.type == .woodwinds }.count)
+            groups.removeFirst(chartCategories(of: .woodwinds).count)
         } else if purchaserInfo?.entitlements["brass"]?.isActive == true {
-            groups.removeLast(chartCategories.filter { $0.type == .brass }.count)
+            groups.removeLast(chartCategories(of: .brass).count)
             
             if purchaserInfo?.entitlements["flute"]?.isActive == true {
                 groups.remove(at: 0)

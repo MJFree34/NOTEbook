@@ -12,15 +12,20 @@ struct InstrumentsListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(helperChartsController.chartCategories) { chartCategory in
-                    Section(chartCategory.name) {
-                        ForEach(chartCategory.fingeringCharts) { fingeringChart in
-                            NavigationLink {
-                                ChartDetailView(chart: fingeringChart)
-                            } label: {
-                                Text(fingeringChart.name)
+            List(ChartCategoryType.allCases) { chartCategoryType in
+                Section(chartCategoryType.rawValue) {
+                    ForEach(helperChartsController.chartCategories(of: chartCategoryType)) { chartCategory in
+                        Section {
+                            ForEach(chartCategory.fingeringCharts) { fingeringChart in
+                                NavigationLink {
+                                    ChartDetailView(chart: fingeringChart)
+                                } label: {
+                                    Text(fingeringChart.name)
+                                        .padding(.leading)
+                                }
                             }
+                        } header: {
+                            Text(chartCategory.name)
                         }
                     }
                 }
