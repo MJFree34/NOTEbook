@@ -27,3 +27,7 @@ struct NoteFingering: Decodable, Equatable {
         return fingerings
     }
 }
+
+extension NoteFingering: Identifiable {
+    var id: UUID { UUID() }
+}

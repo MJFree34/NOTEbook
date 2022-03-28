@@ -26,9 +26,11 @@ struct InstrumentsListView: View {
                             }
                         } header: {
                             Text(chartCategory.name)
+                                .bold()
                         }
                     }
                 }
+                .headerProminence(.increased)
             }
             .navigationTitle("NOTEbook Helper")
         }
