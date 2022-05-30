@@ -55,6 +55,8 @@
 		9A5CFB3E249A89B300DF319F /* NoteChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */; };
 		9A5CFB41249AC09A00DF319F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */; };
 		9A5CFB43249C203800DF319F /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5CFB42249C203800DF319F /* ChartsController.swift */; };
+		9A72BA1A28450E9200B2C0E3 /* IncBuildNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A72BA1928450E9200B2C0E3 /* IncBuildNumber.swift */; };
+		9A72BA1B28450E9800B2C0E3 /* IncBuildNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A72BA1928450E9200B2C0E3 /* IncBuildNumber.swift */; };
 		9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */; };
 		9A81D424249C3BE1001E108B /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A81D423249C3BE1001E108B /* ChartsLoader.swift */; };
 		9A89FFE224F016F10059295C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A89FFE124F016F10059295C /* Position.swift */; };
@@ -177,6 +179,7 @@
 		9A5CFB3D249A89B300DF319F /* NoteChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartCell.swift; sourceTree = "<group>"; };
 		9A5CFB40249AC09A00DF319F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		9A5CFB42249C203800DF319F /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
+		9A72BA1928450E9200B2C0E3 /* IncBuildNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncBuildNumber.swift; sourceTree = "<group>"; };
 		9A73FECF24AEB27C0002D50C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A81D423249C3BE1001E108B /* ChartsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
 		9A89FFE124F016F10059295C /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
@@ -262,6 +265,7 @@
 				9A054DF0257DB45F00DCE8FF /* Instruments.storekit */,
 				9A022AE3249908C00052E819 /* NOTEbook */,
 				9A022AFA249908C30052E819 /* NOTEbookTests */,
+				9A72BA1C28450EA200B2C0E3 /* Scripts */,
 				9A022AE2249908C00052E819 /* Products */,
 				9A977BE02571688B00F93C2E /* Frameworks */,
 			);
@@ -421,6 +425,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		9A72BA1C28450EA200B2C0E3 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				9A72BA1928450E9200B2C0E3 /* IncBuildNumber.swift */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		9A89FFE324F022110059295C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +574,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A022B0B249908C30052E819 /* Build configuration list for PBXNativeTarget "NOTEbook" */;
 			buildPhases = (
+				9A72BA1D28450ECC00B2C0E3 /* ShellScript */,
 				9A022ADD249908C00052E819 /* Sources */,
 				9A022ADE249908C00052E819 /* Frameworks */,
 				9A022ADF249908C00052E819 /* Resources */,
@@ -675,6 +688,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A72BA1D28450ECC00B2C0E3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Scripts/IncBuildNumber.swift",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun --sdk macosx swiftc -parse-as-library $SCRIPT_INPUT_FILE_0 -o CompiledScript\n./CompiledScript\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A022ADD249908C00052E819 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -727,6 +761,7 @@
 				9AE30C0A27EB8C3B00E3D44A /* BaritoneSaxophoneFingeringView.swift in Sources */,
 				9A054E2D2585AD9300DCE8FF /* PurchaseInstrumentLargeCell.swift in Sources */,
 				9A58BD71266C6FAE00740EA9 /* OptionalLabel.swift in Sources */,
+				9A72BA1A28450E9200B2C0E3 /* IncBuildNumber.swift in Sources */,
 				9A73FED024AEB27C0002D50C /* SettingsViewController.swift in Sources */,
 				9AD5574524995CAB0078CB7E /* NoteFingering.swift in Sources */,
 				9A58BD7F266DC99200740EA9 /* PurchaseGroupTitleLabel.swift in Sources */,
@@ -769,6 +804,7 @@
 				9AF3A7E92534C5BC00B3008B /* FingeringTests.swift in Sources */,
 				9A55D70824DB795300B493A1 /* DecodingTests.swift in Sources */,
 				9AD2A20D253791E30027446A /* NoteFingeringTests.swift in Sources */,
+				9A72BA1B28450E9800B2C0E3 /* IncBuildNumber.swift in Sources */,
 				9A28E10E24A79828005B3EA4 /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
