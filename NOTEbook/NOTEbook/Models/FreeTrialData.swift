@@ -22,25 +22,31 @@ struct FreeTrialData {
         }
         return days
     }()
-    
+
     lazy var hoursRemaining: Int = {
-        let hours = Int((freeTrialRemaining - daysRemaining * 60 * 60 * 24) / 60 / 60)
+        let secondsFromDaysRemaining = daysRemaining * 60 * 60 * 24
+        let hours = Int((freeTrialRemaining - secondsFromDaysRemaining) / 60 / 60)
         if hours < 0 {
             return 0
         }
         return hours
     }()
-    
+
     lazy var minutesRemaining: Int = {
-        let minutes = Int((freeTrialRemaining - daysRemaining * 60 * 60 * 24 - hoursRemaining * 60 * 60) / 60)
+        let secondsFromDaysRemaining = daysRemaining * 60 * 60 * 24
+        let secondsFromHoursRemaining = hoursRemaining * 60 * 60
+        let minutes = Int((freeTrialRemaining - secondsFromDaysRemaining - secondsFromHoursRemaining) / 60)
         if minutes < 0 {
             return 0
         }
         return minutes
     }()
-    
+
     lazy var secondsRemaining: Int = {
-        let seconds = Int(freeTrialRemaining - daysRemaining * 60 * 60 * 24 - hoursRemaining * 60 * 60 - minutesRemaining * 60)
+        let secondsFromDaysRemaining = daysRemaining * 60 * 60 * 24
+        let secondsFromHoursRemaining = hoursRemaining * 60 * 60
+        let secondsFromMinutesRemaining = minutesRemaining * 60
+        let seconds = Int(freeTrialRemaining - secondsFromDaysRemaining - secondsFromHoursRemaining - secondsFromMinutesRemaining)
         if seconds < 0 {
             return 0
         }
