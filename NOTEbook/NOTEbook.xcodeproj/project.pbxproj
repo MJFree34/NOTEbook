@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -67,8 +67,6 @@
 		9AA55E11265FD7E6008BCDCF /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA55E10265FD7E6008BCDCF /* Bundle+Extensions.swift */; };
 		9AA55E13266034FE008BCDCF /* FreeTrialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA55E12266034FE008BCDCF /* FreeTrialData.swift */; };
 		9AA70C202499A4FF00FD4DDB /* NoteChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */; };
-		9AB1E29A2845120100D31134 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1E2992845120100D31134 /* Scripts */; };
-		9AB1E29B2845120100D31134 /* Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1E2992845120100D31134 /* Scripts */; };
 		9AB9B8FD2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */; };
 		9AB9B901250581B200A5B0E6 /* FingeringScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */; };
 		9ABA76B924CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */; };
@@ -190,7 +188,6 @@
 		9AA55E10265FD7E6008BCDCF /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		9AA55E12266034FE008BCDCF /* FreeTrialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTrialData.swift; sourceTree = "<group>"; };
 		9AA70C1F2499A4FF00FD4DDB /* NoteChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteChartViewController.swift; sourceTree = "<group>"; };
-		9AB1E2992845120100D31134 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 		9AB9B8FC2504613D00A5B0E6 /* InstrumentsCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsCategoryViewController.swift; sourceTree = "<group>"; };
 		9AB9B900250581B200A5B0E6 /* FingeringScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringScrollView.swift; sourceTree = "<group>"; };
 		9ABA76B824CE5AD200666BE8 /* UIImpactFeedbackGenerator+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImpactFeedbackGenerator+Extensions.swift"; sourceTree = "<group>"; };
@@ -263,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				9A054DF0257DB45F00DCE8FF /* Instruments.storekit */,
-				9AB1E2992845120100D31134 /* Scripts */,
 				9A022AE3249908C00052E819 /* NOTEbook */,
 				9A022AFA249908C30052E819 /* NOTEbookTests */,
 				9A022AE2249908C00052E819 /* Products */,
@@ -566,7 +562,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A022B0B249908C30052E819 /* Build configuration list for PBXNativeTarget "NOTEbook" */;
 			buildPhases = (
-				9A72BA1D28450ECC00B2C0E3 /* Increment Build Number */,
 				9A022ADD249908C00052E819 /* Sources */,
 				9A022ADE249908C00052E819 /* Frameworks */,
 				9A022ADF249908C00052E819 /* Resources */,
@@ -659,7 +654,6 @@
 				9AD25F91256E0A4000F8B4A1 /* InstrumentsFinalDark.gif in Resources */,
 				9AD25F48256D56B000F8B4A1 /* AccidentalsFinalDark.gif in Resources */,
 				9A8A95BD255F772F00E4E737 /* FluteFullFingerings.json in Resources */,
-				9AB1E29A2845120100D31134 /* Scripts in Resources */,
 				9A8A95BE255F772F00E4E737 /* ClarinetFullFingerings.json in Resources */,
 				9AD25F57256D7CCE00F8B4A1 /* NotePickerFinalDark.gif in Resources */,
 				9A1022D724F82F700052B364 /* Instruments.xcassets in Resources */,
@@ -676,34 +670,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A054DF2257DB45F00DCE8FF /* Instruments.storekit in Resources */,
-				9AB1E29B2845120100D31134 /* Scripts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9A72BA1D28450ECC00B2C0E3 /* Increment Build Number */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Scripts/IncBuildNumber.swift",
-			);
-			name = "Increment Build Number";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "xcrun --sdk macosx swiftc -parse-as-library $SCRIPT_INPUT_FILE_0 -o CompiledScript\n./CompiledScript\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A022ADD249908C00052E819 /* Sources */ = {
@@ -946,7 +916,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
@@ -968,7 +938,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
