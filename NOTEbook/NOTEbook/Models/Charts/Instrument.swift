@@ -40,3 +40,9 @@ struct Instrument: Decodable, Equatable {
     var chartFingeringHeight: Int
     var maximumSpacingFingerings: Double
 }
+
+extension Instrument: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(type)
+    }
+}

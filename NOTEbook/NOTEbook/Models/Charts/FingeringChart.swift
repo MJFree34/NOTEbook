@@ -22,3 +22,9 @@ struct FingeringChart: Decodable {
 extension FingeringChart: Identifiable {
     var id: String { name }
 }
+
+extension FingeringChart: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(instrument)
+    }
+}

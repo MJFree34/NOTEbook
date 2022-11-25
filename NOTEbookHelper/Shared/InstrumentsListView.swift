@@ -10,29 +10,42 @@ import SwiftUI
 struct InstrumentsListView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
+    @State private var presentedFingeringCharts: [FingeringChart] = []
+    
     var body: some View {
-        NavigationView {
-            List(ChartCategoryType.allCases) { chartCategoryType in
-                Section(chartCategoryType.rawValue) {
-                    ForEach(helperChartsController.chartCategories(of: chartCategoryType)) { chartCategory in
-                        Section {
-                            ForEach(chartCategory.fingeringCharts) { fingeringChart in
-                                NavigationLink {
-                                    ChartDetailView(chart: fingeringChart)
-                                } label: {
-                                    Text(fingeringChart.name)
-                                        .padding(.leading)
-                                }
-                            }
-                        } header: {
-                            Text(chartCategory.name)
-                                .bold()
-                        }
-                    }
-                }
-                .headerProminence(.increased)
+        NavigationStack(path: $presentedFingeringCharts) {
+            List(ChartSection.allCases) { section in
+                chartSectionSection(section: section)
+            }
+            .navigationDestination(for: FingeringChart.self) { fingeringChart in
+                ChartDetailView(chart: fingeringChart)
             }
             .navigationTitle("NOTEbook Helper")
+        }
+    }
+    
+    @ViewBuilder
+    func chartSectionSection(section: ChartSection) -> some View {
+        Section(section.rawValue) {
+            ForEach(helperChartsController.chartCategories(in: section)) { chartCategory in
+                chartCategorySection(chartCategory: chartCategory)
+            }
+        }
+        .headerProminence(.increased)
+    }
+    
+    @ViewBuilder
+    func chartCategorySection(chartCategory: ChartCategory) -> some View {
+        Section {
+            ForEach(chartCategory.fingeringCharts) { fingeringChart in
+                NavigationLink(value: fingeringChart) {
+                    Text(fingeringChart.name)
+                        .padding(.leading)
+                }
+            }
+        } header: {
+            Text(chartCategory.name)
+                .bold()
         }
     }
 }
