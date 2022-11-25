@@ -71,20 +71,7 @@ class NotePicker: UIView {
     convenience init(screenWidth: CGFloat) {
         self.init(frame: CGRect.zero)
         
-        switch screenWidth {
-        case 320.0:
-            firstCellInset = 209.5 - 30 * NotePickerViewController.spaceBetweenStaffLines / 20
-        case 375.0:
-            firstCellInset = 209.5
-        case 390.0:
-            firstCellInset = 209.5 + 10 * NotePickerViewController.spaceBetweenStaffLines / 20
-        case 414.0:
-            firstCellInset = 209.5 + 20 * NotePickerViewController.spaceBetweenStaffLines / 20
-        case 428.0:
-            firstCellInset = 209.5 + 25 * NotePickerViewController.spaceBetweenStaffLines / 20
-        default:
-            firstCellInset = 0
-        }
+        firstCellInset = screenWidth / 1.75
     }
     
     override init(frame: CGRect) {

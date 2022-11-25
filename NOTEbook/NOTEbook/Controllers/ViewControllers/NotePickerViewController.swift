@@ -75,31 +75,7 @@ class NotePickerViewController: UIViewController {
         
         view.backgroundColor = nil
         
-        if view.bounds.height == 926.0 {
-            // iPhone 12 Pro Max
-            NotePickerViewController.spaceBetweenStaffLines = 26
-        } else if view.bounds.height == 896.0 {
-            // iPhone XR, XS Max, 11, 11 Pro Max
-            NotePickerViewController.spaceBetweenStaffLines = 25
-        } else if view.bounds.height == 844.0 {
-            // iPhone 12, 12 Pro
-            NotePickerViewController.spaceBetweenStaffLines = 24
-        } else if view.bounds.height == 812.0 {
-            // iPhone X, XS, 11 Pro, 12 mini
-            NotePickerViewController.spaceBetweenStaffLines = 23
-        } else if view.bounds.height == 736.0 {
-            // iPhone 6S Plus, 7 Plus, 8 Plus
-            NotePickerViewController.spaceBetweenStaffLines = 22
-        } else if view.bounds.height == 667.0 {
-            // iPhone 6S, 7, 8
-            NotePickerViewController.spaceBetweenStaffLines = 20
-        } else if view.bounds.height == 568 {
-            // iPhone SE, SE (2nd Generation)
-            NotePickerViewController.spaceBetweenStaffLines = 19
-        } else {
-            // Error
-            NotePickerViewController.spaceBetweenStaffLines = 1
-        }
+        NotePickerViewController.spaceBetweenStaffLines = view.bounds.height / 33
         
         currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
         
