@@ -32,7 +32,6 @@ enum InstrumentType: String, Decodable {
 
 struct Instrument: Decodable, Equatable {
     var type: InstrumentType
-    var clef: Clef
     var fingeringWidth: Int
     var chartCellHeight: Int
     var chartCenterOfStaffFromTop: Int

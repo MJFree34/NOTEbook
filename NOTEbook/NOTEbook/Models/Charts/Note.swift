@@ -82,6 +82,29 @@ enum NoteOctave: String, Decodable {
     case six
     case seven
     case eight
+    
+    func octaveNumber() -> Int {
+        switch self {
+        case .zero:
+            return 0
+        case .one:
+            return 1
+        case .two:
+            return 2
+        case .three:
+            return 3
+        case .four:
+            return 4
+        case .five:
+            return 5
+        case .six:
+            return 6
+        case .seven:
+            return 7
+        case .eight:
+            return 8
+        }
+    }
 }
 
 struct Note: Decodable, Equatable {
@@ -96,7 +119,6 @@ struct Note: Decodable, Equatable {
         case type
         case octave
         case clef
-        case position
     }
     
     init(from decoder: Decoder) throws {
@@ -425,4 +447,8 @@ struct Note: Decodable, Equatable {
     func capitalizedLetter() -> String {
         return self.letter.rawValue.capitalized
     }
+}
+
+extension Note: Identifiable {
+    var id: String { "\(letter)\(type)\(octave) (\(clef))" }
 }

@@ -18,6 +18,12 @@ class HelperChartsController: ObservableObject {
     init() {
         do {
             chartCategories = try ChartsLoader.loadCharts()
+        } catch ChartLoadingError.invalidURL {
+            fatalError("Invalid URL")
+        } catch ChartLoadingError.unloadableData {
+            fatalError("Data is unloadable")
+        } catch ChartLoadingError.decodingError {
+            fatalError("Decoding error")
         } catch {
             fatalError("Fail to load charts")
         }
