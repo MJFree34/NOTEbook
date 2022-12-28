@@ -10,23 +10,211 @@ import SwiftUI
 struct ChartDetailView: View {
     var chart: FingeringChart
     
+    private let lineSpacing: CGFloat = 9
+    private let staffWidth: CGFloat = 150
+    
     var body: some View {
-        VStack {
-            Text("Name: \(chart.name)")
-            Image("\(chart.instrument.clef.rawValue.capitalized)Clef")
-            Text("Center Note: \(chart.centerNote.capitalizedLetter()) \(chart.centerNote.type.rawValue) \(chart.centerNote.position.rawValue)")
-            
-            Text("Notes:")
-            
-            List(chart.noteFingerings) { fingering in
-                Text("\(fingering.notes[0].capitalizedLetter()) \(fingering.notes[0].type.rawValue) \(fingering.notes[0].position.rawValue)")
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                ForEach(chart.noteFingerings) { fingering in
+                    noteCell(fingering: fingering)
+                }
             }
         }
+        .padding(.horizontal)
+        .navigationTitle(chart.name)
+    }
+    
+    @ViewBuilder
+    func noteCell(fingering: NoteFingering) -> some View {
+        let note1 = fingering.notes[0]
+        let note2 = fingering.notes.count == 2 ? fingering.notes[1] : nil
+        let hasTwoNotes = fingering.notes.count == 2
+        let positionsFromCenterStaff = note1.positionsFromCenterStaff()
+        
+        VStack {
+            fingeringLetterView(note1: note1, note2: note2)
+            
+            Spacer()
+            
+            ZStack {
+                staffLinesView(note1: note1, note2: note2, hasTwoNotes: hasTwoNotes)
+                
+                HStack {
+                    clefView(clef: note1.clef)
+                    
+                    Spacer()
+                }
+                .offset(y: calculatedClefPositionsOffset(positionsFromCenterStaff: positionsFromCenterStaff, hasTwoNotes: hasTwoNotes) * 5)
+                
+                fingeringNotesView(note1: note1, note2: note2)
+                    .offset(y: calculatedNotesPositionsOffset(positionsFromCenterStaff: positionsFromCenterStaff, hasTwoNotes: hasTwoNotes) * -5)
+            }
+            .frame(width: staffWidth)
+            
+            Spacer()
+        }
+        .frame(height: 200)
+        .padding(.bottom)
+        .border(.black)
+    }
+    
+    @ViewBuilder
+    func fingeringLetterView(note1: Note, note2: Note?) -> some View {
+        HStack {
+            letterView(note: note1)
+            
+            Spacer()
+            
+            if let note2 = note2 {
+                letterView(note: note2)
+            }
+        }
+        .font(.title)
+        .padding()
+    }
+    
+    @ViewBuilder
+    func letterView(note: Note) -> some View {
+        HStack(spacing: 0) {
+            Text(note.capitalizedLetter())
+            
+            if (note.type == .sharp) {
+                Image("Sharp")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 26)
+            } else if (note.type == .flat) {
+                Image("Flat")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 22)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func staffLinesView(note1: Note, note2: Note?, hasTwoNotes: Bool) -> some View {
+        VStack(spacing: lineSpacing) {
+            if note1.positionsFromCenterStaff() > 4 {
+                extraLinesView(note: note2 ?? note1, hasTwoNotes: hasTwoNotes)
+            }
+            
+            ForEach(0..<5) { _ in
+                RoundedRectangle(cornerRadius: 1)
+                    .tint(.black)
+                    .frame(width: staffWidth, height: 1)
+            }
+            
+            if note1.positionsFromCenterStaff() < -4 {
+                extraLinesView(note: note1, hasTwoNotes: hasTwoNotes)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func extraLinesView(note: Note, hasTwoNotes: Bool) -> some View {
+        let extraLines = abs(note.positionsFromCenterStaff()) / 2 - 2
+        
+        ForEach(0..<extraLines, id: \.self) { _ in
+            RoundedRectangle(cornerRadius: 1)
+                .tint(.black)
+                .frame(width: hasTwoNotes ? 40 : 20, height: 1)
+        }
+    }
+    
+    @ViewBuilder
+    func fingeringNotesView(note1: Note, note2: Note?) -> some View {
+        HStack(spacing: 0) {
+            HStack(spacing: 0) {
+                if note1.type == .sharp {
+                    Image("Sharp")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 26)
+                        .offset(x: -2, y: 0.5)
+                }
+                
+                wholeNoteView()
+            }
+            
+            if let note2 = note2 {
+                HStack(spacing: 0) {
+                    wholeNoteView()
+                    
+                    if note2.type == .flat {
+                        Image("Flat")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 22)
+                            .offset(x: 2, y: -5)
+                    }
+                }
+                .offset(y: -5)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func clefView(clef: Clef) -> some View {
+        if clef == .treble {
+            Image("TrebleClef")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 76)
+                .offset(x: -2)
+        } else {
+            Image("BassClef")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 30)
+                .offset(x: -2, y: -4.5)
+        }
+    }
+    
+    @ViewBuilder
+    func wholeNoteView() -> some View {
+        Image("CellWholeNote")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 10)
+    }
+//
+//    @ViewBuilder
+//    func fingeringView(fingering: Fingering) -> some View {
+//        switch chart.instrument.type {
+//        case .trumpet:
+//            ThreeValveFingeringView(fingering: fingering)
+//        default:
+//            Text("Fingering")
+//        }
+//    }
+    
+    func calculatedClefPositionsOffset(positionsFromCenterStaff: Int, hasTwoNotes: Bool) -> CGFloat {
+        // formula: offsetPositions = ((positions / 2 * 2) + (positions < 0 ? 4 : -4)) / 2
+        guard abs(positionsFromCenterStaff) >= 4 else { return 0 }
+        
+        let positionsRoundedDownToEven = positionsFromCenterStaff / 2 * 2
+        let positionsWithFourRemoved = positionsRoundedDownToEven + (positionsFromCenterStaff < 0 ? 4 : -4)
+        let positionsWithTwoNoteTopStaffOffset = positionsWithFourRemoved + (positionsFromCenterStaff > 4 && hasTwoNotes ? 2 : 0)
+        let finalOffset = positionsWithTwoNoteTopStaffOffset / 2
+        return CGFloat(finalOffset)
+    }
+    
+    func calculatedNotesPositionsOffset(positionsFromCenterStaff: Int, hasTwoNotes: Bool) -> CGFloat {
+        // formula: offsetPositions = (positions + (positions < 0 ? -4 : 4) + (positions % 2 == 0 ? 0 : 1) * (positions < 0 ? -1 : 1)) / 2
+        let positionsWithFourAdded = positionsFromCenterStaff + (positionsFromCenterStaff < 0 ? -4 : 4)
+        let positionsRoundedUpToEven = positionsWithFourAdded + (positionsFromCenterStaff % 2 == 0 ? 0 : 1) * (positionsFromCenterStaff < 0 ? -1 : 1)
+        let positionsWithTwoNoteTopStaffOffset = positionsRoundedUpToEven + (positionsFromCenterStaff > 4 && hasTwoNotes && positionsFromCenterStaff % 2 != 0 ? -2 : 0)
+        let finalOffset = positionsWithTwoNoteTopStaffOffset / 2
+        return CGFloat(finalOffset)
     }
 }
 
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartDetailView(chart: HelperChartsController.exampleChart)
+        NavigationStack {
+            ChartDetailView(chart: HelperChartsController.exampleChart)
+        }
     }
 }

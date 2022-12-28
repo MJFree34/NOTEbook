@@ -10,10 +10,8 @@ import SwiftUI
 struct InstrumentsListView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
-    @State private var presentedFingeringCharts: [FingeringChart] = []
-    
     var body: some View {
-        NavigationStack(path: $presentedFingeringCharts) {
+        NavigationStack {
             List(ChartSection.allCases) { section in
                 chartSectionSection(section: section)
             }

@@ -29,47 +29,51 @@ enum Clef: String, Decodable {
     case treble
 }
 
-enum NotePosition: String, Decodable {
-    case bottom8thLine
-    case bottom8thSpace
-    case bottom7thLine
-    case bottom7thSpace
-    case bottom6thLine
-    case bottom6thSpace
-    case bottom5thLine
-    case bottom5thSpace
-    case bottom4thLine
-    case bottom4thSpace
-    case bottom3rdLine
-    case bottom3rdSpace
-    case bottom2ndLine
-    case bottom2ndSpace
-    case bottom1stLine
-    case bottom1stSpace
-    case middle1stLine
-    case middle1stSpace
-    case middle2ndLine
-    case middle2ndSpace
-    case middle3rdLine
-    case middle3rdSpace
-    case middle4thLine
-    case middle4thSpace
-    case middle5thLine
-    case top1stSpace
-    case top1stLine
-    case top2ndSpace
-    case top2ndLine
-    case top3rdSpace
-    case top3rdLine
-    case top4thSpace
-    case top4thLine
-    case top5thSpace
-    case top5thLine
-    case top6thSpace
-    case top6thLine
-    case top7thSpace
-    case top7thLine
-    case top8thSpace
+enum NotePosition: Int, Comparable {
+    case bottom8thLine // 0
+    case bottom8thSpace // 1
+    case bottom7thLine // 2
+    case bottom7thSpace // 3
+    case bottom6thLine // 4
+    case bottom6thSpace // 5
+    case bottom5thLine // 6
+    case bottom5thSpace // 7
+    case bottom4thLine // 8
+    case bottom4thSpace // 9
+    case bottom3rdLine // 10
+    case bottom3rdSpace // 11
+    case bottom2ndLine // 12
+    case bottom2ndSpace // 13
+    case bottom1stLine // 14
+    case bottom1stSpace // 15
+    case middle1stLine // 16
+    case middle1stSpace // 17
+    case middle2ndLine // 18
+    case middle2ndSpace // 19
+    case middle3rdLine // 20
+    case middle3rdSpace // 21
+    case middle4thLine // 22
+    case middle4thSpace // 23
+    case middle5thLine // 24
+    case top1stSpace // 25
+    case top1stLine // 26
+    case top2ndSpace // 27
+    case top2ndLine // 28
+    case top3rdSpace // 29
+    case top3rdLine // 30
+    case top4thSpace // 31
+    case top4thLine // 32
+    case top5thSpace // 33
+    case top5thLine // 34
+    case top6thSpace // 35
+    case top6thLine // 36
+    case top7thSpace // 37
+    case top7thLine // 38
+    case top8thSpace // 39
+    
+    static func < (lhs: NotePosition, rhs: NotePosition) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
 }
 
 enum NoteOctave: String, Decodable {
@@ -444,11 +448,15 @@ struct Note: Decodable, Equatable {
         }
     }
     
+    func isLowerQuarterNote() -> Bool {
+        return position >= NotePosition.middle3rdLine
+    }
+    
     func capitalizedLetter() -> String {
         return self.letter.rawValue.capitalized
     }
-}
-
-extension Note: Identifiable {
-    var id: String { "\(letter)\(type)\(octave) (\(clef))" }
+    
+    func positionsFromCenterStaff() -> Int {
+        return position.rawValue - NotePosition.middle3rdLine.rawValue
+    }
 }
