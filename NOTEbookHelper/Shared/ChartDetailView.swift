@@ -54,7 +54,6 @@ struct ChartDetailView: View {
             
             Spacer()
         }
-        .frame(height: 200)
         .padding(.bottom)
         .border(.black)
     }
@@ -179,16 +178,6 @@ struct ChartDetailView: View {
             .aspectRatio(contentMode: .fit)
             .frame(height: 10)
     }
-//
-//    @ViewBuilder
-//    func fingeringView(fingering: Fingering) -> some View {
-//        switch chart.instrument.type {
-//        case .trumpet:
-//            ThreeValveFingeringView(fingering: fingering)
-//        default:
-//            Text("Fingering")
-//        }
-//    }
     
     func calculatedClefPositionsOffset(positionsFromCenterStaff: Int, hasTwoNotes: Bool) -> CGFloat {
         // formula: offsetPositions = ((positions / 2 * 2) + (positions < 0 ? 4 : -4)) / 2
@@ -203,6 +192,8 @@ struct ChartDetailView: View {
     
     func calculatedNotesPositionsOffset(positionsFromCenterStaff: Int, hasTwoNotes: Bool) -> CGFloat {
         // formula: offsetPositions = (positions + (positions < 0 ? -4 : 4) + (positions % 2 == 0 ? 0 : 1) * (positions < 0 ? -1 : 1)) / 2
+        guard abs(positionsFromCenterStaff) >= 4 else { return CGFloat(positionsFromCenterStaff) }
+        
         let positionsWithFourAdded = positionsFromCenterStaff + (positionsFromCenterStaff < 0 ? -4 : 4)
         let positionsRoundedUpToEven = positionsWithFourAdded + (positionsFromCenterStaff % 2 == 0 ? 0 : 1) * (positionsFromCenterStaff < 0 ? -1 : 1)
         let positionsWithTwoNoteTopStaffOffset = positionsRoundedUpToEven + (positionsFromCenterStaff > 4 && hasTwoNotes && positionsFromCenterStaff % 2 != 0 ? -2 : 0)
