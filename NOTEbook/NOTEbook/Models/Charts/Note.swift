@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NoteLetter: String, Decodable {
+enum NoteLetter: String, Codable {
     case a
     case b
     case c
@@ -18,13 +18,13 @@ enum NoteLetter: String, Decodable {
     case g
 }
 
-enum NoteType: String, Decodable {
+enum NoteType: String, Codable {
     case natural
     case sharp
     case flat
 }
 
-enum Clef: String, Decodable {
+enum Clef: String, Codable {
     case bass
     case treble
 }
@@ -76,7 +76,7 @@ enum NotePosition: Int, Comparable {
     }
 }
 
-enum NoteOctave: String, Decodable {
+enum NoteOctave: String, Codable {
     case zero
     case one
     case two
@@ -111,7 +111,7 @@ enum NoteOctave: String, Decodable {
     }
 }
 
-struct Note: Decodable, Equatable {
+struct Note: Codable, Equatable {
     private(set) var letter: NoteLetter
     private(set) var type: NoteType
     private(set) var octave: NoteOctave

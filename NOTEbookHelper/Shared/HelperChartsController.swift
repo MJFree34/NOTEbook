@@ -10,10 +10,10 @@ import Foundation
 class HelperChartsController: ObservableObject {
     static let shared = HelperChartsController()
     
-    private(set) var chartCategories = [ChartCategory]()
-    
     var currentChart: FingeringChart!
     var currentChartCategory: ChartCategory!
+    
+    @Published private(set) var chartCategories = [ChartCategory]()
     
     init() {
         do {

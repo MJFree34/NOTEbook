@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Fingering: Decodable, Equatable {
+struct Fingering: Codable, Equatable {
     var keys: [Bool]?
     var position: Position?
     var triggers: [Bool]?

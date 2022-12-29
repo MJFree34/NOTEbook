@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ChartSection: String, Decodable, CaseIterable {
+enum ChartSection: String, Codable, CaseIterable {
     case woodwinds = "Woodwinds"
     case brass = "Brass"
 }
@@ -17,7 +17,7 @@ extension ChartSection: Identifiable {
     var id: String { rawValue }
 }
 
-struct ChartCategory: Decodable {
+struct ChartCategory: Codable {
     var name: String
     var section: ChartSection
     var fingeringCharts: [FingeringChart]
