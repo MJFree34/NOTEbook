@@ -102,8 +102,6 @@ extension HelperChartsController {
     }
 }
 
-#if DEBUG
 extension HelperChartsController {
     static var exampleChart = shared.chartCategories[0].fingeringCharts[0]
 }
-#endif

@@ -20,9 +20,6 @@ struct InstrumentsListView: View {
             .navigationDestination(for: FingeringChart.self) { fingeringChart in
                 ChartDetailView(chart: fingeringChart)
             }
-            .navigationDestination(for: NoteFingering.self) { noteFingering in
-                NoteFingeringDetailView(noteFingering: noteFingering)
-            }
             .navigationTitle("NOTEbook Helper")
         }
     }
