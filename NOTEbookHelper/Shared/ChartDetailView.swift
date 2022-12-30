@@ -13,7 +13,7 @@ struct ChartDetailView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
-                ForEach(chart.noteFingerings) { noteFingering in
+                ForEach(chart.noteFingerings, id: \.self) { noteFingering in
                     NavigationLink(value: noteFingering) {
                         NoteCell(noteFingering: noteFingering)
                             .border(.black)
@@ -21,11 +21,11 @@ struct ChartDetailView: View {
                 }
             }
         }
+        .tint(.black)
+        .padding(.horizontal)
         .navigationDestination(for: NoteFingering.self) { noteFingering in
             NoteFingeringDetailView(noteFingering: noteFingering, instrumentType: chart.instrument.type)
         }
-        .tint(.black)
-        .padding(.horizontal)
         .navigationTitle(chart.name)
     }
 }
