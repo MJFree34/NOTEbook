@@ -22,3 +22,10 @@ struct Position: Codable, Equatable {
     var value: PositionValue
     var type: NoteType
 }
+
+extension Position: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+        hasher.combine(type)
+    }
+}

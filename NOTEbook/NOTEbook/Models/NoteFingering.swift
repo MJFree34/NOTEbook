@@ -31,3 +31,10 @@ struct NoteFingering: Codable, Equatable {
 extension NoteFingering: Identifiable {
     var id: UUID { UUID() }
 }
+
+extension NoteFingering: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(notes)
+        hasher.combine(fingerings)
+    }
+}

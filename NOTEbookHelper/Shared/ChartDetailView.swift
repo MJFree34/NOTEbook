@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChartDetailView: View {
-    var chart: FingeringChart
+    let chart: FingeringChart
     
     private let lineSpacing: CGFloat = 9
     private let staffWidth: CGFloat = 150
@@ -17,10 +17,13 @@ struct ChartDetailView: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
                 ForEach(chart.noteFingerings) { fingering in
-                    noteCell(fingering: fingering)
+                    NavigationLink(value: fingering) {
+                        noteCell(fingering: fingering)
+                    }
                 }
             }
         }
+        .tint(.black)
         .padding(.horizontal)
         .navigationTitle(chart.name)
     }
@@ -101,7 +104,6 @@ struct ChartDetailView: View {
             
             ForEach(0..<5) { _ in
                 RoundedRectangle(cornerRadius: 1)
-                    .tint(.black)
                     .frame(width: staffWidth, height: 1)
             }
             
@@ -117,7 +119,6 @@ struct ChartDetailView: View {
         
         ForEach(0..<extraLines, id: \.self) { _ in
             RoundedRectangle(cornerRadius: 1)
-                .tint(.black)
                 .frame(width: hasTwoNotes ? 40 : 20, height: 1)
         }
     }

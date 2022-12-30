@@ -460,3 +460,13 @@ struct Note: Codable, Equatable {
         return position.rawValue - NotePosition.middle3rdLine.rawValue
     }
 }
+
+extension Note: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(letter)
+        hasher.combine(type)
+        hasher.combine(octave)
+        hasher.combine(clef)
+        hasher.combine(position)
+    }
+}

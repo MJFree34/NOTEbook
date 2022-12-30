@@ -13,3 +13,11 @@ struct Fingering: Codable, Equatable {
     var position: Position?
     var triggers: [Bool]?
 }
+
+extension Fingering: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(keys)
+        hasher.combine(position)
+        hasher.combine(triggers)
+    }
+}
