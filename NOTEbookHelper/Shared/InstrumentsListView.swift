@@ -12,15 +12,28 @@ struct InstrumentsListView: View {
     
     @StateObject private var pathStore = PathStore()
     
+    @State private var editMode = EditMode.inactive
+    @State private var chartCategoryMovingInsideName: String?
+    
     var body: some View {
         NavigationStack(path: $pathStore.path) {
             List(ChartSection.allCases) { section in
                 chartSectionSection(section: section)
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    addButton()
+                }
+            }
             .navigationDestination(for: FingeringChart.self) { fingeringChart in
                 ChartDetailView(chart: fingeringChart)
             }
             .navigationTitle("NOTEbook Helper")
+            .environment(\.editMode, $editMode)
         }
     }
     
@@ -30,6 +43,7 @@ struct InstrumentsListView: View {
             ForEach(helperChartsController.chartCategories(in: section)) { chartCategory in
                 chartCategorySection(chartCategory: chartCategory)
             }
+            .onMove(perform: moveChartCategory)
         }
         .headerProminence(.increased)
     }
@@ -43,10 +57,37 @@ struct InstrumentsListView: View {
                         .padding(.leading)
                 }
             }
+            .onMove { fromOffsets, toOffset in
+                chartCategoryMovingInsideName = chartCategory.name
+                moveFingeringChart(fromOffsets: fromOffsets, toOffset: toOffset)
+                chartCategoryMovingInsideName = nil
+            }
         } header: {
             Text(chartCategory.name)
                 .bold()
         }
+    }
+    
+    @ViewBuilder
+    func addButton() -> some View {
+        switch editMode {
+        case .inactive:
+            Button {
+                // Add chart
+            } label: {
+                Label("Add Chart", systemImage: "plus")
+            }
+        default:
+            EmptyView()
+        }
+    }
+    
+    private func moveFingeringChart(fromOffsets: IndexSet, toOffset: Int) {
+        helperChartsController.moveFingeringChartInChartCategory(categoryName: chartCategoryMovingInsideName!, fromOffsets: fromOffsets, toOffset: toOffset)
+    }
+    
+    private func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
+        helperChartsController.moveChartCategory(fromOffsets: fromOffsets, toOffset: toOffset)
     }
 }
 
