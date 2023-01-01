@@ -23,9 +23,6 @@ struct ChartDetailView: View {
         }
         .tint(.black)
         .padding(.horizontal)
-        .navigationDestination(for: NoteFingering.self) { noteFingering in
-            NoteFingeringDetailView(noteFingering: noteFingering, instrumentType: chart.instrument.type)
-        }
         .navigationTitle(chart.name)
     }
 }

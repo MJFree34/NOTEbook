@@ -21,6 +21,14 @@ struct ThreeValveFingeringView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        ThreeValveFingeringView(fingering: Fingering(keys: [false, false, false]))
+        Group {
+            VStack {
+                ThreeValveFingeringView(fingering: Fingering(keys: [false, false, false]))
+                
+                ThreeValveFingeringView(fingering: Fingering(keys: [true, true, true]))
+            }
+        }
+        .padding()
+        .previewLayout(.sizeThatFits)
     }
 }

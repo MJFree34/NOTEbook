@@ -56,6 +56,9 @@ struct InstrumentsListView: View {
                     Text(fingeringChart.name)
                         .padding(.leading)
                 }
+                .navigationDestination(for: NoteFingering.self) { noteFingering in
+                    NoteFingeringDetailView(noteFingering: noteFingering, instrumentType: fingeringChart.instrument.type)
+                }
             }
             .onMove { fromOffsets, toOffset in
                 chartCategoryMovingInsideName = chartCategory.name
