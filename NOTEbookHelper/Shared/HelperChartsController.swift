@@ -38,14 +38,16 @@ extension HelperChartsController {
         return chartCategories.first { $0.name == categoryName }
     }
     
+    private func chartCategoryIndex(with categoryName: String) -> Int? {
+        return chartCategories.firstIndex { $0.name == categoryName }
+    }
+    
     func chartCategories(in section: ChartSection) -> [ChartCategory] {
         chartCategories.filter { $0.section == section }
     }
     
     func moveFingeringChartInChartCategory(categoryName: String, fromOffsets: IndexSet, toOffset: Int) {
-        let index = chartCategories.firstIndex { $0.name == categoryName }
-        
-        if let index = index {
+        if let index = chartCategoryIndex(with: categoryName) {
             chartCategories[index].fingeringCharts.move(fromOffsets: fromOffsets, toOffset: toOffset)
         }
     }
@@ -83,8 +85,15 @@ extension HelperChartsController {
             print("Chart Category is not able to be added as it is an edge case")
         }
     }
+    
+    func addChart(in categoryName: String, chart: FingeringChart) {
+        if let index = chartCategoryIndex(with: categoryName) {
+            chartCategories[index].fingeringCharts.append(chart)
+        }
+    }
 }
 
 extension HelperChartsController {
-    static var exampleChart = shared.chartCategories[0].fingeringCharts[0]
+    static var exampleChartCategory = shared.chartCategories[0]
+    static var exampleChart = exampleChartCategory.fingeringCharts[0]
 }

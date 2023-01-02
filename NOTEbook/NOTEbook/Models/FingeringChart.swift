@@ -10,7 +10,7 @@ import Foundation
 
 struct FingeringChart: Codable {
     var instrument: Instrument
-    var centerNote: Note
+    var centerNote: Note?
     var naturalNotes: [Note]
     var flatNotes: [Note]
     var sharpNotes: [Note]

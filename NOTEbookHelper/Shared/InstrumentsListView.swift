@@ -15,6 +15,13 @@ struct InstrumentsListView: View {
         var id: Int { hashValue }
     }
     
+    private struct AddSheet: Identifiable {
+        var type: SheetType
+        var categoryToAddChartInName: String?
+        
+        var id: Int { type.hashValue + (categoryToAddChartInName?.hashValue ?? 0) }
+    }
+    
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     @StateObject private var pathStore = PathStore()
@@ -22,20 +29,19 @@ struct InstrumentsListView: View {
     @State private var editMode = EditMode.inactive
     @State private var chartCategoryMovingInsideName: String?
     
-    @State private var currentSheet: SheetType?
-    @State private var categoryToAddChartIn: String?
+    @State private var currentAddSheet: AddSheet?
     
     var body: some View {
         NavigationStack(path: $pathStore.path) {
             List(ChartSection.allCases) { section in
                 chartSectionSection(section: section)
             }
-            .sheet(item: $currentSheet) { sheetType in
-                switch sheetType {
+            .sheet(item: $currentAddSheet) { addSheet in
+                switch addSheet.type {
                 case .addChartCategory:
                     AddFingeringChartCategoryView()
                 case .addChart:
-                    AddFingeringChartCategoryView()
+                    AddFingeringChartView(categoryName: addSheet.categoryToAddChartInName!)
                 }
             }
             .toolbar {
@@ -95,7 +101,7 @@ struct InstrumentsListView: View {
         case .inactive:
             Menu {
                 Button {
-                    currentSheet = .addChartCategory
+                    currentAddSheet = AddSheet(type: .addChartCategory)
                 } label: {
                     Text("Add Chart Category")
                 }
@@ -104,7 +110,7 @@ struct InstrumentsListView: View {
                     ForEach(ChartSection.allCases) { section in
                         ForEach(helperChartsController.chartCategories(in: section)) { chartCategory in
                             Button {
-                                print("Present Add Fingering Chart in \(chartCategory.name) View")
+                                currentAddSheet = AddSheet(type: .addChart, categoryToAddChartInName: chartCategory.name)
                             } label: {
                                 Text("Add in \(chartCategory.name)")
                             }

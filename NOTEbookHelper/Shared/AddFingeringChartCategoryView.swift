@@ -12,11 +12,11 @@ struct AddFingeringChartCategoryView: View {
     
     @EnvironmentObject var helperChartsController: HelperChartsController
     
-    @State private var section = ChartSection.woodwinds
+    @State private var section: ChartSection?
     @State private var name = ""
     
     var isFilledOut: Bool {
-        !name.isEmpty
+        !name.isEmpty && section != nil
     }
     
     var body: some View {
@@ -28,9 +28,12 @@ struct AddFingeringChartCategoryView: View {
                 
                 Section("Section") {
                     Picker("Section", selection: $section) {
+                        Text("")
+                            .tag(nil as ChartSection?)
+                        
                         ForEach(ChartSection.allCases) { section in
                             Text(section.rawValue)
-                                .tag(section)
+                                .tag(section as ChartSection?)
                         }
                     }
                 }
@@ -46,10 +49,10 @@ struct AddFingeringChartCategoryView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        helperChartsController.addChartCategory(category: ChartCategory(name: name, section: section, fingeringCharts: []))
+                        helperChartsController.addChartCategory(category: ChartCategory(name: name, section: section!, fingeringCharts: []))
                         dismiss()
                     } label: {
-                        Text("Add \(isFilledOut ? name : "Category")")
+                        Text("Add \(name.isEmpty ? "Category" : name)")
                     }
                     .buttonStyle(.bordered)
                     .disabled(!isFilledOut)

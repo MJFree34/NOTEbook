@@ -15,6 +15,8 @@
 		9A3F0C07295F2ECB004CA28E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C05295F2ECB004CA28E /* NoteCell.swift */; };
 		9A3F0C092962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */; };
 		9A3F0C0A2962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */; };
+		9A3F0C0C296342A9004CA28E /* AddFingeringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */; };
+		9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */; };
 		9A91286B2931AA2A00227449 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */; };
 		9A91286C2931AA2B00227449 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */; };
 		9A955AC1295518140038A1AB /* ChartsRevised.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A955AC0295518140038A1AB /* ChartsRevised.json */; };
@@ -63,6 +65,7 @@
 		9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingeringDetailView.swift; sourceTree = "<group>"; };
 		9A3F0C05295F2ECB004CA28E /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFingeringChartCategoryView.swift; sourceTree = "<group>"; };
+		9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFingeringChartView.swift; sourceTree = "<group>"; };
 		9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
 		9A955AC0295518140038A1AB /* ChartsRevised.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartsRevised.json; sourceTree = "<group>"; };
 		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 				9A3F0C05295F2ECB004CA28E /* NoteCell.swift */,
 				9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */,
 				9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */,
+				9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */,
 				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
 				9A3F0BFC295DE827004CA28E /* PathStore.swift */,
 				9A955AC0295518140038A1AB /* ChartsRevised.json */,
@@ -302,6 +306,7 @@
 				9AE30C5827EB8CBB00E3D44A /* Position.swift in Sources */,
 				9AE30C4C27EB8CBB00E3D44A /* Fingering.swift in Sources */,
 				9AE30CE627F0130300E3D44A /* ChartDetailView.swift in Sources */,
+				9A3F0C0C296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
 				9AE30C5027EB8CBB00E3D44A /* Note.swift in Sources */,
 				9AE30C4E27EB8CBB00E3D44A /* Instrument.swift in Sources */,
 				9AE30C5427EB8CBB00E3D44A /* FingeringChart.swift in Sources */,
@@ -326,6 +331,7 @@
 				9AE30C5927EB8CBB00E3D44A /* Position.swift in Sources */,
 				9AE30C4D27EB8CBB00E3D44A /* Fingering.swift in Sources */,
 				9AE30CE727F0130300E3D44A /* ChartDetailView.swift in Sources */,
+				9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
 				9AE30C5127EB8CBB00E3D44A /* Note.swift in Sources */,
 				9AE30C4F27EB8CBB00E3D44A /* Instrument.swift in Sources */,
 				9AE30C5527EB8CBB00E3D44A /* FingeringChart.swift in Sources */,

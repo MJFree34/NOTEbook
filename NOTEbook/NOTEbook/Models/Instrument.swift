@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum InstrumentType: String, Codable {
+enum InstrumentType: String, Codable, CaseIterable {
     case trumpet = "Trumpet"
     case euphoniumTCNC = "Euphonium T.C. Non-Compensating"
     case euphoniumTCC = "Euphonium T.C. Compensating"
@@ -30,6 +30,10 @@ enum InstrumentType: String, Codable {
     case baritoneSaxophone = "Baritone Saxophone"
 }
 
+extension InstrumentType: Identifiable {
+    var id: String { rawValue }
+}
+
 struct Instrument: Codable, Equatable {
     var type: InstrumentType
     var fingeringWidth: Int
@@ -38,6 +42,26 @@ struct Instrument: Codable, Equatable {
     var offset: Double
     var chartFingeringHeight: Int
     var maximumSpacingFingerings: Double
+    
+    init(type: InstrumentType, fingeringWidth: Int, chartCellHeight: Int, chartCenterOfStaffFromTop: Int, offset: Double, chartFingeringHeight: Int, maximumSpacingFingerings: Double) {
+        self.type = type
+        self.fingeringWidth = fingeringWidth
+        self.chartCellHeight = chartCellHeight
+        self.chartCenterOfStaffFromTop = chartCenterOfStaffFromTop
+        self.offset = offset
+        self.chartFingeringHeight = chartFingeringHeight
+        self.maximumSpacingFingerings = maximumSpacingFingerings
+    }
+    
+    init(type: InstrumentType) {
+        self.type = type
+        self.fingeringWidth = 0
+        self.chartCellHeight = 0
+        self.chartCenterOfStaffFromTop = 0
+        self.offset = 0
+        self.chartFingeringHeight = 0
+        self.maximumSpacingFingerings = 0
+    }
 }
 
 extension Instrument: Hashable {
