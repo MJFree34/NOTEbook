@@ -34,12 +34,12 @@ class HelperChartsController: ObservableObject {
 }
 
 extension HelperChartsController {
-    func chartCategories(in section: ChartSection) -> [ChartCategory] {
-        chartCategories.filter { $0.section == section }
-    }
-    
     private func chartCategory(with categoryName: String) -> ChartCategory? {
         return chartCategories.first { $0.name == categoryName }
+    }
+    
+    func chartCategories(in section: ChartSection) -> [ChartCategory] {
+        chartCategories.filter { $0.section == section }
     }
     
     func moveFingeringChartInChartCategory(categoryName: String, fromOffsets: IndexSet, toOffset: Int) {
@@ -52,6 +52,36 @@ extension HelperChartsController {
     
     func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
         chartCategories.move(fromOffsets: fromOffsets, toOffset: toOffset)
+    }
+    
+    func addChartCategory(category: ChartCategory) {
+        let categorySection = category.section
+        
+        var indexToInsertAt: Int?
+        
+        let lastIndexOfSection = chartCategories.lastIndex { categorySection == $0.section }
+        
+        if let lastIndexOfSection = lastIndexOfSection {
+            indexToInsertAt = lastIndexOfSection + 1
+        } else if categorySection == ChartSection.allCases[0] {
+            indexToInsertAt = 0
+        } else {
+            for (index, section) in ChartSection.allCases.enumerated() {
+                if section == categorySection {
+                    if index == ChartSection.allCases.count - 1 {
+                        indexToInsertAt = chartCategories.count
+                    } else {
+                        indexToInsertAt = chartCategories.lastIndex { ChartSection.allCases[index - 1] == $0.section } ?? 0 + 1
+                    }
+                }
+            }
+        }
+        
+        if let indexToInsertAt = indexToInsertAt {
+            chartCategories.insert(category, at: indexToInsertAt)
+        } else {
+            print("Chart Category is not able to be added as it is an edge case")
+        }
     }
 }
 

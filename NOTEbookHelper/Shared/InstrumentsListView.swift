@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct InstrumentsListView: View {
+    private enum SheetType: Identifiable {
+        case addChartCategory
+        case addChart
+        
+        var id: Int { hashValue }
+    }
+    
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     @StateObject private var pathStore = PathStore()
@@ -15,10 +22,21 @@ struct InstrumentsListView: View {
     @State private var editMode = EditMode.inactive
     @State private var chartCategoryMovingInsideName: String?
     
+    @State private var currentSheet: SheetType?
+    @State private var categoryToAddChartIn: String?
+    
     var body: some View {
         NavigationStack(path: $pathStore.path) {
             List(ChartSection.allCases) { section in
                 chartSectionSection(section: section)
+            }
+            .sheet(item: $currentSheet) { sheetType in
+                switch sheetType {
+                case .addChartCategory:
+                    AddFingeringChartCategoryView()
+                case .addChart:
+                    AddFingeringChartCategoryView()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -75,10 +93,28 @@ struct InstrumentsListView: View {
     func addButton() -> some View {
         switch editMode {
         case .inactive:
-            Button {
-                // Add chart
+            Menu {
+                Button {
+                    currentSheet = .addChartCategory
+                } label: {
+                    Text("Add Chart Category")
+                }
+                
+                Menu {
+                    ForEach(ChartSection.allCases) { section in
+                        ForEach(helperChartsController.chartCategories(in: section)) { chartCategory in
+                            Button {
+                                print("Present Add Fingering Chart in \(chartCategory.name) View")
+                            } label: {
+                                Text("Add in \(chartCategory.name)")
+                            }
+                        }
+                    }
+                } label: {
+                    Text("Add Chart in Category")
+                }
             } label: {
-                Label("Add Chart", systemImage: "plus")
+                Label("Add", systemImage: "plus")
             }
         default:
             EmptyView()
