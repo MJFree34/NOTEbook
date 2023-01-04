@@ -59,6 +59,7 @@ struct AddFingeringChartCategoryView: View {
                 }
             }
             .navigationTitle("Add Chart Category")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

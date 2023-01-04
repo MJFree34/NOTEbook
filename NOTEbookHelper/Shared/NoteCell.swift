@@ -86,7 +86,7 @@ struct NoteCell: View {
             }
             
             ForEach(0..<5) { _ in
-                RoundedRectangle(cornerRadius: 1)
+                Rectangle()
                     .frame(width: staffWidth, height: 1)
             }
             
@@ -101,7 +101,7 @@ struct NoteCell: View {
         let extraLines = abs(note.positionsFromCenterStaff()) / 2 - 2
         
         ForEach(0..<extraLines, id: \.self) { _ in
-            RoundedRectangle(cornerRadius: 1)
+            Rectangle()
                 .frame(width: hasTwoNotes ? 40 : 20, height: 1)
         }
     }
@@ -189,14 +189,18 @@ struct NoteCell: View {
 struct NoteCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[0])
-                .previewLayout(.fixed(width: 200, height: 200))
-            
-            NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[1])
-                .previewLayout(.fixed(width: 200, height: 200))
+            VStack {
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[0])
+                    .frame(width: 200, height: 200)
+                
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[1])
+                    .frame(width: 200, height: 200)
 
-            NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[2])
-                .previewLayout(.fixed(width: 200, height: 200))
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[2])
+                    .frame(width: 200, height: 200)
+            }
         }
+        .padding()
+        .previewLayout(.sizeThatFits)
     }
 }

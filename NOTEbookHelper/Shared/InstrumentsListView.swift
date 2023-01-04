@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct InstrumentsListView: View {
-    private enum SheetType: Identifiable {
+    private enum SheetType: Int, Identifiable {
         case addChartCategory
         case addChart
         
-        var id: Int { hashValue }
+        var id: Int { rawValue }
     }
     
     private struct AddSheet: Identifiable {
         var type: SheetType
         var categoryToAddChartInName: String?
         
-        var id: Int { type.hashValue + (categoryToAddChartInName?.hashValue ?? 0) }
+        var id: String { "\(categoryToAddChartInName ?? "") + \(type.rawValue)" }
     }
     
     @EnvironmentObject private var helperChartsController: HelperChartsController

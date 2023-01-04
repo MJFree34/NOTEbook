@@ -18,15 +18,64 @@ enum NoteLetter: String, Codable {
     case g
 }
 
+extension NoteLetter: Comparable {
+    static func < (lhs: NoteLetter, rhs: NoteLetter) -> Bool {
+        switch lhs {
+        case .c:
+            return rhs != .c
+        case .d:
+            return rhs != .c || rhs != .d
+        case .e:
+            return rhs != .c || rhs != .d || rhs != .e
+        case .f:
+            return rhs == .g || rhs == .a || rhs == .b
+        case .g:
+            return rhs == .a || rhs == .b
+        case .a:
+            return rhs == .b
+        case .b:
+            return false
+        }
+    }
+}
+
 enum NoteType: String, Codable {
     case natural
     case sharp
     case flat
 }
 
-enum Clef: String, Codable {
+extension NoteType: Comparable {
+    static func < (lhs: NoteType, rhs: NoteType) -> Bool {
+        switch lhs {
+        case .flat:
+            return rhs != .flat
+        case .natural:
+            return rhs == .sharp
+        case .sharp:
+            return false
+        }
+    }
+}
+
+enum Clef: String, Codable, CaseIterable {
     case bass
     case treble
+}
+
+extension Clef: Identifiable {
+    var id: String { rawValue }
+}
+
+extension Clef: Comparable {
+    static func < (lhs: Clef, rhs: Clef) -> Bool {
+        switch lhs {
+        case .bass:
+            return rhs == .treble
+        case .treble:
+            return false
+        }
+    }
 }
 
 enum NotePosition: Int, Comparable {
@@ -70,13 +119,14 @@ enum NotePosition: Int, Comparable {
     case top7thSpace // 37
     case top7thLine // 38
     case top8thSpace // 39
+    case top8thLine // 39
     
     static func < (lhs: NotePosition, rhs: NotePosition) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
 }
 
-enum NoteOctave: String, Codable {
+enum NoteOctave: Int, Codable {
     case zero
     case one
     case two
@@ -276,7 +326,7 @@ struct Note: Codable, Equatable {
             case .g:
                 switch octave {
                 case .zero:
-                    fatalError("Note not implemented")
+                    return .bottom8thLine
                 case .one:
                     return .bottom4thSpace
                 case .two:
@@ -314,7 +364,7 @@ struct Note: Codable, Equatable {
                 case .six:
                     return .top5thSpace
                 case .seven:
-                    fatalError("Note not implemented")
+                    return .top8thLine
                 case .eight:
                     fatalError("Note not implemented")
                 }
@@ -448,6 +498,33 @@ struct Note: Codable, Equatable {
         }
     }
     
+    static func middleNote(for clef: Clef) -> Note {
+        switch clef {
+        case .bass:
+            return Note(letter: .d, type: .natural, octave: .three, clef: .bass)
+        case .treble:
+            return Note(letter: .b, type: .natural, octave: .four, clef: .treble)
+        }
+    }
+    
+    static func minNote(for clef: Clef) -> Note {
+        switch clef {
+        case .bass:
+            return Note(letter: .a, type: .natural, octave: .zero, clef: .bass)
+        case .treble:
+            return Note(letter: .c, type: .natural, octave: .two, clef: .treble)
+        }
+    }
+    
+    static func maxNote(for clef: Clef) -> Note {
+        switch clef {
+        case .bass:
+            return Note(letter: .a, type: .natural, octave: .five, clef: .bass)
+        case .treble:
+            return Note(letter: .g, type: .natural, octave: .seven, clef: .treble)
+        }
+    }
+    
     func isLowerQuarterNote() -> Bool {
         return position >= NotePosition.middle3rdLine
     }
@@ -459,6 +536,320 @@ struct Note: Codable, Equatable {
     func positionsFromCenterStaff() -> Int {
         return position.rawValue - NotePosition.middle3rdLine.rawValue
     }
+    
+    func lowerNote() -> Note {
+        assert(type == .natural)
+        
+        let newLetter: NoteLetter
+        
+        switch letter {
+        case .a:
+            newLetter = .g
+        case .b:
+            newLetter = .a
+        case .c:
+            newLetter = .b
+        case .d:
+            newLetter = .c
+        case .e:
+            newLetter = .d
+        case .f:
+            newLetter = .e
+        case .g:
+            newLetter = .f
+        }
+        
+        let newOctave: NoteOctave
+        
+        if letter == .c {
+            newOctave = NoteOctave(rawValue: octave.rawValue - 1) ?? octave
+        } else {
+            newOctave = octave
+        }
+        
+        return Note(letter: newLetter, type: .natural, octave: newOctave, clef: clef)
+    }
+    
+    func higherNote() -> Note {
+        assert(type == .natural)
+        
+        let newLetter: NoteLetter
+        
+        switch letter {
+        case .a:
+            newLetter = .b
+        case .b:
+            newLetter = .c
+        case .c:
+            newLetter = .d
+        case .d:
+            newLetter = .e
+        case .e:
+            newLetter = .f
+        case .f:
+            newLetter = .g
+        case .g:
+            newLetter = .a
+        }
+        
+        let newOctave: NoteOctave
+        
+        if letter == .b {
+            newOctave = NoteOctave(rawValue: octave.rawValue + 1) ?? octave
+        } else {
+            newOctave = octave
+        }
+        
+        return Note(letter: newLetter, type: .natural, octave: newOctave, clef: clef)
+    }
+    
+    func transposeUpHalfStep() -> Note {
+        let newLetter: NoteLetter
+        let newType: NoteType
+        let newOctave: NoteOctave
+        
+        switch letter {
+        case .a:
+            switch type {
+            case .flat:
+                newLetter = .a
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .a
+                newType = .sharp
+                newOctave = octave
+            case .sharp:
+                newLetter = .b
+                newType = .natural
+                newOctave = octave
+            }
+        case .b:
+            switch type {
+            case .flat:
+                newLetter = .b
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .c
+                newType = .natural
+                newOctave = NoteOctave(rawValue: octave.rawValue + 1) ?? octave
+            case .sharp:
+                fatalError("Note does not exist")
+            }
+        case .c:
+            switch type {
+            case .flat:
+                fatalError("Note does not exist")
+            case .natural:
+                newLetter = .c
+                newType = .sharp
+                newOctave = octave
+            case .sharp:
+                newLetter = .d
+                newType = .natural
+                newOctave = octave
+            }
+        case .d:
+            switch type {
+            case .flat:
+                newLetter = .d
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .d
+                newType = .sharp
+                newOctave = octave
+            case .sharp:
+                newLetter = .e
+                newType = .natural
+                newOctave = octave
+            }
+        case .e:
+            switch type {
+            case .flat:
+                newLetter = .e
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .f
+                newType = .natural
+                newOctave = octave
+            case .sharp:
+                fatalError("Note does not exist")
+            }
+        case .f:
+            switch type {
+            case .flat:
+                fatalError("Note does not exist")
+            case .natural:
+                newLetter = .f
+                newType = .sharp
+                newOctave = octave
+            case .sharp:
+                newLetter = .g
+                newType = .natural
+                newOctave = octave
+            }
+        case .g:
+            switch type {
+            case .flat:
+                newLetter = .g
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .g
+                newType = .sharp
+                newOctave = octave
+            case .sharp:
+                newLetter = .a
+                newType = .natural
+                newOctave = octave
+            }
+        }
+        
+        return Note(letter: newLetter, type: newType, octave: newOctave, clef: clef)
+    }
+    
+    func transposeDownHalfStep() -> Note {
+        let newLetter: NoteLetter
+        let newType: NoteType
+        let newOctave: NoteOctave
+        
+        switch letter {
+        case .a:
+            switch type {
+            case .flat:
+                newLetter = .g
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .a
+                newType = .flat
+                newOctave = octave
+            case .sharp:
+                newLetter = .a
+                newType = .natural
+                newOctave = octave
+            }
+        case .b:
+            switch type {
+            case .flat:
+                newLetter = .a
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .b
+                newType = .flat
+                newOctave = octave
+            case .sharp:
+                fatalError("Note does not exist")
+            }
+        case .c:
+            switch type {
+            case .flat:
+                fatalError("Note does not exist")
+            case .natural:
+                newLetter = .b
+                newType = .natural
+                newOctave = NoteOctave(rawValue: octave.rawValue - 1) ?? octave
+            case .sharp:
+                newLetter = .c
+                newType = .natural
+                newOctave = octave
+            }
+        case .d:
+            switch type {
+            case .flat:
+                newLetter = .c
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .d
+                newType = .flat
+                newOctave = octave
+            case .sharp:
+                newLetter = .d
+                newType = .natural
+                newOctave = octave
+            }
+        case .e:
+            switch type {
+            case .flat:
+                newLetter = .d
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .e
+                newType = .flat
+                newOctave = octave
+            case .sharp:
+                fatalError("Note does not exist")
+            }
+        case .f:
+            switch type {
+            case .flat:
+                fatalError("Note does not exist")
+            case .natural:
+                newLetter = .e
+                newType = .natural
+                newOctave = octave
+            case .sharp:
+                newLetter = .f
+                newType = .natural
+                newOctave = octave
+            }
+        case .g:
+            switch type {
+            case .flat:
+                newLetter = .f
+                newType = .natural
+                newOctave = octave
+            case .natural:
+                newLetter = .g
+                newType = .flat
+                newOctave = octave
+            case .sharp:
+                newLetter = .g
+                newType = .natural
+                newOctave = octave
+            }
+        }
+        
+        return Note(letter: newLetter, type: newType, octave: newOctave, clef: clef)
+    }
+    
+    func transpose(to transposeType: NoteType) -> Note {
+        switch type {
+        case .flat:
+            switch transposeType {
+            case .flat:
+                return self
+            case .natural:
+                return self.transposeUpHalfStep()
+            case .sharp:
+                return self.transposeUpHalfStep().transposeUpHalfStep()
+            }
+        case .natural:
+            switch transposeType {
+            case .flat:
+                return self.transposeDownHalfStep()
+            case .natural:
+                return self
+            case .sharp:
+                return self.transposeUpHalfStep()
+            }
+        case .sharp:
+            switch transposeType {
+            case .flat:
+                return self.transposeDownHalfStep().transposeDownHalfStep()
+            case .natural:
+                return self.transposeDownHalfStep()
+            case .sharp:
+                return self
+            }
+        }
+    }
 }
 
 extension Note: Hashable {
@@ -468,5 +859,27 @@ extension Note: Hashable {
         hasher.combine(octave)
         hasher.combine(clef)
         hasher.combine(position)
+    }
+}
+
+extension Note: Comparable {
+    static func < (lhs: Note, rhs: Note) -> Bool {
+        if lhs.octave.octaveNumber() < rhs.octave.octaveNumber() {
+            return true
+        } else if lhs.octave.octaveNumber() == rhs.octave.octaveNumber() {
+            if lhs.letter < rhs.letter {
+                return true
+            } else if lhs.letter == rhs.letter {
+                if lhs.type < rhs.type {
+                    return true
+                } else if lhs.type == rhs.type {
+                    if lhs.clef < rhs.clef {
+                        return true
+                    }
+                }
+            }
+        }
+        
+        return false
     }
 }
