@@ -70,6 +70,16 @@ extension HelperChartsController {
         chartCategories.move(fromOffsets: fromOffsets, toOffset: toOffset)
     }
     
+    func deleteFingeringChartInChartCategory(categoryName: String, atOffsets offsets: IndexSet) {
+        if let index = chartCategoryIndex(with: categoryName) {
+            chartCategories[index].fingeringCharts.remove(atOffsets: offsets)
+        }
+    }
+    
+    func deleteChartCategory(atOffsets offsets: IndexSet) {
+        chartCategories.remove(atOffsets: offsets)
+    }
+    
     func addChartCategory(category: ChartCategory) {
         let categorySection = category.section
         
