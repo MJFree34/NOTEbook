@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct AddFingeringChartView: View {
+    private enum Mode {
+        case update
+        case add
+    }
+    
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var helperChartsController: HelperChartsController
     
     var categoryName: String
+    private var mode: Mode
     
     @State private var instrumentType: InstrumentType?
     @State private var inputNoteRange = false
@@ -28,6 +34,24 @@ struct AddFingeringChartView: View {
         instrumentType != nil && (!inputNoteRange || (clef != nil))
     }
     
+    init(categoryName: String) {
+        self.categoryName = categoryName
+        self.mode = .add
+    }
+    
+    init(categoryName: String, instrumentType: InstrumentType, minNote: Note? = nil, maxNote: Note? = nil) {
+        self.categoryName = categoryName
+        self.mode = .update
+        self._instrumentType = .init(initialValue: instrumentType)
+        
+        if let minNote = minNote, let maxNote = maxNote {
+            self._inputNoteRange = .init(initialValue: true)
+            self._clef = .init(initialValue: minNote.clef)
+            self._minNote = .init(initialValue: minNote)
+            self._maxNote = .init(initialValue: maxNote)
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -41,6 +65,7 @@ struct AddFingeringChartView: View {
                                 .tag(type as InstrumentType?)
                         }
                     }
+                    .disabled(mode == .update)
                 }
                 
                 Section("Note Range Toggle") {
@@ -100,10 +125,16 @@ struct AddFingeringChartView: View {
                         
                         let chart = FingeringChart(instrument: instrument, centerNote: centerNote, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes, noteFingerings: noteFingerings)
                         
-                        helperChartsController.addChart(in: categoryName, chart: chart)
+                        switch mode {
+                        case .add:
+                            helperChartsController.addChart(in: categoryName, chart: chart)
+                        case .update:
+                            helperChartsController.updateChart(in: categoryName, chart: chart)
+                        }
+                        
                         dismiss()
                     } label: {
-                        Text("Add \(instrumentType != nil ? instrumentType!.rawValue : "Chart")")
+                        Text("\(mode == .add ? "Add" : "Update") \(instrumentType != nil ? instrumentType!.rawValue : "Chart")")
                     }
                     .buttonStyle(.bordered)
                     .disabled(!isFilledOut)
@@ -136,7 +167,7 @@ struct AddFingeringChartView: View {
                     }
                 }
             }
-            .navigationTitle("Add Chart in \(categoryName)")
+            .navigationTitle("\(mode == .add ? "Add Chart in \(categoryName)" : "Update \(instrumentType!.rawValue)")")
             .navigationBarTitleDisplayMode(.inline)
         }
     }

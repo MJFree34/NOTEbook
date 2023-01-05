@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct InstrumentsListView: View {
-    private enum SheetType: Int, Identifiable {
+    private enum SheetType: Int {
         case addChartCategory
         case addChart
-        
-        var id: Int { rawValue }
     }
     
     private struct AddSheet: Identifiable {
@@ -24,15 +22,13 @@ struct InstrumentsListView: View {
     
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
-    @StateObject private var pathStore = PathStore()
-    
     @State private var editMode = EditMode.inactive
     @State private var chartCategoryMovingInsideName: String?
     
     @State private var currentAddSheet: AddSheet?
     
     var body: some View {
-        NavigationStack(path: $pathStore.path) {
+        NavigationStack {
             List(ChartSection.allCases) { section in
                 chartSectionSection(section: section)
             }
@@ -52,9 +48,6 @@ struct InstrumentsListView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     addButton()
                 }
-            }
-            .navigationDestination(for: FingeringChart.self) { fingeringChart in
-                ChartDetailView(chart: fingeringChart)
             }
             .navigationTitle("NOTEbook Helper")
             .environment(\.editMode, $editMode)
@@ -76,7 +69,9 @@ struct InstrumentsListView: View {
     func chartCategorySection(chartCategory: ChartCategory) -> some View {
         Section {
             ForEach(chartCategory.fingeringCharts) { fingeringChart in
-                NavigationLink(value: fingeringChart) {
+                NavigationLink {
+                    ChartDetailView(chart: fingeringChart, categoryName: chartCategory.name)
+                } label: {
                     Text(fingeringChart.name)
                         .padding(.leading)
                 }

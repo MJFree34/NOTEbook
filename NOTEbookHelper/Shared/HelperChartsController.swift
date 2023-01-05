@@ -36,6 +36,14 @@ extension HelperChartsController {
         return chartCategories.firstIndex { $0.name == categoryName }
     }
     
+    private func chartIndex(in categoryName: String, instrumentType: InstrumentType) -> Int? {
+        return chartCategory(with: categoryName)?.fingeringCharts.firstIndex { $0.instrument.type == instrumentType }
+    }
+    
+    func chart(in categoryName: String, instrumentType: InstrumentType) -> FingeringChart? {
+        return chartCategory(with: categoryName)?.fingeringCharts.first { $0.instrument.type == instrumentType }
+    }
+    
     func chartCategories(in section: ChartSection) -> [ChartCategory] {
         chartCategories.filter { $0.section == section }
     }
@@ -83,6 +91,12 @@ extension HelperChartsController {
     func addChart(in categoryName: String, chart: FingeringChart) {
         if let index = chartCategoryIndex(with: categoryName) {
             chartCategories[index].fingeringCharts.append(chart)
+        }
+    }
+    
+    func updateChart(in categoryName: String, chart: FingeringChart) {
+        if let categoryIndex = chartCategoryIndex(with: categoryName), let chartIndex = chartIndex(in: categoryName, instrumentType: chart.instrument.type) {
+            chartCategories[categoryIndex].fingeringCharts[chartIndex] = chart
         }
     }
     

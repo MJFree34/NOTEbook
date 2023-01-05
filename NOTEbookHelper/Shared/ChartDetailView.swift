@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct ChartDetailView: View {
+    @EnvironmentObject private var helperChartsController: HelperChartsController
+    
+    @Environment(\.dismiss) private var dismiss
+    
     let chart: FingeringChart
+    let categoryName: String
+    
+    @State private var showEditSheet = false
     
     var body: some View {
         ScrollView {
@@ -20,12 +27,25 @@ struct ChartDetailView: View {
                         NoteCell(noteFingering: noteFingering)
                             .border(.black)
                     }
-
                 }
             }
         }
         .tint(.black)
         .padding(.horizontal)
+        .sheet(isPresented: $showEditSheet) {
+            dismiss()
+        } content: {
+            AddFingeringChartView(categoryName: categoryName, instrumentType: chart.instrument.type, minNote: chart.naturalNotes.first, maxNote: chart.naturalNotes.last)
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    showEditSheet = true
+                } label: {
+                    Image(systemName: "pencil")
+                }
+            }
+        }
         .navigationTitle(chart.name)
     }
 }
@@ -33,7 +53,8 @@ struct ChartDetailView: View {
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ChartDetailView(chart: HelperChartsController.exampleChart)
+            ChartDetailView(chart: HelperChartsController.exampleChart, categoryName: HelperChartsController.exampleChartCategory.name)
         }
+        .environmentObject(HelperChartsController.shared)
     }
 }
