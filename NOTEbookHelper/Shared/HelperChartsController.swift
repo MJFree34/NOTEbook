@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class HelperChartsController: ObservableObject {
     static let shared = HelperChartsController()
@@ -42,6 +43,17 @@ extension HelperChartsController {
     
     func chart(in categoryName: String, instrumentType: InstrumentType) -> FingeringChart? {
         return chartCategory(with: categoryName)?.fingeringCharts.first { $0.instrument.type == instrumentType }
+    }
+    
+    func bindingToCategoryName(categoryName: String) -> Binding<String>? {
+        if let categoryIndex = chartCategoryIndex(with: categoryName) {
+            return Binding {
+                self.chartCategories[categoryIndex].name
+            } set: { newName, _ in
+                self.chartCategories[categoryIndex].name = newName
+            }
+        }
+        return nil
     }
     
     func chartCategories(in section: ChartSection) -> [ChartCategory] {

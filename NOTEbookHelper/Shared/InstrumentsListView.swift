@@ -82,8 +82,13 @@ struct InstrumentsListView: View {
                 chartCategoryMovingInsideName = nil
             }
         } header: {
-            Text(chartCategory.name)
-                .bold()
+            if editMode == .active {
+                TextField("Bleh", text: helperChartsController.bindingToCategoryName(categoryName: chartCategory.name)!)
+                    .bold()
+            } else {
+                Text(chartCategory.name)
+                    .bold()
+            }
         }
     }
     
