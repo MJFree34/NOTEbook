@@ -10,9 +10,6 @@ import Foundation
 class HelperChartsController: ObservableObject {
     static let shared = HelperChartsController()
     
-    var currentChart: FingeringChart!
-    var currentChartCategory: ChartCategory!
-    
     @Published private(set) var chartCategories = [ChartCategory]()
     
     init() {
@@ -27,9 +24,6 @@ class HelperChartsController: ObservableObject {
         } catch {
             fatalError("Fail to load charts")
         }
-        
-        currentChartCategory = chartCategory(with: "Trumpet")
-        currentChart = currentChartCategory.fingeringCharts[0]
     }
 }
 
