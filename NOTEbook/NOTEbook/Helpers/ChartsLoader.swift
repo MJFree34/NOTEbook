@@ -16,7 +16,7 @@ enum ChartLoadingError: Error {
 
 struct ChartsLoader {
     static func loadCharts() throws -> [ChartCategory] {
-        guard let chartsURL = Bundle.main.url(forResource: "Charts", withExtension: "json") else { throw ChartLoadingError.invalidURL }
+        guard let chartsURL = Bundle.main.url(forResource: "ChartsRevised", withExtension: "json") else { throw ChartLoadingError.invalidURL }
         guard let data = try? Data(contentsOf: chartsURL) else { throw ChartLoadingError.unloadableData }
         
         let decoder = JSONDecoder()

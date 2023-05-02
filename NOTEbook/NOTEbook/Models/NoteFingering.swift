@@ -7,7 +7,7 @@
 //
 import Foundation
 
-struct NoteFingering: Decodable, Equatable {
+struct NoteFingering: Codable, Equatable {
     var notes: [Note]
     var fingerings: [Fingering]
     
@@ -29,4 +29,11 @@ struct NoteFingering: Decodable, Equatable {
 
 extension NoteFingering: Identifiable {
     var id: UUID { UUID() }
+}
+
+extension NoteFingering: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(notes)
+        hasher.combine(fingerings)
+    }
 }

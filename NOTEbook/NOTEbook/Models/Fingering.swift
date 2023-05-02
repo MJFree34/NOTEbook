@@ -7,8 +7,16 @@
 //
 import Foundation
 
-struct Fingering: Decodable, Equatable {
+struct Fingering: Codable, Equatable {
     var keys: [Bool]?
     var position: Position?
     var triggers: [Bool]?
+}
+
+extension Fingering: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(keys)
+        hasher.combine(position)
+        hasher.combine(triggers)
+    }
 }

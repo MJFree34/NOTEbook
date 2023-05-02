@@ -7,9 +7,9 @@
 //
 import Foundation
 
-struct FingeringChart: Decodable {
+struct FingeringChart: Codable {
     var instrument: Instrument
-    var centerNote: Note
+    var centerNote: Note?
     var naturalNotes: [Note]
     var flatNotes: [Note]
     var sharpNotes: [Note]
@@ -20,4 +20,10 @@ struct FingeringChart: Decodable {
 
 extension FingeringChart: Identifiable {
     var id: String { name }
+}
+
+extension FingeringChart: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(instrument)
+    }
 }

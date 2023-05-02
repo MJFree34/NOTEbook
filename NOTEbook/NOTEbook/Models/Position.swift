@@ -7,7 +7,7 @@
 //
 import Foundation
 
-enum PositionValue: String, Decodable {
+enum PositionValue: String, Codable {
     case first = "1st"
     case second = "2nd"
     case third = "3rd"
@@ -17,7 +17,14 @@ enum PositionValue: String, Decodable {
     case seventh = "7th"
 }
 
-struct Position: Decodable, Equatable {
+struct Position: Codable, Equatable {
     var value: PositionValue
     var type: NoteType
+}
+
+extension Position: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+        hasher.combine(type)
+    }
 }

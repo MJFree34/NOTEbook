@@ -7,18 +7,18 @@
 //
 import Foundation
 
-enum ChartCategoryType: String, Decodable, CaseIterable {
+enum ChartSection: String, Codable, CaseIterable {
     case woodwinds = "Woodwinds"
     case brass = "Brass"
 }
 
-extension ChartCategoryType: Identifiable {
+extension ChartSection: Identifiable {
     var id: String { rawValue }
 }
 
-struct ChartCategory: Decodable {
+struct ChartCategory: Codable {
     var name: String
-    var type: ChartCategoryType
+    var section: ChartSection
     var fingeringCharts: [FingeringChart]
 }
 
