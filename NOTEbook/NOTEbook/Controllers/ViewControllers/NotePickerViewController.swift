@@ -77,7 +77,7 @@ class NotePickerViewController: UIViewController {
         
         NotePickerViewController.spaceBetweenStaffLines = view.bounds.height / 33
         
-        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
+        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote!)
         
         configureTitleLabel()
         configureLetterArrowView()
@@ -177,7 +177,7 @@ class NotePickerViewController: UIViewController {
         picker.collectionView.register(NotePickerCell.self, forCellWithReuseIdentifier: NotePickerCell.reuseIdentifier)
         picker.cellSpacing = 0
         picker.cellSize = 87 * NotePickerViewController.spaceBetweenStaffLines / 20
-        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
+        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote!)!
         picker.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(picker)
         
@@ -208,7 +208,7 @@ class NotePickerViewController: UIViewController {
     }
     
     private func updateStaffView() {
-        staffView.updateClef(with: chartsController.currentChart.instrument.clef)
+        staffView.updateClef(with: chartsController.currentChart.centerNote!.clef)
         staffCenterYAnchor.constant = NotePickerViewController.spaceBetweenStaffLines * CGFloat(chartsController.currentChart.instrument.offset)
         view.layoutIfNeeded()
     }
@@ -275,8 +275,8 @@ class NotePickerViewController: UIViewController {
     
     @objc
     private func reloadInstrumentViews() {
-        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote)!
-        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote)
+        picker.selectedIndex = chartsController.currentChart.naturalNotes.firstIndex(of: chartsController.currentChart.centerNote!)!
+        currentNoteFingering = chartsController.noteFingeringInCurrentChart(for: chartsController.currentChart.centerNote!)
         
         updateNoteType(to: .natural, animate: false) { _ in
             self.currentNoteType = .natural

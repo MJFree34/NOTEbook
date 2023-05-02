@@ -87,7 +87,7 @@ extension NoteChartCell {
             addStaffLine(topInset: centerOfStaffInsetFromTop + spaceBetweenStaffLines * CGFloat(i))
         }
         
-        if chartsController.currentChart.instrument.clef == .treble {
+        if chartsController.currentChart.centerNote!.clef == .treble {
             trebleClef.isHidden = false
             bassClef.isHidden = true
         } else {

@@ -52,7 +52,7 @@ class InstrumentsListViewController: InstrumentsViewController {
         var categories = [ChartCategory]()
         
         for category in chartsController.purchasedChartCategories {
-            if category.type == .woodwinds {
+            if category.section == .woodwinds {
                 categories.append(category)
             }
         }
@@ -64,7 +64,7 @@ class InstrumentsListViewController: InstrumentsViewController {
         var categories = [ChartCategory]()
         
         for category in chartsController.purchasedChartCategories {
-            if category.type == .brass {
+            if category.section == .brass {
                 categories.append(category)
             }
         }

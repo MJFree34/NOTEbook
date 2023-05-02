@@ -65,7 +65,7 @@ class NotePickerCell: UICollectionViewCell {
     private var upperLine8CenterYConstraint: NSLayoutConstraint!
     
     private func initialize() {
-        let initNote = Note(letter: .c, type: .natural, pitch: .highMedium, clef: .treble)
+        let initNote = Note(letter: .c, type: .natural, octave: .five, clef: .treble)
         
         upperQuarterNote = NotePickerCellQuarterNote(quarterNoteOrientation: .upper, hide: quarterNoteOrientation == .lower)
         contentView.addSubview(upperQuarterNote)
@@ -202,11 +202,7 @@ class NotePickerCell: UICollectionViewCell {
     }
     
     func reloadViews() {
-        if note.position == .middle2ndSpace || note.position == .middle2ndLine || note.position == .middle1stSpace || note.position == .middle1stLine || note.position.findLocation() == .bottom {
-            quarterNoteOrientation = .lower
-        } else {
-            quarterNoteOrientation = .upper
-        }
+        quarterNoteOrientation = note.isLowerQuarterNote() ? .lower : .upper
         
         upperQuarterNote.isHidden = quarterNoteOrientation == .lower
         lowerQuarterNote.isHidden = quarterNoteOrientation == .upper

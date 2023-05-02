@@ -84,8 +84,8 @@ extension ChartsController {
         return currentChartCategory.fingeringCharts.count
     }
     
-    func chartCategories(of type: ChartCategoryType) -> [ChartCategory] {
-        chartCategories.filter { $0.type == type }
+    func chartCategories(of type: ChartSection) -> [ChartCategory] {
+        chartCategories.filter { $0.section == type }
     }
     
     func changeCurrentChart(to categoryName: String, chartIndex: Int) {
