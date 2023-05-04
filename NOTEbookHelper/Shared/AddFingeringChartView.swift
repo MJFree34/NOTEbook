@@ -13,24 +13,39 @@ struct AddFingeringChartView: View {
         case add
     }
     
+    private enum NoteRangeSelection: String {
+        case none
+        case min
+        case center
+        case max
+    }
+    
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var helperChartsController: HelperChartsController
     
     var categoryName: String
+    
     private var mode: Mode
     
     @State private var instrumentType: InstrumentType?
-    @State private var inputNoteRange = false
-    @State private var clef: Clef?
-    @State private var minNote: Note?
-    @State private var maxNote: Note?
+//    @State private var inputNoteRange = false
+    @State private var inputNoteRange = true
+//    @State private var clef: Clef?
+    @State private var clef: Clef? = .treble
+    @State private var noteRangeSelection: NoteRangeSelection = .center
+//    @State private var minNote: Note?
+    @State private var minNote: Note? = Note(letter: .c, type: .natural, octave: .three, clef: .treble)
+//    @State private var centerNote: Note?
+    @State private var centerNote: Note? = Note(letter: .c, type: .natural, octave: .five, clef: .treble)
+//    @State private var maxNote: Note?
+    @State private var maxNote: Note? = Note(letter: .g, type: .natural, octave: .six, clef: .treble)
     
     private let staffLineSpacing: CGFloat = 18
     private let staffWidth: CGFloat = 300
     private let noteLineSpacing: CGFloat = 10
     
-    var isFilledOut: Bool {
+    private var isFilledOut: Bool {
         instrumentType != nil && (!inputNoteRange || (clef != nil))
     }
     
@@ -173,12 +188,54 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func noteRangePicker() -> some View {
+    private func noteRangePicker() -> some View {
         VStack {
-            HStack {
-                minNotePicker()
-                Spacer()
-                maxNotePicker()
+            if let minNote = minNote, let centerNote = centerNote, let maxNote = maxNote {
+                HStack {
+                    noteLabel(selection: .min, letter: minNote.capitalizedLetter())
+                    
+                    noteLabel(selection: .center, letter: centerNote.capitalizedLetter())
+                        .foregroundColor(Color("MediumRed"))
+                    
+                    noteLabel(selection: .max, letter: maxNote.capitalizedLetter())
+                    
+                    Spacer()
+                    
+                    verticalStepper(
+                        increment: {
+                            switch noteRangeSelection {
+                            case .min:
+                                if minNote.position == centerNote.position {
+                                    self.centerNote = centerNote.higherNote()
+                                }
+                                self.minNote = minNote.higherNote()
+                            case .center:
+                                self.centerNote = centerNote.higherNote()
+                            case .max:
+                                self.maxNote = maxNote.higherNote()
+                            case .none:
+                                break
+                            }
+                        }, decrement: {
+                            switch noteRangeSelection {
+                            case .min:
+                                self.minNote = minNote.lowerNote()
+                            case .center:
+                                self.centerNote = centerNote.lowerNote()
+                            case .max:
+                                if maxNote.position == centerNote.position {
+                                    self.centerNote = centerNote.lowerNote()
+                                }
+                                self.maxNote = maxNote.lowerNote()
+                            case .none:
+                                break
+                            }
+                        },
+                        disableIncrement: disableIncrement(),
+                        disableDecrement: disableDecrement()
+                    )
+                }
+                .padding(.horizontal)
             }
             
             Spacer()
@@ -200,7 +257,59 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func minNotePicker() -> some View {
+    private func noteLabel(selection: NoteRangeSelection, letter: String) -> some View {
+        VStack {
+            Text(selection.rawValue)
+                .font(.caption)
+            
+            Text(letter)
+                .font(.title)
+        }
+        .frame(width: 60, height: 60)
+        .background(RoundedRectangle(cornerRadius: 5).fill(selection == noteRangeSelection ? Color("LightAqua") : .white))
+        .onTapGesture {
+            if noteRangeSelection != selection {
+                noteRangeSelection = selection
+            } else {
+                noteRangeSelection = .none
+            }
+        }
+    }
+    
+    private func disableIncrement() -> Bool {
+        if let minNote = minNote, let centerNote = centerNote, let maxNote = maxNote, let clef = clef {
+            switch noteRangeSelection {
+            case .min:
+                return minNote.position == Note.maxNote(for: clef).position || minNote.position == maxNote.position
+            case .center:
+                return centerNote.position == maxNote.position
+            case .max:
+                return maxNote.position == Note.maxNote(for: clef).position
+            case .none:
+                return true
+            }
+        }
+        return true
+    }
+    
+    private func disableDecrement() -> Bool {
+        if let minNote = minNote, let centerNote = centerNote, let maxNote = maxNote, let clef = clef {
+            switch noteRangeSelection {
+            case .min:
+                return minNote.position == Note.minNote(for: clef).position
+            case .center:
+                return centerNote.position == minNote.position
+            case .max:
+                return maxNote.position == Note.minNote(for: clef).position || maxNote.position == minNote.position
+            case .none:
+                return true
+            }
+        }
+        return true
+    }
+    
+    @ViewBuilder
+    private func minNotePicker() -> some View {
         HStack {
             if let minNote = minNote, let maxNote = maxNote {
                 verticalStepper(
@@ -227,7 +336,7 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func maxNotePicker() -> some View {
+    private func maxNotePicker() -> some View {
         HStack {
             if let maxNote = maxNote, let minNote = minNote {
                 VStack {
@@ -254,7 +363,7 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func verticalStepper(increment: @escaping () -> Void, decrement: @escaping () -> Void, disableIncrement: Bool, disableDecrement: Bool) -> some View {
+    private func verticalStepper(increment: @escaping () -> Void, decrement: @escaping () -> Void, disableIncrement: Bool, disableDecrement: Bool) -> some View {
         VStack(spacing: 4) {
             Button {
                 increment()
@@ -276,7 +385,7 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func staffLinesView() -> some View {
+    private func staffLinesView() -> some View {
         VStack(spacing: staffLineSpacing) {
             ForEach(0..<5) { _ in
                 Rectangle()
@@ -286,7 +395,7 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func clefView(clef: Clef) -> some View {
+    private func clefView(clef: Clef) -> some View {
         if clef == .treble {
             Image("TrebleClef")
                 .resizable()
@@ -303,17 +412,19 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func notesView() -> some View {
+    private func notesView() -> some View {
         HStack(spacing: 20) {
             Spacer()
             
-            if let minNote = minNote {
+            if let minNote = minNote, let centerNote = centerNote, let maxNote = maxNote {
                 noteView(note: minNote)
-            }
-            
-            Spacer()
-            
-            if let maxNote = maxNote {
+                
+                Spacer()
+                
+                noteView(note: centerNote)
+                
+                Spacer()
+                
                 noteView(note: maxNote)
             }
             
@@ -322,7 +433,7 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func noteView(note: Note) -> some View {
+    private func noteView(note: Note) -> some View {
         ZStack(alignment: .center) {
             wholeNoteView()
             
@@ -346,14 +457,14 @@ struct AddFingeringChartView: View {
     }
     
     @ViewBuilder
-    func wholeNoteView() -> some View {
+    private func wholeNoteView() -> some View {
         Image("CellWholeNote")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(height: 20)
     }
     
-    func calculatedExtraLinesOffset(positionsFromCenterStaff: Int, extraLines: Int) -> CGFloat {
+    private func calculatedExtraLinesOffset(positionsFromCenterStaff: Int, extraLines: Int) -> CGFloat {
         let isInSpace = abs(positionsFromCenterStaff) % 2 == 1
         let isBelowStaff = positionsFromCenterStaff < -4
         let finalBelowOffset = isInSpace ? -Int(noteLineSpacing) * (extraLines - 1) - Int(noteLineSpacing) - 1 : -Int(noteLineSpacing) * (extraLines - 1) - 1
