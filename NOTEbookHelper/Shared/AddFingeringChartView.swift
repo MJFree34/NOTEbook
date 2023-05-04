@@ -33,7 +33,7 @@ struct AddFingeringChartView: View {
     @State private var inputNoteRange = true
 //    @State private var clef: Clef?
     @State private var clef: Clef? = .treble
-    @State private var noteRangeSelection: NoteRangeSelection = .center
+    @State private var noteRangeSelection: NoteRangeSelection = .none
 //    @State private var minNote: Note?
     @State private var minNote: Note? = Note(letter: .c, type: .natural, octave: .three, clef: .treble)
 //    @State private var centerNote: Note?
@@ -124,7 +124,6 @@ struct AddFingeringChartView: View {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         let instrument = Instrument(type: instrumentType!)
-                        var centerNote: Note?
                         var naturalNotes = [Note]()
                         var flatNotes = [Note]()
                         var sharpNotes = [Note]()
@@ -134,7 +133,6 @@ struct AddFingeringChartView: View {
                             naturalNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
                             flatNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
                             sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
-                            centerNote = naturalNotes[naturalNotes.count / 2]
                             noteFingerings = helperChartsController.generateEmptyNoteFingerings(naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
                         }
                         
@@ -306,60 +304,6 @@ struct AddFingeringChartView: View {
             }
         }
         return true
-    }
-    
-    @ViewBuilder
-    private func minNotePicker() -> some View {
-        HStack {
-            if let minNote = minNote, let maxNote = maxNote {
-                verticalStepper(
-                    increment: {
-                        self.minNote = minNote.higherNote()
-                    },
-                    decrement: {
-                        self.minNote = minNote.lowerNote()
-                    },
-                    disableIncrement: minNote.position == Note.maxNote(for: clef!).position || minNote.position == maxNote.position,
-                    disableDecrement: minNote.position == Note.minNote(for: clef!).position
-                )
-                .padding(.trailing)
-                
-                VStack {
-                    Text("MIN")
-                        .font(.caption)
-                    
-                    Text(minNote.capitalizedLetter())
-                        .font(.title)
-                }
-            }
-        }
-    }
-    
-    @ViewBuilder
-    private func maxNotePicker() -> some View {
-        HStack {
-            if let maxNote = maxNote, let minNote = minNote {
-                VStack {
-                    Text("MAX")
-                        .font(.caption)
-                    
-                    Text(maxNote.capitalizedLetter())
-                        .font(.title)
-                }
-                
-                verticalStepper(
-                    increment: {
-                        self.maxNote = maxNote.higherNote()
-                    },
-                    decrement: {
-                        self.maxNote = maxNote.lowerNote()
-                    },
-                    disableIncrement: maxNote.position == Note.maxNote(for: clef!).position,
-                    disableDecrement: maxNote.position == Note.minNote(for: clef!).position || maxNote.position == minNote.position
-                )
-                .padding(.leading)
-            }
-        }
     }
     
     @ViewBuilder
