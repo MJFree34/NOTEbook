@@ -24,8 +24,9 @@ struct ChartDetailView: View {
                     NavigationLink {
                         NoteFingeringDetailView(noteFingering: noteFingering, instrumentType: chart.instrument.type)
                     } label: {
-                        NoteCell(noteFingering: noteFingering)
-                            .border(.black)
+                        let highlight = noteFingering.notes[0] == chart.centerNote
+                        NoteCell(noteFingering: noteFingering, highlight: highlight)
+                            .border(highlight ? Color("MediumRed") : .black)
                     }
                 }
             }
