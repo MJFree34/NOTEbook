@@ -29,17 +29,12 @@ struct AddFingeringChartView: View {
     private var mode: Mode
     
     @State private var instrumentType: InstrumentType?
-//    @State private var inputNoteRange = false
-    @State private var inputNoteRange = true
-//    @State private var clef: Clef?
-    @State private var clef: Clef? = .treble
+    @State private var inputNoteRange = false
+    @State private var clef: Clef?
     @State private var noteRangeSelection: NoteRangeSelection = .none
-//    @State private var minNote: Note?
-    @State private var minNote: Note? = Note(letter: .c, type: .natural, octave: .three, clef: .treble)
-//    @State private var centerNote: Note?
-    @State private var centerNote: Note? = Note(letter: .c, type: .natural, octave: .five, clef: .treble)
-//    @State private var maxNote: Note?
-    @State private var maxNote: Note? = Note(letter: .g, type: .natural, octave: .six, clef: .treble)
+    @State private var minNote: Note?
+    @State private var centerNote: Note?
+    @State private var maxNote: Note?
     
     private let staffLineSpacing: CGFloat = 18
     private let staffWidth: CGFloat = 300
@@ -54,7 +49,7 @@ struct AddFingeringChartView: View {
         self.mode = .add
     }
     
-    init(categoryName: String, instrumentType: InstrumentType, minNote: Note? = nil, maxNote: Note? = nil) {
+    init(categoryName: String, instrumentType: InstrumentType, minNote: Note? = nil, centerNote: Note? = nil, maxNote: Note? = nil) {
         self.categoryName = categoryName
         self.mode = .update
         self._instrumentType = .init(initialValue: instrumentType)
@@ -63,6 +58,7 @@ struct AddFingeringChartView: View {
             self._inputNoteRange = .init(initialValue: true)
             self._clef = .init(initialValue: minNote.clef)
             self._minNote = .init(initialValue: minNote)
+            self._centerNote = .init(initialValue: centerNote)
             self._maxNote = .init(initialValue: maxNote)
         }
     }
@@ -155,14 +151,21 @@ struct AddFingeringChartView: View {
             }
             .onChange(of: clef) { newClef in
                 if let newClef = newClef {
-                    if minNote == nil && maxNote == nil {
+                    if minNote == nil && centerNote == nil && maxNote == nil {
                         minNote = Note.middleNote(for: newClef)
+                        centerNote = Note.middleNote(for: newClef)
                         maxNote = Note.middleNote(for: newClef)
-                    } else if let minNote = minNote, let maxNote = maxNote {
+                    } else if let minNote = minNote, let centerNote = centerNote, let maxNote = maxNote {
                         if minNote < Note.minNote(for: newClef) {
                             self.minNote = Note.minNote(for: newClef)
                         } else if minNote > Note.maxNote(for: newClef) {
                             self.minNote = Note.maxNote(for: newClef)
+                        }
+                        
+                        if centerNote < Note.minNote(for: newClef) {
+                            self.centerNote = Note.minNote(for: newClef)
+                        } else if centerNote > Note.maxNote(for: newClef) {
+                            self.centerNote = Note.maxNote(for: newClef)
                         }
                         
                         if maxNote > Note.maxNote(for: newClef) {
@@ -172,10 +175,17 @@ struct AddFingeringChartView: View {
                         }
                         
                         self.minNote = Note(letter: self.minNote!.letter, type: self.minNote!.type, octave: self.minNote!.octave, clef: newClef)
+                        self.centerNote = Note(letter: self.centerNote!.letter, type: self.centerNote!.type, octave: self.centerNote!.octave, clef: newClef)
                         self.maxNote = Note(letter: self.maxNote!.letter, type: self.maxNote!.type, octave: self.maxNote!.octave, clef: newClef)
                         
                         if minNote > maxNote {
                             self.minNote = self.maxNote
+                        }
+                        
+                        if centerNote < minNote {
+                            self.centerNote = minNote
+                        } else if centerNote > maxNote {
+                            self.centerNote = maxNote
                         }
                     }
                 }

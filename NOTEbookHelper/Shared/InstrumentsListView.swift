@@ -36,8 +36,10 @@ struct InstrumentsListView: View {
                 switch addSheet.type {
                 case .addChartCategory:
                     AddFingeringChartCategoryView()
+                        .interactiveDismissDisabled()
                 case .addChart:
                     AddFingeringChartView(categoryName: addSheet.categoryToAddChartInName!)
+                        .interactiveDismissDisabled()
                 }
             }
             .toolbar {

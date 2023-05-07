@@ -36,7 +36,8 @@ struct ChartDetailView: View {
         .sheet(isPresented: $showEditSheet) {
             dismiss()
         } content: {
-            AddFingeringChartView(categoryName: categoryName, instrumentType: chart.instrument.type, minNote: chart.naturalNotes.first, maxNote: chart.naturalNotes.last)
+            AddFingeringChartView(categoryName: categoryName, instrumentType: chart.instrument.type, minNote: chart.naturalNotes.first, centerNote: chart.centerNote, maxNote: chart.naturalNotes.last)
+                .interactiveDismissDisabled()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
