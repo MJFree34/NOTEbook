@@ -73,7 +73,7 @@ struct InstrumentsListView: View {
         Section {
             ForEach(chartCategory.fingeringCharts) { fingeringChart in
                 NavigationLink {
-                    ChartDetailView(chart: fingeringChart, categoryName: chartCategory.name)
+                    ChartDetailView(chart: helperChartsController.bindingToFingeringChart(in: chartCategory.name, instrumentType: fingeringChart.instrument.type) ?? .constant(fingeringChart), categoryName: chartCategory.name)
                 } label: {
                     Text(fingeringChart.name)
                         .padding(.leading)

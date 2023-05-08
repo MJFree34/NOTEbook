@@ -37,8 +37,12 @@ extension HelperChartsController {
         return chartCategories.firstIndex { $0.name == categoryName }
     }
     
-    private func chartIndex(in categoryName: String, instrumentType: InstrumentType) -> Int? {
-        return chartCategory(with: categoryName)?.fingeringCharts.firstIndex { $0.instrument.type == instrumentType }
+    private func fingeringChartIndex(in category: ChartCategory, instrumentType: InstrumentType) -> Int? {
+        return category.fingeringCharts.firstIndex { $0.instrument.type == instrumentType }
+    }
+    
+    private func noteFingeringIndex(in chart: FingeringChart, firstNote: Note) -> Int? {
+        return chart.noteFingerings.firstIndex { $0.notes[0] == firstNote }
     }
     
     func chart(in categoryName: String, instrumentType: InstrumentType) -> FingeringChart? {
@@ -46,11 +50,33 @@ extension HelperChartsController {
     }
     
     func bindingToCategoryName(categoryName: String) -> Binding<String>? {
-        if let categoryIndex = chartCategoryIndex(with: categoryName) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
             return Binding {
-                self.chartCategories[categoryIndex].name
-            } set: { newName, _ in
-                self.chartCategories[categoryIndex].name = newName
+                self.chartCategories[chartCategoryIndex].name
+            } set: { newName in
+                self.chartCategories[chartCategoryIndex].name = newName
+            }
+        }
+        return nil
+    }
+    
+    func bindingToFingeringChart(in categoryName: String, instrumentType: InstrumentType) -> Binding<FingeringChart>? {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType) {
+            return Binding {
+                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex]
+            } set: { newFingeringChart in
+                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = newFingeringChart
+            }
+        }
+        return nil
+    }
+    
+    func bindingToNoteFingering(in categoryName: String, instrumentType: InstrumentType, firstNote: Note) -> Binding<NoteFingering>? {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+            return Binding {
+                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
+            } set: { newNoteFingering in
+                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex] = newNoteFingering
             }
         }
         return nil
@@ -60,24 +86,36 @@ extension HelperChartsController {
         chartCategories.filter { $0.section == section }
     }
     
-    func moveFingeringChartInChartCategory(categoryName: String, fromOffsets: IndexSet, toOffset: Int) {
-        if let index = chartCategoryIndex(with: categoryName) {
-            chartCategories[index].fingeringCharts.move(fromOffsets: fromOffsets, toOffset: toOffset)
-        }
-    }
-    
     func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
         chartCategories.move(fromOffsets: fromOffsets, toOffset: toOffset)
     }
     
-    func deleteFingeringChartInChartCategory(categoryName: String, atOffsets offsets: IndexSet) {
-        if let index = chartCategoryIndex(with: categoryName) {
-            chartCategories[index].fingeringCharts.remove(atOffsets: offsets)
+    func moveFingeringChartInChartCategory(categoryName: String, fromOffsets: IndexSet, toOffset: Int) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
+            chartCategories[chartCategoryIndex].fingeringCharts.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        }
+    }
+    
+    func moveNoteFingeringInFingeringChart(categoryName: String, instrumentType: InstrumentType, firstNote: Note, fromOffsets: IndexSet, toOffset: Int) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.move(fromOffsets: fromOffsets, toOffset: toOffset)
         }
     }
     
     func deleteChartCategory(atOffsets offsets: IndexSet) {
         chartCategories.remove(atOffsets: offsets)
+    }
+    
+    func deleteFingeringChartInChartCategory(categoryName: String, atOffsets offsets: IndexSet) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
+            chartCategories[chartCategoryIndex].fingeringCharts.remove(atOffsets: offsets)
+        }
+    }
+    
+    func deleteFingeringInFingeringChart(categoryName: String, instrumentType: InstrumentType, firstNote: Note, atOffsets offsets: IndexSet) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.remove(atOffsets: offsets)
+        }
     }
     
     func addChartCategory(category: ChartCategory) {
@@ -111,14 +149,14 @@ extension HelperChartsController {
     }
     
     func addChart(in categoryName: String, chart: FingeringChart) {
-        if let index = chartCategoryIndex(with: categoryName) {
-            chartCategories[index].fingeringCharts.append(chart)
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
+            chartCategories[chartCategoryIndex].fingeringCharts.append(chart)
         }
     }
     
     func updateChart(in categoryName: String, chart: FingeringChart) {
-        if let categoryIndex = chartCategoryIndex(with: categoryName), let chartIndex = chartIndex(in: categoryName, instrumentType: chart.instrument.type) {
-            chartCategories[categoryIndex].fingeringCharts[chartIndex] = chart
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: chart.instrument.type) {
+            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = chart
         }
     }
     
