@@ -13,6 +13,7 @@ struct ChartDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     @Binding var chart: FingeringChart
+    
     let categoryName: String
     
     @State private var showEditSheet = false

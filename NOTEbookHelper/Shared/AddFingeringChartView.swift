@@ -24,7 +24,7 @@ struct AddFingeringChartView: View {
     
     @EnvironmentObject var helperChartsController: HelperChartsController
     
-    var categoryName: String
+    let categoryName: String
     
     private var mode: Mode
     

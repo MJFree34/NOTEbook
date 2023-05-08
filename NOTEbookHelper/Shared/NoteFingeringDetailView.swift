@@ -13,8 +13,11 @@ struct NoteFingeringDetailView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     @Binding var noteFingering: NoteFingering
+    
     let instrumentType: InstrumentType
     let categoryName: String
+    
+    @State private var showEditSheet = false
     
     var body: some View {
         VStack(alignment: .center) {
@@ -33,14 +36,13 @@ struct NoteFingeringDetailView: View {
                 }
             }
             .listStyle(.inset)
-            
-            if editMode?.wrappedValue.isEditing == true {
-                Button {
-                    // Add fingering
-                } label: {
-                    Label("Add Fingering", systemImage: "plus.circle")
-                }
-                .buttonStyle(.bordered)
+        }
+        .sheet(isPresented: $showEditSheet) {
+            switch instrumentType {
+            case .trumpet:
+                AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0])
+            default:
+                Text("Add Fingering")
             }
         }
         .toolbar {
@@ -57,6 +59,17 @@ struct NoteFingeringDetailView: View {
                     } else {
                         Image(systemName: "pencil")
                     }
+                }
+            }
+            
+            ToolbarItem(placement: .bottomBar) {
+                if editMode?.wrappedValue.isEditing == true {
+                    Button {
+                        showEditSheet = true
+                    } label: {
+                        Text("Add Fingering")
+                    }
+                    .buttonStyle(.bordered)
                 }
             }
         }
