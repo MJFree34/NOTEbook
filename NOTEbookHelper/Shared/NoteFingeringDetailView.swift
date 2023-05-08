@@ -14,12 +14,18 @@ struct NoteFingeringDetailView: View {
     
     @Binding var noteFingering: NoteFingering
     
-    let instrumentType: InstrumentType
     let categoryName: String
+    let instrumentType: InstrumentType
     
     @State private var showEditSheet = false
     @State private var updateIndex: Int?
     @State private var updateFingering: Fingering?
+    
+    init(noteFingering: NoteFingering, categoryName: String, instrumentType: InstrumentType) {
+        self._noteFingering = HelperChartsController.shared.bindingToNoteFingering(in: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0]) ?? .constant(noteFingering)
+        self.categoryName = categoryName
+        self.instrumentType = instrumentType
+    }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -116,15 +122,15 @@ struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationStack {
-                NoteFingeringDetailView(noteFingering: HelperChartsController.shared.bindingToNoteFingering(in: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[1].notes[0]) ?? .constant(HelperChartsController.exampleChart.noteFingerings[1]), instrumentType: HelperChartsController.exampleChart.instrument.type, categoryName: HelperChartsController.exampleChartCategory.name)
+                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[1], categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
             }
             
             NavigationStack {
-                NoteFingeringDetailView(noteFingering: HelperChartsController.shared.bindingToNoteFingering(in: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[0].notes[0]) ?? .constant(HelperChartsController.exampleChart.noteFingerings[0]), instrumentType: HelperChartsController.exampleChart.instrument.type, categoryName: HelperChartsController.exampleChartCategory.name)
+                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[0], categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
             }
             
             NavigationStack {
-                NoteFingeringDetailView(noteFingering: HelperChartsController.shared.bindingToNoteFingering(in: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[2].notes[0]) ?? .constant(HelperChartsController.exampleChart.noteFingerings[2]), instrumentType: HelperChartsController.exampleChart.instrument.type, categoryName: HelperChartsController.exampleChartCategory.name)
+                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[2], categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
             }
         }
         .environmentObject(HelperChartsController.shared)
