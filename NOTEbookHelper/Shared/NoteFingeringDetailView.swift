@@ -18,6 +18,8 @@ struct NoteFingeringDetailView: View {
     let categoryName: String
     
     @State private var showEditSheet = false
+    @State private var updateIndex: Int?
+    @State private var updateFingering: Fingering?
     
     var body: some View {
         VStack(alignment: .center) {
@@ -30,6 +32,13 @@ struct NoteFingeringDetailView: View {
                 } else {
                     ForEach(noteFingering.fingerings, id: \.self) { fingering in
                         fingeringView(fingering: fingering)
+                            .onTapGesture {
+                                if editMode?.wrappedValue.isEditing == true {
+                                    self._updateIndex.wrappedValue = self._noteFingering.wrappedValue.fingerings.firstIndex { $0 == fingering }
+                                    self._updateFingering.wrappedValue = fingering
+                                    showEditSheet = true
+                                }
+                            }
                     }
                     .onMove(perform: moveFingering)
                     .onDelete(perform: deleteFingering)
@@ -38,11 +47,20 @@ struct NoteFingeringDetailView: View {
             .listStyle(.inset)
         }
         .sheet(isPresented: $showEditSheet) {
-            switch instrumentType {
-            case .trumpet:
-                AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0])
-            default:
-                Text("Add Fingering")
+            if let updateIndex = $updateIndex.wrappedValue, let updateFingering = $updateFingering.wrappedValue {
+                switch instrumentType {
+                case .trumpet:
+                    AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], fingeringIndex: updateIndex, fingering: updateFingering)
+                default:
+                    Text("Update Fingering")
+                }
+            } else {
+                switch instrumentType {
+                case .trumpet:
+                    AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0])
+                default:
+                    Text("Add Fingering")
+                }
             }
         }
         .toolbar {

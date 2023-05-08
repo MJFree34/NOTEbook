@@ -166,6 +166,12 @@ extension HelperChartsController {
         }
     }
     
+    func updateFingering(in categoryName: String, instrumentType: InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: Fingering) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings[fingeringIndex] = fingering
+        }
+    }
+    
     func generateNoteList(minNote: Note, maxNote: Note, listNoteType: NoteType) -> [Note] {
         var list = [minNote.transpose(to: listNoteType)]
         var currentNote = minNote
