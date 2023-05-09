@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct AddThreeFingeringView: View {
-    private enum Mode {
-        case update
-        case add
-    }
-    
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var helperChartsController: HelperChartsController
@@ -20,51 +15,41 @@ struct AddThreeFingeringView: View {
     let categoryName: String
     let instrumentType: InstrumentType
     let firstNote: Note
+    let isAdd: Bool
     
-    @State private var key0 = false
-    @State private var key1 = false
-    @State private var key2 = false
+    @Binding var fingering: Fingering
     
-    private var mode: Mode
-    private var fingeringIndex: Int?
+    @State private var key1: Bool
+    @State private var key2: Bool
+    @State private var key3: Bool
     
-    init(categoryName: String, instrumentType: InstrumentType, firstNote: Note) {
-        self.mode = .add
+    init(categoryName: String, instrumentType: InstrumentType, firstNote: Note, isAdd: Bool, fingering: Binding<Fingering>, key1: Bool, key2: Bool, key3: Bool) {
         self.categoryName = categoryName
         self.instrumentType = instrumentType
         self.firstNote = firstNote
-    }
-    
-    init(categoryName: String, instrumentType: InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: Fingering) {
-        self.mode = .update
-        self.categoryName = categoryName
-        self.instrumentType = instrumentType
-        self.firstNote = firstNote
-        self.fingeringIndex = fingeringIndex
-        
-        if let key0 = fingering.keys?[0], let key1 = fingering.keys?[1], let key2 = fingering.keys?[2] {
-            self._key0 = .init(wrappedValue: key0)
-            self._key1 = .init(wrappedValue: key1)
-            self._key2 = .init(wrappedValue: key2)
-        }
+        self.isAdd = isAdd
+        self._fingering = fingering
+        self._key1 = State(initialValue: key1)
+        self._key2 = State(initialValue: key2)
+        self._key3 = State(initialValue: key3)
     }
     
     var body: some View {
         NavigationStack {
             HStack {
-                Image("RoundFingering\(key0 ? "Full" : "Empty")1")
-                    .onTapGesture {
-                        key0.toggle()
-                    }
-                
-                Image("RoundFingering\(key1 ? "Full" : "Empty")2")
+                Image("RoundFingering\(key1 ? "Full" : "Empty")1")
                     .onTapGesture {
                         key1.toggle()
                     }
                 
-                Image("RoundFingering\(key2 ? "Full" : "Empty")3")
+                Image("RoundFingering\(key2 ? "Full" : "Empty")2")
                     .onTapGesture {
                         key2.toggle()
+                    }
+                
+                Image("RoundFingering\(key3 ? "Full" : "Empty")3")
+                    .onTapGesture {
+                        key3.toggle()
                     }
             }
             .toolbar {
@@ -78,17 +63,11 @@ struct AddThreeFingeringView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        let fingering = Fingering(keys: [key0, key1, key2])
-                        switch mode {
-                        case .add:
-                            helperChartsController.addFingering(in: categoryName, instrumentType: instrumentType, firstNote: firstNote, fingering: fingering)
-                        case .update:
-                            helperChartsController.updateFingering(in: categoryName, instrumentType: instrumentType, firstNote: firstNote, fingeringIndex: fingeringIndex ?? 0, fingering: fingering)
-                        }
+                        fingering.keys = [key1, key2, key3]
                         
                         dismiss()
                     } label: {
-                        Text("\(mode == .add ? "Add" : "Update") Fingering")
+                        Text("\(isAdd ? "Add" : "Update") Fingering")
                     }
                     .buttonStyle(.bordered)
                 }
@@ -99,7 +78,11 @@ struct AddThreeFingeringView: View {
 
 struct AddThreeFingeringView_Previews: PreviewProvider {
     static var previews: some View {
-        AddThreeFingeringView(categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[0].notes[0])
-            .environmentObject(HelperChartsController.shared)
+        Group {
+            AddThreeFingeringView(categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[0].notes[0], isAdd: true, fingering: .constant(Fingering()), key1: false, key2: false, key3: false)
+            
+            AddThreeFingeringView(categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[1].notes[0], isAdd: false, fingering: .constant(Fingering()), key1: true, key2: true, key3: true)
+        }
+        .environmentObject(HelperChartsController.shared)
     }
 }

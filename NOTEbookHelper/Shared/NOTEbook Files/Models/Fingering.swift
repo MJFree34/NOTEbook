@@ -21,3 +21,7 @@ extension Fingering: Hashable {
         hasher.combine(triggers)
     }
 }
+
+extension Fingering: Identifiable {
+    var id: UUID { UUID() }
+}

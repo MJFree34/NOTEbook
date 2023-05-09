@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct NoteFingeringDetailView: View {
+    
     @Environment(\.editMode) private var editMode
     
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
-    @Binding var noteFingering: NoteFingering
+    @State private var noteFingering: NoteFingering
     
     let categoryName: String
     let instrumentType: InstrumentType
     
-    @State private var showEditSheet = false
     @State private var updateIndex: Int?
-    @State private var updateFingering: Fingering?
+    @State private var addFingering: Fingering?
+    @State private var savedFingering = Fingering()
     
     init(noteFingering: NoteFingering, categoryName: String, instrumentType: InstrumentType) {
-        self._noteFingering = HelperChartsController.shared.bindingToNoteFingering(in: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0]) ?? .constant(noteFingering)
+        self._noteFingering = State(wrappedValue: noteFingering)
         self.categoryName = categoryName
         self.instrumentType = instrumentType
     }
@@ -31,20 +32,24 @@ struct NoteFingeringDetailView: View {
         VStack(alignment: .center) {
             NoteCell(noteFingering: noteFingering)
                 .fixedSize()
-            
+
             List {
                 if (noteFingering.fingerings.isEmpty) {
                     Text("No fingering exists")
                 } else {
                     ForEach(noteFingering.fingerings, id: \.self) { fingering in
-                        fingeringView(fingering: fingering)
-                            .onTapGesture {
-                                if editMode?.wrappedValue.isEditing == true {
-                                    self._updateIndex.wrappedValue = self._noteFingering.wrappedValue.fingerings.firstIndex { $0 == fingering }
-                                    self._updateFingering.wrappedValue = fingering
-                                    showEditSheet = true
-                                }
+                        HStack {
+                            fingeringView(fingering: fingering)
+                            
+                            Rectangle()
+                                .fill(.white)
+                        }
+                        .onTapGesture {
+                            if editMode?.wrappedValue.isEditing == true {
+                                updateIndex = noteFingering.fingerings.firstIndex { $0 == fingering }
+                                addFingering = fingering
                             }
+                        }
                     }
                     .onMove(perform: moveFingering)
                     .onDelete(perform: deleteFingering)
@@ -52,23 +57,28 @@ struct NoteFingeringDetailView: View {
             }
             .listStyle(.inset)
         }
-        .sheet(isPresented: $showEditSheet) {
-            if let updateIndex = $updateIndex.wrappedValue, let updateFingering = $updateFingering.wrappedValue {
-                switch instrumentType {
-                case .trumpet:
-                    AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], fingeringIndex: updateIndex, fingering: updateFingering)
-                default:
-                    Text("Update Fingering")
-                }
+        .sheet(item: $addFingering, onDismiss: {
+            guard savedFingering != Fingering() else { return }
+            
+            if let updateIndex = updateIndex {
+                noteFingering = helperChartsController.updateFingering(in: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], fingeringIndex: updateIndex, fingering: savedFingering) ?? noteFingering
+                self.updateIndex = nil
             } else {
-                switch instrumentType {
-                case .trumpet:
-                    AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0])
-                default:
-                    Text("Add Fingering")
-                }
+                noteFingering = helperChartsController.addFingering(in: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], fingering: savedFingering) ?? noteFingering
             }
-        }
+            
+            savedFingering = Fingering()
+        }, content: { fingering in
+            let isAdd = fingering == Fingering()
+            
+            switch instrumentType {
+            case .trumpet:
+                AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false)
+                    .interactiveDismissDisabled()
+            default:
+                Text("\(isAdd ? "Add" : "Update") Fingering")
+            }
+        })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -85,11 +95,11 @@ struct NoteFingeringDetailView: View {
                     }
                 }
             }
-            
+
             ToolbarItem(placement: .bottomBar) {
                 if editMode?.wrappedValue.isEditing == true {
                     Button {
-                        showEditSheet = true
+                        addFingering = Fingering()
                     } label: {
                         Text("Add Fingering")
                     }
@@ -110,11 +120,11 @@ struct NoteFingeringDetailView: View {
     }
     
     private func moveFingering(fromOffsets: IndexSet, toOffset: Int) {
-        helperChartsController.moveNoteFingeringInFingeringChart(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], fromOffsets: fromOffsets, toOffset: toOffset)
+        noteFingering = helperChartsController.moveNoteFingeringInFingeringChart(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], fromOffsets: fromOffsets, toOffset: toOffset) ?? noteFingering
     }
     
     private func deleteFingering(atOffsets offsets: IndexSet) {
-        helperChartsController.deleteFingeringInFingeringChart(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], atOffsets: offsets)
+        noteFingering = helperChartsController.deleteFingeringInFingeringChart(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], atOffsets: offsets) ?? noteFingering
     }
 }
 
