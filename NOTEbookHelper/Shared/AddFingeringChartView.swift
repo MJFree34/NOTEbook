@@ -111,28 +111,7 @@ struct AddFingeringChartView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        let instrument = Instrument(type: instrumentType!)
-                        var naturalNotes = [Note]()
-                        var flatNotes = [Note]()
-                        var sharpNotes = [Note]()
-                        var noteFingerings = [NoteFingering]()
-                        
-                        if let minNote = minNote, let maxNote = maxNote {
-                            naturalNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
-                            flatNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
-                            sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
-                            noteFingerings = helperChartsController.generateEmptyNoteFingerings(naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
-                        }
-                        
-                        let chart = FingeringChart(instrument: instrument, centerNote: centerNote, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes, noteFingerings: noteFingerings)
-                        
-                        switch mode {
-                        case .add:
-                            helperChartsController.addChart(in: categoryName, chart: chart)
-                        case .update:
-                            helperChartsController.updateChart(in: categoryName, chart: chart)
-                        }
-                        
+                        createAndAddChart()
                         dismiss()
                     } label: {
                         Text("\(mode == .add ? "Add" : "Update") \(instrumentType != nil ? instrumentType!.rawValue : "Chart")")
@@ -416,6 +395,30 @@ struct AddFingeringChartView: View {
         let finalBelowOffset = isInSpace ? -Int(noteLineSpacing) * (extraLines - 1) - Int(noteLineSpacing) - 1 : -Int(noteLineSpacing) * (extraLines - 1) - 1
         let finalAboveOffset = isInSpace ? Int(noteLineSpacing) * (extraLines - 1) + Int(noteLineSpacing) - 1 : Int(noteLineSpacing) * (extraLines - 1) - 1
         return CGFloat(isBelowStaff ? finalBelowOffset : finalAboveOffset)
+    }
+    
+    private func createAndAddChart() {
+        let instrument = Instrument(type: instrumentType!)
+        var naturalNotes = [Note]()
+        var flatNotes = [Note]()
+        var sharpNotes = [Note]()
+        var noteFingerings = [NoteFingering]()
+        
+        if let minNote = minNote, let maxNote = maxNote {
+            naturalNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
+            flatNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
+            sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
+            noteFingerings = helperChartsController.generateNoteFingerings(in: categoryName, instrumentType: instrument.type, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
+        }
+        
+        let chart = FingeringChart(instrument: instrument, centerNote: centerNote, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes, noteFingerings: noteFingerings)
+        
+        switch mode {
+        case .add:
+            helperChartsController.addChart(in: categoryName, chart: chart)
+        case .update:
+            helperChartsController.updateChart(in: categoryName, chart: chart)
+        }
     }
 }
 

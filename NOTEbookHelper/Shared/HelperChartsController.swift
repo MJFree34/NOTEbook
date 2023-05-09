@@ -181,31 +181,31 @@ extension HelperChartsController {
         return list
     }
     
-    func generateEmptyNoteFingerings(naturalNotes: [Note], flatNotes: [Note], sharpNotes: [Note]) -> [NoteFingering] {
-        var noteFingerings = [NoteFingering]()
+    func generateNoteFingerings(in categoryName: String, instrumentType: InstrumentType, naturalNotes: [Note], flatNotes: [Note], sharpNotes: [Note]) -> [NoteFingering] {
+        var newNoteFingerings = [NoteFingering]()
         
         var index = 0
         
         if flatNotes[index].type == .flat {
             let flatNote = flatNotes[index]
             let sharpNote = flatNote.transposeDownHalfStep().transposeUpHalfStep()
-            noteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+            newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
         } else {
-            noteFingerings.append(NoteFingering(notes: [flatNotes[index]], fingerings: []))
+            newNoteFingerings.append(NoteFingering(notes: [flatNotes[index]], fingerings: []))
         }
         
-        noteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
+        newNoteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
         
         if sharpNotes[index].type == .sharp {
             let sharpNote = sharpNotes[index]
             let flatNote = sharpNote.transposeUpHalfStep().transposeDownHalfStep()
-            noteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+            newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
         }
         
         index += 1
         
         while index < naturalNotes.count {
-            noteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
+            newNoteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
             
             if sharpNotes[index].type == .sharp {
                 let flatNote: Note
@@ -217,13 +217,30 @@ extension HelperChartsController {
                 }
                 
                 let sharpNote = sharpNotes[index]
-                noteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+                newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
             }
             
             index += 1
         }
         
-        return noteFingerings
+        if let oldNoteFingerings = chart(in: categoryName, instrumentType: instrumentType)?.noteFingerings {
+            var oldIndex = 0
+            var newIndex = 0
+            
+            if let matchIndex = oldNoteFingerings.firstIndex(where: { $0.notes == newNoteFingerings[0].notes }) {
+                oldIndex = matchIndex
+            } else if let matchIndex = newNoteFingerings.firstIndex(where: { $0.notes == oldNoteFingerings[0].notes }) {
+                newIndex = matchIndex
+            }
+            
+            while oldIndex < oldNoteFingerings.count && newIndex < newNoteFingerings.count && oldNoteFingerings[oldIndex].notes == newNoteFingerings[newIndex].notes {
+                newNoteFingerings[newIndex].fingerings = oldNoteFingerings[oldIndex].fingerings
+                oldIndex += 1
+                newIndex += 1
+            }
+        }
+        
+        return newNoteFingerings
     }
 }
 
