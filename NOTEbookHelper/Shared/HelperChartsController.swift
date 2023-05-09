@@ -197,8 +197,8 @@ extension HelperChartsController {
         noteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
         
         if sharpNotes[index].type == .sharp {
-            let flatNote = flatNotes[index + 1]
             let sharpNote = sharpNotes[index]
+            let flatNote = sharpNote.transposeUpHalfStep().transposeDownHalfStep()
             noteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
         }
         

@@ -29,7 +29,6 @@ struct AddFingeringChartView: View {
     private var mode: Mode
     
     @State private var instrumentType: InstrumentType?
-    @State private var inputNoteRange = false
     @State private var clef: Clef?
     @State private var noteRangeSelection: NoteRangeSelection = .none
     @State private var minNote: Note?
@@ -41,7 +40,7 @@ struct AddFingeringChartView: View {
     private let noteLineSpacing: CGFloat = 10
     
     private var isFilledOut: Bool {
-        instrumentType != nil && (!inputNoteRange || (clef != nil))
+        instrumentType != nil && clef != nil
     }
     
     init(categoryName: String) {
@@ -55,7 +54,6 @@ struct AddFingeringChartView: View {
         self._instrumentType = .init(initialValue: instrumentType)
         
         if let minNote = minNote, let maxNote = maxNote {
-            self._inputNoteRange = .init(initialValue: true)
             self._clef = .init(initialValue: minNote.clef)
             self._minNote = .init(initialValue: minNote)
             self._centerNote = .init(initialValue: centerNote)
@@ -79,32 +77,26 @@ struct AddFingeringChartView: View {
                     .disabled(mode == .update)
                 }
                 
-                Section("Note Range Toggle") {
-                    Toggle("Input Note Range", isOn: $inputNoteRange)
-                }
-                
-                if inputNoteRange {
-                    Section("Clef") {
-                        Picker("Clef", selection: $clef) {
-                            Text("")
-                                .tag(nil as Clef?)
-                            
-                            ForEach(Clef.allCases) { clef in
-                                Text(clef.rawValue.capitalized)
-                                    .tag(clef as Clef?)
-                            }
+                Section("Clef") {
+                    Picker("Clef", selection: $clef) {
+                        Text("")
+                            .tag(nil as Clef?)
+                        
+                        ForEach(Clef.allCases) { clef in
+                            Text(clef.rawValue.capitalized)
+                                .tag(clef as Clef?)
                         }
                     }
-                    
-                    if clef != nil {
-                        Section("Note Range") {
-                            HStack {
-                                Spacer()
-                                noteRangePicker()
-                                Spacer()
-                            }
-                            .padding(.vertical)
+                }
+                
+                if clef != nil {
+                    Section("Note Range") {
+                        HStack {
+                            Spacer()
+                            noteRangePicker()
+                            Spacer()
                         }
+                        .padding(.vertical)
                     }
                 }
             }
@@ -125,7 +117,7 @@ struct AddFingeringChartView: View {
                         var sharpNotes = [Note]()
                         var noteFingerings = [NoteFingering]()
                         
-                        if inputNoteRange, let minNote = minNote, let maxNote = maxNote {
+                        if let minNote = minNote, let maxNote = maxNote {
                             naturalNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
                             flatNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
                             sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
