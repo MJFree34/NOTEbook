@@ -6,12 +6,7 @@
             {
                 "instrument": {
                     "type": "Trumpet",
-                    "fingeringWidth": 140,
-                    "chartCellHeight": 215,
-                    "chartCenterOfStaffFromTop": 75,
-                    "offset": -0.25,
-                    "chartFingeringHeight": 22,
-                    "maximumSpacingFingerings": 2.5
+                    "offset": -0.25
                 },
                 "centerNote": {
                     "letter": "c",

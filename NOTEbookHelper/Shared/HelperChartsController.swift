@@ -259,6 +259,25 @@ class HelperChartsController: ObservableObject {
         return newNoteFingerings
     }
     
+    func generateOffset(minNote: Note, maxNote: Note) -> Double {
+        var minPositions = minNote.positionsFromCenterStaff()
+        var maxPositions = maxNote.positionsFromCenterStaff()
+        
+        if minPositions >= -4 && minPositions <= 4 {
+            minPositions = 0
+        } else {
+            minPositions = minPositions + (minPositions < 0 ? 4 : -4)
+        }
+        
+        if maxPositions >= -4 && maxPositions <= 4 {
+            maxPositions = 0
+        } else {
+            maxPositions = maxPositions + (maxPositions < 0 ? 4 : -4)
+        }
+        
+        return Double(maxPositions + minPositions) / 4.0
+    }
+    
     // MARK: - Preview Data
     
     #if(DEBUG)

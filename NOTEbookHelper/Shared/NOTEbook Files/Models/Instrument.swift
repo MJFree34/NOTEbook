@@ -36,28 +36,11 @@ extension InstrumentType: Identifiable {
 
 struct Instrument: Codable, Equatable {
     var type: InstrumentType
-    var chartCellHeight: Int
-    var chartCenterOfStaffFromTop: Int
     var offset: Double
-    var chartFingeringHeight: Int
-    var maximumSpacingFingerings: Double
     
-    init(type: InstrumentType, chartCellHeight: Int, chartCenterOfStaffFromTop: Int, offset: Double, chartFingeringHeight: Int, maximumSpacingFingerings: Double) {
+    init(type: InstrumentType, offset: Double) {
         self.type = type
-        self.chartCellHeight = chartCellHeight
-        self.chartCenterOfStaffFromTop = chartCenterOfStaffFromTop
         self.offset = offset
-        self.chartFingeringHeight = chartFingeringHeight
-        self.maximumSpacingFingerings = maximumSpacingFingerings
-    }
-    
-    init(type: InstrumentType) {
-        self.type = type
-        self.chartCellHeight = 0
-        self.chartCenterOfStaffFromTop = 0
-        self.offset = 0
-        self.chartFingeringHeight = 0
-        self.maximumSpacingFingerings = 0
     }
 }
 

@@ -404,8 +404,7 @@ struct AddFingeringChartView: View {
             let sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
             let noteFingerings = helperChartsController.generateNoteFingerings(in: categoryName, instrumentType: instrumentType!, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
             
-            let instrument = Instrument(type: instrumentType!)
-//            let instrument = Instrument(type: instrumentType!, chartCellHeight: <#T##Int#>, chartCenterOfStaffFromTop: <#T##Int#>, offset: <#T##Double#>, chartFingeringHeight: <#T##Int#>, maximumSpacingFingerings: <#T##Double#>)
+            let instrument = Instrument(type: instrumentType!, offset: helperChartsController.generateOffset(minNote: minNote, maxNote: maxNote))
             
             let chart = FingeringChart(instrument: instrument, centerNote: centerNote, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes, noteFingerings: noteFingerings)
             
