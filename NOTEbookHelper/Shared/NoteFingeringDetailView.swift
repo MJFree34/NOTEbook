@@ -124,7 +124,7 @@ struct NoteFingeringDetailView: View {
     }
     
     private func deleteFingering(atOffsets offsets: IndexSet) {
-        noteFingering = helperChartsController.deleteFingeringInFingeringChart(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], atOffsets: offsets) ?? noteFingering
+        noteFingering = helperChartsController.deleteNoteFingeringInFingeringChart(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], atOffsets: offsets) ?? noteFingering
     }
 }
 

@@ -13,6 +13,8 @@ class HelperChartsController: ObservableObject {
     
     @Published private(set) var chartCategories = [ChartCategory]()
     
+    // MARK: - Initializer
+    
     init() {
         do {
             chartCategories = try ChartsLoader.loadCharts()
@@ -26,12 +28,22 @@ class HelperChartsController: ObservableObject {
             fatalError("Fail to load charts")
         }
     }
-}
-
-extension HelperChartsController {
+    
+    // MARK: - Getters
+    
+    func chartCategories(in section: ChartSection) -> [ChartCategory] {
+        chartCategories.filter { $0.section == section }
+    }
+    
     private func chartCategory(with categoryName: String) -> ChartCategory? {
         return chartCategories.first { $0.name == categoryName }
     }
+    
+    private func fingeringChart(in categoryName: String, instrumentType: InstrumentType) -> FingeringChart? {
+        return chartCategory(with: categoryName)?.fingeringCharts.first { $0.instrument.type == instrumentType }
+    }
+    
+    // MARK: - Index Getters
     
     private func chartCategoryIndex(with categoryName: String) -> Int? {
         return chartCategories.firstIndex { $0.name == categoryName }
@@ -45,9 +57,7 @@ extension HelperChartsController {
         return chart.noteFingerings.firstIndex { $0.notes[0] == firstNote }
     }
     
-    func chart(in categoryName: String, instrumentType: InstrumentType) -> FingeringChart? {
-        return chartCategory(with: categoryName)?.fingeringCharts.first { $0.instrument.type == instrumentType }
-    }
+    // MARK: - Binding Getters
     
     func bindingToCategoryName(categoryName: String) -> Binding<String>? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
@@ -71,9 +81,7 @@ extension HelperChartsController {
         return nil
     }
     
-    func chartCategories(in section: ChartSection) -> [ChartCategory] {
-        chartCategories.filter { $0.section == section }
-    }
+    // MARK: - Move Methods
     
     func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
         chartCategories.move(fromOffsets: fromOffsets, toOffset: toOffset)
@@ -93,6 +101,8 @@ extension HelperChartsController {
         return nil
     }
     
+    // MARK: - Delete Methods
+    
     func deleteChartCategory(atOffsets offsets: IndexSet) {
         chartCategories.remove(atOffsets: offsets)
     }
@@ -103,13 +113,15 @@ extension HelperChartsController {
         }
     }
     
-    @discardableResult func deleteFingeringInFingeringChart(categoryName: String, instrumentType: InstrumentType, firstNote: Note, atOffsets offsets: IndexSet) -> NoteFingering? {
+    @discardableResult func deleteNoteFingeringInFingeringChart(categoryName: String, instrumentType: InstrumentType, firstNote: Note, atOffsets offsets: IndexSet) -> NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.remove(atOffsets: offsets)
             return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
         }
         return nil
     }
+    
+    // MARK: - Add Methods
     
     func addChartCategory(category: ChartCategory) {
         let categorySection = category.section
@@ -141,9 +153,9 @@ extension HelperChartsController {
         }
     }
     
-    func addChart(in categoryName: String, chart: FingeringChart) {
+    func addFingeringChart(in categoryName: String, fingeringChart: FingeringChart) {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
-            chartCategories[chartCategoryIndex].fingeringCharts.append(chart)
+            chartCategories[chartCategoryIndex].fingeringCharts.append(fingeringChart)
         }
     }
     
@@ -155,9 +167,11 @@ extension HelperChartsController {
         return nil
     }
     
-    func updateChart(in categoryName: String, chart: FingeringChart) {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: chart.instrument.type) {
-            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = chart
+    // MARK: - Update Methods
+    
+    func updateFingeringChart(in categoryName: String, fingeringChart: FingeringChart) {
+        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: fingeringChart.instrument.type) {
+            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = fingeringChart
         }
     }
     
@@ -168,6 +182,8 @@ extension HelperChartsController {
         }
         return nil
     }
+    
+    // MARK: - Generators
     
     func generateNoteList(minNote: Note, maxNote: Note, listNoteType: NoteType) -> [Note] {
         var list = [minNote.transpose(to: listNoteType)]
@@ -223,7 +239,7 @@ extension HelperChartsController {
             index += 1
         }
         
-        if let oldNoteFingerings = chart(in: categoryName, instrumentType: instrumentType)?.noteFingerings {
+        if let oldNoteFingerings = fingeringChart(in: categoryName, instrumentType: instrumentType)?.noteFingerings {
             var oldIndex = 0
             var newIndex = 0
             
@@ -242,9 +258,13 @@ extension HelperChartsController {
         
         return newNoteFingerings
     }
-}
-
-extension HelperChartsController {
+    
+    // MARK: - Preview Data
+    
+    #if(DEBUG)
+    
     static var exampleChartCategory = shared.chartCategories[0]
     static var exampleChart = exampleChartCategory.fingeringCharts[0]
+    
+    #endif
 }

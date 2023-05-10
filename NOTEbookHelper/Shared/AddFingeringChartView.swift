@@ -398,26 +398,23 @@ struct AddFingeringChartView: View {
     }
     
     private func createAndAddChart() {
-        let instrument = Instrument(type: instrumentType!)
-        var naturalNotes = [Note]()
-        var flatNotes = [Note]()
-        var sharpNotes = [Note]()
-        var noteFingerings = [NoteFingering]()
-        
         if let minNote = minNote, let maxNote = maxNote {
-            naturalNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
-            flatNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
-            sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
-            noteFingerings = helperChartsController.generateNoteFingerings(in: categoryName, instrumentType: instrument.type, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
-        }
-        
-        let chart = FingeringChart(instrument: instrument, centerNote: centerNote, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes, noteFingerings: noteFingerings)
-        
-        switch mode {
-        case .add:
-            helperChartsController.addChart(in: categoryName, chart: chart)
-        case .update:
-            helperChartsController.updateChart(in: categoryName, chart: chart)
+            let naturalNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
+            let flatNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
+            let sharpNotes = helperChartsController.generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .sharp)
+            let noteFingerings = helperChartsController.generateNoteFingerings(in: categoryName, instrumentType: instrumentType!, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
+            
+            let instrument = Instrument(type: instrumentType!)
+//            let instrument = Instrument(type: instrumentType!, chartCellHeight: <#T##Int#>, chartCenterOfStaffFromTop: <#T##Int#>, offset: <#T##Double#>, chartFingeringHeight: <#T##Int#>, maximumSpacingFingerings: <#T##Double#>)
+            
+            let chart = FingeringChart(instrument: instrument, centerNote: centerNote, naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes, noteFingerings: noteFingerings)
+            
+            switch mode {
+            case .add:
+                helperChartsController.addFingeringChart(in: categoryName, fingeringChart: chart)
+            case .update:
+                helperChartsController.updateFingeringChart(in: categoryName, fingeringChart: chart)
+            }
         }
     }
 }
