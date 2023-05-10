@@ -216,6 +216,9 @@ class HelperChartsController: ObservableObject {
             let sharpNote = sharpNotes[index]
             let flatNote = sharpNote.transposeUpHalfStep().transposeDownHalfStep()
             newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+        } else if naturalNotes.count == 1 {
+            let sharpNote = sharpNotes[index]
+            newNoteFingerings.append(NoteFingering(notes: [sharpNote], fingerings: []))
         }
         
         index += 1
