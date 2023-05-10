@@ -63,8 +63,8 @@
 		9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */; };
 		9AE30CE327ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */; };
 		9AE30CE427ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */; };
-		9AE30CE627F0130300E3D44A /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* ChartDetailView.swift */; };
-		9AE30CE727F0130300E3D44A /* ChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* ChartDetailView.swift */; };
+		9AE30CE627F0130300E3D44A /* FingeringChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */; };
+		9AE30CE727F0130300E3D44A /* FingeringChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,7 +100,7 @@
 		9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Instruments.xcassets; path = ../../NOTEbook/NOTEbook/Instruments.xcassets; sourceTree = "<group>"; };
 		9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = ../../NOTEbook/NOTEbook/Colors.xcassets; sourceTree = "<group>"; };
 		9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MusicSymbols.xcassets; path = ../../NOTEbook/NOTEbook/MusicSymbols.xcassets; sourceTree = "<group>"; };
-		9AE30CE527F0130300E3D44A /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
+		9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringChartDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 				9A4D8E832A08B0E400DC483F /* AddFingeringViews */,
 				9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */,
 				9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */,
-				9AE30CE527F0130300E3D44A /* ChartDetailView.swift */,
+				9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */,
 				9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */,
 				9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */,
 				9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */,
@@ -332,7 +332,7 @@
 				9A3A96D82A00CDB200BD7FA5 /* Instrument.swift in Sources */,
 				9A3A96E72A00CDE200BD7FA5 /* ChartsLoader.swift in Sources */,
 				9AC2F88C2A0BF89C002D6E3D /* PositionFingeringView.swift in Sources */,
-				9AE30CE627F0130300E3D44A /* ChartDetailView.swift in Sources */,
+				9AE30CE627F0130300E3D44A /* FingeringChartDetailView.swift in Sources */,
 				9A3F0C0C296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
 				9A3A96E42A00CDB200BD7FA5 /* Fingering.swift in Sources */,
 				9A3F0C03295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */,
@@ -361,7 +361,7 @@
 				9A3A96D92A00CDB200BD7FA5 /* Instrument.swift in Sources */,
 				9A3A96E82A00CDE200BD7FA5 /* ChartsLoader.swift in Sources */,
 				9AC2F88D2A0BF89C002D6E3D /* PositionFingeringView.swift in Sources */,
-				9AE30CE727F0130300E3D44A /* ChartDetailView.swift in Sources */,
+				9AE30CE727F0130300E3D44A /* FingeringChartDetailView.swift in Sources */,
 				9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
 				9A3A96E52A00CDB200BD7FA5 /* Fingering.swift in Sources */,
 				9A3F0C04295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */,

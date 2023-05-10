@@ -154,11 +154,9 @@ struct AddFingeringChartView: View {
                         }
                         
                         if centerNote < minNote {
-                            self.centerNote = minNote
-                        }
-                        
-                        if centerNote > maxNote {
-                            self.centerNote = maxNote
+                            self.centerNote = self.minNote
+                        } else if centerNote > maxNote {
+                            self.centerNote = self.maxNote
                         }
                     }
                 }

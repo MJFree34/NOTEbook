@@ -1,5 +1,5 @@
 //
-//  InstrumentDetailView.swift
+//  FingeringChartDetailView.swift
 //  NOTEbookHelper
 //
 //  Created by Matt Free on 3/26/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChartDetailView: View {
+struct FingeringChartDetailView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     @Environment(\.dismiss) private var dismiss
@@ -59,7 +59,7 @@ struct ChartDetailView: View {
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ChartDetailView(chart: HelperChartsController.exampleChart, categoryName: HelperChartsController.exampleChartCategory.name)
+            FingeringChartDetailView(chart: HelperChartsController.exampleChart, categoryName: HelperChartsController.exampleChartCategory.name)
         }
         .environmentObject(HelperChartsController.shared)
     }
