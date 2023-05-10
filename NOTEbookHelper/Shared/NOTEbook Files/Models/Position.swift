@@ -8,7 +8,8 @@
 
 import Foundation
 
-enum PositionValue: String, Codable {
+enum PositionValue: String, Codable, CaseIterable {
+    case none = "none"
     case first = "1st"
     case second = "2nd"
     case third = "3rd"
@@ -16,6 +17,10 @@ enum PositionValue: String, Codable {
     case fifth = "5th"
     case sixth = "6th"
     case seventh = "7th"
+}
+
+extension PositionValue: Identifiable {
+    var id: String { rawValue }
 }
 
 struct Position: Codable, Equatable {

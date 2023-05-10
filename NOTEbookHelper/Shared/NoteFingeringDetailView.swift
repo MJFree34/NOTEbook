@@ -120,7 +120,7 @@ struct NoteFingeringDetailView: View {
         case .fBbFrenchHorn:
             Text("F/Bb French Horn")
         case .tenorTrombone:
-            Text("Tenor Trombone")
+            PositionFingeringView(fingering: fingering)
         case .fTriggerTenorTrombone:
             Text("F-Trigger Tenor Trombone")
         }
@@ -144,7 +144,7 @@ struct NoteFingeringDetailView: View {
         case .fBbFrenchHorn:
             Text("F/Bb French Horn")
         case .tenorTrombone:
-            Text("Tenor Trombone")
+            AddPositionFingeringView(isAdd: isAdd, fingering: $savedFingering, value: fingering.position?.value ?? .none, type: fingering.position?.type ?? .natural)
         case .fTriggerTenorTrombone:
             Text("F-Trigger Tenor Trombone")
         }
