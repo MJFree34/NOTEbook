@@ -69,15 +69,8 @@ struct NoteFingeringDetailView: View {
             
             savedFingering = Fingering()
         }, content: { fingering in
-            let isAdd = fingering == Fingering()
-            
-            switch instrumentType {
-            case .trumpet:
-                AddThreeFingeringView(categoryName: categoryName, instrumentType: instrumentType, firstNote: noteFingering.notes[0], isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false)
-                    .interactiveDismissDisabled()
-            default:
-                Text("\(isAdd ? "Add" : "Update") Fingering")
-            }
+            addFingeringView(fingering: fingering, isAdd: fingering == Fingering())
+                .interactiveDismissDisabled()
         })
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -112,10 +105,48 @@ struct NoteFingeringDetailView: View {
     @ViewBuilder
     private func fingeringView(fingering: Fingering) -> some View {
         switch instrumentType {
-        case .trumpet:
+        case .flute:
+            Text("Flute")
+        case .clarinet:
+            Text("Clarinet")
+        case .altoSaxophone, .tenorSaxophone:
+            Text("Alto/Tenor Saxophone")
+        case .baritoneSaxophone:
+            Text("Baritone Saxophone")
+        case .trumpet, .mellophone, .fFrenchHorn, .baritoneTC, .baritoneBC, .threeValveBBbTuba, .threeValveEbTuba:
             ThreeValveFingeringView(fingering: fingering)
-        default:
-            Text("Fingering")
+        case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
+            FourValveFingeringView(fingering: fingering)
+        case .fBbFrenchHorn:
+            Text("F/Bb French Horn")
+        case .tenorTrombone:
+            Text("Tenor Trombone")
+        case .fTriggerTenorTrombone:
+            Text("F-Trigger Tenor Trombone")
+        }
+    }
+    
+    @ViewBuilder
+    private func addFingeringView(fingering: Fingering, isAdd: Bool) -> some View {
+        switch instrumentType {
+        case .flute:
+            Text("Flute")
+        case .clarinet:
+            Text("Clarinet")
+        case .altoSaxophone, .tenorSaxophone:
+            Text("Alto/Tenor Saxophone")
+        case .baritoneSaxophone:
+            Text("Baritone Saxophone")
+        case .trumpet, .mellophone, .fFrenchHorn, .baritoneTC, .baritoneBC, .threeValveBBbTuba, .threeValveEbTuba:
+            AddThreeValveFingeringView(isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false)
+        case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
+            AddFourValveFingeringView(isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false, key4: fingering.keys?[3] ?? false)
+        case .fBbFrenchHorn:
+            Text("F/Bb French Horn")
+        case .tenorTrombone:
+            Text("Tenor Trombone")
+        case .fTriggerTenorTrombone:
+            Text("F-Trigger Tenor Trombone")
         }
     }
     

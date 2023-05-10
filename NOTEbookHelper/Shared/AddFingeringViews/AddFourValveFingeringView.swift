@@ -1,20 +1,17 @@
 //
-//  AddThreeFingeringView.swift
+//  AddFourValveFingeringView.swift
 //  NOTEbookHelper
 //
-//  Created by Matt Free on 5/7/23.
+//  Created by Matt Free on 5/10/23.
 //
 
 import SwiftUI
 
-struct AddThreeFingeringView: View {
+struct AddFourValveFingeringView: View {
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var helperChartsController: HelperChartsController
     
-    let categoryName: String
-    let instrumentType: InstrumentType
-    let firstNote: Note
     let isAdd: Bool
     
     @Binding var fingering: Fingering
@@ -22,16 +19,15 @@ struct AddThreeFingeringView: View {
     @State private var key1: Bool
     @State private var key2: Bool
     @State private var key3: Bool
+    @State private var key4: Bool
     
-    init(categoryName: String, instrumentType: InstrumentType, firstNote: Note, isAdd: Bool, fingering: Binding<Fingering>, key1: Bool, key2: Bool, key3: Bool) {
-        self.categoryName = categoryName
-        self.instrumentType = instrumentType
-        self.firstNote = firstNote
+    init(isAdd: Bool, fingering: Binding<Fingering>, key1: Bool, key2: Bool, key3: Bool, key4: Bool) {
         self.isAdd = isAdd
         self._fingering = fingering
         self._key1 = State(initialValue: key1)
         self._key2 = State(initialValue: key2)
         self._key3 = State(initialValue: key3)
+        self._key4 = State(initialValue: key4)
     }
     
     var body: some View {
@@ -51,6 +47,11 @@ struct AddThreeFingeringView: View {
                     .onTapGesture {
                         key3.toggle()
                     }
+                
+                Image("RoundFingering\(key4 ? "Full" : "Empty")4")
+                    .onTapGesture {
+                        key4.toggle()
+                    }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -63,8 +64,7 @@ struct AddThreeFingeringView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        fingering.keys = [key1, key2, key3]
-                        
+                        fingering.keys = [key1, key2, key3, key4]
                         dismiss()
                     } label: {
                         Text("\(isAdd ? "Add" : "Update") Fingering")
@@ -76,12 +76,12 @@ struct AddThreeFingeringView: View {
     }
 }
 
-struct AddThreeFingeringView_Previews: PreviewProvider {
+struct AddFourValveFingeringView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            AddThreeFingeringView(categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[0].notes[0], isAdd: true, fingering: .constant(Fingering()), key1: false, key2: false, key3: false)
+            AddFourValveFingeringView(isAdd: true, fingering: .constant(Fingering()), key1: false, key2: false, key3: false, key4: false)
             
-            AddThreeFingeringView(categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type, firstNote: HelperChartsController.exampleChart.noteFingerings[1].notes[0], isAdd: false, fingering: .constant(Fingering()), key1: true, key2: true, key3: true)
+            AddFourValveFingeringView(isAdd: false, fingering: .constant(Fingering()), key1: true, key2: true, key3: true, key4: true)
         }
         .environmentObject(HelperChartsController.shared)
     }
