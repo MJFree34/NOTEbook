@@ -1,17 +1,19 @@
 //
-//  PositionFingeringView.swift
+//  FTriggerPositionFingeringView.swift
 //  NOTEbookHelper
 //
-//  Created by Matt Free on 5/10/23.
+//  Created by Matt Free on 5/14/23.
 //
 
 import SwiftUI
 
-struct PositionFingeringView: View {
+struct FTriggerPositionFingeringView: View {
     let fingering: Fingering
     
     var body: some View {
         HStack {
+            Image("FTrigger\(fingering.triggers![0] ? "Full" : "Empty")")
+            
             if (fingering.position!.type == .sharp) {
                 Image("Sharp")
                     .resizable()
@@ -34,15 +36,15 @@ struct PositionFingeringView: View {
     }
 }
 
-struct PositionFingeringView_Previews: PreviewProvider {
+struct FTriggerPositionFingeringView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VStack {
-                PositionFingeringView(fingering: Fingering(position: Position(value: .first, type: .flat)))
+                FTriggerPositionFingeringView(fingering: Fingering(position: Position(value: .first, type: .flat), triggers: [false]))
                 
-                PositionFingeringView(fingering: Fingering(position: Position(value: .second, type: .natural)))
+                FTriggerPositionFingeringView(fingering: Fingering(position: Position(value: .second, type: .natural), triggers: [true]))
                 
-                PositionFingeringView(fingering: Fingering(position: Position(value: .third, type: .sharp)))
+                FTriggerPositionFingeringView(fingering: Fingering(position: Position(value: .third, type: .sharp), triggers: [false]))
             }
         }
         .padding()

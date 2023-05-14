@@ -53,6 +53,10 @@
 		9AC2F8932A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8912A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift */; };
 		9AC2F8952A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */; };
 		9AC2F8962A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */; };
+		9AC2F8982A119A8E002D6E3D /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8972A119A8E002D6E3D /* FTriggerPositionFingeringView.swift */; };
+		9AC2F8992A119A8E002D6E3D /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8972A119A8E002D6E3D /* FTriggerPositionFingeringView.swift */; };
+		9AC2F89B2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */; };
+		9AC2F89C2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */; };
 		9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4C27E94B4600E3D44A /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */; };
@@ -96,6 +100,8 @@
 		9AC2F88E2A0BFCB7002D6E3D /* AddPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPositionFingeringView.swift; sourceTree = "<group>"; };
 		9AC2F8912A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
 		9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F8972A119A8E002D6E3D /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
 		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
 		9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsListView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +140,7 @@
 				9AC2F8882A0BF1A6002D6E3D /* AddFourValveFingeringView.swift */,
 				9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */,
 				9AC2F88E2A0BFCB7002D6E3D /* AddPositionFingeringView.swift */,
+				9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */,
 			);
 			path = AddFingeringViews;
 			sourceTree = "<group>";
@@ -145,6 +152,7 @@
 				9AC2F8852A0BF13C002D6E3D /* FourValveFingeringView.swift */,
 				9AC2F8912A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift */,
 				9AC2F88B2A0BF89C002D6E3D /* PositionFingeringView.swift */,
+				9AC2F8972A119A8E002D6E3D /* FTriggerPositionFingeringView.swift */,
 			);
 			path = FingeringViews;
 			sourceTree = "<group>";
@@ -340,6 +348,7 @@
 				9A3A96D82A00CDB200BD7FA5 /* Instrument.swift in Sources */,
 				9A3A96E72A00CDE200BD7FA5 /* ChartsLoader.swift in Sources */,
 				9AC2F8922A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift in Sources */,
+				9AC2F8982A119A8E002D6E3D /* FTriggerPositionFingeringView.swift in Sources */,
 				9AC2F88C2A0BF89C002D6E3D /* PositionFingeringView.swift in Sources */,
 				9AE30CE627F0130300E3D44A /* FingeringChartDetailView.swift in Sources */,
 				9A3F0C0C296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
@@ -355,6 +364,7 @@
 				9A3A96DC2A00CDB200BD7FA5 /* FingeringChart.swift in Sources */,
 				9A91286B2931AA2A00227449 /* ThreeValveFingeringView.swift in Sources */,
 				9A3A96E02A00CDB200BD7FA5 /* ChartCategory.swift in Sources */,
+				9AC2F89B2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */,
 				9AC2F88F2A0BFCB7002D6E3D /* AddPositionFingeringView.swift in Sources */,
 				9A3A96E22A00CDB200BD7FA5 /* NoteFingering.swift in Sources */,
 				9A3F0C06295F2ECB004CA28E /* NoteCell.swift in Sources */,
@@ -371,6 +381,7 @@
 				9A3A96D92A00CDB200BD7FA5 /* Instrument.swift in Sources */,
 				9A3A96E82A00CDE200BD7FA5 /* ChartsLoader.swift in Sources */,
 				9AC2F8932A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift in Sources */,
+				9AC2F8992A119A8E002D6E3D /* FTriggerPositionFingeringView.swift in Sources */,
 				9AC2F88D2A0BF89C002D6E3D /* PositionFingeringView.swift in Sources */,
 				9AE30CE727F0130300E3D44A /* FingeringChartDetailView.swift in Sources */,
 				9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
@@ -386,6 +397,7 @@
 				9A91286C2931AA2B00227449 /* ThreeValveFingeringView.swift in Sources */,
 				9A3A96E12A00CDB200BD7FA5 /* ChartCategory.swift in Sources */,
 				9A3A96E32A00CDB200BD7FA5 /* NoteFingering.swift in Sources */,
+				9AC2F89C2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */,
 				9AC2F8902A0BFCB7002D6E3D /* AddPositionFingeringView.swift in Sources */,
 				9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
 				9A3F0C07295F2ECB004CA28E /* NoteCell.swift in Sources */,
