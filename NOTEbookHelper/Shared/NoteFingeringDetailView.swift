@@ -118,7 +118,7 @@ struct NoteFingeringDetailView: View {
         case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
             FourValveFingeringView(fingering: fingering)
         case .fBbFrenchHorn:
-            Text("F/Bb French Horn")
+            BbTriggerThreeValveFingeringView(fingering: fingering)
         case .tenorTrombone:
             PositionFingeringView(fingering: fingering)
         case .fTriggerTenorTrombone:
@@ -142,7 +142,7 @@ struct NoteFingeringDetailView: View {
         case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
             AddFourValveFingeringView(isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false, key4: fingering.keys?[3] ?? false)
         case .fBbFrenchHorn:
-            Text("F/Bb French Horn")
+            AddBbTriggerThreeValveFingeringView(isAdd: isAdd, fingering: $savedFingering, trigger: fingering.triggers?[0] ?? false, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false)
         case .tenorTrombone:
             AddPositionFingeringView(isAdd: isAdd, fingering: $savedFingering, value: fingering.position?.value ?? .none, type: fingering.position?.type ?? .natural)
         case .fTriggerTenorTrombone:
