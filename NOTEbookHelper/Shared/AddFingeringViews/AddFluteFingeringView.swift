@@ -85,12 +85,7 @@ struct AddFluteFingeringView: View {
                         
                         Image("FluteThumbKeys\(thumb1 ? "Full" : "Empty")\(thumb2 ? "Full" : "Empty")")
                             .onTapGesture {
-                                if !thumb1 && !thumb2 {
-                                    thumb1.toggle()
-                                } else if thumb1 && !thumb2 {
-                                    thumb1.toggle()
-                                    thumb2.toggle()
-                                } else if !thumb1 && thumb2 {
+                                if !thumb1 && !thumb2 || !thumb1 && thumb2 {
                                     thumb1.toggle()
                                 } else {
                                     thumb1.toggle()
@@ -155,12 +150,7 @@ struct AddFluteFingeringView: View {
                     .padding(.trailing, 74)
                     .padding(.bottom, 6)
                     .onTapGesture {
-                        if !lever1 && !lever2 {
-                            lever1.toggle()
-                        } else if lever1 && !lever2 {
-                            lever1.toggle()
-                            lever2.toggle()
-                        } else if !lever1 && lever2 {
+                        if !lever1 && !lever2 || !lever1 && lever2 {
                             lever1.toggle()
                         } else {
                             lever1.toggle()

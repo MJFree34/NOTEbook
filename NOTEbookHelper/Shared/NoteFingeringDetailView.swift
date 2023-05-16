@@ -108,7 +108,7 @@ struct NoteFingeringDetailView: View {
         case .flute:
             FluteFingeringView(fingering: fingering)
         case .clarinet:
-            Text("Clarinet")
+            ClarinetFingeringView(fingering: fingering)
         case .altoSaxophone, .tenorSaxophone:
             Text("Alto/Tenor Saxophone")
         case .baritoneSaxophone:
@@ -132,7 +132,7 @@ struct NoteFingeringDetailView: View {
         case .flute:
             AddFluteFingeringView(isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false, key4: fingering.keys?[3] ?? false, key5: fingering.keys?[4] ?? false, key6: fingering.keys?[5] ?? false, key7: fingering.keys?[6] ?? false, lever1: fingering.keys?[7] ?? false, lever2: fingering.keys?[8] ?? false, trill1: fingering.keys?[9] ?? false, trill2: fingering.keys?[10] ?? false, foot1: fingering.keys?[11] ?? false, foot2: fingering.keys?[12] ?? false, foot3: fingering.keys?[13] ?? false, thumb1: fingering.keys?[14] ?? false, thumb2: fingering.keys?[15] ?? false)
         case .clarinet:
-            Text("Clarinet")
+            AddClarinetFingeringView(isAdd: isAdd, fingering: $savedFingering, key1: fingering.keys?[0] ?? false, key2: fingering.keys?[1] ?? false, key3: fingering.keys?[2] ?? false, key4: fingering.keys?[3] ?? false, key5: fingering.keys?[4] ?? false, key6: fingering.keys?[5] ?? false, bottom1: fingering.keys?[6] ?? false, bottom2: fingering.keys?[7] ?? false, bottom3: fingering.keys?[8] ?? false, bottom4: fingering.keys?[9] ?? false, lever1: fingering.keys?[10] ?? false, lever2: fingering.keys?[11] ?? false, lever3: fingering.keys?[12] ?? false, lever4: fingering.keys?[13] ?? false, lever5: fingering.keys?[14] ?? false, trigger1: fingering.keys?[15] ?? false, trigger2: fingering.keys?[16] ?? false, trigger3: fingering.keys?[17] ?? false, side1: fingering.keys?[18] ?? false, side2: fingering.keys?[19] ?? false, side3: fingering.keys?[20] ?? false, side4: fingering.keys?[21] ?? false, thumb1: fingering.keys?[22] ?? false, thumb2: fingering.keys?[23] ?? false)
         case .altoSaxophone, .tenorSaxophone:
             Text("Alto/Tenor Saxophone")
         case .baritoneSaxophone:

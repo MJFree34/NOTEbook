@@ -37,6 +37,10 @@
 		9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */; };
 		9A4D8E812A08AA6B00DC483F /* AddThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */; };
 		9A4D8E822A08AA6B00DC483F /* AddThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */; };
+		9A8D442F2A1285920093ED1B /* ClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D442E2A1285920093ED1B /* ClarinetFingeringView.swift */; };
+		9A8D44302A1285920093ED1B /* ClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D442E2A1285920093ED1B /* ClarinetFingeringView.swift */; };
+		9A8D44322A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */; };
+		9A8D44332A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */; };
 		9A91286B2931AA2A00227449 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */; };
 		9A91286C2931AA2B00227449 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */; };
 		9A955AC1295518140038A1AB /* ChartsRevised.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A955AC0295518140038A1AB /* ChartsRevised.json */; };
@@ -96,6 +100,8 @@
 		9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFingeringChartCategoryView.swift; sourceTree = "<group>"; };
 		9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFingeringChartView.swift; sourceTree = "<group>"; };
 		9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9A8D442E2A1285920093ED1B /* ClarinetFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarinetFingeringView.swift; sourceTree = "<group>"; };
+		9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClarinetFingeringView.swift; sourceTree = "<group>"; };
 		9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
 		9A955AC0295518140038A1AB /* ChartsRevised.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ChartsRevised.json; sourceTree = "<group>"; };
 		9AC2F8852A0BF13C002D6E3D /* FourValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourValveFingeringView.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */,
+				9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */,
 				9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */,
 				9AC2F8882A0BF1A6002D6E3D /* AddFourValveFingeringView.swift */,
 				9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */,
@@ -156,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				9AC2F89D2A119CDF002D6E3D /* FluteFingeringView.swift */,
+				9A8D442E2A1285920093ED1B /* ClarinetFingeringView.swift */,
 				9A9128682931A8B600227449 /* ThreeValveFingeringView.swift */,
 				9AC2F8852A0BF13C002D6E3D /* FourValveFingeringView.swift */,
 				9AC2F8912A119115002D6E3D /* BbTriggerThreeValveFingeringView.swift */,
@@ -369,7 +377,9 @@
 				9AC2F8892A0BF1A6002D6E3D /* AddFourValveFingeringView.swift in Sources */,
 				9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
 				9A3F0C092962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */,
+				9A8D44322A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */,
 				9A3A96DA2A00CDB200BD7FA5 /* Note.swift in Sources */,
+				9A8D442F2A1285920093ED1B /* ClarinetFingeringView.swift in Sources */,
 				9AC2F8A12A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */,
 				9A3A96DC2A00CDB200BD7FA5 /* FingeringChart.swift in Sources */,
 				9A91286B2931AA2A00227449 /* ThreeValveFingeringView.swift in Sources */,
@@ -404,7 +414,9 @@
 				9AC2F88A2A0BF1A6002D6E3D /* AddFourValveFingeringView.swift in Sources */,
 				9A3F0C0A2962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */,
 				9A3A96DB2A00CDB200BD7FA5 /* Note.swift in Sources */,
+				9A8D44332A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */,
 				9A3A96DD2A00CDB200BD7FA5 /* FingeringChart.swift in Sources */,
+				9A8D44302A1285920093ED1B /* ClarinetFingeringView.swift in Sources */,
 				9AC2F8A22A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */,
 				9A91286C2931AA2B00227449 /* ThreeValveFingeringView.swift in Sources */,
 				9A3A96E12A00CDB200BD7FA5 /* ChartCategory.swift in Sources */,
