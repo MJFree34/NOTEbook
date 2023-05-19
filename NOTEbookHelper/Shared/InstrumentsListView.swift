@@ -56,8 +56,11 @@ struct InstrumentsListView: View {
                 }
             }
             .navigationTitle("NOTEbook Helper")
+            .scrollContentBackground(.hidden)
+            .background(Color("LightestestAqua"))
             .environment(\.editMode, $editMode)
         }
+        .tint(Color("DarkAqua"))
     }
     
     @ViewBuilder
@@ -69,6 +72,8 @@ struct InstrumentsListView: View {
             .onMove(perform: moveChartCategory)
             .onDelete(perform: deleteChartCategory)
         }
+        .foregroundColor(Color("DarkAqua"))
+        .listRowBackground(Color("LightestAqua"))
         .headerProminence(.increased)
     }
     
@@ -81,6 +86,7 @@ struct InstrumentsListView: View {
                 } label: {
                     Text(fingeringChart.name)
                         .padding(.leading)
+                        .foregroundColor(Color("Black"))
                 }
             }
             .onMove { fromOffsets, toOffset in
@@ -94,13 +100,15 @@ struct InstrumentsListView: View {
                 chartCategoryEditingInsideName = nil
             }
         } header: {
-            if editMode == .active {
-                TextField("Bleh", text: helperChartsController.bindingToCategoryName(categoryName: chartCategory.name)!)
-                    .bold()
-            } else {
-                Text(chartCategory.name)
-                    .bold()
+            Group {
+                if editMode == .active {
+                    TextField("Category name", text: helperChartsController.bindingToCategoryName(categoryName: chartCategory.name)!)
+                } else {
+                    Text(chartCategory.name)
+                }
             }
+            .bold()
+            .foregroundColor(Color("MediumAqua"))
         }
     }
     

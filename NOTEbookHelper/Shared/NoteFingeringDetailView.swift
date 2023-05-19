@@ -34,26 +34,29 @@ struct NoteFingeringDetailView: View {
                 .fixedSize()
 
             List {
-                if (noteFingering.fingerings.isEmpty) {
-                    Text("No fingering exists")
-                } else {
-                    ForEach(noteFingering.fingerings, id: \.self) { fingering in
-                        HStack {
-                            fingeringView(fingering: fingering)
-                            
-                            Rectangle()
-                                .fill(.white)
-                        }
-                        .onTapGesture {
-                            if editMode?.wrappedValue.isEditing == true {
-                                updateIndex = noteFingering.fingerings.firstIndex { $0 == fingering }
-                                addFingering = fingering
+                Group {
+                    if (noteFingering.fingerings.isEmpty) {
+                        Text("No fingering exists")
+                    } else {
+                        ForEach(noteFingering.fingerings, id: \.self) { fingering in
+                            HStack {
+                                fingeringView(fingering: fingering)
+                                
+                                Rectangle()
+                                    .fill(Color("LightestestAqua"))
+                            }
+                            .onTapGesture {
+                                if editMode?.wrappedValue.isEditing == true {
+                                    updateIndex = noteFingering.fingerings.firstIndex { $0 == fingering }
+                                    addFingering = fingering
+                                }
                             }
                         }
+                        .onMove(perform: moveFingering)
+                        .onDelete(perform: deleteFingering)
                     }
-                    .onMove(perform: moveFingering)
-                    .onDelete(perform: deleteFingering)
                 }
+                .listRowBackground(Color.clear)
             }
             .listStyle(.inset)
         }
@@ -100,6 +103,8 @@ struct NoteFingeringDetailView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color("LightestestAqua"))
     }
     
     @ViewBuilder

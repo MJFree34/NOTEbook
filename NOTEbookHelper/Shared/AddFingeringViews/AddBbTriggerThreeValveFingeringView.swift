@@ -73,7 +73,10 @@ struct AddBbTriggerThreeValveFingeringView: View {
                     .buttonStyle(.bordered)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("LightestestAqua"))
         }
+        .tint(Color("DarkAqua"))
     }
 }
 

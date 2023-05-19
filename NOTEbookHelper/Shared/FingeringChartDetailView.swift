@@ -54,6 +54,8 @@ struct FingeringChartDetailView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color("LightestestAqua"))
         .navigationTitle(chart.name)
     }
 }

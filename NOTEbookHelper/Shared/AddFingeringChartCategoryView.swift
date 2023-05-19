@@ -22,21 +22,24 @@ struct AddFingeringChartCategoryView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Name") {
-                    TextField("Name", text: $name, prompt: Text("Name"))
-                }
-                
-                Section("Section") {
-                    Picker("Section", selection: $section) {
-                        Text("")
-                            .tag(nil as ChartSection?)
-                        
-                        ForEach(ChartSection.allCases) { section in
-                            Text(section.rawValue)
-                                .tag(section as ChartSection?)
+                Group {
+                    Section("Name") {
+                        TextField("Name", text: $name, prompt: Text("Name"))
+                    }
+                    
+                    Section("Section") {
+                        Picker("Section", selection: $section) {
+                            Text("")
+                                .tag(nil as ChartSection?)
+                            
+                            ForEach(ChartSection.allCases) { section in
+                                Text(section.rawValue)
+                                    .tag(section as ChartSection?)
+                            }
                         }
                     }
                 }
+                .listRowBackground(Color("LightestAqua"))
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -60,7 +63,10 @@ struct AddFingeringChartCategoryView: View {
             }
             .navigationTitle("Add Chart Category")
             .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .background(Color("LightestestAqua"))
         }
+        .tint(Color("DarkAqua"))
     }
 }
 

@@ -82,7 +82,10 @@ struct AddPositionFingeringView: View {
                     .disabled(!isFilledOut)
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("LightestestAqua"))
         }
+        .tint(Color("DarkAqua"))
     }
 }
 

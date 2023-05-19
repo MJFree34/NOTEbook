@@ -28,12 +28,12 @@ struct AddFingeringChartView: View {
     
     private var mode: Mode
     
-    @State private var instrumentType: InstrumentType?
-    @State private var clef: Clef?
+    @State private var instrumentType: InstrumentType? = .trumpet
+    @State private var clef: Clef? = .treble
     @State private var noteRangeSelection: NoteRangeSelection = .none
-    @State private var minNote: Note?
-    @State private var centerNote: Note?
-    @State private var maxNote: Note?
+    @State private var minNote: Note? = Note(letter: .c, type: .natural, octave: .three, clef: .treble)
+    @State private var centerNote: Note? = Note(letter: .c, type: .natural, octave: .five, clef: .treble)
+    @State private var maxNote: Note? = Note(letter: .g, type: .natural, octave: .six, clef: .treble)
     
     private let staffLineSpacing: CGFloat = 18
     private let staffWidth: CGFloat = 300
@@ -64,41 +64,40 @@ struct AddFingeringChartView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Instrument") {
-                    Picker("Instrument", selection: $instrumentType) {
-                        Text("")
-                            .tag(nil as InstrumentType?)
-                        
-                        ForEach(InstrumentType.allCases) { type in
-                            Text(type.rawValue)
-                                .tag(type as InstrumentType?)
+                Group {
+                    Section("Instrument") {
+                        Picker("Instrument", selection: $instrumentType) {
+                            Text("")
+                                .tag(nil as InstrumentType?)
+                            
+                            ForEach(InstrumentType.allCases) { type in
+                                Text(type.rawValue)
+                                    .tag(type as InstrumentType?)
+                            }
+                        }
+                        .disabled(mode == .update)
+                    }
+                    
+                    Section("Clef") {
+                        Picker("Clef", selection: $clef) {
+                            Text("")
+                                .tag(nil as Clef?)
+                            
+                            ForEach(Clef.allCases) { clef in
+                                Text(clef.rawValue.capitalized)
+                                    .tag(clef as Clef?)
+                            }
                         }
                     }
-                    .disabled(mode == .update)
-                }
-                
-                Section("Clef") {
-                    Picker("Clef", selection: $clef) {
-                        Text("")
-                            .tag(nil as Clef?)
-                        
-                        ForEach(Clef.allCases) { clef in
-                            Text(clef.rawValue.capitalized)
-                                .tag(clef as Clef?)
-                        }
-                    }
-                }
-                
-                if clef != nil {
-                    Section("Note Range") {
-                        HStack {
-                            Spacer()
+                    
+                    if clef != nil {
+                        Section("Note Range") {
                             noteRangePicker()
-                            Spacer()
+                                .padding(.vertical)
                         }
-                        .padding(.vertical)
                     }
                 }
+                .listRowBackground(Color("LightestAqua"))
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -163,7 +162,10 @@ struct AddFingeringChartView: View {
             }
             .navigationTitle("\(mode == .add ? "Add Chart in \(categoryName)" : "Update \(instrumentType!.rawValue)")")
             .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .background(Color("LightestestAqua"))
         }
+        .tint(Color("DarkAqua"))
     }
     
     @ViewBuilder
@@ -173,12 +175,16 @@ struct AddFingeringChartView: View {
                 HStack {
                     noteLabel(selection: .min, letter: minNote.capitalizedLetter())
                     
+                    Spacer()
+                    
                     noteLabel(selection: .center, letter: centerNote.capitalizedLetter())
                         .foregroundColor(Color("MediumRed"))
                     
+                    Spacer()
+                    
                     noteLabel(selection: .max, letter: maxNote.capitalizedLetter())
                     
-                    Spacer()
+                    Spacer(minLength: 20)
                     
                     verticalStepper(
                         increment: {
@@ -245,7 +251,7 @@ struct AddFingeringChartView: View {
                 .font(.title)
         }
         .frame(width: 60, height: 60)
-        .background(RoundedRectangle(cornerRadius: 5).fill(selection == noteRangeSelection ? Color("LightAqua") : .white))
+        .background(RoundedRectangle(cornerRadius: 5).fill(selection == noteRangeSelection ? Color("LightAqua") : .clear))
         .onTapGesture {
             if noteRangeSelection != selection {
                 noteRangeSelection = selection
@@ -324,12 +330,16 @@ struct AddFingeringChartView: View {
         if clef == .treble {
             Image("TrebleClef")
                 .resizable()
+                .renderingMode(.template)
+                .foregroundColor(Color("Black"))
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 152)
                 .offset(x: -6)
         } else {
             Image("BassClef")
                 .resizable()
+                .renderingMode(.template)
+                .foregroundColor(Color("Black"))
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 60)
                 .offset(x: -6, y: -9)
@@ -385,6 +395,8 @@ struct AddFingeringChartView: View {
     private func wholeNoteView() -> some View {
         Image("CellWholeNote")
             .resizable()
+            .renderingMode(.template)
+            .foregroundColor(Color("Black"))
             .aspectRatio(contentMode: .fit)
             .frame(height: 20)
     }
