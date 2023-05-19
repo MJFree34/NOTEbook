@@ -9,11 +9,11 @@ import SwiftUI
 
 struct NoteCell: View {
     let noteFingering: NoteFingering
-    let highlight: Bool
+    let highlightColor: Color
     
-    init(noteFingering: NoteFingering, highlight: Bool = false) {
+    init(noteFingering: NoteFingering, highlightColor: Color = .black) {
         self.noteFingering = noteFingering
-        self.highlight = highlight
+        self.highlightColor = highlightColor
     }
     
     var note1: Note { noteFingering.notes[0] }
@@ -69,16 +69,20 @@ struct NoteCell: View {
     func letterView(note: Note) -> some View {
         HStack(spacing: 0) {
             Text(note.capitalizedLetter())
-                .foregroundColor(highlight ? Color("MediumRed") : .black)
+                .foregroundColor(highlightColor)
             
             if (note.type == .sharp) {
                 Image("Sharp")
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(highlightColor)
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 26)
             } else if (note.type == .flat) {
                 Image("Flat")
                     .resizable()
+                    .renderingMode(.template)
+                    .foregroundColor(highlightColor)
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 22)
             }
@@ -101,7 +105,7 @@ struct NoteCell: View {
                 extraLinesView(note: note1, hasTwoNotes: hasTwoNotes)
             }
         }
-        .foregroundColor(highlight ? Color("MediumRed") : .black)
+        .foregroundColor(highlightColor)
     }
     
     @ViewBuilder
@@ -121,6 +125,8 @@ struct NoteCell: View {
                 if note1.type == .sharp {
                     Image("Sharp")
                         .resizable()
+                        .renderingMode(.template)
+                        .foregroundColor(highlightColor)
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 26)
                         .offset(x: -2, y: 0.5)
@@ -136,6 +142,8 @@ struct NoteCell: View {
                     if note2.type == .flat {
                         Image("Flat")
                             .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(highlightColor)
                             .aspectRatio(contentMode: .fit)
                             .frame(height: 22)
                             .offset(x: 2, y: -5)
@@ -149,13 +157,16 @@ struct NoteCell: View {
     @ViewBuilder
     func clefView(clef: Clef) -> some View {
         if clef == .treble {
-            Image("TrebleClef" + (highlight ? "Highlight" : ""))
+            Image("TrebleClef")
                 .resizable()
+                .renderingMode(.template)
+                .foregroundColor(highlightColor)
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 76)
                 .offset(x: -2)
+                
         } else {
-            Image("BassClef" + (highlight ? "Highlight" : ""))
+            Image("BassClef")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 30)
@@ -165,8 +176,10 @@ struct NoteCell: View {
     
     @ViewBuilder
     func wholeNoteView() -> some View {
-        Image("CellWholeNote" + (highlight ? "Highlight" : ""))
+        Image("CellWholeNote")
             .resizable()
+            .renderingMode(.template)
+            .foregroundColor(highlightColor)
             .aspectRatio(contentMode: .fit)
             .frame(height: 10)
     }
@@ -201,10 +214,10 @@ struct NoteCell_Previews: PreviewProvider {
                 NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[0])
                     .frame(width: 200, height: 200)
                 
-                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[1], highlight: true)
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[3], highlightColor: Color("MediumRed"))
                     .frame(width: 200, height: 200)
 
-                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[2])
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[5], highlightColor: .gray)
                     .frame(width: 200, height: 200)
             }
         }

@@ -29,6 +29,22 @@ class HelperChartsController: ObservableObject {
         }
     }
     
+    // MARK: - Saving
+    
+    private func save() {
+        do {
+            try ChartsLoader.saveCharts(chartCategories: chartCategories)
+        } catch ChartLoadingError.invalidURL {
+            fatalError("Invalid URL")
+        } catch ChartLoadingError.unencodableData {
+            fatalError("Data is unencodable")
+        } catch ChartLoadingError.writingError {
+            fatalError("Chart writing error")
+        } catch {
+            fatalError("Fail to load charts")
+        }
+    }
+    
     // MARK: - Getters
     
     func chartCategories(in section: ChartSection) -> [ChartCategory] {
@@ -85,17 +101,20 @@ class HelperChartsController: ObservableObject {
     
     func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
         chartCategories.move(fromOffsets: fromOffsets, toOffset: toOffset)
+        save()
     }
     
     func moveFingeringChartInChartCategory(categoryName: String, fromOffsets: IndexSet, toOffset: Int) {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
             chartCategories[chartCategoryIndex].fingeringCharts.move(fromOffsets: fromOffsets, toOffset: toOffset)
+            save()
         }
     }
     
     @discardableResult func moveNoteFingeringInFingeringChart(categoryName: String, instrumentType: InstrumentType, firstNote: Note, fromOffsets: IndexSet, toOffset: Int) -> NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.move(fromOffsets: fromOffsets, toOffset: toOffset)
+            save()
             return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
         }
         return nil
@@ -105,17 +124,20 @@ class HelperChartsController: ObservableObject {
     
     func deleteChartCategory(atOffsets offsets: IndexSet) {
         chartCategories.remove(atOffsets: offsets)
+        save()
     }
     
     func deleteFingeringChartInChartCategory(categoryName: String, atOffsets offsets: IndexSet) {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
             chartCategories[chartCategoryIndex].fingeringCharts.remove(atOffsets: offsets)
+            save()
         }
     }
     
     @discardableResult func deleteNoteFingeringInFingeringChart(categoryName: String, instrumentType: InstrumentType, firstNote: Note, atOffsets offsets: IndexSet) -> NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.remove(atOffsets: offsets)
+            save()
             return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
         }
         return nil
@@ -148,6 +170,7 @@ class HelperChartsController: ObservableObject {
         
         if let indexToInsertAt = indexToInsertAt {
             chartCategories.insert(category, at: indexToInsertAt)
+            save()
         } else {
             print("Chart Category is not able to be added as it is an edge case")
         }
@@ -156,12 +179,14 @@ class HelperChartsController: ObservableObject {
     func addFingeringChart(in categoryName: String, fingeringChart: FingeringChart) {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
             chartCategories[chartCategoryIndex].fingeringCharts.append(fingeringChart)
+            save()
         }
     }
     
     @discardableResult func addFingering(in categoryName: String, instrumentType: InstrumentType, firstNote: Note, fingering: Fingering) -> NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.append(fingering)
+            save()
             return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
         }
         return nil
@@ -172,12 +197,14 @@ class HelperChartsController: ObservableObject {
     func updateFingeringChart(in categoryName: String, fingeringChart: FingeringChart) {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: fingeringChart.instrument.type) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = fingeringChart
+            save()
         }
     }
     
     @discardableResult func updateFingering(in categoryName: String, instrumentType: InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: Fingering) ->  NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings[fingeringIndex] = fingering
+            save()
             return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
         }
         return nil

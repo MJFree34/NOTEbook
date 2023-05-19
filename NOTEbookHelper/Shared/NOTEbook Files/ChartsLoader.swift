@@ -11,20 +11,55 @@ import Foundation
 enum ChartLoadingError: Error {
     case invalidURL
     case unloadableData
+    case unencodableData
     case decodingError
+    case writingError
 }
 
 struct ChartsLoader {
+    static let chartsFilename = "ChartsRevised"
+    
     static func loadCharts() throws -> [ChartCategory] {
-        guard let chartsURL = Bundle.main.url(forResource: "ChartsRevised", withExtension: "json") else { throw ChartLoadingError.invalidURL }
+        let chartsURLOptional: URL?
+        let chartsCacheCreated = UserDefaults.standard.bool(forKey: "ChartsCacheCreated")
+        
+        if chartsCacheCreated {
+            chartsURLOptional = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(chartsFilename).json")
+        } else {
+            chartsURLOptional = Bundle.main.url(forResource: chartsFilename, withExtension: "json")
+        }
+        
+        guard chartsURLOptional != nil, let chartsURL = chartsURLOptional else { throw ChartLoadingError.invalidURL }
+        
         guard let data = try? Data(contentsOf: chartsURL) else { throw ChartLoadingError.unloadableData }
         
         let decoder = JSONDecoder()
         
         do {
-            return try decoder.decode([ChartCategory].self, from: data)
+            let chartCategories = try decoder.decode([ChartCategory].self, from: data)
+            if !chartsCacheCreated {
+                try saveCharts(chartCategories: chartCategories)
+                UserDefaults.standard.set(true, forKey: "ChartsCacheCreated")
+            }
+            return chartCategories
         } catch {
             throw ChartLoadingError.decodingError
+        }
+    }
+    
+    static func saveCharts(chartCategories: [ChartCategory]) throws {
+        let chartsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(chartsFilename).json")
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        guard let data = try? encoder.encode(chartCategories) else { throw ChartLoadingError.unencodableData }
+        
+        do {
+            try data.write(to: chartsURL)
+        } catch {
+            print(error.localizedDescription)
+            throw ChartLoadingError.writingError
         }
     }
 }

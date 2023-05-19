@@ -43,11 +43,15 @@ struct InstrumentsListView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(id: "edit", placement: .navigationBarLeading) {
                     EditButton()
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(id: "share", placement: .navigationBarTrailing) {
+                    ShareLink(item: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(ChartsLoader.chartsFilename).json"))
+                }
+                
+                ToolbarItem(id: "add", placement: .navigationBarTrailing) {
                     addButton()
                 }
             }

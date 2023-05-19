@@ -31,8 +31,10 @@ struct FingeringChartDetailView: View {
                         NoteFingeringDetailView(noteFingering: noteFingering, categoryName: categoryName, instrumentType: chart.instrument.type)
                     } label: {
                         let highlight = noteFingering.notes[0] == chart.centerNote
-                        NoteCell(noteFingering: noteFingering, highlight: highlight)
-                            .border(highlight ? Color("MediumRed") : .black)
+                        let isEmpty = noteFingering.fingerings.isEmpty
+                        let highlightColor = (highlight ? Color("MediumRed") : Color("Black")).opacity(isEmpty ? 0.5 : 1)
+                        NoteCell(noteFingering: noteFingering, highlightColor: highlightColor)
+                            .border(highlightColor)
                     }
                 }
             }
