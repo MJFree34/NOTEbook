@@ -1,1932 +1,1214 @@
 [
-    {
-        "name": "Trumpet",
-        "section": "Brass",
-        "fingeringCharts": [
-            {
-                "instrument": {
-                    "type": "Trumpet",
-                    "offset": -0.25
-                },
-                "centerNote": {
-                    "letter": "c",
-                    "type": "natural",
-                    "octave": 5,
-                    "clef": "treble"
-                },
-                "naturalNotes": [
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    }
-                ],
-                "flatNotes": [
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 2,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "flat",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "flat",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "b",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "flat",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "flat",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "e",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "flat",
-                        "octave": 6,
-                        "clef": "treble"
-                    }
-                ],
-                "sharpNotes": [
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": 3,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": 4,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "a",
-                        "type": "sharp",
-                        "octave": 5,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "c",
-                        "type": "sharp",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "d",
-                        "type": "sharp",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "natural",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "f",
-                        "type": "sharp",
-                        "octave": 6,
-                        "clef": "treble"
-                    },
-                    {
-                        "letter": "g",
-                        "type": "sharp",
-                        "octave": 6,
-                        "clef": "treble"
-                    }
-                ],
-                "noteFingerings": [
-                    {
-                        "notes": [
-                            {
-                                "letter": "b",
-                                "type": "natural",
-                                "octave": 2,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "sharp",
-                                "octave": 3,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "d",
-                                "type": "flat",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "sharp",
-                                "octave": 3,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "e",
-                                "type": "flat",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "e",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "sharp",
-                                "octave": 3,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "g",
-                                "type": "flat",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "sharp",
-                                "octave": 3,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "a",
-                                "type": "flat",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "a",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "a",
-                                "type": "sharp",
-                                "octave": 3,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "b",
-                                "type": "flat",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "b",
-                                "type": "natural",
-                                "octave": 3,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "sharp",
-                                "octave": 4,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "d",
-                                "type": "flat",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "sharp",
-                                "octave": 4,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "e",
-                                "type": "flat",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "e",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "sharp",
-                                "octave": 4,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "g",
-                                "type": "flat",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "sharp",
-                                "octave": 4,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "a",
-                                "type": "flat",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "a",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "a",
-                                "type": "sharp",
-                                "octave": 4,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "b",
-                                "type": "flat",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "b",
-                                "type": "natural",
-                                "octave": 4,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "sharp",
-                                "octave": 5,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "d",
-                                "type": "flat",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "sharp",
-                                "octave": 5,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "e",
-                                "type": "flat",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "e",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "sharp",
-                                "octave": 5,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "g",
-                                "type": "flat",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "sharp",
-                                "octave": 5,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "a",
-                                "type": "flat",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "a",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "a",
-                                "type": "sharp",
-                                "octave": 5,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "b",
-                                "type": "flat",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "b",
-                                "type": "natural",
-                                "octave": 5,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "natural",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "c",
-                                "type": "sharp",
-                                "octave": 6,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "d",
-                                "type": "flat",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "natural",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "d",
-                                "type": "sharp",
-                                "octave": 6,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "e",
-                                "type": "flat",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "e",
-                                "type": "natural",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "natural",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "f",
-                                "type": "sharp",
-                                "octave": 6,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "g",
-                                "type": "flat",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    true,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "natural",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    false,
-                                    true
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    true,
-                                    true,
-                                    false
-                                ]
-                            },
-                            {
-                                "keys": [
-                                    false,
-                                    false,
-                                    true
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "notes": [
-                            {
-                                "letter": "g",
-                                "type": "sharp",
-                                "octave": 6,
-                                "clef": "treble"
-                            },
-                            {
-                                "letter": "a",
-                                "type": "flat",
-                                "octave": 6,
-                                "clef": "treble"
-                            }
-                        ],
-                        "fingerings": [
-                        ]
-                    }
+  {
+    "name" : "Trumpet",
+    "section" : "Brass",
+    "fingeringCharts" : [
+      {
+        "instrument" : {
+          "type" : "Trumpet",
+          "offset" : -0.25
+        },
+        "flatNotes" : [
+          {
+            "octave" : 2,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "d"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "e"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "g"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "a"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "b"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "d"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "e"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "g"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "a"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "b"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "d"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "e"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "g"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "a"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "b"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "d"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "e"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "flat",
+            "letter" : "g"
+          }
+        ],
+        "centerNote" : {
+          "octave" : 5,
+          "clef" : "treble",
+          "type" : "natural",
+          "letter" : "c"
+        },
+        "sharpNotes" : [
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "c"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "d"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "f"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "g"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "a"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "c"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "d"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "f"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "g"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "a"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "c"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "d"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "f"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "g"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "a"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "c"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "d"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "f"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "sharp",
+            "letter" : "g"
+          }
+        ],
+        "noteFingerings" : [
+          {
+            "notes" : [
+              {
+                "octave" : 2,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "c"
+              }
+            ],
+            "fingerings" : [
+              {
+                "keys" : [
+                  true,
+                  true,
+                  true
                 ]
-            }
+              }
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "c"
+              },
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "d"
+              },
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "f"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "f"
+              },
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "g"
+              },
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "a"
+              },
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 3,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "c"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "c"
+              },
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "d"
+              },
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "f"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "f"
+              },
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "g"
+              },
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "a"
+              },
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 4,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "c"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "c"
+              },
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "d"
+              },
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "f"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "f"
+              },
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "g"
+              },
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "a"
+              },
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 5,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "b"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "c"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "c"
+              },
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "d"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "d"
+              },
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "e"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "f"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "f"
+              },
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "natural",
+                "letter" : "g"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          },
+          {
+            "notes" : [
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "sharp",
+                "letter" : "g"
+              },
+              {
+                "octave" : 6,
+                "clef" : "treble",
+                "type" : "flat",
+                "letter" : "a"
+              }
+            ],
+            "fingerings" : [
+
+            ]
+          }
+        ],
+        "naturalNotes" : [
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "d"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "g"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "a"
+          },
+          {
+            "octave" : 3,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "d"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "g"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "a"
+          },
+          {
+            "octave" : 4,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "d"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "g"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "a"
+          },
+          {
+            "octave" : 5,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "b"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "c"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "d"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "e"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "f"
+          },
+          {
+            "octave" : 6,
+            "clef" : "treble",
+            "type" : "natural",
+            "letter" : "g"
+          }
         ]
-    }
+      }
+    ]
+  }
 ]

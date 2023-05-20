@@ -51,14 +51,11 @@ struct AddFingeringChartCategoryView: View {
                 }
                 
                 ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        helperChartsController.addChartCategory(category: ChartCategory(name: name, section: section!, fingeringCharts: []))
-                        dismiss()
-                    } label: {
-                        Text("Add \(name.isEmpty ? "Category" : name)")
-                    }
-                    .buttonStyle(.bordered)
-                    .disabled(!isFilledOut)
+                    addButton
+                }
+                
+                ToolbarItem(placement: .keyboard) {
+                    addButton
                 }
             }
             .navigationTitle("Add Chart Category")
@@ -67,6 +64,17 @@ struct AddFingeringChartCategoryView: View {
             .background(Color("LightestestAqua"))
         }
         .tint(Color("DarkAqua"))
+    }
+    
+    private var addButton: some View {
+        Button {
+            helperChartsController.addChartCategory(category: ChartCategory(name: name, section: section!, fingeringCharts: []))
+            dismiss()
+        } label: {
+            Text("Add \(name.isEmpty ? "Category" : name)")
+        }
+        .buttonStyle(.bordered)
+        .disabled(!isFilledOut)
     }
 }
 
