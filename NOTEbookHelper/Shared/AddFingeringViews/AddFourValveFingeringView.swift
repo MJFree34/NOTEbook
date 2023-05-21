@@ -34,25 +34,30 @@ struct AddFourValveFingeringView: View {
         NavigationStack {
             HStack {
                 Image("RoundFingering\(key1 ? "Full" : "Empty")1")
+                    .renderingMode(.template)
                     .onTapGesture {
                         key1.toggle()
                     }
                 
                 Image("RoundFingering\(key2 ? "Full" : "Empty")2")
+                    .renderingMode(.template)
                     .onTapGesture {
                         key2.toggle()
                     }
                 
                 Image("RoundFingering\(key3 ? "Full" : "Empty")3")
+                    .renderingMode(.template)
                     .onTapGesture {
                         key3.toggle()
                     }
                 
                 Image("RoundFingering\(key4 ? "Full" : "Empty")4")
+                    .renderingMode(.template)
                     .onTapGesture {
                         key4.toggle()
                     }
             }
+            .foregroundColor(Color("Black"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

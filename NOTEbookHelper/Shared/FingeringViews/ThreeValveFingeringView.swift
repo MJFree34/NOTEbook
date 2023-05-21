@@ -13,9 +13,13 @@ struct ThreeValveFingeringView: View {
     var body: some View {
         HStack {
             Image("RoundFingering\(fingering.keys![0] ? "Full" : "Empty")1")
+                .renderingMode(.template)
             Image("RoundFingering\(fingering.keys![1] ? "Full" : "Empty")2")
+                .renderingMode(.template)
             Image("RoundFingering\(fingering.keys![2] ? "Full" : "Empty")3")
+                .renderingMode(.template)
         }
+        .foregroundColor(Color("Black"))
     }
 }
 

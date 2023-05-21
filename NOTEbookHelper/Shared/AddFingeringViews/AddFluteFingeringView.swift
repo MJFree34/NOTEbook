@@ -70,20 +70,24 @@ struct AddFluteFingeringView: View {
                     VStack(spacing: 2) {
                         HStack(spacing: 5) {
                             Image("FluteCircleKey\(key1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key1.toggle()
                                 }
                             Image("FluteCircleKey\(key2 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key2.toggle()
                                 }
                             Image("FluteCircleKey\(key3 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key3.toggle()
                                 }
                         }
                         
                         Image("FluteThumbKeys\(thumb1 ? "Full" : "Empty")\(thumb2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 if !thumb1 && !thumb2 || !thumb1 && thumb2 {
                                     thumb1.toggle()
@@ -97,14 +101,17 @@ struct AddFluteFingeringView: View {
                     VStack(spacing: -8) {
                         HStack(spacing: 5) {
                             Image("FluteCircleKey\(key4 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key4.toggle()
                                 }
                             Image("FluteCircleKey\(key5 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key5.toggle()
                                 }
                             Image("FluteCircleKey\(key6 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key6.toggle()
                                 }
@@ -112,10 +119,12 @@ struct AddFluteFingeringView: View {
                         
                         HStack(spacing: 23) {
                             Image("FluteTrillKey\(trill1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     trill1.toggle()
                                 }
                             Image("FluteTrillKey\(trill2 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     trill2.toggle()
                                 }
@@ -124,6 +133,7 @@ struct AddFluteFingeringView: View {
                     .padding(.leading, 20)
                     
                     Image("FlutePinkyKey\(key7 ? "Full" : "Empty")")
+                        .renderingMode(.template)
                         .padding(.leading, 2)
                         .onTapGesture {
                             key7.toggle()
@@ -131,14 +141,17 @@ struct AddFluteFingeringView: View {
                     
                     VStack(spacing: 3.5) {
                         Image("FluteFootKey2\(foot3 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 foot3.toggle()
                             }
                         Image("FluteFootKey2\(foot2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 foot2.toggle()
                             }
                         Image("FluteFootKey1\(foot1 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 foot1.toggle()
                             }
@@ -147,6 +160,7 @@ struct AddFluteFingeringView: View {
                 }
                 
                 Image("FluteLeverKeys\(lever1 ? "Full" : "Empty")\(lever2 ? "Full" : "Empty")")
+                    .renderingMode(.template)
                     .padding(.trailing, 74)
                     .padding(.bottom, 6)
                     .onTapGesture {
@@ -158,6 +172,7 @@ struct AddFluteFingeringView: View {
                         }
                     }
             }
+            .foregroundColor(Color("Black"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

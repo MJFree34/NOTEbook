@@ -15,6 +15,7 @@ struct NoteFingeringDetailView: View {
     
     @State private var noteFingering: NoteFingering
     
+    let color: Color
     let categoryName: String
     let instrumentType: InstrumentType
     
@@ -22,15 +23,16 @@ struct NoteFingeringDetailView: View {
     @State private var addFingering: Fingering?
     @State private var savedFingering = Fingering()
     
-    init(noteFingering: NoteFingering, categoryName: String, instrumentType: InstrumentType) {
+    init(noteFingering: NoteFingering, color: Color, categoryName: String, instrumentType: InstrumentType) {
         self._noteFingering = State(wrappedValue: noteFingering)
+        self.color = color
         self.categoryName = categoryName
         self.instrumentType = instrumentType
     }
     
     var body: some View {
         VStack(alignment: .center) {
-            NoteCell(noteFingering: noteFingering)
+            NoteCell(noteFingering: noteFingering, color: color)
                 .fixedSize()
 
             List {
@@ -168,15 +170,15 @@ struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationStack {
-                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[1], categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
+                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[1], color: Color("Black").opacity(0.5), categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
             }
             
             NavigationStack {
-                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[0], categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
+                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[0], color: Color("MediumRed"), categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
             }
             
             NavigationStack {
-                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[2], categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
+                NoteFingeringDetailView(noteFingering: HelperChartsController.exampleChart.noteFingerings[2], color: Color("Black"), categoryName: HelperChartsController.exampleChartCategory.name, instrumentType: HelperChartsController.exampleChart.instrument.type)
             }
         }
         .environmentObject(HelperChartsController.shared)

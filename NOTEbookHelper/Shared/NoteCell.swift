@@ -11,9 +11,9 @@ struct NoteCell: View {
     let noteFingering: NoteFingering
     let highlightColor: Color
     
-    init(noteFingering: NoteFingering, highlightColor: Color = .black) {
+    init(noteFingering: NoteFingering, color: Color) {
         self.noteFingering = noteFingering
-        self.highlightColor = highlightColor
+        self.highlightColor = color
     }
     
     var note1: Note { noteFingering.notes[0] }
@@ -211,13 +211,13 @@ struct NoteCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             VStack {
-                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[0])
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[0], color: Color("Black"))
                     .frame(width: 200, height: 200)
                 
-                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[3], highlightColor: Color("MediumRed"))
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[3], color: Color("MediumRed"))
                     .frame(width: 200, height: 200)
 
-                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[5], highlightColor: .gray)
+                NoteCell(noteFingering: HelperChartsController.exampleChart.noteFingerings[5], color: Color("Black").opacity(0.5))
                     .frame(width: 200, height: 200)
             }
         }

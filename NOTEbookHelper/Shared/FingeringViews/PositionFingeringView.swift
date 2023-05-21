@@ -15,11 +15,13 @@ struct PositionFingeringView: View {
             if (fingering.position!.type == .sharp) {
                 Image("Sharp")
                     .resizable()
+                    .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 14, height: 30)
             } else if (fingering.position!.type == .flat) {
                 Image("Flat")
                     .resizable()
+                    .renderingMode(.template)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 14, height: 30)
             } else {
@@ -31,6 +33,7 @@ struct PositionFingeringView: View {
             Text(fingering.position!.value.rawValue)
                 .font(.system(size: 40, design: .monospaced))
         }
+        .foregroundColor(Color("Black"))
     }
 }
 

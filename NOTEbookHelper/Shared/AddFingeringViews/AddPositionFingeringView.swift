@@ -36,6 +36,7 @@ struct AddPositionFingeringView: View {
                 Picker(selection: $type) {
                     Image("Flat")
                         .resizable()
+                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 26)
                         .tag(NoteType.flat)
@@ -43,6 +44,7 @@ struct AddPositionFingeringView: View {
                         .tag(NoteType.natural)
                     Image("Sharp")
                         .resizable()
+                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 26)
                         .tag(NoteType.sharp)
@@ -61,6 +63,7 @@ struct AddPositionFingeringView: View {
                 }
 
             }
+            .foregroundColor(Color("Black"))
             .pickerStyle(.wheel)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

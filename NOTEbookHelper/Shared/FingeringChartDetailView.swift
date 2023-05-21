@@ -27,14 +27,14 @@ struct FingeringChartDetailView: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
                 ForEach(chart.noteFingerings, id: \.self) { noteFingering in
+                    let highlight = noteFingering.notes[0] == chart.centerNote
+                    let isEmpty = noteFingering.fingerings.isEmpty
+                    let color = (highlight ? Color("MediumRed") : Color("Black")).opacity(isEmpty ? 0.5 : 1)
                     NavigationLink {
-                        NoteFingeringDetailView(noteFingering: noteFingering, categoryName: categoryName, instrumentType: chart.instrument.type)
+                        NoteFingeringDetailView(noteFingering: noteFingering, color: color, categoryName: categoryName, instrumentType: chart.instrument.type)
                     } label: {
-                        let highlight = noteFingering.notes[0] == chart.centerNote
-                        let isEmpty = noteFingering.fingerings.isEmpty
-                        let highlightColor = (highlight ? Color("MediumRed") : Color("Black")).opacity(isEmpty ? 0.5 : 1)
-                        NoteCell(noteFingering: noteFingering, highlightColor: highlightColor)
-                            .border(highlightColor)
+                        NoteCell(noteFingering: noteFingering, color: color)
+                            .border(color)
                     }
                 }
             }

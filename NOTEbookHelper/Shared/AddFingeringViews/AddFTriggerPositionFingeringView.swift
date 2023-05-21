@@ -38,6 +38,7 @@ struct AddFTriggerPositionFingeringView: View {
                 Spacer()
                 
                 Image("FTrigger\(trigger ? "Full" : "Empty")")
+                    .renderingMode(.template)
                     .onTapGesture {
                         trigger.toggle()
                     }
@@ -45,6 +46,7 @@ struct AddFTriggerPositionFingeringView: View {
                 Picker(selection: $type) {
                     Image("Flat")
                         .resizable()
+                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 26)
                         .tag(NoteType.flat)
@@ -52,6 +54,7 @@ struct AddFTriggerPositionFingeringView: View {
                         .tag(NoteType.natural)
                     Image("Sharp")
                         .resizable()
+                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 26)
                         .tag(NoteType.sharp)
@@ -70,6 +73,7 @@ struct AddFTriggerPositionFingeringView: View {
                 }
 
             }
+            .foregroundColor(Color("Black"))
             .pickerStyle(.wheel)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

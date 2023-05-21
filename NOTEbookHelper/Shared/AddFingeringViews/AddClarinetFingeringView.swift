@@ -86,6 +86,7 @@ struct AddClarinetFingeringView: View {
             ZStack(alignment: .topTrailing) {
                 VStack(alignment: .leading, spacing: 2) {
                     Image("ClarinetTopLeverKey\(lever4 ? "Full" : "Empty")")
+                        .renderingMode(.template)
                         .padding(.leading, 16)
                         .padding(.top, 24)
                         .onTapGesture {
@@ -95,34 +96,41 @@ struct AddClarinetFingeringView: View {
                     HStack(spacing: 12) {
                         HStack(spacing: 2) {
                             Image("ClarinetTopLeverKey\(lever5 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     lever5.toggle()
                                 }
                             
                             Image("ClarinetCircleKey\(key1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key1.toggle()
                                 }
                         }
                         
                         Image("ClarinetCircleKey\(key2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key2.toggle()
                             }
                         Image("ClarinetCircleKey\(key3 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key3.toggle()
                             }
                         Image("ClarinetCircleKey\(key4 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .padding(.leading, 10)
                             .onTapGesture {
                                 key4.toggle()
                             }
                         Image("ClarinetCircleKey\(key5 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key5.toggle()
                             }
                         Image("ClarinetCircleKey\(key6 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .padding(.trailing, 26)
                             .onTapGesture {
                                 key6.toggle()
@@ -131,6 +139,7 @@ struct AddClarinetFingeringView: View {
                     
                     HStack(alignment: .bottom, spacing: 44) {
                         Image("ClarinetThumbKeys\(thumb1 ? "Full" : "Empty")\(thumb2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .padding(.leading, 14)
                             .onTapGesture {
                                 if !thumb1 && !thumb2 || !thumb1 && thumb2 {
@@ -143,18 +152,22 @@ struct AddClarinetFingeringView: View {
                         
                         HStack(alignment: .bottom, spacing: 0) {
                             Image("ClarinetSmallSideKey\(side4 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     side4.toggle()
                                 }
                             Image("ClarinetSmallSideKey\(side3 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     side3.toggle()
                                 }
                             Image("ClarinetLargeSideKey\(side2 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     side2.toggle()
                                 }
                             Image("ClarinetLargeSideKey\(side1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     side1.toggle()
                                 }
@@ -164,11 +177,13 @@ struct AddClarinetFingeringView: View {
                 
                 HStack(alignment: .top, spacing: 32) {
                     Image("ClarinetThinRightLeverKey\(lever3 ? "Full" : "Empty")")
+                        .renderingMode(.template)
                         .onTapGesture {
                             lever3.toggle()
                         }
                     
                     Image("ClarinetMiddleLeverKey\(lever2 ? "Full" : "Empty")")
+                        .renderingMode(.template)
                         .onTapGesture {
                             lever2.toggle()
                         }
@@ -178,12 +193,14 @@ struct AddClarinetFingeringView: View {
                 
                 HStack(spacing: 33) {
                     Image("ClarinetThinLeftLeverKey\(lever1 ? "Full" : "Empty")")
+                        .renderingMode(.template)
                         .onTapGesture {
                             lever1.toggle()
                         }
                     
                     HStack(spacing: 2) {
                         Image("ClarinetBottomKeys\(bottom3 ? "Full" : "Empty")\(bottom4 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 if !bottom3 && !bottom4 || !bottom3 && bottom4 {
                                     bottom3.toggle()
@@ -193,6 +210,7 @@ struct AddClarinetFingeringView: View {
                                 }
                             }
                         Image("ClarinetBottomKeys\(bottom1 ? "Full" : "Empty")\(bottom2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 if !bottom1 && !bottom2 || !bottom1 && bottom2 {
                                     bottom1.toggle()
@@ -207,6 +225,7 @@ struct AddClarinetFingeringView: View {
                 
                 HStack(alignment: .top, spacing: -8) {
                     Image("ClarinetTriggerKey3\(trigger3 ? "Full" : "Empty")")
+                        .renderingMode(.template)
                         .padding(.top, 4)
                         .onTapGesture {
                             trigger3.toggle()
@@ -214,10 +233,12 @@ struct AddClarinetFingeringView: View {
                     
                     VStack(alignment: .trailing, spacing: 2) {
                         Image("ClarinetTriggerKey1\(trigger1 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 trigger1.toggle()
                             }
                         Image("ClarinetTriggerKey2\(trigger2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .padding(.trailing, 6)
                             .onTapGesture {
                                 trigger2.toggle()
@@ -226,6 +247,7 @@ struct AddClarinetFingeringView: View {
                 }
                 .padding(.trailing, 56)
             }
+            .foregroundColor(Color("Black"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

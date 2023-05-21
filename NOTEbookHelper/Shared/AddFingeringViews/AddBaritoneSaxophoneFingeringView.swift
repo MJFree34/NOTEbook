@@ -98,6 +98,7 @@ struct AddBaritoneSaxophoneFingeringView: View {
                     HStack(alignment: .bottom, spacing: 38) {
                         VStack(alignment: .leading, spacing: 2) {
                             Image("SaxophoneTopLeverKey\(top1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .padding(.leading, 16)
                                 .onTapGesture {
                                     top1.toggle()
@@ -105,10 +106,12 @@ struct AddBaritoneSaxophoneFingeringView: View {
                             
                             VStack(alignment: .leading, spacing: -2) {
                                 Image("SaxophoneTopLeverKey\(top2 ? "Full" : "Empty")")
+                                    .renderingMode(.template)
                                     .onTapGesture {
                                         top2.toggle()
                                     }
                                 Image("SaxophoneTopLeverKey\(top3 ? "Full" : "Empty")")
+                                    .renderingMode(.template)
                                     .padding(.leading, 10)
                                     .onTapGesture {
                                         top3.toggle()
@@ -118,10 +121,12 @@ struct AddBaritoneSaxophoneFingeringView: View {
                         
                         HStack(alignment: .bottom, spacing: -4) {
                             Image("SaxophoneUpperLowKey\(low4 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     low4.toggle()
                                 }
                             Image("SaxophoneMiddleLowKeys\(low2 ? "Full" : "Empty")\(low3 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .padding(.bottom, 2)
                                 .onTapGesture {
                                     if !low2 && !low3 || !low2 && low3 {
@@ -132,6 +137,7 @@ struct AddBaritoneSaxophoneFingeringView: View {
                                     }
                                 }
                             Image("SaxophoneBottomLowKey\(low1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .padding(.bottom, 4)
                                 .onTapGesture {
                                     low1.toggle()
@@ -143,32 +149,39 @@ struct AddBaritoneSaxophoneFingeringView: View {
                     HStack(spacing: 8) {
                         HStack(spacing: 2) {
                             Image("SaxophoneForkKey\(fork ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     fork.toggle()
                                 }
                             Image("SaxophoneCircleKey\(key1 ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     key1.toggle()
                                 }
                         }
                         
                         Image("SaxophoneCircleKey\(key2 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key2.toggle()
                             }
                         Image("SaxophoneCircleKeyWithLine\(key3 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key3.toggle()
                             }
                         Image("SaxophoneCircleKey\(key4 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key4.toggle()
                             }
                         Image("SaxophoneCircleKey\(key5 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key5.toggle()
                             }
                         Image("SaxophoneCircleKey\(key6 ? "Full" : "Empty")")
+                            .renderingMode(.template)
                             .onTapGesture {
                                 key6.toggle()
                             }
@@ -177,11 +190,13 @@ struct AddBaritoneSaxophoneFingeringView: View {
                     HStack(alignment: .bottom, spacing: 71) {
                         HStack(spacing: -2) {
                             Image("SaxophoneOctaveKey\(octave ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     octave.toggle()
                                 }
 
                             Image("SaxophoneBaritoneOctaveKey\(lowA ? "Full" : "Empty")")
+                                .renderingMode(.template)
                                 .onTapGesture {
                                     lowA.toggle()
                                 }
@@ -191,20 +206,24 @@ struct AddBaritoneSaxophoneFingeringView: View {
                             HStack(spacing: 4) {
                                 VStack(alignment: .trailing, spacing: 10) {
                                     Image("SaxophoneHighF#Key\(highFSharp ? "Full" : "Empty")")
+                                        .renderingMode(.template)
                                         .onTapGesture {
                                             highFSharp.toggle()
                                         }
                                     
                                     HStack(spacing: 2) {
                                         Image("SaxophoneLargeSideKey\(side3 ? "Full" : "Empty")")
+                                            .renderingMode(.template)
                                             .onTapGesture {
                                                 side3.toggle()
                                             }
                                         Image("SaxophoneSmallSideKey\(side2 ? "Full" : "Empty")")
+                                            .renderingMode(.template)
                                             .onTapGesture {
                                                 side2.toggle()
                                             }
                                         Image("SaxophoneSmallSideKey\(side1 ? "Full" : "Empty")")
+                                            .renderingMode(.template)
                                             .onTapGesture {
                                                 side1.toggle()
                                             }
@@ -212,6 +231,7 @@ struct AddBaritoneSaxophoneFingeringView: View {
                                 }
                                 
                                 Image("SaxophoneChromaticF#Key\(chromaticFSharp ? "Full" : "Empty")")
+                                    .renderingMode(.template)
                                     .onTapGesture {
                                         chromaticFSharp.toggle()
                                     }
@@ -219,10 +239,12 @@ struct AddBaritoneSaxophoneFingeringView: View {
                             
                             HStack(spacing: 2) {
                                 Image("SaxophoneBottomKey2\(bottom2 ? "Full" : "Empty")")
+                                    .renderingMode(.template)
                                     .onTapGesture {
                                         bottom2.toggle()
                                     }
                                 Image("SaxophoneBottomKey1\(bottom1 ? "Full" : "Empty")")
+                                    .renderingMode(.template)
                                     .onTapGesture {
                                         bottom1.toggle()
                                     }
@@ -232,12 +254,14 @@ struct AddBaritoneSaxophoneFingeringView: View {
                 }
                 
                 Image("SaxophoneBisKey\(bis ? "Full" : "Empty")")
+                    .renderingMode(.template)
                     .padding(.top, 68)
                     .padding(.leading, 48)
                     .onTapGesture {
                         bis.toggle()
                     }
             }
+            .foregroundColor(Color("Black"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
