@@ -29,12 +29,13 @@ struct FingeringChartDetailView: View {
                 ForEach(chart.noteFingerings, id: \.self) { noteFingering in
                     let highlight = noteFingering.notes[0] == chart.centerNote
                     let isEmpty = noteFingering.fingerings.isEmpty
-                    let color = (highlight ? Color("MediumRed") : Color("Black")).opacity(isEmpty ? 0.5 : 1)
+                    let color = (highlight ? Color("MediumRed") : Color("Black"))
+                    let fadedColor = color.opacity(isEmpty ? 0.5 : 1)
                     NavigationLink {
                         NoteFingeringDetailView(noteFingering: noteFingering, color: color, categoryName: categoryName, instrumentType: chart.instrument.type)
                     } label: {
-                        NoteCell(noteFingering: noteFingering, color: color)
-                            .border(color)
+                        NoteCell(noteFingering: noteFingering, color: fadedColor)
+                            .border(fadedColor)
                     }
                 }
             }
