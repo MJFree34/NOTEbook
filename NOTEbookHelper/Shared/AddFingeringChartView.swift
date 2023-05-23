@@ -28,12 +28,12 @@ struct AddFingeringChartView: View {
     
     private var mode: Mode
     
-    @State private var instrumentType: InstrumentType? = .trumpet
-    @State private var clef: Clef? = .treble
+    @State private var instrumentType: InstrumentType?
+    @State private var clef: Clef?
     @State private var noteRangeSelection: NoteRangeSelection = .none
-    @State private var minNote: Note? = Note(letter: .c, type: .natural, octave: .three, clef: .treble)
-    @State private var centerNote: Note? = Note(letter: .c, type: .natural, octave: .five, clef: .treble)
-    @State private var maxNote: Note? = Note(letter: .g, type: .natural, octave: .six, clef: .treble)
+    @State private var minNote: Note?
+    @State private var centerNote: Note?
+    @State private var maxNote: Note?
     
     private let staffLineSpacing: CGFloat = 18
     private let staffWidth: CGFloat = 300
