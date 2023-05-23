@@ -23,10 +23,6 @@
 		9A3A96E52A00CDB200BD7FA5 /* Fingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A96D72A00CDB200BD7FA5 /* Fingering.swift */; };
 		9A3A96E72A00CDE200BD7FA5 /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A96E62A00CDE200BD7FA5 /* ChartsLoader.swift */; };
 		9A3A96E82A00CDE200BD7FA5 /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A96E62A00CDE200BD7FA5 /* ChartsLoader.swift */; };
-		9A3A96EB2A00CDFC00BD7FA5 /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96E92A00CDFC00BD7FA5 /* Charts.json */; };
-		9A3A96EC2A00CDFC00BD7FA5 /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96E92A00CDFC00BD7FA5 /* Charts.json */; };
-		9A3A96ED2A00CDFC00BD7FA5 /* NoteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96EA2A00CDFC00BD7FA5 /* NoteList.json */; };
-		9A3A96EE2A00CDFC00BD7FA5 /* NoteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96EA2A00CDFC00BD7FA5 /* NoteList.json */; };
 		9A3F0C03295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */; };
 		9A3F0C04295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */; };
 		9A3F0C06295F2ECB004CA28E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C05295F2ECB004CA28E /* NoteCell.swift */; };
@@ -100,8 +96,6 @@
 		9A3A96D62A00CDB200BD7FA5 /* NoteFingering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteFingering.swift; path = "Shared/NOTEbook Files/Models/NoteFingering.swift"; sourceTree = SOURCE_ROOT; };
 		9A3A96D72A00CDB200BD7FA5 /* Fingering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fingering.swift; path = "Shared/NOTEbook Files/Models/Fingering.swift"; sourceTree = SOURCE_ROOT; };
 		9A3A96E62A00CDE200BD7FA5 /* ChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsLoader.swift; sourceTree = "<group>"; };
-		9A3A96E92A00CDFC00BD7FA5 /* Charts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
-		9A3A96EA2A00CDFC00BD7FA5 /* NoteList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NoteList.json; sourceTree = "<group>"; };
 		9A3F0BFB295C8A5A004CA28E /* NOTEbookHelper--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NOTEbookHelper--iOS--Info.plist"; sourceTree = "<group>"; };
 		9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingeringDetailView.swift; sourceTree = "<group>"; };
 		9A3F0C05295F2ECB004CA28E /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -242,8 +236,6 @@
 		9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */ = {
 			isa = PBXGroup;
 			children = (
-				9A3A96E92A00CDFC00BD7FA5 /* Charts.json */,
-				9A3A96EA2A00CDFC00BD7FA5 /* NoteList.json */,
 				9A3A96E62A00CDE200BD7FA5 /* ChartsLoader.swift */,
 				9AE30C4027EB8CBB00E3D44A /* Models */,
 			);
@@ -344,11 +336,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3A96EB2A00CDFC00BD7FA5 /* Charts.json in Resources */,
 				9AE2684A2A17C09500F4FCBC /* ChartsRevised.json in Resources */,
 				9AE30CDF27ECE1C400E3D44A /* Colors.xcassets in Resources */,
 				9AE30CDD27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
-				9A3A96ED2A00CDFC00BD7FA5 /* NoteList.json in Resources */,
 				9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */,
 				9AE30CE327ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */,
 			);
@@ -358,11 +348,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3A96EC2A00CDFC00BD7FA5 /* Charts.json in Resources */,
 				9AE2684B2A17C09500F4FCBC /* ChartsRevised.json in Resources */,
 				9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */,
 				9AE30CDE27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
-				9A3A96EE2A00CDFC00BD7FA5 /* NoteList.json in Resources */,
 				9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */,
 				9AE30CE427ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */,
 			);

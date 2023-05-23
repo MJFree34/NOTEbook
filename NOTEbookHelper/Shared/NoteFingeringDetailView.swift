@@ -45,7 +45,7 @@ struct NoteFingeringDetailView: View {
                                 fingeringView(fingering: fingering)
                                 
                                 Rectangle()
-                                    .fill(Color("LightestestAqua"))
+                                    .fill(Color("LightestestAqua").opacity(0.01))
                             }
                             .onTapGesture {
                                 if editMode?.wrappedValue.isEditing == true {
