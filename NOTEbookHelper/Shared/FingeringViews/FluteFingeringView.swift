@@ -12,6 +12,11 @@ struct FluteFingeringView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
+            Image("FluteLeverKeys\(fingering.keys![7] ? "Full" : "Empty")\(fingering.keys![8] ? "Full" : "Empty")")
+                .renderingMode(.template)
+                .padding(.trailing, 74)
+                .padding(.bottom, 6)
+            
             HStack(alignment: .top, spacing: 0) {
                 VStack(spacing: 2) {
                     HStack(spacing: 5) {
@@ -60,11 +65,6 @@ struct FluteFingeringView: View {
                 }
                 .padding(.leading, 2)
             }
-            
-            Image("FluteLeverKeys\(fingering.keys![7] ? "Full" : "Empty")\(fingering.keys![8] ? "Full" : "Empty")")
-                .renderingMode(.template)
-                .padding(.trailing, 74)
-                .padding(.bottom, 6)
         }
         .foregroundColor(Color("Black"))
     }

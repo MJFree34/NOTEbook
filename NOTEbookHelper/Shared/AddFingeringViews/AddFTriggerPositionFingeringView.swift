@@ -87,6 +87,7 @@ struct AddFTriggerPositionFingeringView: View {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         fingering.position = Position(value: value, type: type)
+                        fingering.triggers = [trigger]
                         dismiss()
                     } label: {
                         Text("\(isAdd ? "Add" : "Update") Fingering")

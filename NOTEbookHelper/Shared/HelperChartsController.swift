@@ -61,6 +61,10 @@ class HelperChartsController: ObservableObject {
     
     // MARK: - Index Getters
     
+    private func firstIndexOfSection(section: ChartSection) -> Int? {
+        return chartCategories.firstIndex { $0.section == section }
+    }
+    
     private func chartCategoryIndex(with categoryName: String) -> Int? {
         return chartCategories.firstIndex { $0.name == categoryName }
     }
@@ -99,8 +103,15 @@ class HelperChartsController: ObservableObject {
     
     // MARK: - Move Methods
     
-    func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
-        chartCategories.move(fromOffsets: fromOffsets, toOffset: toOffset)
+    func moveChartCategory(section: ChartSection, fromOffsets: IndexSet, toOffset: Int) {
+        guard let firstIndexOfSection = firstIndexOfSection(section: section),
+              let fromOffsetFirst = fromOffsets.first else { return }
+        
+        let fromIndex = firstIndexOfSection + fromOffsetFirst
+        let toIndex = firstIndexOfSection + toOffset
+        
+        chartCategories.move(fromOffsets: IndexSet(integer: fromIndex), toOffset: toIndex)
+        
         save()
     }
     
@@ -122,8 +133,11 @@ class HelperChartsController: ObservableObject {
     
     // MARK: - Delete Methods
     
-    func deleteChartCategory(atOffsets offsets: IndexSet) {
-        chartCategories.remove(atOffsets: offsets)
+    func deleteChartCategory(section: ChartSection, atOffsets: IndexSet) {
+        guard let firstOffset = atOffsets.first,
+              let firstIndexOfSection = firstIndexOfSection(section: section) else { return }
+        let index = firstOffset + firstIndexOfSection
+        chartCategories.remove(at: index)
         save()
     }
     
@@ -312,7 +326,7 @@ class HelperChartsController: ObservableObject {
     
     #if(DEBUG)
     
-    static var exampleChartCategory = shared.chartCategories[0]
+    static var exampleChartCategory = shared.chartCategory(with: "Trumpet")!
     static var exampleChart = exampleChartCategory.fingeringCharts[0]
     
     #endif

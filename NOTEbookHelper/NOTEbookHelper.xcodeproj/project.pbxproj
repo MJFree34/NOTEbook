@@ -67,8 +67,8 @@
 		9AC2F89F2A119CDF002D6E3D /* FluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F89D2A119CDF002D6E3D /* FluteFingeringView.swift */; };
 		9AC2F8A12A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */; };
 		9AC2F8A22A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */; };
-		9AE2684A2A17C09500F4FCBC /* ChartsRevised.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE268492A17C09500F4FCBC /* ChartsRevised.json */; };
-		9AE2684B2A17C09500F4FCBC /* ChartsRevised.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE268492A17C09500F4FCBC /* ChartsRevised.json */; };
+		9AE2684A2A17C09500F4FCBC /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE268492A17C09500F4FCBC /* Charts.json */; };
+		9AE2684B2A17C09500F4FCBC /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AE268492A17C09500F4FCBC /* Charts.json */; };
 		9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4C27E94B4600E3D44A /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */; };
@@ -119,7 +119,7 @@
 		9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
 		9AC2F89D2A119CDF002D6E3D /* FluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
 		9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFluteFingeringView.swift; sourceTree = "<group>"; };
-		9AE268492A17C09500F4FCBC /* ChartsRevised.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ChartsRevised.json; sourceTree = "<group>"; };
+		9AE268492A17C09500F4FCBC /* Charts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
 		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
 		9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsListView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 				9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */,
 				9A3F0C05295F2ECB004CA28E /* NoteCell.swift */,
 				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
-				9AE268492A17C09500F4FCBC /* ChartsRevised.json */,
+				9AE268492A17C09500F4FCBC /* Charts.json */,
 				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
 				9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */,
 				9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */,
@@ -336,7 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AE2684A2A17C09500F4FCBC /* ChartsRevised.json in Resources */,
+				9AE2684A2A17C09500F4FCBC /* Charts.json in Resources */,
 				9AE30CDF27ECE1C400E3D44A /* Colors.xcassets in Resources */,
 				9AE30CDD27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
 				9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */,
@@ -348,7 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AE2684B2A17C09500F4FCBC /* ChartsRevised.json in Resources */,
+				9AE2684B2A17C09500F4FCBC /* Charts.json in Resources */,
 				9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */,
 				9AE30CDE27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
 				9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */,

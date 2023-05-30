@@ -66,6 +66,19 @@ struct AddFluteFingeringView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
+                Image("FluteLeverKeys\(lever1 ? "Full" : "Empty")\(lever2 ? "Full" : "Empty")")
+                    .renderingMode(.template)
+                    .padding(.trailing, 74)
+                    .padding(.bottom, 6)
+                    .onTapGesture {
+                        if !lever1 && !lever2 || !lever1 && lever2 {
+                            lever1.toggle()
+                        } else {
+                            lever1.toggle()
+                            lever2.toggle()
+                        }
+                    }
+                
                 HStack(alignment: .top, spacing: 0) {
                     VStack(spacing: 2) {
                         HStack(spacing: 5) {
@@ -158,19 +171,6 @@ struct AddFluteFingeringView: View {
                     }
                     .padding(.leading, 2)
                 }
-                
-                Image("FluteLeverKeys\(lever1 ? "Full" : "Empty")\(lever2 ? "Full" : "Empty")")
-                    .renderingMode(.template)
-                    .padding(.trailing, 74)
-                    .padding(.bottom, 6)
-                    .onTapGesture {
-                        if !lever1 && !lever2 || !lever1 && lever2 {
-                            lever1.toggle()
-                        } else {
-                            lever1.toggle()
-                            lever2.toggle()
-                        }
-                    }
             }
             .foregroundColor(Color("Black"))
             .toolbar {

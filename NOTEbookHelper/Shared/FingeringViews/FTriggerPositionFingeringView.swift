@@ -13,6 +13,7 @@ struct FTriggerPositionFingeringView: View {
     var body: some View {
         HStack {
             Image("FTrigger\(fingering.triggers![0] ? "Full" : "Empty")")
+                .renderingMode(.template)
             
             if (fingering.position!.type == .sharp) {
                 Image("Sharp")

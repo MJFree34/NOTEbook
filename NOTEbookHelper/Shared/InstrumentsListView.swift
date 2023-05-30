@@ -23,7 +23,6 @@ struct InstrumentsListView: View {
     @EnvironmentObject private var helperChartsController: HelperChartsController
     
     @State private var editMode = EditMode.inactive
-    @State private var chartCategoryEditingInsideName: String?
     
     @State private var currentAddSheet: AddSheet?
     
@@ -69,8 +68,12 @@ struct InstrumentsListView: View {
             ForEach(helperChartsController.chartCategories(in: section)) { chartCategory in
                 chartCategorySection(chartCategory: chartCategory)
             }
-            .onMove(perform: moveChartCategory)
-            .onDelete(perform: deleteChartCategory)
+            .onMove { fromOffsets, toOffset in
+                moveChartCategory(section: section, fromOffsets: fromOffsets, toOffset: toOffset)
+            }
+            .onDelete { offsets in
+                deleteChartCategory(section: section, atOffsets: offsets)
+            }
         }
         .foregroundColor(Color("DarkAqua"))
         .listRowBackground(Color("LightestAqua"))
@@ -90,14 +93,10 @@ struct InstrumentsListView: View {
                 }
             }
             .onMove { fromOffsets, toOffset in
-                chartCategoryEditingInsideName = chartCategory.name
-                moveFingeringChart(fromOffsets: fromOffsets, toOffset: toOffset)
-                chartCategoryEditingInsideName = nil
+                moveFingeringChart(in: chartCategory.name, fromOffsets: fromOffsets, toOffset: toOffset)
             }
             .onDelete { offsets in
-                chartCategoryEditingInsideName = chartCategory.name
-                deleteFingeringChart(atOffsets: offsets)
-                chartCategoryEditingInsideName = nil
+                deleteFingeringChart(in: chartCategory.name, atOffsets: offsets)
             }
         } header: {
             Group {
@@ -144,20 +143,20 @@ struct InstrumentsListView: View {
         }
     }
     
-    private func moveFingeringChart(fromOffsets: IndexSet, toOffset: Int) {
-        helperChartsController.moveFingeringChartInChartCategory(categoryName: chartCategoryEditingInsideName!, fromOffsets: fromOffsets, toOffset: toOffset)
+    private func moveFingeringChart(in chartCategoryName: String, fromOffsets: IndexSet, toOffset: Int) {
+        helperChartsController.moveFingeringChartInChartCategory(categoryName: chartCategoryName, fromOffsets: fromOffsets, toOffset: toOffset)
     }
     
-    private func moveChartCategory(fromOffsets: IndexSet, toOffset: Int) {
-        helperChartsController.moveChartCategory(fromOffsets: fromOffsets, toOffset: toOffset)
+    private func moveChartCategory(section: ChartSection, fromOffsets: IndexSet, toOffset: Int) {
+        helperChartsController.moveChartCategory(section: section, fromOffsets: fromOffsets, toOffset: toOffset)
     }
     
-    private func deleteFingeringChart(atOffsets offsets: IndexSet) {
-        helperChartsController.deleteFingeringChartInChartCategory(categoryName: chartCategoryEditingInsideName!, atOffsets: offsets)
+    private func deleteFingeringChart(in chartCategoryName: String, atOffsets offsets: IndexSet) {
+        helperChartsController.deleteFingeringChartInChartCategory(categoryName: chartCategoryName, atOffsets: offsets)
     }
     
-    private func deleteChartCategory(atOffsets offsets: IndexSet) {
-        helperChartsController.deleteChartCategory(atOffsets: offsets)
+    private func deleteChartCategory(section: ChartSection, atOffsets offsets: IndexSet) {
+        helperChartsController.deleteChartCategory(section: section, atOffsets: offsets)
     }
 }
 

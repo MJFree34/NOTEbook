@@ -168,6 +168,8 @@ struct NoteCell: View {
         } else {
             Image("BassClef")
                 .resizable()
+                .renderingMode(.template)
+                .foregroundColor(highlightColor)
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 30)
                 .offset(x: -2, y: -4.5)
