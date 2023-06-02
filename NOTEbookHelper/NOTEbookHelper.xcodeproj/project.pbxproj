@@ -119,7 +119,7 @@
 		9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
 		9AC2F89D2A119CDF002D6E3D /* FluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
 		9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFluteFingeringView.swift; sourceTree = "<group>"; };
-		9AE268492A17C09500F4FCBC /* Charts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; };
+		9AE268492A17C09500F4FCBC /* Charts.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = Charts.json; sourceTree = "<group>"; tabWidth = 2; };
 		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
 		9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsListView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };

@@ -273,7 +273,7 @@ struct AddBaritoneSaxophoneFingeringView: View {
                 
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        fingering.keys = [key1, key2, key3, key4, key5, key6, bottom1, bottom2, chromaticFSharp, side1, side2, side3, highFSharp, fork, top1, top2, top3, low1, low2, low3, low4, bis, octave]
+                        fingering.keys = [key1, key2, key3, key4, key5, key6, bottom1, bottom2, chromaticFSharp, side1, side2, side3, highFSharp, fork, top1, top2, top3, low1, low2, low3, low4, bis, octave, lowA]
                         dismiss()
                     } label: {
                         Text("\(isAdd ? "Add" : "Update") Fingering")
