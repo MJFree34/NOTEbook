@@ -68,7 +68,7 @@ struct AddFingeringChartCategoryView: View {
     
     private var addButton: some View {
         Button {
-            helperChartsController.addChartCategory(category: ChartCategory(name: name, section: section!, fingeringCharts: []))
+            helperChartsController.addChartCategory(category: ChartCategory(type: ChartCategoryType(rawValue: name) ?? .trumpet, section: section!, fingeringCharts: []))
             dismiss()
         } label: {
             Text("Add \(name.isEmpty ? "Category" : name)")

@@ -17,9 +17,12 @@ class FingeringScrollingView: UIView {
             
             fingeringScrollViews.removeAll()
             
-            for fingering in fingerings {
-                let fingeringScrollView = FingeringScrollView(fingering: fingering)
-                fingeringScrollViews.append(fingeringScrollView)
+            if fingerings.isEmpty {
+                fingeringScrollViews.append(FingeringScrollView(fingering: nil))
+            } else {
+                for fingering in fingerings {
+                    fingeringScrollViews.append(FingeringScrollView(fingering: fingering))
+                }
             }
             
             width = ChartsController.shared.currentChart.instrument.fingeringWidth

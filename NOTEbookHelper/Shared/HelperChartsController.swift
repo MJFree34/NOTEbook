@@ -84,7 +84,7 @@ class HelperChartsController: ObservableObject {
             return Binding {
                 self.chartCategories[chartCategoryIndex].name
             } set: { newName in
-                self.chartCategories[chartCategoryIndex].name = newName
+                self.chartCategories[chartCategoryIndex].type = ChartCategoryType(rawValue: newName) ?? ChartCategoryType(rawValue: categoryName)!
             }
         }
         return nil

@@ -70,7 +70,7 @@
 		9ACB7C622A36636A008B9A0E /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB7C5F2A36636A008B9A0E /* MusicSymbols.xcassets */; };
 		9ACB7C632A36636A008B9A0E /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB7C602A36636A008B9A0E /* Instruments.xcassets */; };
 		9ACB7C652A3663A3008B9A0E /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C642A3663A3008B9A0E /* ChartsLoader.swift */; };
-		9ACB7C682A366487008B9A0E /* Charts-v1.2.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB7C672A366487008B9A0E /* Charts-v1.2.json */; };
+		9ACB7C682A366487008B9A0E /* Charts-v2.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB7C672A366487008B9A0E /* Charts-v2.0.json */; };
 		9ACB7C712A3664CD008B9A0E /* Fingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C6A2A3664CD008B9A0E /* Fingering.swift */; };
 		9ACB7C722A3664CD008B9A0E /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C6B2A3664CD008B9A0E /* Instrument.swift */; };
 		9ACB7C732A3664CD008B9A0E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C6C2A3664CD008B9A0E /* Note.swift */; };
@@ -78,6 +78,7 @@
 		9ACB7C752A3664CD008B9A0E /* FingeringChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C6E2A3664CD008B9A0E /* FingeringChart.swift */; };
 		9ACB7C762A3664CD008B9A0E /* ChartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C6F2A3664CD008B9A0E /* ChartCategory.swift */; };
 		9ACB7C772A3664CD008B9A0E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACB7C702A3664CD008B9A0E /* Position.swift */; };
+		9ACB7C7D2A366AA4008B9A0E /* Charts-v2.0-UIKit.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACB7C7C2A366AA4008B9A0E /* Charts-v2.0-UIKit.json */; };
 		9AD25F48256D56B000F8B4A1 /* AccidentalsFinalDark.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F46256D56AE00F8B4A1 /* AccidentalsFinalDark.gif */; };
 		9AD25F49256D56B000F8B4A1 /* AccidentalsFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F47256D56AF00F8B4A1 /* AccidentalsFinalLight.gif */; };
 		9AD25F50256D6DFF00F8B4A1 /* AlternateFingeringsFinalLight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9AD25F4E256D6DFE00F8B4A1 /* AlternateFingeringsFinalLight.gif */; };
@@ -188,7 +189,7 @@
 		9ACB7C5F2A36636A008B9A0E /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
 		9ACB7C602A36636A008B9A0E /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
 		9ACB7C642A3663A3008B9A0E /* ChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsLoader.swift; path = ../../../NOTEbookShared/ChartsLoader.swift; sourceTree = "<group>"; };
-		9ACB7C672A366487008B9A0E /* Charts-v1.2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Charts-v1.2.json"; sourceTree = "<group>"; };
+		9ACB7C672A366487008B9A0E /* Charts-v2.0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Charts-v2.0.json"; sourceTree = "<group>"; };
 		9ACB7C6A2A3664CD008B9A0E /* Fingering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fingering.swift; sourceTree = "<group>"; };
 		9ACB7C6B2A3664CD008B9A0E /* Instrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		9ACB7C6C2A3664CD008B9A0E /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -196,6 +197,7 @@
 		9ACB7C6E2A3664CD008B9A0E /* FingeringChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingeringChart.swift; sourceTree = "<group>"; };
 		9ACB7C6F2A3664CD008B9A0E /* ChartCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCategory.swift; sourceTree = "<group>"; };
 		9ACB7C702A3664CD008B9A0E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		9ACB7C7C2A366AA4008B9A0E /* Charts-v2.0-UIKit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Charts-v2.0-UIKit.json"; sourceTree = "<group>"; };
 		9AD25F46256D56AE00F8B4A1 /* AccidentalsFinalDark.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AccidentalsFinalDark.gif; sourceTree = "<group>"; };
 		9AD25F47256D56AF00F8B4A1 /* AccidentalsFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AccidentalsFinalLight.gif; sourceTree = "<group>"; };
 		9AD25F4E256D6DFE00F8B4A1 /* AlternateFingeringsFinalLight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AlternateFingeringsFinalLight.gif; sourceTree = "<group>"; };
@@ -284,10 +286,10 @@
 				9AD55738249954F70078CB7E /* Extensions */,
 				9ACB7C5D2A36636A008B9A0E /* Assets */,
 				9A23CDE0256B62D40038DF4A /* TutorialGifs */,
-				9AF35F672665CE25008B8518 /* StoreKitTestCertificate.cer */,
 				9ACB7C662A366487008B9A0E /* Charts */,
 				9A022AED249908C20052E819 /* Assets.xcassets */,
 				9A022AEF249908C20052E819 /* LaunchScreen.storyboard */,
+				9AF35F672665CE25008B8518 /* StoreKitTestCertificate.cer */,
 				9A022AF2249908C20052E819 /* Info.plist */,
 			);
 			path = NOTEbook;
@@ -456,7 +458,8 @@
 		9ACB7C662A366487008B9A0E /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				9ACB7C672A366487008B9A0E /* Charts-v1.2.json */,
+				9ACB7C672A366487008B9A0E /* Charts-v2.0.json */,
+				9ACB7C7C2A366AA4008B9A0E /* Charts-v2.0-UIKit.json */,
 			);
 			name = Charts;
 			path = ../../NOTEbookShared/Charts;
@@ -649,9 +652,10 @@
 			files = (
 				9AD25F51256D6DFF00F8B4A1 /* AlternateFingeringsFinalDark.gif in Resources */,
 				9AD25F50256D6DFF00F8B4A1 /* AlternateFingeringsFinalLight.gif in Resources */,
-				9ACB7C682A366487008B9A0E /* Charts-v1.2.json in Resources */,
+				9ACB7C682A366487008B9A0E /* Charts-v2.0.json in Resources */,
 				9AD25F61256D96D000F8B4A1 /* ChartFinalDark.gif in Resources */,
 				9ACB7C612A36636A008B9A0E /* Colors.xcassets in Resources */,
+				9ACB7C7D2A366AA4008B9A0E /* Charts-v2.0-UIKit.json in Resources */,
 				9ACB7C632A36636A008B9A0E /* Instruments.xcassets in Resources */,
 				9AD25F7D256DC5FC00F8B4A1 /* InstrumentsFinalLight.gif in Resources */,
 				9A054DF1257DB45F00DCE8FF /* Instruments.storekit in Resources */,
@@ -918,7 +922,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
@@ -928,7 +932,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -941,7 +945,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3245FW657Z;
 				INFOPLIST_FILE = NOTEbook/Info.plist;
@@ -951,7 +955,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MattFree.NOTEbook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

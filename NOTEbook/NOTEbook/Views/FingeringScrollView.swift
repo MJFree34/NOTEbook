@@ -11,9 +11,9 @@ import UIKit
 class FingeringScrollView: UIView {
     private lazy var optionalLabel = OptionalLabel(large: true)
     
-    var fingering: Fingering
+    private var fingering: Fingering?
     
-    init(fingering: Fingering) {
+    init(fingering: Fingering?) {
         self.fingering = fingering
         
         super.init(frame: .zero)
@@ -27,34 +27,32 @@ class FingeringScrollView: UIView {
         
         let currentInstrumentType = ChartsController.shared.currentChart.instrument.type
         
-        if fingering.keys == nil {
-            optionalLabel.isHidden = false
-        } else {
+        if let fingering = fingering {
             let fingeringView: FingeringView
             
             var yConstant: CGFloat = 0
             
             switch currentInstrumentType {
-            case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba, .threeValveEbTuba, .fFrenchHorn:
-                fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 1)
-            case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
-                fingeringView = FourValveFingeringView(fingering: fingering, ratio: 1)
-            case .tenorTrombone:
-                fingeringView = PositionFingeringView(fingering: fingering, ratio: 1)
-            case .fTriggerTenorTrombone:
-                fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 1)
-            case .fBbFrenchHorn:
-                fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 1)
-            case .flute:
+            case .cFlute:
                 fingeringView = FluteFingeringView(fingering: fingering, ratio: 1)
                 yConstant = -5
-            case .clarinet:
+            case .bbSopranoClarinet:
                 fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.75)
                 yConstant = -15
-            case .altoSaxophone, .tenorSaxophone:
+            case .ebAltoSaxophone, .bbTenorSaxophone:
                 fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.70)
-            case .baritoneSaxophone:
+            case .ebBaritoneSaxophone:
                 fingeringView = BaritoneSaxophoneFingeringView(fingering: fingering, ratio: 0.70)
+            case .bbTrumpet, .fMellophone, .fSingleFrenchHorn, .bbBaritoneHorn, .threeValveBBbTuba, .threeValveEbTuba:
+                fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 1)
+            case .fBbDoubleFrenchHorn:
+                fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 1)
+            case .fourValveBbEuphoniumCompensating, .fourValveBbEuphoniumNonCompensating:
+                fingeringView = FourValveFingeringView(fingering: fingering, ratio: 1)
+            case .bbTenorTrombone:
+                fingeringView = PositionFingeringView(fingering: fingering, ratio: 1)
+            case .fTriggerBbTenorTrombone:
+                fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 1)
             }
             
             fingeringView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +62,8 @@ class FingeringScrollView: UIView {
                 fingeringView.centerXAnchor.constraint(equalTo: centerXAnchor),
                 fingeringView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: yConstant)
             ])
+        } else {
+            optionalLabel.isHidden = false
         }
     }
     

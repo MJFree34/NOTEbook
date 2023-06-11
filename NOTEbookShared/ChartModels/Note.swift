@@ -527,7 +527,7 @@ struct Note: Codable, Equatable {
     }
     
     func isLowerQuarterNote() -> Bool {
-        return position >= NotePosition.middle3rdLine
+        return position < NotePosition.middle3rdLine
     }
     
     func capitalizedLetter() -> String {

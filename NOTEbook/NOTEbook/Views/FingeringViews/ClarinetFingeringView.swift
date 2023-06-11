@@ -19,7 +19,7 @@ class ClarinetFingeringView: FingeringView {
     private lazy var bottomKeys1: FingeringKeyView = {
         if fingering.keys![6] {
             if fingering.keys![7] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysFull, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysFullFull, ratio: ratio)
             } else {
                 return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysEmptyFull, ratio: ratio)
             }
@@ -27,15 +27,15 @@ class ClarinetFingeringView: FingeringView {
             if fingering.keys![7] {
                 return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysFullEmpty, ratio: ratio)
             } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysEmpty, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysEmptyEmpty, ratio: ratio)
             }
         }
     }()
-    
+
     private lazy var bottomKeys2: FingeringKeyView = {
         if fingering.keys![8] {
             if fingering.keys![9] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysFull, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysFullFull, ratio: ratio)
             } else {
                 return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysEmptyFull, ratio: ratio)
             }
@@ -43,7 +43,7 @@ class ClarinetFingeringView: FingeringView {
             if fingering.keys![9] {
                 return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysFullEmpty, ratio: ratio)
             } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysEmpty, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.bottomKeysEmptyEmpty, ratio: ratio)
             }
         }
     }()
@@ -54,37 +54,9 @@ class ClarinetFingeringView: FingeringView {
     private lazy var leverKey4 = FingeringKeyView(imageName: fingering.keys![13] ? UIImage.Instruments.Clarinet.topLeverKeyFull : UIImage.Instruments.Clarinet.topLeverKeyEmpty, ratio: ratio)
     private lazy var leverKey5 = FingeringKeyView(imageName: fingering.keys![14] ? UIImage.Instruments.Clarinet.topLeverKeyFull : UIImage.Instruments.Clarinet.topLeverKeyEmpty, ratio: ratio)
     
-    private lazy var rightKeys: FingeringKeyView = {
-        if fingering.keys![15] {
-            if fingering.keys![16] {
-                if fingering.keys![17] {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysFull, ratio: ratio)
-                } else {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysFullFullEmpty, ratio: ratio)
-                }
-            } else {
-                if fingering.keys![17] {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysFullEmptyFull, ratio: ratio)
-                } else {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysFullEmptyEmpty, ratio: ratio)
-                }
-            }
-        } else {
-            if fingering.keys![16] {
-                if fingering.keys![17] {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysEmptyFullFull, ratio: ratio)
-                } else {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysEmptyFullEmpty, ratio: ratio)
-                }
-            } else {
-                if fingering.keys![17] {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysEmptyEmptyFull, ratio: ratio)
-                } else {
-                    return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.triggerGroupKeysEmpty, ratio: ratio)
-                }
-            }
-        }
-    }()
+    private lazy var triggerKey1 = FingeringKeyView(imageName: fingering.keys![15] ? UIImage.Instruments.Clarinet.triggerKey1Full : UIImage.Instruments.Clarinet.triggerKey1Empty, ratio: ratio)
+    private lazy var triggerKey2 = FingeringKeyView(imageName: fingering.keys![15] ? UIImage.Instruments.Clarinet.triggerKey2Full : UIImage.Instruments.Clarinet.triggerKey2Empty, ratio: ratio)
+    private lazy var triggerKey3 = FingeringKeyView(imageName: fingering.keys![15] ? UIImage.Instruments.Clarinet.triggerKey3Full : UIImage.Instruments.Clarinet.triggerKey3Empty, ratio: ratio)
     
     private lazy var sideKey1 = FingeringKeyView(imageName: fingering.keys![18] ? UIImage.Instruments.Clarinet.largeSideKeyFull : UIImage.Instruments.Clarinet.largeSideKeyEmpty, ratio: ratio)
     private lazy var sideKey2 = FingeringKeyView(imageName: fingering.keys![19] ? UIImage.Instruments.Clarinet.largeSideKeyFull : UIImage.Instruments.Clarinet.largeSideKeyEmpty, ratio: ratio)
@@ -94,7 +66,7 @@ class ClarinetFingeringView: FingeringView {
     private lazy var thumbKeys: FingeringKeyView = {
         if fingering.keys![22] {
             if fingering.keys![23] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.thumbKeysFull, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.thumbKeysFullFull, ratio: ratio)
             } else {
                 return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.thumbKeysEmptyFull, ratio: ratio)
             }
@@ -102,7 +74,7 @@ class ClarinetFingeringView: FingeringView {
             if fingering.keys![23] {
                 return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.thumbKeysFullEmpty, ratio: ratio)
             } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.thumbKeysEmpty, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Clarinet.thumbKeysEmptyEmpty, ratio: ratio)
             }
         }
     }()
@@ -123,7 +95,9 @@ class ClarinetFingeringView: FingeringView {
         addSubview(leverKey3)
         addSubview(leverKey4)
         addSubview(leverKey5)
-        addSubview(rightKeys)
+        addSubview(triggerKey1)
+        addSubview(triggerKey2)
+        addSubview(triggerKey3)
         addSubview(sideKey1)
         addSubview(sideKey2)
         addSubview(sideKey3)
@@ -151,7 +125,7 @@ class ClarinetFingeringView: FingeringView {
             
             bottomKeys1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 157 * ratio),
             bottomKeys1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 24 * ratio),
-            
+
             bottomKeys2.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 147 * ratio),
             bottomKeys2.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 24 * ratio),
             
@@ -170,8 +144,14 @@ class ClarinetFingeringView: FingeringView {
             leverKey5.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -147 * ratio),
             leverKey5.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 17 * ratio),
             
-            rightKeys.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 63 * ratio),
-            rightKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -13 * ratio),
+            triggerKey1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 75 * ratio),
+            triggerKey1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -25 * ratio),
+            
+            triggerKey2.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 68 * ratio),
+            triggerKey2.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -4 * ratio),
+            
+            triggerKey3.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 42 * ratio),
+            triggerKey3.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -22 * ratio),
             
             sideKey1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 11 * ratio),
             sideKey1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 52 * ratio),
@@ -186,7 +166,7 @@ class ClarinetFingeringView: FingeringView {
             sideKey4.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 54 * ratio),
             
             thumbKeys.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -110 * ratio),
-            thumbKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 48 * ratio),
+            thumbKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 50 * ratio),
         ])
     }
     

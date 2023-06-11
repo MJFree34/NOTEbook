@@ -20,7 +20,7 @@ class FluteFingeringView: FingeringView {
     private lazy var leverKeys: FingeringKeyView = {
         if fingering.keys![7] {
             if fingering.keys![8] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Flute.leverKeysFull, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Flute.leverKeysFullFull, ratio: ratio)
             } else {
                 return FingeringKeyView(imageName: UIImage.Instruments.Flute.leverKeysEmptyFull, ratio: ratio)
             }
@@ -28,7 +28,7 @@ class FluteFingeringView: FingeringView {
             if fingering.keys![8] {
                 return FingeringKeyView(imageName: UIImage.Instruments.Flute.leverKeysFullEmpty, ratio: ratio)
             } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Flute.leverKeysEmpty, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Flute.leverKeysEmptyEmpty, ratio: ratio)
             }
         }
     }()
@@ -42,7 +42,7 @@ class FluteFingeringView: FingeringView {
     private lazy var thumbKeys: FingeringKeyView = {
         if fingering.keys![14] {
             if fingering.keys![15] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Flute.thumbKeysFull, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Flute.thumbKeysFullFull, ratio: ratio)
             } else {
                 return FingeringKeyView(imageName: UIImage.Instruments.Flute.thumbKeysEmptyFull, ratio: ratio)
             }
@@ -50,7 +50,7 @@ class FluteFingeringView: FingeringView {
             if fingering.keys![15] {
                 return FingeringKeyView(imageName: UIImage.Instruments.Flute.thumbKeysFullEmpty, ratio: ratio)
             } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Flute.thumbKeysEmpty, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Flute.thumbKeysEmptyEmpty, ratio: ratio)
             }
         }
     }()
@@ -95,8 +95,8 @@ class FluteFingeringView: FingeringView {
             pinkyKey.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 93 * ratio),
             pinkyKey.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 5 * ratio),
             
-            leverKeys.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -35 * ratio),
-            leverKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -5 * ratio),
+            leverKeys.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -33 * ratio),
+            leverKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -2 * ratio),
             
             trillKey1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 12.5 * ratio),
             trillKey1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 9 * ratio),
@@ -114,7 +114,7 @@ class FluteFingeringView: FingeringView {
             footKey3.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -11.5 * ratio),
             
             thumbKeys.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -95 * ratio),
-            thumbKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 17.5 * ratio),
+            thumbKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 22 * ratio),
         ])
     }
     
