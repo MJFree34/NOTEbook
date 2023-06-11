@@ -22,7 +22,7 @@ struct NoteCell: View {
     var positionsFromCenterStaff: Int { note1.positionsFromCenterStaff() }
     
     private let lineSpacing: CGFloat = 9
-    private let staffWidth: CGFloat = 150
+    private let staffWidth: CGFloat = 100
     
     var body: some View {
         VStack {
