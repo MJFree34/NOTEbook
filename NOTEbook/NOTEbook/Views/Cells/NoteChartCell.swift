@@ -494,7 +494,7 @@ extension NoteChartCell {
             optionalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
         
-        if noteFingering.fingerings[0].keys == nil {
+        if noteFingering.fingerings.isEmpty {
             optionalLabel.isHidden = false
         } else {
             optionalLabel.isHidden = true
@@ -504,33 +504,33 @@ extension NoteChartCell {
                 let bottomSpacing: CGFloat
                 
                 switch chartsController.currentChart.instrument.type {
-                case .trumpet, .baritoneTC, .baritoneBC, .mellophone, .threeValveBBbTuba, .threeValveEbTuba, .fFrenchHorn:
-                    fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 0.5)
-                    bottomSpacing = -15
-                case .euphoniumTCNC, .euphoniumTCC, .euphoniumBCNC, .euphoniumBCC:
-                    fingeringView = FourValveFingeringView(fingering: fingering, ratio: 0.5)
-                    bottomSpacing = -15
-                case .tenorTrombone:
-                    fingeringView = PositionFingeringView(fingering: fingering, ratio: 0.75)
-                    bottomSpacing = -15
-                case .fTriggerTenorTrombone:
-                    fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 0.75)
-                    bottomSpacing = -18
-                case .fBbFrenchHorn:
-                    fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 0.5)
-                    bottomSpacing = -15
-                case .flute:
+                case .cFlute:
                     fingeringView = FluteFingeringView(fingering: fingering, ratio: 0.4)
                     bottomSpacing = -17
-                case .clarinet:
+                case .bbSopranoClarinet:
                     fingeringView = ClarinetFingeringView(fingering: fingering, ratio: 0.35)
                     bottomSpacing = -27
-                case .altoSaxophone, .tenorSaxophone:
+                case .ebAltoSaxophone, .bbTenorSaxophone:
                     fingeringView = SaxophoneFingeringView(fingering: fingering, ratio: 0.38)
                     bottomSpacing = -21
-                case .baritoneSaxophone:
+                case .ebBaritoneSaxophone:
                     fingeringView = BaritoneSaxophoneFingeringView(fingering: fingering, ratio: 0.35)
                     bottomSpacing = -21
+                case .bbTrumpet, .fMellophone, .fSingleFrenchHorn, .bbBaritoneHorn, .threeValveBBbTuba, .threeValveEbTuba:
+                    fingeringView = ThreeValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomSpacing = -15
+                case .fBbDoubleFrenchHorn:
+                    fingeringView = BbTriggerThreeValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomSpacing = -15
+                case .fourValveBbEuphoniumCompensating, .fourValveBbEuphoniumNonCompensating:
+                    fingeringView = FourValveFingeringView(fingering: fingering, ratio: 0.5)
+                    bottomSpacing = -15
+                case .bbTenorTrombone:
+                    fingeringView = PositionFingeringView(fingering: fingering, ratio: 0.75)
+                    bottomSpacing = -15
+                case .fTriggerBbTenorTrombone:
+                    fingeringView = FTriggerPositionFingeringView(fingering: fingering, ratio: 0.75)
+                    bottomSpacing = -18
                 }
                 
                 let bottomInset = bottomSpacing - CGFloat(chartsController.currentChart.instrument.chartFingeringHeight * index)

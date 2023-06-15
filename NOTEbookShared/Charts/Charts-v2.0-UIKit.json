@@ -1,12 +1,17 @@
 [
   {
-    "name" : "Flute",
+    "type" : "Flute",
     "section" : "Woodwinds",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "C Flute",
-          "offset" : 3
+          "offset" : 3,
+          "fingeringWidth": 290,
+          "chartCellHeight": 330,
+          "chartCenterOfStaffFromTop": 110,
+          "chartFingeringHeight": 25,
+          "maximumSpacingFingerings": 6.75
         },
         "flatNotes" : [
           {
@@ -4937,13 +4942,18 @@
     ]
   },
   {
-    "name" : "Clarinet",
+    "type" : "Clarinet",
     "section" : "Woodwinds",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "Bb Soprano Clarinet",
-          "offset" : 1
+          "offset" : 1,
+          "fingeringWidth": 250,
+          "chartCellHeight": 368,
+          "chartCenterOfStaffFromTop": 90,
+          "chartFingeringHeight": 34,
+          "maximumSpacingFingerings": 6
         },
         "flatNotes" : [
           {
@@ -10643,13 +10653,18 @@
     ]
   },
   {
-    "name" : "Saxophone",
+    "type" : "Saxophone",
     "section" : "Woodwinds",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "Eb Alto Saxophone",
-          "offset" : 3
+          "offset" : 3,
+          "fingeringWidth": 220,
+          "chartCellHeight": 430,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 41,
+          "maximumSpacingFingerings": 6.5
         },
         "flatNotes" : [
           {
@@ -16889,7 +16904,12 @@
       {
         "instrument" : {
           "type" : "Bb Tenor Saxophone",
-          "offset" : 3
+          "offset" : 3,
+          "fingeringWidth": 220,
+          "chartCellHeight": 430,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 41,
+          "maximumSpacingFingerings": 6.5
         },
         "flatNotes" : [
           {
@@ -23129,7 +23149,12 @@
       {
         "instrument" : {
           "type" : "Eb Baritone Saxophone",
-          "offset" : 2.75
+          "offset" : 2.75,
+          "fingeringWidth": 228,
+          "chartCellHeight": 430,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 41,
+          "maximumSpacingFingerings": 6.5
         },
         "flatNotes" : [
           {
@@ -29437,13 +29462,18 @@
     ]
   },
   {
-    "name" : "Trumpet",
+    "type" : "Trumpet",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "Bb Trumpet",
-          "offset" : -0.25
+          "offset" : -0.25,
+          "fingeringWidth": 140,
+          "chartCellHeight": 215,
+          "chartCenterOfStaffFromTop": 75,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 2.5
         },
         "flatNotes" : [
           {
@@ -31369,13 +31399,18 @@
     ]
   },
   {
-    "name" : "Mellophone",
+    "type" : "Mellophone",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "F Mellophone",
-          "offset" : -0.25
+          "offset" : -0.25,
+          "fingeringWidth": 140,
+          "chartCellHeight": 160,
+          "chartCenterOfStaffFromTop": 70,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 1
         },
         "flatNotes" : [
           {
@@ -32447,13 +32482,18 @@
     ]
   },
   {
-    "name" : "French Horn",
+    "type" : "French Horn",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "F Single French Horn",
-          "offset" : -2
+          "offset" : -2,
+          "fingeringWidth": 140,
+          "chartCellHeight": 205,
+          "chartCenterOfStaffFromTop": 70,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 1.25
         },
         "flatNotes" : [
           {
@@ -34140,7 +34180,12 @@
       {
         "instrument" : {
           "type" : "F\/Bb Double French Horn",
-          "offset" : -3
+          "offset" : -3,
+          "fingeringWidth": 200,
+          "chartCellHeight": 225,
+          "chartCenterOfStaffFromTop": 70,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 1.5
         },
         "flatNotes" : [
           {
@@ -36772,13 +36817,18 @@
     ]
   },
   {
-    "name" : "Trombone",
+    "type" : "Trombone",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "Bb Tenor Trombone",
-          "offset" : 1.25
+          "offset" : 1.25,
+          "fingeringWidth": 140,
+          "chartCellHeight": 210,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 25,
+          "maximumSpacingFingerings": 1
         },
         "flatNotes" : [
           {
@@ -38706,7 +38756,12 @@
       {
         "instrument" : {
           "type" : "F-Trigger Bb Tenor Trombone",
-          "offset" : 1.25
+          "offset" : 1.25,
+          "fingeringWidth": 150,
+          "chartCellHeight": 240,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 32,
+          "maximumSpacingFingerings": 1.5
         },
         "flatNotes" : [
           {
@@ -41011,13 +41066,19 @@
     ]
   },
   {
-    "name" : "Baritone Horn",
+    "type" : "Baritone Horn",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "Bb Baritone Horn",
-          "offset" : 1.25
+          "offset" : 1.25,
+          "fingeringWidth": 140,
+          "chartCellHeight": 170,
+          "chartCenterOfStaffFromTop": 70,
+          "offset": 1.25,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 2
         },
         "flatNotes" : [
           {
@@ -42222,13 +42283,18 @@
     ]
   },
   {
-    "name" : "Euphonium",
+    "type" : "Euphonium",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "4-Valve Bb Euphonium Compensating",
-          "offset" : 0.75
+          "offset" : 0.75,
+          "fingeringWidth": 180,
+          "chartCellHeight": 245,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 2.5
         },
         "flatNotes" : [
           {
@@ -44562,7 +44628,12 @@
       {
         "instrument" : {
           "type" : "4-Valve Bb Euphonium Non-Compensating",
-          "offset" : 0.75
+          "offset" : 0.75,
+          "fingeringWidth": 180,
+          "chartCellHeight": 230,
+          "chartCenterOfStaffFromTop": 105,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 1.75
         },
         "flatNotes" : [
           {
@@ -46673,13 +46744,18 @@
     ]
   },
   {
-    "name" : "Tuba",
+    "type" : "Tuba",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
           "type" : "3-Valve BBb Tuba",
-          "offset" : -2.25
+          "offset" : -2.25,
+          "fingeringWidth": 140,
+          "chartCellHeight": 220,
+          "chartCenterOfStaffFromTop": 70,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 1.5
         },
         "flatNotes" : [
           {
@@ -48720,7 +48796,12 @@
       {
         "instrument" : {
           "type" : "3-Valve Eb Tuba",
-          "offset" : -0.75
+          "offset" : -0.75,
+          "fingeringWidth": 140,
+          "chartCellHeight": 205,
+          "chartCenterOfStaffFromTop": 70,
+          "chartFingeringHeight": 22,
+          "maximumSpacingFingerings": 1.25
         },
         "flatNotes" : [
           {
@@ -50642,3 +50723,4 @@
     ]
   }
 ]
+

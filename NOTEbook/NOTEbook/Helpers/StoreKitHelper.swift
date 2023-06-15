@@ -16,8 +16,12 @@ struct StoreKitHelper {
         let numberOfTimesLaunched = UserDefaults.standard.integer(forKey: UserDefaults.Keys.numberOfTimesLaunched)
         
         if numberOfTimesLaunched >= 7 && currentVersion != lastVersionPromptedForReview {
-            SKStoreReviewController.requestReview()
-            UserDefaults.standard.set(currentVersion, forKey: UserDefaults.Keys.lastVersion)
+            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                DispatchQueue.main.async {
+                    SKStoreReviewController.requestReview(in: scene)
+                }
+                UserDefaults.standard.set(currentVersion, forKey: UserDefaults.Keys.lastVersion)
+            }
         }
     }
     

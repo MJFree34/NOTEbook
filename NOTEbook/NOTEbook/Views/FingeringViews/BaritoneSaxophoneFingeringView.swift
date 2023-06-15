@@ -9,32 +9,16 @@
 import UIKit
 
 class BaritoneSaxophoneFingeringView: SaxophoneFingeringView {
-    private lazy var baritoneOctaveKey: FingeringKeyView = {
-        if fingering.keys![22] {
-            if fingering.keys![23] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysFull, ratio: ratio)
-            } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysEmptyFull, ratio: ratio)
-            }
-        } else {
-            if fingering.keys![23] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysFullEmpty, ratio: ratio)
-            } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.baritoneOctaveKeysEmpty, ratio: ratio)
-            }
-        }
-    }()
+    private lazy var baritoneOctaveKey = FingeringKeyView(imageName: fingering.keys![23] ? UIImage.Instruments.Saxophone.baritoneOctaveKeyFull :  UIImage.Instruments.Saxophone.baritoneOctaveKeyEmpty, ratio: ratio)
     
     override init(fingering: Fingering, ratio: CGFloat) {
         super.init(fingering: fingering, ratio: ratio)
         
-        octaveKey.isHidden = true
-        
         addSubview(baritoneOctaveKey)
         
         NSLayoutConstraint.activate([
-            baritoneOctaveKey.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -128 * ratio),
-            baritoneOctaveKey.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 33 * ratio)
+            baritoneOctaveKey.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -90 * ratio),
+            baritoneOctaveKey.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 40 * ratio)
         ])
     }
     

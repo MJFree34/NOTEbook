@@ -264,7 +264,7 @@ struct Note: Codable, Equatable {
             case .d:
                 switch octave {
                 case .zero:
-                    fatalError("Note not implemented")
+                    return .bottom8thSpace
                 case .one:
                     return .bottom5thLine
                 case .two:
@@ -285,7 +285,7 @@ struct Note: Codable, Equatable {
             case .e:
                 switch octave {
                 case .zero:
-                    fatalError("Note not implemented")
+                    return .bottom8thLine
                 case .one:
                     return .bottom5thSpace
                 case .two:
@@ -306,7 +306,7 @@ struct Note: Codable, Equatable {
             case .f:
                 switch octave {
                 case .zero:
-                    fatalError("Note not implemented")
+                    return .bottom7thSpace
                 case .one:
                     return .bottom4thLine
                 case .two:
@@ -327,7 +327,7 @@ struct Note: Codable, Equatable {
             case .g:
                 switch octave {
                 case .zero:
-                    return .bottom8thLine
+                    return .bottom7thLine
                 case .one:
                     return .bottom4thSpace
                 case .two:
@@ -511,7 +511,7 @@ struct Note: Codable, Equatable {
     static func minNote(for clef: Clef) -> Note {
         switch clef {
         case .bass:
-            return Note(letter: .a, type: .natural, octave: .zero, clef: .bass)
+            return Note(letter: .e, type: .natural, octave: .zero, clef: .bass)
         case .treble:
             return Note(letter: .c, type: .natural, octave: .two, clef: .treble)
         }
@@ -527,7 +527,7 @@ struct Note: Codable, Equatable {
     }
     
     func isLowerQuarterNote() -> Bool {
-        return position >= NotePosition.middle3rdLine
+        return position < NotePosition.middle3rdLine
     }
     
     func capitalizedLetter() -> String {

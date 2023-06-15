@@ -17,7 +17,7 @@ enum ChartLoadingError: Error {
 }
 
 struct ChartsLoader {
-    static let chartsFilename = "Charts-v1.2"
+    static let chartsFilename = "Charts-v2.0-UIKit"
     
     static func loadCharts() throws -> [ChartCategory] {
         let chartsURLOptional: URL?
