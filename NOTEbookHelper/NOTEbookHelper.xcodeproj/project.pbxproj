@@ -7,6 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+		9A3F0C03295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */; };
+		9A3F0C04295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */; };
+		9A3F0C06295F2ECB004CA28E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C05295F2ECB004CA28E /* NoteCell.swift */; };
+		9A3F0C07295F2ECB004CA28E /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C05295F2ECB004CA28E /* NoteCell.swift */; };
+		9A3F0C092962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */; };
+		9A3F0C0A2962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */; };
+		9A3F0C0C296342A9004CA28E /* AddFingeringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */; };
+		9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */; };
+		9A4D8E812A08AA6B00DC483F /* AddThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */; };
+		9A4D8E822A08AA6B00DC483F /* AddThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */; };
+		9A85BA202A367A1300A8C447 /* Charts-v2.0-UIKit.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A85BA1E2A367A1300A8C447 /* Charts-v2.0-UIKit.json */; };
+		9A85BA212A367A1300A8C447 /* Charts-v2.0-UIKit.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A85BA1E2A367A1300A8C447 /* Charts-v2.0-UIKit.json */; };
+		9A85BA222A367A1300A8C447 /* Charts-v2.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A85BA1F2A367A1300A8C447 /* Charts-v2.0.json */; };
+		9A85BA232A367A1300A8C447 /* Charts-v2.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A85BA1F2A367A1300A8C447 /* Charts-v2.0.json */; };
+		9A85BA2C2A367A1F00A8C447 /* Fingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA252A367A1F00A8C447 /* Fingering.swift */; };
+		9A85BA2D2A367A1F00A8C447 /* Fingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA252A367A1F00A8C447 /* Fingering.swift */; };
+		9A85BA2E2A367A1F00A8C447 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA262A367A1F00A8C447 /* Instrument.swift */; };
+		9A85BA2F2A367A1F00A8C447 /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA262A367A1F00A8C447 /* Instrument.swift */; };
+		9A85BA302A367A1F00A8C447 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA272A367A1F00A8C447 /* Note.swift */; };
+		9A85BA312A367A1F00A8C447 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA272A367A1F00A8C447 /* Note.swift */; };
+		9A85BA322A367A1F00A8C447 /* NoteFingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA282A367A1F00A8C447 /* NoteFingering.swift */; };
+		9A85BA332A367A1F00A8C447 /* NoteFingering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA282A367A1F00A8C447 /* NoteFingering.swift */; };
+		9A85BA342A367A1F00A8C447 /* FingeringChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA292A367A1F00A8C447 /* FingeringChart.swift */; };
+		9A85BA352A367A1F00A8C447 /* FingeringChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA292A367A1F00A8C447 /* FingeringChart.swift */; };
+		9A85BA362A367A1F00A8C447 /* ChartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA2A2A367A1F00A8C447 /* ChartCategory.swift */; };
+		9A85BA372A367A1F00A8C447 /* ChartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA2A2A367A1F00A8C447 /* ChartCategory.swift */; };
+		9A85BA382A367A1F00A8C447 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA2B2A367A1F00A8C447 /* Position.swift */; };
+		9A85BA392A367A1F00A8C447 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A85BA2B2A367A1F00A8C447 /* Position.swift */; };
+		9A8D44322A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */; };
+		9A8D44332A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */; };
+		9A8D44382A153B450093ED1B /* AddSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44372A153B450093ED1B /* AddSaxophoneFingeringView.swift */; };
+		9A8D44392A153B450093ED1B /* AddSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44372A153B450093ED1B /* AddSaxophoneFingeringView.swift */; };
+		9A8D44412A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44402A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift */; };
+		9A8D44422A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8D44402A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift */; };
+		9AC2F8892A0BF1A6002D6E3D /* AddFourValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8882A0BF1A6002D6E3D /* AddFourValveFingeringView.swift */; };
+		9AC2F88A2A0BF1A6002D6E3D /* AddFourValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8882A0BF1A6002D6E3D /* AddFourValveFingeringView.swift */; };
+		9AC2F88F2A0BFCB7002D6E3D /* AddPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F88E2A0BFCB7002D6E3D /* AddPositionFingeringView.swift */; };
+		9AC2F8902A0BFCB7002D6E3D /* AddPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F88E2A0BFCB7002D6E3D /* AddPositionFingeringView.swift */; };
+		9AC2F8952A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */; };
+		9AC2F8962A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */; };
+		9AC2F89B2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */; };
+		9AC2F89C2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */; };
+		9AC2F8A12A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */; };
+		9AC2F8A22A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */; };
+		9AC60F0B2A354D74000774A0 /* FourValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFC2A354D74000774A0 /* FourValveFingeringView.swift */; };
+		9AC60F0C2A354D74000774A0 /* FourValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFC2A354D74000774A0 /* FourValveFingeringView.swift */; };
+		9AC60F0D2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFD2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift */; };
+		9AC60F0E2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFD2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift */; };
+		9AC60F0F2A354D74000774A0 /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFE2A354D74000774A0 /* FTriggerPositionFingeringView.swift */; };
+		9AC60F102A354D74000774A0 /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFE2A354D74000774A0 /* FTriggerPositionFingeringView.swift */; };
+		9AC60F112A354D74000774A0 /* SaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFF2A354D74000774A0 /* SaxophoneFingeringView.swift */; };
+		9AC60F122A354D74000774A0 /* SaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60EFF2A354D74000774A0 /* SaxophoneFingeringView.swift */; };
+		9AC60F132A354D74000774A0 /* ClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F002A354D74000774A0 /* ClarinetFingeringView.swift */; };
+		9AC60F142A354D74000774A0 /* ClarinetFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F002A354D74000774A0 /* ClarinetFingeringView.swift */; };
+		9AC60F152A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F012A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift */; };
+		9AC60F162A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F012A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift */; };
+		9AC60F172A354D74000774A0 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F022A354D74000774A0 /* ThreeValveFingeringView.swift */; };
+		9AC60F182A354D74000774A0 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F022A354D74000774A0 /* ThreeValveFingeringView.swift */; };
+		9AC60F192A354D74000774A0 /* FluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F032A354D74000774A0 /* FluteFingeringView.swift */; };
+		9AC60F1A2A354D74000774A0 /* FluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F032A354D74000774A0 /* FluteFingeringView.swift */; };
+		9AC60F1B2A354D74000774A0 /* PositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F042A354D74000774A0 /* PositionFingeringView.swift */; };
+		9AC60F1C2A354D74000774A0 /* PositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F042A354D74000774A0 /* PositionFingeringView.swift */; };
+		9AC60F1F2A354D74000774A0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC60F082A354D74000774A0 /* Colors.xcassets */; };
+		9AC60F202A354D74000774A0 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC60F082A354D74000774A0 /* Colors.xcassets */; };
+		9AC60F212A354D74000774A0 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC60F092A354D74000774A0 /* MusicSymbols.xcassets */; };
+		9AC60F222A354D74000774A0 /* MusicSymbols.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC60F092A354D74000774A0 /* MusicSymbols.xcassets */; };
+		9AC60F232A354D74000774A0 /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC60F0A2A354D74000774A0 /* Instruments.xcassets */; };
+		9AC60F242A354D74000774A0 /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC60F0A2A354D74000774A0 /* Instruments.xcassets */; };
+		9AC60F262A354D9F000774A0 /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F252A354D9F000774A0 /* ChartsLoader.swift */; };
+		9AC60F272A354D9F000774A0 /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC60F252A354D9F000774A0 /* ChartsLoader.swift */; };
+=======
 		9A3A96A52A009EB100BD7FA5 /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96A42A009EB100BD7FA5 /* Charts.json */; };
 		9A3A96A62A009EB100BD7FA5 /* Charts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96A42A009EB100BD7FA5 /* Charts.json */; };
 		9A3A96A82A009EC600BD7FA5 /* NoteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A3A96A72A009EC600BD7FA5 /* NoteList.json */; };
@@ -27,12 +99,58 @@
 		9A3A96C02A00C8F100BD7FA5 /* FingeringChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A96B32A00C8F100BD7FA5 /* FingeringChart.swift */; };
 		9A3A96C12A00C8F100BD7FA5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A96B42A00C8F100BD7FA5 /* Note.swift */; };
 		9A3A96C22A00C8F100BD7FA5 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A96B42A00C8F100BD7FA5 /* Note.swift */; };
+>>>>>>> main
 		9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */; };
 		9AE30B4C27E94B4600E3D44A /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */; };
 		9AE30B4D27E94B4600E3D44A /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */; };
 		9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30B3C27E94B4600E3D44A /* Assets.xcassets */; };
 		9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE30B3C27E94B4600E3D44A /* Assets.xcassets */; };
+<<<<<<< HEAD
+		9AE30CD427ECAFAE00E3D44A /* HelperChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */; };
+		9AE30CD527ECAFAE00E3D44A /* HelperChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */; };
+		9AE30CE627F0130300E3D44A /* FingeringChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */; };
+		9AE30CE727F0130300E3D44A /* FingeringChartDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9A3F0BFB295C8A5A004CA28E /* NOTEbookHelper--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NOTEbookHelper--iOS--Info.plist"; sourceTree = "<group>"; };
+		9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFingeringDetailView.swift; sourceTree = "<group>"; };
+		9A3F0C05295F2ECB004CA28E /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFingeringChartCategoryView.swift; sourceTree = "<group>"; };
+		9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFingeringChartView.swift; sourceTree = "<group>"; };
+		9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9A85BA1E2A367A1300A8C447 /* Charts-v2.0-UIKit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Charts-v2.0-UIKit.json"; sourceTree = "<group>"; };
+		9A85BA1F2A367A1300A8C447 /* Charts-v2.0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Charts-v2.0.json"; sourceTree = "<group>"; };
+		9A85BA252A367A1F00A8C447 /* Fingering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fingering.swift; sourceTree = "<group>"; };
+		9A85BA262A367A1F00A8C447 /* Instrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
+		9A85BA272A367A1F00A8C447 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		9A85BA282A367A1F00A8C447 /* NoteFingering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFingering.swift; sourceTree = "<group>"; };
+		9A85BA292A367A1F00A8C447 /* FingeringChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingeringChart.swift; sourceTree = "<group>"; };
+		9A85BA2A2A367A1F00A8C447 /* ChartCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCategory.swift; sourceTree = "<group>"; };
+		9A85BA2B2A367A1F00A8C447 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClarinetFingeringView.swift; sourceTree = "<group>"; };
+		9A8D44372A153B450093ED1B /* AddSaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSaxophoneFingeringView.swift; sourceTree = "<group>"; };
+		9A8D44402A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F8882A0BF1A6002D6E3D /* AddFourValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFourValveFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F88E2A0BFCB7002D6E3D /* AddPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPositionFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
+		9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFluteFingeringView.swift; sourceTree = "<group>"; };
+		9AC60EFC2A354D74000774A0 /* FourValveFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourValveFingeringView.swift; sourceTree = "<group>"; };
+		9AC60EFD2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
+		9AC60EFE2A354D74000774A0 /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
+		9AC60EFF2A354D74000774A0 /* SaxophoneFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaxophoneFingeringView.swift; sourceTree = "<group>"; };
+		9AC60F002A354D74000774A0 /* ClarinetFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClarinetFingeringView.swift; sourceTree = "<group>"; };
+		9AC60F012A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9AC60F022A354D74000774A0 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9AC60F032A354D74000774A0 /* FluteFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
+		9AC60F042A354D74000774A0 /* PositionFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionFingeringView.swift; sourceTree = "<group>"; };
+		9AC60F082A354D74000774A0 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		9AC60F092A354D74000774A0 /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MusicSymbols.xcassets; sourceTree = "<group>"; };
+		9AC60F0A2A354D74000774A0 /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
+		9AC60F252A354D9F000774A0 /* ChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsLoader.swift; path = ../../NOTEbookShared/ChartsLoader.swift; sourceTree = "<group>"; };
+=======
 		9AE30C2627EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C1727EB8C5F00E3D44A /* FourValveFingeringView.swift */; };
 		9AE30C2727EB8C5F00E3D44A /* FourValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C1727EB8C5F00E3D44A /* FourValveFingeringView.swift */; };
 		9AE30C2827EB8C5F00E3D44A /* BaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE30C1827EB8C5F00E3D44A /* BaritoneSaxophoneFingeringView.swift */; };
@@ -102,12 +220,17 @@
 		9A3A96B22A00C8F100BD7FA5 /* NoteFingering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteFingering.swift; sourceTree = "<group>"; };
 		9A3A96B32A00C8F100BD7FA5 /* FingeringChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingeringChart.swift; sourceTree = "<group>"; };
 		9A3A96B42A00C8F100BD7FA5 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
 		9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentsListView.swift; sourceTree = "<group>"; };
 		9AE30B3C27E94B4600E3D44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AE30B4127E94B4600E3D44A /* NOTEbook Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NOTEbook Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE30B4727E94B4600E3D44A /* NOTEbookHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOTEbookHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AE30B4927E94B4600E3D44A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperChartsController.swift; sourceTree = "<group>"; };
+		9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingeringChartDetailView.swift; sourceTree = "<group>"; };
+=======
 		9AE30C1727EB8C5F00E3D44A /* FourValveFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourValveFingeringView.swift; sourceTree = "<group>"; };
 		9AE30C1827EB8C5F00E3D44A /* BaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
 		9AE30C1927EB8C5F00E3D44A /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
@@ -136,6 +259,7 @@
 		9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = ../../NOTEbook/NOTEbook/Colors.xcassets; sourceTree = "<group>"; };
 		9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MusicSymbols.xcassets; path = ../../NOTEbook/NOTEbook/MusicSymbols.xcassets; sourceTree = "<group>"; };
 		9AE30CE527F0130300E3D44A /* ChartDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailView.swift; sourceTree = "<group>"; };
+>>>>>>> main
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +280,102 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
+		9A4D8E832A08B0E400DC483F /* AddFingeringViews */ = {
+			isa = PBXGroup;
+			children = (
+				9AC2F8A02A119CEB002D6E3D /* AddFluteFingeringView.swift */,
+				9A8D44312A1285A10093ED1B /* AddClarinetFingeringView.swift */,
+				9A8D44372A153B450093ED1B /* AddSaxophoneFingeringView.swift */,
+				9A8D44402A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift */,
+				9A4D8E802A08AA6B00DC483F /* AddThreeValveFingeringView.swift */,
+				9AC2F8882A0BF1A6002D6E3D /* AddFourValveFingeringView.swift */,
+				9AC2F8942A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift */,
+				9AC2F88E2A0BFCB7002D6E3D /* AddPositionFingeringView.swift */,
+				9AC2F89A2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift */,
+			);
+			path = AddFingeringViews;
+			sourceTree = "<group>";
+		};
+		9A85BA1D2A367A1300A8C447 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				9A85BA1E2A367A1300A8C447 /* Charts-v2.0-UIKit.json */,
+				9A85BA1F2A367A1300A8C447 /* Charts-v2.0.json */,
+			);
+			name = Charts;
+			path = ../../NOTEbookShared/Charts;
+			sourceTree = "<group>";
+		};
+		9A85BA242A367A1F00A8C447 /* ChartModels */ = {
+			isa = PBXGroup;
+			children = (
+				9A85BA252A367A1F00A8C447 /* Fingering.swift */,
+				9A85BA262A367A1F00A8C447 /* Instrument.swift */,
+				9A85BA272A367A1F00A8C447 /* Note.swift */,
+				9A85BA282A367A1F00A8C447 /* NoteFingering.swift */,
+				9A85BA292A367A1F00A8C447 /* FingeringChart.swift */,
+				9A85BA2A2A367A1F00A8C447 /* ChartCategory.swift */,
+				9A85BA2B2A367A1F00A8C447 /* Position.swift */,
+			);
+			name = ChartModels;
+			path = ../../NOTEbookShared/ChartModels;
+			sourceTree = "<group>";
+		};
+		9AC60EDC2A354C20000774A0 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */,
+				9AE30CE527F0130300E3D44A /* FingeringChartDetailView.swift */,
+				9A3F0C02295EA20A004CA28E /* NoteFingeringDetailView.swift */,
+			);
+			path = MainViews;
+			sourceTree = "<group>";
+		};
+		9AC60EDD2A354C2F000774A0 /* AddViews */ = {
+			isa = PBXGroup;
+			children = (
+				9A3F0C082962127D004CA28E /* AddFingeringChartCategoryView.swift */,
+				9A3F0C0B296342A9004CA28E /* AddFingeringChartView.swift */,
+			);
+			path = AddViews;
+			sourceTree = "<group>";
+		};
+		9AC60EDE2A354C46000774A0 /* SupplementaryViews */ = {
+			isa = PBXGroup;
+			children = (
+				9A3F0C05295F2ECB004CA28E /* NoteCell.swift */,
+			);
+			path = SupplementaryViews;
+			sourceTree = "<group>";
+		};
+		9AC60EFB2A354D74000774A0 /* FingeringViews */ = {
+			isa = PBXGroup;
+			children = (
+				9AC60EFC2A354D74000774A0 /* FourValveFingeringView.swift */,
+				9AC60EFD2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift */,
+				9AC60EFE2A354D74000774A0 /* FTriggerPositionFingeringView.swift */,
+				9AC60EFF2A354D74000774A0 /* SaxophoneFingeringView.swift */,
+				9AC60F002A354D74000774A0 /* ClarinetFingeringView.swift */,
+				9AC60F012A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift */,
+				9AC60F022A354D74000774A0 /* ThreeValveFingeringView.swift */,
+				9AC60F032A354D74000774A0 /* FluteFingeringView.swift */,
+				9AC60F042A354D74000774A0 /* PositionFingeringView.swift */,
+			);
+			name = FingeringViews;
+			path = ../../NOTEbookShared/FingeringViews;
+			sourceTree = "<group>";
+		};
+		9AC60F072A354D74000774A0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9AC60F082A354D74000774A0 /* Colors.xcassets */,
+				9AC60F092A354D74000774A0 /* MusicSymbols.xcassets */,
+				9AC60F0A2A354D74000774A0 /* Instruments.xcassets */,
+			);
+			name = Assets;
+			path = ../../NOTEbookShared/Assets;
+=======
 		9A3A96AD2A00C8AE00BD7FA5 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +388,7 @@
 				9A3A96AE2A00C8F100BD7FA5 /* Position.swift */,
 			);
 			path = Charts;
+>>>>>>> main
 			sourceTree = "<group>";
 		};
 		9AE30B3427E94B4400E3D44A = {
@@ -182,15 +403,26 @@
 		9AE30B3927E94B4400E3D44A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */,
+				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
+				9AC60F252A354D9F000774A0 /* ChartsLoader.swift */,
+				9AC60EDC2A354C20000774A0 /* MainViews */,
+				9AC60EDD2A354C2F000774A0 /* AddViews */,
+				9AC60EFB2A354D74000774A0 /* FingeringViews */,
+				9A4D8E832A08B0E400DC483F /* AddFingeringViews */,
+				9AC60EDE2A354C46000774A0 /* SupplementaryViews */,
+				9A85BA242A367A1F00A8C447 /* ChartModels */,
+				9A85BA1D2A367A1300A8C447 /* Charts */,
+				9AC60F072A354D74000774A0 /* Assets */,
+=======
 				9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */,
 				9AE30B3A27E94B4400E3D44A /* NOTEbookHelperApp.swift */,
 				9AE30B3B27E94B4400E3D44A /* InstrumentsListView.swift */,
 				9AE30CE527F0130300E3D44A /* ChartDetailView.swift */,
 				9AE30CD327ECAFAE00E3D44A /* HelperChartsController.swift */,
+>>>>>>> main
 				9AE30B3C27E94B4600E3D44A /* Assets.xcassets */,
-				9AE30CDA27ECE1C400E3D44A /* Colors.xcassets */,
-				9AE30CD927ECE1C400E3D44A /* Instruments.xcassets */,
-				9AE30CDC27ECE1C400E3D44A /* MusicSymbols.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -212,6 +444,8 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
 		9AE30B5827EB4EFB00E3D44A /* NOTEbook Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +514,7 @@
 			path = ../../../NOTEbook/NOTEbook/Extensions;
 			sourceTree = "<group>";
 		};
+>>>>>>> main
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,12 +594,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				9AC60F1F2A354D74000774A0 /* Colors.xcassets in Resources */,
+				9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */,
+				9A85BA222A367A1300A8C447 /* Charts-v2.0.json in Resources */,
+				9AC60F232A354D74000774A0 /* Instruments.xcassets in Resources */,
+				9AC60F212A354D74000774A0 /* MusicSymbols.xcassets in Resources */,
+				9A85BA202A367A1300A8C447 /* Charts-v2.0-UIKit.json in Resources */,
+=======
 				9AE30CDF27ECE1C400E3D44A /* Colors.xcassets in Resources */,
 				9A3A96A82A009EC600BD7FA5 /* NoteList.json in Resources */,
 				9AE30CDD27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
 				9A3A96A52A009EB100BD7FA5 /* Charts.json in Resources */,
 				9AE30B4E27E94B4600E3D44A /* Assets.xcassets in Resources */,
 				9AE30CE327ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */,
+>>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,12 +616,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				9AC60F202A354D74000774A0 /* Colors.xcassets in Resources */,
+				9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */,
+				9A85BA232A367A1300A8C447 /* Charts-v2.0.json in Resources */,
+				9AC60F242A354D74000774A0 /* Instruments.xcassets in Resources */,
+				9AC60F222A354D74000774A0 /* MusicSymbols.xcassets in Resources */,
+				9A85BA212A367A1300A8C447 /* Charts-v2.0-UIKit.json in Resources */,
+=======
 				9AE30CE027ECE1C400E3D44A /* Colors.xcassets in Resources */,
 				9A3A96A92A009EC600BD7FA5 /* NoteList.json in Resources */,
 				9AE30CDE27ECE1C400E3D44A /* Instruments.xcassets in Resources */,
 				9A3A96A62A009EB100BD7FA5 /* Charts.json in Resources */,
 				9AE30B4F27E94B4600E3D44A /* Assets.xcassets in Resources */,
 				9AE30CE427ECE1C400E3D44A /* MusicSymbols.xcassets in Resources */,
+>>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +641,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				9A4D8E812A08AA6B00DC483F /* AddThreeValveFingeringView.swift in Sources */,
+				9AC60F152A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift in Sources */,
+				9AE30CE627F0130300E3D44A /* FingeringChartDetailView.swift in Sources */,
+				9A85BA382A367A1F00A8C447 /* Position.swift in Sources */,
+				9A85BA2C2A367A1F00A8C447 /* Fingering.swift in Sources */,
+				9AC60F0D2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift in Sources */,
+				9A3F0C0C296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
+				9AC60F192A354D74000774A0 /* FluteFingeringView.swift in Sources */,
+				9A3F0C03295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */,
+				9A85BA342A367A1F00A8C447 /* FingeringChart.swift in Sources */,
+				9A8D44382A153B450093ED1B /* AddSaxophoneFingeringView.swift in Sources */,
+				9AE30CD427ECAFAE00E3D44A /* HelperChartsController.swift in Sources */,
+				9A85BA362A367A1F00A8C447 /* ChartCategory.swift in Sources */,
+				9AE30B4C27E94B4600E3D44A /* InstrumentsListView.swift in Sources */,
+				9A85BA322A367A1F00A8C447 /* NoteFingering.swift in Sources */,
+				9AC2F8892A0BF1A6002D6E3D /* AddFourValveFingeringView.swift in Sources */,
+				9A85BA2E2A367A1F00A8C447 /* Instrument.swift in Sources */,
+				9AE30B4A27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
+				9A3F0C092962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */,
+				9AC60F0F2A354D74000774A0 /* FTriggerPositionFingeringView.swift in Sources */,
+				9AC60F112A354D74000774A0 /* SaxophoneFingeringView.swift in Sources */,
+				9AC60F0B2A354D74000774A0 /* FourValveFingeringView.swift in Sources */,
+				9AC60F262A354D9F000774A0 /* ChartsLoader.swift in Sources */,
+				9AC60F132A354D74000774A0 /* ClarinetFingeringView.swift in Sources */,
+				9AC60F1B2A354D74000774A0 /* PositionFingeringView.swift in Sources */,
+				9A8D44412A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift in Sources */,
+				9A8D44322A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */,
+				9AC2F8A12A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */,
+				9AC2F89B2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */,
+				9AC2F88F2A0BFCB7002D6E3D /* AddPositionFingeringView.swift in Sources */,
+				9A3F0C06295F2ECB004CA28E /* NoteCell.swift in Sources */,
+				9AC2F8952A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift in Sources */,
+				9A85BA302A367A1F00A8C447 /* Note.swift in Sources */,
+				9AC60F172A354D74000774A0 /* ThreeValveFingeringView.swift in Sources */,
+=======
 				9AE30C2E27EB8C5F00E3D44A /* ClarinetFingeringView.swift in Sources */,
 				9AE30C3827EB8C5F00E3D44A /* FluteFingeringView.swift in Sources */,
 				9AE30C9E27EB8D6700E3D44A /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
@@ -423,6 +712,7 @@
 				9AE30C9027EB8D6700E3D44A /* Notification.Name+Extensions.swift in Sources */,
 				9AE30C9827EB8D6700E3D44A /* UIFont+Extensions.swift in Sources */,
 				9AE30C2827EB8C5F00E3D44A /* BaritoneSaxophoneFingeringView.swift in Sources */,
+>>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +720,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+				9A4D8E822A08AA6B00DC483F /* AddThreeValveFingeringView.swift in Sources */,
+				9AC60F162A354D74000774A0 /* BbTriggerThreeValveFingeringView.swift in Sources */,
+				9AE30CE727F0130300E3D44A /* FingeringChartDetailView.swift in Sources */,
+				9A85BA392A367A1F00A8C447 /* Position.swift in Sources */,
+				9A85BA2D2A367A1F00A8C447 /* Fingering.swift in Sources */,
+				9AC60F0E2A354D74000774A0 /* BaritoneSaxophoneFingeringView.swift in Sources */,
+				9A3F0C0D296342A9004CA28E /* AddFingeringChartView.swift in Sources */,
+				9AC60F1A2A354D74000774A0 /* FluteFingeringView.swift in Sources */,
+				9A3F0C04295EA20A004CA28E /* NoteFingeringDetailView.swift in Sources */,
+				9A85BA352A367A1F00A8C447 /* FingeringChart.swift in Sources */,
+				9A8D44392A153B450093ED1B /* AddSaxophoneFingeringView.swift in Sources */,
+				9AE30CD527ECAFAE00E3D44A /* HelperChartsController.swift in Sources */,
+				9A85BA372A367A1F00A8C447 /* ChartCategory.swift in Sources */,
+				9AE30B4D27E94B4600E3D44A /* InstrumentsListView.swift in Sources */,
+				9A85BA332A367A1F00A8C447 /* NoteFingering.swift in Sources */,
+				9AC2F88A2A0BF1A6002D6E3D /* AddFourValveFingeringView.swift in Sources */,
+				9A85BA2F2A367A1F00A8C447 /* Instrument.swift in Sources */,
+				9A3F0C0A2962127D004CA28E /* AddFingeringChartCategoryView.swift in Sources */,
+				9A8D44422A15660B0093ED1B /* AddBaritoneSaxophoneFingeringView.swift in Sources */,
+				9AC60F102A354D74000774A0 /* FTriggerPositionFingeringView.swift in Sources */,
+				9AC60F122A354D74000774A0 /* SaxophoneFingeringView.swift in Sources */,
+				9AC60F0C2A354D74000774A0 /* FourValveFingeringView.swift in Sources */,
+				9AC60F272A354D9F000774A0 /* ChartsLoader.swift in Sources */,
+				9AC60F142A354D74000774A0 /* ClarinetFingeringView.swift in Sources */,
+				9AC60F1C2A354D74000774A0 /* PositionFingeringView.swift in Sources */,
+				9A8D44332A1285A10093ED1B /* AddClarinetFingeringView.swift in Sources */,
+				9AC2F8A22A119CEB002D6E3D /* AddFluteFingeringView.swift in Sources */,
+				9AC2F89C2A119B9D002D6E3D /* AddFTriggerPositionFingeringView.swift in Sources */,
+				9AC2F8902A0BFCB7002D6E3D /* AddPositionFingeringView.swift in Sources */,
+				9AE30B4B27E94B4600E3D44A /* NOTEbookHelperApp.swift in Sources */,
+				9A3F0C07295F2ECB004CA28E /* NoteCell.swift in Sources */,
+				9AC2F8962A1191C7002D6E3D /* AddBbTriggerThreeValveFingeringView.swift in Sources */,
+				9A85BA312A367A1F00A8C447 /* Note.swift in Sources */,
+				9AC60F182A354D74000774A0 /* ThreeValveFingeringView.swift in Sources */,
+=======
 				9AE30C3527EB8C5F00E3D44A /* PositionFingeringAccidental.swift in Sources */,
 				9AE30C2B27EB8C5F00E3D44A /* FTriggerPositionFingeringView.swift in Sources */,
 				9AE30C9F27EB8D6700E3D44A /* UIImpactFeedbackGenerator+Extensions.swift in Sources */,
@@ -465,6 +791,7 @@
 				9AE30C9127EB8D6700E3D44A /* Notification.Name+Extensions.swift in Sources */,
 				9AE30C9927EB8D6700E3D44A /* UIFont+Extensions.swift in Sources */,
 				9AE30C3D27EB8C5F00E3D44A /* ValveFingeringView.swift in Sources */,
+>>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

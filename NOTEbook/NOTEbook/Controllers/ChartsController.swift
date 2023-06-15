@@ -57,9 +57,17 @@ class ChartsController {
         return groups
     }()
     
+    // MARK: - Initializer
+    
     init() {
         do {
             chartCategories = try ChartsLoader.loadCharts()
+        } catch ChartLoadingError.invalidURL {
+            fatalError("Invalid URL")
+        } catch ChartLoadingError.unloadableData {
+            fatalError("Data is unloadable")
+        } catch ChartLoadingError.decodingError {
+            fatalError("Decoding error")
         } catch {
             fatalError("Fail to load charts")
         }
@@ -69,9 +77,23 @@ class ChartsController {
         
         updatePurchasableInstrumentGroups()
     }
-}
-
-extension ChartsController {
+    
+    // MARK: - Saving
+    
+    private func save() {
+        do {
+            try ChartsLoader.saveCharts(chartCategories: chartCategories)
+        } catch ChartLoadingError.invalidURL {
+            fatalError("Invalid URL")
+        } catch ChartLoadingError.unencodableData {
+            fatalError("Data is unencodable")
+        } catch ChartLoadingError.writingError {
+            fatalError("Chart writing error")
+        } catch {
+            fatalError("Fail to load charts")
+        }
+    }
+    
     var numberOfNoteFingeringsInCurrentChart: Int {
         return currentChart.noteFingerings.count
     }
@@ -84,8 +106,8 @@ extension ChartsController {
         return currentChartCategory.fingeringCharts.count
     }
     
-    func chartCategories(of type: ChartCategoryType) -> [ChartCategory] {
-        chartCategories.filter { $0.type == type }
+    func chartCategories(of type: ChartSection) -> [ChartCategory] {
+        chartCategories.filter { $0.section == type }
     }
     
     func changeCurrentChart(to categoryName: String, chartIndex: Int) {
@@ -142,13 +164,7 @@ extension ChartsController {
     }
     
     private func chartCategory(with categoryName: String) -> ChartCategory? {
-        for category in chartCategories {
-            if category.name == categoryName {
-                return category
-            }
-        }
-        
-        return nil
+        return chartCategories.first { $0.name == categoryName }
     }
 }
 
@@ -285,7 +301,7 @@ extension ChartsController {
             case "Trombone":
                 purchasedCC.append(chartCategory(with: "Trombone")!)
             case "Euphonium":
-                purchasedCC.append(chartCategory(with: "Baritone")!)
+                purchasedCC.append(chartCategory(with: "Baritone Horn")!)
                 purchasedCC.append(chartCategory(with: "Euphonium")!)
             case "Tuba":
                 purchasedCC.append(chartCategory(with: "Tuba")!)

@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.Keys.instrumentPrice: 1.99,
             UserDefaults.Keys.firstLaunchDate: 0.0,
             UserDefaults.Keys.firstLaunch: true,
-            UserDefaults.Keys.freeTrialOver: false
+            UserDefaults.Keys.freeTrialOver: false,
+            UserDefaults.Keys.chartsCacheCreated: false
         ])
         
         let now = Date()

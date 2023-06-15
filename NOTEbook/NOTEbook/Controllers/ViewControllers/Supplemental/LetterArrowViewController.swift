@@ -101,7 +101,7 @@ class LetterArrowViewController: UIViewController {
     
     private func addGradientLabel() {
         letterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 85, height: 100))
-        letterLabel.text = chartsController.currentChart.centerNote.capitalizedLetter()
+        letterLabel.text = chartsController.currentChart.centerNote!.capitalizedLetter()
         letterLabel.font = UIFont.noteFont
         letterLabel.textAlignment = .center
         letterLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -12,6 +12,10 @@ struct NOTEbookHelperApp: App {
     @StateObject private var helperChartsController: HelperChartsController
     
     init() {
+        UserDefaults.standard.register(defaults: [
+            "ChartsCacheCreated": false
+        ])
+        
         _helperChartsController = StateObject(wrappedValue: HelperChartsController.shared)
     }
     

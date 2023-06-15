@@ -28,5 +28,7 @@ extension UserDefaults {
         static let freeTrialOver = "FreeTrialOver"
         
         static let instrumentPrice = "InstrumentPrice"
+        
+        static let chartsCacheCreated = "ChartsCacheCreated"
     }
 }

@@ -16,21 +16,8 @@ class SaxophoneFingeringView: FingeringView {
     private lazy var circleKey5 = FingeringKeyView(imageName: fingering.keys![4] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
     private lazy var circleKey6 = FingeringKeyView(imageName: fingering.keys![5] ? UIImage.Instruments.Saxophone.circleKeyFull :  UIImage.Instruments.Saxophone.circleKeyEmpty, ratio: ratio)
     
-    private lazy var bottomKeys: FingeringKeyView = {
-        if fingering.keys![6] {
-            if fingering.keys![7] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysFull, ratio: ratio)
-            } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysEmptyFull, ratio: ratio)
-            }
-        } else {
-            if fingering.keys![7] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysFullEmpty, ratio: ratio)
-            } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.bottomKeysEmpty, ratio: ratio)
-            }
-        }
-    }()
+    private lazy var bottomKey1 = FingeringKeyView(imageName: fingering.keys![6] ? UIImage.Instruments.Saxophone.bottomKey1Full :  UIImage.Instruments.Saxophone.bottomKey1Empty, ratio: ratio)
+    private lazy var bottomKey2 = FingeringKeyView(imageName: fingering.keys![7] ? UIImage.Instruments.Saxophone.bottomKey2Full :  UIImage.Instruments.Saxophone.bottomKey2Empty, ratio: ratio)
     
     private lazy var sideKey1 = FingeringKeyView(imageName: fingering.keys![8] ? UIImage.Instruments.Saxophone.chromaticFSharpKeyFull :  UIImage.Instruments.Saxophone.chromaticFSharpKeyEmpty, ratio: ratio)
     private lazy var sideKey2 = FingeringKeyView(imageName: fingering.keys![9] ? UIImage.Instruments.Saxophone.smallSideKeyFull :  UIImage.Instruments.Saxophone.smallSideKeyEmpty, ratio: ratio)
@@ -46,7 +33,7 @@ class SaxophoneFingeringView: FingeringView {
     private lazy var rightMiddleGroup: FingeringKeyView = {
         if fingering.keys![18] {
             if fingering.keys![19] {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysFull, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysFullFull, ratio: ratio)
             } else {
                 return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysFullEmpty, ratio: ratio)
             }
@@ -54,7 +41,7 @@ class SaxophoneFingeringView: FingeringView {
             if fingering.keys![19] {
                 return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysEmptyFull, ratio: ratio)
             } else {
-                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysEmpty, ratio: ratio)
+                return FingeringKeyView(imageName: UIImage.Instruments.Saxophone.middleLowKeysEmptyEmpty, ratio: ratio)
             }
         }
     }()
@@ -72,7 +59,8 @@ class SaxophoneFingeringView: FingeringView {
         addSubview(circleKey4)
         addSubview(circleKey5)
         addSubview(circleKey6)
-        addSubview(bottomKeys)
+        addSubview(bottomKey1)
+        addSubview(bottomKey2)
         addSubview(sideKey1)
         addSubview(sideKey2)
         addSubview(sideKey3)
@@ -107,8 +95,11 @@ class SaxophoneFingeringView: FingeringView {
             circleKey6.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -101 * ratio),
             circleKey6.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 2 * ratio),
             
-            bottomKeys.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 134 * ratio),
-            bottomKeys.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 28 * ratio),
+            bottomKey1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 143 * ratio),
+            bottomKey1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 28 * ratio),
+            
+            bottomKey2.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 126 * ratio),
+            bottomKey2.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 28 * ratio),
             
             sideKey1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 95 * ratio),
             sideKey1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 28 * ratio),
@@ -125,7 +116,7 @@ class SaxophoneFingeringView: FingeringView {
             leverKey1.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 57 * ratio),
             leverKey1.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 24 * ratio),
             
-            leverKey2.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -128 * ratio),
+            leverKey2.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -129 * ratio),
             leverKey2.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 2 * ratio),
             
             leverKey3.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -95 * ratio),
@@ -137,7 +128,7 @@ class SaxophoneFingeringView: FingeringView {
             leverKey5.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -85 * ratio),
             leverKey5.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -49.5 * ratio),
             
-            rightBottomGroup.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 11 * ratio),
+            rightBottomGroup.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 18 * ratio),
             rightBottomGroup.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -39 * ratio),
             
             rightMiddleGroup.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 2.5 * ratio),
@@ -150,7 +141,7 @@ class SaxophoneFingeringView: FingeringView {
             bisKey.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20 * ratio),
             
             octaveKey.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -120 * ratio),
-            octaveKey.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 33 * ratio),
+            octaveKey.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 40 * ratio),
         ])
     }
     
