@@ -5,7 +5,6 @@
 //  Created by Matt Free on 8/21/20.
 //  Copyright © 2020 Matt Free. All rights reserved.
 //
-
 import Foundation
 
 enum PositionValue: String, Codable, CaseIterable {
