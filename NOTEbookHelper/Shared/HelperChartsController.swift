@@ -327,7 +327,7 @@ class HelperChartsController: ObservableObject {
     #if(DEBUG)
     
     static var exampleChartCategory = shared.chartCategory(with: "Trumpet")!
-    static var exampleChart = exampleChartCategory.fingeringCharts[0]
+    static var exampleChart = exampleChartCategory.fingeringCharts.first!
     
     #endif
 }

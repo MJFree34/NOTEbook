@@ -17,21 +17,17 @@ enum ChartLoadingError: Error {
 }
 
 struct ChartsLoader {
-    static let chartsFilename = "Charts-v2.0-UIKit"
+    static let chartsFilename = "Charts-v2.0"
     
-    static func loadCharts() throws -> [ChartCategory] {
-        let chartsURLOptional: URL?
-        let chartsCacheCreated = UserDefaults.standard.bool(forKey: "ChartsCacheCreated")
+    static func loadCharts() async throws -> [ChartCategory] {
+        let chartsCacheCreated = UserDefaults.standard.bool(forKey: UserDefaults.Keys.chartsCacheCreated.rawValue)
+        let data: Data
         
-        if chartsCacheCreated {
-            chartsURLOptional = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(chartsFilename).json")
+        if let networkData = await networkChartsData() {
+            data = networkData
         } else {
-            chartsURLOptional = Bundle.main.url(forResource: chartsFilename, withExtension: "json")
+            data = chartsCacheCreated ? try savedChartsData() : try bundleChartsData()
         }
-        
-        guard chartsURLOptional != nil, let chartsURL = chartsURLOptional else { throw ChartLoadingError.invalidURL }
-        
-        guard let data = try? Data(contentsOf: chartsURL) else { throw ChartLoadingError.unloadableData }
         
         let decoder = JSONDecoder()
         
@@ -39,12 +35,41 @@ struct ChartsLoader {
             let chartCategories = try decoder.decode([ChartCategory].self, from: data)
             if !chartsCacheCreated {
                 try saveCharts(chartCategories: chartCategories)
-                UserDefaults.standard.set(true, forKey: "ChartsCacheCreated")
+                UserDefaults.standard.set(true, forKey: UserDefaults.Keys.chartsCacheCreated.rawValue)
             }
             return chartCategories
         } catch {
             throw ChartLoadingError.decodingError
         }
+    }
+    
+    private static func networkChartsData() async -> Data? {
+        guard let networkChartsURL = Constants.networkChartsURL?.appendingPathComponent("\(chartsFilename).json") else { return nil }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: networkChartsURL)
+            return data
+        } catch {
+            return nil
+        }
+    }
+    
+    private static func bundleChartsData() throws -> Data {
+        let bundleChartsURL = Bundle.main.url(forResource: chartsFilename, withExtension: "json")
+        
+        guard let bundleChartsURL = bundleChartsURL else { throw ChartLoadingError.invalidURL }
+        
+        guard let data = try? Data(contentsOf: bundleChartsURL) else { throw ChartLoadingError.unloadableData }
+        
+        return data
+    }
+    
+    private static func savedChartsData() throws -> Data {
+        let savedChartsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("\(chartsFilename).json")
+        
+        guard let data = try? Data(contentsOf: savedChartsURL) else { throw ChartLoadingError.unloadableData }
+        
+        return data
     }
     
     static func saveCharts(chartCategories: [ChartCategory]) throws {

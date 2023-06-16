@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct NOTEbookApp: App {
+    @StateObject private var chartsController: ChartsController
+    
+    init() {
+        UserDefaults.standard.register(defaults: [
+            UserDefaults.Keys.chartsCacheCreated.rawValue: false
+        ])
+        
+        self._chartsController = StateObject(wrappedValue: ChartsController.shared)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NotePickerView()
+                .environmentObject(chartsController)
         }
     }
 }

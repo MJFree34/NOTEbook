@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9AB75C942A3BDE69001F24E7 /* NOTEbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75C932A3BDE69001F24E7 /* NOTEbookApp.swift */; };
-		9AB75C962A3BDE69001F24E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75C952A3BDE69001F24E7 /* ContentView.swift */; };
+		9AB75C962A3BDE69001F24E7 /* NotePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75C952A3BDE69001F24E7 /* NotePickerView.swift */; };
 		9AB75C982A3BDE6A001F24E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AB75C972A3BDE6A001F24E7 /* Assets.xcassets */; };
 		9AB75C9B2A3BDE6A001F24E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AB75C9A2A3BDE6A001F24E7 /* Preview Assets.xcassets */; };
 		9AB75CA52A3BDE6A001F24E7 /* NOTEbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CA42A3BDE6A001F24E7 /* NOTEbookTests.swift */; };
@@ -21,6 +21,9 @@
 		9AB75CCF2A3BE059001F24E7 /* ChartCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CC82A3BE059001F24E7 /* ChartCategory.swift */; };
 		9AB75CD02A3BE059001F24E7 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CC92A3BE059001F24E7 /* Position.swift */; };
 		9AB75CD32A3BE0D5001F24E7 /* ChartsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CD22A3BE0D5001F24E7 /* ChartsLoader.swift */; };
+		9AB75CD52A3BE213001F24E7 /* ChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CD42A3BE213001F24E7 /* ChartsController.swift */; };
+		9AB75CDB2A3BE678001F24E7 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CDA2A3BE678001F24E7 /* UserDefaults+Extensions.swift */; };
+		9AB75CE12A3BE8B9001F24E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB75CE02A3BE8B9001F24E7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +39,7 @@
 /* Begin PBXFileReference section */
 		9AB75C902A3BDE69001F24E7 /* NOTEbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOTEbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB75C932A3BDE69001F24E7 /* NOTEbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NOTEbookApp.swift; sourceTree = "<group>"; };
-		9AB75C952A3BDE69001F24E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9AB75C952A3BDE69001F24E7 /* NotePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePickerView.swift; sourceTree = "<group>"; };
 		9AB75C972A3BDE6A001F24E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AB75C9A2A3BDE6A001F24E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9AB75CA02A3BDE6A001F24E7 /* NOTEbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NOTEbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +53,9 @@
 		9AB75CC82A3BE059001F24E7 /* ChartCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartCategory.swift; sourceTree = "<group>"; };
 		9AB75CC92A3BE059001F24E7 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		9AB75CD22A3BE0D5001F24E7 /* ChartsLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartsLoader.swift; path = ../../../NOTEbookShared/ChartsLoader.swift; sourceTree = "<group>"; };
+		9AB75CD42A3BE213001F24E7 /* ChartsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsController.swift; sourceTree = "<group>"; };
+		9AB75CDA2A3BE678001F24E7 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		9AB75CE02A3BE8B9001F24E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +98,12 @@
 			isa = PBXGroup;
 			children = (
 				9AB75C932A3BDE69001F24E7 /* NOTEbookApp.swift */,
-				9AB75C952A3BDE69001F24E7 /* ContentView.swift */,
+				9AB75C952A3BDE69001F24E7 /* NotePickerView.swift */,
+				9AB75CD42A3BE213001F24E7 /* ChartsController.swift */,
+				9AB75CE02A3BE8B9001F24E7 /* Constants.swift */,
 				9AB75CD12A3BE0CC001F24E7 /* Helpers */,
 				9AB75CC22A3BE059001F24E7 /* ChartModels */,
+				9AB75CD92A3BE678001F24E7 /* Extensions */,
 				9AB75CBD2A3BE00A001F24E7 /* Charts */,
 				9AB75C972A3BDE6A001F24E7 /* Assets.xcassets */,
 				9AB75C992A3BDE6A001F24E7 /* Preview Content */,
@@ -130,12 +139,12 @@
 		9AB75CC22A3BE059001F24E7 /* ChartModels */ = {
 			isa = PBXGroup;
 			children = (
-				9AB75CC32A3BE059001F24E7 /* Fingering.swift */,
-				9AB75CC42A3BE059001F24E7 /* Instrument.swift */,
-				9AB75CC52A3BE059001F24E7 /* Note.swift */,
-				9AB75CC62A3BE059001F24E7 /* NoteFingering.swift */,
-				9AB75CC72A3BE059001F24E7 /* FingeringChart.swift */,
 				9AB75CC82A3BE059001F24E7 /* ChartCategory.swift */,
+				9AB75CC72A3BE059001F24E7 /* FingeringChart.swift */,
+				9AB75CC42A3BE059001F24E7 /* Instrument.swift */,
+				9AB75CC62A3BE059001F24E7 /* NoteFingering.swift */,
+				9AB75CC52A3BE059001F24E7 /* Note.swift */,
+				9AB75CC32A3BE059001F24E7 /* Fingering.swift */,
 				9AB75CC92A3BE059001F24E7 /* Position.swift */,
 			);
 			name = ChartModels;
@@ -148,6 +157,15 @@
 				9AB75CD22A3BE0D5001F24E7 /* ChartsLoader.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9AB75CD92A3BE678001F24E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9AB75CDA2A3BE678001F24E7 /* UserDefaults+Extensions.swift */,
+			);
+			name = Extensions;
+			path = ../../NOTEbookShared/Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,14 +270,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AB75CCC2A3BE059001F24E7 /* Note.swift in Sources */,
+				9AB75CD52A3BE213001F24E7 /* ChartsController.swift in Sources */,
 				9AB75CCB2A3BE059001F24E7 /* Instrument.swift in Sources */,
 				9AB75CCA2A3BE059001F24E7 /* Fingering.swift in Sources */,
 				9AB75CCE2A3BE059001F24E7 /* FingeringChart.swift in Sources */,
 				9AB75CCD2A3BE059001F24E7 /* NoteFingering.swift in Sources */,
-				9AB75C962A3BDE69001F24E7 /* ContentView.swift in Sources */,
+				9AB75C962A3BDE69001F24E7 /* NotePickerView.swift in Sources */,
+				9AB75CE12A3BE8B9001F24E7 /* Constants.swift in Sources */,
 				9AB75CCF2A3BE059001F24E7 /* ChartCategory.swift in Sources */,
 				9AB75CD32A3BE0D5001F24E7 /* ChartsLoader.swift in Sources */,
 				9AB75C942A3BDE69001F24E7 /* NOTEbookApp.swift in Sources */,
+				9AB75CDB2A3BE678001F24E7 /* UserDefaults+Extensions.swift in Sources */,
 				9AB75CD02A3BE059001F24E7 /* Position.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
