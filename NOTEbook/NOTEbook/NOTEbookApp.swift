@@ -9,20 +9,25 @@ import SwiftUI
 
 @main
 struct NOTEbookApp: App {
-    @StateObject private var chartsController: ChartsController
-    
-    init() {
-        UserDefaults.standard.register(defaults: [
-            UserDefaults.Keys.chartsCacheCreated.rawValue: false
-        ])
-        
-        self._chartsController = StateObject(wrappedValue: ChartsController.shared)
-    }
-    
+    @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
+
+    @StateObject private var chartsViewModel: ChartsViewModel
+
     var body: some Scene {
         WindowGroup {
             NotePickerView()
-                .environmentObject(chartsController)
         }
+    }
+
+    init() {
+        DependencyLocator.shared.register(type: KeyValueStorage.self, component: UserDefaultsKeyValueStorage())
+        DependencyLocator.shared.register(type: ChartsRepository.self, component: ChartsRepository())
+
+        self._chartsViewModel = StateObject(wrappedValue: ChartsViewModel())
+
+        keyValueStorage.register(defaults: [
+            .chartsCacheCreated: false,
+            .chartsUpdatedFromNetwork: false
+        ])
     }
 }

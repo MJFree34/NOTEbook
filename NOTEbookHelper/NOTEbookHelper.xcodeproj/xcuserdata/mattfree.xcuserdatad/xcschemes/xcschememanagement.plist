@@ -19,10 +19,13 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>NOTEbookHelper (macOS).xcscheme_^#shared#^_</key>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9AE30B4027E94B4600E3D44A</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

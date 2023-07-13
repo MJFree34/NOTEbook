@@ -8,20 +8,14 @@
 import SwiftUI
 
 struct NotePickerView: View {
-    @EnvironmentObject private var chartsController: ChartsController
-    
     var body: some View {
-        List {
-            ForEach(chartsController.chartCategories) { chartCategory in
-                Text(chartCategory.name)
-            }
-        }
+        Color.theme(.aqua, .background)
+            .ignoresSafeArea()
     }
 }
 
 struct NotePickerView_Previews: PreviewProvider {
     static var previews: some View {
         NotePickerView()
-            .environmentObject(ChartsController.shared)
     }
 }

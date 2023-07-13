@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct Constants {
+enum Constants {
     static let networkChartsURL = URL(string: "https://mjfree34.github.io/NOTEbookData/")
+    static let chartsFilename = "Charts-v2.0"
 }
