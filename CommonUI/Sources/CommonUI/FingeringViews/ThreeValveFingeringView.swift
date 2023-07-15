@@ -1,0 +1,39 @@
+//
+//  ThreeValveFingeringView.swift
+//  NOTEbookHelper
+//
+//  Created by Matt Free on 11/25/22.
+//
+
+import Common
+import SwiftUI
+
+public struct ThreeValveFingeringView: View {
+    public let fingering: Fingering
+
+    public var body: some View {
+        HStack {
+            Image("RoundFingering\(fingering.keys![0] ? "Full" : "Empty")1")
+                .renderingMode(.template)
+            Image("RoundFingering\(fingering.keys![1] ? "Full" : "Empty")2")
+                .renderingMode(.template)
+            Image("RoundFingering\(fingering.keys![2] ? "Full" : "Empty")3")
+                .renderingMode(.template)
+        }
+        .foregroundColor(Color("Black"))
+    }
+}
+
+struct SwiftUIView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            VStack {
+                ThreeValveFingeringView(fingering: Fingering(keys: [false, false, false]))
+
+                ThreeValveFingeringView(fingering: Fingering(keys: [true, true, true]))
+            }
+        }
+        .padding()
+        .previewLayout(.sizeThatFits)
+    }
+}

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Common
 import Foundation
 
 final class ChartsViewModel: ObservableObject {

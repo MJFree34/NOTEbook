@@ -3,10 +3,10 @@
 //  NOTEbook
 //
 //  Created by Matt Free on 6/18/20.
-//  Copyright © 2020 Matt Free. All rights reserved.
 //
 
 import Combine
+import Common
 import Foundation
 
 struct ChartsRepository {
@@ -14,7 +14,7 @@ struct ChartsRepository {
 
     func loadCharts() -> AnyPublisher<[ChartCategory], ChartLoadError> {
         guard let networkChartsURL = Constants.networkChartsURL?
-            .appendingPathComponent("\(Constants.chartsFilename).json") else {
+                .appendingPathComponent("\(Constants.chartsFilename).json") else {
             return Fail(error: ChartLoadError.invalidNetworkURL)
                 .eraseToAnyPublisher()
         }
@@ -64,7 +64,7 @@ struct ChartsRepository {
 
     private func bundleChartsData() throws -> Data {
         guard let bundleChartsURL = Bundle.main
-            .url(forResource: Constants.chartsFilename, withExtension: "json") else {
+                .url(forResource: Constants.chartsFilename, withExtension: "json") else {
             throw ChartLoadError.invalidBundleURL
         }
 
@@ -76,9 +76,7 @@ struct ChartsRepository {
     }
 
     private func savedChartsData() throws -> Data {
-        let savedChartsURL = FileManager.default
-            .urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("\(Constants.chartsFilename).json")
+        let savedChartsURL = URL.documentsDirectory.appendingPathComponent("\(Constants.chartsFilename).json")
 
         guard let data = try? Data(contentsOf: savedChartsURL) else {
             throw ChartLoadError.unloadableData
@@ -88,9 +86,7 @@ struct ChartsRepository {
     }
 
     func saveCharts(chartCategories: [ChartCategory]) throws {
-        let chartsURL = FileManager.default
-            .urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("\(Constants.chartsFilename).json")
+        let chartsURL = URL.documentsDirectory.appendingPathComponent("\(Constants.chartsFilename).json")
 
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted

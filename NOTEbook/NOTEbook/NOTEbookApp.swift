@@ -5,13 +5,13 @@
 //  Created by Matt Free on 6/15/23.
 //
 
+import ChartDomain
+import Common
 import SwiftUI
 
 @main
 struct NOTEbookApp: App {
     @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
-
-    @StateObject private var chartsViewModel: ChartsViewModel
 
     var body: some Scene {
         WindowGroup {
@@ -21,13 +21,14 @@ struct NOTEbookApp: App {
 
     init() {
         DependencyLocator.shared.register(type: KeyValueStorage.self, component: UserDefaultsKeyValueStorage())
-        DependencyLocator.shared.register(type: ChartsRepository.self, component: ChartsRepository())
 
-        self._chartsViewModel = StateObject(wrappedValue: ChartsViewModel())
+        ChartDependencyLocator.addDependenciesToContainer(container: DependencyLocator.shared)
 
-        keyValueStorage.register(defaults: [
-            .chartsCacheCreated: false,
-            .chartsUpdatedFromNetwork: false
-        ])
+        keyValueStorage.register(
+            defaults: [
+                .chartsCacheCreated: false,
+                .chartsUpdatedFromNetwork: false
+            ]
+        )
     }
 }
