@@ -3,6 +3,7 @@
 //  Common
 //
 //  Created by Matt Free on 7/10/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
 // swiftlint:disable no_fatal_errors

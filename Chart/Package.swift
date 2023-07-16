@@ -23,7 +23,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Common"),
-        .package(path: "../CommonUI")
+        .package(path: "../CommonUI"),
+        .package(path: "../Storage")
     ],
     targets: [
         .target(
@@ -32,6 +33,10 @@ let package = Package(
                 .product(
                     name: "Common",
                     package: "Common"
+                ),
+                .product(
+                    name: "Storage",
+                    package: "Storage"
                 )
             ]
         ),

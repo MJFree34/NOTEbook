@@ -3,20 +3,24 @@
 //  NOTEbook
 //
 //  Created by Matt Free on 6/15/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
+import ChartDomain
 import Combine
 import Common
 import Foundation
+import Storage
 
 final class ChartsViewModel: ObservableObject {
     enum ScreenState {
-        case error(ChartLoadError)
+        case error(ChartError)
         case loaded
         case loading
     }
 
-    @DependencyInjected(ChartsRepository.self) private var chartsRepository
+    @DependencyInjected(FetchChartsUseCase.self) private var fetchChartsUseCase
+    @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
 
     @Published var screenState: ScreenState = .loading
 
@@ -26,12 +30,18 @@ final class ChartsViewModel: ObservableObject {
     // MARK: - Init
 
     func start() {
-        chartsRepository.loadCharts()
+        print("Before - ChartsCacheCreated: \(keyValueStorage.bool(for: .chartsCacheCreated))")
+        print("Before - ChartsUpdatedFromNetwork: \(keyValueStorage.bool(for: .chartsUpdatedFromNetwork))")
+
+        fetchChartsUseCase.execute(networkURLString: Constants.networkChartsURL, chartsFilename: Constants.chartsFilename)
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
+                guard let self else { return }
+                print("After - ChartsCacheCreated: \(self.keyValueStorage.bool(for: .chartsCacheCreated))")
+                print("After - ChartsUpdatedFromNetwork: \(self.keyValueStorage.bool(for: .chartsUpdatedFromNetwork))")
                 switch completion {
                 case .failure(let error):
-                    guard let self else { return }
+                    //                    guard let self else { return }
                     self.screenState = .error(error)
                 case .finished:
                     break
@@ -42,16 +52,6 @@ final class ChartsViewModel: ObservableObject {
                 self.screenState = .loaded
             }
             .store(in: &disposeBag)
-    }
-
-    // MARK: - Saving
-
-    private func save() {
-        do {
-            try chartsRepository.saveCharts(chartCategories: chartCategories)
-        } catch {
-            screenState = .error(.savingError)
-        }
     }
 
     // MARK: - Getters

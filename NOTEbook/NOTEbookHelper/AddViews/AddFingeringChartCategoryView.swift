@@ -3,6 +3,7 @@
 //  NOTEbookHelper
 //
 //  Created by Matt Free on 1/1/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
 import Common

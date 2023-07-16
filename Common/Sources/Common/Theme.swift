@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Theme: String {
+public enum Theme: String {
     case aqua
     case blush
     case lavender
@@ -15,7 +15,7 @@ enum Theme: String {
     case pistachio
     case slate
 
-    enum Prominence: String {
+    public enum Prominence: String {
         case background
         case foreground
     }

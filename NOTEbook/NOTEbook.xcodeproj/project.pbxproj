@@ -14,12 +14,10 @@
 		9ABC94782A6334C200C185FF /* NOTEbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94772A6334C200C185FF /* NOTEbookApp.swift */; };
 		9ABC947B2A6334EE00C185FF /* NOTEbookHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC947A2A6334EE00C185FF /* NOTEbookHelperApp.swift */; };
 		9ABC947E2A63350700C185FF /* NOTEbookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC947D2A63350700C185FF /* NOTEbookTests.swift */; };
-		9ABC94832A63356A00C185FF /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94822A63356A00C185FF /* DisposeBag.swift */; };
 		9ABC94862A63359D00C185FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94852A63359C00C185FF /* Constants.swift */; };
 		9ABC94872A6335A200C185FF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94852A63359C00C185FF /* Constants.swift */; };
 		9ABC94892A6335AF00C185FF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC94882A6335AF00C185FF /* Colors.xcassets */; };
 		9ABC948A2A6335AF00C185FF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC94882A6335AF00C185FF /* Colors.xcassets */; };
-		9ABC948C2A6335D300C185FF /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC948B2A6335D300C185FF /* Color+Extensions.swift */; };
 		9ABC948E2A63363000C185FF /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC948D2A63363000C185FF /* AppIcons.xcassets */; };
 		9ABC948F2A63363000C185FF /* AppIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC948D2A63363000C185FF /* AppIcons.xcassets */; };
 		9ABC949B2A63375500C185FF /* AddFluteFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94922A63375400C185FF /* AddFluteFingeringView.swift */; };
@@ -45,13 +43,15 @@
 		9ABC94BF2A63390700C185FF /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC94BE2A63390600C185FF /* Instruments.xcassets */; };
 		9ABC94C02A63390700C185FF /* Instruments.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABC94BE2A63390600C185FF /* Instruments.xcassets */; };
 		9ABC94C22A63391D00C185FF /* InstrumentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94C12A63391D00C185FF /* InstrumentsListView.swift */; };
-		9ABC94C52A63392E00C185FF /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94C32A63392E00C185FF /* KeyValueStorage.swift */; };
-		9ABC94C62A63392E00C185FF /* KeyValueStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94C42A63392E00C185FF /* KeyValueStorageKey.swift */; };
-		9ABC94C82A63394600C185FF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94C72A63394600C185FF /* Theme.swift */; };
-		9ABC94CA2A63399300C185FF /* UserDefaultsKeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94C92A63399300C185FF /* UserDefaultsKeyValueStorage.swift */; };
-		9ABC94CD2A6339B100C185FF /* ChartsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94CB2A6339B100C185FF /* ChartsRepository.swift */; };
-		9ABC94CE2A6339B100C185FF /* ChartLoadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94CC2A6339B100C185FF /* ChartLoadError.swift */; };
 		9ABC94D02A6339B900C185FF /* ChartsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC94CF2A6339B900C185FF /* ChartsViewModel.swift */; };
+		9ACE58972A634D5600ED1928 /* BbTriggerThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE588B2A634D5500ED1928 /* BbTriggerThreeValveFingeringView.swift */; };
+		9ACE58982A634D5600ED1928 /* FTriggerPositionFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE58882A634D5500ED1928 /* FTriggerPositionFingeringView.swift */; };
+		9ACE58992A634D5600ED1928 /* ThreeValveFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE588A2A634D5500ED1928 /* ThreeValveFingeringView.swift */; };
+		9ACE589A2A634D5600ED1928 /* BaritoneSaxophoneFingeringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE58892A634D5500ED1928 /* BaritoneSaxophoneFingeringView.swift */; };
+		9ACE589C2A634DC200ED1928 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACE589B2A634DC200ED1928 /* Storage */; };
+		9ACE589E2A634DC600ED1928 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 9ACE589D2A634DC600ED1928 /* Storage */; };
+		9ACE58A02A6484EB00ED1928 /* Charts-v2.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE589F2A6484EB00ED1928 /* Charts-v2.0.json */; };
+		9ACE58A12A6484F100ED1928 /* Charts-v2.0.json in Resources */ = {isa = PBXBuildFile; fileRef = 9ACE589F2A6484EB00ED1928 /* Charts-v2.0.json */; };
 		9ADA46782A5FA2A900EFDB74 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 9ADA46772A5FA2A900EFDB74 /* Common */; };
 		9ADA467A2A5FA2A900EFDB74 /* CommonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 9ADA46792A5FA2A900EFDB74 /* CommonUI */; };
 		9ADA467C2A5FA2B400EFDB74 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 9ADA467B2A5FA2B400EFDB74 /* Common */; };
@@ -75,10 +75,8 @@
 		9ABC94772A6334C200C185FF /* NOTEbookApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NOTEbookApp.swift; sourceTree = "<group>"; };
 		9ABC947A2A6334EE00C185FF /* NOTEbookHelperApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NOTEbookHelperApp.swift; sourceTree = "<group>"; };
 		9ABC947D2A63350700C185FF /* NOTEbookTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NOTEbookTests.swift; sourceTree = "<group>"; };
-		9ABC94822A63356A00C185FF /* DisposeBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
 		9ABC94852A63359C00C185FF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9ABC94882A6335AF00C185FF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		9ABC948B2A6335D300C185FF /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		9ABC948D2A63363000C185FF /* AppIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcons.xcassets; sourceTree = "<group>"; };
 		9ABC94922A63375400C185FF /* AddFluteFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFluteFingeringView.swift; sourceTree = "<group>"; };
 		9ABC94932A63375500C185FF /* AddBaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
@@ -100,13 +98,18 @@
 		9ABC94BB2A6338BA00C185FF /* NotePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotePickerView.swift; sourceTree = "<group>"; };
 		9ABC94BE2A63390600C185FF /* Instruments.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Instruments.xcassets; sourceTree = "<group>"; };
 		9ABC94C12A63391D00C185FF /* InstrumentsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentsListView.swift; sourceTree = "<group>"; };
-		9ABC94C32A63392E00C185FF /* KeyValueStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
-		9ABC94C42A63392E00C185FF /* KeyValueStorageKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValueStorageKey.swift; sourceTree = "<group>"; };
-		9ABC94C72A63394600C185FF /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		9ABC94C92A63399300C185FF /* UserDefaultsKeyValueStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyValueStorage.swift; sourceTree = "<group>"; };
-		9ABC94CB2A6339B100C185FF /* ChartsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsRepository.swift; sourceTree = "<group>"; };
-		9ABC94CC2A6339B100C185FF /* ChartLoadError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartLoadError.swift; sourceTree = "<group>"; };
 		9ABC94CF2A6339B900C185FF /* ChartsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewModel.swift; sourceTree = "<group>"; };
+		9ACE58872A634CAA00ED1928 /* Storage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Storage; path = ../Storage; sourceTree = "<group>"; };
+		9ACE58882A634D5500ED1928 /* FTriggerPositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTriggerPositionFingeringView.swift; sourceTree = "<group>"; };
+		9ACE58892A634D5500ED1928 /* BaritoneSaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaritoneSaxophoneFingeringView.swift; sourceTree = "<group>"; };
+		9ACE588A2A634D5500ED1928 /* ThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9ACE588B2A634D5500ED1928 /* BbTriggerThreeValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BbTriggerThreeValveFingeringView.swift; sourceTree = "<group>"; };
+		9ACE588D2A634D5500ED1928 /* FourValveFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourValveFingeringView.swift; sourceTree = "<group>"; };
+		9ACE588E2A634D5500ED1928 /* SaxophoneFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaxophoneFingeringView.swift; sourceTree = "<group>"; };
+		9ACE588F2A634D5500ED1928 /* ClarinetFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClarinetFingeringView.swift; sourceTree = "<group>"; };
+		9ACE58902A634D5500ED1928 /* FluteFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluteFingeringView.swift; sourceTree = "<group>"; };
+		9ACE58912A634D5500ED1928 /* PositionFingeringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionFingeringView.swift; sourceTree = "<group>"; };
+		9ACE589F2A6484EB00ED1928 /* Charts-v2.0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Charts-v2.0.json"; sourceTree = "<group>"; };
 		9ADA464A2A5F9FEF00EFDB74 /* NOTEbookHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NOTEbookHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADA46732A5FA1CA00EFDB74 /* Common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Common; path = ../Common; sourceTree = "<group>"; };
 		9ADA46742A5FA1DE00EFDB74 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CommonUI; path = ../CommonUI; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 				9ADA46782A5FA2A900EFDB74 /* Common in Frameworks */,
 				9ADA467A2A5FA2A900EFDB74 /* CommonUI in Frameworks */,
 				9ABC94692A632BF000C185FF /* ChartDomain in Frameworks */,
+				9ACE589C2A634DC200ED1928 /* Storage in Frameworks */,
 				9ABC946B2A632BF000C185FF /* ChartUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +142,7 @@
 				9ADA467C2A5FA2B400EFDB74 /* Common in Frameworks */,
 				9ADA467E2A5FA2B400EFDB74 /* CommonUI in Frameworks */,
 				9ABC946D2A632BF900C185FF /* ChartDomain in Frameworks */,
+				9ACE589E2A634DC600ED1928 /* Storage in Frameworks */,
 				9ABC946F2A632BF900C185FF /* ChartUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +156,7 @@
 				9ABC94672A62F42300C185FF /* Chart */,
 				9ADA46732A5FA1CA00EFDB74 /* Common */,
 				9ADA46742A5FA1DE00EFDB74 /* CommonUI */,
+				9ACE58872A634CAA00ED1928 /* Storage */,
 				9AB75C922A3BDE69001F24E7 /* NOTEbook */,
 				9ABC94792A6334E300C185FF /* NOTEbookHelper */,
 				9ABC947C2A6334FB00C185FF /* NOTEbookTests */,
@@ -176,13 +182,12 @@
 				9ABC94852A63359C00C185FF /* Constants.swift */,
 				9ABC94CF2A6339B900C185FF /* ChartsViewModel.swift */,
 				9ABC94BB2A6338BA00C185FF /* NotePickerView.swift */,
-				9ABC94802A63355800C185FF /* Common */,
-				9ABC947F2A63353400C185FF /* Extensions */,
 				9ABC948D2A63363000C185FF /* AppIcons.xcassets */,
 				9ABC94882A6335AF00C185FF /* Colors.xcassets */,
 				9ABC94BE2A63390600C185FF /* Instruments.xcassets */,
 				9ABC94B32A63388000C185FF /* MusicSymbols.xcassets */,
 				9ABC94AC2A63381E00C185FF /* Symbols.xcassets */,
+				9ACE589F2A6484EB00ED1928 /* Charts-v2.0.json */,
 			);
 			path = NOTEbook;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				9ABC94902A63370900C185FF /* AddViews */,
 				9ABC94B02A63386F00C185FF /* MainViews */,
 				9ABC94AB2A63381800C185FF /* SupplementaryViews */,
+				9ACE588C2A634D5500ED1928 /* FingeringViews */,
 				9ABC94912A63374400C185FF /* AddFingeringViews */,
 			);
 			path = NOTEbookHelper;
@@ -206,33 +212,6 @@
 				9ABC947D2A63350700C185FF /* NOTEbookTests.swift */,
 			);
 			path = NOTEbookTests;
-			sourceTree = "<group>";
-		};
-		9ABC947F2A63353400C185FF /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				9ABC948B2A6335D300C185FF /* Color+Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9ABC94802A63355800C185FF /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				9ABC94812A63356A00C185FF /* DisposeBag */,
-				9ABC94BD2A6338D900C185FF /* Loading */,
-				9ABC94AA2A63380D00C185FF /* Storage */,
-				9ABC94C72A63394600C185FF /* Theme.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		9ABC94812A63356A00C185FF /* DisposeBag */ = {
-			isa = PBXGroup;
-			children = (
-				9ABC94822A63356A00C185FF /* DisposeBag.swift */,
-			);
-			path = DisposeBag;
 			sourceTree = "<group>";
 		};
 		9ABC94902A63370900C185FF /* AddViews */ = {
@@ -260,16 +239,6 @@
 			path = AddFingeringViews;
 			sourceTree = "<group>";
 		};
-		9ABC94AA2A63380D00C185FF /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				9ABC94C32A63392E00C185FF /* KeyValueStorage.swift */,
-				9ABC94C42A63392E00C185FF /* KeyValueStorageKey.swift */,
-				9ABC94C92A63399300C185FF /* UserDefaultsKeyValueStorage.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		9ABC94AB2A63381800C185FF /* SupplementaryViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,13 +257,20 @@
 			path = MainViews;
 			sourceTree = "<group>";
 		};
-		9ABC94BD2A6338D900C185FF /* Loading */ = {
+		9ACE588C2A634D5500ED1928 /* FingeringViews */ = {
 			isa = PBXGroup;
 			children = (
-				9ABC94CC2A6339B100C185FF /* ChartLoadError.swift */,
-				9ABC94CB2A6339B100C185FF /* ChartsRepository.swift */,
+				9ACE588D2A634D5500ED1928 /* FourValveFingeringView.swift */,
+				9ACE588E2A634D5500ED1928 /* SaxophoneFingeringView.swift */,
+				9ACE58892A634D5500ED1928 /* BaritoneSaxophoneFingeringView.swift */,
+				9ACE588B2A634D5500ED1928 /* BbTriggerThreeValveFingeringView.swift */,
+				9ACE58882A634D5500ED1928 /* FTriggerPositionFingeringView.swift */,
+				9ACE588A2A634D5500ED1928 /* ThreeValveFingeringView.swift */,
+				9ACE588F2A634D5500ED1928 /* ClarinetFingeringView.swift */,
+				9ACE58902A634D5500ED1928 /* FluteFingeringView.swift */,
+				9ACE58912A634D5500ED1928 /* PositionFingeringView.swift */,
 			);
-			path = Loading;
+			path = FingeringViews;
 			sourceTree = "<group>";
 		};
 		9ADA46762A5FA2A900EFDB74 /* Frameworks */ = {
@@ -326,6 +302,7 @@
 				9ADA46792A5FA2A900EFDB74 /* CommonUI */,
 				9ABC94682A632BF000C185FF /* ChartDomain */,
 				9ABC946A2A632BF000C185FF /* ChartUI */,
+				9ACE589B2A634DC200ED1928 /* Storage */,
 			);
 			productName = NOTEbook;
 			productReference = 9AB75C902A3BDE69001F24E7 /* NOTEbook.app */;
@@ -368,6 +345,7 @@
 				9ADA467D2A5FA2B400EFDB74 /* CommonUI */,
 				9ABC946C2A632BF900C185FF /* ChartDomain */,
 				9ABC946E2A632BF900C185FF /* ChartUI */,
+				9ACE589D2A634DC600ED1928 /* Storage */,
 			);
 			productName = NOTEbookHelper;
 			productReference = 9ADA464A2A5F9FEF00EFDB74 /* NOTEbookHelper.app */;
@@ -423,6 +401,7 @@
 			files = (
 				9ABC948E2A63363000C185FF /* AppIcons.xcassets in Resources */,
 				9ABC94AD2A63381E00C185FF /* Symbols.xcassets in Resources */,
+				9ACE58A02A6484EB00ED1928 /* Charts-v2.0.json in Resources */,
 				9ABC94892A6335AF00C185FF /* Colors.xcassets in Resources */,
 				9ABC94BF2A63390700C185FF /* Instruments.xcassets in Resources */,
 				9ABC94B42A63388000C185FF /* MusicSymbols.xcassets in Resources */,
@@ -442,6 +421,7 @@
 			files = (
 				9ABC948F2A63363000C185FF /* AppIcons.xcassets in Resources */,
 				9ABC94B62A63388300C185FF /* Symbols.xcassets in Resources */,
+				9ACE58A12A6484F100ED1928 /* Charts-v2.0.json in Resources */,
 				9ABC948A2A6335AF00C185FF /* Colors.xcassets in Resources */,
 				9ABC94C02A63390700C185FF /* Instruments.xcassets in Resources */,
 				9ABC94B52A63388000C185FF /* MusicSymbols.xcassets in Resources */,
@@ -494,18 +474,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ABC94CD2A6339B100C185FF /* ChartsRepository.swift in Sources */,
-				9ABC94CA2A63399300C185FF /* UserDefaultsKeyValueStorage.swift in Sources */,
 				9ABC94D02A6339B900C185FF /* ChartsViewModel.swift in Sources */,
 				9ABC94862A63359D00C185FF /* Constants.swift in Sources */,
-				9ABC948C2A6335D300C185FF /* Color+Extensions.swift in Sources */,
-				9ABC94C52A63392E00C185FF /* KeyValueStorage.swift in Sources */,
-				9ABC94C62A63392E00C185FF /* KeyValueStorageKey.swift in Sources */,
-				9ABC94832A63356A00C185FF /* DisposeBag.swift in Sources */,
 				9ABC94782A6334C200C185FF /* NOTEbookApp.swift in Sources */,
-				9ABC94CE2A6339B100C185FF /* ChartLoadError.swift in Sources */,
 				9ABC94BC2A6338BA00C185FF /* NotePickerView.swift in Sources */,
-				9ABC94C82A63394600C185FF /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,7 +497,9 @@
 				9ABC94A92A6337BB00C185FF /* HelperChartsController.swift in Sources */,
 				9ABC949E2A63375500C185FF /* AddFourValveFingeringView.swift in Sources */,
 				9ABC94872A6335A200C185FF /* Constants.swift in Sources */,
+				9ACE589A2A634D5600ED1928 /* BaritoneSaxophoneFingeringView.swift in Sources */,
 				9ABC94A12A63375500C185FF /* AddPositionFingeringView.swift in Sources */,
+				9ACE58982A634D5600ED1928 /* FTriggerPositionFingeringView.swift in Sources */,
 				9ABC94A22A63375500C185FF /* AddBbTriggerThreeValveFingeringView.swift in Sources */,
 				9ABC949D2A63375500C185FF /* AddThreeValveFingeringView.swift in Sources */,
 				9ABC949B2A63375500C185FF /* AddFluteFingeringView.swift in Sources */,
@@ -533,10 +507,12 @@
 				9ABC94A72A63375E00C185FF /* AddFingeringChartCategoryView.swift in Sources */,
 				9ABC949C2A63375500C185FF /* AddBaritoneSaxophoneFingeringView.swift in Sources */,
 				9ABC94A02A63375500C185FF /* AddClarinetFingeringView.swift in Sources */,
+				9ACE58992A634D5600ED1928 /* ThreeValveFingeringView.swift in Sources */,
 				9ABC94B82A6338A900C185FF /* NoteCell.swift in Sources */,
 				9ABC94A62A63375E00C185FF /* AddFingeringChartView.swift in Sources */,
 				9ABC94A32A63375500C185FF /* AddFTriggerPositionFingeringView.swift in Sources */,
 				9ABC947B2A6334EE00C185FF /* NOTEbookHelperApp.swift in Sources */,
+				9ACE58972A634D5600ED1928 /* BbTriggerThreeValveFingeringView.swift in Sources */,
 				9ABC949F2A63375500C185FF /* AddSaxophoneFingeringView.swift in Sources */,
 				9ABC94C22A63391D00C185FF /* InstrumentsListView.swift in Sources */,
 			);
@@ -896,6 +872,14 @@
 		9ABC946E2A632BF900C185FF /* ChartUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ChartUI;
+		};
+		9ACE589B2A634DC200ED1928 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Storage;
+		};
+		9ACE589D2A634DC600ED1928 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Storage;
 		};
 		9ADA46772A5FA2A900EFDB74 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;

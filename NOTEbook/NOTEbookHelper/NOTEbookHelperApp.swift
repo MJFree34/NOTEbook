@@ -1,8 +1,9 @@
 //
-//  NOTEbook_HelperApp.swift
-//  Shared
+//  NOTEbookHelperApp.swift
+//  NOTEbookHelper
 //
 //  Created by Matt Free on 3/21/22.
+//  Copyright © 2022 Matthew Free. All rights reserved.
 //
 
 import SwiftUI
