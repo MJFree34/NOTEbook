@@ -1,5 +1,5 @@
-import XCTest
 @testable import Chart
+import XCTest
 
 final class ChartTests: XCTestCase {
     func testExample() throws {

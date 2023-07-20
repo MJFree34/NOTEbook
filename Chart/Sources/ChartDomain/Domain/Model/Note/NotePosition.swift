@@ -54,6 +54,6 @@ public enum NotePosition: Int {
 
 extension NotePosition: Comparable {
     public static func < (lhs: NotePosition, rhs: NotePosition) -> Bool {
-        return lhs.rawValue < rhs.rawValue
+        lhs.rawValue < rhs.rawValue
     }
 }

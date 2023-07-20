@@ -372,15 +372,15 @@ public struct Note: Codable, Equatable {
     }
 
     public func isLowerQuarterNote() -> Bool {
-        return position < NotePosition.middle3rdLine
+        position < NotePosition.middle3rdLine
     }
 
     public func capitalizedLetter() -> String {
-        return self.letter.rawValue.capitalized
+        self.letter.rawValue.capitalized
     }
 
     public func positionsFromCenterStaff() -> Int {
-        return position.rawValue - NotePosition.middle3rdLine.rawValue
+        position.rawValue - NotePosition.middle3rdLine.rawValue
     }
 
     public func lowerNote() -> Note {

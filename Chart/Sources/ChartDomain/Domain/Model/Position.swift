@@ -1,8 +1,9 @@
 //
 //  Position.swift
-//  NoteLibrary
+//  ChartDomain
 //
 //  Created by Matt Free on 8/21/20.
+//  Copyright © 2020 Matthew Free. All rights reserved.
 //
 
 import Foundation
