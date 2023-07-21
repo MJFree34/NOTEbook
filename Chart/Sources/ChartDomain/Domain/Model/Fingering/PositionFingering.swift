@@ -21,3 +21,9 @@ public struct PositionFingering: Fingering {
         hasher.combine(position)
     }
 }
+
+extension PositionFingering {
+    public static var flatPlaceholder = PositionFingering(position: Position(value: .first, type: .flat))
+    public static var naturalPlaceholder = PositionFingering(position: Position(value: .fourth, type: .natural))
+    public static var sharpPlaceholder = PositionFingering(position: Position(value: .seventh, type: .sharp))
+}

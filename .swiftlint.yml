@@ -4,9 +4,7 @@ opt_in_rules:
   - accessibility_label_for_image
   - accessibility_trait_for_button
   - array_init
-  - attributes
   - balanced_xctest_lifecycle
-  - closure_body_length
   - closure_end_indentation
   - closure_spacing
   - collection_alignment
@@ -29,7 +27,6 @@ opt_in_rules:
   - empty_xctest_method
   - enum_case_associated_values_count
   - expiring_todo
-  - explicit_enum_raw_value
   - explicit_init
   - fallthrough
   - fatal_error_message
@@ -88,12 +85,10 @@ opt_in_rules:
   - self_binding
   - shorthand_optional_binding
   - single_test_class
-  - sorted_enum_cases
   - sorted_first_last
   - sorted_imports
   - static_operator
   - strong_iboutlet
-  - superfluous_else
   - switch_case_on_newline
   - test_case_accessibility
   - toggle_bool
@@ -112,8 +107,12 @@ opt_in_rules:
 
 disabled_rules:
   - anonymous_argument_in_multiline_closure
+  - attributes
+  - blanket_disable_command
+  - closure_body_length
   - conditional_returns_on_newline
   - explicit_acl
+  - explicit_enum_raw_value
   - explicit_top_level_acl
   - explicit_type_interface
   - extension_access_modifier
@@ -126,7 +125,9 @@ disabled_rules:
   - prefixed_toplevel_constant
   - prohibited_interface_builder
   - required_deinit
+  - sorted_enum_cases
   - strict_fileprivate
+  - superfluous_else
   - type_contents_order
   - vertical_whitespace_between_cases
 
@@ -137,13 +138,19 @@ analyzer_rules:
   - unused_declaration
   - unused_import
 
-# Examples
-# file_length:
-  # warning: 500
-  # error: 1200
-# force_cast: warning
-
 indentation: 4
+
+identifier_name:
+  min_length: 1
+  max_length: 40
+
+line_length:
+  warning: 150
+  error: 200
+
+function_body_length:
+  warning: 150
+  error: 200
 
 custom_rules:
   no_nsrect:
@@ -166,8 +173,8 @@ custom_rules:
     regex: '\bCGFloat\('
     message: 'Use Double instead of CGFloat'
   swiftui_state_private:
-    regex: '@(State|StateObject|ObservedObject|EnvironmentObject)\s+var'
-    message: 'SwiftUI @State/@StateObject/@ObservedObject/@EnvironmentObject properties should be private'
+    regex: '@(State|EnvironmentObject)\s+var'
+    message: 'SwiftUI @State/@EnvironmentObject properties should be private'
   swiftui_environment_private:
     regex: '@Environment\(\\\.\w+\)\s+var'
     message: 'SwiftUI @Environment properties should be private'

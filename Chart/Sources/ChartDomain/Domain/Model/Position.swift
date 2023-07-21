@@ -10,7 +10,6 @@ import Foundation
 
 public struct Position: Codable, Equatable {
     public enum Value: String, Codable, CaseIterable {
-        case none = "none"
         case first = "1st"
         case second = "2nd"
         case third = "3rd"

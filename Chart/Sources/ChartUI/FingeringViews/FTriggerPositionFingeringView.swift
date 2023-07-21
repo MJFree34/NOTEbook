@@ -1,6 +1,6 @@
 //
 //  FTriggerPositionFingeringView.swift
-//  NOTEbookHelper
+//  ChartUI
 //
 //  Created by Matt Free on 5/14/23.
 //  Copyright © 2022 Matthew Free. All rights reserved.
@@ -36,11 +36,11 @@ public struct FTriggerPositionFingeringView: View {
 struct FTriggerPositionFingeringView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            PreviewBindingWrapper(wrappedBinding: PositionTriggersFingering(position: Position(value: .first, type: .natural), triggers: [false])) { fingeringBinding in
+            PreviewBindingWrapper(wrappedBinding: PositionTriggersFingering.naturalPlaceholder) { fingeringBinding in
                 FTriggerPositionFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
 
-            PreviewBindingWrapper(wrappedBinding: PositionTriggersFingering(position: Position(value: .fourth, type: .sharp), triggers: [true])) { fingeringBinding in
+            PreviewBindingWrapper(wrappedBinding: PositionTriggersFingering.sharpPlaceholder) { fingeringBinding in
                 FTriggerPositionFingeringView(fingering: fingeringBinding)
             }
         }

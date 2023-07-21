@@ -1,8 +1,9 @@
 //
 //  NoteLetter.swift
-//  NoteLibrary
+//  ChartDomain
 //
 //  Created by Matt Free on 7/11/23.
+//  Copyright © 2020 Matthew Free. All rights reserved.
 //
 
 import Foundation

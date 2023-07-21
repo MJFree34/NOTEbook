@@ -25,38 +25,27 @@ final class ChartsViewModel: ObservableObject {
     @Published var screenState: ScreenState = .loading
 
     private var disposeBag = DisposeBag()
-    private var chartCategories = [ChartCategory]()
+    private var chartCategories = ChartCategories()
 
     // MARK: - Init
 
     func start() {
-        print("Before - ChartsCacheCreated: \(keyValueStorage.bool(for: .chartsCacheCreated))")
-        print("Before - ChartsUpdatedFromNetwork: \(keyValueStorage.bool(for: .chartsUpdatedFromNetwork))")
-
-        fetchChartsUseCase.execute(networkURLString: Constants.networkChartsURL, chartsFilename: Constants.chartsFilename)
-            .receive(on: RunLoop.main)
-            .sink { [weak self] completion in
-                guard let self else { return }
-                print("After - ChartsCacheCreated: \(self.keyValueStorage.bool(for: .chartsCacheCreated))")
-                print("After - ChartsUpdatedFromNetwork: \(self.keyValueStorage.bool(for: .chartsUpdatedFromNetwork))")
-                switch completion {
-                case .failure(let error):
-                    //                    guard let self else { return }
-                    self.screenState = .error(error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { [weak self] chartCategories in
-                guard let self else { return }
-                self.chartCategories = chartCategories
-                self.screenState = .loaded
+        fetchChartsUseCase.execute(
+            networkURLString: Constants.networkChartsURL,
+            chartsFilename: Constants.chartsFilename
+        )
+        .receive(on: RunLoop.main)
+        .sink { [weak self] completion in
+            switch completion {
+            case .failure(let error):
+                self?.screenState = .error(error)
+            case .finished:
+                break
             }
-            .store(in: &disposeBag)
-    }
-
-    // MARK: - Getters
-
-    private func chartCategory(of type: ChartCategory.CategoryType) -> ChartCategory? {
-        chartCategories.first { $0.type == type }
+        } receiveValue: { [weak self] chartCategories in
+            self?.chartCategories = chartCategories
+            self?.screenState = .loaded
+        }
+        .store(in: &disposeBag)
     }
 }

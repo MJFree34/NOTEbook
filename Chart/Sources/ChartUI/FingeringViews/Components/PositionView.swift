@@ -18,15 +18,15 @@ struct PositionView: View {
         HStack {
             if isInteractive {
                 Picker(selection: $position.type) {
-                    Image("Flat", bundle: Bundle.module)
+                    Image(Constants.NoteType.flat, bundle: Bundle.module)
                         .resizable()
                         .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 26)
                         .tag(NoteType.flat)
-                    Text(" ")
+                    Text("")
                         .tag(NoteType.natural)
-                    Image("Sharp", bundle: Bundle.module)
+                    Image(Constants.NoteType.sharp, bundle: Bundle.module)
                         .resizable()
                         .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
@@ -48,21 +48,21 @@ struct PositionView: View {
                 }
                 .pickerStyle(.wheel)
             } else {
-                if position.type == .sharp {
-                    Image("Sharp", bundle: Bundle.module)
+                if position.type == .flat {
+                    Image(Constants.NoteType.flat, bundle: Bundle.module)
                         .resizable()
                         .renderingMode(.template)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 30)
-                } else if position.type == .flat {
-                    Image("Flat", bundle: Bundle.module)
-                        .resizable()
-                        .renderingMode(.template)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 14, height: 30)
-                } else {
+                } else if position.type == .natural {
                     Rectangle()
                         .fill(.clear)
+                        .frame(width: 14, height: 30)
+                } else {
+                    Image(Constants.NoteType.sharp, bundle: Bundle.module)
+                        .resizable()
+                        .renderingMode(.template)
+                        .aspectRatio(contentMode: .fit)
                         .frame(width: 14, height: 30)
                 }
 

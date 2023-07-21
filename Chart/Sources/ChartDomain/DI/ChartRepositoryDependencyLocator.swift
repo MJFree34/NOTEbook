@@ -8,7 +8,7 @@
 
 import Common
 
-class ChartRepositoryDependencyLocator: ModuleDependencyLocator {
+final class ChartRepositoryDependencyLocator: ModuleDependencyLocator {
     static func addDependenciesToContainer(container: DependencyLocatorProtocol) {
         container.register(type: ChartRepositoryProtocol.self, component: ChartRepository())
     }

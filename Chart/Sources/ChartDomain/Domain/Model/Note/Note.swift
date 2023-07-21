@@ -1,12 +1,12 @@
 //
 //  Note.swift
-//  NoteLibrary
+//  ChartDomain
 //
 //  Created by Matt Free on 6/16/20.
+//  Copyright © 2020 Matthew Free. All rights reserved.
 //
 
-import Foundation
-
+// swiftlint:disable file_length type_body_length no_fatal_errors cyclomatic_complexity function_body_length
 public struct Note: Codable, Equatable {
     public private(set) var letter: NoteLetter
     public private(set) var type: NoteType
@@ -37,311 +37,6 @@ public struct Note: Codable, Equatable {
         self.octave = octave
         self.clef = clef
         self.position = Note.calculatePosition(letter: letter, octave: octave, clef: clef)
-    }
-
-    private static func calculatePosition(letter: NoteLetter, octave: NoteOctave, clef: Clef) -> NotePosition {
-        switch clef {
-        case .bass:
-            switch letter {
-            case .a:
-                switch octave {
-                case .zero:
-                    return .bottom7thSpace
-                case .one:
-                    return .bottom3rdLine
-                case .two:
-                    return .middle1stSpace
-                case .three:
-                    return .middle5thLine
-                case .four:
-                    return .top4thSpace
-                case .five:
-                    return .top7thLine
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .b:
-                switch octave {
-                case .zero:
-                    return .bottom6thLine
-                case .one:
-                    return .bottom3rdSpace
-                case .two:
-                    return .middle2ndLine
-                case .three:
-                    return .top1stSpace
-                case .four:
-                    return .top4thLine
-                case .five:
-                    return .top8thSpace
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .c:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    return .bottom6thSpace
-                case .two:
-                    return .bottom2ndLine
-                case .three:
-                    return .middle2ndSpace
-                case .four:
-                    return .top1stLine
-                case .five:
-                    return .top5thSpace
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .d:
-                switch octave {
-                case .zero:
-                    return .bottom8thSpace
-                case .one:
-                    return .bottom5thLine
-                case .two:
-                    return .bottom2ndSpace
-                case .three:
-                    return .middle3rdLine
-                case .four:
-                    return .top2ndSpace
-                case .five:
-                    return .top5thLine
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .e:
-                switch octave {
-                case .zero:
-                    return .bottom8thLine
-                case .one:
-                    return .bottom5thSpace
-                case .two:
-                    return .bottom1stLine
-                case .three:
-                    return .middle3rdSpace
-                case .four:
-                    return .top2ndLine
-                case .five:
-                    return .top6thSpace
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .f:
-                switch octave {
-                case .zero:
-                    return .bottom7thSpace
-                case .one:
-                    return .bottom4thLine
-                case .two:
-                    return .bottom1stSpace
-                case .three:
-                    return .middle4thLine
-                case .four:
-                    return .top3rdSpace
-                case .five:
-                    return .top6thLine
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .g:
-                switch octave {
-                case .zero:
-                    return .bottom7thLine
-                case .one:
-                    return .bottom4thSpace
-                case .two:
-                    return .middle1stLine
-                case .three:
-                    return .middle4thSpace
-                case .four:
-                    return .top3rdLine
-                case .five:
-                    return .top7thSpace
-                case .six:
-                    fatalError("Note not implemented")
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            }
-        case .treble:
-            switch letter {
-            case .a:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    fatalError("Note not implemented")
-                case .two:
-                    return .bottom6thSpace
-                case .three:
-                    return .bottom2ndLine
-                case .four:
-                    return .middle2ndSpace
-                case .five:
-                    return .top1stLine
-                case .six:
-                    return .top5thSpace
-                case .seven:
-                    return .top8thLine
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .b:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    return .bottom9thSpace
-                case .two:
-                    return .bottom5thLine
-                case .three:
-                    return .bottom2ndSpace
-                case .four:
-                    return .middle3rdLine
-                case .five:
-                    return .top2ndSpace
-                case .six:
-                    return .top5thLine
-                case .seven:
-                    fatalError("Note not implemented")
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .c:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    fatalError("Note not implemented")
-                case .two:
-                    return .bottom8thLine
-                case .three:
-                    return .bottom5thSpace
-                case .four:
-                    return .bottom1stLine
-                case .five:
-                    return .middle3rdSpace
-                case .six:
-                    return .top2ndLine
-                case .seven:
-                    return .top6thSpace
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .d:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    fatalError("Note not implemented")
-                case .two:
-                    return .bottom8thSpace
-                case .three:
-                    return .bottom4thLine
-                case .four:
-                    return .bottom1stSpace
-                case .five:
-                    return .middle4thLine
-                case .six:
-                    return .top3rdSpace
-                case .seven:
-                    return .top6thLine
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .e:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    fatalError("Note not implemented")
-                case .two:
-                    return .bottom7thLine
-                case .three:
-                    return .bottom4thSpace
-                case .four:
-                    return .middle1stLine
-                case .five:
-                    return .middle4thSpace
-                case .six:
-                    return .top3rdLine
-                case .seven:
-                    return .top7thSpace
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .f:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    fatalError("Note not implemented")
-                case .two:
-                    return .bottom7thSpace
-                case .three:
-                    return .bottom3rdLine
-                case .four:
-                    return .middle1stSpace
-                case .five:
-                    return .middle5thLine
-                case .six:
-                    return .top4thSpace
-                case .seven:
-                    return .top7thLine
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            case .g:
-                switch octave {
-                case .zero:
-                    fatalError("Note not implemented")
-                case .one:
-                    fatalError("Note not implemented")
-                case .two:
-                    return .bottom6thLine
-                case .three:
-                    return .bottom3rdSpace
-                case .four:
-                    return .middle2ndLine
-                case .five:
-                    return .top1stSpace
-                case .six:
-                    return .top4thLine
-                case .seven:
-                    return .top8thSpace
-                case .eight:
-                    fatalError("Note not implemented")
-                }
-            }
-        }
     }
 
     public static func middleNote(for clef: Clef) -> Note {
@@ -481,12 +176,12 @@ public struct Note: Codable, Equatable {
                 newType = .natural
                 newOctave = NoteOctave(rawValue: octave.rawValue + 1) ?? octave
             case .sharp:
-                fatalError("Note does not exist")
+                fatalError("\(letter) \(type) does not exist")
             }
         case .c:
             switch type {
             case .flat:
-                fatalError("Note does not exist")
+                fatalError("\(letter) \(type) does not exist")
             case .natural:
                 newLetter = .c
                 newType = .sharp
@@ -522,12 +217,12 @@ public struct Note: Codable, Equatable {
                 newType = .natural
                 newOctave = octave
             case .sharp:
-                fatalError("Note does not exist")
+                fatalError("\(letter) \(type) does not exist")
             }
         case .f:
             switch type {
             case .flat:
-                fatalError("Note does not exist")
+                fatalError("\(letter) \(type) does not exist")
             case .natural:
                 newLetter = .f
                 newType = .sharp
@@ -710,9 +405,9 @@ extension Note: Hashable {
 
 extension Note: Comparable {
     public static func < (lhs: Note, rhs: Note) -> Bool {
-        if lhs.octave.octaveNumber() < rhs.octave.octaveNumber() {
+        if lhs.octave < rhs.octave {
             return true
-        } else if lhs.octave.octaveNumber() == rhs.octave.octaveNumber() {
+        } else if lhs.octave == rhs.octave {
             if lhs.letter < rhs.letter {
                 return true
             } else if lhs.letter == rhs.letter {
@@ -727,5 +422,312 @@ extension Note: Comparable {
         }
 
         return false
+    }
+}
+
+extension Note {
+    private static func calculatePosition(letter: NoteLetter, octave: NoteOctave, clef: Clef) -> NotePosition {
+        switch clef {
+        case .bass:
+            switch letter {
+            case .a:
+                switch octave {
+                case .zero:
+                    return .bottom7thSpace
+                case .one:
+                    return .bottom3rdLine
+                case .two:
+                    return .middle1stSpace
+                case .three:
+                    return .middle5thLine
+                case .four:
+                    return .top4thSpace
+                case .five:
+                    return .top7thLine
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .b:
+                switch octave {
+                case .zero:
+                    return .bottom6thLine
+                case .one:
+                    return .bottom3rdSpace
+                case .two:
+                    return .middle2ndLine
+                case .three:
+                    return .top1stSpace
+                case .four:
+                    return .top4thLine
+                case .five:
+                    return .top8thSpace
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .c:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    return .bottom6thSpace
+                case .two:
+                    return .bottom2ndLine
+                case .three:
+                    return .middle2ndSpace
+                case .four:
+                    return .top1stLine
+                case .five:
+                    return .top5thSpace
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .d:
+                switch octave {
+                case .zero:
+                    return .bottom8thSpace
+                case .one:
+                    return .bottom5thLine
+                case .two:
+                    return .bottom2ndSpace
+                case .three:
+                    return .middle3rdLine
+                case .four:
+                    return .top2ndSpace
+                case .five:
+                    return .top5thLine
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .e:
+                switch octave {
+                case .zero:
+                    return .bottom8thLine
+                case .one:
+                    return .bottom5thSpace
+                case .two:
+                    return .bottom1stLine
+                case .three:
+                    return .middle3rdSpace
+                case .four:
+                    return .top2ndLine
+                case .five:
+                    return .top6thSpace
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .f:
+                switch octave {
+                case .zero:
+                    return .bottom7thSpace
+                case .one:
+                    return .bottom4thLine
+                case .two:
+                    return .bottom1stSpace
+                case .three:
+                    return .middle4thLine
+                case .four:
+                    return .top3rdSpace
+                case .five:
+                    return .top6thLine
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .g:
+                switch octave {
+                case .zero:
+                    return .bottom7thLine
+                case .one:
+                    return .bottom4thSpace
+                case .two:
+                    return .middle1stLine
+                case .three:
+                    return .middle4thSpace
+                case .four:
+                    return .top3rdLine
+                case .five:
+                    return .top7thSpace
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            }
+        case .treble:
+            switch letter {
+            case .a:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    return .bottom6thSpace
+                case .three:
+                    return .bottom2ndLine
+                case .four:
+                    return .middle2ndSpace
+                case .five:
+                    return .top1stLine
+                case .six:
+                    return .top5thSpace
+                case .seven:
+                    return .top8thLine
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .b:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    return .bottom9thSpace
+                case .two:
+                    return .bottom5thLine
+                case .three:
+                    return .bottom2ndSpace
+                case .four:
+                    return .middle3rdLine
+                case .five:
+                    return .top2ndSpace
+                case .six:
+                    return .top5thLine
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .c:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    return .bottom8thLine
+                case .three:
+                    return .bottom5thSpace
+                case .four:
+                    return .bottom1stLine
+                case .five:
+                    return .middle3rdSpace
+                case .six:
+                    return .top2ndLine
+                case .seven:
+                    return .top6thSpace
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .d:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    return .bottom8thSpace
+                case .three:
+                    return .bottom4thLine
+                case .four:
+                    return .bottom1stSpace
+                case .five:
+                    return .middle4thLine
+                case .six:
+                    return .top3rdSpace
+                case .seven:
+                    return .top6thLine
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .e:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    return .bottom7thLine
+                case .three:
+                    return .bottom4thSpace
+                case .four:
+                    return .middle1stLine
+                case .five:
+                    return .middle4thSpace
+                case .six:
+                    return .top3rdLine
+                case .seven:
+                    return .top7thSpace
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .f:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    return .bottom7thSpace
+                case .three:
+                    return .bottom3rdLine
+                case .four:
+                    return .middle1stSpace
+                case .five:
+                    return .middle5thLine
+                case .six:
+                    return .top4thSpace
+                case .seven:
+                    return .top7thLine
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .g:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    return .bottom6thLine
+                case .three:
+                    return .bottom3rdSpace
+                case .four:
+                    return .middle2ndLine
+                case .five:
+                    return .top1stSpace
+                case .six:
+                    return .top4thLine
+                case .seven:
+                    return .top8thSpace
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            }
+        }
     }
 }

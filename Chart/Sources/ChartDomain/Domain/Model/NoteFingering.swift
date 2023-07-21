@@ -72,25 +72,30 @@ extension NoteFingering: Hashable {
 extension NoteFingering: Codable {
     private enum CodingKeys: String, CodingKey {
         case notes
-        case keysFingerings
-        case keysTriggersFingerings
-        case positionFingerings
-        case positionTriggersFingerings
+        case fingerings
     }
 
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         notes = try values.decode([Note].self, forKey: .notes)
 
-        let keysFingerings = try values.decode([KeysFingering].self, forKey: .keysFingerings)
-        let keysTriggersFingerings = try values.decode([KeysTriggersFingering].self, forKey: .keysTriggersFingerings)
-        let positionFingerings = try values.decode([PositionFingering].self, forKey: .positionFingerings)
-        let positionTriggersFingerings = try values.decode([PositionTriggersFingering].self, forKey: .positionTriggersFingerings)
+        let keysFingerings = try? values.decode([KeysFingering].self, forKey: .fingerings)
+        let keysTriggersFingerings = try? values.decode([KeysTriggersFingering].self, forKey: .fingerings)
+        let positionFingerings = try? values.decode([PositionFingering].self, forKey: .fingerings)
+        let positionTriggersFingerings = try? values.decode([PositionTriggersFingering].self, forKey: .fingerings)
+
         fingerings = []
-        fingerings.append(contentsOf: keysFingerings)
-        fingerings.append(contentsOf: keysTriggersFingerings)
-        fingerings.append(contentsOf: positionFingerings)
-        fingerings.append(contentsOf: positionTriggersFingerings)
+        if let keysFingerings {
+            fingerings.append(contentsOf: keysFingerings)
+        } else if let keysTriggersFingerings {
+            fingerings.append(contentsOf: keysTriggersFingerings)
+        } else if let positionFingerings {
+            fingerings.append(contentsOf: positionFingerings)
+        } else if let positionTriggersFingerings {
+            fingerings.append(contentsOf: positionTriggersFingerings)
+        } else {
+            throw ChartError.decodingError
+        }
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -114,9 +119,16 @@ extension NoteFingering: Codable {
             }
         }
 
-        try container.encode(keysFingerings, forKey: .keysFingerings)
-        try container.encode(keysFingerings, forKey: .keysTriggersFingerings)
-        try container.encode(keysFingerings, forKey: .positionFingerings)
-        try container.encode(keysFingerings, forKey: .positionTriggersFingerings)
+        if !keysFingerings.isEmpty {
+            try container.encode(keysFingerings, forKey: .fingerings)
+        } else if !keysTriggersFingerings.isEmpty {
+            try container.encode(keysTriggersFingerings, forKey: .fingerings)
+        } else if !positionFingerings.isEmpty {
+            try container.encode(positionFingerings, forKey: .fingerings)
+        } else if !positionTriggersFingerings.isEmpty {
+            try container.encode(positionTriggersFingerings, forKey: .fingerings)
+        } else {
+            try container.encode([KeysFingering](), forKey: .fingerings)
+        }
     }
 }

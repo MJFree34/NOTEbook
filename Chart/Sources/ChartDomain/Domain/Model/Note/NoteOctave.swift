@@ -1,12 +1,14 @@
 //
 //  NoteOctave.swift
-//  NoteLibrary
+//  ChartDomain
 //
 //  Created by Matt Free on 7/11/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
 import Foundation
 
+// swiftlint:disable sorted_enum_cases
 public enum NoteOctave: Int, Codable {
     case zero
     case one
@@ -17,27 +19,10 @@ public enum NoteOctave: Int, Codable {
     case six
     case seven
     case eight
+}
 
-    public func octaveNumber() -> Int {
-        switch self {
-        case .zero:
-            return 0
-        case .one:
-            return 1
-        case .two:
-            return 2
-        case .three:
-            return 3
-        case .four:
-            return 4
-        case .five:
-            return 5
-        case .six:
-            return 6
-        case .seven:
-            return 7
-        case .eight:
-            return 8
-        }
+extension NoteOctave: Comparable {
+    public static func < (lhs: NoteOctave, rhs: NoteOctave) -> Bool {
+        lhs.rawValue < rhs.rawValue
     }
 }

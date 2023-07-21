@@ -6,6 +6,4 @@
 //  Copyright © 2020 Matthew Free. All rights reserved.
 //
 
-import Foundation
-
 public protocol Fingering: Codable, Hashable, Identifiable { }

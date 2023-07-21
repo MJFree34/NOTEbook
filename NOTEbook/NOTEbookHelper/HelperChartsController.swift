@@ -6,10 +6,11 @@
 //  Copyright © 2022 Matthew Free. All rights reserved.
 //
 
+import ChartDomain
 import Common
-import Foundation
 import SwiftUI
 
+// swiftlint:disable no_fatal_errors line_length
 class HelperChartsController: ObservableObject {
     static let shared = HelperChartsController()
 
@@ -18,33 +19,33 @@ class HelperChartsController: ObservableObject {
     // MARK: - Initializer
 
     init() {
-        do {
-            chartCategories = try ChartsLoader.loadCharts()
-        } catch ChartLoadingError.invalidURL {
-            fatalError("Invalid URL")
-        } catch ChartLoadingError.unloadableData {
-            fatalError("Data is unloadable")
-        } catch ChartLoadingError.decodingError {
-            fatalError("Decoding error")
-        } catch {
-            fatalError("Fail to load charts")
-        }
+//        do {
+//            chartCategories = try ChartsLoader.loadCharts()
+//        } catch ChartLoadingError.invalidURL {
+//            fatalError("Invalid URL")
+//        } catch ChartLoadingError.unloadableData {
+//            fatalError("Data is unloadable")
+//        } catch ChartLoadingError.decodingError {
+//            fatalError("Decoding error")
+//        } catch {
+//            fatalError("Fail to load charts")
+//        }
     }
 
     // MARK: - Saving
 
     private func save() {
-        do {
-            try ChartsLoader.saveCharts(chartCategories: chartCategories)
-        } catch ChartLoadingError.invalidURL {
-            fatalError("Invalid URL")
-        } catch ChartLoadingError.unencodableData {
-            fatalError("Data is unencodable")
-        } catch ChartLoadingError.writingError {
-            fatalError("Chart writing error")
-        } catch {
-            fatalError("Fail to load charts")
-        }
+//        do {
+//            try ChartsLoader.saveCharts(chartCategories: chartCategories)
+//        } catch ChartLoadingError.invalidURL {
+//            fatalError("Invalid URL")
+//        } catch ChartLoadingError.unencodableData {
+//            fatalError("Data is unencodable")
+//        } catch ChartLoadingError.writingError {
+//            fatalError("Chart writing error")
+//        } catch {
+//            fatalError("Fail to load charts")
+//        }
     }
 
     // MARK: - Getters
@@ -86,7 +87,7 @@ class HelperChartsController: ObservableObject {
             return Binding {
                 self.chartCategories[chartCategoryIndex].name
             } set: { newName in
-                self.chartCategories[chartCategoryIndex].type = ChartCategoryType(rawValue: newName) ?? ChartCategoryType(rawValue: categoryName)!
+                self.chartCategories[chartCategoryIndex].type = ChartCategory.CategoryType(rawValue: newName) ?? ChartCategory.CategoryType(rawValue: categoryName)!
             }
         }
         return nil
@@ -199,7 +200,7 @@ class HelperChartsController: ObservableObject {
         }
     }
 
-    @discardableResult func addFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingering: Fingering) -> NoteFingering? {
+    @discardableResult func addFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingering: any Fingering) -> NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.append(fingering)
             save()
@@ -217,7 +218,7 @@ class HelperChartsController: ObservableObject {
         }
     }
 
-    @discardableResult func updateFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: Fingering) -> NoteFingering? {
+    @discardableResult func updateFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: any Fingering) -> NoteFingering? {
         if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
             chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings[fingeringIndex] = fingering
             save()
@@ -312,13 +313,13 @@ class HelperChartsController: ObservableObject {
         if minPositions >= -4 && minPositions <= 4 {
             minPositions = 0
         } else {
-            minPositions = minPositions + (minPositions < 0 ? 4 : -4)
+            minPositions += minPositions < 0 ? 4 : -4
         }
 
         if maxPositions >= -4 && maxPositions <= 4 {
             maxPositions = 0
         } else {
-            maxPositions = maxPositions + (maxPositions < 0 ? 4 : -4)
+            maxPositions += maxPositions < 0 ? 4 : -4
         }
 
         return Double(maxPositions + minPositions) / 4.0

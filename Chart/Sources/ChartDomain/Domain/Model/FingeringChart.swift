@@ -18,7 +18,14 @@ public struct FingeringChart: Codable {
 
     public var name: String { instrument.type.rawValue }
 
-    init(instrument: Instrument, centerNote: Note? = nil, naturalNotes: [Note], flatNotes: [Note], sharpNotes: [Note], noteFingerings: [NoteFingering]) {
+    public init(
+        instrument: Instrument,
+        centerNote: Note,
+        naturalNotes: [Note],
+        flatNotes: [Note],
+        sharpNotes: [Note],
+        noteFingerings: [NoteFingering]
+    ) {
         self.instrument = instrument
         self.centerNote = centerNote
         self.naturalNotes = naturalNotes

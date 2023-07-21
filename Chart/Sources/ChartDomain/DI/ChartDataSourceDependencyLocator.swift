@@ -8,7 +8,7 @@
 
 import Common
 
-class ChartDataSourceDependencyLocator: ModuleDependencyLocator {
+final class ChartDataSourceDependencyLocator: ModuleDependencyLocator {
     static func addDependenciesToContainer(container: DependencyLocatorProtocol) {
         container.register(type: ChartLocalDataSourceProtocol.self, component: ChartLocalDataSource())
         container.register(type: ChartRemoteDataSourceProtocol.self, component: ChartRemoteDataSource())

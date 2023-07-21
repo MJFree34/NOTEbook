@@ -10,6 +10,7 @@ import Combine
 import Common
 import Storage
 
+// swiftlint:disable trailing_closure
 final class ChartRepository: ChartRepositoryProtocol {
     @DependencyInjected(ChartLocalDataSourceProtocol.self) private var localDataSource
     @DependencyInjected(ChartRemoteDataSourceProtocol.self) private var remoteDataSource
