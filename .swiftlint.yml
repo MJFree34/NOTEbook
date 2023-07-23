@@ -184,19 +184,15 @@ custom_rules:
   no_alignment_center:
     regex: '\b\(alignment: .center\b'
     message: 'This alignment is the default.'
-  auto_generated_leftovers:
-    regex: 'func [^\n]*\{\n(\s*super\.[^\n]*\n(\s*\/\/[^\n]*\n)*|(\s*\/\/[^\n]*\n)+)\s*\}'
-    message: "Delete auto-generated functions that you don't use"
   already_true:
     regex: "== true"
     message: "Don't compare to true, just use the bool value."
   already_bool:
     regex: "== false"
     message: "Don't compare to false, just use !value."
-  multiline_commented_code:
-    regex: '^\s*[a-z]'
-    match_kinds: comment
-    message: "Comment starting with lowercase letter - did you forget to delete old code?"
+  commented_code:
+    regex: '^\h*\/\/[a-zA-Z@.}]|^\h*\/\/\h\h\h\h*[a-zA-Z@.}]'
+    message: "Commented out code. Remember not to commit."
   no_fatal_errors:
     included: ".*.swift"
     name: "!!Crash!!"
