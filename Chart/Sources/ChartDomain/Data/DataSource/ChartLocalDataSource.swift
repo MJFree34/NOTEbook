@@ -14,18 +14,19 @@ import Storage
 final class ChartLocalDataSource: ChartLocalDataSourceProtocol {
     @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
 
-    func fetchCharts(chartsFilename: String) -> AnyPublisher<[ChartCategory], ChartError> {
+    func fetchCharts(chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError> {
         savedChartsData(chartsFilename: chartsFilename)
             .tryMap { url in
                 try Data(contentsOf: url)
             }
+            .decode(type: ChartCategories.self, decoder: JSONDecoder())
             .catch { _ in
                 self.bundleChartsData(chartsFilename: chartsFilename)
                     .tryMap { url in
                         try Data(contentsOf: url)
                     }
+                    .decode(type: ChartCategories.self, decoder: JSONDecoder())
             }
-            .decode(type: [ChartCategory].self, decoder: JSONDecoder())
             .mapError { error -> ChartError in
                 if let error = error as? ChartError {
                     return error
@@ -54,7 +55,7 @@ final class ChartLocalDataSource: ChartLocalDataSourceProtocol {
             .eraseToAnyPublisher()
     }
 
-    func saveCharts(chartsFilename: String, chartCategories: [ChartCategory]) throws {
+    func saveCharts(chartsFilename: String, chartCategories: ChartCategories) throws {
         let chartsURL = URL.documentsDirectory.appendingPathComponent("\(chartsFilename).json")
 
         let encoder = JSONEncoder()

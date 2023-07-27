@@ -9,11 +9,11 @@
 import SwiftUI
 
 extension Gradient {
-    static func theme(_ theme: Theme) -> LinearGradient {
+    static func theme(_ theme: Theme, bundle: Bundle = .main) -> LinearGradient {
         LinearGradient(
             colors: [
-                .theme(theme, .gradient),
-                Color("gradient+end")
+                .theme(theme, .gradient, bundle: bundle),
+                Color("gradient+end", bundle: bundle)
             ],
             startPoint: .top,
             endPoint: .bottom

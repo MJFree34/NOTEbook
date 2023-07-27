@@ -6,7 +6,9 @@
 //  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
-public enum ChartError: Error {
+import Foundation
+
+public enum ChartError: LocalizedError {
     case decodingError
     case invalidBundleURL
     case invalidNetworkURL
@@ -14,4 +16,23 @@ public enum ChartError: Error {
     case savingError
     case unknownError
     case unloadableData
+
+    public var errorDescription: String? {
+        switch self {
+        case .decodingError:
+            return "An error occurred while decoding."
+        case .invalidBundleURL:
+            return "An invalid bundle URL was inputted."
+        case .invalidNetworkURL:
+            return "An invalid network URL was inputted."
+        case .networkError:
+            return "A network error has occurred."
+        case .savingError:
+            return "An error occurred while saving Chart Categories."
+        case .unknownError:
+            return "An unknown chart error occurred."
+        case .unloadableData:
+            return "The chart data was unloadable."
+        }
+    }
 }

@@ -1,11 +1,12 @@
 [
   {
-    "type" : "Flute",
+    "name" : "Flute",
     "section" : "Woodwinds",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "C Flute",
+          "name" : "Flute",
+          "detailName" : "C Flute",
           "offset" : 3
         },
         "flatNotes" : [
@@ -4937,12 +4938,13 @@
     ]
   },
   {
-    "type" : "Clarinet",
+    "name" : "Clarinet",
     "section" : "Woodwinds",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "Bb Soprano Clarinet",
+          "name" : "Clarinet",
+          "detailName" : "Bb Soprano Clarinet",
           "offset" : 1
         },
         "flatNotes" : [
@@ -10643,12 +10645,13 @@
     ]
   },
   {
-    "type" : "Saxophone",
+    "name" : "Saxophone",
     "section" : "Woodwinds",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "Eb Alto Saxophone",
+          "name" : "Alto Saxophone",
+          "detailName" : "Eb Alto Saxophone",
           "offset" : 3
         },
         "flatNotes" : [
@@ -16888,7 +16891,8 @@
       },
       {
         "instrument" : {
-          "type" : "Bb Tenor Saxophone",
+          "name" : "Tenor Saxophone",
+          "detailName" : "Bb Tenor Saxophone",
           "offset" : 3
         },
         "flatNotes" : [
@@ -23128,7 +23132,8 @@
       },
       {
         "instrument" : {
-          "type" : "Eb Baritone Saxophone",
+          "name" : "Baritone Saxophone",
+          "detailName" : "Eb Baritone Saxophone",
           "offset" : 2.75
         },
         "flatNotes" : [
@@ -29437,12 +29442,13 @@
     ]
   },
   {
-    "type" : "Trumpet",
+    "name" : "Trumpet",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "Bb Trumpet",
+          "name" : "Trumpet",
+          "detailName" : "Bb Trumpet",
           "offset" : -0.25
         },
         "flatNotes" : [
@@ -31369,12 +31375,13 @@
     ]
   },
   {
-    "type" : "Mellophone",
+    "name" : "Mellophone",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "F Mellophone",
+          "name" : "Mellophone",
+          "detailName" : "F Mellophone",
           "offset" : -0.25
         },
         "flatNotes" : [
@@ -32447,12 +32454,13 @@
     ]
   },
   {
-    "type" : "French Horn",
+    "name" : "French Horn",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "F Single French Horn",
+          "name" : "F French Horn",
+          "detailName" : "F Single French Horn",
           "offset" : -2
         },
         "flatNotes" : [
@@ -34139,7 +34147,8 @@
       },
       {
         "instrument" : {
-          "type" : "F\/Bb Double French Horn",
+          "name" : "F\/Bb French Horn",
+          "detailName" : "F\/Bb Double French Horn",
           "offset" : -3
         },
         "flatNotes" : [
@@ -36772,12 +36781,13 @@
     ]
   },
   {
-    "type" : "Trombone",
+    "name" : "Trombone",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "Bb Tenor Trombone",
+          "name" : "Trombone",
+          "detailName" : "Bb Tenor Trombone",
           "offset" : 1.25
         },
         "flatNotes" : [
@@ -38705,7 +38715,8 @@
       },
       {
         "instrument" : {
-          "type" : "F-Trigger Bb Tenor Trombone",
+          "name" : "F-Trigger Trombone",
+          "detailName" : "F-Trigger Bb Tenor Trombone",
           "offset" : 1.25
         },
         "flatNotes" : [
@@ -41011,12 +41022,13 @@
     ]
   },
   {
-    "type" : "Baritone Horn",
+    "name" : "Baritone Horn",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "Bb Baritone Horn",
+          "name" : "Baritone Horn",
+          "detailName" : "Bb Baritone Horn",
           "offset" : 1.25
         },
         "flatNotes" : [
@@ -42222,12 +42234,13 @@
     ]
   },
   {
-    "type" : "Euphonium",
+    "name" : "Euphonium",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "4-Valve Bb Euphonium Compensating",
+          "name" : "4-Valve Euphonium Comp.",
+          "detailName" : "4-Valve Bb Euphonium Comp.",
           "offset" : 0.75
         },
         "flatNotes" : [
@@ -44561,7 +44574,8 @@
       },
       {
         "instrument" : {
-          "type" : "4-Valve Bb Euphonium Non-Compensating",
+          "name" : "4-Valve Euphonium Non-Comp.",
+          "detailName" : "4-Valve Bb Euphonium Non-Comp.",
           "offset" : 0.75
         },
         "flatNotes" : [
@@ -46673,12 +46687,13 @@
     ]
   },
   {
-    "type" : "Tuba",
+    "name" : "Tuba",
     "section" : "Brass",
     "fingeringCharts" : [
       {
         "instrument" : {
-          "type" : "3-Valve BBb Tuba",
+          "name" : "3-Valve BBb Tuba",
+          "detailName" : "3-Valve BBb Tuba",
           "offset" : -2.25
         },
         "flatNotes" : [
@@ -48719,7 +48734,8 @@
       },
       {
         "instrument" : {
-          "type" : "3-Valve Eb Tuba",
+          "name" : "3-Valve Eb Tuba",
+          "detailName" : "3-Valve Eb Tuba",
           "offset" : -0.75
         },
         "flatNotes" : [

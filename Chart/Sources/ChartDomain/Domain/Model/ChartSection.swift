@@ -9,8 +9,8 @@
 import Foundation
 
 public enum ChartSection: String, Codable, CaseIterable {
-    case brass = "Brass"
     case woodwinds = "Woodwinds"
+    case brass = "Brass"
 }
 
 extension ChartSection: Identifiable {

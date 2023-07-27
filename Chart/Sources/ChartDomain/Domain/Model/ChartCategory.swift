@@ -8,37 +8,21 @@
 
 import Foundation
 
-public struct ChartCategory: Codable {
-    public enum CategoryType: String, Codable, CaseIterable {
-        case flute = "Flute"
-        case clarinet = "Clarinet"
-        case saxophone = "Saxophone"
-        case trumpet = "Trumpet"
-        case mellophone = "Mellophone"
-        case frenchHorn = "French Horn"
-        case trombone = "Trombone"
-        case baritoneHorn = "Baritone Horn"
-        case euphonium = "Euphonium"
-        case tuba = "Tuba"
+public struct ChartCategory: Codable, Identifiable {
+    private enum CodingKeys: CodingKey {
+        case name
+        case section
+        case fingeringCharts
     }
 
-    public var type: CategoryType
+    public let id = UUID()
+    public var name: String
     public var section: ChartSection
     public var fingeringCharts: [FingeringChart]
 
-    public var name: String { type.rawValue }
-
-    public init(type: CategoryType, section: ChartSection, fingeringCharts: [FingeringChart]) {
-        self.type = type
+    public init(name: String, section: ChartSection, fingeringCharts: [FingeringChart]) {
+        self.name = name
         self.section = section
         self.fingeringCharts = fingeringCharts
     }
-}
-
-extension ChartCategory: Identifiable {
-    public var id: String { name }
-}
-
-extension ChartCategory.CategoryType: Identifiable {
-    public var id: String { rawValue }
 }

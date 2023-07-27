@@ -14,7 +14,7 @@ public final class SaveChartsUseCase {
 
     init() { }
 
-    public func execute(chartsFilename: String, chartCategories: [ChartCategory]) throws {
+    public func execute(chartsFilename: String, chartCategories: ChartCategories) throws {
         try repository.saveCharts(chartsFilename: chartsFilename, chartCategories: chartCategories)
     }
 }

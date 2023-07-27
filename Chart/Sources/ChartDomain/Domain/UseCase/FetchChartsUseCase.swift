@@ -14,7 +14,7 @@ public final class FetchChartsUseCase {
 
     init() { }
 
-    public func execute(networkURLString: String, chartsFilename: String) -> AnyPublisher<[ChartCategory], ChartError> {
+    public func execute(networkURLString: String, chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError> {
         repository.fetchCharts(networkURLString: networkURLString, chartsFilename: chartsFilename)
     }
 }

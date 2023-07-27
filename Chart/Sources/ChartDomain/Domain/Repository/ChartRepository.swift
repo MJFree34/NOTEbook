@@ -16,7 +16,7 @@ final class ChartRepository: ChartRepositoryProtocol {
     @DependencyInjected(ChartRemoteDataSourceProtocol.self) private var remoteDataSource
     @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
 
-    func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<[ChartCategory], ChartError> {
+    func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError> {
         remoteDataSource.fetchCharts(networkURLString: networkURLString, chartsFilename: chartsFilename)
             .catch { _ in
                 self.keyValueStorage.set(false, for: .chartsUpdatedFromNetwork)
@@ -30,7 +30,17 @@ final class ChartRepository: ChartRepositoryProtocol {
             .eraseToAnyPublisher()
     }
 
-    func saveCharts(chartsFilename: String, chartCategories: [ChartCategory]) throws {
+    func fetchHelperCharts(chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError> {
+        localDataSource.fetchCharts(chartsFilename: chartsFilename)
+            .handleEvents(
+                receiveOutput: { chartCategories in
+                    try? self.saveCharts(chartsFilename: chartsFilename, chartCategories: chartCategories)
+                }
+            )
+            .eraseToAnyPublisher()
+    }
+
+    func saveCharts(chartsFilename: String, chartCategories: ChartCategories) throws {
         try localDataSource.saveCharts(chartsFilename: chartsFilename, chartCategories: chartCategories)
     }
 }

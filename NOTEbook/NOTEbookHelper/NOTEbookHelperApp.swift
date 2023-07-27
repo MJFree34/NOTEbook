@@ -17,7 +17,7 @@ struct NOTEbookHelperApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HelperHomeView()
+            CategoriesListView(viewModel: CategoriesListViewModel())
         }
     }
 

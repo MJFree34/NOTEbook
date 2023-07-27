@@ -9,8 +9,19 @@
 import SwiftUI
 
 extension View {
-    public func background(theme: Theme) -> some View {
+    public func background(theme: Theme, bundle: Bundle = .main) -> some View {
         self
-            .background(Gradient.theme(theme), ignoresSafeAreaEdges: .all)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Gradient.theme(theme, bundle: bundle), ignoresSafeAreaEdges: .all)
+    }
+
+    public func padding(_ spacing: Spacing) -> some View {
+        self
+            .padding(spacing.rawValue)
+    }
+
+    public func padding(_ edges: Edge.Set, _ spacing: Spacing) -> some View {
+        self
+            .padding(edges, spacing.rawValue)
     }
 }

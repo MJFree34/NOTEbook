@@ -58,9 +58,9 @@ class HelperChartsController: ObservableObject {
         chartCategories.first { $0.name == categoryName }
     }
 
-    private func fingeringChart(in categoryName: String, instrumentType: Instrument.InstrumentType) -> FingeringChart? {
-        chartCategory(with: categoryName)?.fingeringCharts.first { $0.instrument.type == instrumentType }
-    }
+//    private func fingeringChart(in categoryName: String, instrumentType: Instrument.InstrumentType) -> FingeringChart? {
+//        chartCategory(with: categoryName)?.fingeringCharts.first { $0.instrument.type == instrumentType }
+//    }
 
     // MARK: - Index Getters
 
@@ -72,9 +72,9 @@ class HelperChartsController: ObservableObject {
         chartCategories.firstIndex { $0.name == categoryName }
     }
 
-    private func fingeringChartIndex(in category: ChartCategory, instrumentType: Instrument.InstrumentType) -> Int? {
-        category.fingeringCharts.firstIndex { $0.instrument.type == instrumentType }
-    }
+//    private func fingeringChartIndex(in category: ChartCategory, instrumentType: Instrument.InstrumentType) -> Int? {
+//        category.fingeringCharts.firstIndex { $0.instrument.type == instrumentType }
+//    }
 
     private func noteFingeringIndex(in chart: FingeringChart, firstNote: Note) -> Int? {
         chart.noteFingerings.firstIndex { $0.notes[0] == firstNote }
@@ -82,27 +82,27 @@ class HelperChartsController: ObservableObject {
 
     // MARK: - Binding Getters
 
-    func bindingToCategoryName(categoryName: String) -> Binding<String>? {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
-            return Binding {
-                self.chartCategories[chartCategoryIndex].name
-            } set: { newName in
-                self.chartCategories[chartCategoryIndex].type = ChartCategory.CategoryType(rawValue: newName) ?? ChartCategory.CategoryType(rawValue: categoryName)!
-            }
-        }
-        return nil
-    }
+//    func bindingToCategoryName(categoryName: String) -> Binding<String>? {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName) {
+//            return Binding {
+//                self.chartCategories[chartCategoryIndex].name
+//            } set: { newName in
+//                self.chartCategories[chartCategoryIndex].type = ChartCategory.CategoryType(rawValue: newName) ?? ChartCategory.CategoryType(rawValue: categoryName)!
+//            }
+//        }
+//        return nil
+//    }
 
-    func bindingToFingeringChart(in categoryName: String, instrumentType: Instrument.InstrumentType) -> Binding<FingeringChart>? {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType) {
-            return Binding {
-                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex]
-            } set: { newFingeringChart in
-                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = newFingeringChart
-            }
-        }
-        return nil
-    }
+//    func bindingToFingeringChart(in categoryName: String, instrumentType: Instrument.InstrumentType) -> Binding<FingeringChart>? {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType) {
+//            return Binding {
+//                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex]
+//            } set: { newFingeringChart in
+//                self.chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = newFingeringChart
+//            }
+//        }
+//        return nil
+//    }
 
     // MARK: - Move Methods
 
@@ -125,14 +125,14 @@ class HelperChartsController: ObservableObject {
         }
     }
 
-    @discardableResult func moveNoteFingeringInFingeringChart(categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fromOffsets: IndexSet, toOffset: Int) -> NoteFingering? {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
-            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.move(fromOffsets: fromOffsets, toOffset: toOffset)
-            save()
-            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
-        }
-        return nil
-    }
+//    @discardableResult func moveNoteFingeringInFingeringChart(categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fromOffsets: IndexSet, toOffset: Int) -> NoteFingering? {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+//            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.move(fromOffsets: fromOffsets, toOffset: toOffset)
+//            save()
+//            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
+//        }
+//        return nil
+//    }
 
     // MARK: - Delete Methods
 
@@ -151,14 +151,14 @@ class HelperChartsController: ObservableObject {
         }
     }
 
-    @discardableResult func deleteNoteFingeringInFingeringChart(categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, atOffsets offsets: IndexSet) -> NoteFingering? {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
-            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.remove(atOffsets: offsets)
-            save()
-            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
-        }
-        return nil
-    }
+//    @discardableResult func deleteNoteFingeringInFingeringChart(categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, atOffsets offsets: IndexSet) -> NoteFingering? {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+//            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.remove(atOffsets: offsets)
+//            save()
+//            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
+//        }
+//        return nil
+//    }
 
     // MARK: - Add Methods
 
@@ -200,32 +200,32 @@ class HelperChartsController: ObservableObject {
         }
     }
 
-    @discardableResult func addFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingering: any Fingering) -> NoteFingering? {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
-            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.append(fingering)
-            save()
-            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
-        }
-        return nil
-    }
+//    @discardableResult func addFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingering: any Fingering) -> NoteFingering? {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+//            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings.append(fingering)
+//            save()
+//            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
+//        }
+//        return nil
+//    }
 
     // MARK: - Update Methods
 
-    func updateFingeringChart(in categoryName: String, fingeringChart: FingeringChart) {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: fingeringChart.instrument.type) {
-            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = fingeringChart
-            save()
-        }
-    }
+//    func updateFingeringChart(in categoryName: String, fingeringChart: FingeringChart) {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: fingeringChart.instrument.type) {
+//            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex] = fingeringChart
+//            save()
+//        }
+//    }
 
-    @discardableResult func updateFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: any Fingering) -> NoteFingering? {
-        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
-            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings[fingeringIndex] = fingering
-            save()
-            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
-        }
-        return nil
-    }
+//    @discardableResult func updateFingering(in categoryName: String, instrumentType: Instrument.InstrumentType, firstNote: Note, fingeringIndex: Int, fingering: any Fingering) -> NoteFingering? {
+//        if let chartCategoryIndex = chartCategoryIndex(with: categoryName), let fingeringChartIndex = fingeringChartIndex(in: chartCategories[chartCategoryIndex], instrumentType: instrumentType), let noteFingeringIndex = noteFingeringIndex(in: chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex], firstNote: firstNote) {
+//            chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex].fingerings[fingeringIndex] = fingering
+//            save()
+//            return chartCategories[chartCategoryIndex].fingeringCharts[fingeringChartIndex].noteFingerings[noteFingeringIndex]
+//        }
+//        return nil
+//    }
 
     // MARK: - Generators
 
@@ -241,70 +241,70 @@ class HelperChartsController: ObservableObject {
         return list
     }
 
-    func generateNoteFingerings(in categoryName: String, instrumentType: Instrument.InstrumentType, naturalNotes: [Note], flatNotes: [Note], sharpNotes: [Note]) -> [NoteFingering] {
-        var newNoteFingerings = [NoteFingering]()
-
-        var index = 0
-
-        if flatNotes[index].type == .flat {
-            let flatNote = flatNotes[index]
-            let sharpNote = flatNote.transposeDownHalfStep().transposeUpHalfStep()
-            newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
-        } else {
-            newNoteFingerings.append(NoteFingering(notes: [flatNotes[index]], fingerings: []))
-        }
-
-        newNoteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
-
-        if sharpNotes[index].type == .sharp {
-            let sharpNote = sharpNotes[index]
-            let flatNote = sharpNote.transposeUpHalfStep().transposeDownHalfStep()
-            newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
-        } else if naturalNotes.count == 1 {
-            let sharpNote = sharpNotes[index]
-            newNoteFingerings.append(NoteFingering(notes: [sharpNote], fingerings: []))
-        }
-
-        index += 1
-
-        while index < naturalNotes.count {
-            newNoteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
-
-            if sharpNotes[index].type == .sharp {
-                let flatNote: Note
-
-                if index == naturalNotes.count - 1 {
-                    flatNote = sharpNotes[index].transposeUpHalfStep().transposeDownHalfStep()
-                } else {
-                    flatNote = flatNotes[index + 1]
-                }
-
-                let sharpNote = sharpNotes[index]
-                newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
-            }
-
-            index += 1
-        }
-
-        if let oldNoteFingerings = fingeringChart(in: categoryName, instrumentType: instrumentType)?.noteFingerings {
-            var oldIndex = 0
-            var newIndex = 0
-
-            if let matchIndex = oldNoteFingerings.firstIndex(where: { $0.notes == newNoteFingerings[0].notes }) {
-                oldIndex = matchIndex
-            } else if let matchIndex = newNoteFingerings.firstIndex(where: { $0.notes == oldNoteFingerings[0].notes }) {
-                newIndex = matchIndex
-            }
-
-            while oldIndex < oldNoteFingerings.count && newIndex < newNoteFingerings.count && oldNoteFingerings[oldIndex].notes == newNoteFingerings[newIndex].notes {
-                newNoteFingerings[newIndex].fingerings = oldNoteFingerings[oldIndex].fingerings
-                oldIndex += 1
-                newIndex += 1
-            }
-        }
-
-        return newNoteFingerings
-    }
+//    func generateNoteFingerings(in categoryName: String, instrumentType: Instrument.InstrumentType, naturalNotes: [Note], flatNotes: [Note], sharpNotes: [Note]) -> [NoteFingering] {
+//        var newNoteFingerings = [NoteFingering]()
+//
+//        var index = 0
+//
+//        if flatNotes[index].type == .flat {
+//            let flatNote = flatNotes[index]
+//            let sharpNote = flatNote.transposeDownHalfStep().transposeUpHalfStep()
+//            newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+//        } else {
+//            newNoteFingerings.append(NoteFingering(notes: [flatNotes[index]], fingerings: []))
+//        }
+//
+//        newNoteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
+//
+//        if sharpNotes[index].type == .sharp {
+//            let sharpNote = sharpNotes[index]
+//            let flatNote = sharpNote.transposeUpHalfStep().transposeDownHalfStep()
+//            newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+//        } else if naturalNotes.count == 1 {
+//            let sharpNote = sharpNotes[index]
+//            newNoteFingerings.append(NoteFingering(notes: [sharpNote], fingerings: []))
+//        }
+//
+//        index += 1
+//
+//        while index < naturalNotes.count {
+//            newNoteFingerings.append(NoteFingering(notes: [naturalNotes[index]], fingerings: []))
+//
+//            if sharpNotes[index].type == .sharp {
+//                let flatNote: Note
+//
+//                if index == naturalNotes.count - 1 {
+//                    flatNote = sharpNotes[index].transposeUpHalfStep().transposeDownHalfStep()
+//                } else {
+//                    flatNote = flatNotes[index + 1]
+//                }
+//
+//                let sharpNote = sharpNotes[index]
+//                newNoteFingerings.append(NoteFingering(notes: [sharpNote, flatNote], fingerings: []))
+//            }
+//
+//            index += 1
+//        }
+//
+//        if let oldNoteFingerings = fingeringChart(in: categoryName, instrumentType: instrumentType)?.noteFingerings {
+//            var oldIndex = 0
+//            var newIndex = 0
+//
+//            if let matchIndex = oldNoteFingerings.firstIndex(where: { $0.notes == newNoteFingerings[0].notes }) {
+//                oldIndex = matchIndex
+//            } else if let matchIndex = newNoteFingerings.firstIndex(where: { $0.notes == oldNoteFingerings[0].notes }) {
+//                newIndex = matchIndex
+//            }
+//
+//            while oldIndex < oldNoteFingerings.count && newIndex < newNoteFingerings.count && oldNoteFingerings[oldIndex].notes == newNoteFingerings[newIndex].notes {
+//                newNoteFingerings[newIndex].fingerings = oldNoteFingerings[oldIndex].fingerings
+//                oldIndex += 1
+//                newIndex += 1
+//            }
+//        }
+//
+//        return newNoteFingerings
+//    }
 
     func generateOffset(minNote: Note, maxNote: Note) -> Double {
         var minPositions = minNote.positionsFromCenterStaff()

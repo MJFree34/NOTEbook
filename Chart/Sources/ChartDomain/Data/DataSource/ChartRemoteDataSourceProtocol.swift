@@ -9,5 +9,5 @@
 import Combine
 
 protocol ChartRemoteDataSourceProtocol {
-    func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<[ChartCategory], ChartError>
+    func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError>
 }

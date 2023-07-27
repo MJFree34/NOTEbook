@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension Color {
-    public static func theme(_ theme: Theme, _ prominence: Theme.Prominence) -> Color {
-        Color(theme.rawValue + "+" + prominence.rawValue)
+    public static func theme(_ theme: Theme, _ prominence: Theme.Prominence, bundle: Bundle = Bundle.main) -> Color {
+        Color(theme.rawValue + "+" + prominence.rawValue, bundle: bundle)
     }
 }

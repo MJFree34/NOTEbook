@@ -1,16 +1,17 @@
 //
 //  CategoriesListView.swift
-//  NOTEbook Helper
+//  NOTEbookHelper
 //
 //  Created by Matt Free on 3/21/22.
 //  Copyright © 2022 Matthew Free. All rights reserved.
 //
 
 import ChartDomain
+import ChartUI
 import CommonUI
 import SwiftUI
 
-struct CategoriesListView: View, ActionableView {
+struct CategoriesListView: View {
     private enum SheetType: Int {
         case addChartCategory
         case addChart
@@ -23,17 +24,17 @@ struct CategoriesListView: View, ActionableView {
         var id: String { "\(categoryToAddChartInName ?? "") + \(type.rawValue)" }
     }
 
-    enum Action {
-        case start
-    }
-
-    @Binding var viewState: CategoriesListViewState
-    var onAction: ActionClosure
+    @StateObject var viewModel: CategoriesListViewModel
 
     @State private var editMode = EditMode.inactive
     @State private var currentAddSheet: AddSheet?
 
+    init(viewModel: CategoriesListViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
+        NavigationStack {
             content
                 .sheet(item: $currentAddSheet) { addSheet in
 //                  switch addSheet.type {
@@ -44,94 +45,108 @@ struct CategoriesListView: View, ActionableView {
 //                      AddFingeringChartView(categoryName: addSheet.categoryToAddChartInName!)
 //                          .interactiveDismissDisabled()
 //                  }
-                    EmptyView()
                 }
                 .toolbar {
                     ToolbarItem(id: "edit", placement: .navigationBarLeading) {
                         EditButton()
-                            .disabled(viewState.screenState == .loading)
+                            .disabled(viewModel.screenState == .loading)
                     }
 
                     ToolbarItem(id: "share", placement: .navigationBarTrailing) {
-                        ShareLink(item: viewState.chartsURL)
-                            .disabled(viewState.screenState == .loading)
+                        ShareLink(item: viewModel.chartsURL)
+                            .disabled(viewModel.screenState == .loading)
                     }
 
                     ToolbarItem(id: "add", placement: .navigationBarTrailing) {
                         addButton
-                            .disabled(viewState.screenState == .loading)
+                            .disabled(viewModel.screenState == .loading)
                     }
                 }
                 .onAppear {
-                    onAction?(.start)
+                    viewModel.start()
                 }
                 .navigationTitle("NOTEbook Helper")
                 .background(theme: .aqua)
-                .scrollContentBackground(.hidden)
                 .environment(\.editMode, $editMode)
+        }
+        .tint(.theme(.aqua, .foreground))
     }
 
     @ViewBuilder
     private var content: some View {
-        switch viewState.screenState {
+        switch viewModel.screenState {
         case .loading:
             ProgressView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         case .loaded:
-            List(ChartSection.allCases) { section in
-                chartSectionSection(section: section)
-            }
+            chartSections
         case .error(let error):
-            Text("Error: \(error.localizedDescription)")
+            ChartErrorStateView(error: error)
         }
     }
 
-    @ViewBuilder
-    func chartSectionSection(section: ChartSection) -> some View {
-        Section(section.rawValue) {
-            ForEach(viewState.chartCategories.categories(in: section)) { chartCategory in
-                chartCategorySection(chartCategory: chartCategory)
+    private var chartSections: some View {
+        List {
+            ForEach(ChartSection.allCases) { section in
+                let sectionExpandedBinding = Binding {
+                    viewModel.sectionsExpanded[section] ?? false
+                } set: { newValue in
+                    viewModel.sectionsExpanded[section] = newValue
+                }
+
+                Section {
+                    if sectionExpandedBinding.wrappedValue {
+                        chartCategories(in: section)
+                    }
+                } header: {
+                    CollapsingRow(title: section.rawValue, isExpanded: sectionExpandedBinding)
+                        .font(.title3)
+                        .bold()
+                }
+                .foregroundColor(.theme(.aqua, .foreground))
             }
-            .onMove { fromOffsets, toOffset in
-                moveChartCategory(section: section, fromOffsets: fromOffsets, toOffset: toOffset)
-            }
-            .onDelete { offsets in
-                deleteChartCategory(section: section, atOffsets: offsets)
-            }
+            .listRowBackground(Color.theme(.aqua, .background))
         }
-//        .foregroundColor(Color("DarkAqua"))
-//        .listRowBackground(Color("LightestAqua"))
-        .headerProminence(.increased)
+        .scrollContentBackground(.hidden)
     }
 
-    @ViewBuilder
-    func chartCategorySection(chartCategory: ChartCategory) -> some View {
-        Section {
-            ForEach(chartCategory.fingeringCharts) { fingeringChart in
-//                NavigationLink {
-//                    FingeringChartDetailView(chart: fingeringChart, categoryName: chartCategory.name)
-//                } label: {
-//                    Text(fingeringChart.name)
-//                        .padding(.leading)
-//                        .foregroundColor(Color("Black"))
-//                }
+    private func chartCategories(in section: ChartSection) -> some View {
+        ForEach(viewModel.chartCategories.categories(in: section)) { category in
+            let categoryExpandedBinding = Binding {
+                viewModel.categoriesExpanded[category.name] ?? false
+            } set: { newValue in
+                viewModel.categoriesExpanded[category.name] = newValue
             }
-            .onMove { fromOffsets, toOffset in
-                moveFingeringChart(in: chartCategory.name, fromOffsets: fromOffsets, toOffset: toOffset)
+
+            CollapsingRow(title: category.name, isExpanded: categoryExpandedBinding)
+                .font(.headline)
+
+            if categoryExpandedBinding.wrappedValue {
+                fingeringCharts(in: category)
             }
-            .onDelete { offsets in
-                deleteFingeringChart(in: chartCategory.name, atOffsets: offsets)
+        }
+        .onMove { offsets, offset in
+            moveCategory(in: section, from: offsets, to: offset)
+        }
+        .onDelete { offsets in
+            deleteCategory(in: section, at: offsets)
+        }
+    }
+
+    private func fingeringCharts(in category: ChartCategory) -> some View {
+        ForEach(category.fingeringCharts) { fingeringChart in
+            OverlayedNavigationLink {
+//                FingeringChartDetailView(chart: fingeringChart, categoryName: chartCategory.name)
+            } label: {
+                TitleWithChevronRow(title: fingeringChart.instrument.name)
+                    .padding(.leading)
+                    .foregroundColor(.black)
             }
-        } header: {
-            Group {
-//                if editMode == .active {
-//                    TextField("Category name", text: helperChartsController.bindingToCategoryName(categoryName: chartCategory.name)!)
-//                } else {
-//                    Text(chartCategory.name)
-//                }
-            }
-            .bold()
-//            .foregroundColor(Color("MediumAqua"))
+        }
+        .onMove { offsets, offset in
+            moveChartInCategory(with: category.id, from: offsets, to: offset)
+        }
+        .onDelete { offsets in
+            deleteChartInCategory(with: category.id, at: offsets)
         }
     }
 
@@ -139,61 +154,59 @@ struct CategoriesListView: View, ActionableView {
     private var addButton: some View {
         switch editMode {
         case .inactive:
-            Menu {
-                Button {
-                    currentAddSheet = AddSheet(type: .addChartCategory)
-                } label: {
-                    Text("Add Chart Category")
-                }
-
-                Menu {
-//                    ForEach(ChartSection.allCases) { section in
-//                        ForEach(helperChartsController.chartCategories(in: section)) { chartCategory in
-//                            Button {
-//                                currentAddSheet = AddSheet(type: .addChart, categoryToAddChartInName: chartCategory.name)
-//                            } label: {
-//                                Text("Add in \(chartCategory.name)")
-//                            }
-//                        }
-//                    }
-                } label: {
-                    Text("Add Chart in Category")
-                }
-            } label: {
-                Label("Add", systemImage: "plus")
-            }
+            addMenu
         default:
             EmptyView()
         }
     }
 
-    private func moveFingeringChart(in chartCategoryName: String, fromOffsets: IndexSet, toOffset: Int) {
-//        helperChartsController.moveFingeringChartInChartCategory(categoryName: chartCategoryName, fromOffsets: fromOffsets, toOffset: toOffset)
+    private var addMenu: some View {
+        Menu {
+            Button {
+                currentAddSheet = AddSheet(type: .addChartCategory)
+            } label: {
+                Text("Add Chart Category")
+            }
+
+            addChartInCategoryMenu
+        } label: {
+            Label("Add", systemImage: "plus")
+        }
     }
 
-    private func moveChartCategory(section: ChartSection, fromOffsets: IndexSet, toOffset: Int) {
-//        helperChartsController.moveChartCategory(section: section, fromOffsets: fromOffsets, toOffset: toOffset)
+    private var addChartInCategoryMenu: some View {
+        Menu {
+            ForEach(ChartSection.allCases.flatMap { viewModel.chartCategories.categories(in: $0) }) { chartCategory in
+                Button {
+                    currentAddSheet = AddSheet(type: .addChart, categoryToAddChartInName: chartCategory.name)
+                } label: {
+                    Text("Add in \(chartCategory.name)")
+                }
+            }
+        } label: {
+            Text("Add Chart in Category")
+        }
     }
 
-    private func deleteFingeringChart(in chartCategoryName: String, atOffsets offsets: IndexSet) {
-//        helperChartsController.deleteFingeringChartInChartCategory(categoryName: chartCategoryName, atOffsets: offsets)
+    private func moveCategory(in section: ChartSection, from offsets: IndexSet, to offset: Int) {
+        viewModel.moveCategory(in: section, from: offsets, to: offset)
     }
 
-    private func deleteChartCategory(section: ChartSection, atOffsets offsets: IndexSet) {
-//        helperChartsController.deleteChartCategory(section: section, atOffsets: offsets)
+    private func moveChartInCategory(with categoryId: UUID, from offsets: IndexSet, to offset: Int) {
+        viewModel.moveChartInCategory(with: categoryId, from: offsets, to: offset)
+    }
+
+    private func deleteCategory(in section: ChartSection, at offsets: IndexSet) {
+        viewModel.deleteCategory(in: section, at: offsets)
+    }
+
+    private func deleteChartInCategory(with categoryId: UUID, at offsets: IndexSet) {
+        viewModel.deleteChartInCategory(with: categoryId, at: offsets)
     }
 }
 
 struct CategoriesListView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            NavigationView {
-                CategoriesListView(viewState: .constant(.previewViewState()), onAction: nil)
-            }
-            
-            NavigationView {
-                CategoriesListView(viewState: .constant(.previewViewState(screenState: .loading)), onAction: nil)
-            }
-        }
+        CategoriesListView(viewModel: CategoriesListViewModel())
     }
 }

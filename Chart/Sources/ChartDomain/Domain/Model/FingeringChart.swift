@@ -16,8 +16,6 @@ public struct FingeringChart: Codable {
     public var sharpNotes: [Note]
     public var noteFingerings: [NoteFingering]
 
-    public var name: String { instrument.type.rawValue }
-
     public init(
         instrument: Instrument,
         centerNote: Note,
@@ -36,7 +34,7 @@ public struct FingeringChart: Codable {
 }
 
 extension FingeringChart: Identifiable {
-    public var id: String { name }
+    public var id: String { instrument.detailName }
 }
 
 extension FingeringChart: Hashable {
