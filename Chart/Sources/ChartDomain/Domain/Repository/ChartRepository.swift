@@ -40,7 +40,21 @@ final class ChartRepository: ChartRepositoryProtocol {
             .eraseToAnyPublisher()
     }
 
+    func fetchUserPreferences(chartsFilename: String) -> AnyPublisher<UserPreferences, ChartError> {
+        localDataSource.fetchUserPreferences(chartsFilename: chartsFilename)
+            .handleEvents(
+                receiveOutput: { userPreferences in
+                    try? self.saveUserPreferences(userPreferences: userPreferences)
+                }
+            )
+            .eraseToAnyPublisher()
+    }
+
     func saveCharts(chartsFilename: String, chartCategories: ChartCategories) throws {
         try localDataSource.saveCharts(chartsFilename: chartsFilename, chartCategories: chartCategories)
+    }
+
+    func saveUserPreferences(userPreferences: UserPreferences) throws {
+        try localDataSource.saveUserPreferences(userPreferences: userPreferences)
     }
 }

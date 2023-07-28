@@ -15,8 +15,10 @@ import SwiftUI
 
 final class CategoriesListViewModel: ObservableObject {
     @DependencyInjected(FetchHelperChartsUseCase.self) private var fetchHelperChartsUseCase
+    @DependencyInjected(FetchUserPreferencesUseCase.self) private var fetchUserPreferencesUseCase
     @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
     @DependencyInjected(SaveChartsUseCase.self) private var saveChartsUseCase
+    @DependencyInjected(SaveUserPreferencesUseCase.self) private var saveUserPreferencesUseCase
 
     enum ScreenState: Equatable {
         case error(ChartError)
@@ -27,13 +29,15 @@ final class CategoriesListViewModel: ObservableObject {
     @Published var chartCategories = ChartCategories()
 
     @Published var screenState: ScreenState = .loading
-    @Published var sectionsExpanded = Dictionary(uniqueKeysWithValues: ChartSection.allCases.map { ($0, true) })
-    @Published var categoriesExpanded = Dictionary(
-        uniqueKeysWithValues: ["Flute", "Clarinet", "Saxophone", "Trumpet", "Mellophone", "French Horn", "Trombone", "Baritone Horn", "Euphonium", "Tuba"].map { ($0, false) })
+    @Published var userPreferences = UserPreferences()
 
     let chartsURL = URL.documentsDirectory.appendingPathComponent("\(Constants.chartsFilename).json")
 
     private var disposeBag = DisposeBag()
+
+    init() {
+        setupObserving()
+    }
 
     func start() {
         fetchHelperChartsUseCase.execute(chartsFilename: Constants.chartsFilename)
@@ -48,6 +52,20 @@ final class CategoriesListViewModel: ObservableObject {
             } receiveValue: { [weak self] chartCategories in
                 self?.chartCategories = chartCategories
                 self?.screenState = .loaded
+            }
+            .store(in: &disposeBag)
+
+        fetchUserPreferencesUseCase.execute(chartsFilename: Constants.chartsFilename)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.screenState = .error(error)
+                case .finished:
+                    break
+                }
+            } receiveValue: { [weak self] userPreferences in
+                self?.userPreferences = userPreferences
             }
             .store(in: &disposeBag)
     }
@@ -72,9 +90,28 @@ final class CategoriesListViewModel: ObservableObject {
         save()
     }
 
+    private func setupObserving() {
+        $userPreferences
+            .receive(on: RunLoop.main)
+            .sink { [weak self] newUserPreferences in
+                self?.saveUserPreferences(newUserPreferences)
+            }
+            .store(in: &disposeBag)
+    }
+
     private func save() {
         do {
             try saveChartsUseCase.execute(chartsFilename: Constants.chartsFilename, chartCategories: chartCategories)
+        } catch let error as ChartError {
+            screenState = .error(error)
+        } catch {
+            screenState = .error(.unknownError)
+        }
+    }
+
+    private func saveUserPreferences(_ newUserPreferences: UserPreferences) {
+        do {
+            try saveUserPreferencesUseCase.execute(userPreferences: newUserPreferences)
         } catch let error as ChartError {
             screenState = .error(error)
         } catch {

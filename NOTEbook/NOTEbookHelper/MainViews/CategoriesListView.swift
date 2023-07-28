@@ -24,14 +24,10 @@ struct CategoriesListView: View {
         var id: String { "\(categoryToAddChartInName ?? "") + \(type.rawValue)" }
     }
 
-    @StateObject var viewModel: CategoriesListViewModel
+    @StateObject private var viewModel = CategoriesListViewModel()
 
     @State private var editMode = EditMode.inactive
     @State private var currentAddSheet: AddSheet?
-
-    init(viewModel: CategoriesListViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
-    }
 
     var body: some View {
         NavigationStack {
@@ -88,9 +84,9 @@ struct CategoriesListView: View {
         List {
             ForEach(ChartSection.allCases) { section in
                 let sectionExpandedBinding = Binding {
-                    viewModel.sectionsExpanded[section] ?? false
+                    viewModel.userPreferences.sectionsExpanded[section.rawValue] ?? false
                 } set: { newValue in
-                    viewModel.sectionsExpanded[section] = newValue
+                    viewModel.userPreferences.sectionsExpanded[section.rawValue] = newValue
                 }
 
                 Section {
@@ -112,9 +108,9 @@ struct CategoriesListView: View {
     private func chartCategories(in section: ChartSection) -> some View {
         ForEach(viewModel.chartCategories.categories(in: section)) { category in
             let categoryExpandedBinding = Binding {
-                viewModel.categoriesExpanded[category.name] ?? false
+                viewModel.userPreferences.categoriesExpanded[category.name] ?? false
             } set: { newValue in
-                viewModel.categoriesExpanded[category.name] = newValue
+                viewModel.userPreferences.categoriesExpanded[category.name] = newValue
             }
 
             CollapsingRow(title: category.name, isExpanded: categoryExpandedBinding)
@@ -139,6 +135,7 @@ struct CategoriesListView: View {
             } label: {
                 TitleWithChevronRow(title: fingeringChart.instrument.name)
                     .padding(.leading)
+                    .font(.callout)
                     .foregroundColor(.black)
             }
         }
@@ -207,6 +204,6 @@ struct CategoriesListView: View {
 
 struct CategoriesListView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesListView(viewModel: CategoriesListViewModel())
+        CategoriesListView()
     }
 }

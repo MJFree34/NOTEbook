@@ -19,8 +19,16 @@ public final class UserDefaultsKeyValueStorage: KeyValueStorage {
         userDefaults.bool(forKey: key.rawValue)
     }
 
+    public func dictionary<T>(for key: KeyValueStorageKey) -> [String : T]? {
+        userDefaults.dictionary(forKey: key.rawValue) as? [String : T]
+    }
+
     public func set(_ bool: Bool, for key: KeyValueStorageKey) {
         userDefaults.set(bool, forKey: key.rawValue)
+    }
+
+    public func set<T>(_ dictionary: [String : T], for key: KeyValueStorageKey) {
+        userDefaults.set(dictionary, forKey: key.rawValue)
     }
 
     public func register(defaults: [KeyValueStorageKey: Any]) {

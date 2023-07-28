@@ -11,5 +11,7 @@ import Combine
 public protocol ChartRepositoryProtocol {
     func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError>
     func fetchHelperCharts(chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError>
+    func fetchUserPreferences(chartsFilename: String) -> AnyPublisher<UserPreferences, ChartError>
     func saveCharts(chartsFilename: String, chartCategories: ChartCategories) throws
+    func saveUserPreferences(userPreferences: UserPreferences) throws
 }

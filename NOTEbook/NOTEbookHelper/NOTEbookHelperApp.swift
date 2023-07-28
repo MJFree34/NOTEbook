@@ -17,7 +17,7 @@ struct NOTEbookHelperApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CategoriesListView(viewModel: CategoriesListViewModel())
+            CategoriesListView()
         }
     }
 
@@ -36,7 +36,9 @@ struct NOTEbookHelperApp: App {
         keyValueStorage.register(
             defaults: [
                 .chartsCacheCreated: false,
-                .chartsUpdatedFromNetwork: false
+                .chartsUpdatedFromNetwork: false,
+                .userCategoriesExpanded: Data(),
+                .userSectionsExpanded: Data()
             ]
         )
     }

@@ -9,4 +9,7 @@
 public enum KeyValueStorageKey: String {
     case chartsCacheCreated
     case chartsUpdatedFromNetwork
+    
+    case userSectionsExpanded
+    case userCategoriesExpanded
 }

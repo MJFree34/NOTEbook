@@ -13,6 +13,7 @@ public enum ChartError: LocalizedError {
     case invalidBundleURL
     case invalidNetworkURL
     case networkError
+    case preferencesDecodingError
     case savingError
     case unknownError
     case unloadableData
@@ -27,6 +28,8 @@ public enum ChartError: LocalizedError {
             return "An invalid network URL was inputted."
         case .networkError:
             return "A network error has occurred."
+        case .preferencesDecodingError:
+            return "An error occurred while decoding user preferences."
         case .savingError:
             return "An error occurred while saving Chart Categories."
         case .unknownError:

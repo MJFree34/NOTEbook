@@ -107,6 +107,7 @@ disabled_rules:
   - attributes
   - blanket_disable_command
   - closure_body_length
+  - colon
   - conditional_returns_on_newline
   - discouraged_none_name
   - explicit_acl
