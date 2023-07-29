@@ -15,12 +15,19 @@ public struct ChartCategory: Codable, Identifiable {
         case fingeringCharts
     }
 
-    public let id = UUID()
+    public var id = UUID()
     public var name: String
     public var section: ChartSection
     public var fingeringCharts: [FingeringChart]
 
     public init(name: String, section: ChartSection, fingeringCharts: [FingeringChart]) {
+        self.name = name
+        self.section = section
+        self.fingeringCharts = fingeringCharts
+    }
+
+    public init(id: UUID, name: String, section: ChartSection, fingeringCharts: [FingeringChart]) {
+        self.id = id
         self.name = name
         self.section = section
         self.fingeringCharts = fingeringCharts

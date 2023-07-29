@@ -11,6 +11,8 @@ import SwiftUI
 public typealias ChartCategories = [ChartCategory]
 
 extension ChartCategories {
+    // MARK: - Getters
+
     public func categories(in section: ChartSection) -> [ChartCategory] {
         self.filter { $0.section == section }
     }
@@ -18,6 +20,30 @@ extension ChartCategories {
     public func categoryIndex(with id: UUID) -> Int? {
         self.firstIndex { $0.id == id }
     }
+
+    // MARK: - Index Getters
+
+    private func firstIndexOfSection(_ section: ChartSection) -> Int? {
+        self.firstIndex { $0.section == section }
+    }
+
+    // MARK: - Add
+
+    public mutating func addCategory(_ category: ChartCategory) {
+        self.append(category)
+        sort()
+    }
+
+    // MARK: - Update
+
+    public mutating func updateCategory(_ category: ChartCategory) {
+        if let categoryIndex = categoryIndex(with: category.id) {
+            self[categoryIndex] = category
+            sort()
+        }
+    }
+
+    // MARK: - Move
 
     public mutating func moveCategory(in section: ChartSection, from offsets: IndexSet, to offset: Int) {
         if let firstIndexOfSection = firstIndexOfSection(section),
@@ -34,6 +60,8 @@ extension ChartCategories {
         }
     }
 
+    // MARK: - Delete
+
     public mutating func deleteCategory(in section: ChartSection, at offsets: IndexSet) {
         if let firstIndexOfSection = firstIndexOfSection(section),
            let firstOffset = offsets.first {
@@ -42,13 +70,25 @@ extension ChartCategories {
         }
     }
 
+    public mutating func deleteCategory(with chartId: UUID) {
+        self.removeAll { $0.id == chartId }
+    }
+
     public mutating func deleteChartInCategory(with categoryId: UUID, at offsets: IndexSet) {
         if let categoryIndex = categoryIndex(with: categoryId) {
             self[categoryIndex].fingeringCharts.remove(atOffsets: offsets)
         }
     }
 
-    private func firstIndexOfSection(_ section: ChartSection) -> Int? {
-        self.firstIndex { $0.section == section }
+    public mutating func deleteChartInCategory(categoryId: UUID, chartId: String) {
+        if let categoryIndex = categoryIndex(with: categoryId) {
+            self[categoryIndex].fingeringCharts.removeAll { $0.id == chartId }
+        }
+    }
+
+    // MARK: - Sort
+
+    private mutating func sort() {
+        self.sort { $0.section < $1.section }
     }
 }

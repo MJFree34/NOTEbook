@@ -1,5 +1,5 @@
 //
-//  AddFingeringChartView.swift
+//  AddEditChartView.swift
 //  NOTEbookHelper
 //
 //  Created by Matt Free on 1/2/23.
@@ -11,7 +11,7 @@ import Common
 import SwiftUI
 
 // swiftlint:disable type_body_length line_length
-//struct AddFingeringChartView: View {
+//struct AddEditFingeringChartView: View {
 //    private enum Mode {
 //        case update
 //        case add
@@ -434,9 +434,9 @@ import SwiftUI
 //    }
 //}
 //
-//struct AddFingeringChartView_Previews: PreviewProvider {
+//struct AddEditFingeringChartView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddFingeringChartView(categoryName: HelperChartsController.exampleChartCategory.name)
+//        AddEditFingeringChartView(categoryName: HelperChartsController.exampleChartCategory.name)
 //            .environmentObject(HelperChartsController.shared)
 //    }
 //}

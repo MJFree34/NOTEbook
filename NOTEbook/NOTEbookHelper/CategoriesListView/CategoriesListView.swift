@@ -12,35 +12,53 @@ import CommonUI
 import SwiftUI
 
 struct CategoriesListView: View {
-    private enum SheetType: Int {
-        case addChartCategory
-        case addChart
-    }
+    private enum SheetType: Identifiable {
+        case addCategory
+        case editCategory(ChartCategory)
+        case addChart(parentCategoryName: String)
 
-    private struct AddSheet: Identifiable {
-        var type: SheetType
-        var categoryToAddChartInName: String?
-
-        var id: String { "\(categoryToAddChartInName ?? "") + \(type.rawValue)" }
+        var id: String {
+            switch self {
+            case .addCategory:
+                return "AddCategory"
+            case .editCategory:
+                return "EditCategory"
+            case .addChart(let parentCategoryName):
+                return "AddChartIn\(parentCategoryName)"
+            }
+        }
     }
 
     @StateObject private var viewModel = CategoriesListViewModel()
 
     @State private var editMode = EditMode.inactive
-    @State private var currentAddSheet: AddSheet?
+    @State private var currentSheet: SheetType?
 
     var body: some View {
-        NavigationStack {
+        TintedNavigationView {
             content
-                .sheet(item: $currentAddSheet) { addSheet in
-//                  switch addSheet.type {
-//                  case .addChartCategory:
-//                      AddFingeringChartCategoryView()
-//                          .interactiveDismissDisabled()
-//                  case .addChart:
-//                      AddFingeringChartView(categoryName: addSheet.categoryToAddChartInName!)
-//                          .interactiveDismissDisabled()
-//                  }
+                .sheet(item: $currentSheet) { addSheet in
+                    switch addSheet {
+                    case .addCategory:
+                        AddEditCategoryView { [weak viewModel] action in
+                            switch action {
+                            case .submitCategory(let newCategory):
+                                viewModel?.addCategory(newCategory)
+                            }
+                        }
+                        .interactiveDismissDisabled()
+                    case .editCategory(let initialCategory):
+                        AddEditCategoryView(category: initialCategory) { [weak viewModel] action in
+                            switch action {
+                            case .submitCategory(let updatedCategory):
+                                viewModel?.updateCategory(updatedCategory)
+                            }
+                        }
+                    case .addChart:
+                        EmptyView()
+//                        AddEditChartView(categoryName: addSheet.categoryToAddChartInName!)
+//                            .interactiveDismissDisabled()
+                    }
                 }
                 .toolbar {
                     ToolbarItem(id: "edit", placement: .navigationBarLeading) {
@@ -102,7 +120,6 @@ struct CategoriesListView: View {
             }
             .listRowBackground(Color.theme(.aqua, .background))
         }
-        .scrollContentBackground(.hidden)
     }
 
     private func chartCategories(in section: ChartSection) -> some View {
@@ -115,16 +132,26 @@ struct CategoriesListView: View {
 
             CollapsingRow(title: category.name, isExpanded: categoryExpandedBinding)
                 .font(.headline)
+                .deleteSwipeAction {
+                    viewModel.deleteCategory(with: category.id)
+                }
+                .swipeActions(edge: .leading) {
+                    Button {
+                        currentSheet = .editCategory(category)
+                    } label: {
+                        Label("Edit", systemImage: "pencil")
+                    }
+                }
 
             if categoryExpandedBinding.wrappedValue {
                 fingeringCharts(in: category)
             }
         }
         .onMove { offsets, offset in
-            moveCategory(in: section, from: offsets, to: offset)
+            viewModel.moveCategory(in: section, from: offsets, to: offset)
         }
         .onDelete { offsets in
-            deleteCategory(in: section, at: offsets)
+            viewModel.deleteCategory(in: section, at: offsets)
         }
     }
 
@@ -138,12 +165,15 @@ struct CategoriesListView: View {
                     .font(.callout)
                     .foregroundColor(.black)
             }
+            .deleteSwipeAction {
+                viewModel.deleteChartInCategory(categoryId: category.id, chartId: fingeringChart.id)
+            }
         }
         .onMove { offsets, offset in
-            moveChartInCategory(with: category.id, from: offsets, to: offset)
+            viewModel.moveChartInCategory(with: category.id, from: offsets, to: offset)
         }
         .onDelete { offsets in
-            deleteChartInCategory(with: category.id, at: offsets)
+            viewModel.deleteChartInCategory(with: category.id, at: offsets)
         }
     }
 
@@ -160,7 +190,7 @@ struct CategoriesListView: View {
     private var addMenu: some View {
         Menu {
             Button {
-                currentAddSheet = AddSheet(type: .addChartCategory)
+                currentSheet = .addCategory
             } label: {
                 Text("Add Chart Category")
             }
@@ -175,7 +205,7 @@ struct CategoriesListView: View {
         Menu {
             ForEach(ChartSection.allCases.flatMap { viewModel.chartCategories.categories(in: $0) }) { chartCategory in
                 Button {
-                    currentAddSheet = AddSheet(type: .addChart, categoryToAddChartInName: chartCategory.name)
+                    currentSheet = .addChart(parentCategoryName: chartCategory.name)
                 } label: {
                     Text("Add in \(chartCategory.name)")
                 }
@@ -183,22 +213,6 @@ struct CategoriesListView: View {
         } label: {
             Text("Add Chart in Category")
         }
-    }
-
-    private func moveCategory(in section: ChartSection, from offsets: IndexSet, to offset: Int) {
-        viewModel.moveCategory(in: section, from: offsets, to: offset)
-    }
-
-    private func moveChartInCategory(with categoryId: UUID, from offsets: IndexSet, to offset: Int) {
-        viewModel.moveChartInCategory(with: categoryId, from: offsets, to: offset)
-    }
-
-    private func deleteCategory(in section: ChartSection, at offsets: IndexSet) {
-        viewModel.deleteCategory(in: section, at: offsets)
-    }
-
-    private func deleteChartInCategory(with categoryId: UUID, at offsets: IndexSet) {
-        viewModel.deleteChartInCategory(with: categoryId, at: offsets)
     }
 }
 

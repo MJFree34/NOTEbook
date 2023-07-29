@@ -70,24 +70,36 @@ final class CategoriesListViewModel: ObservableObject {
             .store(in: &disposeBag)
     }
 
+    func addCategory(_ category: ChartCategory) {
+        chartCategories.addCategory(category)
+    }
+
+    func updateCategory(_ category: ChartCategory) {
+        chartCategories.updateCategory(category)
+    }
+
     func moveCategory(in section: ChartSection, from offsets: IndexSet, to offset: Int) {
         chartCategories.moveCategory(in: section, from: offsets, to: offset)
-        save()
     }
 
     func moveChartInCategory(with categoryId: UUID, from offsets: IndexSet, to offset: Int) {
         chartCategories.moveChartInCategory(with: categoryId, from: offsets, to: offset)
-        save()
     }
 
     func deleteCategory(in section: ChartSection, at offsets: IndexSet) {
         chartCategories.deleteCategory(in: section, at: offsets)
-        save()
+    }
+
+    func deleteCategory(with categoryId: UUID) {
+        chartCategories.deleteCategory(with: categoryId)
     }
 
     func deleteChartInCategory(with categoryId: UUID, at offsets: IndexSet) {
         chartCategories.deleteChartInCategory(with: categoryId, at: offsets)
-        save()
+    }
+
+    func deleteChartInCategory(categoryId: UUID, chartId: String) {
+        chartCategories.deleteChartInCategory(categoryId: categoryId, chartId: chartId)
     }
 
     private func setupObserving() {
@@ -97,9 +109,16 @@ final class CategoriesListViewModel: ObservableObject {
                 self?.saveUserPreferences(newUserPreferences)
             }
             .store(in: &disposeBag)
+
+        $chartCategories
+            .receive(on: RunLoop.main)
+            .sink { [weak self] newChartCategories in
+                self?.saveCharts(newChartCategories)
+            }
+            .store(in: &disposeBag)
     }
 
-    private func save() {
+    private func saveCharts(_ chartCategories: ChartCategories) {
         do {
             try saveChartsUseCase.execute(chartsFilename: Constants.chartsFilename, chartCategories: chartCategories)
         } catch let error as ChartError {

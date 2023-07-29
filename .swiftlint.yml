@@ -130,6 +130,7 @@ disabled_rules:
   - strict_fileprivate
   - superfluous_else
   - type_contents_order
+  - vertical_parameter_alignment_on_call
   - vertical_whitespace_between_cases
 
 analyzer_rules:
@@ -167,11 +168,14 @@ custom_rules:
     match_kinds: typeidentifier
     message: 'Use CGPoint instead of NSPoint'
   swiftui_state_private:
-    regex: '@(State|EnvironmentObject)\s+var'
-    message: 'SwiftUI @State/@EnvironmentObject properties should be private'
+    regex: '@(State|StateObject|EnvironmentObject)\s+var'
+    message: 'SwiftUI @State/@EnvironmentObject/@StateObject properties should be private'
   swiftui_environment_private:
     regex: '@Environment\(\\\.\w+\)\s+var'
     message: 'SwiftUI @Environment properties should be private'
+  file_header_incomplete:
+    regex: '//  PackageName'
+    message: 'Replace `PackageName` with the name of the'
   final_class:
     regex: '^class [a-zA-Z\d]+[^{]+\{'
     message: 'Classes should be marked as final whenever possible. If you actually need it to be subclassable, just add `// swiftlint:disable:next final_class`.'

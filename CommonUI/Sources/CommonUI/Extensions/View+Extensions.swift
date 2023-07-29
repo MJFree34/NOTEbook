@@ -11,6 +11,7 @@ import SwiftUI
 extension View {
     public func background(theme: Theme, bundle: Bundle = .main) -> some View {
         self
+            .scrollContentBackground(.hidden)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Gradient.theme(theme, bundle: bundle), ignoresSafeAreaEdges: .all)
     }
@@ -23,5 +24,17 @@ extension View {
     public func padding(_ edges: Edge.Set, _ spacing: Spacing) -> some View {
         self
             .padding(edges, spacing.rawValue)
+    }
+
+    public func deleteSwipeAction(action: @escaping () -> Void) -> some View {
+        self
+            .swipeActions(allowsFullSwipe: false) {
+                Button(role: .destructive) {
+                    action()
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+                .tint(.red)
+            }
     }
 }
