@@ -25,3 +25,11 @@ extension Instrument: Hashable {
         hasher.combine(detailName)
     }
 }
+
+extension Instrument {
+    public static let placeholder = Instrument(
+        name: "Trumpet",
+        detailName: "C Trumpet",
+        offset: 3
+    )
+}

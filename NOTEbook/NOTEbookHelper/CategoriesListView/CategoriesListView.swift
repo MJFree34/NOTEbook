@@ -15,7 +15,8 @@ struct CategoriesListView: View {
     private enum SheetType: Identifiable {
         case addCategory
         case editCategory(ChartCategory)
-        case addChart(parentCategoryName: String)
+        case addChart(inParentWith: UUID)
+        case editChart(inParentWith: UUID, FingeringChart)
 
         var id: String {
             switch self {
@@ -23,8 +24,10 @@ struct CategoriesListView: View {
                 return "AddCategory"
             case .editCategory:
                 return "EditCategory"
-            case .addChart(let parentCategoryName):
-                return "AddChartIn\(parentCategoryName)"
+            case .addChart:
+                return "AddChart"
+            case .editChart:
+                return "EditChart"
             }
         }
     }
@@ -38,27 +41,39 @@ struct CategoriesListView: View {
         TintedNavigationView {
             content
                 .sheet(item: $currentSheet) { addSheet in
-                    switch addSheet {
-                    case .addCategory:
-                        AddEditCategoryView { [weak viewModel] action in
-                            switch action {
-                            case .submitCategory(let newCategory):
-                                viewModel?.addCategory(newCategory)
+                    Group {
+                        switch addSheet {
+                        case .addCategory:
+                            AddEditCategoryView { [weak viewModel] action in
+                                switch action {
+                                case .submitCategory(let newCategory):
+                                    viewModel?.addCategory(newCategory)
+                                }
+                            }
+                        case .editCategory(let initialCategory):
+                            AddEditCategoryView(category: initialCategory) { [weak viewModel] action in
+                                switch action {
+                                case .submitCategory(let updatedCategory):
+                                    viewModel?.updateCategory(updatedCategory)
+                                }
+                            }
+                        case .addChart(let parentCategoryId):
+                            AddEditChartView { [weak viewModel] action in
+                                switch action {
+                                case .submitChart(let newChart):
+                                    viewModel?.addChart(inParentWith: parentCategoryId, chart: newChart)
+                                }
+                            }
+                        case let .editChart(parentCategoryId, initialChart):
+                            AddEditChartView(chart: initialChart) { [weak viewModel] action in
+                                switch action {
+                                case .submitChart(let updatedChart):
+                                    viewModel?.updateChart(inParentWith: parentCategoryId, chart: updatedChart)
+                                }
                             }
                         }
-                        .interactiveDismissDisabled()
-                    case .editCategory(let initialCategory):
-                        AddEditCategoryView(category: initialCategory) { [weak viewModel] action in
-                            switch action {
-                            case .submitCategory(let updatedCategory):
-                                viewModel?.updateCategory(updatedCategory)
-                            }
-                        }
-                    case .addChart:
-                        EmptyView()
-//                        AddEditChartView(categoryName: addSheet.categoryToAddChartInName!)
-//                            .interactiveDismissDisabled()
                     }
+                    .interactiveDismissDisabled()
                 }
                 .toolbar {
                     ToolbarItem(id: "edit", placement: .navigationBarLeading) {
@@ -118,7 +133,7 @@ struct CategoriesListView: View {
                 }
                 .foregroundColor(.theme(.aqua, .foreground))
             }
-            .listRowBackground(Color.theme(.aqua, .background))
+            .listRowBackground(.theme(.aqua, .background))
         }
     }
 
@@ -135,12 +150,8 @@ struct CategoriesListView: View {
                 .deleteSwipeAction {
                     viewModel.deleteCategory(with: category.id)
                 }
-                .swipeActions(edge: .leading) {
-                    Button {
-                        currentSheet = .editCategory(category)
-                    } label: {
-                        Label("Edit", systemImage: "pencil")
-                    }
+                .editSwipeAction {
+                    currentSheet = .editCategory(category)
                 }
 
             if categoryExpandedBinding.wrappedValue {
@@ -167,6 +178,9 @@ struct CategoriesListView: View {
             }
             .deleteSwipeAction {
                 viewModel.deleteChartInCategory(categoryId: category.id, chartId: fingeringChart.id)
+            }
+            .editSwipeAction {
+                currentSheet = .editChart(inParentWith: category.id, fingeringChart)
             }
         }
         .onMove { offsets, offset in
@@ -205,7 +219,7 @@ struct CategoriesListView: View {
         Menu {
             ForEach(ChartSection.allCases.flatMap { viewModel.chartCategories.categories(in: $0) }) { chartCategory in
                 Button {
-                    currentSheet = .addChart(parentCategoryName: chartCategory.name)
+                    currentSheet = .addChart(inParentWith: chartCategory.id)
                 } label: {
                     Text("Add in \(chartCategory.name)")
                 }

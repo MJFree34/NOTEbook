@@ -12,4 +12,8 @@ extension Color {
     public static func theme(_ theme: Theme, _ prominence: Theme.Prominence, bundle: Bundle = Bundle.main) -> Color {
         Color(theme.rawValue + "+" + prominence.rawValue, bundle: bundle)
     }
+
+    public static func contrast(_ prominence: Theme.Prominence, bundle: Bundle = Bundle.main) -> Color {
+        Color("contrast+" + prominence.rawValue, bundle: bundle)
+    }
 }

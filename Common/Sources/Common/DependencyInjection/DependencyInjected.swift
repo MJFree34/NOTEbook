@@ -6,13 +6,13 @@
 //  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
+// swiftlint:disable no_fatal_errors
 @propertyWrapper
 public struct DependencyInjected<T> {
     private let dependencyType: T.Type
 
     public var wrappedValue: T {
         guard let dependency = DependencyLocator.shared.resolve(type: dependencyType) else {
-            // swiftlint:disable:next no_fatal_errors
             fatalError("Could not resolve dependency of \(dependencyType)")
         }
 

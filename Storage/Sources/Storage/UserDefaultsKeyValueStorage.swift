@@ -8,6 +8,7 @@
 
 import Foundation
 
+// swiftlint:disable discouraged_optional_collection
 public final class UserDefaultsKeyValueStorage: KeyValueStorage {
     private let userDefaults: UserDefaults
 
@@ -19,7 +20,6 @@ public final class UserDefaultsKeyValueStorage: KeyValueStorage {
         userDefaults.bool(forKey: key.rawValue)
     }
 
-    // swiftlint:disable:next discouraged_optional_collection
     public func dictionary<T>(for key: KeyValueStorageKey) -> [String : T]? {
         userDefaults.dictionary(forKey: key.rawValue) as? [String : T]
     }

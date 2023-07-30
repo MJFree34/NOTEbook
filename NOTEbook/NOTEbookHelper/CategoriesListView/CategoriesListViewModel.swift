@@ -74,8 +74,16 @@ final class CategoriesListViewModel: ObservableObject {
         chartCategories.addCategory(category)
     }
 
+    func addChart(inParentWith parentCategoryId: UUID, chart: FingeringChart) {
+        chartCategories.addChart(inParentWith: parentCategoryId, chart: chart)
+    }
+
     func updateCategory(_ category: ChartCategory) {
         chartCategories.updateCategory(category)
+    }
+
+    func updateChart(inParentWith parentCategoryId: UUID, chart: FingeringChart) {
+        chartCategories.updateChart(inParentWith: parentCategoryId, chart: chart)
     }
 
     func moveCategory(in section: ChartSection, from offsets: IndexSet, to offset: Int) {
@@ -98,7 +106,7 @@ final class CategoriesListViewModel: ObservableObject {
         chartCategories.deleteChartInCategory(with: categoryId, at: offsets)
     }
 
-    func deleteChartInCategory(categoryId: UUID, chartId: String) {
+    func deleteChartInCategory(categoryId: UUID, chartId: UUID) {
         chartCategories.deleteChartInCategory(categoryId: categoryId, chartId: chartId)
     }
 

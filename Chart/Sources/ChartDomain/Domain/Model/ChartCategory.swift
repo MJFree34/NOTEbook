@@ -20,16 +20,22 @@ public struct ChartCategory: Codable, Identifiable {
     public var section: ChartSection
     public var fingeringCharts: [FingeringChart]
 
-    public init(name: String, section: ChartSection, fingeringCharts: [FingeringChart]) {
-        self.name = name
-        self.section = section
-        self.fingeringCharts = fingeringCharts
-    }
-
     public init(id: UUID, name: String, section: ChartSection, fingeringCharts: [FingeringChart]) {
         self.id = id
         self.name = name
         self.section = section
         self.fingeringCharts = fingeringCharts
     }
+
+    public init(name: String, section: ChartSection, fingeringCharts: [FingeringChart]) {
+        self.init(id: UUID(), name: name, section: section, fingeringCharts: fingeringCharts)
+    }
+}
+
+extension ChartCategory {
+    public static let placeholder = ChartCategory(
+        name: "Trumpet",
+        section: .brass,
+        fingeringCharts: []
+    )
 }

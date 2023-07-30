@@ -15,6 +15,11 @@ struct AddEditCategoryView: View, ActionableView {
         case submitCategory(ChartCategory)
     }
 
+    private enum Mode {
+        case add
+        case update
+    }
+
     @Environment(\.dismiss) private var dismiss
 
     var onAction: ActionClosure
@@ -24,7 +29,7 @@ struct AddEditCategoryView: View, ActionableView {
     @State private var name = ""
     private var fingeringCharts: [FingeringChart] = []
 
-    private var isAdd = true
+    private let mode: Mode
 
     private var isFilledOut: Bool {
         !name.isEmpty && section != nil
@@ -36,10 +41,10 @@ struct AddEditCategoryView: View, ActionableView {
             self._section = State(initialValue: category.section)
             self._name = State(initialValue: category.name)
             self.fingeringCharts = category.fingeringCharts
-            self.isAdd = false
         }
 
         self.onAction = onAction
+        self.mode = category == nil ? .add : .update
     }
 
     var body: some View {
@@ -47,18 +52,13 @@ struct AddEditCategoryView: View, ActionableView {
             Form {
                 Group {
                     nameTextField
-
                     sectionPicker
                 }
-                .listRowBackground(Color.theme(.aqua, .background))
+                .listRowBackground(.theme(.aqua, .background))
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Close")
-                    }
+                    DismissButton(dismissAction: dismiss)
                 }
 
                 ToolbarItem(placement: .bottomBar) {
@@ -69,7 +69,7 @@ struct AddEditCategoryView: View, ActionableView {
                     addEditButton
                 }
             }
-            .navigationTitle("\(isAdd ? "Add" : "Edit") Category")
+            .navigationTitle("\(mode == .add ? "Add" : "Edit") Category")
             .navigationBarTitleDisplayMode(.inline)
             .background(theme: .aqua)
         }
@@ -103,7 +103,7 @@ struct AddEditCategoryView: View, ActionableView {
             }
             dismiss()
         } label: {
-            Text("\(isAdd ? "Add" : "Edit") \(name.isEmpty ? "Category" : name)")
+            Text("\(mode == .add ? "Add" : "Edit") \(name.isEmpty ? "Category" : name)")
         }
         .buttonStyle(.bordered)
         .disabled(!isFilledOut)
@@ -113,6 +113,7 @@ struct AddEditCategoryView: View, ActionableView {
 struct AddEditCategoryView_Previews: PreviewProvider {
     static var previews: some View {
         AddEditCategoryView(onAction: nil)
-        AddEditCategoryView(category: ChartCategory(name: "Trumpet", section: .brass, fingeringCharts: []), onAction: nil)
+
+        AddEditCategoryView(category: .placeholder, onAction: nil)
     }
 }

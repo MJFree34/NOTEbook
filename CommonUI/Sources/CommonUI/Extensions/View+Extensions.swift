@@ -37,4 +37,19 @@ extension View {
                 .tint(.red)
             }
     }
+
+    public func editSwipeAction(action: @escaping () -> Void) -> some View {
+        self
+            .swipeActions(edge: .leading) {
+                Button {
+                    action()
+                } label: {
+                    Label("Edit", systemImage: "pencil")
+                }
+            }
+    }
+
+    public static func theme(_ theme: Theme, _ prominence: Theme.Prominence, bundle: Bundle = Bundle.main) -> Color {
+        Color.theme(theme, prominence, bundle: bundle)
+    }
 }

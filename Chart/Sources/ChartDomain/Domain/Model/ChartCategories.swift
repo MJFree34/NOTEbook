@@ -21,6 +21,10 @@ extension ChartCategories {
         self.firstIndex { $0.id == id }
     }
 
+    public func chartIndex(in category: ChartCategory, with chartId: UUID) -> Int? {
+        category.fingeringCharts.firstIndex { $0.id == chartId }
+    }
+
     // MARK: - Index Getters
 
     private func firstIndexOfSection(_ section: ChartSection) -> Int? {
@@ -34,12 +38,24 @@ extension ChartCategories {
         sort()
     }
 
+    public mutating func addChart(inParentWith parentCategoryId: UUID, chart: FingeringChart) {
+        if let categoryIndex = categoryIndex(with: parentCategoryId) {
+            self[categoryIndex].fingeringCharts.append(chart)
+        }
+    }
+
     // MARK: - Update
 
     public mutating func updateCategory(_ category: ChartCategory) {
         if let categoryIndex = categoryIndex(with: category.id) {
             self[categoryIndex] = category
             sort()
+        }
+    }
+
+    public mutating func updateChart(inParentWith parentCategoryId: UUID, chart: FingeringChart) {
+        if let categoryIndex = categoryIndex(with: parentCategoryId), let chartIndex = chartIndex(in: self[categoryIndex], with: chart.id) {
+            self[categoryIndex].fingeringCharts[chartIndex] = chart
         }
     }
 
@@ -80,7 +96,7 @@ extension ChartCategories {
         }
     }
 
-    public mutating func deleteChartInCategory(categoryId: UUID, chartId: String) {
+    public mutating func deleteChartInCategory(categoryId: UUID, chartId: UUID) {
         if let categoryIndex = categoryIndex(with: categoryId) {
             self[categoryIndex].fingeringCharts.removeAll { $0.id == chartId }
         }
