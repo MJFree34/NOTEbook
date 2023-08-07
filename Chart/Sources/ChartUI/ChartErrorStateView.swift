@@ -29,7 +29,7 @@ public struct ChartErrorStateView: View {
                 .font(.body)
                 .multilineTextAlignment(.center)
         }
-        .padding(.xLarge)
+        .padding(spacing: .xLarge)
     }
 }
 

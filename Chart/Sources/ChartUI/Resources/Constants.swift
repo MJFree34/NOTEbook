@@ -68,4 +68,16 @@ enum Constants {
         static let natural = "Natural"
         static let sharp = "Sharp"
     }
+
+    enum Clef {
+        static let bass = "BassClef"
+        static let alto = "AltoClef"
+        static let treble = "TrebleClef"
+    }
+
+    enum Note {
+        static let upperQuarter = "UpperQuarterNote"
+        static let lowerQuarter = "LowerQuarterNote"
+        static let whole = "WholeNote"
+    }
 }

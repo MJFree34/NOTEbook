@@ -63,7 +63,6 @@ struct BbTriggerThreeValveFingeringView_Previews: PreviewProvider {
                 BbTriggerThreeValveFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import ChartDomain
+import ChartUI
 import CommonUI
 import SwiftUI
 
@@ -29,9 +30,9 @@ struct AddEditChartView: View, ActionableView {
     private let mode: Mode
 
     private let staffLineSpacing = 18.0
-    private let staffWidth = 300.0
     private let staffLineHeight = 2.0
     private let extraStaffLineWidth = 40.0
+    private let noteLabelRectSize = 60.0
 
     private var isFilledOut: Bool {
         !viewModel.name.isEmpty && !viewModel.detailName.isEmpty && viewModel.clef != nil
@@ -105,10 +106,19 @@ struct AddEditChartView: View, ActionableView {
         }
     }
 
+    @ViewBuilder
     private var noteRangePicker: some View {
-        VStack {
-            if let minNote = viewModel.minNote, let centerNote = viewModel.centerNote, let maxNote = viewModel.maxNote, let clef = viewModel.clef {
+        if let minNote = viewModel.minNote, let centerNote = viewModel.centerNote, let maxNote = viewModel.maxNote {
+            VStack {
                 HStack {
+                    verticalStepper(
+                        increment: viewModel.increment,
+                        decrement: viewModel.decrement,
+                        disableIncrement: viewModel.disableIncrement(),
+                        disableDecrement: viewModel.disableDecrement()
+                    )
+                    .frame(width: noteLabelRectSize)
+
                     noteLabel(selection: .min, note: minNote)
 
                     Spacer()
@@ -119,34 +129,18 @@ struct AddEditChartView: View, ActionableView {
 
                     noteLabel(selection: .max, note: maxNote)
 
-                    Spacer(minLength: 20)
-
-                    verticalStepper(
-                        increment: viewModel.increment,
-                        decrement: viewModel.decrement,
-                        disableIncrement: viewModel.disableIncrement(),
-                        disableDecrement: viewModel.disableDecrement()
-                    )
-                }
-                .padding(.horizontal)
-
-                Spacer()
-
-                ZStack {
-                    staffLinesView
-
-                    HStack {
-                        clefView(clef: clef)
-                            .frame(width: 60)
-
-                        notesView
-                    }
+                    Spacer()
                 }
 
-                Spacer()
+                Spacer(minLength: .large)
+
+                NotesStaffView(notes: [minNote, centerNote, maxNote], notesSpacing: 40, areNotesInset: true)
+
+                Spacer(minLength: .small)
             }
+        } else {
+            EmptyView()
         }
-        .frame(minHeight: 480)
     }
 
     private func noteLabel(selection: AddEditChartViewModel.NoteRangeSelection, note: Note) -> some View {
@@ -157,14 +151,17 @@ struct AddEditChartView: View, ActionableView {
                 Text(selection.rawValue)
                     .font(.caption)
 
-                Text(note.capitalizedLetter())
+                Text(note.capitalizedLetter)
                     .font(.title)
             }
         }
-        .frame(width: 60, height: 60)
+        .frame(width: noteLabelRectSize, height: noteLabelRectSize)
         .buttonStyle(.plain)
         .foregroundColor(selection == viewModel.noteRangeSelection ? .theme(.aqua, .background) : .contrast(.foreground))
-        .background(RoundedRectangle(cornerRadius: 5).fill(selection == viewModel.noteRangeSelection ? .theme(.aqua, .foreground) : .clear))
+        .background(
+            RoundedRectangle(cornerRadius: 5)
+                .fill(selection == viewModel.noteRangeSelection ? .theme(.aqua, .foreground) : .clear)
+        )
     }
 
     private func verticalStepper(
@@ -193,86 +190,6 @@ struct AddEditChartView: View, ActionableView {
         .buttonStyle(.bordered)
     }
 
-    private var staffLinesView: some View {
-        VStack(spacing: staffLineSpacing) {
-            ForEach(0..<5) { _ in
-                Rectangle()
-                    .frame(width: staffWidth, height: staffLineHeight)
-            }
-        }
-    }
-
-    @ViewBuilder
-    private func clefView(clef: Clef) -> some View {
-        if clef == .treble {
-            Image("TrebleClef")
-                .resizable()
-                .renderingMode(.template)
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 152)
-                .offset(x: 6)
-        } else {
-            Image("BassClef")
-                .resizable()
-                .renderingMode(.template)
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 60)
-                .offset(x: -6, y: -9)
-        }
-    }
-
-    private var notesView: some View {
-        HStack(spacing: 20) {
-            Spacer()
-
-            if let minNote = viewModel.minNote, let centerNote = viewModel.centerNote, let maxNote = viewModel.maxNote {
-                noteView(note: minNote)
-
-                Spacer()
-
-                noteView(note: centerNote)
-
-                Spacer()
-
-                noteView(note: maxNote)
-            }
-
-            Spacer()
-        }
-    }
-
-    @ViewBuilder
-    private func noteView(note: Note) -> some View {
-        ZStack {
-            wholeNoteView
-
-            if note.positionsFromCenterStaff() < -5 || note.positionsFromCenterStaff() > 5 {
-                let extraLines = abs(note.positionsFromCenterStaff()) / 2 - 2
-
-                VStack(spacing: staffLineSpacing) {
-                    ForEach(0..<extraLines, id: \.self) { _ in
-                        Rectangle()
-                            .frame(width: extraStaffLineWidth, height: staffLineHeight)
-                    }
-                }
-                .offset(y: viewModel.calculatedExtraLinesOffset(positionsFromCenterStaff: note.positionsFromCenterStaff(), extraLines: extraLines))
-            } else {
-                Rectangle()
-                    .frame(width: extraStaffLineWidth, height: staffLineHeight)
-                    .hidden()
-            }
-        }
-        .offset(y: Double(note.positionsFromCenterStaff()) * -viewModel.noteLineSpacing)
-    }
-
-    private var wholeNoteView: some View {
-        Image("WholeNote")
-            .resizable()
-            .renderingMode(.template)
-            .aspectRatio(contentMode: .fit)
-            .frame(height: 20)
-    }
-
     private var addEditButton: some View {
         Button {
             onAction?(.submitChart(viewModel.createChart()))
@@ -288,7 +205,7 @@ struct AddEditChartView: View, ActionableView {
 struct AddEditFingeringChartView_Previews: PreviewProvider {
     static var previews: some View {
         AddEditChartView(onAction: nil)
-        
+
         AddEditChartView(chart: .placeholder, onAction: nil)
     }
 }

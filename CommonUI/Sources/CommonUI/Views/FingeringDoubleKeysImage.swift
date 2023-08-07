@@ -9,18 +9,18 @@
 import SwiftUI
 
 public struct FingeringDoubleKeysImage: View {
-    private var imageName: String
+    private let imageName: String
     @Binding private var firstIsFull: Bool
     @Binding private var secondIsFull: Bool
-    private var isInteractive: Bool
-    private var bundle: Bundle?
+    private let isInteractive: Bool
+    private let bundle: Bundle?
 
     public init(
         imageName: String,
         firstIsFull: Binding<Bool>,
         secondIsFull: Binding<Bool>,
         isInteractive: Bool,
-        bundle: Bundle?
+        bundle: Bundle? = nil
     ) {
         self.imageName = imageName
         self._firstIsFull = firstIsFull

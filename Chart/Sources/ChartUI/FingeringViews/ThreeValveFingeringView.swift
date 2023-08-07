@@ -56,7 +56,6 @@ struct ThreeValveFingeringView_Previews: PreviewProvider {
                 ThreeValveFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

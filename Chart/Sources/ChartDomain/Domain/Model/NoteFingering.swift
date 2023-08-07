@@ -132,3 +132,20 @@ extension NoteFingering: Codable {
         }
     }
 }
+
+extension NoteFingering {
+    public static let singleNotePlaceholder = NoteFingering(
+        notes: [
+            Note(letter: .c, type: .natural, octave: .four, clef: .treble)
+        ],
+        fingerings: []
+    )
+
+    public static let doubleNotePlaceholder = NoteFingering(
+        notes: [
+            Note(letter: .c, type: .sharp, octave: .four, clef: .treble),
+            Note(letter: .d, type: .flat, octave: .four, clef: .treble)
+        ],
+        fingerings: []
+    )
+}

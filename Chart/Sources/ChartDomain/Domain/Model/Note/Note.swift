@@ -6,13 +6,18 @@
 //  Copyright © 2020 Matthew Free. All rights reserved.
 //
 
+import Foundation
+
 // swiftlint:disable file_length type_body_length no_fatal_errors cyclomatic_complexity function_body_length
-public struct Note: Codable, Equatable {
-    public private(set) var letter: NoteLetter
-    public private(set) var type: NoteType
-    public private(set) var octave: NoteOctave
-    public private(set) var clef: Clef
-    public private(set) var position: NotePosition
+public struct Note: Codable, Equatable, Identifiable {
+    public let id = UUID()
+
+    public let letter: NoteLetter
+    public let type: NoteType
+    public let octave: NoteOctave
+    public let clef: Clef
+    public let position: NotePosition
+    public let quarterNoteType: QuarterNoteType
 
     public enum CodingKeys: String, CodingKey {
         case letter
@@ -24,11 +29,11 @@ public struct Note: Codable, Equatable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        letter = try container.decode(NoteLetter.self, forKey: .letter)
-        type = try container.decode(NoteType.self, forKey: .type)
-        octave = try container.decode(NoteOctave.self, forKey: .octave)
-        clef = try container.decode(Clef.self, forKey: .clef)
-        position = Note.calculatePosition(letter: letter, octave: octave, clef: clef)
+        let letter = try container.decode(NoteLetter.self, forKey: .letter)
+        let type = try container.decode(NoteType.self, forKey: .type)
+        let octave = try container.decode(NoteOctave.self, forKey: .octave)
+        let clef = try container.decode(Clef.self, forKey: .clef)
+        self.init(letter: letter, type: type, octave: octave, clef: clef)
     }
 
     public init(letter: NoteLetter, type: NoteType, octave: NoteOctave, clef: Clef) {
@@ -37,12 +42,15 @@ public struct Note: Codable, Equatable {
         self.octave = octave
         self.clef = clef
         self.position = Note.calculatePosition(letter: letter, octave: octave, clef: clef)
+        self.quarterNoteType = Note.calculateQuarterNoteType(from: position)
     }
 
     public static func middleNote(for clef: Clef) -> Note {
         switch clef {
         case .bass:
             return Note(letter: .d, type: .natural, octave: .three, clef: .bass)
+        case .alto:
+            return Note(letter: .c, type: .natural, octave: .four, clef: .alto)
         case .treble:
             return Note(letter: .b, type: .natural, octave: .four, clef: .treble)
         }
@@ -52,6 +60,8 @@ public struct Note: Codable, Equatable {
         switch clef {
         case .bass:
             return Note(letter: .e, type: .natural, octave: .zero, clef: .bass)
+        case .alto:
+            return Note(letter: .c, type: .natural, octave: .four, clef: .alto)
         case .treble:
             return Note(letter: .c, type: .natural, octave: .two, clef: .treble)
         }
@@ -61,21 +71,40 @@ public struct Note: Codable, Equatable {
         switch clef {
         case .bass:
             return Note(letter: .a, type: .natural, octave: .five, clef: .bass)
+        case .alto:
+            return Note(letter: .c, type: .natural, octave: .four, clef: .alto)
         case .treble:
             return Note(letter: .g, type: .natural, octave: .seven, clef: .treble)
         }
     }
 
-    public func isLowerQuarterNote() -> Bool {
-        position < NotePosition.middle3rdLine
-    }
-
-    public func capitalizedLetter() -> String {
+    public var capitalizedLetter: String {
         self.letter.rawValue.capitalized
     }
 
-    public func positionsFromCenterStaff() -> Int {
+    public var positionsFromCenterStaff: Int {
         position.rawValue - NotePosition.middle3rdLine.rawValue
+    }
+
+    public var staffPosition: StaffPosition {
+        if positionsFromCenterStaff > 4 {
+            return .above
+        } else if positionsFromCenterStaff < -4 {
+            return .below
+        } else {
+            return .middle
+        }
+    }
+
+    public var extraLines: Int {
+        if staffPosition == .middle {
+            return 0
+        }
+        return abs(positionsFromCenterStaff) / 2 - 2
+    }
+
+    public var isInSpace: Bool {
+        abs(positionsFromCenterStaff).isMultiple(of: 2)
     }
 
     public func lowerNote() -> Note {
@@ -426,6 +455,13 @@ extension Note: Comparable {
 }
 
 extension Note {
+    private static func calculateQuarterNoteType(from position: NotePosition) -> QuarterNoteType {
+        if position < NotePosition.middle3rdLine {
+            return .lower
+        }
+        return .upper
+    }
+
     private static func calculatePosition(letter: NoteLetter, octave: NoteOctave, clef: Clef) -> NotePosition {
         switch clef {
         case .bass:
@@ -496,7 +532,7 @@ extension Note {
             case .d:
                 switch octave {
                 case .zero:
-                    return .bottom8thSpace
+                    return .bottom9thSpace
                 case .one:
                     return .bottom5thLine
                 case .two:
@@ -538,7 +574,7 @@ extension Note {
             case .f:
                 switch octave {
                 case .zero:
-                    return .bottom7thSpace
+                    return .bottom8thSpace
                 case .one:
                     return .bottom4thLine
                 case .two:
@@ -570,6 +606,156 @@ extension Note {
                     return .top3rdLine
                 case .five:
                     return .top7thSpace
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            }
+        case .alto:
+            switch letter {
+            case .a:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .b:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .c:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    return .middle3rdLine
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .d:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .e:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .f:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .six:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .seven:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .eight:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                }
+            case .g:
+                switch octave {
+                case .zero:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .one:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .two:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .three:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .four:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
+                case .five:
+                    fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
                 case .six:
                     fatalError("\(clef.rawValue.capitalized) \(letter.rawValue.capitalized) \(octave.rawValue) not implemented")
                 case .seven:

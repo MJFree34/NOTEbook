@@ -280,8 +280,8 @@ final class AddEditChartViewModel: ObservableObject {
     }
 
     private func generateOffset(minNote: Note, maxNote: Note) -> Double {
-        var minPositions = minNote.positionsFromCenterStaff()
-        var maxPositions = maxNote.positionsFromCenterStaff()
+        var minPositions = minNote.positionsFromCenterStaff
+        var maxPositions = maxNote.positionsFromCenterStaff
 
         if minPositions >= -4 && minPositions <= 4 {
             minPositions = 0

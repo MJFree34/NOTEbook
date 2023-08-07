@@ -231,7 +231,6 @@ struct BaritoneSaxophoneFingeringView_Previews: PreviewProvider {
                 BaritoneSaxophoneFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

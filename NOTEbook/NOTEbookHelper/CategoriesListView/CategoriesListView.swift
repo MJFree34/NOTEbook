@@ -16,7 +16,7 @@ struct CategoriesListView: View {
         case addCategory
         case editCategory(ChartCategory)
         case addChart(inParentWith: UUID)
-        case editChart(inParentWith: UUID, FingeringChart)
+        case editChart(inParentWith: UUID, chart: FingeringChart)
 
         var id: String {
             switch self {
@@ -169,7 +169,12 @@ struct CategoriesListView: View {
     private func fingeringCharts(in category: ChartCategory) -> some View {
         ForEach(category.fingeringCharts) { fingeringChart in
             OverlayedNavigationLink {
-//                FingeringChartDetailView(chart: fingeringChart, categoryName: chartCategory.name)
+                ChartDetailView(chart: fingeringChart) { [weak viewModel] action in
+                    switch action {
+                    case .updateChart(let updatedChart):
+                        viewModel?.updateChart(inParentWith: category.id, chart: updatedChart)
+                    }
+                }
             } label: {
                 TitleWithChevronRow(title: fingeringChart.instrument.name)
                     .padding(.leading)
@@ -180,7 +185,7 @@ struct CategoriesListView: View {
                 viewModel.deleteChartInCategory(categoryId: category.id, chartId: fingeringChart.id)
             }
             .editSwipeAction {
-                currentSheet = .editChart(inParentWith: category.id, fingeringChart)
+                currentSheet = .editChart(inParentWith: category.id, chart: fingeringChart)
             }
         }
         .onMove { offsets, offset in

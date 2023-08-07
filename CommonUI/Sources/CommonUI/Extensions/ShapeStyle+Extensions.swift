@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension ShapeStyle where Self == Color {
-    public static func theme(_ theme: Theme, _ prominence: Theme.Prominence, bundle: Bundle = Bundle.main) -> Color {
+    public static func theme(_ theme: Theme, _ prominence: Theme.Prominence, bundle: Bundle? = nil) -> Color {
         Color.theme(theme, prominence, bundle: bundle)
     }
 }

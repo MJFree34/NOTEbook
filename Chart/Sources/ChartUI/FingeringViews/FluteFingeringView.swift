@@ -154,7 +154,6 @@ struct FluteFingeringView_Previews: PreviewProvider {
                 FluteFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

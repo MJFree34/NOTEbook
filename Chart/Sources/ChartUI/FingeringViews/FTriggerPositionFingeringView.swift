@@ -44,7 +44,6 @@ struct FTriggerPositionFingeringView_Previews: PreviewProvider {
                 FTriggerPositionFingeringView(fingering: fingeringBinding)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

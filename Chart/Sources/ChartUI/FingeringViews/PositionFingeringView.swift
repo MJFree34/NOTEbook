@@ -35,7 +35,6 @@ struct PositionFingeringView_Previews: PreviewProvider {
                 PositionFingeringView(fingering: fingeringBinding)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

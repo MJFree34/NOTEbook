@@ -63,7 +63,6 @@ struct FourValveFingeringView_Previews: PreviewProvider {
                 FourValveFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

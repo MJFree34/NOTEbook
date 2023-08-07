@@ -214,7 +214,6 @@ struct ClarinetFingeringView_Previews: PreviewProvider {
                 ClarinetFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

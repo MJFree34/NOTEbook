@@ -1,6 +1,6 @@
 //
 //  CollapsingRow.swift
-//  ChartUI
+//  CommonUI
 //
 //  Created by Matt Free on 7/26/23.
 //  Copyright © 2023 Matthew Free. All rights reserved.

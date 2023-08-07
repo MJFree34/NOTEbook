@@ -9,7 +9,7 @@
 import Foundation
 
 public enum Spacing: CGFloat {
-    case none = 0
+    case zero = 0
     case xSmall = 4
     case small = 8
     case base = 16
