@@ -13,10 +13,12 @@ import SwiftUI
 public struct NoteTypeView: View {
     private let type: NoteType
     private let isOffset: Bool
+    private let ratio: Double
 
-    public init(type: NoteType, isOffset: Bool = true) {
+    public init(type: NoteType, isOffset: Bool = true, ratio: Double = 1.0) {
         self.type = type
         self.isOffset = isOffset
+        self.ratio = ratio
     }
 
     public var body: some View {
@@ -24,17 +26,17 @@ public struct NoteTypeView: View {
             switch type {
             case .flat:
                 ResizableImage(Constants.NoteType.flat, bundle: Bundle.module)
-                    .frame(height: 44)
-                    .offset(y: isOffset ? -10 : 0)
+                    .frame(height: 44 * ratio)
+                    .offset(y: isOffset ? -10 * ratio : 0)
             case .natural:
                 ResizableImage(Constants.NoteType.natural, bundle: Bundle.module)
-                    .frame(height: 58)
+                    .frame(height: 58 * ratio)
             case .sharp:
                 ResizableImage(Constants.NoteType.sharp, bundle: Bundle.module)
-                    .frame(height: 58)
+                    .frame(height: 58 * ratio)
             }
         }
-        .frame(width: 20, height: 64)
+        .frame(width: 20 * ratio, height: 64 * ratio)
     }
 }
 

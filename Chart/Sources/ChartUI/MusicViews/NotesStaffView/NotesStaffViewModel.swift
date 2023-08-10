@@ -10,15 +10,33 @@ import ChartDomain
 import Foundation
 
 final class NotesStaffViewModel: ObservableObject {
-    let lineSpacing: Double = 18
-    let lineHeight: Double = 2
-    let extraLineWidth: Double = 40
+    let notes: [Note]
+    let notesSpacing: Double
+    let ratio: Double
+    let areNotesInset: Bool
+
+    let clef: Clef
+    let lineSpacing: Double
+    let lineHeight: Double
+    let extraLineWidth: Double
+
+    init(notes: [Note], notesSpacing: Double, ratio: Double, areNotesInset: Bool) {
+        self.notes = notes
+        self.notesSpacing = notesSpacing
+        self.ratio = ratio
+        self.areNotesInset = areNotesInset
+
+        self.clef = notes.first?.clef ?? .treble
+        self.lineSpacing = 18 * ratio
+        self.lineHeight = 2 * ratio
+        self.extraLineWidth = 40 * ratio
+    }
 
     var noteLineSpacing: Double {
         (lineSpacing + lineHeight) / 2
     }
 
-    func calculateHeight(for notes: [Note]) -> Double {
+    var calculatedHeight: Double {
         guard let minNote = notes.min(), let maxNote = notes.max() else { return 0 }
         var height = noteLineSpacing * 8 + lineHeight
 
@@ -28,7 +46,7 @@ final class NotesStaffViewModel: ObservableObject {
         return height
     }
 
-    func calculateOffsetFromCenter(for notes: [Note]) -> Double {
+    var calculatedOffsetFromCenter: Double {
         guard let minNote = notes.min(), let maxNote = notes.max() else { return 0 }
         var offset: Double = 0
 

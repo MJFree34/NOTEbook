@@ -10,20 +10,10 @@ import ChartDomain
 import SwiftUI
 
 public struct NotesStaffView: View {
-    private let notes: [Note]
-    private let notesSpacing: Double
-    private let areNotesInset: Bool
+    private let viewModel: NotesStaffViewModel
 
-    private let clef: Clef
-
-    private let viewModel = NotesStaffViewModel()
-
-    public init(notes: [Note], notesSpacing: Double, areNotesInset: Bool) {
-        self.notes = notes
-        self.notesSpacing = notesSpacing
-        self.areNotesInset = areNotesInset
-
-        self.clef = notes.first?.clef ?? .treble
+    public init(notes: [Note], notesSpacing: Double, ratio: Double = 1.0, areNotesInset: Bool = false) {
+        self.viewModel = NotesStaffViewModel(notes: notes, notesSpacing: notesSpacing, ratio: ratio, areNotesInset: areNotesInset)
     }
 
     public var body: some View {
@@ -31,26 +21,26 @@ public struct NotesStaffView: View {
             StaffView(spacing: viewModel.lineSpacing, lineHeight: viewModel.lineHeight)
 
             HStack {
-                ClefView(clef: clef)
+                ClefView(clef: viewModel.clef, ratio: viewModel.ratio)
 
                 Spacer()
             }
 
             fingeringNotesView
         }
-        .offset(y: viewModel.calculateOffsetFromCenter(for: notes))
-        .frame(height: viewModel.calculateHeight(for: notes))
+        .offset(y: viewModel.calculatedOffsetFromCenter)
+        .frame(height: viewModel.calculatedHeight)
     }
 
     private var fingeringNotesView: some View {
         HStack(spacing: 0) {
-            if areNotesInset {
+            if viewModel.areNotesInset {
                 Spacer(minLength: 0)
                 Spacer(minLength: 0)
             }
 
-            HStack(spacing: notesSpacing) {
-                ForEach(notes) { note in
+            HStack(spacing: viewModel.notesSpacing) {
+                ForEach(viewModel.notes) { note in
                     ZStack {
                         VStack(spacing: viewModel.lineSpacing) {
                             extraLinesView(note: note)
@@ -63,7 +53,7 @@ public struct NotesStaffView: View {
                 }
             }
 
-            if areNotesInset {
+            if viewModel.areNotesInset {
                 Spacer(minLength: 0)
             }
         }
@@ -88,17 +78,17 @@ public struct NotesStaffView: View {
             Group {
                 switch note.type {
                 case .flat:
-                    NoteTypeView(type: .flat)
+                    NoteTypeView(type: .flat, ratio: viewModel.ratio)
                 case .natural:
                     EmptyView()
                 case .sharp:
-                    NoteTypeView(type: .sharp)
+                    NoteTypeView(type: .sharp, ratio: viewModel.ratio)
                 }
             }
-            .offset(x: -14)
+            .offset(x: -14 * viewModel.ratio)
             .frame(width: 0)
 
-            WholeNoteView()
+            WholeNoteView(ratio: viewModel.ratio)
         }
     }
 }

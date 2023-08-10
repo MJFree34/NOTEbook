@@ -10,11 +10,15 @@ import CommonUI
 import SwiftUI
 
 public struct WholeNoteView: View {
-    public init() { }
+    private let ratio: Double
+
+    public init(ratio: Double = 1.0) {
+        self.ratio = ratio
+    }
 
     public var body: some View {
         ResizableImage(Constants.Note.whole, bundle: Bundle.module)
-            .frame(height: 20)
+            .frame(height: 20 * ratio)
     }
 }
 

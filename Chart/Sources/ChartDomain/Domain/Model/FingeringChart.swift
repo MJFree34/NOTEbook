@@ -120,7 +120,8 @@ extension FingeringChart {
             ),
             NoteFingering(
                 notes: [
-                    Note(letter: .c, type: .sharp, octave: .five, clef: .treble)
+                    Note(letter: .c, type: .sharp, octave: .five, clef: .treble),
+                    Note(letter: .d, type: .flat, octave: .five, clef: .treble)
                 ], fingerings: [
                     KeysFingering(
                         keys: [

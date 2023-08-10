@@ -9,7 +9,7 @@
 import Foundation
 
 // swiftlint:disable file_length type_body_length no_fatal_errors cyclomatic_complexity function_body_length
-public struct Note: Codable, Equatable, Identifiable {
+public struct Note: Codable, Identifiable {
     public let id = UUID()
 
     public let letter: NoteLetter
@@ -419,6 +419,12 @@ public struct Note: Codable, Equatable, Identifiable {
                 return self
             }
         }
+    }
+}
+
+extension Note: Equatable {
+    public static func == (lhs: Note, rhs: Note) -> Bool {
+        lhs.letter == rhs.letter && lhs.type == rhs.type && lhs.octave == rhs.octave && lhs.clef == rhs.clef
     }
 }
 

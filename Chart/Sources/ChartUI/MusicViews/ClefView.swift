@@ -12,9 +12,11 @@ import SwiftUI
 
 public struct ClefView: View {
     private let clef: Clef
+    private let ratio: Double
 
-    public init(clef: Clef) {
+    public init(clef: Clef, ratio: Double = 1.0) {
         self.clef = clef
+        self.ratio = ratio
     }
 
     public var body: some View {
@@ -22,20 +24,20 @@ public struct ClefView: View {
             switch clef {
             case .bass:
                 ResizableImage(Constants.Clef.bass, bundle: Bundle.module)
-                    .frame(height: 64)
-                    .offset(y: -7)
+                    .frame(height: 64 * ratio)
+                    .offset(y: -7 * ratio)
             case .alto:
                 ResizableImage(Constants.Clef.alto, bundle: Bundle.module)
-                    .frame(height: 82)
+                    .frame(height: 82 * ratio)
             case .treble:
                 ResizableImage(Constants.Clef.treble, bundle: Bundle.module)
-                    .frame(height: 143)
-                    .offset(y: 1)
+                    .frame(height: 143 * ratio)
+                    .offset(y: 1 * ratio)
             }
 
             Spacer(minLength: 0)
         }
-        .frame(width: 56, height: 82)
+        .frame(width: 56 * ratio, height: 82 * ratio)
     }
 }
 
