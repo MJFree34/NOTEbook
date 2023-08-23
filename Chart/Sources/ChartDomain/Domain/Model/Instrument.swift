@@ -11,11 +11,13 @@ import Foundation
 public struct Instrument: Codable, Equatable {
     public var name: String
     public var detailName: String
+    public var fingeringViewType: FingeringViewType
     public var offset: Double
 
-    public init(name: String, detailName: String, offset: Double) {
+    public init(name: String, detailName: String, fingeringViewType: FingeringViewType, offset: Double) {
         self.name = name
         self.detailName = detailName
+        self.fingeringViewType = fingeringViewType
         self.offset = offset
     }
 }
@@ -30,6 +32,7 @@ extension Instrument {
     public static let placeholder = Instrument(
         name: "Trumpet",
         detailName: "C Trumpet",
+        fingeringViewType: .threeValve,
         offset: 3
     )
 }

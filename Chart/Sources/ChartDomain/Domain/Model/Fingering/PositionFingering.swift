@@ -8,6 +8,7 @@
 
 import Foundation
 
+// swiftlint:disable no_fatal_errors
 public struct PositionFingering: Fingering {
     public var position: Position
 
@@ -19,6 +20,15 @@ public struct PositionFingering: Fingering {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(position)
+    }
+
+    public static func initial(for type: FingeringViewType) -> PositionFingering {
+        switch type {
+        case .position:
+            return PositionFingering(position: Position(value: .first, type: .natural))
+        default:
+            fatalError("Invalid type for initial PositionFingering.")
+        }
     }
 }
 

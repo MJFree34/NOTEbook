@@ -7,6 +7,7 @@
         "instrument" : {
           "name" : "Flute",
           "detailName" : "C Flute",
+          "fingeringViewType" : "Flute",
           "offset" : 3
         },
         "flatNotes" : [
@@ -4945,6 +4946,7 @@
         "instrument" : {
           "name" : "Clarinet",
           "detailName" : "Bb Soprano Clarinet",
+          "fingeringViewType" : "Clarinet",
           "offset" : 1
         },
         "flatNotes" : [
@@ -10652,6 +10654,7 @@
         "instrument" : {
           "name" : "Alto Saxophone",
           "detailName" : "Eb Alto Saxophone",
+          "fingeringViewType" : "Saxophone",
           "offset" : 3
         },
         "flatNotes" : [
@@ -16893,6 +16896,7 @@
         "instrument" : {
           "name" : "Tenor Saxophone",
           "detailName" : "Bb Tenor Saxophone",
+          "fingeringViewType" : "Saxophone",
           "offset" : 3
         },
         "flatNotes" : [
@@ -23134,6 +23138,7 @@
         "instrument" : {
           "name" : "Baritone Saxophone",
           "detailName" : "Eb Baritone Saxophone",
+          "fingeringViewType" : "Baritone Saxophone",
           "offset" : 2.75
         },
         "flatNotes" : [
@@ -29449,6 +29454,7 @@
         "instrument" : {
           "name" : "Trumpet",
           "detailName" : "Bb Trumpet",
+          "fingeringViewType" : "3-Valve",
           "offset" : -0.25
         },
         "flatNotes" : [
@@ -31382,6 +31388,7 @@
         "instrument" : {
           "name" : "Mellophone",
           "detailName" : "F Mellophone",
+          "fingeringViewType" : "3-Valve",
           "offset" : -0.25
         },
         "flatNotes" : [
@@ -32461,6 +32468,7 @@
         "instrument" : {
           "name" : "F French Horn",
           "detailName" : "F Single French Horn",
+          "fingeringViewType" : "3-Valve",
           "offset" : -2
         },
         "flatNotes" : [
@@ -34149,6 +34157,7 @@
         "instrument" : {
           "name" : "F\/Bb French Horn",
           "detailName" : "F\/Bb Double French Horn",
+          "fingeringViewType" : "Bb-Trigger 3-Valve",
           "offset" : -3
         },
         "flatNotes" : [
@@ -36788,6 +36797,7 @@
         "instrument" : {
           "name" : "Trombone",
           "detailName" : "Bb Tenor Trombone",
+          "fingeringViewType" : "Position",
           "offset" : 1.25
         },
         "flatNotes" : [
@@ -38717,6 +38727,7 @@
         "instrument" : {
           "name" : "F-Trigger Trombone",
           "detailName" : "F-Trigger Bb Tenor Trombone",
+          "fingeringViewType" : "F-Trigger Position",
           "offset" : 1.25
         },
         "flatNotes" : [
@@ -41029,6 +41040,7 @@
         "instrument" : {
           "name" : "Baritone Horn",
           "detailName" : "Bb Baritone Horn",
+          "fingeringViewType" : "3-Valve",
           "offset" : 1.25
         },
         "flatNotes" : [
@@ -42241,6 +42253,7 @@
         "instrument" : {
           "name" : "4-Valve Euphonium Comp.",
           "detailName" : "4-Valve Bb Euphonium Comp.",
+          "fingeringViewType" : "4-Valve",
           "offset" : 0.75
         },
         "flatNotes" : [
@@ -44576,6 +44589,7 @@
         "instrument" : {
           "name" : "4-Valve Euphonium Non-Comp.",
           "detailName" : "4-Valve Bb Euphonium Non-Comp.",
+          "fingeringViewType" : "4-Valve",
           "offset" : 0.75
         },
         "flatNotes" : [
@@ -46694,6 +46708,7 @@
         "instrument" : {
           "name" : "3-Valve BBb Tuba",
           "detailName" : "3-Valve BBb Tuba",
+          "fingeringViewType" : "3-Valve",
           "offset" : -2.25
         },
         "flatNotes" : [
@@ -48736,6 +48751,7 @@
         "instrument" : {
           "name" : "3-Valve Eb Tuba",
           "detailName" : "3-Valve Eb Tuba",
+          "fingeringViewType" : "3-Valve",
           "offset" : -0.75
         },
         "flatNotes" : [

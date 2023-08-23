@@ -21,6 +21,7 @@ final class AddEditChartViewModel: ObservableObject {
 
     @Published var name = ""
     @Published var detailName = ""
+    @Published var fingeringViewType: FingeringViewType?
     @Published var clef: Clef?
     @Published var noteRangeSelection: NoteRangeSelection = .none
     @Published var minNote: Note?
@@ -38,6 +39,7 @@ final class AddEditChartViewModel: ObservableObject {
         if let chart {
             self.name = chart.instrument.name
             self.detailName = chart.instrument.detailName
+            self.fingeringViewType = chart.instrument.fingeringViewType
             self.clef = chart.naturalNotes.first?.clef
             self.minNote = chart.naturalNotes.first
             self.centerNote = chart.centerNote
@@ -177,7 +179,7 @@ final class AddEditChartViewModel: ObservableObject {
     }
 
     func createChart() -> FingeringChart {
-        guard let minNote, let centerNote, let maxNote else { fatalError("Chart creation failed") }
+        guard let fingeringViewType, let minNote, let centerNote, let maxNote else { fatalError("Chart creation failed") }
 
         let naturalNotes = generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .natural)
         let flatNotes = generateNoteList(minNote: minNote, maxNote: maxNote, listNoteType: .flat)
@@ -185,7 +187,7 @@ final class AddEditChartViewModel: ObservableObject {
         let noteFingerings = generateNoteFingerings(naturalNotes: naturalNotes, flatNotes: flatNotes, sharpNotes: sharpNotes)
         let offset = generateOffset(minNote: minNote, maxNote: maxNote)
 
-        let instrument = Instrument(name: name, detailName: detailName, offset: offset)
+        let instrument = Instrument(name: name, detailName: detailName, fingeringViewType: fingeringViewType, offset: offset)
 
         return FingeringChart(
             id: id,

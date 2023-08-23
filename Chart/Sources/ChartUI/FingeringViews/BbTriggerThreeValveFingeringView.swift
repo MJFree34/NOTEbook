@@ -10,16 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-public struct BbTriggerThreeValveFingeringView: View {
-    @Binding private var fingering: KeysTriggersFingering
-    private var isInteractive: Bool
+struct BbTriggerThreeValveFingeringView: View {
+    @Binding var fingering: KeysTriggersFingering
+    let isInteractive: Bool
 
-    public init(fingering: Binding<KeysTriggersFingering>, isInteractive: Bool = false) {
-        self._fingering = fingering
-        self.isInteractive = isInteractive
-    }
-
-    public var body: some View {
+    var body: some View {
         HStack {
             FingeringKeyImage(
                 imageName: Constants.Trigger.bb,

@@ -10,16 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-public struct FluteFingeringView: View {
-    @Binding private var fingering: KeysFingering
-    private var isInteractive: Bool
+struct FluteFingeringView: View {
+    @Binding var fingering: KeysFingering
+    let isInteractive: Bool
 
-    public init(fingering: Binding<KeysFingering>, isInteractive: Bool = false) {
-        self._fingering = fingering
-        self.isInteractive = isInteractive
-    }
-
-    public var body: some View {
+    var body: some View {
         ZStack(alignment: .bottom) {
             FingeringDoubleKeysImage(
                 imageName: Constants.Flute.leverKeys,

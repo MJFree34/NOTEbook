@@ -8,6 +8,7 @@
 
 import Foundation
 
+// swiftlint:disable no_fatal_errors
 public struct KeysFingering: Fingering {
     public var keys: [Bool]
 
@@ -19,6 +20,25 @@ public struct KeysFingering: Fingering {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(keys)
+    }
+
+    public static func initial(for type: FingeringViewType) -> KeysFingering {
+        switch type {
+        case .baritoneSaxophone:
+            return KeysFingering(keys: Array(repeating: false, count: 24))
+        case .clarinet:
+            return KeysFingering(keys: Array(repeating: false, count: 24))
+        case .flute:
+            return KeysFingering(keys: Array(repeating: false, count: 16))
+        case .fourValve:
+            return KeysFingering(keys: Array(repeating: false, count: 4))
+        case .saxophone:
+            return KeysFingering(keys: Array(repeating: false, count: 23))
+        case .threeValve:
+            return KeysFingering(keys: Array(repeating: false, count: 3))
+        default:
+            fatalError("Invalid type for initial KeysFingering.")
+        }
     }
 }
 

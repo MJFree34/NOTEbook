@@ -22,14 +22,14 @@ struct AddEditCategoryView: View, ActionableView {
 
     @Environment(\.dismiss) private var dismiss
 
-    var onAction: ActionClosure
-
     private var id = UUID()
     @State private var section: ChartSection?
     @State private var name = ""
     private var fingeringCharts: [FingeringChart] = []
 
     private let mode: Mode
+
+    var onAction: ActionClosure
 
     private var isFilledOut: Bool {
         !name.isEmpty && section != nil

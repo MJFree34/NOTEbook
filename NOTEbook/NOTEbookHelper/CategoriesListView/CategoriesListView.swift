@@ -179,7 +179,7 @@ struct CategoriesListView: View {
                 TitleWithChevronRow(title: fingeringChart.instrument.name)
                     .padding(.leading)
                     .font(.callout)
-                    .foregroundColor(.black)
+                    .foregroundColor(.contrast(.foreground))
             }
             .deleteSwipeAction {
                 viewModel.deleteChartInCategory(categoryId: category.id, chartId: fingeringChart.id)

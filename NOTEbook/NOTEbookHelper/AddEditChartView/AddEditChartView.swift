@@ -35,7 +35,7 @@ struct AddEditChartView: View, ActionableView {
     private let noteLabelRectSize = 60.0
 
     private var isFilledOut: Bool {
-        !viewModel.name.isEmpty && !viewModel.detailName.isEmpty && viewModel.clef != nil
+        !viewModel.name.isEmpty && !viewModel.detailName.isEmpty && viewModel.fingeringViewType != nil && viewModel.clef != nil
     }
 
     init(chart: FingeringChart? = nil, onAction: ActionClosure) {
@@ -50,6 +50,7 @@ struct AddEditChartView: View, ActionableView {
                 Group {
                     instrumentNameTextField
                     instrumentDetailNameTextField
+                    fingeringViewTypePicker
                     clefPicker
 
                     if viewModel.clef != nil {
@@ -89,6 +90,20 @@ struct AddEditChartView: View, ActionableView {
     private var instrumentDetailNameTextField: some View {
         Section("Detail Name") {
             TextField("Detail Name", text: $viewModel.detailName, prompt: Text("Detail Name"))
+        }
+    }
+
+    private var fingeringViewTypePicker: some View {
+        Section("Fingering View Type") {
+            Picker("Fingering View Type", selection: $viewModel.fingeringViewType) {
+                Text("")
+                    .tag(nil as FingeringViewType?)
+
+                ForEach(FingeringViewType.allCases) { type in
+                    Text(type.rawValue.capitalized)
+                        .tag(type as FingeringViewType?)
+                }
+            }
         }
     }
 
