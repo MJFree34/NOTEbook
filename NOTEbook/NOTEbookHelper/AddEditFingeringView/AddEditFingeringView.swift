@@ -52,7 +52,7 @@ struct AddEditFingeringView: View, ActionableView {
     }
 
     var body: some View {
-        TintedNavigationView {
+        TintedNavigationStack {
             FingeringView(type: type, fingering: $fingering, isInteractive: true)
                 .background(theme: .aqua)
                 .toolbar {

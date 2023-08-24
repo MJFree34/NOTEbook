@@ -78,6 +78,10 @@ final class CategoriesListViewModel: ObservableObject {
         chartCategories.addChart(inParentWith: parentCategoryId, chart: chart)
     }
 
+    func addFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, fingering: any Fingering) {
+        chartCategories.addFingering(categoryId: categoryId, chartId: chartId, noteFingeringId: noteFingeringId, fingering: fingering)
+    }
+
     func updateCategory(_ category: ChartCategory) {
         chartCategories.updateCategory(category)
     }
@@ -86,12 +90,26 @@ final class CategoriesListViewModel: ObservableObject {
         chartCategories.updateChart(inParentWith: parentCategoryId, chart: chart)
     }
 
+    func updateFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, at index: Int, fingering: any Fingering) {
+        chartCategories.updateFingering(categoryId: categoryId, chartId: chartId, noteFingeringId: noteFingeringId, at: index, fingering: fingering)
+    }
+
     func moveCategory(in section: ChartSection, from offsets: IndexSet, to offset: Int) {
         chartCategories.moveCategory(in: section, from: offsets, to: offset)
     }
 
     func moveChartInCategory(with categoryId: UUID, from offsets: IndexSet, to offset: Int) {
         chartCategories.moveChartInCategory(with: categoryId, from: offsets, to: offset)
+    }
+
+    func moveFingeringInNoteFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, from offsets: IndexSet, to offset: Int) {
+        chartCategories.moveFingeringInNoteFingering(
+            categoryId: categoryId,
+            chartId: chartId,
+            noteFingeringId: noteFingeringId,
+            from: offsets,
+            to: offset
+        )
     }
 
     func deleteCategory(in section: ChartSection, at offsets: IndexSet) {
@@ -108,6 +126,10 @@ final class CategoriesListViewModel: ObservableObject {
 
     func deleteChartInCategory(categoryId: UUID, chartId: UUID) {
         chartCategories.deleteChartInCategory(categoryId: categoryId, chartId: chartId)
+    }
+
+    func deleteFingeringInNoteFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, at offsets: IndexSet) {
+        chartCategories.deleteFingeringInNoteFingering(categoryId: categoryId, chartId: chartId, noteFingeringId: noteFingeringId, at: offsets)
     }
 
     private func setupObserving() {

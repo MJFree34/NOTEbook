@@ -38,7 +38,7 @@ struct CategoriesListView: View {
     @State private var currentSheet: SheetType?
 
     var body: some View {
-        TintedNavigationView {
+        TintedNavigationStack {
             content
                 .sheet(item: $currentSheet) { addSheet in
                     Group {
@@ -171,6 +171,38 @@ struct CategoriesListView: View {
             OverlayedNavigationLink {
                 ChartDetailView(chart: fingeringChart) { [weak viewModel] action in
                     switch action {
+                    case let .delete(noteFingeringId, atOffsets):
+                        viewModel?.deleteFingeringInNoteFingering(
+                            categoryId: category.id,
+                            chartId: fingeringChart.id,
+                            noteFingeringId: noteFingeringId,
+                            at: atOffsets
+                        )
+                    case let .move(noteFingeringId, fromOffsets, toOffset):
+                        viewModel?.moveFingeringInNoteFingering(
+                            categoryId: category.id,
+                            chartId: fingeringChart.id,
+                            noteFingeringId: noteFingeringId,
+                            from: fromOffsets,
+                            to: toOffset
+                        )
+                    case let .submitFingering(noteFingeringId, offset, fingering):
+                        if let offset {
+                            viewModel?.updateFingering(
+                                categoryId: category.id,
+                                chartId: fingeringChart.id,
+                                noteFingeringId: noteFingeringId,
+                                at: offset,
+                                fingering: fingering
+                            )
+                        } else {
+                            viewModel?.addFingering(
+                                categoryId: category.id,
+                                chartId: fingeringChart.id,
+                                noteFingeringId: noteFingeringId,
+                                fingering: fingering
+                            )
+                        }
                     case .updateChart(let updatedChart):
                         viewModel?.updateChart(inParentWith: category.id, chart: updatedChart)
                     }

@@ -10,9 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-// swiftlint:disable line_length
 struct ChartDetailView: View, ActionableView {
     enum Action {
+        case delete(noteFingeringId: UUID, at: IndexSet)
+        case move(noteFingeringId: UUID, from: IndexSet, to: Int)
+        case submitFingering(noteFingeringId: UUID, at: Int?, fingering: any Fingering)
         case updateChart(FingeringChart)
     }
 
@@ -58,7 +60,16 @@ struct ChartDetailView: View, ActionableView {
             ForEach(Array(chart.noteFingerings.enumerated()), id: \.element.id) { index, noteFingering in
                 if index.isEven() && number.isEven() || index.isOdd() && number.isOdd() {
                     NavigationLink {
-//                        NoteFingeringDetailView(noteFingering: noteFingering, color: color, categoryName: categoryName, instrumentType: chart.instrument.type)
+                        NoteFingeringDetailView(noteFingering: noteFingering, type: chart.instrument.fingeringViewType) { action in
+                            switch action {
+                            case .delete(let atOffsets):
+                                onAction?(.delete(noteFingeringId: noteFingering.id, at: atOffsets))
+                            case let .move(fromOffsets, toOffset):
+                                onAction?(.move(noteFingeringId: noteFingering.id, from: fromOffsets, to: toOffset))
+                            case let .submit(index, fingering):
+                                onAction?(.submitFingering(noteFingeringId: noteFingering.id, at: index, fingering: fingering))
+                            }
+                        }
                     } label: {
                         NoteFingeringCell(noteFingering: noteFingering)
                             .foregroundColor(calculateCellForegroundColor(noteFingering: noteFingering))
@@ -80,7 +91,7 @@ struct ChartDetailView: View, ActionableView {
 
 struct ChartDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TintedNavigationView {
+        TintedNavigationStack {
             ChartDetailView(chart: .placeholder, onAction: nil)
         }
     }

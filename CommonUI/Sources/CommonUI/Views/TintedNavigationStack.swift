@@ -1,5 +1,5 @@
 //
-//  TintedNavigationView.swift
+//  TintedNavigationStack.swift
 //  CommonUI
 //
 //  Created by Matt Free on 7/28/23.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public struct TintedNavigationView<Content: View>: View {
+public struct TintedNavigationStack<Content: View>: View {
     private let content: () -> Content
 
     public init(@ViewBuilder content: @escaping () -> Content) {
@@ -16,7 +16,7 @@ public struct TintedNavigationView<Content: View>: View {
     }
 
     public var body: some View {
-        NavigationView {
+        NavigationStack {
             content()
         }
         .tint(.theme(.aqua, .foreground))

@@ -17,12 +17,16 @@ extension ChartCategories {
         self.filter { $0.section == section }
     }
 
-    public func categoryIndex(with id: UUID) -> Int? {
+    private func categoryIndex(with id: UUID) -> Int? {
         self.firstIndex { $0.id == id }
     }
 
-    public func chartIndex(in category: ChartCategory, with chartId: UUID) -> Int? {
+    private func chartIndex(in category: ChartCategory, with chartId: UUID) -> Int? {
         category.fingeringCharts.firstIndex { $0.id == chartId }
+    }
+
+    private func noteFingeringIndex(in chart: FingeringChart, with noteFingeringId: UUID) -> Int? {
+        chart.noteFingerings.firstIndex { $0.id == noteFingeringId }
     }
 
     // MARK: - Index Getters
@@ -44,6 +48,14 @@ extension ChartCategories {
         }
     }
 
+    public mutating func addFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, fingering: any Fingering) {
+        if let categoryIndex = categoryIndex(with: categoryId),
+           let chartIndex = chartIndex(in: self[categoryIndex], with: chartId),
+           let noteFingeringIndex = noteFingeringIndex(in: self[categoryIndex].fingeringCharts[chartIndex], with: noteFingeringId) {
+            self[categoryIndex].fingeringCharts[chartIndex].noteFingerings[noteFingeringIndex].fingerings.append(fingering)
+        }
+    }
+
     // MARK: - Update
 
     public mutating func updateCategory(_ category: ChartCategory) {
@@ -56,6 +68,14 @@ extension ChartCategories {
     public mutating func updateChart(inParentWith parentCategoryId: UUID, chart: FingeringChart) {
         if let categoryIndex = categoryIndex(with: parentCategoryId), let chartIndex = chartIndex(in: self[categoryIndex], with: chart.id) {
             self[categoryIndex].fingeringCharts[chartIndex] = chart
+        }
+    }
+
+    public mutating func updateFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, at index: Int, fingering: any Fingering) {
+        if let categoryIndex = categoryIndex(with: categoryId),
+           let chartIndex = chartIndex(in: self[categoryIndex], with: chartId),
+           let noteFingeringIndex = noteFingeringIndex(in: self[categoryIndex].fingeringCharts[chartIndex], with: noteFingeringId) {
+            self[categoryIndex].fingeringCharts[chartIndex].noteFingerings[noteFingeringIndex].fingerings[index] = fingering
         }
     }
 
@@ -73,6 +93,20 @@ extension ChartCategories {
     public mutating func moveChartInCategory(with categoryId: UUID, from offsets: IndexSet, to offset: Int) {
         if let categoryIndex = categoryIndex(with: categoryId) {
             self[categoryIndex].fingeringCharts.move(fromOffsets: offsets, toOffset: offset)
+        }
+    }
+
+    public mutating func moveFingeringInNoteFingering(
+        categoryId: UUID,
+        chartId: UUID,
+        noteFingeringId: UUID,
+        from offsets: IndexSet,
+        to offset: Int
+    ) {
+        if let categoryIndex = categoryIndex(with: categoryId),
+           let chartIndex = chartIndex(in: self[categoryIndex], with: chartId),
+           let noteFingeringIndex = noteFingeringIndex(in: self[categoryIndex].fingeringCharts[chartIndex], with: noteFingeringId) {
+            self[categoryIndex].fingeringCharts[chartIndex].noteFingerings[noteFingeringIndex].fingerings.move(fromOffsets: offsets, toOffset: offset)
         }
     }
 
@@ -99,6 +133,14 @@ extension ChartCategories {
     public mutating func deleteChartInCategory(categoryId: UUID, chartId: UUID) {
         if let categoryIndex = categoryIndex(with: categoryId) {
             self[categoryIndex].fingeringCharts.removeAll { $0.id == chartId }
+        }
+    }
+
+    public mutating func deleteFingeringInNoteFingering(categoryId: UUID, chartId: UUID, noteFingeringId: UUID, at offsets: IndexSet) {
+        if let categoryIndex = categoryIndex(with: categoryId),
+           let chartIndex = chartIndex(in: self[categoryIndex], with: chartId),
+           let noteFingeringIndex = noteFingeringIndex(in: self[categoryIndex].fingeringCharts[chartIndex], with: noteFingeringId) {
+            self[categoryIndex].fingeringCharts[chartIndex].noteFingerings[noteFingeringIndex].fingerings.remove(atOffsets: offsets)
         }
     }
 

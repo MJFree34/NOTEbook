@@ -48,7 +48,7 @@ struct AddEditCategoryView: View, ActionableView {
     }
 
     var body: some View {
-        TintedNavigationView {
+        TintedNavigationStack {
             Form {
                 Group {
                     nameTextField

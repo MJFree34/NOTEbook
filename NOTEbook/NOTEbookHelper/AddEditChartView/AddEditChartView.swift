@@ -45,7 +45,7 @@ struct AddEditChartView: View, ActionableView {
     }
 
     var body: some View {
-        TintedNavigationView {
+        TintedNavigationStack {
             Form {
                 Group {
                     instrumentNameTextField
