@@ -3,19 +3,37 @@
 //  NOTEbook
 //
 //  Created by Matt Free on 6/15/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
+import CommonUI
 import SwiftUI
 
 struct NotePickerView: View {
+    @StateObject var viewModel: ChartsViewModel
+
     var body: some View {
-        Color.theme(.aqua, .background)
-            .ignoresSafeArea()
+        content
+            .onAppear {
+                viewModel.start()
+            }
+    }
+
+    @ViewBuilder
+    private var content: some View {
+        switch viewModel.screenState {
+        case .loading:
+            ProgressView()
+        case .loaded:
+            Text("Hello World")
+        case .error(let error):
+            Text("Error: \(error.localizedDescription)")
+        }
     }
 }
 
 struct NotePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        NotePickerView()
+        NotePickerView(viewModel: ChartsViewModel())
     }
 }

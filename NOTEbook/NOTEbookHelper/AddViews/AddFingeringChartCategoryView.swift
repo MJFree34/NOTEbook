@@ -3,9 +3,10 @@
 //  NOTEbookHelper
 //
 //  Created by Matt Free on 1/1/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
-import Common
+import ChartDomain
 import SwiftUI
 
 struct AddFingeringChartCategoryView: View {
@@ -69,7 +70,7 @@ struct AddFingeringChartCategoryView: View {
 
     private var addButton: some View {
         Button {
-            helperChartsController.addChartCategory(category: ChartCategory(type: ChartCategory.CategoryType(rawValue: name) ?? .trumpet, section: section!, fingeringCharts: []))
+            //            helperChartsController.addChartCategory(category: ChartCategory(type: ChartCategory.CategoryType(rawValue: name) ?? .trumpet, section: section!, fingeringCharts: []))
             dismiss()
         } label: {
             Text("Add \(name.isEmpty ? "Category" : name)")

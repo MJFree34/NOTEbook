@@ -3,60 +3,49 @@
 //  NOTEbook
 //
 //  Created by Matt Free on 6/15/23.
+//  Copyright © 2023 Matthew Free. All rights reserved.
 //
 
+import ChartDomain
 import Combine
 import Common
 import Foundation
+import Storage
 
 final class ChartsViewModel: ObservableObject {
     enum ScreenState {
-        case error(ChartLoadError)
+        case error(ChartError)
         case loaded
         case loading
     }
 
-    @DependencyInjected(ChartsRepository.self) private var chartsRepository
+    @DependencyInjected(FetchChartsUseCase.self) private var fetchChartsUseCase
+    @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
 
     @Published var screenState: ScreenState = .loading
 
     private var disposeBag = DisposeBag()
-    private var chartCategories = [ChartCategory]()
+    private var chartCategories = ChartCategories()
 
     // MARK: - Init
 
     func start() {
-        chartsRepository.loadCharts()
-            .receive(on: RunLoop.main)
-            .sink { [weak self] completion in
-                switch completion {
-                case .failure(let error):
-                    guard let self else { return }
-                    self.screenState = .error(error)
-                case .finished:
-                    break
-                }
-            } receiveValue: { [weak self] chartCategories in
-                guard let self else { return }
-                self.chartCategories = chartCategories
-                self.screenState = .loaded
+        fetchChartsUseCase.execute(
+            networkURLString: Constants.networkChartsURL,
+            chartsFilename: Constants.chartsFilename
+        )
+        .receive(on: RunLoop.main)
+        .sink { [weak self] completion in
+            switch completion {
+            case .failure(let error):
+                self?.screenState = .error(error)
+            case .finished:
+                break
             }
-            .store(in: &disposeBag)
-    }
-
-    // MARK: - Saving
-
-    private func save() {
-        do {
-            try chartsRepository.saveCharts(chartCategories: chartCategories)
-        } catch {
-            screenState = .error(.savingError)
+        } receiveValue: { [weak self] chartCategories in
+            self?.chartCategories = chartCategories
+            self?.screenState = .loaded
         }
-    }
-
-    // MARK: - Getters
-
-    private func chartCategory(of type: ChartCategory.CategoryType) -> ChartCategory? {
-        chartCategories.first { $0.type == type }
+        .store(in: &disposeBag)
     }
 }
