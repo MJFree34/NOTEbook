@@ -2,12 +2,12 @@
 //  Constants.swift
 //  NOTEbook
 //
-//  Created by Matt Free on 12/14/20.
-//  Copyright © 2020 Matt Free. All rights reserved.
+//  Created by Matt Free on 6/15/23.
 //
 
 import Foundation
 
-struct Constants {
-    static let freeTrialPeriod = 14
+enum Constants {
+    static let networkChartsURL = URL(string: "https://mjfree34.github.io/NOTEbookData/")
+    static let chartsFilename = "Charts-v2.0"
 }
