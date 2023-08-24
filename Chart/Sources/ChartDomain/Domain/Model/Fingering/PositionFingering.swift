@@ -8,10 +8,15 @@
 
 import Foundation
 
+// swiftlint:disable no_fatal_errors
 public struct PositionFingering: Fingering {
+    private enum CodingKeys: CodingKey {
+        case position
+    }
+
     public var position: Position
 
-    public var id: UUID { UUID() }
+    public var id = UUID()
 
     public init(position: Position) {
         self.position = position
@@ -19,6 +24,15 @@ public struct PositionFingering: Fingering {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(position)
+    }
+
+    public static func initial(for type: FingeringViewType) -> PositionFingering {
+        switch type {
+        case .position:
+            return PositionFingering(position: Position(value: .first, type: .natural))
+        default:
+            fatalError("Invalid type for initial PositionFingering.")
+        }
     }
 }
 

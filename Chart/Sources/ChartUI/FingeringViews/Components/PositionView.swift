@@ -18,18 +18,12 @@ struct PositionView: View {
         HStack {
             if isInteractive {
                 Picker(selection: $position.type) {
-                    Image(Constants.NoteType.flat, bundle: Bundle.module)
-                        .resizable()
-                        .renderingMode(.template)
-                        .aspectRatio(contentMode: .fit)
+                    ResizableImage(Constants.NoteType.flat, bundle: Bundle.module)
                         .frame(height: 26)
                         .tag(NoteType.flat)
                     Text("")
                         .tag(NoteType.natural)
-                    Image(Constants.NoteType.sharp, bundle: Bundle.module)
-                        .resizable()
-                        .renderingMode(.template)
-                        .aspectRatio(contentMode: .fit)
+                    ResizableImage(Constants.NoteType.sharp, bundle: Bundle.module)
                         .frame(height: 26)
                         .tag(NoteType.sharp)
                 } label: {
@@ -48,21 +42,16 @@ struct PositionView: View {
                 }
                 .pickerStyle(.wheel)
             } else {
-                if position.type == .flat {
-                    Image(Constants.NoteType.flat, bundle: Bundle.module)
-                        .resizable()
-                        .renderingMode(.template)
-                        .aspectRatio(contentMode: .fit)
+                switch position.type {
+                case .flat:
+                    ResizableImage(Constants.NoteType.flat, bundle: Bundle.module)
                         .frame(width: 14, height: 30)
-                } else if position.type == .natural {
+                case .natural:
                     Rectangle()
                         .fill(.clear)
                         .frame(width: 14, height: 30)
-                } else {
-                    Image(Constants.NoteType.sharp, bundle: Bundle.module)
-                        .resizable()
-                        .renderingMode(.template)
-                        .aspectRatio(contentMode: .fit)
+                case .sharp:
+                    ResizableImage(Constants.NoteType.sharp, bundle: Bundle.module)
                         .frame(width: 14, height: 30)
                 }
 
@@ -84,7 +73,6 @@ struct MyPreviewProvider_Previews: PreviewProvider {
                 PositionView(position: positionBinding)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

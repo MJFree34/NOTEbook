@@ -10,16 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-public struct PositionFingeringView: View {
-    @Binding private var fingering: PositionFingering
-    private var isInteractive: Bool
+struct PositionFingeringView: View {
+    @Binding var fingering: PositionFingering
+    let isInteractive: Bool
 
-    public init(fingering: Binding<PositionFingering>, isInteractive: Bool = false) {
-        self._fingering = fingering
-        self.isInteractive = isInteractive
-    }
-
-    public var body: some View {
+    var body: some View {
         PositionView(position: $fingering.position, isInteractive: isInteractive)
     }
 }
@@ -32,10 +27,9 @@ struct PositionFingeringView_Previews: PreviewProvider {
             }
 
             PreviewBindingWrapper(wrappedBinding: PositionFingering(position: Position(value: .fourth, type: .sharp))) { fingeringBinding in
-                PositionFingeringView(fingering: fingeringBinding)
+                PositionFingeringView(fingering: fingeringBinding, isInteractive: false)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

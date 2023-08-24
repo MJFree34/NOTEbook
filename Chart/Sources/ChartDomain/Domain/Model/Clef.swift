@@ -10,6 +10,7 @@ import Foundation
 
 public enum Clef: String, Codable, CaseIterable {
     case bass
+    case alto
     case treble
 }
 
@@ -18,12 +19,18 @@ extension Clef: Identifiable {
 }
 
 extension Clef: Comparable {
-    public static func < (lhs: Clef, rhs: Clef) -> Bool {
-        switch lhs {
+    private var sortOrder: Int {
+        switch self {
         case .bass:
-            return rhs == .treble
+            return 0
+        case .alto:
+            return 1
         case .treble:
-            return false
+            return 2
         }
+    }
+
+    public static func < (lhs: Clef, rhs: Clef) -> Bool {
+        lhs.sortOrder < rhs.sortOrder
     }
 }

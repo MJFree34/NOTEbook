@@ -8,11 +8,17 @@
 
 import Foundation
 
+// swiftlint:disable no_fatal_errors
 public struct KeysTriggersFingering: Fingering {
+    private enum CodingKeys: CodingKey {
+        case keys
+        case triggers
+    }
+
     public var keys: [Bool]
     public var triggers: [Bool]
 
-    public var id: UUID { UUID() }
+    public var id = UUID()
 
     public init(keys: [Bool], triggers: [Bool]) {
         self.keys = keys
@@ -22,6 +28,15 @@ public struct KeysTriggersFingering: Fingering {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(keys)
         hasher.combine(triggers)
+    }
+
+    public static func initial(for type: FingeringViewType) -> KeysTriggersFingering {
+        switch type {
+        case .bbTriggerThreeValve:
+            return KeysTriggersFingering(keys: [false, false, false], triggers: [false])
+        default:
+            fatalError("Invalid type for initial KeysTriggersFingering.")
+        }
     }
 }
 

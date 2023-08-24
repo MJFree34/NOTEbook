@@ -14,7 +14,7 @@ import Storage
 final class ChartRemoteDataSource: ChartRemoteDataSourceProtocol {
     @DependencyInjected(KeyValueStorage.self) private var keyValueStorage
 
-    func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<[ChartCategory], ChartError> {
+    func fetchCharts(networkURLString: String, chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError> {
         guard let networkChartsURL = URL(string: networkURLString)?.appendingPathComponent("\(chartsFilename).json") else {
             return Fail(error: ChartError.invalidNetworkURL)
                 .eraseToAnyPublisher()
@@ -29,7 +29,7 @@ final class ChartRemoteDataSource: ChartRemoteDataSourceProtocol {
                 ChartError.networkError
             }
             .map(\.data)
-            .decode(type: [ChartCategory].self, decoder: JSONDecoder())
+            .decode(type: ChartCategories.self, decoder: JSONDecoder())
             .mapError { error -> ChartError in
                 if let error = error as? ChartError {
                     return error

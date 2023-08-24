@@ -10,16 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-public struct FourValveFingeringView: View {
-    @Binding private var fingering: KeysFingering
-    private var isInteractive: Bool
+struct FourValveFingeringView: View {
+    @Binding var fingering: KeysFingering
+    let isInteractive: Bool
 
-    public init(fingering: Binding<KeysFingering>, isInteractive: Bool = false) {
-        self._fingering = fingering
-        self.isInteractive = isInteractive
-    }
-
-    public var body: some View {
+    var body: some View {
         HStack {
             FingeringKeyImage(
                 imageName: Constants.RoundFingering.one,
@@ -63,7 +58,6 @@ struct FourValveFingeringView_Previews: PreviewProvider {
                 FourValveFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

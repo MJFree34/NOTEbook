@@ -10,16 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-public struct BaritoneSaxophoneFingeringView: View {
-    @Binding private var fingering: KeysFingering
-    private var isInteractive: Bool
+struct BaritoneSaxophoneFingeringView: View {
+    @Binding var fingering: KeysFingering
+    let isInteractive: Bool
 
-    public init(fingering: Binding<KeysFingering>, isInteractive: Bool = false) {
-        self._fingering = fingering
-        self.isInteractive = isInteractive
-    }
-
-    public var body: some View {
+    var body: some View {
         ZStack(alignment: .topLeading) {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .bottom, spacing: 38) {
@@ -231,7 +226,6 @@ struct BaritoneSaxophoneFingeringView_Previews: PreviewProvider {
                 BaritoneSaxophoneFingeringView(fingering: fingeringBinding, isInteractive: true)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

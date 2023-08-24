@@ -9,6 +9,8 @@
 import Combine
 
 protocol ChartLocalDataSourceProtocol {
-    func fetchCharts(chartsFilename: String) -> AnyPublisher<[ChartCategory], ChartError>
-    func saveCharts(chartsFilename: String, chartCategories: [ChartCategory]) throws
+    func fetchCharts(chartsFilename: String) -> AnyPublisher<ChartCategories, ChartError>
+    func saveCharts(chartsFilename: String, chartCategories: ChartCategories) throws
+    func fetchUserPreferences(chartsFilename: String) -> AnyPublisher<UserPreferences, ChartError>
+    func saveUserPreferences(userPreferences: UserPreferences) throws
 }

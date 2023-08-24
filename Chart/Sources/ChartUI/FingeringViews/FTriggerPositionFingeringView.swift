@@ -10,16 +10,11 @@ import ChartDomain
 import CommonUI
 import SwiftUI
 
-public struct FTriggerPositionFingeringView: View {
-    @Binding private var fingering: PositionTriggersFingering
-    private var isInteractive: Bool
+struct FTriggerPositionFingeringView: View {
+    @Binding var fingering: PositionTriggersFingering
+    let isInteractive: Bool
 
-    public init(fingering: Binding<PositionTriggersFingering>, isInteractive: Bool = false) {
-        self._fingering = fingering
-        self.isInteractive = isInteractive
-    }
-
-    public var body: some View {
+    var body: some View {
         HStack {
             FingeringKeyImage(
                 imageName: Constants.Trigger.f,
@@ -41,10 +36,9 @@ struct FTriggerPositionFingeringView_Previews: PreviewProvider {
             }
 
             PreviewBindingWrapper(wrappedBinding: PositionTriggersFingering.sharpPlaceholder) { fingeringBinding in
-                FTriggerPositionFingeringView(fingering: fingeringBinding)
+                FTriggerPositionFingeringView(fingering: fingeringBinding, isInteractive: false)
             }
         }
-        .previewLayout(.sizeThatFits)
-        .padding()
+        .previewComponent()
     }
 }

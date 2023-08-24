@@ -10,7 +10,7 @@ import CommonUI
 import SwiftUI
 
 struct NotePickerView: View {
-    @StateObject var viewModel: ChartsViewModel
+    @StateObject private var viewModel = ChartsViewModel()
 
     var body: some View {
         content
@@ -34,6 +34,6 @@ struct NotePickerView: View {
 
 struct NotePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        NotePickerView(viewModel: ChartsViewModel())
+        NotePickerView()
     }
 }

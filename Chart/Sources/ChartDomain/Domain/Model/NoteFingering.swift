@@ -8,7 +8,8 @@
 
 import Foundation
 
-public struct NoteFingering {
+public struct NoteFingering: Identifiable {
+    public var id = UUID()
     public var notes: [Note]
     public var fingerings: [any Fingering]
 
@@ -27,10 +28,6 @@ public struct NoteFingering {
 
         return fingerings
     }
-}
-
-extension NoteFingering: Identifiable {
-    public var id: UUID { UUID() }
 }
 
 extension NoteFingering: Equatable {
@@ -131,4 +128,21 @@ extension NoteFingering: Codable {
             try container.encode([KeysFingering](), forKey: .fingerings)
         }
     }
+}
+
+extension NoteFingering {
+    public static let singleNotePlaceholder = NoteFingering(
+        notes: [
+            Note(letter: .c, type: .natural, octave: .four, clef: .treble)
+        ],
+        fingerings: []
+    )
+
+    public static let doubleNotePlaceholder = NoteFingering(
+        notes: [
+            Note(letter: .c, type: .sharp, octave: .four, clef: .treble),
+            Note(letter: .d, type: .flat, octave: .four, clef: .treble)
+        ],
+        fingerings: []
+    )
 }

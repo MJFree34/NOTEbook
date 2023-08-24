@@ -17,7 +17,7 @@ struct NOTEbookApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NotePickerView(viewModel: ChartsViewModel())
+            NotePickerView()
         }
     }
 
