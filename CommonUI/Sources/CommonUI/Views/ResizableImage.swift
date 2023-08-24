@@ -22,5 +22,6 @@ public struct ResizableImage: View {
             .resizable()
             .renderingMode(.template)
             .aspectRatio(contentMode: .fit)
+            .accessibilityHidden(true)
     }
 }

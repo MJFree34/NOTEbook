@@ -12,10 +12,11 @@ import SwiftUI
 
 struct ChartDetailView: View, ActionableView {
     enum Action {
+        case addFingering(noteFingeringId: UUID, fingering: any Fingering)
         case delete(noteFingeringId: UUID, at: IndexSet)
         case move(noteFingeringId: UUID, from: IndexSet, to: Int)
-        case submitFingering(noteFingeringId: UUID, at: Int?, fingering: any Fingering)
         case updateChart(FingeringChart)
+        case updateFingering(noteFingeringId: UUID, at: Int, fingering: any Fingering)
     }
 
     @Environment(\.dismiss) private var dismiss
@@ -62,12 +63,14 @@ struct ChartDetailView: View, ActionableView {
                     NavigationLink {
                         NoteFingeringDetailView(noteFingering: noteFingering, type: chart.instrument.fingeringViewType) { action in
                             switch action {
+                            case .add(let fingering):
+                                onAction?(.addFingering(noteFingeringId: noteFingering.id, fingering: fingering))
                             case .delete(let atOffsets):
                                 onAction?(.delete(noteFingeringId: noteFingering.id, at: atOffsets))
                             case let .move(fromOffsets, toOffset):
                                 onAction?(.move(noteFingeringId: noteFingering.id, from: fromOffsets, to: toOffset))
-                            case let .submit(index, fingering):
-                                onAction?(.submitFingering(noteFingeringId: noteFingering.id, at: index, fingering: fingering))
+                            case let .update(index, fingering):
+                                onAction?(.updateFingering(noteFingeringId: noteFingering.id, at: index, fingering: fingering))
                             }
                         }
                     } label: {

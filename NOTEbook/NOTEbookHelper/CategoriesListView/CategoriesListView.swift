@@ -171,6 +171,13 @@ struct CategoriesListView: View {
             OverlayedNavigationLink {
                 ChartDetailView(chart: fingeringChart) { [weak viewModel] action in
                     switch action {
+                    case let .addFingering(noteFingeringId, fingering):
+                        viewModel?.addFingering(
+                            categoryId: category.id,
+                            chartId: fingeringChart.id,
+                            noteFingeringId: noteFingeringId,
+                            fingering: fingering
+                        )
                     case let .delete(noteFingeringId, atOffsets):
                         viewModel?.deleteFingeringInNoteFingering(
                             categoryId: category.id,
@@ -186,25 +193,16 @@ struct CategoriesListView: View {
                             from: fromOffsets,
                             to: toOffset
                         )
-                    case let .submitFingering(noteFingeringId, offset, fingering):
-                        if let offset {
-                            viewModel?.updateFingering(
-                                categoryId: category.id,
-                                chartId: fingeringChart.id,
-                                noteFingeringId: noteFingeringId,
-                                at: offset,
-                                fingering: fingering
-                            )
-                        } else {
-                            viewModel?.addFingering(
-                                categoryId: category.id,
-                                chartId: fingeringChart.id,
-                                noteFingeringId: noteFingeringId,
-                                fingering: fingering
-                            )
-                        }
                     case .updateChart(let updatedChart):
                         viewModel?.updateChart(inParentWith: category.id, chart: updatedChart)
+                    case let .updateFingering(noteFingeringId, index, fingering):
+                        viewModel?.updateFingering(
+                            categoryId: category.id,
+                            chartId: fingeringChart.id,
+                            noteFingeringId: noteFingeringId,
+                            at: index,
+                            fingering: fingering
+                        )
                     }
                 }
             } label: {

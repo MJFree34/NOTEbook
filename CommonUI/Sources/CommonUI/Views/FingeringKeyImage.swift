@@ -30,5 +30,6 @@ public struct FingeringKeyImage: View {
                 }
             }
             .accessibilityAddTraits(isInteractive ? .isButton : .isImage)
+            .accessibilityHidden(true)
     }
 }

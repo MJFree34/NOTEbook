@@ -10,10 +10,15 @@ import Foundation
 
 // swiftlint:disable no_fatal_errors
 public struct KeysTriggersFingering: Fingering {
+    private enum CodingKeys: CodingKey {
+        case keys
+        case triggers
+    }
+
     public var keys: [Bool]
     public var triggers: [Bool]
 
-    public var id: UUID { UUID() }
+    public var id = UUID()
 
     public init(keys: [Bool], triggers: [Bool]) {
         self.keys = keys

@@ -15,7 +15,8 @@ struct NoteFingeringDetailView: View, ActionableView {
     enum Action {
         case delete(at: IndexSet)
         case move(from: IndexSet, to: Int)
-        case submit(at: Int?, fingering: any Fingering)
+        case update(at: Int, fingering: any Fingering)
+        case add(fingering: any Fingering)
     }
 
     @Environment(\.editMode) private var editMode
@@ -26,8 +27,11 @@ struct NoteFingeringDetailView: View, ActionableView {
     var onAction: ActionClosure
 
     @State private var updateIndex: Int?
-    @State private var addEditFingering: (any Fingering)?
-    @State private var showAddEditFingeringView = false
+    @State private var editKeysFingering: KeysFingering?
+    @State private var editKeysTriggersFingering: KeysTriggersFingering?
+    @State private var editPositionFingering: PositionFingering?
+    @State private var editPositionTriggersFingering: PositionTriggersFingering?
+    @State private var showAddFingeringView = false
 
     var body: some View {
         VStack {
@@ -54,8 +58,17 @@ struct NoteFingeringDetailView: View, ActionableView {
                             .onTapGesture {
                                 if editMode?.wrappedValue.isEditing == true {
                                     updateIndex = index
-                                    addEditFingering = fingering
-                                    showAddEditFingeringView = true
+                                    if let editKeysFingering = fingering as? KeysFingering {
+                                        self.editKeysFingering = editKeysFingering
+                                    } else if let editKeysTriggersFingering = fingering as? KeysTriggersFingering {
+                                        self.editKeysTriggersFingering = editKeysTriggersFingering
+                                    } else if let editPositionFingering = fingering as? PositionFingering {
+                                        self.editPositionFingering = editPositionFingering
+                                    } else if let editPositionTriggersFingering = fingering as? PositionTriggersFingering {
+                                        self.editPositionTriggersFingering = editPositionTriggersFingering
+                                    } else {
+                                        updateIndex = nil
+                                    }
                                 }
                             }
                             .accessibilityAddTraits(editMode?.wrappedValue.isEditing == true ? .isButton : .isImage)
@@ -75,16 +88,26 @@ struct NoteFingeringDetailView: View, ActionableView {
         }
         .padding(edges: .horizontal, spacing: .base)
         .background(theme: .aqua)
-        .sheet(isPresented: $showAddEditFingeringView) {
-            AddEditFingeringView(type: type, fingering: addEditFingering) { action in
+        .sheet(isPresented: $showAddFingeringView) {
+            AddEditFingeringView(type: type) { action in
                 switch action {
                 case .submitFingering(let fingering):
-                    onAction?(.submit(at: updateIndex, fingering: fingering))
-                    updateIndex = nil
-                    addEditFingering = nil
+                    onAction?(.add(fingering: fingering))
                 }
             }
             .interactiveDismissDisabled()
+        }
+        .sheet(item: $editKeysFingering) { editFingering in
+            addEditFingeringView(editFingering: editFingering)
+        }
+        .sheet(item: $editKeysTriggersFingering) { editFingering in
+            addEditFingeringView(editFingering: editFingering)
+        }
+        .sheet(item: $editPositionFingering) { editFingering in
+            addEditFingeringView(editFingering: editFingering)
+        }
+        .sheet(item: $editPositionTriggersFingering) { editFingering in
+            addEditFingeringView(editFingering: editFingering)
         }
         .toolbar {
             ToolbarItem(id: "Edit", placement: .navigationBarTrailing) {
@@ -106,7 +129,7 @@ struct NoteFingeringDetailView: View, ActionableView {
             ToolbarItem(id: "Add", placement: .bottomBar) {
                 if editMode?.wrappedValue.isEditing == true {
                     Button {
-                        showAddEditFingeringView = true
+                        showAddFingeringView = true
                     } label: {
                         Text("Add Fingering")
                     }
@@ -114,6 +137,19 @@ struct NoteFingeringDetailView: View, ActionableView {
                 }
             }
         }
+    }
+
+    private func addEditFingeringView(editFingering: any Fingering) -> some View {
+        AddEditFingeringView(type: type, fingering: editFingering) { action in
+            switch action {
+            case .submitFingering(let fingering):
+                if let updateIndex {
+                    onAction?(.update(at: updateIndex, fingering: fingering))
+                    self.updateIndex = nil
+                }
+            }
+        }
+        .interactiveDismissDisabled()
     }
 }
 
