@@ -30,8 +30,9 @@ struct NoteFingeringCell: View {
         .background {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(.theme(.aqua, .background))
-                .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 4)
+                .shadow(color: .black.opacity(0.25), radius: Spacing.xSmall.rawValue, x: 0, y: Spacing.xSmall.rawValue)
         }
+        .padding(edges: .horizontal, spacing: .xSmall)
     }
 
     private var fingeringLetterView: some View {

@@ -38,7 +38,7 @@ struct CategoriesListView: View {
     @State private var currentSheet: SheetType?
 
     var body: some View {
-        TintedNavigationStack {
+        TintedNavigationSplitView {
             content
                 .sheet(item: $currentSheet) { addSheet in
                     Group {
@@ -94,11 +94,15 @@ struct CategoriesListView: View {
                 .onAppear {
                     viewModel.start()
                 }
-                .navigationTitle("NOTEbook Helper")
-                .background(theme: .aqua)
+                .navigationTitle("Instruments")
+//                .background(theme: .aqua)
                 .environment(\.editMode, $editMode)
+                .tint(.theme(.aqua, .foreground))
+//        } content: {
+
+        } detail: {
+
         }
-        .tint(.theme(.aqua, .foreground))
     }
 
     @ViewBuilder
@@ -125,6 +129,8 @@ struct CategoriesListView: View {
                 Section {
                     if sectionExpandedBinding.wrappedValue {
                         chartCategories(in: section)
+                    } else {
+                        Divider()
                     }
                 } header: {
                     CollapsingRow(title: section.rawValue, isExpanded: sectionExpandedBinding)
@@ -133,7 +139,7 @@ struct CategoriesListView: View {
                 }
                 .foregroundColor(.theme(.aqua, .foreground))
             }
-            .listRowBackground(.theme(.aqua, .background))
+//            .listRowBackground(.theme(.aqua, .background))
         }
     }
 

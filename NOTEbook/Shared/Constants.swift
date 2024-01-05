@@ -9,4 +9,6 @@
 enum Constants {
     static let networkChartsURL = "https://mjfree34.github.io/NOTEbookData/"
     static let chartsFilename = "Charts-v2.0"
+
+    static let minNoteFingeringCellWidth = 180
 }

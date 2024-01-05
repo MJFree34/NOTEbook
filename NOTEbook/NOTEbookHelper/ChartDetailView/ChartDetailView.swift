@@ -27,39 +27,50 @@ struct ChartDetailView: View, ActionableView {
     @State private var showEditSheet = false
 
     var body: some View {
-        ScrollView {
-            HStack(alignment: .top, spacing: .base) {
-                noteFingeringGridColumn(number: 0)
-                noteFingeringGridColumn(number: 1)
+        noteFingeringGrid
+            .padding(edges: .horizontal, spacing: .base)
+            .background(theme: .aqua)
+            .navigationTitle(chart.instrument.name)
+            .sheet(isPresented: $showEditSheet) {
+                AddEditChartView(chart: chart) { action in
+                    switch action {
+                    case .submitChart(let updatedChart):
+                        onAction?(.updateChart(updatedChart))
+                    }
+                }
+                .interactiveDismissDisabled()
             }
-        }
-        .padding(edges: .horizontal, spacing: .base)
-        .background(theme: .aqua)
-        .navigationTitle(chart.instrument.name)
-        .sheet(isPresented: $showEditSheet) {
-            AddEditChartView(chart: chart) { action in
-                switch action {
-                case .submitChart(let updatedChart):
-                    onAction?(.updateChart(updatedChart))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showEditSheet = true
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
                 }
             }
-            .interactiveDismissDisabled()
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    showEditSheet = true
-                } label: {
-                    Image(systemName: "pencil")
+    }
+
+    private var noteFingeringGrid: some View {
+        GeometryReader { geo in
+            ScrollView {
+                let paddedGridWidth = Int(geo.frame(in: .local).width + Spacing.base.rawValue)
+                let paddedMinCellWidth = Constants.minNoteFingeringCellWidth + Int(Spacing.base.rawValue)
+                let numCols = paddedGridWidth / paddedMinCellWidth
+
+                HStack(alignment: .top, spacing: .base) {
+                    ForEach(0..<numCols, id: \.self) { number in
+                        noteFingeringGridColumn(number: number, modMultiplier: numCols)
+                    }
                 }
             }
         }
     }
 
-    private func noteFingeringGridColumn(number: Int) -> some View {
+    private func noteFingeringGridColumn(number: Int, modMultiplier: Int) -> some View {
         VStack(spacing: .base) {
             ForEach(Array(chart.noteFingerings.enumerated()), id: \.element.id) { index, noteFingering in
-                if index.isEven() && number.isEven() || index.isOdd() && number.isOdd() {
+                if index % modMultiplier == number {
                     NavigationLink {
                         NoteFingeringDetailView(noteFingering: noteFingering, type: chart.instrument.fingeringViewType) { action in
                             switch action {
