@@ -3,11 +3,9 @@
 opt_in_rules:
   - accessibility_label_for_image
   - accessibility_trait_for_button
-  - anyobject_protocol
   - array_init
   - balanced_xctest_lifecycle
   - block_based_kvo
-  - capture_variable
   - class_delegate_protocol
   - closing_brace
   - closure_end_indentation
@@ -92,7 +90,6 @@ opt_in_rules:
   - nesting
   - nimble_operator
   - no_fallthrough_only
-  - no_grouping_extension
   - no_space_in_method_call
   - non_optional_string_data_conversion
   - non_overridable_class_declaration
@@ -109,7 +106,6 @@ opt_in_rules:
   - override_in_extension
   - pattern_matching_keywords
   - period_spacing
-  - prefer_self_in_static_references
   - prefer_self_type_over_type_of_self
   - prefer_zero_over_explicit_init
   - private_action
@@ -206,10 +202,12 @@ disabled_rules:
   - missing_docs
   - no_empty_block
   - no_extension_access_modifier
+  - no_grouping_extension
   - no_magic_numbers
   - object_literal
   - one_declaration_per_file
   - prefer_nimble
+  - prefer_self_in_static_references
   - prefixed_toplevel_constant
   - prohibited_interface_builder
   - required_deinit
