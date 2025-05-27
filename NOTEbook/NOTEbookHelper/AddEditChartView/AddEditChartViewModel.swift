@@ -54,7 +54,7 @@ final class AddEditChartViewModel: ObservableObject {
     private func setupObserving() {
         $clef
             .receive(on: RunLoop.main)
-            .sink { [weak self]newClef in
+            .sink { [weak self] newClef in
                 guard let self, let newClef else { return }
                 clefUpdated(to: newClef)
             }
