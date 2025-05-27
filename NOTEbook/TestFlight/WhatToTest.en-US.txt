@@ -1,0 +1,21 @@
+Improvements:
+- Editor with timeline and other tools
+
+Known Bugs:
+- If you quickly switch between multiple projects it will crash the app (to try to prevent this the list of projects is disabled very briefly after selecting a project)
+- There are some inputs into the editor that will cause crashes or different perspectives to just appear black
+
+Current features:
+- Mac (14.0+), iPad (17.0+) landscape-only
+- 1.0 and 2.0 of the original scene (binaries thinned down significantly to allow for upload)
+- Ability to create a project and name it
+- Ability to switch between projects and all views in the app reflect that state change
+- Ability to view individual perspectives in the Playback screen
+- Ability to create an edited project through the combination of multiple perspectives using a timeline and other tools
+- Audio and video is perfectly synced through play/pause and seeking in playback and editor views
+- Persistence of projects and edits throughout app launches
+
+Issues:
+- App size is still quite large
+- No ability to edit project information in the list and the viewable information is very simple
+- The app is locked to landscape and iPad/Mac only

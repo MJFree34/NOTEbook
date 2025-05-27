@@ -54,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0C3BA72C54B41400962621 /* WhatToTest.en-US.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "WhatToTest.en-US.txt"; sourceTree = "<group>"; };
+		9A0C3BA92C54B42500962621 /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		9A9F30622A97DAFF00EDB156 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9A9F30632A97DAFF00EDB156 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		9A9F30642A97DAFF00EDB156 /* Symbols.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Symbols.xcassets; sourceTree = "<group>"; };
@@ -117,6 +119,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A0C3BA82C54B41400962621 /* TestFlight */ = {
+			isa = PBXGroup;
+			children = (
+				9A0C3BA72C54B41400962621 /* WhatToTest.en-US.txt */,
+			);
+			path = TestFlight;
+			sourceTree = "<group>";
+		};
+		9A0C3BAA2C54B42500962621 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				9A0C3BA92C54B42500962621 /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
+		};
 		9A9F30612A97DAFF00EDB156 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +211,8 @@
 				9ABC947C2A6334FB00C185FF /* NOTEbookTests */,
 				9AB75C912A3BDE69001F24E7 /* Products */,
 				9ADA46762A5FA2A900EFDB74 /* Frameworks */,
+				9A0C3BA82C54B41400962621 /* TestFlight */,
+				9A0C3BAA2C54B42500962621 /* ci_scripts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,7 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\n    cd ..\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint lint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n    cd ..\n    swiftlint lint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		9ADA46752A5FA27D00EFDB74 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -428,7 +448,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\n    cd ..\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint lint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n    cd ..\n    swiftlint lint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
