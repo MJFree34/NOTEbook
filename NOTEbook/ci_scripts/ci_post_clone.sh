@@ -1,4 +1,4 @@
 #!/bin/sh
 
 brew install swiftlint
-swiftlint $CI_WORKSPACE_PATH
+swiftlint lint $CI_WORKSPACE_PATH

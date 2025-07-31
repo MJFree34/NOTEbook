@@ -225,6 +225,13 @@ analyzer_rules:
   - unused_declaration
   - unused_import
 
+included:
+  - Chart
+  - Common
+  - CommonUI
+  - NOTEbook
+  - Storage
+
 allow_zero_lintable_files: false
 
 check_for_updates: true
