@@ -95,10 +95,10 @@ struct CategoriesListView: View {
                     viewModel.start()
                 }
                 .navigationTitle("Instruments")
-//                .background(theme: .aqua)
+                .background(theme: .aqua)
                 .environment(\.editMode, $editMode)
                 .tint(.theme(.aqua, .foreground))
-//        } content: {
+        } content: {
 
         } detail: {
 
@@ -139,7 +139,7 @@ struct CategoriesListView: View {
                 }
                 .foregroundColor(.theme(.aqua, .foreground))
             }
-//            .listRowBackground(.theme(.aqua, .background))
+            .listRowBackground(.theme(.aqua, .background))
         }
     }
 

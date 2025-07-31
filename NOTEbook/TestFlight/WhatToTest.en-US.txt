@@ -1,0 +1,19 @@
+This beta will expire. The next build (hopefully soon) will be the redesigned app.
+
+* Notice: This build has bugs. Be warned! *
+
+This is the first build of NOTEbook 2.0! Be ready for a redesign and a bunch of new features and instruments! In this build, it should look very similar to the previous version, but many enhancements were incorporated in how the charts are built and saved on device. There do exist a couple layout bugs due to some of the updates.
+
+In this update:
+- All the charts have been renamed to give the instrument's key
+- Caching of the chart file on the device
+- Minor improvements with fingering views
+
+NOTEbook 2.0 Roadmap:
+- General app redesign and improved functionality to better use the screen space
+- Feature to transpose any instrument to any clef
+- Chart updates will be synced remotely
+- New instruments
+- And many more to come!
+
+If you have any suggestions or comments, feel free to reach out to me via the contact information in the app!
